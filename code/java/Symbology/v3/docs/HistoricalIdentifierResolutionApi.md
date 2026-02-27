@@ -170,7 +170,7 @@ This endpoint enables the retrieval of historical CUSIP, SEDOL, ISIN, and ticker
 * **GVKEY & IID** - CompuStat Security Identifier (e.g.063172001) (Input only)
 * **JCN** - Japan Corporate Number (e.g. 9011101021173) (Input only)
 * **LoanX** - Markit Bank Loan Security Identifier (e.g. LX130668) (Input only)
-* **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only) 
+* **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only)         
 
 **These symbol types require additional subscriptions. If you would like to gain access to these symbol types, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
 

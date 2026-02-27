@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 3.4.0
+  version: 3.5.0
   title: FactSet Symbology API
   contact:
     name: FactSet Research Systems
@@ -103,6 +103,13 @@ paths:
         (Input only)
 
         * **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only)
+
+        * **VAT** - VAT Number (e.g. FR32329211734)
+
+        * **crunchBaseId** - Crunchbase Identifier (e.g.
+        540cb687-1d56-4f0b-9a2a-0b7d22303bd1) 
+
+        * **creditSafeId** - CreditSafe Identifier (e.g. JP002181442)
 
 
         **These symbol types require additional subscriptions. If you would like
@@ -237,6 +244,13 @@ paths:
         (Input only)
 
         * **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only)
+
+        * **VAT** - VAT Number (e.g. FR32329211734)
+
+        * **crunchBaseId** - Crunchbase Identifier (e.g.
+        540cb687-1d56-4f0b-9a2a-0b7d22303bd1) 
+
+        * **creditSafeId** - CreditSafe Identifier (e.g. JP002181442)
 
 
         **These symbol types require additional subscriptions. If you would like
@@ -387,7 +401,8 @@ paths:
         * **LoanX** - Markit Bank Loan Security Identifier (e.g. LX130668)
         (Input only)
 
-        * **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only) 
+        * **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input
+        only)         
 
 
         **These symbol types require additional subscriptions. If you would like
@@ -671,6 +686,9 @@ components:
           - JCN
           - LoanX
           - MarkitRed
+          - VAT
+          - crunchBaseId
+          - creditSafeId
         default: tickerRegion
       required: true
       description: >
@@ -746,9 +764,13 @@ components:
             - JCN
             - bloombergListingTicker
             - bloombergRegionalTicker
+            - bloombergSecurityTicker
             - bloombergFigiListing
             - bloombergFigiRegional
             - bloombergFigiSecurity
+            - VAT
+            - crunchBaseId
+            - creditSafeId
       required: true
       explode: false
       description: >-
@@ -1070,6 +1092,9 @@ components:
         - JCN
         - LoanX
         - MarkitRed
+        - VAT
+        - crunchBaseId
+        - creditSafeId
       default: tickerRegion
     getHistoricalInputSymbolType:
       title: Input Symbol Type
@@ -1135,9 +1160,13 @@ components:
           - JCN
           - bloombergListingTicker
           - bloombergRegionalTicker
+          - bloombergSecurityTicker
           - bloombergFigiListing
           - bloombergFigiRegional
           - bloombergFigiSecurity
+          - VAT
+          - crunchBaseId
+          - creditSafeId
       minItems: 1
       maxItems: 20
       description: >-

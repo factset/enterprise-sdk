@@ -1,0 +1,2190 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |+
+    Documentation on all available end points in the Proposal Generation API
+
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Proposal Generation Engine API
+  version: 0.0.1
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/proposal-generation-api
+servers:
+- description: Production
+  url: https://api.factset.com/analytics/engines/proposal-generation/v0
+- description: Staging
+  url: https://api.uat.factset.com/analytics/engines/proposal-generation/v0
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Ex-Post Endpoints.
+  name: Ex-Post
+- description: Metadata Endpoints.
+  name: Lookup
+paths:
+  /portfolios/ex-post/stats:
+    post:
+      description: Notes:<br> * id 'Cash proxy' can be used in order to set cash amount
+        for the portfolio
+      operationId: calculateExPostStats
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExPostStats'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExPostStatsResponse'
+          description: Status 200
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad request
+      summary: calculate ex-post stats (on portfolio or holdings level)
+      tags:
+      - Ex-Post
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolios/ex-post/stats/rolling:
+    post:
+      description: Notes:<br> * id 'Cash proxy' can be used in order to set cash amount
+        for the portfolio
+      operationId: calculateExPostRollingStats
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExPostStatsRolling'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExPostStatsRollingResponse'
+          description: Status 200
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server is unable to process your request
+      summary: calculate rolling stats (for ex-post data)
+      tags:
+      - Ex-Post
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolios/ex-post/stats/correlations:
+    post:
+      description: Notes:<br> * id 'Cash proxy' can be used in order to set cash amount
+        for the portfolio
+      operationId: calculateExPostCorrelationsStats
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExPostStatsCorrelations'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExPostStatsCorrelationsResponse'
+          description: Status 200
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server is unable to process your request
+      summary: calculate portfolio vs benchmark correlation and correlation between
+        portfolio holdings
+      tags:
+      - Ex-Post
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolios/ex-post/stats/factor-exposure:
+    post:
+      description: Ex-Post factor-exposure Stats
+      operationId: calculateExPostFactorExposureStats
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExPostStatsFactorExposure'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExPostStatsFactorExposureResponse'
+          description: Status 200
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server is unable to process your request
+      summary: Create portfolio and return risk factor contribution
+      tags:
+      - Ex-Post
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolios/ex-post/series:
+    post:
+      description: Notes:<br> * id 'Cash proxy' can be used in order to set cash amount
+        for the portfolio
+      operationId: calculateExPostSeries
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExPostSeries'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExPostSeriesResponse'
+          description: Successful request
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad request
+      summary: retrieve portfolio and benchmark data series, generated from the underlying
+        holdings data series
+      tags:
+      - Ex-Post
+      x-contentType: application/json
+      x-accepts: application/json
+  /portfolios/ex-post/series/rolling:
+    post:
+      description: Notes:<br> * id 'Cash proxy' can be used in order to set cash amount
+        for the portfolio
+      operationId: calculateExPostRollingSeries
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExPostSeriesRolling'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExPostSeriesRollingResponse'
+          description: Status 200
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server is unable to process your request
+      summary: retrieve series of rolling stats for the portfolio
+      tags:
+      - Ex-Post
+      x-contentType: application/json
+      x-accepts: application/json
+  /securities:
+    get:
+      description: search for securities within the security universe for the user/client
+      operationId: getSecurities
+      parameters:
+      - description: search by (part of) security name
+        example: Amazon
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: search by security identifier (e.g. cusip or tradingSymbol).
+        example: AMZN
+        explode: true
+        in: query
+        name: identifier
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: search only within valid securities for the specified asOfDate.
+          The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd'
+          is supported as well
+        example: latestMonthEnd
+        explode: true
+        in: query
+        name: asOfDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: specify list of UDFs to retrieve for every security in the result
+        example: maxFrontLoad,assetAllocation
+        explode: true
+        in: query
+        name: udfs
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Specifies the starting index for pagination.
+        example: 500
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Specifies the maximum number of results to return
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedSecurities'
+          description: List of investments
+      tags:
+      - Lookup
+      x-accepts: application/json
+components:
+  schemas:
+    Errors:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      type: object
+    Error:
+      properties:
+        id:
+          type: string
+        title:
+          description: This general error structure is used throughout this API.
+          example: 'Bad query parameter [size]: Invalid integer value [abc]'
+          type: string
+        code:
+          type: string
+      required:
+      - code
+      - id
+      - title
+      type: object
+    ExPostStats:
+      example:
+        data: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostStats_data'
+      required:
+      - data
+      type: object
+    ExPostStatsResponse:
+      example:
+        data:
+          holdings:
+          - null
+          - null
+          errors:
+          - errors
+          - errors
+        meta: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostStatsResponseData'
+        meta:
+          $ref: '#/components/schemas/ExPostStatsResponse_meta'
+      type: object
+    ExPostSeries:
+      example:
+        data: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostSeries_data'
+      required:
+      - data
+      type: object
+    ExPostSeriesResponse:
+      example:
+        data:
+          holdings:
+          - null
+          - null
+          errors:
+          - errors
+          - errors
+        meta: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostSeriesResponseData'
+        meta:
+          $ref: '#/components/schemas/ExPostSeriesResponse_meta'
+      type: object
+    ExPostStatsRolling:
+      example:
+        data: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostStatsRolling_data'
+      required:
+      - data
+      type: object
+    ExPostStatsRollingResponse:
+      example:
+        data: {}
+        meta: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostStatsRollingResponse_data'
+        meta:
+          $ref: '#/components/schemas/ExPostStatsRollingResponse_meta'
+      required:
+      - data
+      type: object
+    ExPostStatsCorrelations:
+      example:
+        data: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostStatsCorrelations_data'
+      required:
+      - data
+      type: object
+    ExPostStatsCorrelationsResponse:
+      example:
+        data:
+          timeWindow:
+            key:
+              correlations:
+                portfolioCorrelationMatrix:
+                  assets:
+                  - assets
+                  - assets
+                  matrix:
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                correlationMatrix:
+                  assets:
+                  - assets
+                  - assets
+                  matrix:
+                  - - 0.8008281904610115
+                    - 0.8008281904610115
+                  - - 0.8008281904610115
+                    - 0.8008281904610115
+          periods:
+          - null
+          - null
+        meta: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/DatedCorrelationStats'
+        meta:
+          $ref: '#/components/schemas/ExPostStatsCorrelationsResponse_meta'
+      required:
+      - data
+      type: object
+    ExPostStatsFactorExposure:
+      example:
+        data: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostStatsFactorExposure_data'
+      required:
+      - data
+      type: object
+    ExPostStatsFactorExposureResponse:
+      example:
+        data:
+          timeWindow:
+            key:
+            - exposures:
+              - exposure: 6.027456183070403
+                name: name
+                id: id
+                rsquare: 1.4658129805029452
+                group: group
+                factors:
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+              - exposure: 6.027456183070403
+                name: name
+                id: id
+                rsquare: 1.4658129805029452
+                group: group
+                factors:
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+              risks:
+                var:
+                  "99%": 0.1
+                annLossStDev: 0.08
+                annStDev: 0.08
+                positiveReturnsRatio: 0.5123
+                skewness: 1.23
+                excessKurtosis: 1.23
+                etl:
+                  "99%": 0.1
+                stDev: 0.08
+              name: name
+              weight: 0.8008281904610115
+              correlationToPortfolio: 5.637376656633329
+              returns:
+                cumReturn: 0.3
+                meanReturn: 0.054
+                annReturn: 0.05
+              id: id
+              leaf: true
+              group: group
+              factors:
+              - name: name
+                id: id
+                value: 5.962133916683182
+              - name: name
+                id: id
+                value: 5.962133916683182
+            - exposures:
+              - exposure: 6.027456183070403
+                name: name
+                id: id
+                rsquare: 1.4658129805029452
+                group: group
+                factors:
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+              - exposure: 6.027456183070403
+                name: name
+                id: id
+                rsquare: 1.4658129805029452
+                group: group
+                factors:
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+                - name: name
+                  id: id
+                  value: 5.962133916683182
+              risks:
+                var:
+                  "99%": 0.1
+                annLossStDev: 0.08
+                annStDev: 0.08
+                positiveReturnsRatio: 0.5123
+                skewness: 1.23
+                excessKurtosis: 1.23
+                etl:
+                  "99%": 0.1
+                stDev: 0.08
+              name: name
+              weight: 0.8008281904610115
+              correlationToPortfolio: 5.637376656633329
+              returns:
+                cumReturn: 0.3
+                meanReturn: 0.054
+                annReturn: 0.05
+              id: id
+              leaf: true
+              group: group
+              factors:
+              - name: name
+                id: id
+                value: 5.962133916683182
+              - name: name
+                id: id
+                value: 5.962133916683182
+        meta: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/DatedNodeStats'
+        meta:
+          $ref: '#/components/schemas/ExPostStatsFactorExposureResponse_meta'
+      required:
+      - data
+      type: object
+    ExPostSeriesRolling:
+      example:
+        data: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostSeriesRolling_data'
+      required:
+      - data
+      type: object
+    ExPostSeriesRollingResponse:
+      example:
+        data: {}
+        meta: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/ExPostSeriesRollingResponse_data'
+        meta:
+          $ref: '#/components/schemas/ExPostSeriesRollingResponse_meta'
+      required:
+      - data
+      type: object
+    Entity:
+      properties:
+        id:
+          description: unique id of the entity
+          example: sample_ID
+          type: string
+      type: object
+    PortfolioEntity:
+      properties:
+        id:
+          description: unique id of the entity
+          example: sample_ID
+          type: string
+        details:
+          $ref: '#/components/schemas/PortfolioEntity_details'
+      type: object
+    PortfolioWithRollingStats:
+      allOf:
+      - $ref: '#/components/schemas/PortfolioEntity'
+      - $ref: '#/components/schemas/PortfolioWithRollingStats_allOf'
+    PortfolioWithRollingSeries:
+      allOf:
+      - $ref: '#/components/schemas/PortfolioEntity'
+      - $ref: '#/components/schemas/PortfolioWithRollingSeries_allOf'
+    Portfolio:
+      allOf:
+      - $ref: '#/components/schemas/PortfolioEntity'
+      - $ref: '#/components/schemas/Portfolio_allOf'
+    ExPostPortfolio:
+      allOf:
+      - $ref: '#/components/schemas/Portfolio'
+      - $ref: '#/components/schemas/ExPostPortfolio_allOf'
+    TransactionRule:
+      properties:
+        type:
+          enum:
+          - fee
+          - contribution
+          - withrawal
+          type: string
+        amount:
+          description: absolute value in case the type is cash or percentage in the
+            other 2 cases
+          type: number
+        amountType:
+          enum:
+          - cash
+          - percentagePV
+          - percentagePVGrowth
+          type: string
+        amountGrowth:
+          description: apply growth rate to the amount for each period expressed in
+            percentage
+          type: number
+        amountGrowthType:
+          enum:
+          - absolute
+          - percentage
+          type: string
+        amountGrowthFrequency:
+          enum:
+          - 1
+          - 2
+          - 4
+          - 6
+          - 12
+          type: integer
+        allowPartialAmount:
+          default: false
+          type: boolean
+        startDate:
+          description: initial date when the rule is applied
+          format: date
+          type: string
+        endDate:
+          description: last date when the rule is applied
+          format: date
+          type: string
+        frequency:
+          description: monthly - 12, yearly - 1, quarterly - 4; only once = endPeriod
+            should be equal to startPeriod
+          type: number
+        frequencyAlignment:
+          enum:
+          - 1
+          - 2
+          - 4
+          - 6
+          - 12
+          type: number
+      type: object
+    PortfolioInvestment:
+      properties:
+        id:
+          description: the unique id of the investment - e.g. FactSet id
+          type: string
+        weight:
+          description: the weight of the investment in hte portfolio
+          example: 1
+          type: number
+      required:
+      - id
+      - weight
+      type: object
+    ExPostPortfolioInvestment:
+      allOf:
+      - $ref: '#/components/schemas/PortfolioInvestment'
+      - $ref: '#/components/schemas/ExPostPortfolioInvestment_allOf'
+    ExPostPortfolioInvestmentResponse:
+      allOf:
+      - $ref: '#/components/schemas/ExPostPortfolioInvestment'
+      - $ref: '#/components/schemas/ExPostPortfolioInvestmentResponse_allOf'
+    BackfillData:
+      properties:
+        backfilled:
+          type: boolean
+        realData:
+          type: integer
+        backfilledData:
+          type: integer
+      type: object
+    ExPostPortfolioInvestmentSeriesResponse:
+      allOf:
+      - $ref: '#/components/schemas/ExPostPortfolioInvestment'
+      - $ref: '#/components/schemas/ExPostPortfolioInvestmentSeriesResponse_allOf'
+    Investment:
+      allOf:
+      - $ref: '#/components/schemas/Entity'
+      - $ref: '#/components/schemas/Investment_allOf'
+    Rebalancing:
+      properties:
+        frequency:
+          example: 12
+          type: number
+        frequencyAlignment:
+          enum:
+          - start
+          - calendar
+          type: string
+        rebalanceAtStart:
+          type: boolean
+      type: object
+    BaseSettings:
+      properties:
+        asOfDate:
+          description: The as-of date for the analysis. The value should be in YYYY-MM-DD
+            format. A special wildcard value 'latestMonthEnd' is supported as well.
+            The as-of date should be among the set of preconfigured as-of dates for
+            the user/client
+          type: string
+        returnsPreferences:
+          description: 'code of preconfigured analysis settings<br> Note: the setup
+            of these settings is done by PGE administrator'
+          type: string
+        validatePortfolio:
+          default: false
+          description: a flag controlling whether to perform validations on the portfolio
+            and its holdings (e.g. whether they have valid historical data). If set
+            to false it is possible that call might not return user-friendly error
+            message, however the call will be faster
+          type: boolean
+      type: object
+    Level:
+      properties:
+        levels:
+          example:
+          - portfolio
+          - holdings
+          items:
+            default: portfolio
+            description: This setting controls on what level(s) the stats, specified
+              via 'stats', 'series' and 'udfs' parameter will be returned.<br> Accepted
+              values are:<br>  * portfolio - stats for the portfolio will be returned
+              if specified<br> * holdings - stats for all holdings in the portfolio
+              will be returned if specified<br> * a comma-separated list of the values,
+              specified above
+            type: string
+          type: array
+      type: object
+    Settings:
+      allOf:
+      - $ref: '#/components/schemas/BaseSettings'
+      - $ref: '#/components/schemas/Level'
+      - $ref: '#/components/schemas/Settings_allOf'
+    TimeWindow:
+      properties:
+        timeWindows:
+          example:
+          - ytd
+          - "12"
+          - "36"
+          - "60"
+          - "120"
+          - lifetime
+          items:
+            description: time window(s) for the analysis - a comma-spearated list
+              of  periods (representated as number of months or the special values
+              'ytd' and 'lifetime')
+            type: string
+          type: array
+      type: object
+    Periods:
+      properties:
+        periods:
+          items:
+            $ref: '#/components/schemas/Period'
+          type: array
+      type: object
+    Period:
+      description: several periods for the analysis can be specified - one for each
+        period to be analyzed. When a period parameter is provided in the request,
+        the API will 'cut' the returns for the period from the returns for the time
+        window, specified in timeWindow parameter if provided, or from the lifetime
+        returns, if no timeWindow parameter is provided
+      properties:
+        startDate:
+          example: 2017-01-03
+          type: string
+        endDate:
+          example: 2017-05-31
+          type: string
+      type: object
+    ExPostSettings:
+      allOf:
+      - $ref: '#/components/schemas/Settings'
+      - $ref: '#/components/schemas/TimeWindow'
+      - $ref: '#/components/schemas/Periods'
+      - $ref: '#/components/schemas/ExPostSettings_allOf'
+    Stats:
+      properties:
+        stats:
+          example:
+          - cumReturn
+          - annReturn
+          - stDev
+          - annStDev
+          - alpha
+          - beta
+          - upCapture
+          - downCapture
+          - maxDrawdown
+          items:
+            enum:
+            - annReturn
+            - cumReturn
+            - meanReturn
+            - etr
+            - stDev
+            - annStDev
+            - annLossStd
+            - annStDev100
+            - etl
+            - skewness
+            - excessKurtosis
+            - var
+            - positiveReturnsRatio
+            - sharpe
+            - sharpeExcessReturn
+            - starr
+            - sortino
+            - sortinoExcessReturn
+            - alpha
+            - alphaExcessReturn
+            - beta
+            - betaExcessReturn
+            - upCapture
+            - upCaptureMStar
+            - downCapture
+            - downCaptureMstar
+            - rsquare
+            - rsquareExcessReturn
+            - trackingError
+            - annTrackingError
+            - informationRatioAnnArithmeticExcessReturn
+            - battingAverage
+            - correlationMatrix
+            - boxplotSummary
+            - boxplotOutliers
+            - maxDrawdown
+            - maxDrawdownPV
+            - maxDrawdownDate
+            - maxDrawdownStart
+            - maxDrawdownEnd
+            - maxDrawdownPeriods
+            - longestDrawdownStart
+            - longestDrawdownEnd
+            - topDrawdowns
+            - annComponentReturnAttribution
+            - annPercentageReturnAttribution
+            - annComponentStDevAttribution
+            - annPercentageStDevAttribution
+            - contributionTransactions
+            - withdrawalTransactions
+            - feeTransactions
+            type: string
+          type: array
+      type: object
+    ExPostStatsSettings:
+      allOf:
+      - $ref: '#/components/schemas/ExPostSettings'
+      - $ref: '#/components/schemas/Stats'
+      - $ref: '#/components/schemas/ExPostStatsSettings_allOf'
+    ExPostSeriesSettings:
+      allOf:
+      - $ref: '#/components/schemas/ExPostSettings'
+      - $ref: '#/components/schemas/ExPostSeriesSettings_allOf'
+    ExPostRollingSettings:
+      allOf:
+      - $ref: '#/components/schemas/BaseSettings'
+      - $ref: '#/components/schemas/TimeWindow'
+      - $ref: '#/components/schemas/ExPostRollingSettings_allOf'
+    ExPostStatsRollingSettings:
+      allOf:
+      - $ref: '#/components/schemas/ExPostRollingSettings'
+      - $ref: '#/components/schemas/ExPostStatsRollingSettings_allOf'
+    ExPostStatsCorrelationsSettings:
+      allOf:
+      - $ref: '#/components/schemas/BaseSettings'
+      - $ref: '#/components/schemas/TimeWindow'
+      - $ref: '#/components/schemas/ExPostStatsCorrelationsSettings_allOf'
+    ExPostStatsFactorExposureSettings:
+      allOf:
+      - $ref: '#/components/schemas/BaseSettings'
+      - $ref: '#/components/schemas/TimeWindow'
+      - $ref: '#/components/schemas/ExPostStatsFactorExposureSettings_allOf'
+    ExPostSeriesRollingSettings:
+      allOf:
+      - $ref: '#/components/schemas/ExPostRollingSettings'
+      - $ref: '#/components/schemas/Periods'
+    ExPostStatsResponseData:
+      example:
+        holdings:
+        - null
+        - null
+        errors:
+        - errors
+        - errors
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/PortfolioWithExPostStats'
+        holdings:
+          items:
+            $ref: '#/components/schemas/ExPostPortfolioInvestmentResponse'
+          type: array
+        errors:
+          description: information for problems, which prevented stats for certain
+            holdings or time windows to be calculated
+          items:
+            type: string
+          type: array
+      type: object
+    PortfolioWithExPostStats:
+      allOf:
+      - $ref: '#/components/schemas/PortfolioEntity'
+      - $ref: '#/components/schemas/PortfolioWithExPostStats_allOf'
+    ExPostSeriesResponseData:
+      example:
+        holdings:
+        - null
+        - null
+        errors:
+        - errors
+        - errors
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/PortfolioWithExPostSeries'
+        holdings:
+          items:
+            $ref: '#/components/schemas/ExPostPortfolioInvestmentSeriesResponse'
+          type: array
+        errors:
+          description: information for problems, which prevented series for certain
+            holdings or time windows to be calculated
+          items:
+            type: string
+          type: array
+      type: object
+    PortfolioWithExPostSeries:
+      allOf:
+      - $ref: '#/components/schemas/PortfolioEntity'
+      - $ref: '#/components/schemas/PortfolioWithExPostSeries_allOf'
+    DatedNodeStats:
+      example:
+        timeWindow:
+          key:
+          - exposures:
+            - exposure: 6.027456183070403
+              name: name
+              id: id
+              rsquare: 1.4658129805029452
+              group: group
+              factors:
+              - name: name
+                id: id
+                value: 5.962133916683182
+              - name: name
+                id: id
+                value: 5.962133916683182
+            - exposure: 6.027456183070403
+              name: name
+              id: id
+              rsquare: 1.4658129805029452
+              group: group
+              factors:
+              - name: name
+                id: id
+                value: 5.962133916683182
+              - name: name
+                id: id
+                value: 5.962133916683182
+            risks:
+              var:
+                "99%": 0.1
+              annLossStDev: 0.08
+              annStDev: 0.08
+              positiveReturnsRatio: 0.5123
+              skewness: 1.23
+              excessKurtosis: 1.23
+              etl:
+                "99%": 0.1
+              stDev: 0.08
+            name: name
+            weight: 0.8008281904610115
+            correlationToPortfolio: 5.637376656633329
+            returns:
+              cumReturn: 0.3
+              meanReturn: 0.054
+              annReturn: 0.05
+            id: id
+            leaf: true
+            group: group
+            factors:
+            - name: name
+              id: id
+              value: 5.962133916683182
+            - name: name
+              id: id
+              value: 5.962133916683182
+          - exposures:
+            - exposure: 6.027456183070403
+              name: name
+              id: id
+              rsquare: 1.4658129805029452
+              group: group
+              factors:
+              - name: name
+                id: id
+                value: 5.962133916683182
+              - name: name
+                id: id
+                value: 5.962133916683182
+            - exposure: 6.027456183070403
+              name: name
+              id: id
+              rsquare: 1.4658129805029452
+              group: group
+              factors:
+              - name: name
+                id: id
+                value: 5.962133916683182
+              - name: name
+                id: id
+                value: 5.962133916683182
+            risks:
+              var:
+                "99%": 0.1
+              annLossStDev: 0.08
+              annStDev: 0.08
+              positiveReturnsRatio: 0.5123
+              skewness: 1.23
+              excessKurtosis: 1.23
+              etl:
+                "99%": 0.1
+              stDev: 0.08
+            name: name
+            weight: 0.8008281904610115
+            correlationToPortfolio: 5.637376656633329
+            returns:
+              cumReturn: 0.3
+              meanReturn: 0.054
+              annReturn: 0.05
+            id: id
+            leaf: true
+            group: group
+            factors:
+            - name: name
+              id: id
+              value: 5.962133916683182
+            - name: name
+              id: id
+              value: 5.962133916683182
+      properties:
+        timeWindow:
+          additionalProperties:
+            description: a map from time window to an array of risk node stats. The
+              keys correspond to the time windows, specified in data.settings.timeWindow
+              property in the request
+            items:
+              $ref: '#/components/schemas/RiskNodeStats'
+            type: array
+          type: object
+      type: object
+    RiskNodeStats:
+      example:
+        exposures:
+        - exposure: 6.027456183070403
+          name: name
+          id: id
+          rsquare: 1.4658129805029452
+          group: group
+          factors:
+          - name: name
+            id: id
+            value: 5.962133916683182
+          - name: name
+            id: id
+            value: 5.962133916683182
+        - exposure: 6.027456183070403
+          name: name
+          id: id
+          rsquare: 1.4658129805029452
+          group: group
+          factors:
+          - name: name
+            id: id
+            value: 5.962133916683182
+          - name: name
+            id: id
+            value: 5.962133916683182
+        risks:
+          var:
+            "99%": 0.1
+          annLossStDev: 0.08
+          annStDev: 0.08
+          positiveReturnsRatio: 0.5123
+          skewness: 1.23
+          excessKurtosis: 1.23
+          etl:
+            "99%": 0.1
+          stDev: 0.08
+        name: name
+        weight: 0.8008281904610115
+        correlationToPortfolio: 5.637376656633329
+        returns:
+          cumReturn: 0.3
+          meanReturn: 0.054
+          annReturn: 0.05
+        id: id
+        leaf: true
+        group: group
+        factors:
+        - name: name
+          id: id
+          value: 5.962133916683182
+        - name: name
+          id: id
+          value: 5.962133916683182
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        group:
+          type: string
+        leaf:
+          type: boolean
+        weight:
+          type: number
+        risks:
+          $ref: '#/components/schemas/RiskStats'
+        returns:
+          $ref: '#/components/schemas/ReturnStats'
+        exposures:
+          items:
+            $ref: '#/components/schemas/Exposure'
+          type: array
+        correlationToPortfolio:
+          type: number
+        factors:
+          items:
+            $ref: '#/components/schemas/UiValueObject'
+          type: array
+      type: object
+    Exposure:
+      example:
+        exposure: 6.027456183070403
+        name: name
+        id: id
+        rsquare: 1.4658129805029452
+        group: group
+        factors:
+        - name: name
+          id: id
+          value: 5.962133916683182
+        - name: name
+          id: id
+          value: 5.962133916683182
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        group:
+          type: string
+        exposure:
+          type: number
+        rsquare:
+          type: number
+        factors:
+          items:
+            $ref: '#/components/schemas/UiValueObject'
+          type: array
+      type: object
+    UiValueObject:
+      example:
+        name: name
+        id: id
+        value: 5.962133916683182
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        value:
+          type: number
+      type: object
+    RollingStats:
+      properties:
+        timeWindow:
+          additionalProperties:
+            $ref: '#/components/schemas/RollingStatsPerTimeWindow'
+          description: a map from time window to rolling stats. The keys correspond
+            to the time windows, specified in data.settings.timeWindow property in
+            the request
+          type: object
+      type: object
+    RollingStatsPerTimeWindow:
+      properties:
+        rolling:
+          $ref: '#/components/schemas/RollingStatsPerTimeWindow_rolling'
+      type: object
+    RollingSeries:
+      properties:
+        timeWindow:
+          additionalProperties:
+            $ref: '#/components/schemas/RollingSeriesPerTimeWindow'
+          description: a map from time window to rolling series. The keys correspond
+            to the time windows, specified in data.settings.timeWindow property in
+            the request
+          type: object
+      type: object
+    RollingSeriesPerTimeWindow:
+      properties:
+        dates:
+          example:
+          - 2017-01-30
+          - 2017-01-31
+          items:
+            format: date
+            type: string
+          type: array
+        returns:
+          $ref: '#/components/schemas/RollingSeriesPerTimeWindow_returns'
+      type: object
+    RiskStats:
+      description: Risk statistics holder
+      example:
+        var:
+          "99%": 0.1
+        annLossStDev: 0.08
+        annStDev: 0.08
+        positiveReturnsRatio: 0.5123
+        skewness: 1.23
+        excessKurtosis: 1.23
+        etl:
+          "99%": 0.1
+        stDev: 0.08
+      properties:
+        annStDev:
+          description: Annualized Standard deviation
+          example: 0.08
+          type: number
+        annLossStDev:
+          description: Annualized Loss Standard deviation
+          example: 0.08
+          type: number
+        etl:
+          additionalProperties:
+            example: 1.5
+            type: number
+          description: a map from confidence level (e.g. "95%") to a numeric value
+          example:
+            "99%": 0.1
+          type: object
+        stDev:
+          description: Standard deviation
+          example: 0.08
+          type: number
+        skewness:
+          description: Skewness
+          example: 1.23
+          type: number
+        excessKurtosis:
+          description: ExcessKurtosis
+          example: 1.23
+          type: number
+        var:
+          additionalProperties:
+            example: 1.5
+            type: number
+          description: a map from confidence level (e.g. "95%") to a numeric value
+          example:
+            "99%": 0.1
+          type: object
+        positiveReturnsRatio:
+          description: Positive Returns Ratio
+          example: 0.5123
+          type: number
+      type: object
+    RelativeRiskStats:
+      properties:
+        alpha:
+          type: number
+        beta:
+          type: number
+        rsquare:
+          type: number
+        upCapture:
+          type: number
+        upCaptureMStar:
+          type: number
+        downCapture:
+          type: number
+        downCaptureMStar:
+          type: number
+      type: object
+    ReturnStats:
+      description: Return statistics holder
+      example:
+        cumReturn: 0.3
+        meanReturn: 0.054
+        annReturn: 0.05
+      properties:
+        annReturn:
+          description: Annualized Return
+          example: 0.05
+          type: number
+        cumReturn:
+          description: Cumulative (Trailing) Return
+          example: 0.3
+          type: number
+        meanReturn:
+          description: Mean Return
+          example: 0.054
+          type: number
+      type: object
+    PerformanceStats:
+      properties:
+        sharpe:
+          description: sharpe ratio
+          type: number
+        sortino:
+          type: number
+        starr:
+          type: number
+      type: object
+    CorrelationStats:
+      example:
+        portfolioCorrelationMatrix:
+          assets:
+          - assets
+          - assets
+          matrix:
+          - - 6.027456183070403
+            - 6.027456183070403
+          - - 6.027456183070403
+            - 6.027456183070403
+        correlationMatrix:
+          assets:
+          - assets
+          - assets
+          matrix:
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          - - 0.8008281904610115
+            - 0.8008281904610115
+      properties:
+        correlationMatrix:
+          $ref: '#/components/schemas/CorrelationMatrix'
+        portfolioCorrelationMatrix:
+          $ref: '#/components/schemas/PortfolioCorrelationMatrix'
+      type: object
+    CorrelationMatrix:
+      example:
+        assets:
+        - assets
+        - assets
+        matrix:
+        - - 0.8008281904610115
+          - 0.8008281904610115
+        - - 0.8008281904610115
+          - 0.8008281904610115
+      properties:
+        assets:
+          items:
+            type: string
+          type: array
+        matrix:
+          items:
+            items:
+              type: number
+            type: array
+          type: array
+      type: object
+    PortfolioCorrelationMatrix:
+      example:
+        assets:
+        - assets
+        - assets
+        matrix:
+        - - 6.027456183070403
+          - 6.027456183070403
+        - - 6.027456183070403
+          - 6.027456183070403
+      properties:
+        assets:
+          items:
+            type: string
+          type: array
+        matrix:
+          items:
+            items:
+              type: number
+            type: array
+          type: array
+      type: object
+    DrawdownStats:
+      properties:
+        longestDrawdownStart:
+          example: 2017-01-31
+          format: date
+          type: string
+        longestDrawdownEnd:
+          example: 2017-05-31
+          format: date
+          type: string
+        maxDrawdown:
+          type: number
+        maxDrawdownDate:
+          example: 2017-03-31
+          format: date
+          type: string
+        maxDrawdownStart:
+          example: 2017-01-31
+          format: date
+          type: string
+        maxDrawdownEnd:
+          example: 2017-05-31
+          format: date
+          type: string
+        maxDrawdownPeriods:
+          type: number
+        topDrawdowns:
+          items:
+            $ref: '#/components/schemas/Drawdown'
+          type: array
+      type: object
+    Drawdown:
+      properties:
+        drawdownDate:
+          example: 2018-12-25
+          format: date
+          type: string
+        endDate:
+          example: 2019-04-01
+          format: date
+          type: string
+        startDate:
+          example: 2018-01-26
+          format: date
+          type: string
+        value:
+          type: number
+      type: object
+    Boxplot:
+      properties:
+        boxplotSummary:
+          $ref: '#/components/schemas/Boxplot_boxplotSummary'
+        boxplotOutliers:
+          items:
+            type: number
+          type: array
+      type: object
+    EntityStats:
+      description: General entity statistics holder
+      properties:
+        risks:
+          $ref: '#/components/schemas/RiskStats'
+        returns:
+          $ref: '#/components/schemas/ReturnStats'
+        relativeRisk:
+          $ref: '#/components/schemas/RelativeRiskStats'
+        performance:
+          $ref: '#/components/schemas/PerformanceStats'
+        drawdown:
+          $ref: '#/components/schemas/DrawdownStats'
+        boxplot:
+          $ref: '#/components/schemas/Boxplot'
+      type: object
+    SerieStats:
+      properties:
+        mean:
+          type: number
+        annMean:
+          type: number
+        stDev:
+          type: number
+        annStDev:
+          type: number
+        etl:
+          additionalProperties:
+            example: 1.5
+            type: number
+          description: a map from confidence level (e.g. "95%") to a numeric value
+          example:
+            "99%": 0.1
+          type: object
+        var:
+          additionalProperties:
+            example: 1.5
+            type: number
+          description: a map from confidence level (e.g. "95%") to a numeric value
+          example:
+            "99%": 0.1
+          type: object
+      type: object
+    Array:
+      example:
+      - 0.1
+      - 0.2
+      items:
+        type: number
+      type: array
+    DatedCorrelationStats:
+      example:
+        timeWindow:
+          key:
+            correlations:
+              portfolioCorrelationMatrix:
+                assets:
+                - assets
+                - assets
+                matrix:
+                - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+              correlationMatrix:
+                assets:
+                - assets
+                - assets
+                matrix:
+                - - 0.8008281904610115
+                  - 0.8008281904610115
+                - - 0.8008281904610115
+                  - 0.8008281904610115
+        periods:
+        - null
+        - null
+      properties:
+        timeWindow:
+          additionalProperties:
+            $ref: '#/components/schemas/DatedCorrelationStatsPerTimeWindow'
+          description: a map from time window to correlation stats. The keys correspond
+            to the time windows, specified in data.settings.timeWindow property in
+            the request
+          type: object
+        periods:
+          items:
+            $ref: '#/components/schemas/PeriodCorrelationStats'
+          type: array
+      type: object
+    DatedCorrelationStatsPerTimeWindow:
+      example:
+        correlations:
+          portfolioCorrelationMatrix:
+            assets:
+            - assets
+            - assets
+            matrix:
+            - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          correlationMatrix:
+            assets:
+            - assets
+            - assets
+            matrix:
+            - - 0.8008281904610115
+              - 0.8008281904610115
+            - - 0.8008281904610115
+              - 0.8008281904610115
+      properties:
+        correlations:
+          $ref: '#/components/schemas/CorrelationStats'
+      type: object
+    PeriodCorrelationStats:
+      allOf:
+      - $ref: '#/components/schemas/PeriodInfo'
+      - $ref: '#/components/schemas/PeriodCorrelationStats_allOf'
+    PeriodInfo:
+      properties:
+        startDate:
+          example: 2017-01-03
+          format: date
+          type: string
+        endDate:
+          example: 2017-05-31
+          format: date
+          type: string
+        numberOfDays:
+          example: 59
+          type: number
+        basedOnTimeWindow:
+          type: string
+      type: object
+    ExPostPeriodStats:
+      allOf:
+      - $ref: '#/components/schemas/PeriodInfo'
+      - $ref: '#/components/schemas/ExPostPeriodStats_allOf'
+    PeriodSeries:
+      allOf:
+      - $ref: '#/components/schemas/PeriodInfo'
+      - $ref: '#/components/schemas/PeriodSeries_allOf'
+    TimeWindowStats:
+      properties:
+        timeWindow:
+          additionalProperties:
+            $ref: '#/components/schemas/EntityStats'
+          description: a map from time window to ex-post stats. The keys correspond
+            to the time windows, specified in data.settings.timeWindow property in
+            the request
+          type: object
+        generic:
+          $ref: '#/components/schemas/TimeWindowStats_generic'
+      type: object
+    TimeWindowSeries:
+      properties:
+        timeWindow:
+          additionalProperties:
+            $ref: '#/components/schemas/SeriesStats'
+          description: a map from time window to ex-post series. The keys correspond
+            to the time windows, specified in data.settings.timeWindow property in
+            the request
+          type: object
+      type: object
+    SeriesStats:
+      description: General entity statistics holder
+      properties:
+        returns:
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+          type: array
+        values:
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+          type: array
+      type: object
+    KeyValuePair:
+      properties:
+        key:
+          example: 2017-03-31
+          format: date
+          type: string
+        value:
+          example: 1.5
+          type: number
+      type: object
+    CLPair:
+      additionalProperties:
+        example: 1.5
+        type: number
+      description: a map from confidence level (e.g. "95%") to a numeric value
+      example:
+        "99%": 0.1
+      type: object
+    PagedSecurities:
+      example:
+        data:
+        - null
+        - null
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/Investment'
+          type: array
+        meta:
+          $ref: '#/components/schemas/PagedSecurities_meta'
+      required:
+      - data
+      - meta
+      type: object
+    ExPostStats_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        benchmark:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        settings:
+          $ref: '#/components/schemas/ExPostStatsSettings'
+      required:
+      - portfolio
+      - settings
+      type: object
+    ExPostStatsResponse_meta:
+      example: {}
+      properties:
+        settings:
+          $ref: '#/components/schemas/ExPostStatsSettings'
+      type: object
+    ExPostSeries_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        benchmark:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        settings:
+          $ref: '#/components/schemas/ExPostSeriesSettings'
+      required:
+      - portfolio
+      - settings
+      type: object
+    ExPostSeriesResponse_meta:
+      example: {}
+      properties:
+        settings:
+          $ref: '#/components/schemas/ExPostSeriesSettings'
+      type: object
+    ExPostStatsRolling_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        benchmark:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        settings:
+          $ref: '#/components/schemas/ExPostStatsRollingSettings'
+      required:
+      - portfolio
+      - settings
+      type: object
+    ExPostStatsRollingResponse_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/PortfolioWithRollingStats'
+      type: object
+    ExPostStatsRollingResponse_meta:
+      example: {}
+      properties:
+        settings:
+          $ref: '#/components/schemas/ExPostStatsRollingSettings'
+      type: object
+    ExPostStatsCorrelations_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        benchmark:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        settings:
+          $ref: '#/components/schemas/ExPostStatsCorrelationsSettings'
+      required:
+      - portfolio
+      - settings
+      type: object
+    ExPostStatsCorrelationsResponse_meta:
+      example: {}
+      properties:
+        settings:
+          $ref: '#/components/schemas/ExPostStatsCorrelationsSettings'
+      type: object
+    ExPostStatsFactorExposure_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        benchmark:
+          $ref: '#/components/schemas/ExPostPortfolio'
+        settings:
+          $ref: '#/components/schemas/ExPostStatsFactorExposureSettings'
+      required:
+      - portfolio
+      - settings
+      type: object
+    ExPostStatsFactorExposureResponse_meta:
+      example: {}
+      properties:
+        settings:
+          $ref: '#/components/schemas/ExPostStatsFactorExposureSettings'
+      type: object
+    ExPostSeriesRolling_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/Portfolio'
+        benchmark:
+          $ref: '#/components/schemas/Portfolio'
+        settings:
+          $ref: '#/components/schemas/ExPostSeriesRollingSettings'
+      required:
+      - portfolio
+      type: object
+    ExPostSeriesRollingResponse_data:
+      example: {}
+      properties:
+        portfolio:
+          $ref: '#/components/schemas/PortfolioWithRollingSeries'
+      type: object
+    ExPostSeriesRollingResponse_meta:
+      example: {}
+      properties:
+        settings:
+          $ref: '#/components/schemas/ExPostSeriesRollingSettings'
+      type: object
+    PortfolioEntity_details:
+      properties:
+        name:
+          example: test portfolio
+          type: string
+      type: object
+    PortfolioWithRollingStats_allOf:
+      properties:
+        stats:
+          $ref: '#/components/schemas/RollingStats'
+      type: object
+    PortfolioWithRollingSeries_allOf:
+      properties:
+        stats:
+          $ref: '#/components/schemas/RollingSeries'
+      type: object
+    Portfolio_allOf:
+      description: A representation of a Portfolio
+      properties:
+        initialValue:
+          description: the initial value (PV) of the portfolio
+          example: 1000
+          type: number
+        rebalancing:
+          $ref: '#/components/schemas/Rebalancing'
+      required:
+      - holdings
+      type: object
+    ExPostPortfolio_allOf:
+      properties:
+        holdings:
+          items:
+            $ref: '#/components/schemas/ExPostPortfolioInvestment'
+          type: array
+        transactionRules:
+          description: rules for adding/substracting amount from the portfolio at
+            given periods
+          items:
+            $ref: '#/components/schemas/TransactionRule'
+          type: array
+      type: object
+    ExPostPortfolioInvestment_allOf:
+      properties:
+        salesCharge:
+          description: A representation of a portfolio constituent (investment)
+          type: number
+        transactionRules:
+          description: rules for adding/substracting amount from the portfolio at
+            given periods
+          items:
+            $ref: '#/components/schemas/TransactionRule'
+          type: array
+      type: object
+    ExPostPortfolioInvestmentResponse_allOf:
+      description: when the settings.periods property is provided in the request then
+        the periods property is populated instead of stats property
+      properties:
+        securityDetails:
+          $ref: '#/components/schemas/Investment'
+        stats:
+          $ref: '#/components/schemas/TimeWindowStats'
+        udfs:
+          description: portfolio UDFs map
+          example:
+            ungrouped:
+              maxFrontLoad: 0.06
+          type: object
+        periods:
+          $ref: '#/components/schemas/ExPostPeriodStats'
+        backfillData:
+          additionalProperties:
+            $ref: '#/components/schemas/BackfillData'
+          description: a map from time window to backfill statistics
+          example:
+            "36":
+              backfilled: true
+              realData: 27
+              backfilledData: 9
+          type: object
+      type: object
+    ExPostPortfolioInvestmentSeriesResponse_allOf:
+      description: when the settings.periods property is provided in the request then
+        the periods property is populated instead of stats property
+      properties:
+        securityDetails:
+          $ref: '#/components/schemas/Investment'
+        series:
+          $ref: '#/components/schemas/TimeWindowSeries'
+        periods:
+          $ref: '#/components/schemas/PeriodSeries'
+        backfillData:
+          additionalProperties:
+            $ref: '#/components/schemas/BackfillData'
+          description: a map from time window to backfill statistics
+          example:
+            "36":
+              backfilled: true
+              realData: 27
+              backfilledData: 9
+          type: object
+      type: object
+    Investment_allOf:
+      properties:
+        name:
+          type: string
+        proxyCode:
+          description: unique identifier
+          type: string
+        cusip:
+          type: string
+        tradingSymbol:
+          type: string
+        securityType:
+          example: SA
+          type: string
+        className:
+          example: Fund
+          type: string
+        currency:
+          example: USD
+          type: string
+      type: object
+    Settings_allOf:
+      properties:
+        confidenceLevels:
+          example:
+          - 95
+          - 99
+          items:
+            description: this wil return var, etl or etr at the specified confidence
+              levels
+            type: number
+          type: array
+        reportingFrequency:
+          enum:
+          - 1
+          - 2
+          - 4
+          - 6
+          - 12
+          type: number
+      type: object
+    ExPostSettings_allOf:
+      properties:
+        reportingFrequencyAlignment:
+          enum:
+          - start
+          - calendar
+          type: string
+      type: object
+    ExPostStatsSettings_allOf:
+      properties:
+        udfs:
+          example:
+          - maxFrontLoad
+          - assetAllocation
+          items:
+            description: a comma-separated list of UDFs
+            type: string
+          type: array
+      type: object
+    ExPostSeriesSettings_allOf:
+      properties:
+        series:
+          example:
+          - values
+          - returns
+          - drawdown
+          items:
+            enum:
+            - values
+            - returns
+            - drawdown
+            - benchmarkDrawdown
+            - contributionTransactions
+            - withrawalTransactions
+            - feeTransactions
+            type: string
+          type: array
+      type: object
+    ExPostRollingSettings_allOf:
+      properties:
+        rollingTimeWindow:
+          example: 12
+          type: integer
+        stats:
+          example:
+          - annReturn
+          - cumReturn
+          - stDev
+          - annLossStd
+          - sharpe
+          - sharpeExcessReturn
+          - sortino
+          - sortinoExcessReturn
+          - correlationMatrix
+          - portfolioCorrelationMatrix
+          items:
+            enum:
+            - annReturn
+            - cumReturn
+            - stDev
+            - annLossStd
+            - sharpe
+            - sharpeExcessReturn
+            - sortino
+            - sortinoExcessReturn
+            - correlationMatrix
+            - portfolioCorrelationMatrix
+            type: string
+          type: array
+      required:
+      - rollingTimeWindow
+      type: object
+    ExPostStatsRollingSettings_allOf:
+      properties:
+        aggregationFunctions:
+          items:
+            enum:
+            - minimum
+            - maximum
+            type: string
+          type: array
+      type: object
+    ExPostStatsCorrelationsSettings_allOf:
+      properties:
+        stats:
+          items:
+            enum:
+            - correlationMatrix
+            - portfolioCorrelationMatrix
+            - actReturnsCorrelationMatrix
+            type: string
+          type: array
+        holdingsLimit:
+          example: 1
+          type: integer
+        fundCorrelationsOnly:
+          type: boolean
+        showBenchmark:
+          type: boolean
+      type: object
+    ExPostStatsFactorExposureSettings_allOf:
+      properties:
+        displayFormat:
+          description: 1 - absolute (portfolio relative); 2 - scaled (portfolio relative);
+            3 - absolute (benchmark relative)
+          enum:
+          - 1
+          - 2
+          - 3
+          type: integer
+        riskTreeLevel:
+          default: 3
+          type: integer
+      type: object
+    PortfolioWithExPostStats_allOf:
+      description: when the settings.periods property is provided in the request then
+        the periods property is populated instead of stats property
+      properties:
+        stats:
+          $ref: '#/components/schemas/TimeWindowStats'
+        udfs:
+          description: portfolio UDFs map
+          example:
+            ungrouped:
+              maxFrontLoad: 0.06
+          type: object
+        periods:
+          $ref: '#/components/schemas/ExPostPeriodStats'
+      type: object
+    PortfolioWithExPostSeries_allOf:
+      description: when the settings.periods property is provided in the request then
+        the periods property is populated instead of series property
+      properties:
+        series:
+          $ref: '#/components/schemas/TimeWindowSeries'
+        periods:
+          $ref: '#/components/schemas/PeriodSeries'
+      type: object
+    RollingStatsPerTimeWindow_rolling:
+      properties:
+        maximum:
+          properties:
+            returns:
+              properties:
+                annReturn:
+                  properties:
+                    endDate:
+                      example: 2017-01-23
+                      format: date
+                      type: string
+                    startDate:
+                      example: 2016-01-23
+                      format: date
+                      type: string
+                    value:
+                      type: number
+                cumReturn:
+                  properties:
+                    endDate:
+                      example: 2018-01-23
+                      format: date
+                      type: string
+                    startDate:
+                      example: 2017-01-23
+                      format: date
+                      type: string
+                    value:
+                      type: number
+      type: object
+    RollingSeriesPerTimeWindow_returns:
+      properties:
+        annReturn:
+          example:
+          - 0.1
+          - 0.2
+          items:
+            type: number
+          type: array
+        cumReturn:
+          example:
+          - 0.1
+          - 0.2
+          items:
+            type: number
+          type: array
+      type: object
+    Boxplot_boxplotSummary:
+      properties:
+        mean:
+          type: number
+        median:
+          type: number
+        q1:
+          type: number
+        q3:
+          type: number
+        minRegularValue:
+          type: number
+        maxRegularValue:
+          type: number
+        minOutlier:
+          type: number
+        maxOutlier:
+          type: number
+      type: object
+    PeriodCorrelationStats_allOf:
+      properties:
+        correlations:
+          $ref: '#/components/schemas/CorrelationStats'
+      type: object
+    ExPostPeriodStats_allOf:
+      properties:
+        stats:
+          $ref: '#/components/schemas/EntityStats'
+      type: object
+    PeriodSeries_allOf:
+      properties:
+        series:
+          $ref: '#/components/schemas/SerieStats'
+      type: object
+    TimeWindowStats_generic:
+      properties:
+        salesChage:
+          type: number
+      type: object
+    PagedSecurities_meta_pagination:
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: total number of securities
+          type: integer
+        isEstimatedTotal:
+          type: boolean
+      type: object
+    PagedSecurities_meta:
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/PagedSecurities_meta_pagination'
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

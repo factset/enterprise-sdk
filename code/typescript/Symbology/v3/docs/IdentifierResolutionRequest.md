@@ -59,11 +59,19 @@ Name | Type | Description | Notes
 
 * `bloombergRegionalTicker` (value: `"bloombergRegionalTicker"`)
 
+* `bloombergSecurityTicker` (value: `"bloombergSecurityTicker"`)
+
 * `bloombergFigiListing` (value: `"bloombergFigiListing"`)
 
 * `bloombergFigiRegional` (value: `"bloombergFigiRegional"`)
 
 * `bloombergFigiSecurity` (value: `"bloombergFigiSecurity"`)
+
+* `VAT` (value: `"VAT"`)
+
+* `crunchBaseId` (value: `"crunchBaseId"`)
+
+* `creditSafeId` (value: `"creditSafeId"`)
 
 
 

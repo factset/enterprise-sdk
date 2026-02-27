@@ -1,0 +1,16 @@
+{
+  "projectName": "@factset/sdk-proposalgenerationengine",
+  "projectVersion": "0.1.0",
+  "projectAuthor": "FactSet Research Systems",
+  "projectDescription": "Proposal Generation Engine client library for JavaScript",
+  "projectKeywords": "[\"FactSet\", \"API\", \"SDK\"]",
+  "moduleName": "proposalgenerationengine",
+  "disallowAdditionalPropertiesIfNotPresent": false,
+  "httpUserAgent": "fds-sdk/javascript/ProposalGenerationEngine/0.1.0",
+  "usePromises": true,
+  "licenseName": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "files": {
+    "LICENSE": {}
+  }
+}

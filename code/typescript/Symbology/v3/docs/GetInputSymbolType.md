@@ -59,4 +59,10 @@
 
 * `MarkitRed` (value: `"MarkitRed"`)
 
+* `VAT` (value: `"VAT"`)
+
+* `crunchBaseId` (value: `"crunchBaseId"`)
+
+* `creditSafeId` (value: `"creditSafeId"`)
+
 

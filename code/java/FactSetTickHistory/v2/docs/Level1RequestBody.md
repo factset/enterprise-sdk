@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **factsetExchangeCode** | **String** | FactSet specific regional or composite exchange code and last exchange code. &lt;p&gt; NOTE:Does not support multiple factsetExchangeCodes&lt;/p&gt;.  | 
 **dateTimeRange** | [**DateTimePeriod**](DateTimePeriod.md) |  | 
 **fields** | [**java.util.List&lt;FieldsEnum&gt;**](#java.util.List&lt;FieldsEnum&gt;) | Fields for which data is requested  |  [optional]
-**single** | **Boolean** | &lt;p&gt; This parameter only works for smaller date/time requests where the file size is upto 128MB.&lt;/P&gt; single&#x3D;true  Returns data in a single file. single&#x3D;false Returns data in multiple files. &lt;p&gt; Note: If parameter is not used it take default value as false and returns data in multiple files.&lt;/p&gt;  |  [optional]
+**single** | **Boolean** | &lt;p&gt; Set &#x60;true&#x60; to have data returned in a single file. If omitted, data will be returned in multiple files.&lt;/p&gt; &lt;p&gt; Up to 128 Megabytes can be returned per file. Please reduce the date and time range of this request accordingly.&lt;/p&gt;  |  [optional]
 
 
 

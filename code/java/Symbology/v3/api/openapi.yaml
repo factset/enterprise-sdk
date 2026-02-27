@@ -6,7 +6,7 @@ info:
   description: |
     The FactSet Symbology API provides symbol resolution services, allowing clients to translate market identifiers into various symbology types such as, FactSet Permanent Identifiers, CUSIP, ISIN, SEDOL, Tickers, and LEIs. <p>Factset's Symbology API sits at the center of its hub-and-spoke data model, enabling you to quickly harmonize the expanding catalog of Content APIs.</p><p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>
   title: FactSet Symbology API
-  version: 3.4.0
+  version: 3.5.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -47,10 +47,12 @@ paths:
         \ Identifier (e.g.063172001) (Input only)\n* **JCN** - Japan Corporate Number\
         \ (e.g. 9011101021173)\n* **LoanX** - Markit Bank Loan Security Identifier\
         \ (e.g. LX130668) (Input only)\n* **MarkitRed** - Markit Entity Identifier\
-        \ (e.g. 3D337C) (Input only)\n\n**These symbol types require additional subscriptions.\
-        \ If you would like to gain access to these symbol types, please contact your\
-        \ FactSet Account Team or \"Report Issue\" above and our support teams can\
-        \ assist.*\n"
+        \ (e.g. 3D337C) (Input only)\n* **VAT** - VAT Number (e.g. FR32329211734)\n\
+        * **crunchBaseId** - Crunchbase Identifier (e.g. 540cb687-1d56-4f0b-9a2a-0b7d22303bd1)\
+        \ \n* **creditSafeId** - CreditSafe Identifier (e.g. JP002181442)\n\n**These\
+        \ symbol types require additional subscriptions. If you would like to gain\
+        \ access to these symbol types, please contact your FactSet Account Team or\
+        \ \"Report Issue\" above and our support teams can assist.*\n"
       operationId: identifierResolution
       parameters:
       - description: |
@@ -119,6 +121,9 @@ paths:
           - JCN
           - LoanX
           - MarkitRed
+          - VAT
+          - crunchBaseId
+          - creditSafeId
           type: string
         style: form
       - description: The type of symbols being outputted. Multiple types of symbols
@@ -157,9 +162,13 @@ paths:
             - JCN
             - bloombergListingTicker
             - bloombergRegionalTicker
+            - bloombergSecurityTicker
             - bloombergFigiListing
             - bloombergFigiRegional
             - bloombergFigiSecurity
+            - VAT
+            - crunchBaseId
+            - creditSafeId
             type: string
           type: array
         style: form
@@ -273,10 +282,12 @@ paths:
         \ Identifier (e.g.063172001) (Input only)\n* **JCN** - Japan Corporate Number\
         \ (e.g. 9011101021173)\n* **LoanX** - Markit Bank Loan Security Identifier\
         \ (e.g. LX130668) (Input only)\n* **MarkitRed** - Markit Entity Identifier\
-        \ (e.g. 3D337C) (Input only)\n\n**These symbol types require additional subscriptions.\
-        \ If you would like to gain access to these symbol types, please contact your\
-        \ FactSet Account Team or \"Report Issue\" above and our support teams can\
-        \ assist.*\n"
+        \ (e.g. 3D337C) (Input only)\n* **VAT** - VAT Number (e.g. FR32329211734)\n\
+        * **crunchBaseId** - Crunchbase Identifier (e.g. 540cb687-1d56-4f0b-9a2a-0b7d22303bd1)\
+        \ \n* **creditSafeId** - CreditSafe Identifier (e.g. JP002181442)\n\n**These\
+        \ symbol types require additional subscriptions. If you would like to gain\
+        \ access to these symbol types, please contact your FactSet Account Team or\
+        \ \"Report Issue\" above and our support teams can assist.*\n"
       operationId: batchIdentifierResolution
       requestBody:
         content:
@@ -405,10 +416,10 @@ paths:
         \ Security Identifier (e.g.063172001) (Input only)\n* **JCN** - Japan Corporate\
         \ Number (e.g. 9011101021173) (Input only)\n* **LoanX** - Markit Bank Loan\
         \ Security Identifier (e.g. LX130668) (Input only)\n* **MarkitRed** - Markit\
-        \ Entity Identifier (e.g. 3D337C) (Input only) \n\n**These symbol types require\
-        \ additional subscriptions. If you would like to gain access to these symbol\
-        \ types, please contact your FactSet Account Team or \"Report Issue\" above\
-        \ and our support teams can assist.*\n"
+        \ Entity Identifier (e.g. 3D337C) (Input only)         \n\n**These symbol\
+        \ types require additional subscriptions. If you would like to gain access\
+        \ to these symbol types, please contact your FactSet Account Team or \"Report\
+        \ Issue\" above and our support teams can assist.*\n"
       operationId: historicalIdentifierResolution
       parameters:
       - description: |
@@ -1243,6 +1254,9 @@ components:
         - JCN
         - LoanX
         - MarkitRed
+        - VAT
+        - crunchBaseId
+        - creditSafeId
         type: string
       style: form
     getHistoricalInputSymbolType:
@@ -1322,9 +1336,13 @@ components:
           - JCN
           - bloombergListingTicker
           - bloombergRegionalTicker
+          - bloombergSecurityTicker
           - bloombergFigiListing
           - bloombergFigiRegional
           - bloombergFigiSecurity
+          - VAT
+          - crunchBaseId
+          - creditSafeId
           type: string
         type: array
       style: form
@@ -1545,9 +1563,13 @@ components:
             - JCN
             - bloombergListingTicker
             - bloombergRegionalTicker
+            - bloombergSecurityTicker
             - bloombergFigiListing
             - bloombergFigiRegional
             - bloombergFigiSecurity
+            - VAT
+            - crunchBaseId
+            - creditSafeId
             type: string
           maxItems: 20
           minItems: 1
@@ -1872,6 +1894,9 @@ components:
       - JCN
       - LoanX
       - MarkitRed
+      - VAT
+      - crunchBaseId
+      - creditSafeId
       title: Input Symbol Type
       type: string
     getHistoricalInputSymbolType:
@@ -1939,9 +1964,13 @@ components:
         - JCN
         - bloombergListingTicker
         - bloombergRegionalTicker
+        - bloombergSecurityTicker
         - bloombergFigiListing
         - bloombergFigiRegional
         - bloombergFigiSecurity
+        - VAT
+        - crunchBaseId
+        - creditSafeId
         type: string
       maxItems: 20
       minItems: 1

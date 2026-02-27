@@ -836,7 +836,7 @@ public class Level1Api {
   }
   /**
    * Requests the creation of Minute bars file
-   * 1-minute bars available from 20120101 to previous day. Per request able to fetch upto 6 months of data.
+   * 1-minute bars available from 20120101 to previous day. Per request able to fetch up to 6 months of data.
    * @param minRequest  (required)
    * @return SubmittedResponse
    * @throws ApiException if fails to make API call
@@ -857,7 +857,7 @@ public class Level1Api {
 
   /**
    * Requests the creation of Minute bars file
-   * 1-minute bars available from 20120101 to previous day. Per request able to fetch upto 6 months of data.
+   * 1-minute bars available from 20120101 to previous day. Per request able to fetch up to 6 months of data.
    * @param minRequest  (required)
    * @return ApiResponse&lt;SubmittedResponse&gt;
    * @throws ApiException if fails to make API call

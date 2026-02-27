@@ -44,6 +44,9 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 * **JCN** - Japan Corporate Number (e.g. 9011101021173)
 * **LoanX** - Markit Bank Loan Security Identifier (e.g. LX130668) (Input only)
 * **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only)
+* **VAT** - VAT Number (e.g. FR32329211734)
+* **crunchBaseId** - Crunchbase Identifier (e.g. 540cb687-1d56-4f0b-9a2a-0b7d22303bd1) 
+* **creditSafeId** - CreditSafe Identifier (e.g. JP002181442)
 
 **These symbol types require additional subscriptions. If you would like to gain access to these symbol types, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
 
@@ -171,6 +174,9 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 * **JCN** - Japan Corporate Number (e.g. 9011101021173)
 * **LoanX** - Markit Bank Loan Security Identifier (e.g. LX130668) (Input only)
 * **MarkitRed** - Markit Entity Identifier (e.g. 3D337C) (Input only)
+* **VAT** - VAT Number (e.g. FR32329211734)
+* **crunchBaseId** - Crunchbase Identifier (e.g. 540cb687-1d56-4f0b-9a2a-0b7d22303bd1) 
+* **creditSafeId** - CreditSafe Identifier (e.g. JP002181442)
 
 **These symbol types require additional subscriptions. If you would like to gain access to these symbol types, please contact your FactSet Account Team or "Report Issue" above and our support teams can assist.*
 
@@ -240,8 +246,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Requested security or entity identifiers. All requested identifiers must be of the same type. This request value is sent back in the response as, &#x60;requestId&#39;. &lt;p&gt;***ids limit** &#x3D;  100 per request*&lt;/p&gt;   *&lt;p&gt;NOTE:  GET Method URL request lines are also limited to a total   length of 8192 bytes (8KB). In cases where the service allows for thousands   of ids, which may lead to exceeding this request line limit of 8KB, its   advised for any requests with large request lines to be requested through   the respective \&quot;POST\&quot; method.&lt;/p&gt;*  |
- **inputSymbolType** | **String**| The type of symbol being inputted. Only one type of symbol is accepted with each request.  | [default to tickerRegion] [enum: BIC, CIK, CRD, EIN, FITCH, LEI, MD, SPR, VALOREN, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, bloombergFigi, bloombergTicker, GVKEY, GVKEY & IID, JCN, LoanX, MarkitRed]
- **outputSymbolTypes** | **List&lt;String&gt;**| The type of symbols being outputted. Multiple types of symbols can be outputted with each request. The user must be authorized for the requested identifier type. | [enum: BIC, CIK, CRD, EIN, FITCH, LEI, MD, SPR, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, JCN, bloombergListingTicker, bloombergRegionalTicker, bloombergFigiListing, bloombergFigiRegional, bloombergFigiSecurity]
+ **inputSymbolType** | **String**| The type of symbol being inputted. Only one type of symbol is accepted with each request.  | [default to tickerRegion] [enum: BIC, CIK, CRD, EIN, FITCH, LEI, MD, SPR, VALOREN, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, bloombergFigi, bloombergTicker, GVKEY, GVKEY & IID, JCN, LoanX, MarkitRed, VAT, crunchBaseId, creditSafeId]
+ **outputSymbolTypes** | **List&lt;String&gt;**| The type of symbols being outputted. Multiple types of symbols can be outputted with each request. The user must be authorized for the requested identifier type. | [enum: BIC, CIK, CRD, EIN, FITCH, LEI, MD, SPR, WKN, UKCH, RSSD, SEDOL, CUSIP, fsymEntityId, fsymSecurityId, fsymRegionalId, fsymListingId, ISIN, tickerExchange, tickerRegion, JCN, bloombergListingTicker, bloombergRegionalTicker, bloombergSecurityTicker, bloombergFigiListing, bloombergFigiRegional, bloombergFigiSecurity, VAT, crunchBaseId, creditSafeId]
 
 ### Return type
 

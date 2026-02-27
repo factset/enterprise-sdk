@@ -41,9 +41,13 @@ TICKERREGION | &quot;tickerRegion&quot;
 JCN | &quot;JCN&quot;
 BLOOMBERGLISTINGTICKER | &quot;bloombergListingTicker&quot;
 BLOOMBERGREGIONALTICKER | &quot;bloombergRegionalTicker&quot;
+BLOOMBERGSECURITYTICKER | &quot;bloombergSecurityTicker&quot;
 BLOOMBERGFIGILISTING | &quot;bloombergFigiListing&quot;
 BLOOMBERGFIGIREGIONAL | &quot;bloombergFigiRegional&quot;
 BLOOMBERGFIGISECURITY | &quot;bloombergFigiSecurity&quot;
+VAT | &quot;VAT&quot;
+CRUNCHBASEID | &quot;crunchBaseId&quot;
+CREDITSAFEID | &quot;creditSafeId&quot;
 
 
 ## Implemented Interfaces
