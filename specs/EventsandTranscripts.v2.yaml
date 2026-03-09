@@ -3993,8 +3993,15 @@ components:
             Unique identifier for the report. 
 
 
-            **Note:** We do not have a reportId for split and dividend event
+            **Note:** The `reportId` field is only applicable to certain event
             types.
+                For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:
+
+                - `ConfirmedEarningsRelease`
+                - `ProjectedEarningsRelease`
+                - `SalesRevenueRelease`
+                - `Split`
+                - `Dividend`
         lastModifiedDate:
           type: string
           format: date-time

@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **contact_email** | **str** | Contact email for inquiries related to the event. | [optional] 
 **contact_phone** | **str** | Contact phone number for inquiries related to the event. | [optional] 
 **contact_name** | **str** | Name of the contact person for queries related to the event. | [optional] 
-**report_id** | **str** | Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types.  | [optional] 
+**report_id** | **str** | Unique identifier for the report.   **Note:** The &#x60;reportId&#x60; field is only applicable to certain event types.     For the following event types, &#x60;reportId&#x60; is not applicable and will therefore be included in the response with a null value:      - &#x60;ConfirmedEarningsRelease&#x60;     - &#x60;ProjectedEarningsRelease&#x60;     - &#x60;SalesRevenueRelease&#x60;     - &#x60;Split&#x60;     - &#x60;Dividend&#x60;  | [optional] 
 **last_modified_date** | **datetime** | The date and time when the event was last modified. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

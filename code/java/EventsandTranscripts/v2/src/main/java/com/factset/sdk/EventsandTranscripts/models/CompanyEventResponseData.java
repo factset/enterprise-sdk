@@ -562,11 +562,11 @@ public class CompanyEventResponseData implements Serializable {
   }
 
    /**
-   * Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types. 
+   * Unique identifier for the report.   **Note:** The &#x60;reportId&#x60; field is only applicable to certain event types.     For the following event types, &#x60;reportId&#x60; is not applicable and will therefore be included in the response with a null value:      - &#x60;ConfirmedEarningsRelease&#x60;     - &#x60;ProjectedEarningsRelease&#x60;     - &#x60;SalesRevenueRelease&#x60;     - &#x60;Split&#x60;     - &#x60;Dividend&#x60; 
    * @return reportId
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2750388", value = "Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types. ")
+  @ApiModelProperty(example = "2750388", value = "Unique identifier for the report.   **Note:** The `reportId` field is only applicable to certain event types.     For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:      - `ConfirmedEarningsRelease`     - `ProjectedEarningsRelease`     - `SalesRevenueRelease`     - `Split`     - `Dividend` ")
   @JsonProperty(JSON_PROPERTY_REPORT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

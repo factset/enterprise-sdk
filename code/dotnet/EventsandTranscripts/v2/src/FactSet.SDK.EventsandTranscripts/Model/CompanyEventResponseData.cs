@@ -138,7 +138,7 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         /// <param name="contactEmail">Contact email for inquiries related to the event..</param>
         /// <param name="contactPhone">Contact phone number for inquiries related to the event..</param>
         /// <param name="contactName">Name of the contact person for queries related to the event..</param>
-        /// <param name="reportId">Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types. .</param>
+        /// <param name="reportId">Unique identifier for the report.   **Note:** The &#x60;reportId&#x60; field is only applicable to certain event types.     For the following event types, &#x60;reportId&#x60; is not applicable and will therefore be included in the response with a null value:      - &#x60;ConfirmedEarningsRelease&#x60;     - &#x60;ProjectedEarningsRelease&#x60;     - &#x60;SalesRevenueRelease&#x60;     - &#x60;Split&#x60;     - &#x60;Dividend&#x60; .</param>
         /// <param name="lastModifiedDate">The date and time when the event was last modified..</param>
         public CompanyEventResponseData(string identifier = default(string), string requestId = default(string), string entityName = default(string), string description = default(string), DateTime eventDateTime = default(DateTime), string marketTimeCode = default(string), EventTypeEnum? eventType = default(EventTypeEnum?), string eventId = default(string), string webcastLink = default(string), string irLink = default(string), string fiscalYear = default(string), string fiscalPeriod = default(string), string contactEmail = default(string), string contactPhone = default(string), string contactName = default(string), string reportId = default(string), DateTime lastModifiedDate = default(DateTime))
         {
@@ -260,9 +260,9 @@ namespace FactSet.SDK.EventsandTranscripts.Model
         public string ContactName { get; set; }
 
         /// <summary>
-        /// Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types. 
+        /// Unique identifier for the report.   **Note:** The &#x60;reportId&#x60; field is only applicable to certain event types.     For the following event types, &#x60;reportId&#x60; is not applicable and will therefore be included in the response with a null value:      - &#x60;ConfirmedEarningsRelease&#x60;     - &#x60;ProjectedEarningsRelease&#x60;     - &#x60;SalesRevenueRelease&#x60;     - &#x60;Split&#x60;     - &#x60;Dividend&#x60; 
         /// </summary>
-        /// <value>Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types. </value>
+        /// <value>Unique identifier for the report.   **Note:** The &#x60;reportId&#x60; field is only applicable to certain event types.     For the following event types, &#x60;reportId&#x60; is not applicable and will therefore be included in the response with a null value:      - &#x60;ConfirmedEarningsRelease&#x60;     - &#x60;ProjectedEarningsRelease&#x60;     - &#x60;SalesRevenueRelease&#x60;     - &#x60;Split&#x60;     - &#x60;Dividend&#x60; </value>
         [DataMember(Name = "reportId", EmitDefaultValue = false)]
         public string ReportId { get; set; }
 

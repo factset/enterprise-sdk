@@ -4639,8 +4639,12 @@ components:
           example: John Doe
           type: string
         reportId:
-          description: "Unique identifier for the report. \n\n**Note:** We do not\
-            \ have a reportId for split and dividend event types.\n"
+          description: "Unique identifier for the report. \n\n**Note:** The `reportId`\
+            \ field is only applicable to certain event types.\n    For the following\
+            \ event types, `reportId` is not applicable and will therefore be included\
+            \ in the response with a null value:\n\n    - `ConfirmedEarningsRelease`\n\
+            \    - `ProjectedEarningsRelease`\n    - `SalesRevenueRelease`\n    -\
+            \ `Split`\n    - `Dividend`\n"
           example: "2750388"
           type: string
         lastModifiedDate:

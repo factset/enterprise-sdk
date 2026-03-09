@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **ContactEmail** | **string** | Contact email for inquiries related to the event. | [optional] 
 **ContactPhone** | **string** | Contact phone number for inquiries related to the event. | [optional] 
 **ContactName** | **string** | Name of the contact person for queries related to the event. | [optional] 
-**ReportId** | **string** | Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types.  | [optional] 
+**ReportId** | **string** | Unique identifier for the report.   **Note:** The &#x60;reportId&#x60; field is only applicable to certain event types.     For the following event types, &#x60;reportId&#x60; is not applicable and will therefore be included in the response with a null value:      - &#x60;ConfirmedEarningsRelease&#x60;     - &#x60;ProjectedEarningsRelease&#x60;     - &#x60;SalesRevenueRelease&#x60;     - &#x60;Split&#x60;     - &#x60;Dividend&#x60;  | [optional] 
 **LastModifiedDate** | **DateTime** | The date and time when the event was last modified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

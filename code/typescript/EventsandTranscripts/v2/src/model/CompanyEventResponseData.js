@@ -195,7 +195,7 @@ CompanyEventResponseData.prototype['contactPhone'] = undefined;
 CompanyEventResponseData.prototype['contactName'] = undefined;
 
 /**
- * Unique identifier for the report.   **Note:** We do not have a reportId for split and dividend event types. 
+ * Unique identifier for the report.   **Note:** The `reportId` field is only applicable to certain event types.     For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:      - `ConfirmedEarningsRelease`     - `ProjectedEarningsRelease`     - `SalesRevenueRelease`     - `Split`     - `Dividend` 
  * @member {String} reportId
  */
 CompanyEventResponseData.prototype['reportId'] = undefined;

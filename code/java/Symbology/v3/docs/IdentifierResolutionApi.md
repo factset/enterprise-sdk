@@ -168,7 +168,7 @@ The Identifier Resolution endpoint provides flexibility for requesting and recei
 * **tickerExchange** - Ticker Exchange is a marketplace where stocks, bonds, commodities, and derivatives are bought and sold. (e.g. GOOGL-NAS)
 * **tickerRegion** - Ticker Region is the geographical region or market segment where a particular stock or security is listed and traded. (e.g. GOOGL-US)
 * **bloombergFigi** - Bloomberg Listing/Regional/Security Identifier (output symbols: bloombergFigiListing, bloombergFigiRegional & bloombergFigiSecurity) (e.g. BBG009S39JY5)
-* **bloombergTicker** - Bloomberg Listing and Regional Ticker Identifier (output symbols: bloombergRegionalTicker & bloombergListingTicker) (e.g. GOOGL UW)
+* **bloombergTicker** - Bloomberg Listing/Regional/Security Identifier (output symbols: bloombergTickerListing, bloombergTickerRegional & bloombergTickerSecurity) (e.g. GOOGL UW)
 * **GVKEY** - CompuStat Entity Identifier (e.g. 063172)(Input only)
 * **GVKEY & IID** - CompuStat Security Identifier (e.g.063172001) (Input only)
 * **JCN** - Japan Corporate Number (e.g. 9011101021173)

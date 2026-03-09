@@ -88,9 +88,9 @@ paths:
         (output symbols: bloombergFigiListing, bloombergFigiRegional &
         bloombergFigiSecurity) (e.g. BBG009S39JY5)
 
-        * **bloombergTicker** - Bloomberg Listing and Regional Ticker Identifier
-        (output symbols: bloombergRegionalTicker & bloombergListingTicker) (e.g.
-        GOOGL UW)
+        * **bloombergTicker** - Bloomberg Listing/Regional/Security Identifier
+        (output symbols: bloombergTickerListing, bloombergTickerRegional &
+        bloombergTickerSecurity) (e.g. GOOGL UW)
 
         * **GVKEY** - CompuStat Entity Identifier (e.g. 063172)(Input only)
 
