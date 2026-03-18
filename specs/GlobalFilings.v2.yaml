@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Global Filings API
-  version: 2.2.0
+  version: 2.2.1
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -625,6 +625,7 @@ components:
         requestId:
           type: string
           description: The requested identifier associated with this group of documents.
+          nullable: true
         documents:
           type: array
           description: Contains list of documents
@@ -836,7 +837,8 @@ components:
       properties:
         requestId:
           type: string
-          description: id
+          description: Identifier provided in the request.
+          nullable: true
           example: IBM-US
         source:
           type: string
@@ -930,7 +932,6 @@ components:
         maxItems: 1000
       in: query
       name: ids
-      required: true
       examples:
         oneId:
           summary: One identifier
@@ -951,8 +952,11 @@ components:
             - SYRE-US
       description: >-
         Requested symbols or securities.  This is a comma-separated list with a
-        maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, SEDOL, ISIN, or Entity ID
+        maximum limit of 1000.  Each symbol can be a FactSet exchange
+        symbol,CUSIP, SEDOL, ISIN, or Entity ID
+
+        > **Note**: If this parameter is not used should return null for the
+        requestId field in the response. 
       explode: false
     countIds:
       schema:
@@ -963,7 +967,6 @@ components:
         maxItems: 1000
       in: query
       name: ids
-      required: true
       examples:
         oneId:
           summary: One identifier
@@ -976,8 +979,11 @@ components:
             - OSIS-US
       description: >-
         Requested symbols or securities.  This is a comma-separated list with a
-        maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, SEDOL, ISIN, or Entity ID
+        maximum limit of 1000.  Each symbol can be a FactSet exchange
+        symbol,mCUSIP, SEDOL, ISIN, or Entity ID
+
+        > **Note**: If this parameter is not used should return null for the
+        requestId field in the response
       explode: false
     startDate:
       schema:

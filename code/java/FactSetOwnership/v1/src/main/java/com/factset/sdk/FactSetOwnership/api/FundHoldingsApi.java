@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetOwnership.models.BatchStatusResponse;
 import com.factset.sdk.FactSetOwnership.models.ErrorResponse;
 import com.factset.sdk.FactSetOwnership.models.FundHoldingsRequest;
 import com.factset.sdk.FactSetOwnership.models.FundHoldingsResponse;
@@ -31,6 +32,7 @@ public class FundHoldingsApi {
   private static final Map<Integer, GenericType> getOwnershipHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOwnershipHoldingsResponseTypeMap.put(200, new GenericType<FundHoldingsResponse>(){});
+    getOwnershipHoldingsResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getOwnershipHoldingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getOwnershipHoldingsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getOwnershipHoldingsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -41,6 +43,7 @@ public class FundHoldingsApi {
   private static final Map<Integer, GenericType> postOwnershipHoldingsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postOwnershipHoldingsResponseTypeMap.put(200, new GenericType<FundHoldingsResponse>(){});
+    postOwnershipHoldingsResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     postOwnershipHoldingsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     postOwnershipHoldingsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     postOwnershipHoldingsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -49,6 +52,170 @@ public class FundHoldingsApi {
   }
 
   
+ /**
+   * Wrapper to support GET /fund-holdings returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code FundHoldingsResponse }<br>Fund Holdings Response.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetOwnershipHoldingsResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     FundHoldingsResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetOwnershipHoldingsResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetOwnershipHoldingsResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public FundHoldingsResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (FundHoldingsResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetOwnershipHoldingsResponseWrapper other = (GetOwnershipHoldingsResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetOwnershipHoldingsResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support POST /fund-holdings returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code FundHoldingsResponse }<br>Fund Holdings Response.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PostOwnershipHoldingsResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     FundHoldingsResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PostOwnershipHoldingsResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PostOwnershipHoldingsResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public FundHoldingsResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (FundHoldingsResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PostOwnershipHoldingsResponseWrapper other = (PostOwnershipHoldingsResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PostOwnershipHoldingsResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
 
 
   /**
@@ -78,12 +245,13 @@ public class FundHoldingsApi {
    * @param assetType Filter holdings by the following major asset classes -   * **EQ**  &#x3D; Equity   * **FI** &#x3D; Fixed Income   * **ALL** &#x3D; ALL  (optional, default to EQ)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return FundHoldingsResponse
+   * @return GetOwnershipHoldingsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Fund Holdings Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -91,7 +259,7 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public FundHoldingsResponse getOwnershipHoldings(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
+  public GetOwnershipHoldingsResponseWrapper getOwnershipHoldings(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
     return getOwnershipHoldingsWithHttpInfo(ids, date, topn, assetType, currency, batch).getData();
   }
 
@@ -104,12 +272,13 @@ public class FundHoldingsApi {
    * @param assetType Filter holdings by the following major asset classes -   * **EQ**  &#x3D; Equity   * **FI** &#x3D; Fixed Income   * **ALL** &#x3D; ALL  (optional, default to EQ)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return ApiResponse&lt;FundHoldingsResponse&gt;
+   * @return ApiResponse&lt;GetOwnershipHoldingsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Fund Holdings Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -117,7 +286,7 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FundHoldingsResponse> getOwnershipHoldingsWithHttpInfo(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
+  public ApiResponse<GetOwnershipHoldingsResponseWrapper> getOwnershipHoldingsWithHttpInfo(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -158,26 +327,34 @@ public class FundHoldingsApi {
 
 
     ApiResponse<
+        Object
         
-        FundHoldingsResponse
       
     > apiResponse = apiClient.invokeAPI("FundHoldingsApi.getOwnershipHoldings", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getOwnershipHoldingsResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    GetOwnershipHoldingsResponseWrapper responseWrapper = new GetOwnershipHoldingsResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetOwnershipHoldingsResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
   /**
    * Get holdings for a list of funds.
    * Gets Holding information for a long list of Fund objects.
    * @param fundHoldingsRequest Requesting Underlying Holdings for a list of Fund Identifiers. (required)
-   * @return FundHoldingsResponse
+   * @return PostOwnershipHoldingsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Fund Holdings Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -185,7 +362,7 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public FundHoldingsResponse postOwnershipHoldings(FundHoldingsRequest fundHoldingsRequest) throws ApiException {
+  public PostOwnershipHoldingsResponseWrapper postOwnershipHoldings(FundHoldingsRequest fundHoldingsRequest) throws ApiException {
     return postOwnershipHoldingsWithHttpInfo(fundHoldingsRequest).getData();
   }
 
@@ -193,12 +370,13 @@ public class FundHoldingsApi {
    * Get holdings for a list of funds.
    * Gets Holding information for a long list of Fund objects.
    * @param fundHoldingsRequest Requesting Underlying Holdings for a list of Fund Identifiers. (required)
-   * @return ApiResponse&lt;FundHoldingsResponse&gt;
+   * @return ApiResponse&lt;PostOwnershipHoldingsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Fund Holdings Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -206,7 +384,7 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<FundHoldingsResponse> postOwnershipHoldingsWithHttpInfo(FundHoldingsRequest fundHoldingsRequest) throws ApiException {
+  public ApiResponse<PostOwnershipHoldingsResponseWrapper> postOwnershipHoldingsWithHttpInfo(FundHoldingsRequest fundHoldingsRequest) throws ApiException {
     Object localVarPostBody = fundHoldingsRequest;
     
     // verify the required parameter 'fundHoldingsRequest' is set
@@ -241,14 +419,21 @@ public class FundHoldingsApi {
 
 
     ApiResponse<
+        Object
         
-        FundHoldingsResponse
       
     > apiResponse = apiClient.invokeAPI("FundHoldingsApi.postOwnershipHoldings", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, postOwnershipHoldingsResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    PostOwnershipHoldingsResponseWrapper responseWrapper = new PostOwnershipHoldingsResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PostOwnershipHoldingsResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
 }

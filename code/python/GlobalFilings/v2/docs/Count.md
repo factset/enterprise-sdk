@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_id** | **str** | id | [optional] 
+**request_id** | **str, none_type** | Identifier provided in the request. | [optional] 
 **source** | **str** | source | [optional] 
 **count** | **str** | source value | [optional] 
 **error** | [**InvalidIdErrorObject**](InvalidIdErrorObject.md) |  | [optional] 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **get_count**
-> CountResponse get_count(ids, sources)
+> CountResponse get_count(sources)
 
 Returns the count of filings for specified source.
 
@@ -61,10 +61,10 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["MODN-US"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
     sources = ["EDG"] # [str] | Code for document source to include.This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.  
     start_date = "20240601" # str | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)
     end_date = "20241101" # str | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional)
+    ids = ["MODN-US"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response (optional)
     time_zone = "America/New_York" # str | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. (optional) if omitted the server will use the default value of "America/New_York"
     categories = ["CN:US"] # [str] | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories. (optional)
     primary_id = False # bool | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional) if omitted the server will use the default value of False
@@ -75,7 +75,7 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
         # Returns the count of filings for specified source.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_count(ids, sources, start_date=start_date, end_date=end_date, time_zone=time_zone, categories=categories, primary_id=primary_id, search_text=search_text, form_types=form_types)
+        api_response = api_instance.get_count(sources, start_date=start_date, end_date=end_date, ids=ids, time_zone=time_zone, categories=categories, primary_id=primary_id, search_text=search_text, form_types=form_types)
 
         pprint(api_response)
 
@@ -88,10 +88,10 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
  **sources** | **[str]**| Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   |
  **start_date** | **str**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional]
  **end_date** | **str**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional]
+ **ids** | **[str]**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response | [optional]
  **time_zone** | **str**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. | [optional] if omitted the server will use the default value of "America/New_York"
  **categories** | **[str]**| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
  **primary_id** | **bool**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] if omitted the server will use the default value of False
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_filings**
-> SearchResponse get_filings(ids, sources)
+> SearchResponse get_filings(sources)
 
 Returns the filings documents and related metadata within FactSet coverage.
 
@@ -176,8 +176,8 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
     api_instance = filings_api_api.FilingsAPIApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["MODN-US"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
     sources = ["EDG"] # [str] | 
+    ids = ["MODN-US"] # [str] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response.  (optional)
     start_date = "20240601" # str | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)
     end_date = "20241101" # str | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional)
     pagination_limit = 20 # int | Number of results to return per page. (optional) if omitted the server will use the default value of 25
@@ -194,7 +194,7 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
         # Returns the filings documents and related metadata within FactSet coverage.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_filings(ids, sources, start_date=start_date, end_date=end_date, pagination_limit=pagination_limit, pagination_offset=pagination_offset, time_zone=time_zone, sort=sort, categories=categories, primary_id=primary_id, search_text=search_text, form_types=form_types, edgar_accession=edgar_accession)
+        api_response = api_instance.get_filings(sources, ids=ids, start_date=start_date, end_date=end_date, pagination_limit=pagination_limit, pagination_offset=pagination_offset, time_zone=time_zone, sort=sort, categories=categories, primary_id=primary_id, search_text=search_text, form_types=form_types, edgar_accession=edgar_accession)
 
         pprint(api_response)
 
@@ -207,8 +207,8 @@ with fds.sdk.GlobalFilings.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
  **sources** | **[str]**|  |
+ **ids** | **[str]**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  | [optional]
  **start_date** | **str**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional]
  **end_date** | **str**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional]
  **pagination_limit** | **int**| Number of results to return per page. | [optional] if omitted the server will use the default value of 25

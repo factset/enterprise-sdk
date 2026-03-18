@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**requestId** | **String** | Identifier that was used for the request. |  [optional]
 **fsymId** | **String** |  |  [optional]
 **metric** | **String** | Company&#39;s Financial statement &#39;metric&#39; that is estimated. Use the factset-estimates/v#/metrics endpoint for a complete list. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). |  [optional]
 **periodicity** | **String** | Company&#39;s &#39;periodicity&#39; for the estimate record, reflecting Annual, Quarterly, or Semi-Annual report periods. |  [optional]
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 **fiscalEndDate** | **LocalDate** | Company&#39;s &#39;fiscal end date&#39; for the estimate record expressed in YYYY-MM-DD format |  [optional]
 **relativePeriod** | **Integer** | &#39;Fiscal period&#39; based on relationship to &#39;estimate date&#39;. This is not applicable for fixed-consensus endpoint. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) |  [optional]
 **currency** | **String** | Currency code for adjusting the data. Use &#39;ESTIMATE&#39; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). |  [optional]
+**estimateCurrency** | **String** | Estimate currency of the requested Security |  [optional]
 **estimateDate** | **LocalDate** | Date of estimate expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) |  [optional]
 **estimateValue** | **Double** | The value of the estimate. |  [optional]
 **analystId** | **String** | The FactSet Entity Identifier for the analyst making the estimate. |  [optional]
@@ -27,11 +29,9 @@ Name | Type | Description | Notes
 **section** | **String** | Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus |  [optional]
 **statusCode** | **Integer** | Status code of the estimate. |  [optional]
 **statusText** | **String** | Status description of the estimate. |  [optional]
-**requestId** | **String** | Identifier that was used for the request. |  [optional]
 **inputDateTime** | **String** | Date and time when the data is available at the source. |  [optional]
 **securityCurrency** | **String** | The currency that the company trades in. |  [optional]
 **brokerEstimateCurrency** | **String** | The currency in which estimates are made by broker. |  [optional]
-**estimateCurrency** | **String** | Estimate currency of the requested Security |  [optional]
 
 
 ## Implemented Interfaces

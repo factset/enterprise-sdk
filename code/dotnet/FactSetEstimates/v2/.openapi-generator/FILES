@@ -44,8 +44,10 @@ docs/GuidanceRequestBody.md
 docs/GuidanceResponse.md
 docs/Meta.md
 docs/Metric.md
+docs/MetricSegmentDetail.md
 docs/MetricsRequest.md
 docs/MetricsResponse.md
+docs/MetricsSegmentDetailResponse.md
 docs/Pagination.md
 docs/Periodicity.md
 docs/PeriodicityDetail.md
@@ -60,6 +62,9 @@ docs/SegmentActualsRequest.md
 docs/SegmentActualsResponse.md
 docs/SegmentType.md
 docs/SegmentsApi.md
+docs/SegmentsDetailsEstimate.md
+docs/SegmentsDetailsRequest.md
+docs/SegmentsDetailsResponse.md
 docs/SegmentsEstimate.md
 docs/SegmentsRequest.md
 docs/SegmentsResponse.md
@@ -136,8 +141,10 @@ src/FactSet.SDK.FactSetEstimates/Model/GuidanceRequestBody.cs
 src/FactSet.SDK.FactSetEstimates/Model/GuidanceResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/Meta.cs
 src/FactSet.SDK.FactSetEstimates/Model/Metric.cs
+src/FactSet.SDK.FactSetEstimates/Model/MetricSegmentDetail.cs
 src/FactSet.SDK.FactSetEstimates/Model/MetricsRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/MetricsResponse.cs
+src/FactSet.SDK.FactSetEstimates/Model/MetricsSegmentDetailResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/Pagination.cs
 src/FactSet.SDK.FactSetEstimates/Model/Periodicity.cs
 src/FactSet.SDK.FactSetEstimates/Model/PeriodicityDetail.cs
@@ -149,6 +156,9 @@ src/FactSet.SDK.FactSetEstimates/Model/SegmentActuals.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentActualsRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentActualsResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentType.cs
+src/FactSet.SDK.FactSetEstimates/Model/SegmentsDetailsEstimate.cs
+src/FactSet.SDK.FactSetEstimates/Model/SegmentsDetailsRequest.cs
+src/FactSet.SDK.FactSetEstimates/Model/SegmentsDetailsResponse.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentsEstimate.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentsRequest.cs
 src/FactSet.SDK.FactSetEstimates/Model/SegmentsResponse.cs

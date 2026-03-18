@@ -1,12 +1,12 @@
 # securitymodeling.SecurityModelingApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/security-modeling/v3/securities*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteSecurities**](SecurityModelingApi.md#deleteSecurities) | **POST** /analytics/security-modeling/v3/securities/delete | Delete existing securities
-[**getSecurities**](SecurityModelingApi.md#getSecurities) | **POST** /analytics/security-modeling/v3/securities/retrieve | Get existing securities
-[**upsertSecurities**](SecurityModelingApi.md#upsertSecurities) | **POST** /analytics/security-modeling/v3/securities/upsert | Create or update securities
+[**deleteSecurities**](SecurityModelingApi.md#deleteSecurities) | **POST** /delete | Delete existing securities
+[**getSecurities**](SecurityModelingApi.md#getSecurities) | **POST** /retrieve | Get existing securities
+[**upsertSecurities**](SecurityModelingApi.md#upsertSecurities) | **POST** /upsert | Create or update securities
 
 
 

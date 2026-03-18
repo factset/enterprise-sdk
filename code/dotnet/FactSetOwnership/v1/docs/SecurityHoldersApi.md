@@ -26,6 +26,7 @@ Gets security ownership details and activity for the requested security identifi
 
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetOwnership.Api;
@@ -71,8 +72,20 @@ namespace Example
             try
             {
                 // Get security ownership data for requested security identifers.
-                SecurityHoldersResponse result = apiInstance.GetSecurityHolders(ids, holderType, topn, date, currency, batch);
-                Console.WriteLine(result.ToJson());
+                SecurityHoldersApi.GetSecurityHoldersResponseWrapper result = apiInstance.GetSecurityHolders(ids, holderType, topn, date, currency, batch);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -97,7 +110,7 @@ Name | Type | Description  | Notes
  **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
-[**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+GetSecurityHoldersResponseWrapper
 
 ### Authorization
 
@@ -113,6 +126,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security Holders Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -139,6 +153,7 @@ Gets security ownership details and activity for the requested security identifi
 
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetOwnership.Api;
@@ -179,8 +194,20 @@ namespace Example
             try
             {
                 // Get security ownership data for a list of requested securities.
-                SecurityHoldersResponse result = apiInstance.PostSecurityHolders(securityHoldersRequest);
-                Console.WriteLine(result.ToJson());
+                SecurityHoldersApi.PostSecurityHoldersResponseWrapper result = apiInstance.PostSecurityHolders(securityHoldersRequest);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -200,7 +227,7 @@ Name | Type | Description  | Notes
  **securityHoldersRequest** | [**SecurityHoldersRequest**](SecurityHoldersRequest.md)| Requesting Security Holders for a list of Fund Identifiers. | 
 
 ### Return type
-[**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+PostSecurityHoldersResponseWrapper
 
 ### Authorization
 
@@ -216,6 +243,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security Holders Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

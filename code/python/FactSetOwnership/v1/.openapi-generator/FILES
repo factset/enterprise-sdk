@@ -37,6 +37,11 @@ docs/SecurityHolders.md
 docs/SecurityHoldersApi.md
 docs/SecurityHoldersRequest.md
 docs/SecurityHoldersResponse.md
+docs/ShortInterest.md
+docs/ShortInterestApi.md
+docs/ShortInterestRequest.md
+docs/ShortInterestRequestData.md
+docs/ShortInterestResponse.md
 docs/TopNHolders.md
 docs/TransactionType.md
 docs/TransactionsApi.md
@@ -46,6 +51,7 @@ fds/sdk/FactSetOwnership/api/__init__.py
 fds/sdk/FactSetOwnership/api/batch_processing_api.py
 fds/sdk/FactSetOwnership/api/fund_holdings_api.py
 fds/sdk/FactSetOwnership/api/security_holders_api.py
+fds/sdk/FactSetOwnership/api/short_interest_api.py
 fds/sdk/FactSetOwnership/api/transactions_api.py
 fds/sdk/FactSetOwnership/api_client.py
 fds/sdk/FactSetOwnership/apis/__init__.py
@@ -82,6 +88,10 @@ fds/sdk/FactSetOwnership/model/row_exclusion.py
 fds/sdk/FactSetOwnership/model/security_holders.py
 fds/sdk/FactSetOwnership/model/security_holders_request.py
 fds/sdk/FactSetOwnership/model/security_holders_response.py
+fds/sdk/FactSetOwnership/model/short_interest.py
+fds/sdk/FactSetOwnership/model/short_interest_request.py
+fds/sdk/FactSetOwnership/model/short_interest_request_data.py
+fds/sdk/FactSetOwnership/model/short_interest_response.py
 fds/sdk/FactSetOwnership/model/top_n_holders.py
 fds/sdk/FactSetOwnership/model/transaction_type.py
 fds/sdk/FactSetOwnership/model_utils.py

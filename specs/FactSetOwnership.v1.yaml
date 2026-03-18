@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.2.2
+  version: 1.3.0
   title: FactSet Ownership API
   contact:
     name: FactSet Research Systems
@@ -11,17 +11,18 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0
   description: >
     FactSet's Fund Ownership API gives access to both **Holdings**, **Holders**,
-    and **Transactions** data.<p> Factset's Holdings endpoints gives access to
-    all the underlying securities and their position details held within a given
-    fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual
-    Funds, and Exchange Traded Funds. Security Holders information retrieves all
-    "holder types" and their positions across institutions, funds, insiders, and
-    stakeholders. FactSet also provides extensive insider and institutional
-    transactions data for multiple countries including the United States, China,
-    and Canada.</p><p>The FactSet Ownership and Mutual Funds database collects
-    global equity ownership data for approximately 50,000 institutions, 60,000
-    unique Mutual Fund portfolios, and 400,000 Insider/Stakeholders from around
-    110 countries. For more details review our [Data
+    **Transactions**, and **Short Interest** data.<p> Factset's Holdings
+    endpoints gives access to all the underlying securities and their position
+    details held within a given fund. Fund Types supported include Open-End
+    Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security
+    Holders information retrieves all "holder types" and their positions across
+    institutions, funds, insiders, and stakeholders. FactSet also provides
+    extensive insider and institutional transactions data for multiple countries
+    including the United States, China, and Canada.</p><p>The FactSet Ownership
+    and Mutual Funds database collects global equity ownership data for
+    approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and
+    400,000 Insider/Stakeholders from around 110 countries. For more details
+    review our [Data
     Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079)
     methodology. </p>
 externalDocs:
@@ -43,6 +44,8 @@ tags:
     description: >-
       Operations for retrieving security ownership data across holder types
       including institutions, mutual funds, insiders, and stakeholders.
+  - name: Short Interest
+    description: Operations for retrieving short interest data for securities.
   - name: Transactions
     description: >-
       Operations for retrieving insider and institutional transaction details
@@ -80,6 +83,21 @@ paths:
                   $ref: '#/components/examples/singleIdentifer'
                 Top 5 Equity Holdings for VTI-USA, MABAX, and NZF as of 2019-12-31:
                   $ref: '#/components/examples/multipleIdentifiers'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -90,6 +108,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Fund Holdings
@@ -120,6 +139,21 @@ paths:
                   $ref: '#/components/examples/singleIdentifer'
                 Multiple identifier request for Top 5 Equity holdings as of 2019-12-31:
                   $ref: '#/components/examples/multipleIdentifiers'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -130,6 +164,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /security-holders:
     get:
       tags:
@@ -159,6 +194,21 @@ paths:
                   $ref: '#/components/examples/singleSecurityHolder'
                 Top 5 Insiders and Stakeholders of TSLA-US as of 2020-02-14:
                   $ref: '#/components/examples/insiderTop5Holders'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -169,6 +219,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Security Holders
@@ -202,6 +253,21 @@ paths:
                   $ref: '#/components/examples/singleSecurityHolder'
                 Top 5 Insiders and Stakeholders of TSLA-US as of 2020-02-14:
                   $ref: '#/components/examples/insiderTop5Holders'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -212,6 +278,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /transactions/insider:
     get:
       tags:
@@ -240,6 +307,21 @@ paths:
                   $ref: '#/components/examples/insiderTransactionsSingle'
                 Multiple identifier request - Insider Transactions Example:
                   $ref: '#/components/examples/insiderTransactionsMultiple'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -250,6 +332,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Transactions
@@ -278,6 +361,21 @@ paths:
                   $ref: '#/components/examples/insiderTransactionsSingle'
                 Multiple identifier request:
                   $ref: '#/components/examples/insiderTransactionsMultiple'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -288,6 +386,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /transactions/institutional:
     get:
       tags:
@@ -321,6 +420,21 @@ paths:
                   $ref: '#/components/examples/institutionalTransactionsSingle'
                 Multiple identifier request - Institutional Transactions Example:
                   $ref: '#/components/examples/institutionalTransactionsMultiple'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -331,6 +445,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - Transactions
@@ -363,6 +478,110 @@ paths:
                   $ref: '#/components/examples/institutionalTransactionsSingle'
                 Multiple identifier request - Institutional Transactions Example:
                   $ref: '#/components/examples/institutionalTransactionsMultiple'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
+  /short-interest:
+    get:
+      tags:
+        - Short Interest
+      summary: Gets short interest data for a requested identifier.
+      operationId: getShortInterest
+      description: >-
+        Returns short interest data for the specified security, sourced from
+        NYSE, NASDAQ, and TSX exchanges via FactSet. Data is updated
+        semi-monthly on scheduled dates and times in Eastern Time (ET). Note
+        that the exact update dates may vary slightly due to weekends, market
+        holidays, and other calendar adjustments. If the `years` parameter is
+        provided, the short interest percentage and float percentage value will
+        be returned as null, since historical data for this value is not
+        available.
+      parameters:
+        - $ref: '#/components/parameters/idShortInterest'
+        - $ref: '#/components/parameters/years'
+      responses:
+        '200':
+          description: Short Interest Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShortInterestResponse'
+              examples:
+                Single identifier request - Short Interest:
+                  $ref: '#/components/examples/shortInterestSingle'
+                Historical request - Short Interest:
+                  $ref: '#/components/examples/shortInterestHistorical'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      tags:
+        - Short Interest
+      summary: Gets short interest data for a requested identifier.
+      description: >-
+        Returns short interest data for the specified security, sourced from
+        NYSE, NASDAQ, and TSX exchanges via FactSet. Data is updated
+        semi-monthly on scheduled dates and times in Eastern Time (ET). Note
+        that the exact update dates may vary slightly due to weekends, market
+        holidays, and other calendar adjustments. If the `years` parameter is
+        provided, the short interest percentage and float percentage value will
+        be returned as null, since historical data for this value is not
+        available.
+      operationId: postShortInterest
+      requestBody:
+        required: true
+        description: Requesting short interest data for securities.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShortInterestRequest'
+            examples:
+              Request to fetch current short interest data for VTI-US:
+                $ref: '#/components/examples/shortInterestPostRequest'
+              Request to fetch historical short interest data for VTI-US:
+                $ref: '#/components/examples/shortInterestPostRequestHistorical'
+      responses:
+        '200':
+          description: Short Interest Response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShortInterestResponse'
+              examples:
+                Single identifier request:
+                  $ref: '#/components/examples/shortInterestSingle'
+                Historical request - Short Interest:
+                  $ref: '#/components/examples/shortInterestHistorical'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -560,6 +779,25 @@ components:
       type: http
       scheme: basic
   parameters:
+    idShortInterest:
+      name: ids
+      description: >-
+        Requested short interest identifier. <p>***id limit** =  1 per
+        request*</p>
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        maxItems: 1
+      required: true
+      explode: false
+      examples:
+        singleIdentifer:
+          summary: One identifier to know the Short Interest details
+          value:
+            - VTI-US
     idFundHoldings:
       name: ids
       description: >-
@@ -571,18 +809,18 @@ components:
         items:
           type: string
         minItems: 1
-        maxItems: 10
+        maxItems: 1000
       required: true
       explode: false
       examples:
         singleIdentifer:
           summary: One identifier to know the fund holding details
           value:
-            - VTI-USA
+            - VTI-US
         multipleIdentifers:
           summary: Multiple identifiers to know the fund holding details
           value:
-            - VTI-USA
+            - VTI-US
             - MABAX
             - NZF
     requestedDate:
@@ -607,6 +845,21 @@ components:
         type: string
         default: ALL
       example: '5'
+    years:
+      name: years
+      description: >-
+        Number of years of short interest data to include. Specify an integer
+        value from 1 to 10. If the years parameter is provided, the short
+        interest percentage and short interest float percentage will be returned
+        as null, since historical data for this value is not available.
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 10
+        default: null
+      example: 1
     assetType:
       name: assetType
       schema:
@@ -786,23 +1039,6 @@ components:
           * **PS** = Open Market Purchases & Sales - buying and selling shares on the open market.
           * **O** = Options Exercised - executing stock options to acquire shares.
           * **M** = Other Transactions - any other types of equity-related actions not covered above.
-    rowExclusion:
-      name: rowExclusion
-      in: query
-      schema:
-        type: string
-        enum:
-          - DB
-          - B
-          - 'N'
-        default: DB
-      description: >
-        Controls the exlcusion of specific transaction rows from the data
-        returned. By default, the service will exclude Derivative and Blank
-        Transaction Types.
-          * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
-          * **B** = Blank Transaction Types - excludes only blank transaction types.
-          * **N** =   None - includes all transaction types without exclusion.
     periodOfMeasure:
       name: periodOfMeasure
       in: query
@@ -821,6 +1057,23 @@ components:
           * **3M** = 3 Months (last 90 days)
           * **6M** = 6 Months (last 180 days)
           * **12M** = 12 Months (last 365 days)
+    rowExclusion:
+      name: rowExclusion
+      in: query
+      schema:
+        type: string
+        enum:
+          - DB
+          - B
+          - 'N'
+        default: DB
+      description: >
+        Controls the exlcusion of specific transaction rows from the data
+        returned. By default, the service will exclude Derivative and Blank
+        Transaction Types.
+          * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
+          * **B** = Blank Transaction Types - excludes only blank transaction types.
+          * **N** =   None - includes all transaction types without exclusion.
     batch:
       name: batch
       in: query
@@ -954,18 +1207,52 @@ components:
           $ref: '#/components/schemas/topNHolders'
         holderType:
           $ref: '#/components/schemas/holderType'
+        periodOfMeasure:
+          $ref: '#/components/schemas/periodOfMeasure'
         currency:
           $ref: '#/components/schemas/currency'
         frequency:
           $ref: '#/components/schemas/frequency'
-        periodOfMeasure:
-          $ref: '#/components/schemas/periodOfMeasure'
         batch:
           $ref: '#/components/schemas/Batch'
       required:
         - ids
         - startDate
         - endDate
+    ShortInterestRequest:
+      title: Short Interest Request
+      description: Short Interest Request
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ShortInterestRequestData'
+      required:
+        - data
+    ShortInterestRequestData:
+      title: Short Interest Request Body
+      description: Short Interest Request Body elements
+      type: object
+      properties:
+        ids:
+          type: array
+          description: >-
+            List of requested short interest identifiers. ***ids limit = 1 per
+            request***
+          items:
+            type: string
+          minItems: 1
+          maxItems: 1
+          example:
+            - VTI-US
+        years:
+          type: integer
+          minimum: 1
+          maximum: 10
+          default: null
+          description: ' The number of years of historical short interest data to include (integer value from 1 to 10).'
+          example: 1
+      required:
+        - ids
     fundHolding:
       title: Fund Holding
       description: fundHolding response object
@@ -991,6 +1278,7 @@ components:
             visit [Online Assistant Page
             #11262](https://oa.apps.factset.com/pages/11262).
           type: string
+          format: date
           example: '2018-06-30'
           nullable: true
         currency:
@@ -1418,6 +1706,67 @@ components:
             Security Identifier that was used in the request.
           type: string
           example: FDS-US
+    ShortInterest:
+      title: Short Interest
+      description: Short Interest response object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Security Identifier of Security. Identifies the security
+            level id requested. Six alpha-numeric characters, excluding vowels,
+            with an -S suffix (XXXXXX-S). All equity and fixed income securities
+            that exist on FactSet are allocated a security-level permanent
+            identifier.
+          type: string
+          example: Q2YN1N-S
+          nullable: true
+        requestId:
+          description: Security Identifier that was used in the request.
+          type: string
+          example: FDS-US
+        shortInterestShares:
+          type: integer
+          minimum: 0
+          description: >-
+            The total number of shares of a stock that have been sold short and
+            not yet covered. A large increase or decrease in a stock's short
+            interest from the previous month is often considered a good
+            indicator of investor sentiment.
+          example: 1530000
+          nullable: true
+        daysToCover:
+          type: number
+          format: float
+          description: >-
+            Defines how many days, given the stock's average trading volume,
+            that it would take short sellers to cover their positions. The
+            higher the ratio, the longer it would take to buy back the borrowed
+            shares.
+          example: 2.5
+          nullable: true
+        shortInterestPct:
+          type: number
+          format: float
+          description: The number of shares currently outstanding for the stock.
+          example: 0.2
+          nullable: true
+        shortInterestFloatPct:
+          type: number
+          format: float
+          description: >-
+            Number of shares outstanding (See Shares O/S) less closely held
+            shares, which are those positions held by Insider/Stake Holders
+          example: 0.2
+          nullable: true
+        asOfDate:
+          description: >-
+            Date on which the specified data or information is accurate or
+            relevant.
+          type: string
+          format: date
+          example: '2017-12-30'
+          nullable: true
     fundHoldingsResponse:
       title: Fund Holding Response
       type: object
@@ -1448,6 +1797,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/institutionalTransactions'
+    ShortInterestResponse:
+      title: Short Interest Response
+      type: object
+      description: ShortInterest response
+      properties:
+        data:
+          description: Array of Short Interest
+          type: array
+          items:
+            $ref: '#/components/schemas/ShortInterest'
     securityHoldersResponse:
       title: Security Holders Response
       type: object
@@ -1470,7 +1829,7 @@ components:
         timestamp:
           description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
           type: string
-          example: '2019-11-01T11:09:41.918Z'
+          example: '2020-06-12T16:08:51.731Z'
           format: date-time
         path:
           description: The Endpoint path {package}/version/{endpoint}
@@ -1695,7 +2054,6 @@ components:
           * **DB** =  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.
           * **B** = Blank Transaction Types - excludes only blank transaction types.
           * **N** =   None - includes all transaction types without exclusion.   
-          
     Batch:
       description: >
         Enables the ability to asynchronously "batch" the request, supporting a
@@ -1974,7 +2332,7 @@ components:
       description: The Top 5 Equity Holdings of VTI-US, MABAX, and NZF as of 2019-12-31.
       value:
         data:
-          - requestId: VTI-USA
+          - requestId: VTI-US
             fsymId: K7ZVMR-S
             date: '2019-12-31'
             currency: USD
@@ -1986,7 +2344,7 @@ components:
             fsymRegionalId: P8R3C2-R
             securityName: MICROSOFT CORP  COM
             securityTicker: MSFT-US
-          - requestId: VTI-USA
+          - requestId: VTI-US
             fsymId: K7ZVMR-S
             date: '2019-12-31'
             currency: USD
@@ -1998,7 +2356,7 @@ components:
             fsymRegionalId: MH33D6-R
             securityName: APPLE INC  COM
             securityTicker: AAPL-US
-          - requestId: VTI-USA
+          - requestId: VTI-US
             fsymId: K7ZVMR-S
             date: '2019-12-31'
             currency: USD
@@ -2010,7 +2368,7 @@ components:
             fsymRegionalId: MCNYYL-R
             securityName: AMAZON COM INC  COM
             securityTicker: AMZN-US
-          - requestId: VTI-USA
+          - requestId: VTI-US
             fsymId: K7ZVMR-S
             date: '2019-12-31'
             currency: USD
@@ -2022,7 +2380,7 @@ components:
             fsymRegionalId: QLGSL2-R
             securityName: FACEBOOK INC  CL A
             securityTicker: FB-US
-          - requestId: VTI-USA
+          - requestId: VTI-US
             fsymId: K7ZVMR-S
             date: '2019-12-31'
             currency: USD
@@ -3120,6 +3478,18 @@ components:
             periodOfMeasure: 6M
             currency: USD
             requestId: AAPL-US
+    BatchStatusAcceptedResponse:
+      description: Batch Status Accepted Response
+      value:
+        data:
+          id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+          status: queued
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: null
+          error:
+            id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+            code: GenericError
+            title: the date parameter must be in YYYY-MM-DD format
     BatchStatusQueuedResponse:
       description: Batch Status Queued Response
       value:
@@ -3159,6 +3529,134 @@ components:
             id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
             code: GenericError
             title: the date parameter must be in YYYY-MM-DD format
+    shortInterestPostRequest:
+      summary: Request for current short interest data.
+      description: Requesting short interest details for VTI-US.
+      value:
+        data:
+          ids:
+            - VTI-US
+          years: null
+    shortInterestPostRequestHistorical:
+      summary: Request for historical short interest data.
+      description: Requesting short interest details for VTI-US
+      value:
+        data:
+          ids:
+            - VTI-US
+          years: 1
+    shortInterestSingle:
+      summary: Single Identifier - Current Only Example.
+      description: >-
+        Returns the latest short interest position for the following security:
+        VTI-US
+      value:
+        data:
+          - fsymId: K7ZVMR-S
+            requestId: VTI-US
+            asOfDate: '2025-12-31'
+            shortInterestShares: 1530000
+            daysToCover: 0.92
+            shortInterestPct: 0.2
+            shortInterestFloatPct: 0.2
+    shortInterestHistorical:
+      summary: Single Identifier - Historical Example.
+      description: >-
+        Returns historical short interest positions for the following security:
+        GE-US
+      value:
+        data:
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-12-31'
+            shortInterestShares: 14187892
+            daysToCover: 3.6
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-12-31'
+            shortInterestShares: 14187892
+            daysToCover: 3.6
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-11-28'
+            shortInterestShares: 17008368
+            daysToCover: 3.69
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-10-31'
+            shortInterestShares: 12095919
+            daysToCover: 2.97
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-09-30'
+            shortInterestShares: 12894240
+            daysToCover: 2.67
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-08-29'
+            shortInterestShares: 15130836
+            daysToCover: 3.92
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-07-31'
+            shortInterestShares: 12660450
+            daysToCover: 1.91
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-06-30'
+            shortInterestShares: 15470920
+            daysToCover: 1.77
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-05-30'
+            shortInterestShares: 13246014
+            daysToCover: 2.19
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-04-30'
+            shortInterestShares: 12456295
+            daysToCover: 2.06
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-03-31'
+            shortInterestShares: 12892152
+            daysToCover: 2.74
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-02-28'
+            shortInterestShares: 15666573
+            daysToCover: 3.85
+            shortInterestPct: null
+            shortInterestFloatPct: null
+          - fsymId: K7ZVMR-S
+            requestId: GE-US
+            asOfDate: '2025-01-31'
+            shortInterestShares: 11409406
+            daysToCover: 1.59
+            shortInterestPct: null
+            shortInterestFloatPct: null
     badRequestDateFormat:
       summary: Bad Request - Date Format
       description: >-

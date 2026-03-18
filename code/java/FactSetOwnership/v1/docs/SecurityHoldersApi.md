@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getSecurityHolders
 
-> SecurityHoldersResponse getSecurityHolders(ids, holderType, topn, date, currency, batch)
+> GetSecurityHoldersResponseWrapper getSecurityHolders(ids, holderType, topn, date, currency, batch)
 
 Get security ownership data for requested security identifers.
 
@@ -33,6 +33,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.SecurityHoldersApi;
+import com.factset.sdk.FactSetOwnership.api.SecurityHoldersApi.GetSecurityHoldersResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -66,8 +67,16 @@ public class Example {
         String currency = "LOCAL"; // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
         String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
         try {
-            SecurityHoldersResponse result = apiInstance.getSecurityHolders(ids, holderType, topn, date, currency, batch);
-            System.out.println(result);
+            GetSecurityHoldersResponseWrapper result = apiInstance.getSecurityHolders(ids, holderType, topn, date, currency, batch);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // SecurityHoldersResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityHoldersApi#getSecurityHolders");
@@ -94,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+GetSecurityHoldersResponseWrapper
 
 ### Authorization
 
@@ -109,6 +118,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security Holders Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -118,7 +128,7 @@ Name | Type | Description  | Notes
 
 ## postSecurityHolders
 
-> SecurityHoldersResponse postSecurityHolders(securityHoldersRequest)
+> PostSecurityHoldersResponseWrapper postSecurityHolders(securityHoldersRequest)
 
 Get security ownership data for a list of requested securities.
 
@@ -140,6 +150,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.SecurityHoldersApi;
+import com.factset.sdk.FactSetOwnership.api.SecurityHoldersApi.PostSecurityHoldersResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -168,8 +179,16 @@ public class Example {
         SecurityHoldersApi apiInstance = new SecurityHoldersApi(defaultClient);
         SecurityHoldersRequest securityHoldersRequest = new SecurityHoldersRequest(); // SecurityHoldersRequest | Requesting Security Holders for a list of Fund Identifiers.
         try {
-            SecurityHoldersResponse result = apiInstance.postSecurityHolders(securityHoldersRequest);
-            System.out.println(result);
+            PostSecurityHoldersResponseWrapper result = apiInstance.postSecurityHolders(securityHoldersRequest);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // SecurityHoldersResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityHoldersApi#postSecurityHolders");
@@ -191,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+PostSecurityHoldersResponseWrapper
 
 ### Authorization
 
@@ -206,6 +225,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security Holders Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

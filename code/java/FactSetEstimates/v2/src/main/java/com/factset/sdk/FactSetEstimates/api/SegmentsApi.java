@@ -13,6 +13,8 @@ import java.util.Objects;
 
 import com.factset.sdk.FactSetEstimates.models.ErrorResponse;
 import java.time.LocalDate;
+import com.factset.sdk.FactSetEstimates.models.SegmentsDetailsRequest;
+import com.factset.sdk.FactSetEstimates.models.SegmentsDetailsResponse;
 import com.factset.sdk.FactSetEstimates.models.SegmentsRequest;
 import com.factset.sdk.FactSetEstimates.models.SegmentsResponse;
 
@@ -37,6 +39,16 @@ public class SegmentsApi {
     getSegmentsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getSegmentsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
     getSegmentsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> getSegmentsDetailsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getSegmentsDetailsForListResponseTypeMap.put(200, new GenericType<SegmentsDetailsResponse>(){});
+    getSegmentsDetailsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getSegmentsDetailsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getSegmentsDetailsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getSegmentsDetailsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getSegmentsDetailsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> getSegmentsForListResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -80,8 +92,8 @@ public class SegmentsApi {
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)
    * @param relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)
-   * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     (optional, default to ANN)
-   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.  (optional, default to D)
+   * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.        (optional, default to ANN)
+   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param currency Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @return SegmentsResponse
    * @throws ApiException if fails to make API call
@@ -110,8 +122,8 @@ public class SegmentsApi {
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)
    * @param relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)
-   * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.     (optional, default to ANN)
-   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.  (optional, default to D)
+   * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual    * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.   * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.        (optional, default to ANN)
+   * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param currency Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @return ApiResponse&lt;SegmentsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -187,6 +199,89 @@ public class SegmentsApi {
     > apiResponse = apiClient.invokeAPI("SegmentsApi.getSegments", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getSegmentsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Retrieves product segment detail estimates for a requested list of ids and fiscal periods
+   * Returns FactSet Estimates Details Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency.  
+   * @param segmentsDetailsRequest Request object for Product Segments estimates. (required)
+   * @return SegmentsDetailsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Segments Details Estimate data items </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public SegmentsDetailsResponse getSegmentsDetailsForList(SegmentsDetailsRequest segmentsDetailsRequest) throws ApiException {
+    return getSegmentsDetailsForListWithHttpInfo(segmentsDetailsRequest).getData();
+  }
+
+  /**
+   * Retrieves product segment detail estimates for a requested list of ids and fiscal periods
+   * Returns FactSet Estimates Details Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency.  
+   * @param segmentsDetailsRequest Request object for Product Segments estimates. (required)
+   * @return ApiResponse&lt;SegmentsDetailsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Segments Details Estimate data items </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SegmentsDetailsResponse> getSegmentsDetailsForListWithHttpInfo(SegmentsDetailsRequest segmentsDetailsRequest) throws ApiException {
+    Object localVarPostBody = segmentsDetailsRequest;
+    
+    // verify the required parameter 'segmentsDetailsRequest' is set
+    if (segmentsDetailsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'segmentsDetailsRequest' when calling getSegmentsDetailsForList");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-estimates/v2/segments-detail";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        SegmentsDetailsResponse
+      
+    > apiResponse = apiClient.invokeAPI("SegmentsApi.getSegmentsDetailsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getSegmentsDetailsForListResponseTypeMap, false);
 
     return apiResponse;
 

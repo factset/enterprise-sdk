@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **string** | id | [optional] 
+**RequestId** | **string** | Identifier provided in the request. | [optional] 
 **Source** | **string** | source | [optional] 
 **_Count** | **string** | source value | [optional] 
 **Error** | [**InvalidIdErrorObject**](InvalidIdErrorObject.md) |  | [optional] 

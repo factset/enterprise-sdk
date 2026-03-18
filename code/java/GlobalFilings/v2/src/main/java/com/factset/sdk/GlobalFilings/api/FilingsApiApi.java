@@ -70,10 +70,10 @@ public class FilingsApiApi {
   /**
    * Returns the count of filings for specified source.
    * Returns the count of filings documents along with other response fields.
-   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
    * @param sources Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   (required)
    * @param startDate Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)
    * @param endDate End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional)
+   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response (optional)
    * @param timeZone timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. (optional, default to America/New_York)
    * @param categories Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
    * @param primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)
@@ -91,17 +91,17 @@ public class FilingsApiApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public CountResponse getCount(java.util.List<String> ids, java.util.List<String> sources, String startDate, String endDate, String timeZone, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes) throws ApiException {
-    return getCountWithHttpInfo(ids, sources, startDate, endDate, timeZone, categories, primaryId, searchText, formTypes).getData();
+  public CountResponse getCount(java.util.List<String> sources, String startDate, String endDate, java.util.List<String> ids, String timeZone, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes) throws ApiException {
+    return getCountWithHttpInfo(sources, startDate, endDate, ids, timeZone, categories, primaryId, searchText, formTypes).getData();
   }
 
   /**
    * Returns the count of filings for specified source.
    * Returns the count of filings documents along with other response fields.
-   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
    * @param sources Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   (required)
    * @param startDate Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)
    * @param endDate End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional)
+   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response (optional)
    * @param timeZone timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. (optional, default to America/New_York)
    * @param categories Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. (optional)
    * @param primaryId Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional, default to false)
@@ -119,13 +119,8 @@ public class FilingsApiApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CountResponse> getCountWithHttpInfo(java.util.List<String> ids, java.util.List<String> sources, String startDate, String endDate, String timeZone, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes) throws ApiException {
+  public ApiResponse<CountResponse> getCountWithHttpInfo(java.util.List<String> sources, String startDate, String endDate, java.util.List<String> ids, String timeZone, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getCount");
-    }
     
     // verify the required parameter 'sources' is set
     if (sources == null) {
@@ -181,8 +176,8 @@ public class FilingsApiApi {
   /**
    * Returns the filings documents and related metadata within FactSet coverage.
    * Returns the filings documents within FactSet coverage along with other response fields.
-   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
    * @param sources  (required)
+   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  (optional)
    * @param startDate Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)
    * @param endDate End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional)
    * @param paginationLimit Number of results to return per page. (optional, default to 25)
@@ -206,15 +201,15 @@ public class FilingsApiApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public SearchResponse getFilings(java.util.List<String> ids, java.util.List<String> sources, String startDate, String endDate, Integer paginationLimit, Integer paginationOffset, String timeZone, java.util.List<String> sort, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes, String edgarAccession) throws ApiException {
-    return getFilingsWithHttpInfo(ids, sources, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession).getData();
+  public SearchResponse getFilings(java.util.List<String> sources, java.util.List<String> ids, String startDate, String endDate, Integer paginationLimit, Integer paginationOffset, String timeZone, java.util.List<String> sort, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes, String edgarAccession) throws ApiException {
+    return getFilingsWithHttpInfo(sources, ids, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession).getData();
   }
 
   /**
    * Returns the filings documents and related metadata within FactSet coverage.
    * Returns the filings documents within FactSet coverage along with other response fields.
-   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
    * @param sources  (required)
+   * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  (optional)
    * @param startDate Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)
    * @param endDate End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional)
    * @param paginationLimit Number of results to return per page. (optional, default to 25)
@@ -238,13 +233,8 @@ public class FilingsApiApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SearchResponse> getFilingsWithHttpInfo(java.util.List<String> ids, java.util.List<String> sources, String startDate, String endDate, Integer paginationLimit, Integer paginationOffset, String timeZone, java.util.List<String> sort, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes, String edgarAccession) throws ApiException {
+  public ApiResponse<SearchResponse> getFilingsWithHttpInfo(java.util.List<String> sources, java.util.List<String> ids, String startDate, String endDate, Integer paginationLimit, Integer paginationOffset, String timeZone, java.util.List<String> sort, java.util.List<String> categories, Boolean primaryId, String searchText, java.util.List<String> formTypes, String edgarAccession) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getFilings");
-    }
     
     // verify the required parameter 'sources' is set
     if (sources == null) {

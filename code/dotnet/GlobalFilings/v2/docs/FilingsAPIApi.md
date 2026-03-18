@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getcount"></a>
 # **GetCount**
-> CountResponse GetCount (List<string> ids, List<string> sources, string startDate = null, string endDate = null, string timeZone = null, List<string> categories = null, bool? primaryId = null, string searchText = null, List<string> formTypes = null)
+> CountResponse GetCount (List<string> sources, string startDate = null, string endDate = null, List<string> ids = null, string timeZone = null, List<string> categories = null, bool? primaryId = null, string searchText = null, List<string> formTypes = null)
 
 Returns the count of filings for specified source.
 
@@ -61,10 +61,10 @@ namespace Example
 
             var apiInstance = new FilingsAPIApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
             var sources = new List<string>(); // List<string> | Code for document source to include.This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.  
             var startDate = "20240601";  // string | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional) 
             var endDate = "20241101";  // string | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) 
+            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response (optional) 
             var timeZone = "\"America/New_York\"";  // string | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. (optional)  (default to "America/New_York")
             var categories = new List<string>(); // List<string> | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories. (optional) 
             var primaryId = false;  // bool? | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. (optional)  (default to false)
@@ -74,7 +74,7 @@ namespace Example
             try
             {
                 // Returns the count of filings for specified source.
-                CountResponse result = apiInstance.GetCount(ids, sources, startDate, endDate, timeZone, categories, primaryId, searchText, formTypes);
+                CountResponse result = apiInstance.GetCount(sources, startDate, endDate, ids, timeZone, categories, primaryId, searchText, formTypes);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -92,10 +92,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**List&lt;string&gt;**](string.md)| Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   | 
  **startDate** | **string**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **string**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response | [optional] 
  **timeZone** | **string**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. | [optional] [default to &quot;America/New_York&quot;]
  **categories** | [**List&lt;string&gt;**](string.md)| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
  **primaryId** | **bool?**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 <a name="getfilings"></a>
 # **GetFilings**
-> SearchResponse GetFilings (List<string> ids, List<string> sources, string startDate = null, string endDate = null, int? paginationLimit = null, int? paginationOffset = null, string timeZone = null, List<string> sort = null, List<string> categories = null, bool? primaryId = null, string searchText = null, List<string> formTypes = null, string edgarAccession = null)
+> SearchResponse GetFilings (List<string> sources, List<string> ids = null, string startDate = null, string endDate = null, int? paginationLimit = null, int? paginationOffset = null, string timeZone = null, List<string> sort = null, List<string> categories = null, bool? primaryId = null, string searchText = null, List<string> formTypes = null, string edgarAccession = null)
 
 Returns the filings documents and related metadata within FactSet coverage.
 
@@ -179,8 +179,8 @@ namespace Example
 
             var apiInstance = new FilingsAPIApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
             var sources = new List<string>(); // List<string> | 
+            var ids = new List<string>(); // List<string> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response.  (optional) 
             var startDate = "20240601";  // string | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional) 
             var endDate = "20241101";  // string | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). (optional) 
             var paginationLimit = 25;  // int? | Number of results to return per page. (optional)  (default to 25)
@@ -196,7 +196,7 @@ namespace Example
             try
             {
                 // Returns the filings documents and related metadata within FactSet coverage.
-                SearchResponse result = apiInstance.GetFilings(ids, sources, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession);
+                SearchResponse result = apiInstance.GetFilings(sources, ids, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -214,8 +214,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**List&lt;string&gt;**](string.md)|  | 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  | [optional] 
  **startDate** | **string**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **string**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
  **paginationLimit** | **int?**| Number of results to return per page. | [optional] [default to 25]

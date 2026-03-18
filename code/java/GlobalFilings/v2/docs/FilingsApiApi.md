@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getCount
 
-> CountResponse getCount(ids, sources, startDate, endDate, timeZone, categories, primaryId, searchText, formTypes)
+> CountResponse getCount(sources, startDate, endDate, ids, timeZone, categories, primaryId, searchText, formTypes)
 
 Returns the count of filings for specified source.
 
@@ -58,17 +58,17 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FilingsApiApi apiInstance = new FilingsApiApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
         java.util.List<String> sources = Arrays.asList(); // java.util.List<String> | Code for document source to include.This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.  
         String startDate = "20240601"; // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
         String endDate = "20241101"; // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response
         String timeZone = "America/New_York"; // String | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry.
         java.util.List<String> categories = Arrays.asList(); // java.util.List<String> | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories.
         Boolean primaryId = false; // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
         String searchText = "Officer"; // String | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well.
         java.util.List<String> formTypes = Arrays.asList(); // java.util.List<String> | The search to include any form types of given sources
         try {
-            CountResponse result = apiInstance.getCount(ids, sources, startDate, endDate, timeZone, categories, primaryId, searchText, formTypes);
+            CountResponse result = apiInstance.getCount(sources, startDate, endDate, ids, timeZone, categories, primaryId, searchText, formTypes);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -87,10 +87,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
  **sources** | **List&lt;String&gt;**| Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   |
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional]
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional]
+ **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response | [optional]
  **timeZone** | **String**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. | [optional] [default to America/New_York]
  **categories** | **List&lt;String&gt;**| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional]
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ## getFilings
 
-> SearchResponse getFilings(ids, sources, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession)
+> SearchResponse getFilings(sources, ids, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession)
 
 Returns the filings documents and related metadata within FactSet coverage.
 
@@ -169,8 +169,8 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         FilingsApiApi apiInstance = new FilingsApiApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
         java.util.List<String> sources = Arrays.asList(); // java.util.List<String> | 
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response. 
         String startDate = "20240601"; // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
         String endDate = "20241101"; // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
         Integer paginationLimit = 25; // Integer | Number of results to return per page.
@@ -183,7 +183,7 @@ public class Example {
         java.util.List<String> formTypes = Arrays.asList(); // java.util.List<String> | The search to include any form types of given sources
         String edgarAccession = "edgarAccession_example"; // String | A unique identifier given to each EDGAR filings document. e.g. accession=0001013237-21-000069&sources=EDG.   > **Note:**  > When used in conjunction with the 'sources' parameter set to 'EDGAR, the API considers this accession for data retrieval.  > For non-EDGAR sources, this parameter is ignored.
         try {
-            SearchResponse result = apiInstance.getFilings(ids, sources, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession);
+            SearchResponse result = apiInstance.getFilings(sources, ids, startDate, endDate, paginationLimit, paginationOffset, timeZone, sort, categories, primaryId, searchText, formTypes, edgarAccession);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -202,8 +202,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID |
  **sources** | **List&lt;String&gt;**|  |
+ **ids** | **List&lt;String&gt;**| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  | [optional]
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional]
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional]
  **paginationLimit** | **Integer**| Number of results to return per page. | [optional] [default to 25]

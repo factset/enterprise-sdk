@@ -35,6 +35,11 @@ docs/SecurityHolders.md
 docs/SecurityHoldersApi.md
 docs/SecurityHoldersRequest.md
 docs/SecurityHoldersResponse.md
+docs/ShortInterest.md
+docs/ShortInterestApi.md
+docs/ShortInterestRequest.md
+docs/ShortInterestRequestData.md
+docs/ShortInterestResponse.md
 docs/TopNHolders.md
 docs/TransactionType.md
 docs/TransactionsApi.md
@@ -60,6 +65,7 @@ src/main/java/com/factset/sdk/FactSetOwnership/StringUtil.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/BatchProcessingApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/FundHoldingsApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/SecurityHoldersApi.java
+src/main/java/com/factset/sdk/FactSetOwnership/api/ShortInterestApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/TransactionsApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/FactSetOwnership/auth/Authentication.java
@@ -96,5 +102,9 @@ src/main/java/com/factset/sdk/FactSetOwnership/models/RowExclusion.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/SecurityHolders.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/SecurityHoldersRequest.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/SecurityHoldersResponse.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/ShortInterest.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/ShortInterestRequest.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/ShortInterestRequestData.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/ShortInterestResponse.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/TopNHolders.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/TransactionType.java

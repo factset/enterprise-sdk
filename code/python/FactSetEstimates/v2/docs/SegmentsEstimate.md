@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **segment_level** | **str, none_type** | Returns the level of the segment item as either P &#x3D; Parent or S &#x3D; Subordinate | [optional] 
 **fiscal_end_date** | **date, none_type** | Company&#39;s &#39;fiscal end date&#39; for the estimate record expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) | [optional] 
 **estimate_date** | **date, none_type** | The date the estimates are as of in YYYY-MM-DD format. | [optional] 
-**currency** | **str, none_type** | Currency used estimates in consensus calculations. Use &#39;ESTIMATE&#39; as input for values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
+**currency** | **str, none_type** | Currency used estimates in consensus calculations. Use &#39;ESTIMATE&#39; as input for values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page $0#1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **estimate_currency** | **str, none_type** | Estimate currency of the requested Security | [optional] 
 **mean** | **float, none_type** | Mean of estimates in consensus calculation. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114) | [optional] 
 **median** | **float, none_type** | Median of estimates in consensus calculation. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16114) | [optional] 

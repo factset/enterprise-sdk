@@ -1,12 +1,12 @@
 # FactSet.SDK.SecurityModeling.Api.SecurityModelingApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *https://api.factset.com/analytics/security-modeling/v3/securities*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DeleteSecurities**](SecurityModelingApi.md#deletesecurities) | **POST** /analytics/security-modeling/v3/securities/delete | Delete existing securities
-[**GetSecurities**](SecurityModelingApi.md#getsecurities) | **POST** /analytics/security-modeling/v3/securities/retrieve | Get existing securities
-[**UpsertSecurities**](SecurityModelingApi.md#upsertsecurities) | **POST** /analytics/security-modeling/v3/securities/upsert | Create or update securities
+[**DeleteSecurities**](SecurityModelingApi.md#deletesecurities) | **POST** /delete | Delete existing securities
+[**GetSecurities**](SecurityModelingApi.md#getsecurities) | **POST** /retrieve | Get existing securities
+[**UpsertSecurities**](SecurityModelingApi.md#upsertsecurities) | **POST** /upsert | Create or update securities
 
 
 
@@ -104,6 +104,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Expected response, deletes existing securities. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **204** | Expected response, all existing securities deleted successfully. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |

@@ -39,5 +39,9 @@ from fds.sdk.FactSetOwnership.model.row_exclusion import RowExclusion
 from fds.sdk.FactSetOwnership.model.security_holders import SecurityHolders
 from fds.sdk.FactSetOwnership.model.security_holders_request import SecurityHoldersRequest
 from fds.sdk.FactSetOwnership.model.security_holders_response import SecurityHoldersResponse
+from fds.sdk.FactSetOwnership.model.short_interest import ShortInterest
+from fds.sdk.FactSetOwnership.model.short_interest_request import ShortInterestRequest
+from fds.sdk.FactSetOwnership.model.short_interest_request_data import ShortInterestRequestData
+from fds.sdk.FactSetOwnership.model.short_interest_response import ShortInterestResponse
 from fds.sdk.FactSetOwnership.model.top_n_holders import TopNHolders
 from fds.sdk.FactSetOwnership.model.transaction_type import TransactionType

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getOwnershipInsiderTransactions
 
-> InsiderTransactionsResponse getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch)
+> GetOwnershipInsiderTransactionsResponseWrapper getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch)
 
 Get insider transactions details for a list of requested identifiers.
 
@@ -36,6 +36,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.TransactionsApi;
+import com.factset.sdk.FactSetOwnership.api.TransactionsApi.GetOwnershipInsiderTransactionsResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -70,8 +71,16 @@ public class Example {
         String currency = "LOCAL"; // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
         String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
         try {
-            InsiderTransactionsResponse result = apiInstance.getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch);
-            System.out.println(result);
+            GetOwnershipInsiderTransactionsResponseWrapper result = apiInstance.getOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // InsiderTransactionsResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling TransactionsApi#getOwnershipInsiderTransactions");
@@ -99,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InsiderTransactionsResponse**](InsiderTransactionsResponse.md)
+GetOwnershipInsiderTransactionsResponseWrapper
 
 ### Authorization
 
@@ -114,6 +123,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Insider Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -123,7 +133,7 @@ Name | Type | Description  | Notes
 
 ## getOwnershipInstitutionalTransactions
 
-> InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch)
+> GetOwnershipInstitutionalTransactionsResponseWrapper getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch)
 
 Get institutional transaction details for a list of requested identifiers.
 
@@ -146,6 +156,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.TransactionsApi;
+import com.factset.sdk.FactSetOwnership.api.TransactionsApi.GetOwnershipInstitutionalTransactionsResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -182,8 +193,16 @@ public class Example {
         String periodOfMeasure = "1M"; // String | Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** = 1 Month (last 30 days)   * **3M** = 3 Months (last 90 days)   * **6M** = 6 Months (last 180 days)   * **12M** = 12 Months (last 365 days) 
         String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
         try {
-            InstitutionalTransactionsResponse result = apiInstance.getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch);
-            System.out.println(result);
+            GetOwnershipInstitutionalTransactionsResponseWrapper result = apiInstance.getOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // InstitutionalTransactionsResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling TransactionsApi#getOwnershipInstitutionalTransactions");
@@ -213,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InstitutionalTransactionsResponse**](InstitutionalTransactionsResponse.md)
+GetOwnershipInstitutionalTransactionsResponseWrapper
 
 ### Authorization
 
@@ -228,6 +247,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Institutional Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -237,7 +257,7 @@ Name | Type | Description  | Notes
 
 ## postOwnershipInsiderTransactions
 
-> InsiderTransactionsResponse postOwnershipInsiderTransactions(insiderTransactionsRequest)
+> PostOwnershipInsiderTransactionsResponseWrapper postOwnershipInsiderTransactions(insiderTransactionsRequest)
 
 Get insider transactions details for a list of requested identifiers.
 
@@ -258,6 +278,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.TransactionsApi;
+import com.factset.sdk.FactSetOwnership.api.TransactionsApi.PostOwnershipInsiderTransactionsResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -286,8 +307,16 @@ public class Example {
         TransactionsApi apiInstance = new TransactionsApi(defaultClient);
         InsiderTransactionsRequest insiderTransactionsRequest = new InsiderTransactionsRequest(); // InsiderTransactionsRequest | Requesting Insider Transaction Details
         try {
-            InsiderTransactionsResponse result = apiInstance.postOwnershipInsiderTransactions(insiderTransactionsRequest);
-            System.out.println(result);
+            PostOwnershipInsiderTransactionsResponseWrapper result = apiInstance.postOwnershipInsiderTransactions(insiderTransactionsRequest);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // InsiderTransactionsResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling TransactionsApi#postOwnershipInsiderTransactions");
@@ -309,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InsiderTransactionsResponse**](InsiderTransactionsResponse.md)
+PostOwnershipInsiderTransactionsResponseWrapper
 
 ### Authorization
 
@@ -324,6 +353,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Insider Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -333,7 +363,7 @@ Name | Type | Description  | Notes
 
 ## postOwnershipInstitutionalTransactions
 
-> InstitutionalTransactionsResponse postOwnershipInstitutionalTransactions(institutionalTransactionsRequest)
+> PostOwnershipInstitutionalTransactionsResponseWrapper postOwnershipInstitutionalTransactions(institutionalTransactionsRequest)
 
 Gets institutional transaction details for a list of requested identifiers.
 
@@ -354,6 +384,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.TransactionsApi;
+import com.factset.sdk.FactSetOwnership.api.TransactionsApi.PostOwnershipInstitutionalTransactionsResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -382,8 +413,16 @@ public class Example {
         TransactionsApi apiInstance = new TransactionsApi(defaultClient);
         InstitutionalTransactionsRequest institutionalTransactionsRequest = new InstitutionalTransactionsRequest(); // InstitutionalTransactionsRequest | Requesting Institutional Transaction Details
         try {
-            InstitutionalTransactionsResponse result = apiInstance.postOwnershipInstitutionalTransactions(institutionalTransactionsRequest);
-            System.out.println(result);
+            PostOwnershipInstitutionalTransactionsResponseWrapper result = apiInstance.postOwnershipInstitutionalTransactions(institutionalTransactionsRequest);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // InstitutionalTransactionsResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling TransactionsApi#postOwnershipInstitutionalTransactions");
@@ -405,7 +444,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InstitutionalTransactionsResponse**](InstitutionalTransactionsResponse.md)
+PostOwnershipInstitutionalTransactionsResponseWrapper
 
 ### Authorization
 
@@ -420,6 +459,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Institutional Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

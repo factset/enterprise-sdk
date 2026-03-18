@@ -45,8 +45,10 @@ docs/GuidanceRequestBody.md
 docs/GuidanceResponse.md
 docs/Meta.md
 docs/Metric.md
+docs/MetricSegmentDetail.md
 docs/MetricsRequest.md
 docs/MetricsResponse.md
+docs/MetricsSegmentDetailResponse.md
 docs/Pagination.md
 docs/Periodicity.md
 docs/PeriodicityDetail.md
@@ -61,6 +63,9 @@ docs/SegmentActualsRequest.md
 docs/SegmentActualsResponse.md
 docs/SegmentType.md
 docs/SegmentsApi.md
+docs/SegmentsDetailsEstimate.md
+docs/SegmentsDetailsRequest.md
+docs/SegmentsDetailsResponse.md
 docs/SegmentsEstimate.md
 docs/SegmentsRequest.md
 docs/SegmentsResponse.md
@@ -145,8 +150,10 @@ src/main/java/com/factset/sdk/FactSetEstimates/models/GuidanceRequestBody.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/GuidanceResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Meta.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Metric.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/MetricSegmentDetail.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/MetricsRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/MetricsResponse.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/MetricsSegmentDetailResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Pagination.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/Periodicity.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/PeriodicityDetail.java
@@ -158,6 +165,9 @@ src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentActuals.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentActualsRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentActualsResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentType.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsDetailsEstimate.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsDetailsRequest.java
+src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsDetailsResponse.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsEstimate.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsRequest.java
 src/main/java/com/factset/sdk/FactSetEstimates/models/SegmentsResponse.java

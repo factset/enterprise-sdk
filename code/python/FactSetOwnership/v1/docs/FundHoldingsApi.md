@@ -61,7 +61,7 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     api_instance = fund_holdings_api.FundHoldingsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["VTI-USA"] # [str] | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>
+    ids = ["VTI-US"] # [str] | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>
     date = "2019-12-31" # str | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close. (optional)
     topn = "5" # str | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number. (optional) if omitted the server will use the default value of "ALL"
     asset_type = "EQ" # str | Filter holdings by the following major asset classes -   * **EQ**  = Equity   * **FI** = Fixed Income   * **ALL** = ALL  (optional) if omitted the server will use the default value of "EQ"
@@ -72,7 +72,14 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
         # Get underlying holdings information for a requested fund identifer.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_ownership_holdings(ids, date=date, topn=topn, asset_type=asset_type, currency=currency, batch=batch)
+        api_response_wrapper = api_instance.get_ownership_holdings(ids, date=date, topn=topn, asset_type=asset_type, currency=currency, batch=batch)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -94,7 +101,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FundHoldingsResponse**](FundHoldingsResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**FundHoldingsResponse**](FundHoldingsResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -111,6 +121,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Fund Holdings Response. |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -183,7 +194,14 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     try:
         # Get holdings for a list of funds.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_ownership_holdings(fund_holdings_request)
+        api_response_wrapper = api_instance.post_ownership_holdings(fund_holdings_request)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -200,7 +218,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FundHoldingsResponse**](FundHoldingsResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**FundHoldingsResponse**](FundHoldingsResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -217,6 +238,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Fund Holdings Response. |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

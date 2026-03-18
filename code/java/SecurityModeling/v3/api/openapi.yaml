@@ -9,17 +9,20 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Security-Modeling API
-  version: "3"
+  version: 3.0.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/
 servers:
-- url: https://api.factset.com
+- url: https://api.factset.com/analytics/security-modeling/v3/securities
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: Security Modeling
+  name: SecurityModeling
 paths:
-  /analytics/security-modeling/v3/securities/retrieve:
+  /retrieve:
     post:
       description: This endpoint gets all existing securities.
       operationId: getSecurities
@@ -234,7 +237,7 @@ paths:
       - SecurityModeling
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/security-modeling/v3/securities/upsert:
+  /upsert:
     post:
       description: This endpoint is to create or update existing securities.
       operationId: upsertSecurities
@@ -450,7 +453,7 @@ paths:
       - SecurityModeling
       x-contentType: application/json
       x-accepts: application/json
-  /analytics/security-modeling/v3/securities/delete:
+  /delete:
     post:
       description: This endpoint deletes existing securities.
       operationId: deleteSecurities
@@ -466,6 +469,43 @@ paths:
               schema:
                 $ref: '#/components/schemas/SMDeleteResponseRoot'
           description: Expected response, deletes existing securities.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "204":
+          description: Expected response, all existing securities deleted successfully.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -1554,15 +1594,11 @@ components:
           asofdate: asofdate
           securityType: Bond
           location: location
-        meta: '{}'
       properties:
         data:
           items:
             $ref: '#/components/schemas/SMDeleteParameters'
           type: array
-        meta:
-          nullable: true
-          type: object
       required:
       - data
       type: object

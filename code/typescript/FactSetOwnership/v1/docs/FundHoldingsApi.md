@@ -50,7 +50,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FundHoldingsApi();
-const ids = ["VTI-USA"]; // [String] | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>
+const ids = ["VTI-US"]; // [String] | List of requested fund identifiers. <p>***ids limit** =  10 per request*</p> <p>***Batch ids limit** =  1000 per request*</p>
 const opts = {
   'date': 2019-12-31, // String | Date of holdings expressed in YYYY-MM-DD format. The fund-holdings endpoint will default to latest month-end close.
   'topn': 5, // String | Limits number of holdings or holders displayed by the top *n* securities based on positions Market Value. Default is ALL, otherwise use number to limit number.
@@ -63,8 +63,21 @@ const opts = {
 apiInstance.getOwnershipHoldings(ids, opts).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: GetOwnershipHoldingsResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // FundHoldingsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -147,8 +160,21 @@ const fundHoldingsRequest = new factsetownership.FundHoldingsRequest(); // FundH
 apiInstance.postOwnershipHoldings(fundHoldingsRequest).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: PostOwnershipHoldingsResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // FundHoldingsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

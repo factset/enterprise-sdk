@@ -44,8 +44,10 @@ docs/GuidanceRequestBody.md
 docs/GuidanceResponse.md
 docs/Meta.md
 docs/Metric.md
+docs/MetricSegmentDetail.md
 docs/MetricsRequest.md
 docs/MetricsResponse.md
+docs/MetricsSegmentDetailResponse.md
 docs/Pagination.md
 docs/Periodicity.md
 docs/PeriodicityDetail.md
@@ -60,6 +62,9 @@ docs/SegmentActualsRequest.md
 docs/SegmentActualsResponse.md
 docs/SegmentType.md
 docs/SegmentsApi.md
+docs/SegmentsDetailsEstimate.md
+docs/SegmentsDetailsRequest.md
+docs/SegmentsDetailsResponse.md
 docs/SegmentsEstimate.md
 docs/SegmentsRequest.md
 docs/SegmentsResponse.md
@@ -122,8 +127,10 @@ src/model/GuidanceRequestBody.js
 src/model/GuidanceResponse.js
 src/model/Meta.js
 src/model/Metric.js
+src/model/MetricSegmentDetail.js
 src/model/MetricsRequest.js
 src/model/MetricsResponse.js
+src/model/MetricsSegmentDetailResponse.js
 src/model/Pagination.js
 src/model/Periodicity.js
 src/model/PeriodicityDetail.js
@@ -135,6 +142,9 @@ src/model/SegmentActuals.js
 src/model/SegmentActualsRequest.js
 src/model/SegmentActualsResponse.js
 src/model/SegmentType.js
+src/model/SegmentsDetailsEstimate.js
+src/model/SegmentsDetailsRequest.js
+src/model/SegmentsDetailsResponse.js
 src/model/SegmentsEstimate.js
 src/model/SegmentsRequest.js
 src/model/SegmentsResponse.js

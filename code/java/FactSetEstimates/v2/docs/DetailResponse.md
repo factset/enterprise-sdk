@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**java.util.List&lt;DetailEstimate&gt;**](DetailEstimate.md) | Array of consensus estimate objects |  [optional]
+**data** | [**java.util.List&lt;DetailEstimate&gt;**](DetailEstimate.md) | Array of detail estimate objects |  [optional]
 
 
 ## Implemented Interfaces

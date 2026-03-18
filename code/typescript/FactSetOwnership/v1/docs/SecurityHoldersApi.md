@@ -63,8 +63,21 @@ const opts = {
 apiInstance.getSecurityHolders(ids, opts).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: GetSecurityHoldersResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // SecurityHoldersResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -147,8 +160,21 @@ const securityHoldersRequest = new factsetownership.SecurityHoldersRequest(); //
 apiInstance.postSecurityHolders(securityHoldersRequest).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: PostSecurityHoldersResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // SecurityHoldersResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

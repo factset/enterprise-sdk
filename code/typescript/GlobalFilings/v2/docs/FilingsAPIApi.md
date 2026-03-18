@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getCount
 
-> CountResponse getCount(ids, sources, opts)
+> CountResponse getCount(sources, opts)
 
 Returns the count of filings for specified source.
 
@@ -50,11 +50,11 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FilingsAPIApi();
-const ids = ["MODN-US"]; // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
 const sources = ["EDG"]; // [String] | Code for document source to include.This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.  
 const opts = {
   'startDate': 20240601, // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
   'endDate': 20241101, // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
+  'ids': ["MODN-US"], // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response
   'timeZone': "'America/New_York'", // String | timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry.
   'categories': ["CN:US"], // [String] | Code for categories to include.  This is a comma-separated list. Use the `/meta/categories` endpoint to get the list of available categories.  Default = All categories.
   'primaryId': false, // Boolean | Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier.
@@ -63,7 +63,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.getCount(ids, sources, opts).then(
+apiInstance.getCount(sources, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -82,10 +82,10 @@ apiInstance.getCount(ids, sources, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**[String]**](String.md)| Code for document source to include.This is a comma-separated list. Use the &#x60;/meta/sources&#x60; endpoint to get the list of available sources.   | 
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
+ **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response | [optional] 
  **timeZone** | **String**| timeZone to return story dates and times.Time zones, represented in POSIX format, are automatically adjusted for daylight savings. timeZone names are sourced from the IANA timezone registry. | [optional] [default to &#39;America/New_York&#39;]
  **categories** | [**[String]**](String.md)| Code for categories to include.  This is a comma-separated list. Use the &#x60;/meta/categories&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories. | [optional] 
  **primaryId** | **Boolean**| Type of identifier search * true - Returns headlines of stories that have the searched identifier(s) as the primary  identifier. * false - Returns headlines of stories that mentioned or referred to the  identifier. | [optional] [default to false]
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## getFilings
 
-> SearchResponse getFilings(ids, sources, opts)
+> SearchResponse getFilings(sources, opts)
 
 Returns the filings documents and related metadata within FactSet coverage.
 
@@ -147,9 +147,9 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new FilingsAPIApi();
-const ids = ["MODN-US"]; // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
 const sources = ["EDG"]; // [String] | 
 const opts = {
+  'ids': ["MODN-US"], // [String] | Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used should return null for the requestId field in the response. 
   'startDate': 20240601, // String | Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). 
   'endDate': 20241101, // String | End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).
   'paginationLimit': 20, // Number | Number of results to return per page.
@@ -164,7 +164,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.getFilings(ids, sources, opts).then(
+apiInstance.getFilings(sources, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -183,8 +183,8 @@ apiInstance.getFilings(ids, sources, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **sources** | [**[String]**](String.md)|  | 
+ **ids** | [**[String]**](String.md)| Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  | [optional] 
  **startDate** | **String**| Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  | [optional] 
  **endDate** | **String**| End Date. Format is YYYYMMDD or relative +/- days (0,-1,etc). | [optional] 
  **paginationLimit** | **Number**| Number of results to return per page. | [optional] [default to 25]

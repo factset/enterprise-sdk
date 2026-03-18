@@ -66,8 +66,21 @@ const opts = {
 apiInstance.getOwnershipInsiderTransactions(ids, startDate, endDate, opts).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: GetOwnershipInsiderTransactionsResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // InsiderTransactionsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -161,8 +174,21 @@ const opts = {
 apiInstance.getOwnershipInstitutionalTransactions(ids, startDate, endDate, opts).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: GetOwnershipInstitutionalTransactionsResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // InstitutionalTransactionsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -248,8 +274,21 @@ const insiderTransactionsRequest = new factsetownership.InsiderTransactionsReque
 apiInstance.postOwnershipInsiderTransactions(insiderTransactionsRequest).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: PostOwnershipInsiderTransactionsResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // InsiderTransactionsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -327,8 +366,21 @@ const institutionalTransactionsRequest = new factsetownership.InstitutionalTrans
 apiInstance.postOwnershipInstitutionalTransactions(institutionalTransactionsRequest).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: PostOwnershipInstitutionalTransactionsResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // InstitutionalTransactionsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

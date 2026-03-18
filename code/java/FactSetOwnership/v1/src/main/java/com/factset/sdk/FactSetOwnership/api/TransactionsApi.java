@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetOwnership.models.BatchStatusResponse;
 import com.factset.sdk.FactSetOwnership.models.ErrorResponse;
 import com.factset.sdk.FactSetOwnership.models.InsiderTransactionsRequest;
 import com.factset.sdk.FactSetOwnership.models.InsiderTransactionsResponse;
@@ -34,6 +35,7 @@ public class TransactionsApi {
   private static final Map<Integer, GenericType> getOwnershipInsiderTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOwnershipInsiderTransactionsResponseTypeMap.put(200, new GenericType<InsiderTransactionsResponse>(){});
+    getOwnershipInsiderTransactionsResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getOwnershipInsiderTransactionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getOwnershipInsiderTransactionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getOwnershipInsiderTransactionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -44,6 +46,7 @@ public class TransactionsApi {
   private static final Map<Integer, GenericType> getOwnershipInstitutionalTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getOwnershipInstitutionalTransactionsResponseTypeMap.put(200, new GenericType<InstitutionalTransactionsResponse>(){});
+    getOwnershipInstitutionalTransactionsResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getOwnershipInstitutionalTransactionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getOwnershipInstitutionalTransactionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getOwnershipInstitutionalTransactionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -54,6 +57,7 @@ public class TransactionsApi {
   private static final Map<Integer, GenericType> postOwnershipInsiderTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postOwnershipInsiderTransactionsResponseTypeMap.put(200, new GenericType<InsiderTransactionsResponse>(){});
+    postOwnershipInsiderTransactionsResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     postOwnershipInsiderTransactionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     postOwnershipInsiderTransactionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     postOwnershipInsiderTransactionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -64,6 +68,7 @@ public class TransactionsApi {
   private static final Map<Integer, GenericType> postOwnershipInstitutionalTransactionsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     postOwnershipInstitutionalTransactionsResponseTypeMap.put(200, new GenericType<InstitutionalTransactionsResponse>(){});
+    postOwnershipInstitutionalTransactionsResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     postOwnershipInstitutionalTransactionsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     postOwnershipInstitutionalTransactionsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     postOwnershipInstitutionalTransactionsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -72,6 +77,334 @@ public class TransactionsApi {
   }
 
   
+ /**
+   * Wrapper to support GET /transactions/insider returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code InsiderTransactionsResponse }<br>Insider Transactions Response.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetOwnershipInsiderTransactionsResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     InsiderTransactionsResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetOwnershipInsiderTransactionsResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetOwnershipInsiderTransactionsResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public InsiderTransactionsResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (InsiderTransactionsResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetOwnershipInsiderTransactionsResponseWrapper other = (GetOwnershipInsiderTransactionsResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetOwnershipInsiderTransactionsResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support GET /transactions/institutional returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code InstitutionalTransactionsResponse }<br>Institutional Transactions Response.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetOwnershipInstitutionalTransactionsResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     InstitutionalTransactionsResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetOwnershipInstitutionalTransactionsResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetOwnershipInstitutionalTransactionsResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public InstitutionalTransactionsResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (InstitutionalTransactionsResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetOwnershipInstitutionalTransactionsResponseWrapper other = (GetOwnershipInstitutionalTransactionsResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetOwnershipInstitutionalTransactionsResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support POST /transactions/insider returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code InsiderTransactionsResponse }<br>Insider Transactions Response.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PostOwnershipInsiderTransactionsResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     InsiderTransactionsResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PostOwnershipInsiderTransactionsResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PostOwnershipInsiderTransactionsResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public InsiderTransactionsResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (InsiderTransactionsResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PostOwnershipInsiderTransactionsResponseWrapper other = (PostOwnershipInsiderTransactionsResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PostOwnershipInsiderTransactionsResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support POST /transactions/institutional returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code InstitutionalTransactionsResponse }<br>Institutional Transactions Response.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * PostOwnershipInstitutionalTransactionsResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     InstitutionalTransactionsResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class PostOwnershipInstitutionalTransactionsResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public PostOwnershipInstitutionalTransactionsResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public InstitutionalTransactionsResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (InstitutionalTransactionsResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      PostOwnershipInstitutionalTransactionsResponseWrapper other = (PostOwnershipInstitutionalTransactionsResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class PostOwnershipInstitutionalTransactionsResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
 
 
   /**
@@ -102,12 +435,13 @@ public class TransactionsApi {
    * @param rowExclusion Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  (optional, default to DB)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return InsiderTransactionsResponse
+   * @return GetOwnershipInsiderTransactionsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Insider Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -115,7 +449,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InsiderTransactionsResponse getOwnershipInsiderTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
+  public GetOwnershipInsiderTransactionsResponseWrapper getOwnershipInsiderTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
     return getOwnershipInsiderTransactionsWithHttpInfo(ids, startDate, endDate, transactionType, rowExclusion, currency, batch).getData();
   }
 
@@ -129,12 +463,13 @@ public class TransactionsApi {
    * @param rowExclusion Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  (optional, default to DB)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return ApiResponse&lt;InsiderTransactionsResponse&gt;
+   * @return ApiResponse&lt;GetOwnershipInsiderTransactionsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Insider Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -142,7 +477,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InsiderTransactionsResponse> getOwnershipInsiderTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
+  public ApiResponse<GetOwnershipInsiderTransactionsResponseWrapper> getOwnershipInsiderTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -194,14 +529,21 @@ public class TransactionsApi {
 
 
     ApiResponse<
+        Object
         
-        InsiderTransactionsResponse
       
     > apiResponse = apiClient.invokeAPI("TransactionsApi.getOwnershipInsiderTransactions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getOwnershipInsiderTransactionsResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    GetOwnershipInsiderTransactionsResponseWrapper responseWrapper = new GetOwnershipInsiderTransactionsResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetOwnershipInsiderTransactionsResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
   /**
@@ -216,12 +558,13 @@ public class TransactionsApi {
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return InstitutionalTransactionsResponse
+   * @return GetOwnershipInstitutionalTransactionsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Institutional Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -229,7 +572,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InstitutionalTransactionsResponse getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
+  public GetOwnershipInstitutionalTransactionsResponseWrapper getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
     return getOwnershipInstitutionalTransactionsWithHttpInfo(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch).getData();
   }
 
@@ -245,12 +588,13 @@ public class TransactionsApi {
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
-   * @return ApiResponse&lt;InstitutionalTransactionsResponse&gt;
+   * @return ApiResponse&lt;GetOwnershipInstitutionalTransactionsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Institutional Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -258,7 +602,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InstitutionalTransactionsResponse> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
+  public ApiResponse<GetOwnershipInstitutionalTransactionsResponseWrapper> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -312,26 +656,34 @@ public class TransactionsApi {
 
 
     ApiResponse<
+        Object
         
-        InstitutionalTransactionsResponse
       
     > apiResponse = apiClient.invokeAPI("TransactionsApi.getOwnershipInstitutionalTransactions", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getOwnershipInstitutionalTransactionsResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    GetOwnershipInstitutionalTransactionsResponseWrapper responseWrapper = new GetOwnershipInstitutionalTransactionsResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetOwnershipInstitutionalTransactionsResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
   /**
    * Get insider transactions details for a list of requested identifiers.
    * Gets insider transaction details for a list of requested identifiers.
    * @param insiderTransactionsRequest Requesting Insider Transaction Details (required)
-   * @return InsiderTransactionsResponse
+   * @return PostOwnershipInsiderTransactionsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Insider Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -339,7 +691,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InsiderTransactionsResponse postOwnershipInsiderTransactions(InsiderTransactionsRequest insiderTransactionsRequest) throws ApiException {
+  public PostOwnershipInsiderTransactionsResponseWrapper postOwnershipInsiderTransactions(InsiderTransactionsRequest insiderTransactionsRequest) throws ApiException {
     return postOwnershipInsiderTransactionsWithHttpInfo(insiderTransactionsRequest).getData();
   }
 
@@ -347,12 +699,13 @@ public class TransactionsApi {
    * Get insider transactions details for a list of requested identifiers.
    * Gets insider transaction details for a list of requested identifiers.
    * @param insiderTransactionsRequest Requesting Insider Transaction Details (required)
-   * @return ApiResponse&lt;InsiderTransactionsResponse&gt;
+   * @return ApiResponse&lt;PostOwnershipInsiderTransactionsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Insider Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -360,7 +713,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InsiderTransactionsResponse> postOwnershipInsiderTransactionsWithHttpInfo(InsiderTransactionsRequest insiderTransactionsRequest) throws ApiException {
+  public ApiResponse<PostOwnershipInsiderTransactionsResponseWrapper> postOwnershipInsiderTransactionsWithHttpInfo(InsiderTransactionsRequest insiderTransactionsRequest) throws ApiException {
     Object localVarPostBody = insiderTransactionsRequest;
     
     // verify the required parameter 'insiderTransactionsRequest' is set
@@ -395,26 +748,34 @@ public class TransactionsApi {
 
 
     ApiResponse<
+        Object
         
-        InsiderTransactionsResponse
       
     > apiResponse = apiClient.invokeAPI("TransactionsApi.postOwnershipInsiderTransactions", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, postOwnershipInsiderTransactionsResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    PostOwnershipInsiderTransactionsResponseWrapper responseWrapper = new PostOwnershipInsiderTransactionsResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PostOwnershipInsiderTransactionsResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
   /**
    * Gets institutional transaction details for a list of requested identifiers.
    * Gets institutional transaction details for a list of requested identifiers.
    * @param institutionalTransactionsRequest Requesting Institutional Transaction Details (required)
-   * @return InstitutionalTransactionsResponse
+   * @return PostOwnershipInstitutionalTransactionsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Institutional Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -422,7 +783,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public InstitutionalTransactionsResponse postOwnershipInstitutionalTransactions(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
+  public PostOwnershipInstitutionalTransactionsResponseWrapper postOwnershipInstitutionalTransactions(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
     return postOwnershipInstitutionalTransactionsWithHttpInfo(institutionalTransactionsRequest).getData();
   }
 
@@ -430,12 +791,13 @@ public class TransactionsApi {
    * Gets institutional transaction details for a list of requested identifiers.
    * Gets institutional transaction details for a list of requested identifiers.
    * @param institutionalTransactionsRequest Requesting Institutional Transaction Details (required)
-   * @return ApiResponse&lt;InstitutionalTransactionsResponse&gt;
+   * @return ApiResponse&lt;PostOwnershipInstitutionalTransactionsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Institutional Transactions Response. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request status. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -443,7 +805,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InstitutionalTransactionsResponse> postOwnershipInstitutionalTransactionsWithHttpInfo(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
+  public ApiResponse<PostOwnershipInstitutionalTransactionsResponseWrapper> postOwnershipInstitutionalTransactionsWithHttpInfo(InstitutionalTransactionsRequest institutionalTransactionsRequest) throws ApiException {
     Object localVarPostBody = institutionalTransactionsRequest;
     
     // verify the required parameter 'institutionalTransactionsRequest' is set
@@ -478,14 +840,21 @@ public class TransactionsApi {
 
 
     ApiResponse<
+        Object
         
-        InstitutionalTransactionsResponse
       
     > apiResponse = apiClient.invokeAPI("TransactionsApi.postOwnershipInstitutionalTransactions", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, postOwnershipInstitutionalTransactionsResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    PostOwnershipInstitutionalTransactionsResponseWrapper responseWrapper = new PostOwnershipInstitutionalTransactionsResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<PostOwnershipInstitutionalTransactionsResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
 }

@@ -28,6 +28,7 @@ Gets insider transaction details for a list of requested identifiers.
 
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetOwnership.Api;
@@ -74,8 +75,20 @@ namespace Example
             try
             {
                 // Get insider transactions details for a list of requested identifiers.
-                InsiderTransactionsResponse result = apiInstance.GetOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch);
-                Console.WriteLine(result.ToJson());
+                TransactionsApi.GetOwnershipInsiderTransactionsResponseWrapper result = apiInstance.GetOwnershipInsiderTransactions(ids, startDate, endDate, transactionType, rowExclusion, currency, batch);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -101,7 +114,7 @@ Name | Type | Description  | Notes
  **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
-[**InsiderTransactionsResponse**](InsiderTransactionsResponse.md)
+GetOwnershipInsiderTransactionsResponseWrapper
 
 ### Authorization
 
@@ -117,6 +130,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Insider Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -143,6 +157,7 @@ Get institutional transaction details for a list of requested identifiers.
 
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetOwnership.Api;
@@ -191,8 +206,20 @@ namespace Example
             try
             {
                 // Get institutional transaction details for a list of requested identifiers.
-                InstitutionalTransactionsResponse result = apiInstance.GetOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch);
-                Console.WriteLine(result.ToJson());
+                TransactionsApi.GetOwnershipInstitutionalTransactionsResponseWrapper result = apiInstance.GetOwnershipInstitutionalTransactions(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -220,7 +247,7 @@ Name | Type | Description  | Notes
  **batch** | **string**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  | [optional] [default to N]
 
 ### Return type
-[**InstitutionalTransactionsResponse**](InstitutionalTransactionsResponse.md)
+GetOwnershipInstitutionalTransactionsResponseWrapper
 
 ### Authorization
 
@@ -236,6 +263,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Institutional Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -262,6 +290,7 @@ Gets insider transaction details for a list of requested identifiers.
 
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetOwnership.Api;
@@ -302,8 +331,20 @@ namespace Example
             try
             {
                 // Get insider transactions details for a list of requested identifiers.
-                InsiderTransactionsResponse result = apiInstance.PostOwnershipInsiderTransactions(insiderTransactionsRequest);
-                Console.WriteLine(result.ToJson());
+                TransactionsApi.PostOwnershipInsiderTransactionsResponseWrapper result = apiInstance.PostOwnershipInsiderTransactions(insiderTransactionsRequest);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -323,7 +364,7 @@ Name | Type | Description  | Notes
  **insiderTransactionsRequest** | [**InsiderTransactionsRequest**](InsiderTransactionsRequest.md)| Requesting Insider Transaction Details | 
 
 ### Return type
-[**InsiderTransactionsResponse**](InsiderTransactionsResponse.md)
+PostOwnershipInsiderTransactionsResponseWrapper
 
 ### Authorization
 
@@ -339,6 +380,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Insider Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -365,6 +407,7 @@ Gets institutional transaction details for a list of requested identifiers.
 
 ```csharp
 using System;
+using System.Net;
 using System.Threading.Tasks;
 using FactSet.SDK.Utils.Authentication;
 using FactSet.SDK.FactSetOwnership.Api;
@@ -405,8 +448,20 @@ namespace Example
             try
             {
                 // Gets institutional transaction details for a list of requested identifiers.
-                InstitutionalTransactionsResponse result = apiInstance.PostOwnershipInstitutionalTransactions(institutionalTransactionsRequest);
-                Console.WriteLine(result.ToJson());
+                TransactionsApi.PostOwnershipInstitutionalTransactionsResponseWrapper result = apiInstance.PostOwnershipInstitutionalTransactions(institutionalTransactionsRequest);
+
+                switch (result.StatusCode)
+                {
+
+                    case (HttpStatusCode)200:
+                        Console.WriteLine(result.Response200);
+                        break;
+
+                    case (HttpStatusCode)202:
+                        Console.WriteLine(result.Response202);
+                        break;
+
+                }
             }
             catch (ApiException  e)
             {
@@ -426,7 +481,7 @@ Name | Type | Description  | Notes
  **institutionalTransactionsRequest** | [**InstitutionalTransactionsRequest**](InstitutionalTransactionsRequest.md)| Requesting Institutional Transaction Details | 
 
 ### Return type
-[**InstitutionalTransactionsResponse**](InstitutionalTransactionsResponse.md)
+PostOwnershipInstitutionalTransactionsResponseWrapper
 
 ### Authorization
 
@@ -442,6 +497,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Institutional Transactions Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

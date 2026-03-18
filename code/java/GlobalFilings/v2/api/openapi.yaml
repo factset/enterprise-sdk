@@ -17,7 +17,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Global Filings API
-  version: 2.2.0
+  version: 2.2.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/global-filings-api
@@ -40,9 +40,10 @@ paths:
         other response fields.
       operationId: getFilings
       parameters:
-      - description: Requested symbols or securities.  This is a comma-separated list
-          with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-          CUSIP, SEDOL, ISIN, or Entity ID
+      - description: "Requested symbols or securities.  This is a comma-separated\
+          \ list with a maximum limit of 1000.  Each symbol can be a FactSet exchange\
+          \ symbol,CUSIP, SEDOL, ISIN, or Entity ID\n> **Note**: If this parameter\
+          \ is not used should return null for the requestId field in the response. "
         examples:
           oneId:
             summary: One identifier
@@ -64,7 +65,7 @@ paths:
         explode: false
         in: query
         name: ids
-        required: true
+        required: false
         schema:
           items:
             type: string
@@ -440,9 +441,9 @@ paths:
         schema:
           type: string
         style: form
-      - description: Requested symbols or securities.  This is a comma-separated list
-          with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-          CUSIP, SEDOL, ISIN, or Entity ID
+      - description: |-
+          Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID
+          > **Note**: If this parameter is not used should return null for the requestId field in the response
         examples:
           oneId:
             summary: One identifier
@@ -456,7 +457,7 @@ paths:
         explode: false
         in: query
         name: ids
-        required: true
+        required: false
         schema:
           items:
             type: string
@@ -1050,9 +1051,10 @@ components:
               CUSIP, or SEDOL.
   parameters:
     ids:
-      description: Requested symbols or securities.  This is a comma-separated list
-        with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, SEDOL, ISIN, or Entity ID
+      description: "Requested symbols or securities.  This is a comma-separated list\
+        \ with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP,\
+        \ SEDOL, ISIN, or Entity ID\n> **Note**: If this parameter is not used should\
+        \ return null for the requestId field in the response. "
       examples:
         oneId:
           summary: One identifier
@@ -1074,7 +1076,7 @@ components:
       explode: false
       in: query
       name: ids
-      required: true
+      required: false
       schema:
         items:
           type: string
@@ -1083,9 +1085,9 @@ components:
         type: array
       style: form
     countIds:
-      description: Requested symbols or securities.  This is a comma-separated list
-        with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,
-        CUSIP, SEDOL, ISIN, or Entity ID
+      description: |-
+        Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,mCUSIP, SEDOL, ISIN, or Entity ID
+        > **Note**: If this parameter is not used should return null for the requestId field in the response
       examples:
         oneId:
           summary: One identifier
@@ -1099,7 +1101,7 @@ components:
       explode: false
       in: query
       name: ids
-      required: true
+      required: false
       schema:
         items:
           type: string
@@ -1585,6 +1587,7 @@ components:
       properties:
         requestId:
           description: The requested identifier associated with this group of documents.
+          nullable: true
           type: string
         documents:
           description: Contains list of documents
@@ -1868,8 +1871,9 @@ components:
           title: Validation Error
       properties:
         requestId:
-          description: id
+          description: Identifier provided in the request.
           example: IBM-US
+          nullable: true
           type: string
         source:
           description: source

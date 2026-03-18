@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.8.1
+  version: 2.9.0
   title: FactSet Estimates
   contact:
     name: FactSet Research Systems
@@ -516,7 +516,7 @@ paths:
             schema:
               $ref: '#/components/schemas/consensusRatingsRequest'
             examples:
-              Consensus Ratings response of FDS-US for frequency 'D':
+              Consensus Ratings response of FDS-US for frequency 'AM':
                 $ref: '#/components/examples/postConsensusRatings'
       responses:
         '200':
@@ -692,6 +692,151 @@ paths:
               examples:
                 Surprise Example response of AAPL-USA for SALES metrics:
                   $ref: '#/components/examples/surpriseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/segments-detail:
+    post:
+      tags:
+        - Segments
+      summary: >-
+        Retrieves product segment detail estimates for a requested list of ids
+        and fiscal periods
+      description: >
+        Returns FactSet Estimates Details Data for the segments gathered from
+        the Business, Geographical, or Actual Reconciliation (ADJUSTMENT)
+        classifications by using fiscal periods with a reporting frequency. 
+      operationId: getSegmentsDetailsForList
+      requestBody:
+        required: true
+        description: Request object for Product Segments estimates.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/segmentsDetailsRequest'
+            examples:
+              Segments request of AAPL-USA for 'SALES' metrics and 'BUS'   segmentType:
+                $ref: '#/components/examples/postSegmentsDetails'
+              Segments request of AAPL-USA for 'SALES' metrics and 'BUS' segmentType without optional parameters - brokerName and updatesOnly:
+                $ref: '#/components/examples/postSegmentsDetailsExample'
+      responses:
+        '200':
+          description: Segments Details Estimate data items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/segmentsDetailsResponse'
+              examples:
+                Segments details response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType:
+                  $ref: '#/components/examples/segmentsDetails'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /factset-estimates/v2/segments-metrics:
+    get:
+      summary: Available Estimate Segment Detail metrics
+      operationId: getEstimateSegmentDetailMetrics
+      tags:
+        - Data Items
+      description: >
+        Returns list of available Estimate Segment Detail metrics that can be
+        used in the `metrics` parameter of the segment details endpoint.
+
+        **By default, Factset provides Estimated items in millions across all
+        currencies. For specific metric methodology definitions, reference the
+        `OAurl` response items to launch the available methodology page.** 
+      parameters:
+        - name: ids
+          in: query
+          required: true
+          description: >
+            Security or Entity identifiers. Accepted inputs include FactSet
+            Identifiers, tickers, CUSIP, and SEDOL.
+          schema:
+            type: array
+            items:
+              type: string
+            maxItems: 1
+          style: form
+          explode: false
+          examples:
+            oneId:
+              summary: One Market Identifier
+              value:
+                - AAPL-USA
+        - name: metrics
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            maxItems: 1
+          style: form
+          explode: false
+          description: >
+            Requested metric. Use the `/metrics` endpoint to return a list of
+            available estimate items. **Top 10** most used metrics are **EPS,
+            SALES, DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and
+            ASSETS**. For more details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034).
+          examples:
+            Metric:
+              summary: Metric
+              value:
+                - SALES
+        - name: segmentType
+          in: query
+          schema:
+            type: string
+            enum:
+              - BUS
+              - GEO
+              - ALL
+            default: BUS
+          description: |
+            Controls the type of segment selected.
+              * **BUS** = Business / Product Segment
+              * **GEO** = Geographic Segment
+              * **ALL** = Both Business and Geographic Segments
+          examples:
+            Business:
+              summary: BUS - Business Segments
+              value: BUS
+            Geographic:
+              summary: GEO - Geographic Segments
+              value: GEO
+            All:
+              summary: ALL - Both Segment Types
+              value: ALL
+      responses:
+        '200':
+          description: Estimate segment detail data metric items
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/metricsSegmentDetailResponse'
+              examples:
+                Mertics response for 'AAPL'- BUS:
+                  $ref: '#/components/examples/metricSegmentsDetailsBus'
+                Metrics response for 'AAPL' - GEO:
+                  $ref: '#/components/examples/metricSegmentsDetailsGeo'
+                Metrics response for 'AAPL' - ALL:
+                  $ref: '#/components/examples/metricSegmentsDetailsAll'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -1294,6 +1439,7 @@ components:
         minItems: 1
         maxItems: 3000
       required: true
+      style: form
       explode: false
       description: >
         Security or Entity identifiers. Accepted inputs include FactSet
@@ -1327,6 +1473,7 @@ components:
         minItems: 1
         maxItems: 50
       required: true
+      style: form
       explode: false
       description: >
         Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
@@ -1448,8 +1595,7 @@ components:
           * **QTR** - Quarterly
           * **SEMI** - Semi-Annual 
           * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
-          * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.
-          
+          * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.      
     periodicityForecast:
       name: periodicity
       in: query
@@ -1521,6 +1667,23 @@ components:
           summary: Metrics
           value:
             - SALES
+    metric:
+      name: metric
+      in: query
+      required: true
+      schema:
+        type: string
+        example: SALES
+      description: >
+        Requested metric. Use the `/metrics` endpoint to return a list of
+        available estimate items. **Top 10** most used metrics are **EPS, SALES,
+        DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For
+        more details, visit [Online Assistant Page
+        #15034](https://oa.apps.factset.com/pages/15034).
+      examples:
+        Metric:
+          summary: Metric
+          value: SALES
     statistic:
       name: statistic
       in: query
@@ -1583,12 +1746,12 @@ components:
         Controls the frequency of the data returned.
           * **D** = Daily
           * **W** = Weekly, based on the last day of the week of the start date.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).      
           * **AQ** = Quarterly, based on the start date.
-          * **AY** = Actual Annual, based on the start date.
+          * **AY** = Actual Annual, based on the start date. 
       examples:
         Daily:
-          summary: D - Daily (Default) - frequency display based on trading calendar
+          summary: D - Daily frequency display based on trading calendar
           value: D
         Weekly:
           summary: W - Weekly - based on the last day of the week of the start date
@@ -1688,8 +1851,7 @@ components:
           * **RETAILERS** - Including items such as Stores Information, Selling Space and Net sales per square foot.
           * **SOCIAL_MEDIA_AND_GAMES** - Including items such as Daily Active Users and Monthly Unique Users. 
           * **TELECOMMUNICATIONS** - Including items such as Gross Adds, Monthly Revenue Per User, Churn, and more.
-          * **TRANSPORTATION** - Including items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>
-          
+          * **TRANSPORTATION** - Including items such as Revenue Per Unit, Volume Growth, and Operating Ratio.</p>      
     includeAll:
       name: includeAll
       in: query
@@ -1699,8 +1861,8 @@ components:
       required: false
       description: >
         Include All filter is used to identify included and excluded broker
-        details from the consensus
-          By default the service would return only the brokers included in the consensus-
+        details from the consensus. By default, the service would return only
+        the brokers included in the consensus.
           * **TRUE** = Returns all the brokers included and excluded in the consensus
           * **FALSE** = Returns only the broker details included in the consensus
     brokerNames:
@@ -1712,7 +1874,6 @@ components:
         type: array
         items:
           type: string
-        minItems: 1
       example:
         - Morningstar Equity Research
       description: >-
@@ -1730,11 +1891,9 @@ components:
       required: false
       example: false
       description: >-
-        When set to 'true', the endpoint returns the first reported estimates
-        during this period and any subsequent changes reported by the brokers.
-        When set to 'false', data is returned for all dates in the requested
-        date range based on the selected frequency. If unspecified, it is
-        treated as 'false' by default.
+        If `true`, the endpoint returns the first reported estimates within the
+        period plus any subsequent broker updates. If `false`, it returns data
+        for every date in the requested range at the chosen frequency.     
     segmentType:
       name: segmentType
       in: query
@@ -2658,7 +2817,7 @@ components:
       title: Detail Response
       properties:
         data:
-          description: Array of consensus estimate objects
+          description: Array of detail estimate objects
           type: array
           items:
             $ref: '#/components/schemas/detailEstimate'
@@ -2666,6 +2825,10 @@ components:
       title: Detail
       type: object
       properties:
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: IBM-US
         fsymId:
           type: string
           example: SJY281-R
@@ -2721,6 +2884,11 @@ components:
             for the values in Estimate Currency. For a list of currency ISO
             codes, visit [Online Assistant Page
             #1470](https://oa.apps.factset.com/pages/1470).
+          type: string
+          example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
           type: string
           example: USD
           nullable: true
@@ -2797,10 +2965,6 @@ components:
           type: string
           example: ''
           nullable: true
-        requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: IBM-US
         inputDateTime:
           description: Date and time when the data is available at the source.
           type: string
@@ -2814,11 +2978,6 @@ components:
           nullable: true
         brokerEstimateCurrency:
           description: The currency in which estimates are made by broker.
-          type: string
-          example: USD
-          nullable: true
-        estimateCurrency:
-          description: Estimate currency of the requested Security
           type: string
           example: USD
           nullable: true
@@ -2991,6 +3150,33 @@ components:
           description: Identifier that was used for the request.
           type: string
           example: IBM-US
+    brokerNames:
+      type: array
+      items:
+        type: string
+      example:
+        - Morningstar Equity Research
+      description: >-
+        Filter to return estimate data from specific brokers only. Accepts
+        broker names as input.  The endpoint returns data from all available
+        brokers if this parameter is not specified. For a list of available
+        brokers, visit [Online Assistant Page
+        #14706](https://oa.apps.factset.com/pages/14706).
+    updatesOnly:
+      type: boolean
+      default: false
+      example: false
+      description: >
+        Controls whether the response includes only broker updates within the
+        requested period or all reported data points. By default, the service
+        returns data for every date in the requested range at the selected
+        frequency.
+
+        * `TRUE` = Returns the first reported estimates within the period plus
+        any subsequent broker updates.
+
+        * `FALSE` = Returns data for every date in the requested range at the
+        selected frequency.
     detailRatingsRequest:
       title: Detail Ratings Request Body
       description: Request object for requesting detail ratings estimates.
@@ -3122,6 +3308,46 @@ components:
       required:
         - ids
         - metrics
+    segmentsDetailsRequest:
+      title: Segments Details Request Body
+      description: Request object for requesting segments details estimates.
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
+          maxItems: 1
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        relativeFiscalStart:
+          $ref: '#/components/schemas/relativeFiscalStart'
+        relativeFiscalEnd:
+          $ref: '#/components/schemas/relativeFiscalEnd'
+        periodicity:
+          $ref: '#/components/schemas/periodicityDetail'
+        frequency:
+          $ref: '#/components/schemas/frequency'
+        metrics:
+          $ref: '#/components/schemas/segmentsMetrics'
+        segmentType:
+          $ref: '#/components/schemas/segmentType'
+        segmentIds:
+          $ref: '#/components/schemas/segmentId'
+        currency:
+          $ref: '#/components/schemas/currency'
+        brokerNames:
+          $ref: '#/components/schemas/brokerNames'
+        updatesOnly:
+          $ref: '#/components/schemas/updatesOnly'
+        includeAll:
+          $ref: '#/components/schemas/includeAll'
+      required:
+        - ids
+        - metrics
+        - segmentIds
     segmentsResponse:
       type: object
       title: Segments Response
@@ -3218,7 +3444,7 @@ components:
             Currency used estimates in consensus calculations. Use 'ESTIMATE' as
             input for values in Estimate Currency. For a list of currency ISO
             codes, visit [Online Assistant Page
-            #1470](https://oa.apps.factset.com/pages/1470).
+            $0#1470](https://oa.apps.factset.com/pages/1470).
           type: string
           example: USD
           nullable: true
@@ -3297,6 +3523,205 @@ components:
             #16598](https://oa.apps.factset.com/pages/16114).
           type: integer
           example: 4
+          nullable: true
+    segmentsDetailsResponse:
+      type: object
+      title: Segments Details Response
+      properties:
+        data:
+          description: Array of Segments Details objects
+          type: array
+          items:
+            $ref: '#/components/schemas/segmentsDetailsEstimate'
+    segmentsDetailsEstimate:
+      title: Segments Details Estimate
+      type: object
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL
+        fsymId:
+          description: >-
+            Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            securityâ€™s best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: SJY281-R
+          nullable: true
+        metric:
+          description: >-
+            Company's Financial statement 'metric' that is estimated. Use the
+            factset-estimates/v#/metrics endpoint for a complete list. For more
+            details, visit [Online Assistant Page
+            #15034](https://oa.apps.factset.com/pages/15034)
+          type: string
+          example: SALES
+          nullable: true
+        segmentId:
+          description: Use the /segments-metrics endpoint for a complete list.
+          type: string
+          example: PRODLINE_SALES_1
+          nullable: true
+        segmentType:
+          type: string
+          enum:
+            - BUS
+            - GEO
+          default: BUS
+          description: |
+            Controls the type of segment selected.
+              * **BUS** = Business
+              * **GEO** = Geographic
+          example: BUS
+        fiscalYear:
+          description: >-
+            Company's 'fiscal year' for the estimate record. For more details,
+            visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: integer
+          example: 2018
+          nullable: true
+        fiscalPeriod:
+          description: >-
+            Company's 'fiscal period' for the estimate record. Periods for
+            periodicity of ANN = 1, and SEMI = 2. For more details, visit
+            [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598).
+          type: integer
+          example: 1
+          nullable: true
+        fiscalEndDate:
+          description: >-
+            Company's 'fiscal end date' for the estimate record expressed in
+            YYYY-MM-DD format. For more details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2021-09-30'
+          nullable: true
+        segmentLabel:
+          description: Displays the specific label of the segment.
+          type: string
+          example: iPhone
+          nullable: true
+        segmentLevel:
+          description: >-
+            Returns the level of the segment item as either `P = Parent` or `S =
+            Subordinate`
+          type: string
+          enum:
+            - P
+            - S
+          example: S
+          nullable: true
+        currency:
+          description: >-
+            Currency used estimates in consensus calculations. Use `ESTIMATE` as
+            input for values in Estimate Currency. For a list of currency ISO
+            codes, visit <a href="https://oa.apps.factset.com/pages/1470"
+            target="_blank">Online Assistant Page #1470</a>.
+          type: string
+          example: USD
+          nullable: true
+        estimateCurrency:
+          description: Estimate currency of the requested Security
+          type: string
+          example: USD
+          nullable: true
+        estimateDate:
+          description: >-
+            Date of estimate expressed in YYYY-MM-DD format. For more details,
+            visit <a href="https://oa.apps.factset.com/pages/16598"
+            target="_blank">Online Assistant Page
+          type: string
+          format: date
+          example: '2021-07-01'
+          nullable: true
+        estimateValue:
+          description: The value of the estimate.
+          type: number
+          format: double
+          example: 23456.12
+          nullable: true
+        analystId:
+          description: The FactSet Entity Identifier for the analyst making the estimate.
+          type: string
+          example: 0DXTST-E
+          nullable: true
+        analystName:
+          description: The name of the analyst making the estimate.
+          type: string
+          example: Josh Baer
+          nullable: true
+        brokerId:
+          description: The FactSet Entity Identifier for the broker making the estimate.
+          type: string
+          example: 05FBK7-E
+          nullable: true
+        brokerName:
+          description: The name of the broker making the estimate.
+          type: string
+          example: Morgan Stanley
+          nullable: true
+        lastModifiedDate:
+          description: The date at which a broker provided an estimate that is a revision.
+          type: string
+          format: date
+          example: '2017-07-24'
+          nullable: true
+        prevEstimateDate:
+          description: >-
+            Date the previous estimate was made expressed in YYYY-MM-DD format.
+            For more details, visit [Online Assistant Page
+            #16598](https://oa.apps.factset.com/pages/16598)
+          type: string
+          format: date
+          example: '2017-05-02'
+          nullable: true
+        prevEstimateValue:
+          description: The value of the previous estimate.
+          type: number
+          format: double
+          example: 22336.12
+          nullable: true
+        section:
+          description: >-
+            Section of the estimate.Returns the details of brokers inlcuded and
+            excluded in the consensus
+          type: string
+          example: Included
+          nullable: true
+        statusCode:
+          description: Status code of the estimate.
+          type: integer
+          example: 0
+          nullable: true
+        statusText:
+          description: Status description of the estimate.
+          type: string
+          example: ''
+          nullable: true
+        inputDateTime:
+          description: Date and time when the data is available at the source.
+          type: string
+          format: string
+          example: '2022-10-25T22:40:09'
+          nullable: true
+        securityCurrency:
+          description: The currency that the company trades in.
+          type: string
+          example: USD
+          nullable: true
+        brokerEstimateCurrency:
+          description: The currency in which estimates are made by broker.
+          type: string
+          example: USD
           nullable: true
     errorResponse:
       type: object
@@ -3400,6 +3825,62 @@ components:
           format: double
           example: 1000000
           nullable: true
+    metricsSegmentDetailResponse:
+      type: object
+      title: Metrics Response
+      properties:
+        data:
+          description: >
+            Array of metric objects representing the metrics that can be
+            requested from the estimates APIs.
+          type: array
+          items:
+            $ref: '#/components/schemas/metricSegmentDetail'
+    metricSegmentDetail:
+      title: Metric Segment Detail Object
+      type: object
+      properties:
+        metric:
+          description: |
+            Metric identifier to be used as `metrics` input in the FactSet
+            Estimate Segment Detail endpoints.
+          type: string
+          example: SALES
+          nullable: true
+        segmentId:
+          type: string
+          example: PRODLINE_SALES_1
+          nullable: true
+        segmentLabel:
+          description: Plain text name of the metric.
+          type: string
+          example: iPhone Sales
+          nullable: true
+        segmentType:
+          description: Type of selected Segment ID.
+          type: string
+          enum:
+            - BUS
+            - GEO
+          example: BUS
+          nullable: true
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: AAPL
+        fsymId:
+          description: |
+            Factset Regional Security Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
+            securityâ€™s best regional security data series per currency. For
+            equities, all primary listings per region and currency are allocated
+            a regional-level permanent identifier. The regional-level permanent
+            identifier will be available once a SEDOL representing the
+            region/currency has been allocated and the identifiers are on
+            FactSet.
+          type: string
+          example: SJY281-R
+          nullable: true
     ids:
       type: array
       items:
@@ -3438,7 +3919,10 @@ components:
       description: >
         The start date requested for a given date range in **YYYY-MM-DD**
         format. If left blank, the API will default to previous close. Future
-        dates (T+1) are not accepted in this #endpoint.
+        dates (T+1) are not accepted in this #endpoint. To determine the
+        earliest available historical data, refer to the History section in the
+        Online Assistant: <a href="https://my.apps.factset.com/oa/pages/20121"
+        target="_blank"> Online Assistant – History Section</a>.
       example: '2019-01-01'
       format: date
     endDate:
@@ -3446,7 +3930,10 @@ components:
       description: >
         The end date requested for a given date range in **YYYY-MM-DD** format.
         If left blank, the API will default to previous close. Future dates
-        (T+1) are not accepted in this endpoint.
+        (T+1) are not accepted in this endpoint.To determine the earliest
+        available historical data, refer to the History section in the Online
+        Assistant: <a href="https://my.apps.factset.com/oa/pages/20121"
+        target="_blank"> Online Assistant – History Section</a>.
       example: '2019-12-31'
       format: date
     statistic:
@@ -3469,7 +3956,7 @@ components:
         - AM
         - AQ
         - AY
-      default: AM
+      default: D
       description: |
         Controls the display frequency of the data returned.
           * **D** = Daily
@@ -3482,14 +3969,24 @@ components:
       type: integer
       minimum: -20
       maximum: 20
-      description: Relative fiscal period, expressed as an integer, used to filter results.
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period. For example, set to 1 and periodicity to ANN to ask for
+        relative Fiscal Year 1 (FY1).
       example: 1
+      default: 1
     relativeFiscalEnd:
       type: integer
       minimum: -20
       maximum: 20
-      description: Relative fiscal period, expressed as an integer, used to filter results.
+      description: >-
+        Relative fiscal period, expressed as an integer, used to filter results.
+        This is combined with the periodicity parameter to specify a relative
+        estimate period. For example, set to 2 and periodicity to ANN to ask for
+        relative Fiscal Year 1 (FY2).
       example: 3
+      default: 1
     relativeFiscalStartActuals:
       type: integer
       maximum: 0
@@ -3721,17 +4218,38 @@ components:
         type: string
       description: >-
         Requested metrics. Use the `/metrics` endpoint for a list of estimate
-        items. Note, the number of metrics you are allowed to supply is limited
-        to 1 for now. For more details, visit [Online Assistant Page
+        items.For more details, visit [Online Assistant Page
         #15034](https://oa.apps.factset.com/pages/15034).
       example:
         - SALES
       maxItems: 1
+    segmentsMetrics:
+      type: array
+      items:
+        type: string
+      maxItems: 1
+      description: >-
+        Requested metric. Use the `/metrics` endpoint for a list of estimate
+        items. For more details, visit [Online Assistant Page
+        #15034](https://oa.apps.factset.com/pages/15034).
+      example:
+        - SALES
+    segmentId:
+      type: array
+      items:
+        type: string
+      description: >-
+        Requested segmentId. Use the `/segments-metrics` endpoint for a list of
+        segment_ids.
+      example:
+        - PRODLINE_SALES_1
+      maxItems: 1
     currency:
       description: >-
-        Currency code for adjusting the data. Use input as 'ESTIMATE' for values
-        in Estimate currency. For a list of currency ISO codes, visit [Online
-        Assistant Page #1470](https://oa.apps.factset.com/pages/1470).
+        Currency code for adjusting the data. Use input as `ESTIMATE` for values
+        in Estimate currency. For a list of currency ISO codes, visit <a
+        href="https://oa.apps.factset.com/pages/1470" target="_blank">Online
+        Assistant Page
       type: string
       example: USD
     category:
@@ -3822,10 +4340,10 @@ components:
       example: false
       description: >
         Include All filter is used to identify included and excluded broker
-        details from the consensus
-          By default the service would return only the brokers included in the consensus-
-          * **TRUE** = Returns all the brokers included and excluded in the consensus
-          * **FALSE** = Returns only the broker details included in the consensus
+        details from the consensus. By default, the service would return only
+        the brokers included in the consensus.
+          * `TRUE` = Returns all the brokers included and excluded in the consensus
+          * `FALSE` = Returns only the broker details included in the consensus
     segmentType:
       type: string
       enum:
@@ -3837,29 +4355,6 @@ components:
           * **BUS** = Business
           * **GEO** = Geographic
       example: BUS
-    brokerNames:
-      type: array
-      items:
-        type: string
-      minItems: 1
-      example:
-        - Morningstar Equity Research
-      description: >-
-        Filter to return estimate data from specific brokers only. Accepts
-        broker names as input.  The endpoint returns data from all available
-        brokers if this parameter is not specified. For a list of available
-        brokers, visit [Online Assistant Page
-        #14706](https://oa.apps.factset.com/pages/14706).
-    updatesOnly:
-      type: boolean
-      default: false
-      example: false
-      description: >-
-        When set to 'true', the endpoint returns the first reported estimates
-        during this period and any subsequent changes reported by the brokers.
-        When set to 'false', data is returned for all dates in the requested
-        date range based on the selected frequency. If unspecified, it is
-        treated as 'false' by default.
     AnalystRatingResponse:
       type: object
       title: Analyst Rating Response
@@ -3896,9 +4391,9 @@ components:
           example: 2024-03
         currency:
           description: >-
-            The 3 digit ISO code for the currency. ​For a list of currency ISO
-            codes, visit [Online Assistant
-            Page#1470](https://oa.apps.factset.com/pages/1470).
+            The 3 digit ISO code for the currency. For a list of currency ISO
+            codes, visit <a href="https://oa.apps.factset.com/pages/1470"
+            target="_blank">Online Assistant Page
           type: string
           example: USD
         ratingsCount:
@@ -4810,7 +5305,7 @@ components:
       summary: Rolling Consensus response of FDS-US for SALES metrics
       description: >-
         Rolling Consensus response of FDS-US for SALES metrics with frequency
-        set to 'D' and periodicity to 'ANN'
+        set to 'AM' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4818,7 +5313,7 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: D
+        frequency: AM
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
         periodicity: ANN
@@ -4827,7 +5322,7 @@ components:
       summary: Fixed Consensus response of FDS-US for SALES metrics
       description: >-
         Fixed Consensus response of FDS-US for SALES metrics with frequency set
-        to 'D' and periodicity to 'ANN'
+        to 'AM' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4835,7 +5330,7 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: D
+        frequency: AM
         fiscalPeriodStart: '2019'
         fiscalPeriodEnd: '2020'
         periodicity: ANN
@@ -4844,13 +5339,13 @@ components:
       summary: Rolling Detail response of FDS-US for SALES metrics
       description: >-
         Rolling Detail response of FDS-US for SALES metrics with frequency set
-        to 'D' and periodicity to 'ANN'
+        to 'AM' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: D
+        frequency: AM
         includeAll: false
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
@@ -4865,7 +5360,7 @@ components:
       summary: Fixed Detail response of FDS-US for SALES metrics
       description: >-
         Fixed Detail response of FDS-US for SALES metrics with frequency set to
-        'D' and periodicity to 'ANN'
+        'AM' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4873,7 +5368,7 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: D
+        frequency: AM
         includeAll: false
         periodicity: ANN
         fiscalPeriodStart: '2019'
@@ -4883,16 +5378,16 @@ components:
           - Morningstar Equity Research
         updatesOnly: false
     postConsensusRatings:
-      summary: Consensus Ratings response of FDS-US for frequency 'D'
+      summary: Consensus Ratings response of FDS-US for frequency 'AM'
       description: >-
         Consensus Ratings response of FDS-US for SALES metrics with frequency
-        set to 'D'.
+        set to 'AM'.
       value:
         ids:
           - FDS-US
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: D
+        frequency: AM
     postDetailRating:
       summary: Detail Ratings response of FDS-US
       description: Detail Ratings response of FDS-US with includeAll set to 'false'
@@ -4908,8 +5403,8 @@ components:
     postSurpriseExample:
       summary: Surprise response of FDS-US for SALES metrics
       description: >-
-        Surprise response of FDS-US for SALES metrics with frequency set to 'D',
-        periodicity to 'ANN' and statistic to 'MEDIAN'
+        Surprise response of FDS-US for SALES metrics with frequency set to
+        'AM', periodicity to 'ANN' and statistic to 'MEDIAN'
       value:
         ids:
           - FDS-US
@@ -4917,7 +5412,7 @@ components:
           - SALES
         startDate: '2019-01-01'
         endDate: '2019-12-31'
-        frequency: D
+        frequency: AM
         periodicity: ANN
         currency: USD
         statistic: MEDIAN
@@ -4925,7 +5420,7 @@ components:
       summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
       description: >-
         Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
-        with frequency set to 'D' and periodicity to 'ANN'
+        with frequency set to 'AM' and periodicity to 'ANN'
       value:
         ids:
           - FDS-US
@@ -4934,11 +5429,60 @@ components:
         relativeFiscalStart: 1
         relativeFiscalEnd: 3
         periodicity: ANN
-        frequency: D
+        frequency: AM
         segmentType: BUS
         metrics:
           - SALES
         currency: USD
+    postSegmentsDetails:
+      summary: >-
+        Segments details request of AAPL-USA for 'SALES' metrics and 'BUS'
+        segmentType
+      description: >-
+        Segments details request of AAPL-USA for SALES metrics and 'BUS'
+        segmentType with frequency set to 'AM' and periodicity to 'ANN'
+      value:
+        ids:
+          - AAPL-US
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        relativeFiscalStart: 1
+        relativeFiscalEnd: 3
+        periodicity: ANN
+        frequency: AM
+        metrics:
+          - SALES
+        segmentType: BUS
+        segmentIds:
+          - PRODLINE_SALES_1
+        currency: USD
+        brokerNames:
+          - Morgan Stanley
+        updatesOnly: false
+        includeAll: false
+    postSegmentsDetailsExample:
+      summary: >-
+        Segments details request of AAPL-USA for 'SALES' metrics and 'BUS'
+        segmentType without optional parameters - brokerName and updatesOnly
+      description: >-
+        Segments details request of AAPL-USA for SALES metrics and 'BUS'
+        segmentType with frequency set to 'AM' and periodicity to 'ANN'
+      value:
+        ids:
+          - AAPL-US
+        startDate: '2019-01-01'
+        endDate: '2019-12-31'
+        relativeFiscalStart: 1
+        relativeFiscalEnd: 3
+        periodicity: ANN
+        frequency: AM
+        metrics:
+          - SALES
+        segmentType: BUS
+        segmentIds:
+          - PRODLINE_SALES_1
+        currency: USD
+        includeAll: false
     postMetricsExample:
       summary: >-
         Metrics response with 'FINANCIAL_STATEMENT' category and 'AIRLINES'
@@ -5264,10 +5808,10 @@ components:
             brokerEstimateCurrency: USD
             estimateCurrency: USD
     consensusRatings:
-      summary: Consensus Ratings response of AAPL-USA for frequency 'D'
+      summary: Consensus Ratings response of AAPL-USA for frequency 'AM'
       description: >-
         Consensus Ratings response of AAPL-USA for SALES metrics with frequency
-        set to 'D'.
+        set to 'AM'.
       value:
         data:
           - fsymId: MH33D6-R
@@ -5285,7 +5829,7 @@ components:
       summary: Detail Ratings response of AAPL-USA for SALES metrics
       description: >-
         Detail Ratings response of AAPL-USA for SALES metrics with frequency set
-        to 'D' and periodicity to 'ANN'
+        to 'AM' and periodicity to 'ANN'
       value:
         data:
           - fsymId: MH33D6-R
@@ -5302,7 +5846,7 @@ components:
       summary: Surprise response of AAPL-USA for SALES metrics
       description: >-
         Surprise response of AAPL-USA for SALES metrics with frequency set to
-        'D', periodicity to 'ANN' and statistic to 'MEAN'
+        'AM', periodicity to 'ANN' and statistic to 'MEAN'
       value:
         data:
           - fsymId: MH33D6-R
@@ -5327,7 +5871,7 @@ components:
       summary: Segments response of AAPL-USA for 'SALES' metrics and 'BUS' segmentType
       description: >-
         Segments response of AAPL-USA for SALES metrics and 'BUS' segmentType
-        with frequency set to 'D' and periodicity to 'ANN'
+        with frequency set to 'AM' and periodicity to 'ANN'
       value:
         data:
           - requestId: AAPL-USA
@@ -5370,6 +5914,115 @@ components:
             estimateCount: '21'
             up: '2'
             down: '0'
+    segmentsDetails:
+      summary: >-
+        Segments details response of AAPL-USA for 'PRODLINE_SALES_1' metrics and
+        'BUS' segmentType
+      description: >-
+        Segments response of AAPL-USA for PRODLINE_SALES_1 metrics and 'BUS'
+        segmentType with frequency set to 'AM' and periodicity to 'ANN'
+      value:
+        data:
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: PRODLINE_SALES_1
+            segmentType: BUS
+            fiscalYear: 2018
+            fiscalPeriod: 1
+            fiscalEndDate: '2021-09-30'
+            segmentLabel: iPhone
+            segmentLevel: S
+            currency: USD
+            estimateCurrency: USD
+            estimateDate: '2021-07-01'
+            estimateValue: 23456.12
+            analystId: 0DXTST-E
+            analystName: Josh Baer
+            brokerId: 05FBK7-E
+            brokerName: Morgan Stanley
+            lastModifiedDate: '2017-07-24'
+            prevEstimateDate: '2017-05-02'
+            prevEstimateValue: 22336.12
+            section: Included
+            statusCode: 0
+            statusText: ''
+            inputDateTime: '2022-10-25T22:40:09'
+            securityCurrency: USD
+            brokerEstimateCurrency: USD
+    metricSegmentsDetailsBus:
+      summary: >-
+        Metrics segments details response of AAPL-USA for 'SALES' metric and
+        'BUS' segmentType
+      description: Metrics segments details response of AAPL-USA
+      value:
+        data:
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: PRODLINE_SALES_1
+            segmentLabel: iPhone
+            segmentType: BUS
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: PRODLINE_SALES_2
+            segmentLabel: iPad
+            segmentType: BUS
+    metricSegmentsDetailsAll:
+      summary: >-
+        Metrics segments details response of AAPL-USA for 'SALES' metric and
+        'ALL' segmentType
+      description: >
+        Metrics segments details response of AAPL-USA including both Business
+        and Geographic segments
+      value:
+        data:
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: PRODLINE_SALES_1
+            segmentLabel: iPhone
+            segmentType: BUS
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: PRODLINE_SALES_2
+            segmentLabel: iPad
+            segmentType: BUS
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: GEO_SALES_1
+            segmentLabel: Americas
+            segmentType: GEO
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: GEO_SALES_2
+            segmentLabel: Europe
+            segmentType: GEO
+    metricSegmentsDetailsGeo:
+      summary: >-
+        Metrics segments details response of AAPL-USA for 'SALES' metric and
+        'GEO' segmentType
+      description: >
+        Metrics segments details response of AAPL-USA including only Geographic
+        segments
+      value:
+        data:
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: GEO_SALES_1
+            segmentLabel: Americas
+            segmentType: GEO
+          - requestId: AAPL
+            fsymId: SJY281-R
+            metric: SALES
+            segmentId: GEO_SALES_2
+            segmentLabel: Europe
+            segmentType: GEO
     segmentActuals:
       summary: Segment actuals example
       description: Example response for segmentActuals.

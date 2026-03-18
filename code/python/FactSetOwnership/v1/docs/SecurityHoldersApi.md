@@ -72,7 +72,14 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
         # Get security ownership data for requested security identifers.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_security_holders(ids, holder_type=holder_type, topn=topn, date=date, currency=currency, batch=batch)
+        api_response_wrapper = api_instance.get_security_holders(ids, holder_type=holder_type, topn=topn, date=date, currency=currency, batch=batch)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -94,7 +101,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -111,6 +121,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Security Holders Response. |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -183,7 +194,14 @@ with fds.sdk.FactSetOwnership.ApiClient(configuration) as api_client:
     try:
         # Get security ownership data for a list of requested securities.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.post_security_holders(security_holders_request)
+        api_response_wrapper = api_instance.post_security_holders(security_holders_request)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -200,7 +218,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**SecurityHoldersResponse**](SecurityHoldersResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -217,6 +238,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Security Holders Response. |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

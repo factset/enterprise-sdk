@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getOwnershipHoldings
 
-> FundHoldingsResponse getOwnershipHoldings(ids, date, topn, assetType, currency, batch)
+> GetOwnershipHoldingsResponseWrapper getOwnershipHoldings(ids, date, topn, assetType, currency, batch)
 
 Get underlying holdings information for a requested fund identifer.
 
@@ -33,6 +33,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.FundHoldingsApi;
+import com.factset.sdk.FactSetOwnership.api.FundHoldingsApi.GetOwnershipHoldingsResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -66,8 +67,16 @@ public class Example {
         String currency = "LOCAL"; // String | Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
         String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes.  When `batch=Y`, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It's advised to submit large lists of ids via POST method. 
         try {
-            FundHoldingsResponse result = apiInstance.getOwnershipHoldings(ids, date, topn, assetType, currency, batch);
-            System.out.println(result);
+            GetOwnershipHoldingsResponseWrapper result = apiInstance.getOwnershipHoldings(ids, date, topn, assetType, currency, batch);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // FundHoldingsResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling FundHoldingsApi#getOwnershipHoldings");
@@ -94,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FundHoldingsResponse**](FundHoldingsResponse.md)
+GetOwnershipHoldingsResponseWrapper
 
 ### Authorization
 
@@ -109,6 +118,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Fund Holdings Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -118,7 +128,7 @@ Name | Type | Description  | Notes
 
 ## postOwnershipHoldings
 
-> FundHoldingsResponse postOwnershipHoldings(fundHoldingsRequest)
+> PostOwnershipHoldingsResponseWrapper postOwnershipHoldings(fundHoldingsRequest)
 
 Get holdings for a list of funds.
 
@@ -139,6 +149,7 @@ import com.factset.sdk.FactSetOwnership.Configuration;
 import com.factset.sdk.FactSetOwnership.auth.*;
 import com.factset.sdk.FactSetOwnership.models.*;
 import com.factset.sdk.FactSetOwnership.api.FundHoldingsApi;
+import com.factset.sdk.FactSetOwnership.api.FundHoldingsApi.PostOwnershipHoldingsResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -167,8 +178,16 @@ public class Example {
         FundHoldingsApi apiInstance = new FundHoldingsApi(defaultClient);
         FundHoldingsRequest fundHoldingsRequest = new FundHoldingsRequest(); // FundHoldingsRequest | Requesting Underlying Holdings for a list of Fund Identifiers.
         try {
-            FundHoldingsResponse result = apiInstance.postOwnershipHoldings(fundHoldingsRequest);
-            System.out.println(result);
+            PostOwnershipHoldingsResponseWrapper result = apiInstance.postOwnershipHoldings(fundHoldingsRequest);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // FundHoldingsResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling FundHoldingsApi#postOwnershipHoldings");
@@ -190,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FundHoldingsResponse**](FundHoldingsResponse.md)
+PostOwnershipHoldingsResponseWrapper
 
 ### Authorization
 
@@ -205,6 +224,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Fund Holdings Response. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request status. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

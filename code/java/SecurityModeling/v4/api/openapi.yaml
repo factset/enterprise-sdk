@@ -1,0 +1,2088 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Allow clients to fetch Analytics through APIs.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Security Modeling API
+  version: 4.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/security-modeling-api
+servers:
+- url: https://api.factset.com/analytics/security-modeling/v4
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- name: SecurityModeling
+paths:
+  /securities/retrieve:
+    post:
+      description: This endpoint allows you to fetch the terms and conditions for
+        securities that have already been saved and exist on the FactSet side of your
+        modeling data. It is designed for scenarios where you need to review or validate
+        the details of securities that were previously created or modeled.
+      operationId: getSecurities
+      requestBody:
+        content:
+          application/json:
+            examples:
+              SM Retrieve Request:
+                value:
+                  data:
+                  - securityName: SECURITY_BOND
+                    location: CLIENT
+                    asofdate: "19000101"
+                    securityType: BOND
+            schema:
+              $ref: '#/components/schemas/SMRetrieveParametersRoot'
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200- SM Retrieve Response":
+                  value:
+                    data:
+                    - securityName: SECURITY_BOND
+                      location: client
+                      asofdate: "19000101"
+                      fields:
+                        securityType: bond
+                        "144aFlag": 1
+                        businessDayConv: None
+                        callFreq: Continuous On Schedule
+                        callNoticeDays: 30
+                        conversionType: Mandatory
+                        convertibleFlag: 1
+                        country: United States
+                        couponType: Floating
+                        currency: USD
+                        dayCountBasis: 30/360
+                        federalTaxExemptFlag: 0
+                        fltDayCountBasis: 30/360
+                        isEndOfMonthPayer: 1
+                        lifeFloor: 0
+                        lockoutDays: 0
+                        lookBackDays: 0
+                        makeWholeCallFlag: 1
+                        matrixMultipliers:
+                        - 1
+                        - 1
+                        matrixPricedFlag: 1
+                        matrixSpreads:
+                        - 0
+                        - 1
+                        matrixUseScheduleFlag: 1
+                        maturityPrice: 100
+                        multiplier: 1
+                        observationShift: 0
+                        parPrice: 100
+                        payFreq: Semi-annual
+                        paymentDelay: 0
+                        preferredSecExDateLen: 0
+                        preferredSecExDateUnits: Business Day
+                        preferredSecType: Preferred Equity
+                        principalType: At Maturity
+                        putFreq: Discrete On Schedule
+                        putNoticeDays: 30
+                        pvtPlacementFlag: 1
+                        redemptionOpt: Callable
+                        resetDelay: 0
+                        secondaryToVendorFlag: 0
+                        sectorDef: FactSet Fixed Income
+                        status: Current
+                        vRDNFlag: 1
+                        issueName: Convertible Debt
+                        parentName: Convertible Debt
+                        issuerId: FDS-US
+                        issueDate: "20250915"
+                        maturityDate: "20300915"
+                        origAmtIssued: 1000
+                        notionalFlag: 1
+                        callDates:
+                        - "20270915"
+                        callPrices:
+                        - 101
+                        coupon: 2
+                        firstPayDate: "20260315"
+                        refIndex: SOFR 1mo
+                        spread: 0
+                        resetFreq: Aperiodic
+                        lifeCap: 0
+                        periodCap: 0
+                        periodFloor: 0
+                        sectorMain: Corporate
+                        sector: Corporate-Other
+                        sectorSubgroup: Miscellaneous
+                        sectorIndustry: Miscellaneous
+                        conversionIdentifier: FDS-US
+                        conversionRatio: 3.597
+                        ratingSpValues:
+                        - BBB+
+                        ratingMoodysValues:
+                        - Baa
+                        ratingFitch:
+                        - BBB+
+                        ratingFitchValues:
+                        - BBB+
+                        matrixDates:
+                        - "20250915"
+                        - "20270915"
+                        makeWholeSpread: 2
+                        makeWholeExpireDate: "20290912"
+                        aperiodicSpreads:
+                        - 2
+                        - 4
+                        aperiodicMultipliers:
+                        - 1
+                        - 1
+                        aperiodicResetDates:
+                        - "20250923"
+                        - "20260923"
+                        creditSpreadAdjustmentSingle: 0.03
+              schema:
+                $ref: '#/components/schemas/SMRetrieveResponseRoot'
+          description: Expected response, returns a list of existing securities.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Invalid POST body.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in sometime
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+      summary: Get existing securities
+      tags:
+      - SecurityModeling
+      x-contentType: application/json
+      x-accepts: application/json
+  /securities/upsert:
+    post:
+      description: |-
+        This endpoint enables you to model new securities or modify existing securities by supplying the appropriate terms and conditions.
+
+
+         To determine which fields are required for a successful save, you can use the fields endpoint to retrieve the supported fields based on the security type you wish to model.
+
+
+         It can take up to 1200 securities.
+      operationId: upsertSecurities
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              SM Upsert Request:
+                value:
+                  data:
+                  - securityName: SECUIRTY_CCF
+                    fields:
+                      ParAmt: "1.000"
+                      CashFlowAmounts:
+                      - "100"
+                      CashFlowDates:
+                      - "20220101"
+            schema:
+              $ref: '#/components/schemas/SMCreateParametersRoot'
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                SM Upsert Response:
+                  value:
+                    data:
+                      jobId: 96f0961a-577f-41a2-a3f6-ed69e46d147c
+                      status: Queued
+              schema:
+                $ref: '#/components/schemas/RequestStatusRoot'
+          description: Expected response, contains the poll URL in the Location header.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Invalid POST body.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Path not found":
+                  value:
+                    errors:
+                    - id: 668BDDBB7D633388
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Path not found
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: One or more upsert settings were unavailable.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in sometime
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+      summary: Create or update securities
+      tags:
+      - SecurityModeling
+      x-contentType: application/json
+      x-accepts: application/json
+  /securities/delete:
+    post:
+      description: This endpoint allows you to permanently remove previously saved
+        securities and their associated terms and conditions from your modeling data
+        on the FactSet side. This endpoint is useful when a security was created in
+        error, is no longer needed, or must be cleared before re-modeling with new
+        terms.
+      operationId: deleteSecurities
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              SM Delete Request:
+                value:
+                  data:
+                  - securityName: Bond_Security
+                    location: Client
+                    asofdate: "20250101"
+                    securityType: BOND
+            schema:
+              $ref: '#/components/schemas/SMDeleteParametersRoot'
+      responses:
+        "202":
+          content:
+            application/json:
+              examples:
+                SM Delete Response:
+                  value:
+                    data:
+                      jobId: 96f0961a-577f-41a2-a3f6-ed69e46d147c
+                      status: Executing
+              schema:
+                $ref: '#/components/schemas/RequestStatusRoot'
+          description: Expected response, contains the poll URL in the Location header.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Invalid POST body.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Path not found":
+                  value:
+                    errors:
+                    - id: 668BDDBB7D633388
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Path not found
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: One or more upsert settings were unavailable.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in sometime
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+      summary: Delete existing securities
+      tags:
+      - SecurityModeling
+      x-contentType: application/json
+      x-accepts: application/json
+  /securities/{jobId}/status:
+    get:
+      description: "This is the endpoint to check on the progress of a previously\
+        \ requested upsert or delete.\r\nIf the process has completed, the location\
+        \ header will point to the result url."
+      operationId: smGetUpsertStatusById
+      parameters:
+      - description: from url, provided from the location header in the Create and
+          Run SM upsert/delete endpoint
+        explode: false
+        in: path
+        name: jobId
+        required: true
+        schema:
+          description: from url, provided from the location header in the Create and
+            Run SM upsert/delete endpoint
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                "201 - Upsert/Delete":
+                  value:
+                    data:
+                      jobId: 96f0961a-577f-41a2-a3f6-ed69e46d147c
+                      status: Completed
+              schema:
+                $ref: '#/components/schemas/RequestStatusRoot'
+          description: Expected response once upsert/delete is completed.
+          headers:
+            Location:
+              $ref: '#/components/headers/ResponseLocationHeader'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              examples:
+                "202- Upsert/Delete":
+                  value:
+                    data:
+                      jobId: 96f0961a-577f-41a2-a3f6-ed69e46d147c
+                      status: Executing
+              schema:
+                $ref: '#/components/schemas/RequestStatusRoot'
+          description: Expected response returned if the upsert/delete is not yet
+            completed, should contain location header.
+          headers:
+            Location:
+              $ref: '#/components/headers/Long-Running-Location'
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Invalid JobId was provided":
+                  value:
+                    errors:
+                    - id: 667BC1D3CCF1F383
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Request not found
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: One or more upsert settings were unavailable.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in sometime
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+      summary: Get SM upsert or delete status by id
+      tags:
+      - SecurityModeling
+      x-accepts: application/json
+  /securities/{jobId}/result:
+    get:
+      description: "This is the endpoint to get the result of a previously requested\
+        \ upsert/delete.\r\nIf the process has completed, the body of the response\
+        \ will contain the requested results in JSON."
+      operationId: smGetRequestResultById
+      parameters:
+      - description: from url, provided from the location header in the Get SM upsert
+          status by id endpoint
+        explode: false
+        in: path
+        name: jobId
+        required: true
+        schema:
+          description: from url, provided from the location header in the Get SM upsert
+            status by id endpoint
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                SM Upsert Response:
+                  value:
+                    data:
+                      securities:
+                      - securityName: ISWP_API_2
+                        status: Failed
+                        errors:
+                        - code: securityModeling_notAllowed
+                          detail: Notional Exchange Type 'Exchange at Front &amp Back'
+                            is not valid
+                          id: notionalExchangeType
+                          source:
+                            pointer: /data/fields/notionalExchangeType
+                          title: notionalExchangeType value not allowed
+                        - code: securityModeling_notAllowed
+                          detail: Reset Frequency 'Monly' must not be longer than
+                            Payment Frequency 'Monthly' - Receiving Leg
+                          id: resetFreqRec
+                          source:
+                            pointer: /data/fields/resetFreqRec
+                          title: resetFreqRec value not allowed
+                        warnings:
+                        - code: securityModeling_otherWarning
+                          detail: No changes detected, security skipped.
+                          id: symbol
+                          source:
+                            pointer: /data/fields/symbol
+                          title: symbol has other warning
+                      - securityName: OPTION2
+                        status: Created
+                    meta:
+                      operation: upsert
+                      jobId: 96f0961a-577f-41a2-a3f6-ed69e46d147c
+              schema:
+                $ref: '#/components/schemas/SMCreateResponseRoot'
+          description: Expected response once upsert/delete is completed, returns
+            JSON in the format specified in the parameters.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Not Found":
+                  value:
+                    errors:
+                    - id: 667BC1D3CCF1F383
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Request not found
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Result was already returned or provided id was not a requested
+            upsert/delete.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+      summary: Get SM upsert or delete result by id
+      tags:
+      - SecurityModeling
+      x-accepts: application/json
+  /securities/{securityType}/fields:
+    get:
+      description: |
+        This endpoint allows you to retrieve the complete list of fields supported for modeling a security based on its security type. Each field returned in this endpoint includes rich metadata designed to help you understand how to correctly populate terms and conditions for the Upsert workflow.
+
+          **Security Type mappings for the `sectype` parameter:**
+
+          | Security Type                | Sectype needed for templates |
+          |-----------------------------|------------------------------|
+          | Bond                        | BOND                         |
+          | Bank Loan Facility          | BLF                          |
+          | Mortgage Backed Security    | MBS                          |
+          | Multi-Legged Bond           | MLB                          |
+          | Custom Cash Flow            | CCF                          |
+          | Tender Option Bond          | TOB                          |
+          | Bond Forward                | BFW                          |
+          | Bond Option/Lock            | BOPT                         |
+          | Cross Currency Swap         | CCS                          |
+          | Inflation Swap              | ISWP                         |
+          | Interest Rate Cap/Floor     | IRCF                         |
+          | CMS Rate Cap/Floor          | CRCF                         |
+          | CMS Spread Cap/Floor        | CSCF                         |
+          | Vanilla Interest Rate Swap  | VIRS                         |
+          | Swaption                   | SWP                          |
+          | Credit Default Swap         | CDS                          |
+          | CDS Index Option            | CDSW                         |
+          | Currency Forward            | CFW                          |
+          | Total Return Swap           | TRS                          |
+          | Option                      | OPT                          |
+          | Variance Swap               | VSWP                         |
+          | Fund                        | PE                           |
+          | Real Estate                 | RE                           |
+      operationId: getFields
+      parameters:
+      - description: Security Type
+        explode: false
+        in: path
+        name: securityType
+        required: true
+        schema:
+          description: Security Type
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      cashFlowAmounts:
+                        category:
+                        - double_array
+                        mandatory: true
+                      cashFlowDates:
+                        category:
+                        - string_array
+                        mandatory: true
+                      country:
+                        category:
+                        - string
+                        mandatory: false
+                      currency:
+                        category:
+                        - string
+                        mandatory: false
+                      issueName:
+                        category:
+                        - string
+                        mandatory: false
+                      parAmt:
+                        category:
+                        - double
+                        mandatory: true
+                      parentName:
+                        category:
+                        - string
+                        mandatory: false
+                      ratingFitch:
+                        category:
+                        - string
+                        mandatory: false
+                      ratingFitchDates:
+                        category:
+                        - string_array
+                        mandatory: false
+                      ratingFitchValues:
+                        category:
+                        - string_array
+                        mandatory: false
+                      ratingMoodysDates:
+                        category:
+                        - string_array
+                        mandatory: false
+                      ratingMoodysValues:
+                        category:
+                        - string_array
+                        mandatory: false
+                      ratingSpDates:
+                        category:
+                        - string_array
+                        mandatory: false
+                      ratingSpValues:
+                        category:
+                        - string_array
+                        mandatory: false
+                      secondaryToVendorFlag:
+                        category:
+                        - bool
+                        mandatory: false
+                      sector:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorBarclay1:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorBarclay2:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorBarclay3:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorBarclay4:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorDef:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorIndustry:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorMain:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorMerrill1:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorMerrill2:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorMerrill3:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorMerrill4:
+                        category:
+                        - string
+                        mandatory: false
+                      sectorSubgroup:
+                        category:
+                        - string
+                        mandatory: false
+                      vendorCoverageDate:
+                        category:
+                        - string
+                        mandatory: false
+              schema:
+                $ref: '#/components/schemas/SMTemplateFieldPropertiesRoot'
+          description: Expected response, returns a list of all template fields.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  value:
+                    errors:
+                    - id: 667BBEFFBD1F4651
+                      code: BadRequest
+                      title: Failed to process request
+                      detail: Error processing the request
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Invalid parameter provided.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "403":
+          description: User is forbidden with current credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Not Found":
+                  value:
+                    errors:
+                    - id: 667BC1D3CCF1F383
+                      code: NotFound
+                      title: Failed to process request
+                      detail: Request not found
+              schema:
+                $ref: '#/components/schemas/APIClientErrorResponse'
+          description: Security Type not found.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "503":
+          description: Request timed out. Retry the request in sometime
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+      summary: Get security type fields
+      tags:
+      - SecurityModeling
+      x-accepts: application/json
+components:
+  headers:
+    ResponseLocationHeader:
+      description: Url of the newly created resource
+      explode: false
+      schema:
+        type: string
+      style: simple
+    Long-Running-Location:
+      description: Location to poll for the status of the job.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-DataDirect-Request-Key:
+      description: FactSet's request key header.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-Request-Key:
+      description: Key to uniquely identify an Analytics API request. Only available
+        after successful authentication.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Limit:
+      description: Number of allowed requests for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Remaining:
+      description: Number of requests left for the time window.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    X-FactSet-Api-RateLimit-Reset:
+      description: Number of seconds remaining till rate limit resets.
+      explode: false
+      schema:
+        type: string
+      style: simple
+  schemas:
+    SMRetrieveParameters:
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        securityType: BOND
+        location: location
+        fields: fields
+      properties:
+        securityName:
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        securityType:
+          enum:
+          - BOND
+          - BLF
+          - MBS
+          - CCF
+          - TOB
+          - BFW
+          - BOPT
+          - CCS
+          - MLB
+          - ISWP
+          - IRCF
+          - CRCF
+          - CSCF
+          - VIRS
+          - SWP
+          - CDS
+          - CDSW
+          - CFW
+          - TRS
+          - OPT
+          - VSWP
+          - PE
+          - RE
+          nullable: true
+          type: string
+        fields:
+          type: string
+      required:
+      - securityName
+      type: object
+    APIClientErrorResponse:
+      description: The response schema for errors
+      properties:
+        errors:
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/APIError'
+          nullable: true
+          type: array
+      type: object
+    APIError:
+      description: Full details of any error
+      properties:
+        id:
+          description: Identifier for the error (the Chain ID)
+          type: string
+        code:
+          description: The error code
+          type: string
+        title:
+          description: The title of the error
+          type: string
+        detail:
+          description: Explanation specific to the occurrence of the error
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      required:
+      - code
+      - title
+      type: object
+    RequestStatusRoot:
+      description: The status of upsert or delete as per FactSets API standards.
+      example:
+        data:
+          jobId: jobId
+          status: Queued
+      properties:
+        data:
+          $ref: '#/components/schemas/RequestStatus'
+      required:
+      - data
+      type: object
+    RequestStatus:
+      description: Details of the upsert or delete.
+      example:
+        jobId: jobId
+        status: Queued
+      properties:
+        jobId:
+          description: Upsert or delete identifier
+          nullable: true
+          type: string
+        status:
+          description: Upsert or delete status
+          enum:
+          - Queued
+          - Executing
+          - Completed
+          type: string
+      type: object
+    SMRetrieveParametersRoot:
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields: fields
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields: fields
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields: fields
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields: fields
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields: fields
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMRetrieveParameters'
+          maxItems: 100
+          type: array
+      required:
+      - data
+      type: object
+    SMRetrieveResponse:
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        location: location
+        fields:
+          key: ""
+        error:
+          code: code
+          id: id
+          detail: detail
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        status: Created
+      properties:
+        securityName:
+          nullable: true
+          type: string
+        status:
+          enum:
+          - Created
+          - Failed
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        fields:
+          additionalProperties: {}
+          description: A map of dynamic key-value pairs representing security fields.
+          type: object
+        error:
+          $ref: '#/components/schemas/Error'
+      required:
+      - fields
+      type: object
+    SMRetrieveResponseRoot:
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          location: location
+          fields:
+            key: ""
+          error:
+            code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          status: Created
+        - securityName: securityName
+          asofdate: asofdate
+          location: location
+          fields:
+            key: ""
+          error:
+            code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          status: Created
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMRetrieveResponse'
+          type: array
+      required:
+      - data
+      type: object
+    SMCreateParameters:
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        securityType: BOND
+        location: location
+        fields:
+          key: ""
+      properties:
+        securityName:
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        fields:
+          additionalProperties: {}
+          description: A map of dynamic key-value pairs representing security fields.
+          type: object
+        securityType:
+          enum:
+          - BOND
+          - BLF
+          - MBS
+          - CCF
+          - TOB
+          - BFW
+          - BOPT
+          - CCS
+          - MLB
+          - ISWP
+          - IRCF
+          - CRCF
+          - CSCF
+          - VIRS
+          - SWP
+          - CDS
+          - CDSW
+          - CFW
+          - TRS
+          - OPT
+          - VSWP
+          - PE
+          - RE
+          nullable: true
+          type: string
+      required:
+      - fields
+      - securityName
+      type: object
+    FieldsMap:
+      additionalProperties: {}
+      description: A map of dynamic key-value pairs representing security fields.
+      type: object
+    SMCreateParametersRoot:
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields:
+            key: ""
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields:
+            key: ""
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields:
+            key: ""
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields:
+            key: ""
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+          fields:
+            key: ""
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMCreateParameters'
+          maxItems: 1200
+          type: array
+      required:
+      - data
+      type: object
+    SMCreateResponse:
+      example:
+        securities:
+        - securityName: securityName
+          warnings:
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          errors:
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          status: Created
+        - securityName: securityName
+          warnings:
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          errors:
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          - code: code
+            id: id
+            detail: detail
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          status: Created
+      properties:
+        securities:
+          items:
+            $ref: '#/components/schemas/SMSecurityResponse'
+          type: array
+      type: object
+    SMCreateResponseRoot:
+      example:
+        data:
+          securities:
+          - securityName: securityName
+            warnings:
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            errors:
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            status: Created
+          - securityName: securityName
+            warnings:
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            errors:
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              id: id
+              detail: detail
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            status: Created
+        meta:
+          jobId: jobId
+          operation: upsert
+      properties:
+        data:
+          $ref: '#/components/schemas/SMCreateResponse'
+        meta:
+          $ref: '#/components/schemas/SMCreateResponseRoot_meta'
+      required:
+      - data
+      type: object
+    SMDeleteParameters:
+      example:
+        securityName: securityName
+        asofdate: asofdate
+        securityType: BOND
+        location: location
+      properties:
+        securityName:
+          type: string
+        location:
+          nullable: true
+          type: string
+        asofdate:
+          nullable: true
+          type: string
+        securityType:
+          enum:
+          - BOND
+          - BLF
+          - MBS
+          - CCF
+          - TOB
+          - BFW
+          - BOPT
+          - CCS
+          - MLB
+          - ISWP
+          - IRCF
+          - CRCF
+          - CSCF
+          - VIRS
+          - SWP
+          - CDS
+          - CDSW
+          - CFW
+          - TRS
+          - OPT
+          - VSWP
+          - PE
+          - RE
+          nullable: true
+          type: string
+      required:
+      - securityName
+      type: object
+    SMDeleteParametersRoot:
+      example:
+        data:
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+        - securityName: securityName
+          asofdate: asofdate
+          securityType: BOND
+          location: location
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SMDeleteParameters'
+          maxItems: 100
+          type: array
+      required:
+      - data
+      type: object
+    SMTemplateFieldProperties:
+      example:
+        description: description
+        category:
+        - category
+        - category
+        mandatory: true
+        whenField:
+        - null
+        - null
+      properties:
+        category:
+          description: Indicates the expected data type (e.g., string, int, double,
+            boolean, or arrays). This helps ensure you supply values in the correct
+            format.
+          items:
+            type: string
+          nullable: true
+          type: array
+        mandatory:
+          description: Shows whether the field is always required for successful modeling.
+            If true, you must supply this field when creating or updating a security.
+          type: boolean
+        whenField:
+          description: Specifies conditional requirements—certain fields become mandatory
+            only when other fields have specific values.
+          items:
+            $ref: '#/components/schemas/WhenCondition'
+          nullable: true
+          type: array
+        description:
+          description: A clear and intuitive explanation of what the field represents,
+            making it easier to interpret than raw JSON keys.
+          nullable: true
+          type: string
+      type: object
+    WhenCondition:
+      additionalProperties:
+        items:
+          type: string
+        type: array
+      description: A single condition where a field becomes mandatory. Keys are fields
+        and values are arrays of mandatory values.
+      nullable: true
+      type: object
+    SMTemplateFieldPropertiesRoot:
+      example:
+        data:
+          key:
+            description: description
+            category:
+            - category
+            - category
+            mandatory: true
+            whenField:
+            - null
+            - null
+      properties:
+        data:
+          additionalProperties:
+            $ref: '#/components/schemas/SMTemplateFieldProperties'
+          type: object
+      required:
+      - data
+      type: object
+    ErrorSource:
+      example:
+        pointer: pointer
+        parameter: parameter
+      properties:
+        pointer:
+          nullable: true
+          type: string
+        parameter:
+          nullable: true
+          type: string
+      type: object
+    Error:
+      example:
+        code: code
+        id: id
+        detail: detail
+        source:
+          pointer: pointer
+          parameter: parameter
+        title: title
+      properties:
+        id:
+          nullable: true
+          type: string
+        code:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        detail:
+          nullable: true
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+      required:
+      - code
+      - title
+      type: object
+    SMSecurityResponse:
+      example:
+        securityName: securityName
+        warnings:
+        - code: code
+          id: id
+          detail: detail
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        - code: code
+          id: id
+          detail: detail
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        errors:
+        - code: code
+          id: id
+          detail: detail
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        - code: code
+          id: id
+          detail: detail
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        status: Created
+      properties:
+        securityName:
+          type: string
+        status:
+          enum:
+          - Created
+          - Failed
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+        warnings:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      title: SMSecurityResponse
+      type: object
+    SMCreateResponseRoot_meta:
+      example:
+        jobId: jobId
+        operation: upsert
+      nullable: true
+      properties:
+        operation:
+          enum:
+          - upsert
+          - delete
+          type: string
+        jobId:
+          nullable: true
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

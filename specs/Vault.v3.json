@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.14.6"
+    "version": "3.16.0"
   },
   "servers": [
     {
@@ -153,6 +153,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -537,6 +551,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1246,6 +1274,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1537,12 +1579,17 @@
                         "name": "Vault_Test_without_Currency",
                         "accounts": {
                           "CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT": {
-                            "benchmarkCode": "BENCH:891800",
-                            "benchmarkName": "MSCI Emerging Markets",
-                            "maxEndDate": "20180601",
-                            "minStartDate": "20180501",
-                            "lockingDate": "20230911",
-                            "name": "Vault test without currency"
+                            "benchmarkCode": "RUSSELL:1000",
+                            "benchmarkName": "Russell 1000",
+                            "maxEndDate": "20200331",
+                            "minStartDate": "20181228",
+                            "lockingDate": "20200228",
+                            "name": "Small Portfolio New",
+                            "firstSnapshotDate": "20191231",
+                            "lastSnapshotDate": "20200331",
+                            "portfolioSnapshotLockingDate": "20200228",
+                            "snapshotBenchmarkCode": "RUSSELL:1000",
+                            "snapshotBenchmarkName": "Russell 1000"
                           }
                         }
                       },
@@ -1593,6 +1640,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1963,6 +2024,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -2347,6 +2422,20 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "667BBEFFBD1F4651",
+                          "code": "BadRequest",
+                          "title": "Failed to process request",
+                          "detail": "Error processing the request"
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -6117,6 +6206,31 @@
           "name": {
             "type": "string",
             "description": "Account name.",
+            "nullable": true
+          },
+          "firstSnapshotDate": {
+            "type": "string",
+            "description": "First Snapshot Date.",
+            "nullable": true
+          },
+          "lastSnapshotDate": {
+            "type": "string",
+            "description": "Last Snapshot Date.",
+            "nullable": true
+          },
+          "portfolioSnapshotLockingDate": {
+            "type": "string",
+            "description": "Portfolio Snapshot Locking Date.",
+            "nullable": true
+          },
+          "snapshotBenchmarkCode": {
+            "type": "string",
+            "description": "Snapshot Benchmark Code.",
+            "nullable": true
+          },
+          "snapshotBenchmarkName": {
+            "type": "string",
+            "description": "Snapshot Benchmark Name.",
             "nullable": true
           }
         }
