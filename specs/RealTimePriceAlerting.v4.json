@@ -1,0 +1,1473 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "4.0.0",
+    "title": "Real-Time Price Alerting API",
+    "description": "The Price Alerting API is designed to inform the users of an application directly about important changes in the data on the platform.\nThe endpoint group *basic price alerting* deals with generation of alerts based on current price data. For notations, users can define\nan upper or lower limit and choose on which price type those limit conditions apply.\n\nAlerting uses the concepts of triggers and alerts. \n\n* A trigger is an entity that is set up by an application to watch a certain condition in the market data around a financial instrument.\n  The standard conditions that can be applied are lower limit and upper limit for the value of the price for a given financial instrument.\n* When the condition of a trigger is met, an alert is created. Each alert thus represents one event where a trigger condition was met.\n\nAn application can learn about the creation of alerts in two ways: The application can actively request the list of alerts (pull approach)\nor it can subscribe to the list of existing alerts. If a new alert is created, that list changes and the application is notified about\nthe new alert with an update that contains the details on the new alert (push approach).\n\nThe API supports both approaches. The push approach is realized most easily by using the subscription support that the client libraries provide.\n\nSee the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api) for access to detailed price information.\n\nNote: As part of the general trial access, endpoints to write data are excluded. For a description of the full alerting API, please work with a\nFactSet consultant and see https://endpointreference.factset.com.\n",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com/wealth/v4"
+    }
+  ],
+  "paths": {
+    "/alerting/prices/basic/alert/get": {
+      "get": {
+        "tags": [
+          "alerting"
+        ],
+        "operationId": "getAlertingPricesBasicAlertGet",
+        "description": "Details of an alert. The details include the trigger definition at the time of alert creation.",
+        "summary": "Details of an alert.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "description": "Identifier of the alert.",
+              "type": "string",
+              "format": "id64",
+              "example": "4004"
+            },
+            "required": true,
+            "description": "Identifier of the alert.",
+            "example": "4004"
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "uniqueItems": true,
+              "maxItems": 50
+            },
+            "style": "form",
+            "explode": false,
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetAlertingPricesBasicAlertGet200Response"
+          }
+        }
+      }
+    },
+    "/alerting/prices/basic/alert/list": {
+      "get": {
+        "tags": [
+          "alerting"
+        ],
+        "operationId": "getAlertingPricesBasicAlertList",
+        "description": "List of alerts in descending order of creation.",
+        "summary": "List of alerts.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetAlertingPricesBasicAlertList200Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "_attributes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "uniqueItems": true,
+              "maxItems": 50
+            },
+            "style": "form",
+            "explode": false,
+            "description": "Limit the attributes returned in the response to the specified set."
+          },
+          {
+            "description": "Non-negative number of milliseconds to throttle the update rate from 0ms to 5000ms. Set to 0 for sending updates immediately.",
+            "name": "metaSubscriptionMinimumInterval",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "int32",
+              "minimum": 0,
+              "exclusiveMinimum": false,
+              "maximum": 5000,
+              "exclusiveMaximum": false,
+              "default": 0,
+              "example": 937
+            },
+            "example": 937
+          },
+          {
+            "description": "Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).",
+            "name": "_paginationCursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 50,
+              "example": "Lorem ipsum"
+            }
+          },
+          {
+            "description": "Non-negative maximum number of entries to return.",
+            "name": "_paginationLimit",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "int32",
+              "minimum": 0,
+              "exclusiveMinimum": false,
+              "maximum": 500,
+              "exclusiveMaximum": false,
+              "default": 20,
+              "example": 20
+            }
+          }
+        ]
+      }
+    },
+    "/alerting/prices/basic/trigger/get": {
+      "get": {
+        "tags": [
+          "alerting"
+        ],
+        "operationId": "getAlertingPricesBasicTriggerGet",
+        "description": "Details of a trigger.",
+        "summary": "Details of a trigger.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "id64",
+              "description": "Identifier of the trigger.",
+              "example": "4004"
+            },
+            "required": true,
+            "description": "Identifier of the trigger.",
+            "example": "4004"
+          },
+          {
+            "name": "_attributes",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "uniqueItems": true,
+              "maxItems": 50
+            },
+            "style": "form",
+            "explode": false,
+            "description": "Limit the attributes returned in the response to the specified set."
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/GetAlertingPricesBasicTriggerGet200Response"
+          }
+        }
+      }
+    },
+    "/alerting/prices/basic/trigger/list": {
+      "post": {
+        "tags": [
+          "alerting"
+        ],
+        "operationId": "postAlertingPricesBasicTriggerList",
+        "description": "Returns a list of triggers sorted in descending order of creation.",
+        "summary": "List of triggers.",
+        "requestBody": {
+          "description": "Request Body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostAlertingPricesBasicTriggerListRequest"
+              },
+              "example": {
+                "data": {
+                  "filter": {
+                    "status": {
+                      "code": "active"
+                    }
+                  }
+                },
+                "meta": {
+                  "attributes": [],
+                  "pagination": {
+                    "cursor": "Lorem ipsum",
+                    "limit": 20
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/PostAlertingPricesBasicTriggerList200Response"
+          }
+        },
+        "parameters": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AttributesMember": {
+        "type": "array",
+        "description": "Limit the attributes returned in the response to the specified set.",
+        "items": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "maxItems": 100,
+        "uniqueItems": true,
+        "example": []
+      },
+      "StatusObject": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "number",
+            "format": "int32",
+            "description": "The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1).",
+            "example": 200
+          }
+        },
+        "description": "The status member contains the status code of the response."
+      },
+      "CursorBasedPaginationOutputObject": {
+        "type": "object",
+        "description": "Pagination attributes for the cursor-based pagination strategy.",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Total number of entries in the result set.",
+            "nullable": true,
+            "example": 5
+          },
+          "isEstimatedTotal": {
+            "type": "boolean",
+            "description": "Flag indicating that the value of `total` is estimated.",
+            "nullable": true,
+            "example": false
+          },
+          "next": {
+            "type": "string",
+            "description": "The next cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination, otherwise `null`.",
+            "nullable": true,
+            "example": "Lorem ipsum"
+          },
+          "previous": {
+            "type": "string",
+            "description": "The previous cursor position to use in the parameter `pagination.cursor` for an endpoint that supports cursor-based pagination. If a previous cursor position is not supported or available, `previous` is `null`.",
+            "nullable": true,
+            "example": "Lorem ipsum"
+          }
+        }
+      },
+      "PostAlertingPricesBasicTriggerListRequest": {
+        "description": "Request Body",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "description": "The data member contains the request's primary data.",
+            "properties": {
+              "filter": {
+                "type": "object",
+                "description": "Criteria that filter the items in the response list.",
+                "properties": {
+                  "status": {
+                    "type": "object",
+                    "description": "Status of the trigger.",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "Code of the status.\n| Value | Description |\n| --- | --- |\n| active | The trigger is active and trigger conditions are evaluated. |\n| inactive | The trigger is inactive and conditions do not generate alerts. |\n| error | The trigger is in an error state, error details are noted in `details` |\n\n",
+                        "enum": [
+                          "active",
+                          "inactive",
+                          "error"
+                        ],
+                        "example": "active"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "description": "The meta member contains the meta information of the request.",
+            "properties": {
+              "attributes": {
+                "$ref": "#/components/schemas/AttributesMember"
+              },
+              "pagination": {
+                "type": "object",
+                "description": "Pagination attributes for the cursor-based pagination strategy.",
+                "properties": {
+                  "cursor": {
+                    "type": "string",
+                    "maxLength": 50,
+                    "description": "Starting point as returned in the attributes `pagination.next` or `pagination.previous` by a prior invocation of this endpoint, or undefined (default).",
+                    "example": "Lorem ipsum"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 0,
+                    "exclusiveMinimum": false,
+                    "maximum": 500,
+                    "exclusiveMaximum": false,
+                    "default": 20,
+                    "description": "Non-negative maximum number of entries to return.",
+                    "example": 20
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "PostAlertingPricesBasicTriggerListDataNotificationChannelItems": {
+        "type": "object",
+        "nullable": false,
+        "properties": {
+          "id": {
+            "nullable": true,
+            "description": "Identifier of the notification channel.",
+            "type": "number",
+            "format": "id32",
+            "example": 5
+          }
+        },
+        "description": "A list of objects. For semantical context see the description of the parent array."
+      },
+      "GetAlertingPricesBasicAlertListDataNotificationStatusItems": {
+        "type": "object",
+        "nullable": false,
+        "properties": {
+          "channel": {
+            "nullable": false,
+            "type": "object",
+            "description": "Details of the notification channel.",
+            "properties": {
+              "id": {
+                "nullable": true,
+                "type": "number",
+                "format": "id32",
+                "description": "Identifier of the notification channel.",
+                "example": 2
+              }
+            }
+          },
+          "time": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time of the most recent change.",
+            "example": "2024-12-24T18:00:00.000000Z"
+          },
+          "code": {
+            "nullable": true,
+            "type": "string",
+            "description": "Code of the status.\n| Value | Description |\n| --- | --- |\n| pending | Notification has not been processed. |\n| sent | Notification has been sent but delivery status is unknown. |\n| delivered | Notification has been delivered. |\n| error | Notification has not been delivered due to an error. |\n| rejected | Notification delivery has been rejected (possibly due to return mails being received for delivery address). |\n\n",
+            "enum": [
+              "pending",
+              "sent",
+              "delivered",
+              "error",
+              "rejected"
+            ],
+            "example": "rejected"
+          }
+        },
+        "description": "A list of objects. For semantical context see the description of the parent array."
+      },
+      "GetAlertingPricesBasicTriggerGetDataNotificationChannelItems": {
+        "type": "object",
+        "nullable": false,
+        "properties": {
+          "id": {
+            "nullable": true,
+            "description": "Identifier of the notification channel.",
+            "type": "number",
+            "format": "id32",
+            "example": 1
+          }
+        },
+        "description": "A list of objects. For semantical context see the description of the parent array."
+      },
+      "GetAlertingPricesBasicAlertGetDataNotificationStatusItems": {
+        "type": "object",
+        "nullable": false,
+        "properties": {
+          "channel": {
+            "nullable": false,
+            "type": "object",
+            "description": "Details of the notification channel.",
+            "properties": {
+              "id": {
+                "nullable": true,
+                "type": "number",
+                "format": "id32",
+                "description": "Identifier of the notification channel.",
+                "example": 1
+              }
+            }
+          },
+          "time": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time of the most recent change.",
+            "example": "2024-12-24T18:00:00.000000Z"
+          },
+          "code": {
+            "nullable": true,
+            "type": "string",
+            "description": "Code of the status.\n| Value | Description |\n| --- | --- |\n| pending | Notification has not been processed. |\n| sent | Notification has been sent but delivery status is unknown. |\n| delivered | Notification has been delivered. |\n| error | Notification has not been delivered due to an error. |\n| rejected | Notification delivery has been rejected (possibly due to return mails being received for delivery address). |\n\n",
+            "enum": [
+              "pending",
+              "sent",
+              "delivered",
+              "error",
+              "rejected"
+            ],
+            "example": "sent"
+          }
+        },
+        "description": "A list of objects. For semantical context see the description of the parent array."
+      },
+      "PostAlertingPricesBasicTriggerListDataItems": {
+        "type": "object",
+        "nullable": false,
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "string",
+            "format": "id64",
+            "description": "Identifier of the trigger.",
+            "example": "1001"
+          },
+          "creation": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the trigger was created.",
+            "example": "2024-12-24T18:00:00.000000Z"
+          },
+          "notation": {
+            "nullable": false,
+            "type": "object",
+            "description": "Notation data of the trigger.",
+            "properties": {
+              "id": {
+                "nullable": true,
+                "type": "string",
+                "format": "id64",
+                "description": "Identifier of the notation.",
+                "example": "1532562"
+              }
+            }
+          },
+          "price": {
+            "nullable": false,
+            "description": "Price data of the trigger.",
+            "type": "object",
+            "properties": {
+              "type": {
+                "nullable": true,
+                "type": "string",
+                "description": "Type of the price as configured for the customer.\n| Value | Description |\n| --- | --- |\n| trade | Trade price (ordinary, auction, pre or post-trading). |\n| bid | Bid price. |\n| ask | Ask price. |\n\n",
+                "enum": [
+                  "trade",
+                  "bid",
+                  "ask"
+                ],
+                "example": "ask"
+              },
+              "quality": {
+                "nullable": true,
+                "type": "string",
+                "description": "Quality of the price.\n| Value | Description |\n| --- | --- |\n| RLT | Real-time: intraday prices with minimal technical processing delays. |\n| DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |\n| EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days. |\n\n",
+                "enum": [
+                  "RLT",
+                  "DLY",
+                  "EOD"
+                ],
+                "example": "EOD"
+              }
+            }
+          },
+          "range": {
+            "nullable": false,
+            "type": "object",
+            "description": "Price range for the trigger to monitor.",
+            "properties": {
+              "upperLimit": {
+                "nullable": true,
+                "type": "number",
+                "format": "real",
+                "description": "Upper limit.",
+                "example": 5.05
+              },
+              "lowerLimit": {
+                "nullable": true,
+                "type": "number",
+                "format": "real",
+                "description": "Lower limit.",
+                "example": 3.1415
+              }
+            }
+          },
+          "comment": {
+            "nullable": true,
+            "type": "string",
+            "description": "Comment of the trigger.",
+            "example": "Lorem ipsum"
+          },
+          "notification": {
+            "nullable": false,
+            "type": "object",
+            "description": "Selection of notifications for triggered alerts.",
+            "properties": {
+              "channel": {
+                "nullable": false,
+                "description": "Notification channel selection; see endpoint `/alerting/notification/channel/list` for possible channels.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PostAlertingPricesBasicTriggerListDataNotificationChannelItems"
+                }
+              }
+            }
+          },
+          "status": {
+            "nullable": false,
+            "type": "object",
+            "description": "Status of the trigger.",
+            "properties": {
+              "code": {
+                "nullable": true,
+                "type": "string",
+                "description": "Code of the status.\n| Value | Description |\n| --- | --- |\n| active | The trigger is active and trigger conditions are evaluated. |\n| inactive | The trigger is inactive and conditions do not generate alerts |\n| error | The trigger is in an error state, error details are noted in \"details\" |\n\n",
+                "enum": [
+                  "active",
+                  "inactive",
+                  "error"
+                ],
+                "example": "inactive"
+              },
+              "details": {
+                "nullable": true,
+                "type": "string",
+                "description": "A human-readable, unstructured explanation specific to this error.",
+                "example": "Lorem ipsum"
+              }
+            }
+          }
+        },
+        "description": "A list of objects. For semantical context see the description of the parent array."
+      },
+      "GetAlertingPricesBasicAlertListDataItems": {
+        "type": "object",
+        "nullable": false,
+        "properties": {
+          "id": {
+            "nullable": true,
+            "type": "string",
+            "format": "id64",
+            "description": "Identifier of the alert.",
+            "example": "2002"
+          },
+          "creation": {
+            "nullable": true,
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the alert was created.",
+            "example": "2024-12-24T18:00:00.000000Z"
+          },
+          "price": {
+            "nullable": false,
+            "type": "object",
+            "description": "Price data at the time of alert creation.",
+            "properties": {
+              "value": {
+                "nullable": true,
+                "type": "number",
+                "format": "real",
+                "description": "Depending on `trigger.price.type`, the trade, bid, or ask price.",
+                "example": 1.01
+              },
+              "time": {
+                "nullable": true,
+                "type": "string",
+                "format": "date-time",
+                "description": "Date and time of the price.",
+                "example": "2024-12-24T18:00:00.000000Z"
+              }
+            }
+          },
+          "notification": {
+            "nullable": false,
+            "type": "object",
+            "description": "Notification information of the alert.",
+            "properties": {
+              "status": {
+                "nullable": false,
+                "description": "Status of a notification per channel.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/GetAlertingPricesBasicAlertListDataNotificationStatusItems"
+                }
+              }
+            }
+          },
+          "trigger": {
+            "nullable": false,
+            "description": "Trigger data at the time of alert creation.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "nullable": true,
+                "type": "string",
+                "format": "id64",
+                "description": "Identifier of the trigger.",
+                "example": "2002"
+              },
+              "creation": {
+                "nullable": true,
+                "type": "string",
+                "format": "date-time",
+                "description": "Date and time when the trigger was created.",
+                "example": "2024-12-24T18:00:00.000000Z"
+              },
+              "notation": {
+                "nullable": false,
+                "type": "object",
+                "description": "Notation data of the trigger.",
+                "properties": {
+                  "id": {
+                    "nullable": true,
+                    "type": "string",
+                    "format": "id64",
+                    "description": "Identifier of the notation.",
+                    "example": "1532562"
+                  }
+                }
+              },
+              "price": {
+                "nullable": false,
+                "description": "Price data of the trigger.",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "nullable": true,
+                    "type": "string",
+                    "description": "Type of the price as configured for the customer.\n| Value | Description |\n| --- | --- |\n| trade | Trade price (ordinary, auction, pre or post-trading). |\n| bid | Bid price. |\n| ask | Ask price. |\n\n",
+                    "enum": [
+                      "trade",
+                      "bid",
+                      "ask"
+                    ],
+                    "example": "bid"
+                  },
+                  "quality": {
+                    "nullable": true,
+                    "type": "string",
+                    "description": "Quality of the price.\n| Value | Description |\n| --- | --- |\n| RLT | Real-time: intraday prices with minimal technical processing delays. |\n| DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |\n| EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days. |\n\n",
+                    "enum": [
+                      "RLT",
+                      "DLY",
+                      "EOD"
+                    ],
+                    "example": "RLT"
+                  }
+                }
+              },
+              "range": {
+                "nullable": false,
+                "type": "object",
+                "description": "Price range for the trigger to monitor.",
+                "properties": {
+                  "upperLimit": {
+                    "nullable": true,
+                    "type": "number",
+                    "format": "real",
+                    "description": "Upper limit.",
+                    "example": 5.05
+                  },
+                  "lowerLimit": {
+                    "nullable": true,
+                    "type": "number",
+                    "format": "real",
+                    "description": "Lower limit.",
+                    "example": 5.05
+                  }
+                }
+              },
+              "comment": {
+                "nullable": true,
+                "type": "string",
+                "description": "Comment of the trigger.",
+                "example": "Lorem ipsum"
+              },
+              "notification": {
+                "nullable": false,
+                "type": "object",
+                "description": "Notification specific configuration.",
+                "properties": {
+                  "channel": {
+                    "nullable": false,
+                    "type": "object",
+                    "description": "Channel specific configuration.",
+                    "properties": {
+                      "id": {
+                        "nullable": false,
+                        "description": "Identifier of the notification channel.",
+                        "type": "array",
+                        "items": {
+                          "type": "number",
+                          "format": "id32",
+                          "example": 3
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "status": {
+                "nullable": false,
+                "type": "object",
+                "description": "Status of the trigger.",
+                "properties": {
+                  "code": {
+                    "nullable": true,
+                    "type": "string",
+                    "description": "Code of the status.\n| Value | Description |\n| --- | --- |\n| active | The trigger is active and trigger conditions are evaluated. |\n| inactive | The trigger is inactive and conditions do not generate alerts |\n| error | The trigger is in an error state, error details are noted in \"details\" |\n\n",
+                    "enum": [
+                      "active",
+                      "inactive",
+                      "error"
+                    ],
+                    "example": "inactive"
+                  },
+                  "details": {
+                    "nullable": true,
+                    "type": "string",
+                    "description": "A human-readable, unstructured explanation specific to this error.",
+                    "example": "Lorem ipsum"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "A list of objects. For semantical context see the description of the parent array."
+      }
+    },
+    "responses": {
+      "GetAlertingPricesBasicAlertGet200Response": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "nullable": true,
+                      "type": "string",
+                      "format": "id64",
+                      "description": "Identifier of the alert.",
+                      "example": "3003"
+                    },
+                    "creation": {
+                      "nullable": true,
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time when the alert was created.",
+                      "example": "2024-01-01T00:00:00.000Z"
+                    },
+                    "price": {
+                      "nullable": false,
+                      "type": "object",
+                      "description": "Price data at the time of alert creation.",
+                      "properties": {
+                        "value": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "Depending on `trigger.price.type`, the trade, bid, or ask price.",
+                          "example": 1.01
+                        },
+                        "time": {
+                          "nullable": true,
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Date and time of the price.",
+                          "example": "2024-12-24T18:00:00.000000Z"
+                        }
+                      }
+                    },
+                    "notification": {
+                      "nullable": false,
+                      "type": "object",
+                      "description": "Notification information of the alert.",
+                      "properties": {
+                        "status": {
+                          "nullable": false,
+                          "description": "Status of a notification per channel.",
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/GetAlertingPricesBasicAlertGetDataNotificationStatusItems"
+                          }
+                        }
+                      }
+                    },
+                    "trigger": {
+                      "nullable": false,
+                      "description": "Trigger data at the time of alert creation.",
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "nullable": true,
+                          "type": "string",
+                          "format": "id64",
+                          "description": "Identifier of the trigger.",
+                          "example": "5005"
+                        },
+                        "creation": {
+                          "nullable": true,
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Date and time when the trigger was created.",
+                          "example": "2024-01-01T00:00:00.000Z"
+                        },
+                        "notation": {
+                          "nullable": false,
+                          "type": "object",
+                          "description": "Notation data of the trigger.",
+                          "properties": {
+                            "id": {
+                              "nullable": true,
+                              "type": "string",
+                              "format": "id64",
+                              "description": "Identifier of the notation.",
+                              "example": "1532562"
+                            }
+                          }
+                        },
+                        "price": {
+                          "nullable": false,
+                          "description": "Price data of the trigger.",
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "nullable": true,
+                              "type": "string",
+                              "description": "Type of the price as configured for the customer.\n| Value | Description |\n| --- | --- |\n| trade | Trade price (ordinary, auction, pre or post-trading). |\n| bid | Bid price. |\n| ask | Ask price. |\n\n",
+                              "enum": [
+                                "trade",
+                                "bid",
+                                "ask"
+                              ],
+                              "example": "bid"
+                            },
+                            "quality": {
+                              "nullable": true,
+                              "type": "string",
+                              "description": "Price quality of the trigger.\n| Value | Description |\n| --- | --- |\n| RLT | Real-Time: intraday prices with minimal technical processing delays. |\n| DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |\n| EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours. |\n\n",
+                              "enum": [
+                                "RLT",
+                                "DLY",
+                                "EOD"
+                              ],
+                              "example": "DLY"
+                            }
+                          }
+                        },
+                        "range": {
+                          "nullable": false,
+                          "type": "object",
+                          "description": "Price range for the trigger to monitor.",
+                          "properties": {
+                            "upperLimit": {
+                              "nullable": true,
+                              "type": "number",
+                              "format": "real",
+                              "description": "Upper limit.",
+                              "example": 5.05
+                            },
+                            "lowerLimit": {
+                              "nullable": true,
+                              "type": "number",
+                              "format": "real",
+                              "description": "Lower limit.",
+                              "example": 3.03
+                            }
+                          }
+                        },
+                        "comment": {
+                          "nullable": true,
+                          "type": "string",
+                          "description": "Comment of the trigger.",
+                          "example": "Lorem ipsum"
+                        },
+                        "notification": {
+                          "nullable": false,
+                          "type": "object",
+                          "description": "Notification specific configuration.",
+                          "properties": {
+                            "channel": {
+                              "nullable": false,
+                              "type": "object",
+                              "description": "Channel specific configuration.",
+                              "properties": {
+                                "id": {
+                                  "nullable": false,
+                                  "description": "Identifier of the notification channel.",
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number",
+                                    "format": "id32",
+                                    "example": 5
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "status": {
+                          "nullable": false,
+                          "type": "object",
+                          "description": "Status of the trigger.",
+                          "properties": {
+                            "code": {
+                              "nullable": true,
+                              "type": "string",
+                              "description": "Code of the status.\n| Value | Description |\n| --- | --- |\n| active | The trigger is active and trigger conditions are evaluated. |\n| inactive | The trigger is inactive and conditions do not generate alerts |\n| error | The trigger is in an error state, error details are noted in \"details\" |\n\n",
+                              "enum": [
+                                "active",
+                                "inactive",
+                                "error"
+                              ],
+                              "example": "error"
+                            },
+                            "details": {
+                              "nullable": true,
+                              "type": "string",
+                              "description": "A human-readable, unstructured explanation specific to this error.",
+                              "example": "Lorem ipsum"
+                            },
+                            "encryptedDetails": {
+                              "nullable": true,
+                              "type": "string",
+                              "description": "Base64-encoded, internal details about the error, in addition to \"details\". An issue submitted to Service Desk should contain this data to speed up investigation.",
+                              "example": "Lorem ipsum"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "description": "Details of the alert.",
+                  "nullable": false
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/components/schemas/StatusObject"
+                    }
+                  }
+                }
+              }
+            },
+            "example": {
+              "data": {
+                "id": "3003",
+                "creation": "2024-01-01T00:00:00.000Z",
+                "price": {
+                  "value": 1.01,
+                  "time": "2024-12-24T18:00:00.000000Z"
+                },
+                "notification": {
+                  "status": [
+                    {
+                      "channel": {
+                        "id": 1
+                      },
+                      "time": "2024-12-24T18:00:00.000000Z",
+                      "code": "sent"
+                    }
+                  ]
+                },
+                "trigger": {
+                  "id": "5005",
+                  "creation": "2024-01-01T00:00:00.000Z",
+                  "notation": {
+                    "id": "1532562"
+                  },
+                  "price": {
+                    "type": "bid",
+                    "quality": "DLY"
+                  },
+                  "range": {
+                    "upperLimit": 5.05,
+                    "lowerLimit": 3.03
+                  },
+                  "comment": "Lorem ipsum",
+                  "notification": {
+                    "channel": {
+                      "id": [
+                        5
+                      ]
+                    }
+                  },
+                  "status": {
+                    "code": "error",
+                    "details": "Lorem ipsum",
+                    "encryptedDetails": "Lorem ipsum"
+                  }
+                }
+              },
+              "meta": {
+                "status": {
+                  "code": 200
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetAlertingPricesBasicAlertList200Response": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "description": "List of alerts.",
+                  "nullable": false,
+                  "items": {
+                    "$ref": "#/components/schemas/GetAlertingPricesBasicAlertListDataItems"
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/components/schemas/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/CursorBasedPaginationOutputObject"
+                    }
+                  }
+                }
+              }
+            },
+            "example": {
+              "data": [
+                {
+                  "id": "2002",
+                  "creation": "2024-12-24T18:00:00.000000Z",
+                  "price": {
+                    "value": 1.01,
+                    "time": "2024-12-24T18:00:00.000000Z"
+                  },
+                  "notification": {
+                    "status": [
+                      {
+                        "channel": {
+                          "id": 2
+                        },
+                        "time": "2024-12-24T18:00:00.000000Z",
+                        "code": "rejected"
+                      }
+                    ]
+                  },
+                  "trigger": {
+                    "id": "2002",
+                    "creation": "2024-12-24T18:00:00.000000Z",
+                    "notation": {
+                      "id": "1532562"
+                    },
+                    "price": {
+                      "type": "bid",
+                      "quality": "RLT"
+                    },
+                    "range": {
+                      "upperLimit": 5.05,
+                      "lowerLimit": 5.05
+                    },
+                    "comment": "Lorem ipsum",
+                    "notification": {
+                      "channel": {
+                        "id": [
+                          3
+                        ]
+                      }
+                    },
+                    "status": {
+                      "code": "inactive",
+                      "details": "Lorem ipsum"
+                    }
+                  }
+                }
+              ],
+              "meta": {
+                "status": {
+                  "code": 200
+                },
+                "pagination": {
+                  "total": 5,
+                  "isEstimatedTotal": false,
+                  "next": "Lorem ipsum",
+                  "previous": "Lorem ipsum"
+                }
+              }
+            }
+          }
+        }
+      },
+      "GetAlertingPricesBasicTriggerGet200Response": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "nullable": true,
+                      "type": "string",
+                      "format": "id64",
+                      "description": "Identifier of the trigger.",
+                      "example": "3003"
+                    },
+                    "creation": {
+                      "nullable": true,
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Date and time when the trigger was created.",
+                      "example": "2024-01-01T00:00:00.000Z"
+                    },
+                    "notation": {
+                      "nullable": false,
+                      "type": "object",
+                      "description": "Notation data of the trigger.",
+                      "properties": {
+                        "id": {
+                          "nullable": true,
+                          "type": "string",
+                          "format": "id64",
+                          "description": "Identifier of the notation.",
+                          "example": "1532562"
+                        }
+                      }
+                    },
+                    "price": {
+                      "nullable": false,
+                      "description": "Price data of the trigger.",
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "nullable": true,
+                          "type": "string",
+                          "description": "Type of the price as configured for the customer.\n| Value | Description |\n| --- | --- |\n| trade | Trade price (ordinary, auction, pre or post-trading). |\n| bid | Bid price. |\n| ask | Ask price. |\n\n",
+                          "enum": [
+                            "trade",
+                            "bid",
+                            "ask"
+                          ],
+                          "example": "ask"
+                        },
+                        "quality": {
+                          "nullable": true,
+                          "type": "string",
+                          "description": "Quality of the price.\n| Value | Description |\n| --- | --- |\n| RLT | Real-time: intraday prices with minimal technical processing delays. |\n| DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |\n| EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days. |\n\n",
+                          "enum": [
+                            "RLT",
+                            "DLY",
+                            "EOD"
+                          ],
+                          "example": "DLY"
+                        }
+                      }
+                    },
+                    "range": {
+                      "nullable": false,
+                      "type": "object",
+                      "description": "Price range for the trigger to monitor.",
+                      "properties": {
+                        "upperLimit": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "Upper limit.",
+                          "example": 3.03
+                        },
+                        "lowerLimit": {
+                          "nullable": true,
+                          "type": "number",
+                          "format": "real",
+                          "description": "Lower limit.",
+                          "example": 1.01
+                        }
+                      }
+                    },
+                    "comment": {
+                      "nullable": true,
+                      "type": "string",
+                      "description": "Comment of the trigger.",
+                      "example": "Lorem ipsum"
+                    },
+                    "notification": {
+                      "nullable": false,
+                      "type": "object",
+                      "description": "Selection of notifications for triggered alerts.",
+                      "properties": {
+                        "channel": {
+                          "nullable": false,
+                          "description": "Notification channel selection; see endpoint `/alerting/notification/channel/list` for possible channels.",
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/GetAlertingPricesBasicTriggerGetDataNotificationChannelItems"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "nullable": false,
+                      "type": "object",
+                      "description": "Status of the trigger.",
+                      "properties": {
+                        "code": {
+                          "nullable": true,
+                          "type": "string",
+                          "description": "Code of the status.\n| Value | Description |\n| --- | --- |\n| active | The trigger is active and trigger conditions are evaluated. |\n| inactive | The trigger is inactive and conditions do not generate alerts |\n| error | The trigger is in an error state, error details are noted in \"details\" |\n\n",
+                          "enum": [
+                            "active",
+                            "inactive",
+                            "error"
+                          ],
+                          "example": "active"
+                        },
+                        "details": {
+                          "nullable": true,
+                          "type": "string",
+                          "description": "A human-readable, unstructured explanation specific to this error.",
+                          "example": "Lorem ipsum"
+                        },
+                        "encryptedDetails": {
+                          "nullable": true,
+                          "type": "string",
+                          "description": "Base64-encoded, internal details about the error, in addition to \"details\". An issue submitted to Service Desk should contain this data to speed up investigation.",
+                          "example": "Lorem ipsum"
+                        }
+                      }
+                    }
+                  },
+                  "description": "Details of the trigger.",
+                  "nullable": false
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/components/schemas/StatusObject"
+                    }
+                  }
+                }
+              }
+            },
+            "example": {
+              "data": {
+                "id": "3003",
+                "creation": "2024-01-01T00:00:00.000Z",
+                "notation": {
+                  "id": "1532562"
+                },
+                "price": {
+                  "type": "ask",
+                  "quality": "DLY"
+                },
+                "range": {
+                  "upperLimit": 3.03,
+                  "lowerLimit": 1.01
+                },
+                "comment": "Lorem ipsum",
+                "notification": {
+                  "channel": [
+                    {
+                      "id": 1
+                    }
+                  ]
+                },
+                "status": {
+                  "code": "active",
+                  "details": "Lorem ipsum",
+                  "encryptedDetails": "Lorem ipsum"
+                }
+              },
+              "meta": {
+                "status": {
+                  "code": 200
+                }
+              }
+            }
+          }
+        }
+      },
+      "PostAlertingPricesBasicTriggerList200Response": {
+        "description": "Successful Response",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "description": "List of triggers.",
+                  "nullable": false,
+                  "items": {
+                    "$ref": "#/components/schemas/PostAlertingPricesBasicTriggerListDataItems"
+                  }
+                },
+                "meta": {
+                  "type": "object",
+                  "description": "The meta member contains the meta information of the response.",
+                  "properties": {
+                    "status": {
+                      "$ref": "#/components/schemas/StatusObject"
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/CursorBasedPaginationOutputObject"
+                    }
+                  }
+                }
+              }
+            },
+            "example": {
+              "data": [
+                {
+                  "id": "1001",
+                  "creation": "2024-12-24T18:00:00.000000Z",
+                  "notation": {
+                    "id": "1532562"
+                  },
+                  "price": {
+                    "type": "ask",
+                    "quality": "EOD"
+                  },
+                  "range": {
+                    "upperLimit": 5.05,
+                    "lowerLimit": 3.1415
+                  },
+                  "comment": "Lorem ipsum",
+                  "notification": {
+                    "channel": [
+                      {
+                        "id": 5
+                      }
+                    ]
+                  },
+                  "status": {
+                    "code": "inactive",
+                    "details": "Lorem ipsum"
+                  }
+                }
+              ],
+              "meta": {
+                "status": {
+                  "code": 200
+                },
+                "pagination": {
+                  "total": 5,
+                  "isEstimatedTotal": false,
+                  "next": "Lorem ipsum",
+                  "previous": "Lorem ipsum"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {},
+    "examples": {},
+    "requestBodies": {},
+    "headers": {},
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "links": {},
+    "callbacks": {}
+  },
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "alerting",
+      "description": "alerting endpoints"
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/"
+  }
+}

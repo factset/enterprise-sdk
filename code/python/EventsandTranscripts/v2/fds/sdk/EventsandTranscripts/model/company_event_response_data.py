@@ -113,7 +113,7 @@ class CompanyEventResponseData(ModelNormal):
             'contact_email': (str,),  # noqa: E501
             'contact_phone': (str,),  # noqa: E501
             'contact_name': (str,),  # noqa: E501
-            'report_id': (str,),  # noqa: E501
+            'report_id': (str, none_type,),  # noqa: E501
             'last_modified_date': (datetime,),  # noqa: E501
         }
 
@@ -198,7 +198,7 @@ class CompanyEventResponseData(ModelNormal):
             contact_email (str): Contact email for inquiries related to the event.. [optional]  # noqa: E501
             contact_phone (str): Contact phone number for inquiries related to the event.. [optional]  # noqa: E501
             contact_name (str): Name of the contact person for queries related to the event.. [optional]  # noqa: E501
-            report_id (str): Unique identifier for the report.   **Note:** The `reportId` field is only applicable to certain event types.     For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:      - `ConfirmedEarningsRelease`     - `ProjectedEarningsRelease`     - `SalesRevenueRelease`     - `Split`     - `Dividend` . [optional]  # noqa: E501
+            report_id (str, none_type): Unique identifier for the report.   **Note:** The `reportId` field is only applicable to certain event types.     For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:      - `ConfirmedEarningsRelease`     - `ProjectedEarningsRelease`     - `SalesRevenueRelease`     - `Split`     - `Dividend` . [optional]  # noqa: E501
             last_modified_date (datetime): The date and time when the event was last modified.. [optional]  # noqa: E501
         """
 
@@ -296,7 +296,7 @@ class CompanyEventResponseData(ModelNormal):
             contact_email (str): Contact email for inquiries related to the event.. [optional]  # noqa: E501
             contact_phone (str): Contact phone number for inquiries related to the event.. [optional]  # noqa: E501
             contact_name (str): Name of the contact person for queries related to the event.. [optional]  # noqa: E501
-            report_id (str): Unique identifier for the report.   **Note:** The `reportId` field is only applicable to certain event types.     For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:      - `ConfirmedEarningsRelease`     - `ProjectedEarningsRelease`     - `SalesRevenueRelease`     - `Split`     - `Dividend` . [optional]  # noqa: E501
+            report_id (str, none_type): Unique identifier for the report.   **Note:** The `reportId` field is only applicable to certain event types.     For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:      - `ConfirmedEarningsRelease`     - `ProjectedEarningsRelease`     - `SalesRevenueRelease`     - `Split`     - `Dividend` . [optional]  # noqa: E501
             last_modified_date (datetime): The date and time when the event was last modified.. [optional]  # noqa: E501
         """
 

@@ -25,6 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.EventsandTranscripts.JSON;
@@ -158,7 +162,7 @@ public class CompanyEventResponseData implements Serializable {
   private String contactName;
 
   public static final String JSON_PROPERTY_REPORT_ID = "reportId";
-  private String reportId;
+  private JsonNullable<String> reportId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_DATE = "lastModifiedDate";
   private OffsetDateTime lastModifiedDate;
@@ -557,7 +561,7 @@ public class CompanyEventResponseData implements Serializable {
 
 
   public CompanyEventResponseData reportId(String reportId) {
-    this.reportId = reportId;
+    this.reportId = JsonNullable.<String>of(reportId);
     return this;
   }
 
@@ -567,18 +571,26 @@ public class CompanyEventResponseData implements Serializable {
   **/
   @jakarta.annotation.Nullable
   @ApiModelProperty(example = "2750388", value = "Unique identifier for the report.   **Note:** The `reportId` field is only applicable to certain event types.     For the following event types, `reportId` is not applicable and will therefore be included in the response with a null value:      - `ConfirmedEarningsRelease`     - `ProjectedEarningsRelease`     - `SalesRevenueRelease`     - `Split`     - `Dividend` ")
-  @JsonProperty(JSON_PROPERTY_REPORT_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public String getReportId() {
-    return reportId;
+        return reportId.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_REPORT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReportId(String reportId) {
+
+  public JsonNullable<String> getReportId_JsonNullable() {
+    return reportId;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_REPORT_ID)
+  public void setReportId_JsonNullable(JsonNullable<String> reportId) {
     this.reportId = reportId;
+  }
+
+  public void setReportId(String reportId) {
+    this.reportId = JsonNullable.<String>of(reportId);
   }
 
 
@@ -635,13 +647,24 @@ public class CompanyEventResponseData implements Serializable {
         Objects.equals(this.contactEmail, companyEventResponseData.contactEmail) &&
         Objects.equals(this.contactPhone, companyEventResponseData.contactPhone) &&
         Objects.equals(this.contactName, companyEventResponseData.contactName) &&
-        Objects.equals(this.reportId, companyEventResponseData.reportId) &&
+        equalsNullable(this.reportId, companyEventResponseData.reportId) &&
         Objects.equals(this.lastModifiedDate, companyEventResponseData.lastModifiedDate);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, requestId, entityName, description, eventDateTime, marketTimeCode, eventType, eventId, webcastLink, irLink, fiscalYear, fiscalPeriod, contactEmail, contactPhone, contactName, reportId, lastModifiedDate);
+    return Objects.hash(identifier, requestId, entityName, description, eventDateTime, marketTimeCode, eventType, eventId, webcastLink, irLink, fiscalYear, fiscalPeriod, contactEmail, contactPhone, contactName, hashCodeNullable(reportId), lastModifiedDate);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

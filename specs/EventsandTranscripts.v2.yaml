@@ -3988,6 +3988,7 @@ components:
           description: Name of the contact person for queries related to the event.
         reportId:
           type: string
+          nullable: true
           example: '2750388'
           description: >
             Unique identifier for the report. 

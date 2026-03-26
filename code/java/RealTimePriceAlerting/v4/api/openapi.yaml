@@ -1,0 +1,1917 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "The Price Alerting API is designed to inform the users of an application\
+    \ directly about important changes in the data on the platform.\nThe endpoint\
+    \ group *basic price alerting* deals with generation of alerts based on current\
+    \ price data. For notations, users can define\nan upper or lower limit and choose\
+    \ on which price type those limit conditions apply.\n\nAlerting uses the concepts\
+    \ of triggers and alerts. \n\n* A trigger is an entity that is set up by an application\
+    \ to watch a certain condition in the market data around a financial instrument.\n\
+    \  The standard conditions that can be applied are lower limit and upper limit\
+    \ for the value of the price for a given financial instrument.\n* When the condition\
+    \ of a trigger is met, an alert is created. Each alert thus represents one event\
+    \ where a trigger condition was met.\n\nAn application can learn about the creation\
+    \ of alerts in two ways: The application can actively request the list of alerts\
+    \ (pull approach)\nor it can subscribe to the list of existing alerts. If a new\
+    \ alert is created, that list changes and the application is notified about\n\
+    the new alert with an update that contains the details on the new alert (push\
+    \ approach).\n\nThe API supports both approaches. The push approach is realized\
+    \ most easily by using the subscription support that the client libraries provide.\n\
+    \nSee the [Real-Time Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api)\
+    \ for access to detailed price information.\n\nNote: As part of the general trial\
+    \ access, endpoints to write data are excluded. For a description of the full\
+    \ alerting API, please work with a\nFactSet consultant and see https://endpointreference.factset.com.\n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Real-Time Price Alerting API
+  version: 4.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+- url: https://api.factset.com/wealth/v4
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: alerting endpoints
+  name: alerting
+paths:
+  /alerting/prices/basic/alert/get:
+    get:
+      description: Details of an alert. The details include the trigger definition
+        at the time of alert creation.
+      operationId: getAlertingPricesBasicAlertGet
+      parameters:
+      - description: Identifier of the alert.
+        example: "4004"
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          description: Identifier of the alert.
+          example: "4004"
+          format: id64
+          type: string
+        style: form
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  id: "3003"
+                  creation: 2024-01-01T00:00:00.000Z
+                  price:
+                    value: 1.01
+                    time: 2024-12-24T18:00:00.000000Z
+                  notification:
+                    status:
+                    - channel:
+                        id: 1
+                      time: 2024-12-24T18:00:00.000000Z
+                      code: sent
+                  trigger:
+                    id: "5005"
+                    creation: 2024-01-01T00:00:00.000Z
+                    notation:
+                      id: "1532562"
+                    price:
+                      type: bid
+                      quality: DLY
+                    range:
+                      upperLimit: 5.05
+                      lowerLimit: 3.03
+                    comment: Lorem ipsum
+                    notification:
+                      channel:
+                        id:
+                        - 5
+                    status:
+                      code: error
+                      details: Lorem ipsum
+                      encryptedDetails: Lorem ipsum
+                meta:
+                  status:
+                    code: 200
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+      summary: Details of an alert.
+      tags:
+      - alerting
+      x-accepts: application/json
+  /alerting/prices/basic/alert/list:
+    get:
+      description: List of alerts in descending order of creation.
+      operationId: getAlertingPricesBasicAlertList
+      parameters:
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      - description: Non-negative number of milliseconds to throttle the update rate
+          from 0ms to 5000ms. Set to 0 for sending updates immediately.
+        example: 937
+        explode: true
+        in: query
+        name: metaSubscriptionMinimumInterval
+        required: false
+        schema:
+          default: 0
+          example: 937
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 5000
+          minimum: 0
+          type: number
+        style: form
+      - description: Starting point as returned in the attributes `pagination.next`
+          or `pagination.previous` by a prior invocation of this endpoint, or undefined
+          (default).
+        explode: true
+        in: query
+        name: _paginationCursor
+        required: false
+        schema:
+          example: Lorem ipsum
+          maxLength: 50
+          type: string
+        style: form
+      - description: Non-negative maximum number of entries to return.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 20
+          example: 20
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - id: "2002"
+                  creation: 2024-12-24T18:00:00.000000Z
+                  price:
+                    value: 1.01
+                    time: 2024-12-24T18:00:00.000000Z
+                  notification:
+                    status:
+                    - channel:
+                        id: 2
+                      time: 2024-12-24T18:00:00.000000Z
+                      code: rejected
+                  trigger:
+                    id: "2002"
+                    creation: 2024-12-24T18:00:00.000000Z
+                    notation:
+                      id: "1532562"
+                    price:
+                      type: bid
+                      quality: RLT
+                    range:
+                      upperLimit: 5.05
+                      lowerLimit: 5.05
+                    comment: Lorem ipsum
+                    notification:
+                      channel:
+                        id:
+                        - 3
+                    status:
+                      code: inactive
+                      details: Lorem ipsum
+                meta:
+                  status:
+                    code: 200
+                  pagination:
+                    total: 5
+                    isEstimatedTotal: false
+                    next: Lorem ipsum
+                    previous: Lorem ipsum
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+          description: Successful Response
+      summary: List of alerts.
+      tags:
+      - alerting
+      x-accepts: application/json
+  /alerting/prices/basic/trigger/get:
+    get:
+      description: Details of a trigger.
+      operationId: getAlertingPricesBasicTriggerGet
+      parameters:
+      - description: Identifier of the trigger.
+        example: "4004"
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          description: Identifier of the trigger.
+          example: "4004"
+          format: id64
+          type: string
+        style: form
+      - description: Limit the attributes returned in the response to the specified
+          set.
+        explode: false
+        in: query
+        name: _attributes
+        required: false
+        schema:
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 50
+          type: array
+          uniqueItems: true
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                  id: "3003"
+                  creation: 2024-01-01T00:00:00.000Z
+                  notation:
+                    id: "1532562"
+                  price:
+                    type: ask
+                    quality: DLY
+                  range:
+                    upperLimit: 3.03
+                    lowerLimit: 1.01
+                  comment: Lorem ipsum
+                  notification:
+                    channel:
+                    - id: 1
+                  status:
+                    code: active
+                    details: Lorem ipsum
+                    encryptedDetails: Lorem ipsum
+                meta:
+                  status:
+                    code: 200
+              schema:
+                $ref: '#/components/schemas/inline_response_200_2'
+          description: Successful Response
+      summary: Details of a trigger.
+      tags:
+      - alerting
+      x-accepts: application/json
+  /alerting/prices/basic/trigger/list:
+    post:
+      description: Returns a list of triggers sorted in descending order of creation.
+      operationId: postAlertingPricesBasicTriggerList
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              data:
+                filter:
+                  status:
+                    code: active
+              meta:
+                attributes: []
+                pagination:
+                  cursor: Lorem ipsum
+                  limit: 20
+            schema:
+              $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListRequest'
+        description: Request Body
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                data:
+                - id: "1001"
+                  creation: 2024-12-24T18:00:00.000000Z
+                  notation:
+                    id: "1532562"
+                  price:
+                    type: ask
+                    quality: EOD
+                  range:
+                    upperLimit: 5.05
+                    lowerLimit: 3.1415
+                  comment: Lorem ipsum
+                  notification:
+                    channel:
+                    - id: 5
+                  status:
+                    code: inactive
+                    details: Lorem ipsum
+                meta:
+                  status:
+                    code: 200
+                  pagination:
+                    total: 5
+                    isEstimatedTotal: false
+                    next: Lorem ipsum
+                    previous: Lorem ipsum
+              schema:
+                $ref: '#/components/schemas/inline_response_200_3'
+          description: Successful Response
+      summary: List of triggers.
+      tags:
+      - alerting
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  callbacks: {}
+  examples: {}
+  headers: {}
+  links: {}
+  parameters: {}
+  requestBodies: {}
+  responses:
+    GetAlertingPricesBasicAlertGet200Response:
+      content:
+        application/json:
+          example:
+            data:
+              id: "3003"
+              creation: 2024-01-01T00:00:00.000Z
+              price:
+                value: 1.01
+                time: 2024-12-24T18:00:00.000000Z
+              notification:
+                status:
+                - channel:
+                    id: 1
+                  time: 2024-12-24T18:00:00.000000Z
+                  code: sent
+              trigger:
+                id: "5005"
+                creation: 2024-01-01T00:00:00.000Z
+                notation:
+                  id: "1532562"
+                price:
+                  type: bid
+                  quality: DLY
+                range:
+                  upperLimit: 5.05
+                  lowerLimit: 3.03
+                comment: Lorem ipsum
+                notification:
+                  channel:
+                    id:
+                    - 5
+                status:
+                  code: error
+                  details: Lorem ipsum
+                  encryptedDetails: Lorem ipsum
+            meta:
+              status:
+                code: 200
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Successful Response
+    GetAlertingPricesBasicAlertList200Response:
+      content:
+        application/json:
+          example:
+            data:
+            - id: "2002"
+              creation: 2024-12-24T18:00:00.000000Z
+              price:
+                value: 1.01
+                time: 2024-12-24T18:00:00.000000Z
+              notification:
+                status:
+                - channel:
+                    id: 2
+                  time: 2024-12-24T18:00:00.000000Z
+                  code: rejected
+              trigger:
+                id: "2002"
+                creation: 2024-12-24T18:00:00.000000Z
+                notation:
+                  id: "1532562"
+                price:
+                  type: bid
+                  quality: RLT
+                range:
+                  upperLimit: 5.05
+                  lowerLimit: 5.05
+                comment: Lorem ipsum
+                notification:
+                  channel:
+                    id:
+                    - 3
+                status:
+                  code: inactive
+                  details: Lorem ipsum
+            meta:
+              status:
+                code: 200
+              pagination:
+                total: 5
+                isEstimatedTotal: false
+                next: Lorem ipsum
+                previous: Lorem ipsum
+          schema:
+            $ref: '#/components/schemas/inline_response_200_1'
+      description: Successful Response
+    GetAlertingPricesBasicTriggerGet200Response:
+      content:
+        application/json:
+          example:
+            data:
+              id: "3003"
+              creation: 2024-01-01T00:00:00.000Z
+              notation:
+                id: "1532562"
+              price:
+                type: ask
+                quality: DLY
+              range:
+                upperLimit: 3.03
+                lowerLimit: 1.01
+              comment: Lorem ipsum
+              notification:
+                channel:
+                - id: 1
+              status:
+                code: active
+                details: Lorem ipsum
+                encryptedDetails: Lorem ipsum
+            meta:
+              status:
+                code: 200
+          schema:
+            $ref: '#/components/schemas/inline_response_200_2'
+      description: Successful Response
+    PostAlertingPricesBasicTriggerList200Response:
+      content:
+        application/json:
+          example:
+            data:
+            - id: "1001"
+              creation: 2024-12-24T18:00:00.000000Z
+              notation:
+                id: "1532562"
+              price:
+                type: ask
+                quality: EOD
+              range:
+                upperLimit: 5.05
+                lowerLimit: 3.1415
+              comment: Lorem ipsum
+              notification:
+                channel:
+                - id: 5
+              status:
+                code: inactive
+                details: Lorem ipsum
+            meta:
+              status:
+                code: 200
+              pagination:
+                total: 5
+                isEstimatedTotal: false
+                next: Lorem ipsum
+                previous: Lorem ipsum
+          schema:
+            $ref: '#/components/schemas/inline_response_200_3'
+      description: Successful Response
+  schemas:
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      example: []
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 100
+      type: array
+      uniqueItems: true
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 200
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          example: 200
+          format: int32
+          type: number
+      type: object
+    CursorBasedPaginationOutputObject:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      example:
+        next: Lorem ipsum
+        total: 5
+        previous: Lorem ipsum
+        isEstimatedTotal: false
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          example: 5
+          format: int32
+          nullable: true
+          type: integer
+        isEstimatedTotal:
+          description: Flag indicating that the value of `total` is estimated.
+          example: false
+          nullable: true
+          type: boolean
+        next:
+          description: The next cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination, otherwise `null`.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+        previous:
+          description: The previous cursor position to use in the parameter `pagination.cursor`
+            for an endpoint that supports cursor-based pagination. If a previous cursor
+            position is not supported or available, `previous` is `null`.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    PostAlertingPricesBasicTriggerListRequest:
+      description: Request Body
+      example:
+        data:
+          filter:
+            status:
+              code: active
+        meta:
+          pagination:
+            cursor: Lorem ipsum
+            limit: 20
+          attributes: []
+      properties:
+        data:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListRequest_meta'
+      required:
+      - data
+      type: object
+    PostAlertingPricesBasicTriggerListDataNotificationChannelItems:
+      description: A list of objects. For semantical context see the description of
+        the parent array.
+      example:
+        id: 5
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the notification channel.
+          example: 5
+          format: id32
+          nullable: true
+          type: number
+      type: object
+    GetAlertingPricesBasicAlertListDataNotificationStatusItems:
+      description: A list of objects. For semantical context see the description of
+        the parent array.
+      example:
+        code: rejected
+        channel:
+          id: 2
+        time: 2024-12-24T18:00:00Z
+      nullable: false
+      properties:
+        channel:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataNotificationStatusItems_channel'
+        time:
+          description: Date and time of the most recent change.
+          example: 2024-12-24T18:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        code:
+          description: |+
+            Code of the status.
+            | Value | Description |
+            | --- | --- |
+            | pending | Notification has not been processed. |
+            | sent | Notification has been sent but delivery status is unknown. |
+            | delivered | Notification has been delivered. |
+            | error | Notification has not been delivered due to an error. |
+            | rejected | Notification delivery has been rejected (possibly due to return mails being received for delivery address). |
+
+          enum:
+          - pending
+          - sent
+          - delivered
+          - error
+          - rejected
+          example: rejected
+          nullable: true
+          type: string
+      type: object
+    GetAlertingPricesBasicTriggerGetDataNotificationChannelItems:
+      description: A list of objects. For semantical context see the description of
+        the parent array.
+      example:
+        id: 1
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the notification channel.
+          example: 1
+          format: id32
+          nullable: true
+          type: number
+      type: object
+    GetAlertingPricesBasicAlertGetDataNotificationStatusItems:
+      description: A list of objects. For semantical context see the description of
+        the parent array.
+      example:
+        code: sent
+        channel:
+          id: 1
+        time: 2024-12-24T18:00:00Z
+      nullable: false
+      properties:
+        channel:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertGetDataNotificationStatusItems_channel'
+        time:
+          description: Date and time of the most recent change.
+          example: 2024-12-24T18:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        code:
+          description: |+
+            Code of the status.
+            | Value | Description |
+            | --- | --- |
+            | pending | Notification has not been processed. |
+            | sent | Notification has been sent but delivery status is unknown. |
+            | delivered | Notification has been delivered. |
+            | error | Notification has not been delivered due to an error. |
+            | rejected | Notification delivery has been rejected (possibly due to return mails being received for delivery address). |
+
+          enum:
+          - pending
+          - sent
+          - delivered
+          - error
+          - rejected
+          example: sent
+          nullable: true
+          type: string
+      type: object
+    PostAlertingPricesBasicTriggerListDataItems:
+      description: A list of objects. For semantical context see the description of
+        the parent array.
+      example:
+        notification:
+          channel:
+          - id: 5
+          - id: 5
+        notation:
+          id: "1532562"
+        price:
+          type: ask
+          quality: EOD
+        range:
+          upperLimit: 5.05
+          lowerLimit: 3.1415
+        comment: Lorem ipsum
+        id: "1001"
+        creation: 2024-12-24T18:00:00Z
+        status:
+          code: inactive
+          details: Lorem ipsum
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the trigger.
+          example: "1001"
+          format: id64
+          nullable: true
+          type: string
+        creation:
+          description: Date and time when the trigger was created.
+          example: 2024-12-24T18:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListDataItems_price'
+        range:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListDataItems_range'
+        comment:
+          description: Comment of the trigger.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+        notification:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListDataItems_notification'
+        status:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListDataItems_status'
+      type: object
+    GetAlertingPricesBasicAlertListDataItems:
+      description: A list of objects. For semantical context see the description of
+        the parent array.
+      example:
+        notification:
+          status:
+          - code: rejected
+            channel:
+              id: 2
+            time: 2024-12-24T18:00:00Z
+          - code: rejected
+            channel:
+              id: 2
+            time: 2024-12-24T18:00:00Z
+        price:
+          time: 2024-12-24T18:00:00Z
+          value: 1.01
+        id: "2002"
+        trigger:
+          notification:
+            channel:
+              id:
+              - 3
+              - 3
+          notation:
+            id: "1532562"
+          price:
+            type: bid
+            quality: RLT
+          range:
+            upperLimit: 5.05
+            lowerLimit: 5.05
+          comment: Lorem ipsum
+          id: "2002"
+          creation: 2024-12-24T18:00:00Z
+          status:
+            code: inactive
+            details: Lorem ipsum
+        creation: 2024-12-24T18:00:00Z
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the alert.
+          example: "2002"
+          format: id64
+          nullable: true
+          type: string
+        creation:
+          description: Date and time when the alert was created.
+          example: 2024-12-24T18:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_price'
+        notification:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataItems_notification'
+        trigger:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataItems_trigger'
+      type: object
+    inline_response_200_data_price:
+      description: Price data at the time of alert creation.
+      example:
+        time: 2024-12-24T18:00:00Z
+        value: 1.01
+      nullable: false
+      properties:
+        value:
+          description: Depending on `trigger.price.type`, the trade, bid, or ask price.
+          example: 1.01
+          format: real
+          nullable: true
+          type: number
+        time:
+          description: Date and time of the price.
+          example: 2024-12-24T18:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data_notification:
+      description: Notification information of the alert.
+      example:
+        status:
+        - code: sent
+          channel:
+            id: 1
+          time: 2024-12-24T18:00:00Z
+        - code: sent
+          channel:
+            id: 1
+          time: 2024-12-24T18:00:00Z
+      nullable: false
+      properties:
+        status:
+          description: Status of a notification per channel.
+          items:
+            $ref: '#/components/schemas/GetAlertingPricesBasicAlertGetDataNotificationStatusItems'
+          nullable: false
+          type: array
+      type: object
+    inline_response_200_data_trigger_notation:
+      description: Notation data of the trigger.
+      example:
+        id: "1532562"
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the notation.
+          example: "1532562"
+          format: id64
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data_trigger_price:
+      description: Price data of the trigger.
+      example:
+        type: bid
+        quality: DLY
+      nullable: false
+      properties:
+        type:
+          description: |+
+            Type of the price as configured for the customer.
+            | Value | Description |
+            | --- | --- |
+            | trade | Trade price (ordinary, auction, pre or post-trading). |
+            | bid | Bid price. |
+            | ask | Ask price. |
+
+          enum:
+          - trade
+          - bid
+          - ask
+          example: bid
+          nullable: true
+          type: string
+        quality:
+          description: |+
+            Price quality of the trigger.
+            | Value | Description |
+            | --- | --- |
+            | RLT | Real-Time: intraday prices with minimal technical processing delays. |
+            | DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |
+            | EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours. |
+
+          enum:
+          - RLT
+          - DLY
+          - EOD
+          example: DLY
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data_trigger_range:
+      description: Price range for the trigger to monitor.
+      example:
+        upperLimit: 5.05
+        lowerLimit: 3.03
+      nullable: false
+      properties:
+        upperLimit:
+          description: Upper limit.
+          example: 5.05
+          format: real
+          nullable: true
+          type: number
+        lowerLimit:
+          description: Lower limit.
+          example: 3.03
+          format: real
+          nullable: true
+          type: number
+      type: object
+    inline_response_200_data_trigger_notification_channel:
+      description: Channel specific configuration.
+      example:
+        id:
+        - 5
+        - 5
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the notification channel.
+          items:
+            example: 5
+            format: id32
+            type: number
+          nullable: false
+          type: array
+      type: object
+    inline_response_200_data_trigger_notification:
+      description: Notification specific configuration.
+      example:
+        channel:
+          id:
+          - 5
+          - 5
+      nullable: false
+      properties:
+        channel:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notification_channel'
+      type: object
+    inline_response_200_data_trigger_status:
+      description: Status of the trigger.
+      example:
+        code: error
+        details: Lorem ipsum
+        encryptedDetails: Lorem ipsum
+      nullable: false
+      properties:
+        code:
+          description: |+
+            Code of the status.
+            | Value | Description |
+            | --- | --- |
+            | active | The trigger is active and trigger conditions are evaluated. |
+            | inactive | The trigger is inactive and conditions do not generate alerts |
+            | error | The trigger is in an error state, error details are noted in "details" |
+
+          enum:
+          - active
+          - inactive
+          - error
+          example: error
+          nullable: true
+          type: string
+        details:
+          description: A human-readable, unstructured explanation specific to this
+            error.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+        encryptedDetails:
+          description: Base64-encoded, internal details about the error, in addition
+            to "details". An issue submitted to Service Desk should contain this data
+            to speed up investigation.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_data_trigger:
+      description: Trigger data at the time of alert creation.
+      example:
+        notification:
+          channel:
+            id:
+            - 5
+            - 5
+        notation:
+          id: "1532562"
+        price:
+          type: bid
+          quality: DLY
+        range:
+          upperLimit: 5.05
+          lowerLimit: 3.03
+        comment: Lorem ipsum
+        id: "5005"
+        creation: 2024-01-01T00:00:00Z
+        status:
+          code: error
+          details: Lorem ipsum
+          encryptedDetails: Lorem ipsum
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the trigger.
+          example: "5005"
+          format: id64
+          nullable: true
+          type: string
+        creation:
+          description: Date and time when the trigger was created.
+          example: 2024-01-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_price'
+        range:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_range'
+        comment:
+          description: Comment of the trigger.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+        notification:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notification'
+        status:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_status'
+      type: object
+    inline_response_200_data:
+      description: Details of the alert.
+      example:
+        notification:
+          status:
+          - code: sent
+            channel:
+              id: 1
+            time: 2024-12-24T18:00:00Z
+          - code: sent
+            channel:
+              id: 1
+            time: 2024-12-24T18:00:00Z
+        price:
+          time: 2024-12-24T18:00:00Z
+          value: 1.01
+        id: "3003"
+        trigger:
+          notification:
+            channel:
+              id:
+              - 5
+              - 5
+          notation:
+            id: "1532562"
+          price:
+            type: bid
+            quality: DLY
+          range:
+            upperLimit: 5.05
+            lowerLimit: 3.03
+          comment: Lorem ipsum
+          id: "5005"
+          creation: 2024-01-01T00:00:00Z
+          status:
+            code: error
+            details: Lorem ipsum
+            encryptedDetails: Lorem ipsum
+        creation: 2024-01-01T00:00:00Z
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the alert.
+          example: "3003"
+          format: id64
+          nullable: true
+          type: string
+        creation:
+          description: Date and time when the alert was created.
+          example: 2024-01-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        price:
+          $ref: '#/components/schemas/inline_response_200_data_price'
+        notification:
+          $ref: '#/components/schemas/inline_response_200_data_notification'
+        trigger:
+          $ref: '#/components/schemas/inline_response_200_data_trigger'
+      type: object
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 200
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    inline_response_200:
+      example:
+        data:
+          notification:
+            status:
+            - code: sent
+              channel:
+                id: 1
+              time: 2024-12-24T18:00:00Z
+            - code: sent
+              channel:
+                id: 1
+              time: 2024-12-24T18:00:00Z
+          price:
+            time: 2024-12-24T18:00:00Z
+            value: 1.01
+          id: "3003"
+          trigger:
+            notification:
+              channel:
+                id:
+                - 5
+                - 5
+            notation:
+              id: "1532562"
+            price:
+              type: bid
+              quality: DLY
+            range:
+              upperLimit: 5.05
+              lowerLimit: 3.03
+            comment: Lorem ipsum
+            id: "5005"
+            creation: 2024-01-01T00:00:00Z
+            status:
+              code: error
+              details: Lorem ipsum
+              encryptedDetails: Lorem ipsum
+          creation: 2024-01-01T00:00:00Z
+        meta:
+          status:
+            code: 200
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_1_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        pagination:
+          next: Lorem ipsum
+          total: 5
+          previous: Lorem ipsum
+          isEstimatedTotal: false
+        status:
+          code: 200
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+        pagination:
+          $ref: '#/components/schemas/CursorBasedPaginationOutputObject'
+      type: object
+    inline_response_200_1:
+      example:
+        data:
+        - notification:
+            status:
+            - code: rejected
+              channel:
+                id: 2
+              time: 2024-12-24T18:00:00Z
+            - code: rejected
+              channel:
+                id: 2
+              time: 2024-12-24T18:00:00Z
+          price:
+            time: 2024-12-24T18:00:00Z
+            value: 1.01
+          id: "2002"
+          trigger:
+            notification:
+              channel:
+                id:
+                - 3
+                - 3
+            notation:
+              id: "1532562"
+            price:
+              type: bid
+              quality: RLT
+            range:
+              upperLimit: 5.05
+              lowerLimit: 5.05
+            comment: Lorem ipsum
+            id: "2002"
+            creation: 2024-12-24T18:00:00Z
+            status:
+              code: inactive
+              details: Lorem ipsum
+          creation: 2024-12-24T18:00:00Z
+        - notification:
+            status:
+            - code: rejected
+              channel:
+                id: 2
+              time: 2024-12-24T18:00:00Z
+            - code: rejected
+              channel:
+                id: 2
+              time: 2024-12-24T18:00:00Z
+          price:
+            time: 2024-12-24T18:00:00Z
+            value: 1.01
+          id: "2002"
+          trigger:
+            notification:
+              channel:
+                id:
+                - 3
+                - 3
+            notation:
+              id: "1532562"
+            price:
+              type: bid
+              quality: RLT
+            range:
+              upperLimit: 5.05
+              lowerLimit: 5.05
+            comment: Lorem ipsum
+            id: "2002"
+            creation: 2024-12-24T18:00:00Z
+            status:
+              code: inactive
+              details: Lorem ipsum
+          creation: 2024-12-24T18:00:00Z
+        meta:
+          pagination:
+            next: Lorem ipsum
+            total: 5
+            previous: Lorem ipsum
+            isEstimatedTotal: false
+          status:
+            code: 200
+      properties:
+        data:
+          description: List of alerts.
+          items:
+            $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataItems'
+          nullable: false
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    inline_response_200_2_data_price:
+      description: Price data of the trigger.
+      example:
+        type: ask
+        quality: DLY
+      nullable: false
+      properties:
+        type:
+          description: |+
+            Type of the price as configured for the customer.
+            | Value | Description |
+            | --- | --- |
+            | trade | Trade price (ordinary, auction, pre or post-trading). |
+            | bid | Bid price. |
+            | ask | Ask price. |
+
+          enum:
+          - trade
+          - bid
+          - ask
+          example: ask
+          nullable: true
+          type: string
+        quality:
+          description: |+
+            Quality of the price.
+            | Value | Description |
+            | --- | --- |
+            | RLT | Real-time: intraday prices with minimal technical processing delays. |
+            | DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |
+            | EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days. |
+
+          enum:
+          - RLT
+          - DLY
+          - EOD
+          example: DLY
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_2_data_range:
+      description: Price range for the trigger to monitor.
+      example:
+        upperLimit: 3.03
+        lowerLimit: 1.01
+      nullable: false
+      properties:
+        upperLimit:
+          description: Upper limit.
+          example: 3.03
+          format: real
+          nullable: true
+          type: number
+        lowerLimit:
+          description: Lower limit.
+          example: 1.01
+          format: real
+          nullable: true
+          type: number
+      type: object
+    inline_response_200_2_data_notification:
+      description: Selection of notifications for triggered alerts.
+      example:
+        channel:
+        - id: 1
+        - id: 1
+      nullable: false
+      properties:
+        channel:
+          description: Notification channel selection; see endpoint `/alerting/notification/channel/list`
+            for possible channels.
+          items:
+            $ref: '#/components/schemas/GetAlertingPricesBasicTriggerGetDataNotificationChannelItems'
+          nullable: false
+          type: array
+      type: object
+    inline_response_200_2_data_status:
+      description: Status of the trigger.
+      example:
+        code: active
+        details: Lorem ipsum
+        encryptedDetails: Lorem ipsum
+      nullable: false
+      properties:
+        code:
+          description: |+
+            Code of the status.
+            | Value | Description |
+            | --- | --- |
+            | active | The trigger is active and trigger conditions are evaluated. |
+            | inactive | The trigger is inactive and conditions do not generate alerts |
+            | error | The trigger is in an error state, error details are noted in "details" |
+
+          enum:
+          - active
+          - inactive
+          - error
+          example: active
+          nullable: true
+          type: string
+        details:
+          description: A human-readable, unstructured explanation specific to this
+            error.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+        encryptedDetails:
+          description: Base64-encoded, internal details about the error, in addition
+            to "details". An issue submitted to Service Desk should contain this data
+            to speed up investigation.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    inline_response_200_2_data:
+      description: Details of the trigger.
+      example:
+        notification:
+          channel:
+          - id: 1
+          - id: 1
+        notation:
+          id: "1532562"
+        price:
+          type: ask
+          quality: DLY
+        range:
+          upperLimit: 3.03
+          lowerLimit: 1.01
+        comment: Lorem ipsum
+        id: "3003"
+        creation: 2024-01-01T00:00:00Z
+        status:
+          code: active
+          details: Lorem ipsum
+          encryptedDetails: Lorem ipsum
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the trigger.
+          example: "3003"
+          format: id64
+          nullable: true
+          type: string
+        creation:
+          description: Date and time when the trigger was created.
+          example: 2024-01-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/inline_response_200_2_data_price'
+        range:
+          $ref: '#/components/schemas/inline_response_200_2_data_range'
+        comment:
+          description: Comment of the trigger.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+        notification:
+          $ref: '#/components/schemas/inline_response_200_2_data_notification'
+        status:
+          $ref: '#/components/schemas/inline_response_200_2_data_status'
+      type: object
+    inline_response_200_2:
+      example:
+        data:
+          notification:
+            channel:
+            - id: 1
+            - id: 1
+          notation:
+            id: "1532562"
+          price:
+            type: ask
+            quality: DLY
+          range:
+            upperLimit: 3.03
+            lowerLimit: 1.01
+          comment: Lorem ipsum
+          id: "3003"
+          creation: 2024-01-01T00:00:00Z
+          status:
+            code: active
+            details: Lorem ipsum
+            encryptedDetails: Lorem ipsum
+        meta:
+          status:
+            code: 200
+      properties:
+        data:
+          $ref: '#/components/schemas/inline_response_200_2_data'
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    inline_response_200_3:
+      example:
+        data:
+        - notification:
+            channel:
+            - id: 5
+            - id: 5
+          notation:
+            id: "1532562"
+          price:
+            type: ask
+            quality: EOD
+          range:
+            upperLimit: 5.05
+            lowerLimit: 3.1415
+          comment: Lorem ipsum
+          id: "1001"
+          creation: 2024-12-24T18:00:00Z
+          status:
+            code: inactive
+            details: Lorem ipsum
+        - notification:
+            channel:
+            - id: 5
+            - id: 5
+          notation:
+            id: "1532562"
+          price:
+            type: ask
+            quality: EOD
+          range:
+            upperLimit: 5.05
+            lowerLimit: 3.1415
+          comment: Lorem ipsum
+          id: "1001"
+          creation: 2024-12-24T18:00:00Z
+          status:
+            code: inactive
+            details: Lorem ipsum
+        meta:
+          pagination:
+            next: Lorem ipsum
+            total: 5
+            previous: Lorem ipsum
+            isEstimatedTotal: false
+          status:
+            code: 200
+      properties:
+        data:
+          description: List of triggers.
+          items:
+            $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListDataItems'
+          nullable: false
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_1_meta'
+      type: object
+    PostAlertingPricesBasicTriggerListRequest_data_filter_status:
+      description: Status of the trigger.
+      example:
+        code: active
+      properties:
+        code:
+          description: |+
+            Code of the status.
+            | Value | Description |
+            | --- | --- |
+            | active | The trigger is active and trigger conditions are evaluated. |
+            | inactive | The trigger is inactive and conditions do not generate alerts. |
+            | error | The trigger is in an error state, error details are noted in `details` |
+
+          enum:
+          - active
+          - inactive
+          - error
+          example: active
+          type: string
+      type: object
+    PostAlertingPricesBasicTriggerListRequest_data_filter:
+      description: Criteria that filter the items in the response list.
+      example:
+        status:
+          code: active
+      properties:
+        status:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListRequest_data_filter_status'
+      type: object
+    PostAlertingPricesBasicTriggerListRequest_data:
+      description: The data member contains the request's primary data.
+      example:
+        filter:
+          status:
+            code: active
+      properties:
+        filter:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListRequest_data_filter'
+      type: object
+    PostAlertingPricesBasicTriggerListRequest_meta_pagination:
+      description: Pagination attributes for the cursor-based pagination strategy.
+      example:
+        cursor: Lorem ipsum
+        limit: 20
+      properties:
+        cursor:
+          description: Starting point as returned in the attributes `pagination.next`
+            or `pagination.previous` by a prior invocation of this endpoint, or undefined
+            (default).
+          example: Lorem ipsum
+          maxLength: 50
+          type: string
+        limit:
+          default: 20
+          description: Non-negative maximum number of entries to return.
+          example: 20
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 500
+          minimum: 0
+          type: integer
+      type: object
+    PostAlertingPricesBasicTriggerListRequest_meta:
+      description: The meta member contains the meta information of the request.
+      example:
+        pagination:
+          cursor: Lorem ipsum
+          limit: 20
+        attributes: []
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          example: []
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 100
+          type: array
+          uniqueItems: true
+        pagination:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListRequest_meta_pagination'
+      type: object
+    GetAlertingPricesBasicAlertListDataNotificationStatusItems_channel:
+      description: Details of the notification channel.
+      example:
+        id: 2
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the notification channel.
+          example: 2
+          format: id32
+          nullable: true
+          type: number
+      type: object
+    GetAlertingPricesBasicAlertGetDataNotificationStatusItems_channel:
+      description: Details of the notification channel.
+      example:
+        id: 1
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the notification channel.
+          example: 1
+          format: id32
+          nullable: true
+          type: number
+      type: object
+    PostAlertingPricesBasicTriggerListDataItems_price:
+      description: Price data of the trigger.
+      example:
+        type: ask
+        quality: EOD
+      nullable: false
+      properties:
+        type:
+          description: |+
+            Type of the price as configured for the customer.
+            | Value | Description |
+            | --- | --- |
+            | trade | Trade price (ordinary, auction, pre or post-trading). |
+            | bid | Bid price. |
+            | ask | Ask price. |
+
+          enum:
+          - trade
+          - bid
+          - ask
+          example: ask
+          nullable: true
+          type: string
+        quality:
+          description: |+
+            Quality of the price.
+            | Value | Description |
+            | --- | --- |
+            | RLT | Real-time: intraday prices with minimal technical processing delays. |
+            | DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |
+            | EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days. |
+
+          enum:
+          - RLT
+          - DLY
+          - EOD
+          example: EOD
+          nullable: true
+          type: string
+      type: object
+    PostAlertingPricesBasicTriggerListDataItems_range:
+      description: Price range for the trigger to monitor.
+      example:
+        upperLimit: 5.05
+        lowerLimit: 3.1415
+      nullable: false
+      properties:
+        upperLimit:
+          description: Upper limit.
+          example: 5.05
+          format: real
+          nullable: true
+          type: number
+        lowerLimit:
+          description: Lower limit.
+          example: 3.1415
+          format: real
+          nullable: true
+          type: number
+      type: object
+    PostAlertingPricesBasicTriggerListDataItems_notification:
+      description: Selection of notifications for triggered alerts.
+      example:
+        channel:
+        - id: 5
+        - id: 5
+      nullable: false
+      properties:
+        channel:
+          description: Notification channel selection; see endpoint `/alerting/notification/channel/list`
+            for possible channels.
+          items:
+            $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListDataNotificationChannelItems'
+          nullable: false
+          type: array
+      type: object
+    PostAlertingPricesBasicTriggerListDataItems_status:
+      description: Status of the trigger.
+      example:
+        code: inactive
+        details: Lorem ipsum
+      nullable: false
+      properties:
+        code:
+          description: |+
+            Code of the status.
+            | Value | Description |
+            | --- | --- |
+            | active | The trigger is active and trigger conditions are evaluated. |
+            | inactive | The trigger is inactive and conditions do not generate alerts |
+            | error | The trigger is in an error state, error details are noted in "details" |
+
+          enum:
+          - active
+          - inactive
+          - error
+          example: inactive
+          nullable: true
+          type: string
+        details:
+          description: A human-readable, unstructured explanation specific to this
+            error.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+      type: object
+    GetAlertingPricesBasicAlertListDataItems_notification:
+      description: Notification information of the alert.
+      example:
+        status:
+        - code: rejected
+          channel:
+            id: 2
+          time: 2024-12-24T18:00:00Z
+        - code: rejected
+          channel:
+            id: 2
+          time: 2024-12-24T18:00:00Z
+      nullable: false
+      properties:
+        status:
+          description: Status of a notification per channel.
+          items:
+            $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataNotificationStatusItems'
+          nullable: false
+          type: array
+      type: object
+    GetAlertingPricesBasicAlertListDataItems_trigger_price:
+      description: Price data of the trigger.
+      example:
+        type: bid
+        quality: RLT
+      nullable: false
+      properties:
+        type:
+          description: |+
+            Type of the price as configured for the customer.
+            | Value | Description |
+            | --- | --- |
+            | trade | Trade price (ordinary, auction, pre or post-trading). |
+            | bid | Bid price. |
+            | ask | Ask price. |
+
+          enum:
+          - trade
+          - bid
+          - ask
+          example: bid
+          nullable: true
+          type: string
+        quality:
+          description: |+
+            Quality of the price.
+            | Value | Description |
+            | --- | --- |
+            | RLT | Real-time: intraday prices with minimal technical processing delays. |
+            | DLY | Delayed: intraday prices with an exchange-imposed delay of usually 15 to 30 minutes. |
+            | EOD | End-of-day: prices updated once per day after the close of trading, possibly with an exchange-imposed delay of several hours or days. |
+
+          enum:
+          - RLT
+          - DLY
+          - EOD
+          example: RLT
+          nullable: true
+          type: string
+      type: object
+    GetAlertingPricesBasicAlertListDataItems_trigger_range:
+      description: Price range for the trigger to monitor.
+      example:
+        upperLimit: 5.05
+        lowerLimit: 5.05
+      nullable: false
+      properties:
+        upperLimit:
+          description: Upper limit.
+          example: 5.05
+          format: real
+          nullable: true
+          type: number
+        lowerLimit:
+          description: Lower limit.
+          example: 5.05
+          format: real
+          nullable: true
+          type: number
+      type: object
+    GetAlertingPricesBasicAlertListDataItems_trigger_notification_channel:
+      description: Channel specific configuration.
+      example:
+        id:
+        - 3
+        - 3
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the notification channel.
+          items:
+            example: 3
+            format: id32
+            type: number
+          nullable: false
+          type: array
+      type: object
+    GetAlertingPricesBasicAlertListDataItems_trigger_notification:
+      description: Notification specific configuration.
+      example:
+        channel:
+          id:
+          - 3
+          - 3
+      nullable: false
+      properties:
+        channel:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataItems_trigger_notification_channel'
+      type: object
+    GetAlertingPricesBasicAlertListDataItems_trigger:
+      description: Trigger data at the time of alert creation.
+      example:
+        notification:
+          channel:
+            id:
+            - 3
+            - 3
+        notation:
+          id: "1532562"
+        price:
+          type: bid
+          quality: RLT
+        range:
+          upperLimit: 5.05
+          lowerLimit: 5.05
+        comment: Lorem ipsum
+        id: "2002"
+        creation: 2024-12-24T18:00:00Z
+        status:
+          code: inactive
+          details: Lorem ipsum
+      nullable: false
+      properties:
+        id:
+          description: Identifier of the trigger.
+          example: "2002"
+          format: id64
+          nullable: true
+          type: string
+        creation:
+          description: Date and time when the trigger was created.
+          example: 2024-12-24T18:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        notation:
+          $ref: '#/components/schemas/inline_response_200_data_trigger_notation'
+        price:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataItems_trigger_price'
+        range:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataItems_trigger_range'
+        comment:
+          description: Comment of the trigger.
+          example: Lorem ipsum
+          nullable: true
+          type: string
+        notification:
+          $ref: '#/components/schemas/GetAlertingPricesBasicAlertListDataItems_trigger_notification'
+        status:
+          $ref: '#/components/schemas/PostAlertingPricesBasicTriggerListDataItems_status'
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

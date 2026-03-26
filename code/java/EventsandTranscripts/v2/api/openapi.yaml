@@ -4646,6 +4646,7 @@ components:
             \    - `ProjectedEarningsRelease`\n    - `SalesRevenueRelease`\n    -\
             \ `Split`\n    - `Dividend`\n"
           example: "2750388"
+          nullable: true
           type: string
         lastModifiedDate:
           description: The date and time when the event was last modified.
