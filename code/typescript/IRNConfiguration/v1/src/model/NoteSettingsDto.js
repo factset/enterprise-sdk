@@ -46,24 +46,25 @@ class NoteSettingsDto {
         if (data) {
             obj = obj || new NoteSettingsDto();
 
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('isMandatory')) {
+            if (data.hasOwnProperty('isMandatory') && obj['isMandatory'] === undefined) {
                 obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('usePrevious')) {
+            if (data.hasOwnProperty('usePrevious') && obj['usePrevious'] === undefined) {
                 obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
-            if (data.hasOwnProperty('allowPersonal')) {
+            if (data.hasOwnProperty('allowPersonal') && obj['allowPersonal'] === undefined) {
                 obj['allowPersonal'] = ApiClient.convertToType(data['allowPersonal'], 'Boolean');
             }
-            if (data.hasOwnProperty('defaultStatus')) {
+            if (data.hasOwnProperty('defaultStatus') && obj['defaultStatus'] === undefined) {
                 obj['defaultStatus'] = ApiClient.convertToType(data['defaultStatus'], 'String');
             }
-            if (data.hasOwnProperty('alternativeCustomFieldId')) {
+            if (data.hasOwnProperty('alternativeCustomFieldId') && obj['alternativeCustomFieldId'] === undefined) {
                 obj['alternativeCustomFieldId'] = ApiClient.convertToType(data['alternativeCustomFieldId'], 'String');
             }
+            
         }
         return obj;
     }

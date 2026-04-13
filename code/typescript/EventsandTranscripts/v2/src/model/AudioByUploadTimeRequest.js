@@ -47,18 +47,19 @@ class AudioByUploadTimeRequest {
         if (data) {
             obj = obj || new AudioByUploadTimeRequest();
 
-            if (data.hasOwnProperty('uploadTime')) {
+            if (data.hasOwnProperty('uploadTime') && obj['uploadTime'] === undefined) {
                 obj['uploadTime'] = ApiClient.convertToType(data['uploadTime'], 'Number');
             }
-            if (data.hasOwnProperty('audioSource')) {
+            if (data.hasOwnProperty('audioSource') && obj['audioSource'] === undefined) {
                 obj['audioSource'] = ApiClient.convertToType(data['audioSource'], 'String');
             }
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('trimmed')) {
+            if (data.hasOwnProperty('trimmed') && obj['trimmed'] === undefined) {
                 obj['trimmed'] = ApiClient.convertToType(data['trimmed'], 'Boolean');
             }
+            
         }
         return obj;
     }

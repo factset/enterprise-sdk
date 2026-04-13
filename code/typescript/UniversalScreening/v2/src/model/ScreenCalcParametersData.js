@@ -49,18 +49,19 @@ class ScreenCalcParametersData {
         if (data) {
             obj = obj || new ScreenCalcParametersData();
 
-            if (data.hasOwnProperty('backtestDate')) {
+            if (data.hasOwnProperty('backtestDate') && obj['backtestDate'] === undefined) {
                 obj['backtestDate'] = ApiClient.convertToType(data['backtestDate'], 'String');
             }
-            if (data.hasOwnProperty('globalVariablesMap')) {
+            if (data.hasOwnProperty('globalVariablesMap') && obj['globalVariablesMap'] === undefined) {
                 obj['globalVariablesMap'] = ApiClient.convertToType(data['globalVariablesMap'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('legacyUniverseType')) {
+            if (data.hasOwnProperty('legacyUniverseType') && obj['legacyUniverseType'] === undefined) {
                 obj['legacyUniverseType'] = ApiClient.convertToType(data['legacyUniverseType'], 'String');
             }
-            if (data.hasOwnProperty('screenName')) {
+            if (data.hasOwnProperty('screenName') && obj['screenName'] === undefined) {
                 obj['screenName'] = ApiClient.convertToType(data['screenName'], 'String');
             }
+            
         }
         return obj;
     }

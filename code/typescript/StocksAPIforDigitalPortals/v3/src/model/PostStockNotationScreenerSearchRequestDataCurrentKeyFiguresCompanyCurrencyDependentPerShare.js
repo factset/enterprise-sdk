@@ -51,18 +51,19 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrency
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShare();
 
-            if (data.hasOwnProperty('earnings')) {
+            if (data.hasOwnProperty('earnings') && obj['earnings'] === undefined) {
                 obj['earnings'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareEarnings.constructFromObject(data['earnings']);
             }
-            if (data.hasOwnProperty('bookValue')) {
+            if (data.hasOwnProperty('bookValue') && obj['bookValue'] === undefined) {
                 obj['bookValue'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareBookValue.constructFromObject(data['bookValue']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareCashFlow.constructFromObject(data['cashFlow']);
             }
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentPerShareSales.constructFromObject(data['sales']);
             }
+            
         }
         return obj;
     }

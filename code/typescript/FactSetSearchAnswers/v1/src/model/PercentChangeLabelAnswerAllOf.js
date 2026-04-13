@@ -49,9 +49,10 @@ class PercentChangeLabelAnswerAllOf {
         if (data) {
             obj = obj || new PercentChangeLabelAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = PercentChangeLabelTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

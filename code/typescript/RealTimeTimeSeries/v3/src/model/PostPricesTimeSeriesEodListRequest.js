@@ -51,12 +51,13 @@ class PostPricesTimeSeriesEodListRequest {
         if (data) {
             obj = obj || new PostPricesTimeSeriesEodListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostVendorChartIQTimeSeriesEodListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostVendorChartIQTimeSeriesEodListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

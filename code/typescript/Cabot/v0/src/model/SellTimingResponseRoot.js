@@ -47,9 +47,10 @@ class SellTimingResponseRoot {
         if (data) {
             obj = obj || new SellTimingResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SellTimingResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

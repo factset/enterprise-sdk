@@ -58,60 +58,61 @@ class FISecurity {
         if (data) {
             obj = obj || new FISecurity();
 
-            if (data.hasOwnProperty('settlement')) {
+            if (data.hasOwnProperty('settlement') && obj['settlement'] === undefined) {
                 obj['settlement'] = ApiClient.convertToType(data['settlement'], 'String');
             }
-            if (data.hasOwnProperty('callMethod')) {
+            if (data.hasOwnProperty('callMethod') && obj['callMethod'] === undefined) {
                 obj['callMethod'] = ApiClient.convertToType(data['callMethod'], 'String');
             }
-            if (data.hasOwnProperty('referenceSecurity')) {
+            if (data.hasOwnProperty('referenceSecurity') && obj['referenceSecurity'] === undefined) {
                 obj['referenceSecurity'] = FIReferenceSecurity.constructFromObject(data['referenceSecurity']);
             }
-            if (data.hasOwnProperty('bankLoans')) {
+            if (data.hasOwnProperty('bankLoans') && obj['bankLoans'] === undefined) {
                 obj['bankLoans'] = FIBankLoans.constructFromObject(data['bankLoans']);
             }
-            if (data.hasOwnProperty('municipalBonds')) {
+            if (data.hasOwnProperty('municipalBonds') && obj['municipalBonds'] === undefined) {
                 obj['municipalBonds'] = FIMunicipalBonds.constructFromObject(data['municipalBonds']);
             }
-            if (data.hasOwnProperty('loss')) {
+            if (data.hasOwnProperty('loss') && obj['loss'] === undefined) {
                 obj['loss'] = FILoss.constructFromObject(data['loss']);
             }
-            if (data.hasOwnProperty('prepay')) {
+            if (data.hasOwnProperty('prepay') && obj['prepay'] === undefined) {
                 obj['prepay'] = FIPrepay.constructFromObject(data['prepay']);
             }
-            if (data.hasOwnProperty('matrixSpreadAdjustment')) {
+            if (data.hasOwnProperty('matrixSpreadAdjustment') && obj['matrixSpreadAdjustment'] === undefined) {
                 obj['matrixSpreadAdjustment'] = ApiClient.convertToType(data['matrixSpreadAdjustment'], 'Number');
             }
-            if (data.hasOwnProperty('matrixMultiplier')) {
+            if (data.hasOwnProperty('matrixMultiplier') && obj['matrixMultiplier'] === undefined) {
                 obj['matrixMultiplier'] = ApiClient.convertToType(data['matrixMultiplier'], 'Number');
             }
-            if (data.hasOwnProperty('structuredProducts')) {
+            if (data.hasOwnProperty('structuredProducts') && obj['structuredProducts'] === undefined) {
                 obj['structuredProducts'] = FIStructuredProductsForSecurities.constructFromObject(data['structuredProducts']);
             }
-            if (data.hasOwnProperty('attribution')) {
+            if (data.hasOwnProperty('attribution') && obj['attribution'] === undefined) {
                 obj['attribution'] = FIAttributionForSecurities.constructFromObject(data['attribution']);
             }
-            if (data.hasOwnProperty('convertible')) {
+            if (data.hasOwnProperty('convertible') && obj['convertible'] === undefined) {
                 obj['convertible'] = FIConvertibleSettings.constructFromObject(data['convertible']);
             }
-            if (data.hasOwnProperty('calcFromMethod')) {
+            if (data.hasOwnProperty('calcFromMethod') && obj['calcFromMethod'] === undefined) {
                 obj['calcFromMethod'] = ApiClient.convertToType(data['calcFromMethod'], 'String');
             }
-            if (data.hasOwnProperty('calcFromValue')) {
+            if (data.hasOwnProperty('calcFromValue') && obj['calcFromValue'] === undefined) {
                 obj['calcFromValue'] = ApiClient.convertToType(data['calcFromValue'], 'Number');
             }
-            if (data.hasOwnProperty('face')) {
+            if (data.hasOwnProperty('face') && obj['face'] === undefined) {
                 obj['face'] = ApiClient.convertToType(data['face'], 'Number');
             }
-            if (data.hasOwnProperty('faceType')) {
+            if (data.hasOwnProperty('faceType') && obj['faceType'] === undefined) {
                 obj['faceType'] = ApiClient.convertToType(data['faceType'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('discountCurve')) {
+            if (data.hasOwnProperty('discountCurve') && obj['discountCurve'] === undefined) {
                 obj['discountCurve'] = ApiClient.convertToType(data['discountCurve'], 'String');
             }
+            
         }
         return obj;
     }

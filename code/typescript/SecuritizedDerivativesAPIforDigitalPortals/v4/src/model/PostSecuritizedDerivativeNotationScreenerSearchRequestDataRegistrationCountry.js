@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataRegistrationCoun
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataRegistrationCountry();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
+            
         }
         return obj;
     }

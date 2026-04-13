@@ -47,9 +47,10 @@ class MarketAggregatesResponse {
         if (data) {
             obj = obj || new MarketAggregatesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [MarketAggregate]);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class StructuredFiltersTopics {
         if (data) {
             obj = obj || new StructuredFiltersTopics();
 
-            if (data.hasOwnProperty('topics')) {
+            if (data.hasOwnProperty('topics') && obj['topics'] === undefined) {
                 obj['topics'] = ApiClient.convertToType(data['topics'], [StructuredFiltersTopicsObject]);
             }
+            
         }
         return obj;
     }

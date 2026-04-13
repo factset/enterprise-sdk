@@ -46,12 +46,13 @@ class InlineResponse2005DataExchanges {
         if (data) {
             obj = obj || new InlineResponse2005DataExchanges();
 
-            if (data.hasOwnProperty('exchange')) {
+            if (data.hasOwnProperty('exchange') && obj['exchange'] === undefined) {
                 obj['exchange'] = ApiClient.convertToType(data['exchange'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

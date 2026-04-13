@@ -47,9 +47,10 @@ class SurpriseResponse {
         if (data) {
             obj = obj || new SurpriseResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Surprise]);
             }
+            
         }
         return obj;
     }

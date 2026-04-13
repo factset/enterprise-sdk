@@ -46,15 +46,16 @@ class StructuredFiltersSourcesChildrenObject {
         if (data) {
             obj = obj || new StructuredFiltersSourcesChildrenObject();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['String']);
             }
-            if (data.hasOwnProperty('criteriaLabel')) {
+            if (data.hasOwnProperty('criteriaLabel') && obj['criteriaLabel'] === undefined) {
                 obj['criteriaLabel'] = ApiClient.convertToType(data['criteriaLabel'], 'String');
             }
+            
         }
         return obj;
     }

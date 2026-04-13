@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataRecommendation {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRecommendation();
 
-            if (data.hasOwnProperty('counts')) {
+            if (data.hasOwnProperty('counts') && obj['counts'] === undefined) {
                 obj['counts'] = PostStockNotationScreenerSearchRequestDataRecommendationCounts.constructFromObject(data['counts']);
             }
-            if (data.hasOwnProperty('consensus')) {
+            if (data.hasOwnProperty('consensus') && obj['consensus'] === undefined) {
                 obj['consensus'] = PostStockNotationScreenerSearchRequestDataRecommendationConsensus.constructFromObject(data['consensus']);
             }
+            
         }
         return obj;
     }

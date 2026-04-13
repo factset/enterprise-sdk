@@ -47,12 +47,13 @@ class DateAndContentObject {
         if (data) {
             obj = obj || new DateAndContentObject();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [SymbolAndFieldsObject]);
             }
+            
         }
         return obj;
     }

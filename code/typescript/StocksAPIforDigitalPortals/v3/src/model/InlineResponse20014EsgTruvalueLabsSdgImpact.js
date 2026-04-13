@@ -47,12 +47,13 @@ class InlineResponse20014EsgTruvalueLabsSdgImpact {
         if (data) {
             obj = obj || new InlineResponse20014EsgTruvalueLabsSdgImpact();
 
-            if (data.hasOwnProperty('insight')) {
+            if (data.hasOwnProperty('insight') && obj['insight'] === undefined) {
                 obj['insight'] = ApiClient.convertToType(data['insight'], 'Number');
             }
-            if (data.hasOwnProperty('momentum')) {
+            if (data.hasOwnProperty('momentum') && obj['momentum'] === undefined) {
                 obj['momentum'] = ApiClient.convertToType(data['momentum'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeIssuerSearchRequestDataMarket {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequestDataMarket();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostSecuritizedDerivativeIssuerSearchRequestDataMarketRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostSecuritizedDerivativeIssuerSearchRequestDataMarketExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

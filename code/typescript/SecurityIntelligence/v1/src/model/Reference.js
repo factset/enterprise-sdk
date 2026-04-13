@@ -51,12 +51,13 @@ class Reference {
         if (data) {
             obj = obj || new Reference();
 
-            if (data.hasOwnProperty('phrase')) {
+            if (data.hasOwnProperty('phrase') && obj['phrase'] === undefined) {
                 obj['phrase'] = ApiClient.convertToType(data['phrase'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class ConstructionResponseRoot {
         if (data) {
             obj = obj || new ConstructionResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ConstructionResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

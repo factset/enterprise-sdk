@@ -47,9 +47,10 @@ class EventsAudioHistory400ResponseDetails {
         if (data) {
             obj = obj || new EventsAudioHistory400ResponseDetails();
 
-            if (data.hasOwnProperty('validParameters')) {
+            if (data.hasOwnProperty('validParameters') && obj['validParameters'] === undefined) {
                 obj['validParameters'] = EventsAudioHistory400ResponseDetailsValidParameters.constructFromObject(data['validParameters']);
             }
+            
         }
         return obj;
     }

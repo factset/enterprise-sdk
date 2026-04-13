@@ -48,12 +48,13 @@ class InlineResponse20052Data {
         if (data) {
             obj = obj || new InlineResponse20052Data();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('delivery')) {
+            if (data.hasOwnProperty('delivery') && obj['delivery'] === undefined) {
                 obj['delivery'] = InlineResponse20052DataDelivery.constructFromObject(data['delivery']);
             }
+            
         }
         return obj;
     }

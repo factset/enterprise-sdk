@@ -48,9 +48,10 @@ class InlineResponse200DataNotification {
         if (data) {
             obj = obj || new InlineResponse200DataNotification();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], [GetAlertingPricesBasicAlertGetDataNotificationStatusItems]);
             }
+            
         }
         return obj;
     }

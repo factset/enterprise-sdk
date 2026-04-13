@@ -51,12 +51,13 @@ class SearchRequest {
         if (data) {
             obj = obj || new SearchRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SearchRequestBody.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = SearchRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

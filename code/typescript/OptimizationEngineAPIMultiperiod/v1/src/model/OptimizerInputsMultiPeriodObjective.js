@@ -54,30 +54,31 @@ class OptimizerInputsMultiPeriodObjective {
         if (data) {
             obj = obj || new OptimizerInputsMultiPeriodObjective();
 
-            if (data.hasOwnProperty('factor_exposure')) {
+            if (data.hasOwnProperty('factor_exposure') && obj['factor_exposure'] === undefined) {
                 obj['factor_exposure'] = ApiClient.convertToType(data['factor_exposure'], [OptimizerInputsMPFactorExposureTerm]);
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], [OptimizerInputsMPVolatilityTerm]);
             }
-            if (data.hasOwnProperty('general_linear')) {
+            if (data.hasOwnProperty('general_linear') && obj['general_linear'] === undefined) {
                 obj['general_linear'] = ApiClient.convertToType(data['general_linear'], [OptimizerInputsMPGeneralLinearTerm]);
             }
-            if (data.hasOwnProperty('expected_return')) {
+            if (data.hasOwnProperty('expected_return') && obj['expected_return'] === undefined) {
                 obj['expected_return'] = ApiClient.convertToType(data['expected_return'], [OptimizerInputsMPExpectedReturnTerm]);
             }
-            if (data.hasOwnProperty('sensitivity')) {
+            if (data.hasOwnProperty('sensitivity') && obj['sensitivity'] === undefined) {
                 obj['sensitivity'] = ApiClient.convertToType(data['sensitivity'], [OptimizerInputsMPSensitivityTerm]);
             }
-            if (data.hasOwnProperty('objective_ratio')) {
+            if (data.hasOwnProperty('objective_ratio') && obj['objective_ratio'] === undefined) {
                 obj['objective_ratio'] = OptimizerInputsMPObjectiveRatioTerm.constructFromObject(data['objective_ratio']);
             }
-            if (data.hasOwnProperty('tail_risk')) {
+            if (data.hasOwnProperty('tail_risk') && obj['tail_risk'] === undefined) {
                 obj['tail_risk'] = ApiClient.convertToType(data['tail_risk'], [OptimizerInputsMPTailRiskTerm]);
             }
-            if (data.hasOwnProperty('target_probability')) {
+            if (data.hasOwnProperty('target_probability') && obj['target_probability'] === undefined) {
                 obj['target_probability'] = ApiClient.convertToType(data['target_probability'], [OptimizerInputsMPTargetProbabilityTerm]);
             }
+            
         }
         return obj;
     }

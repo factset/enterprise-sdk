@@ -53,33 +53,34 @@ class PACalculationParameters {
         if (data) {
             obj = obj || new PACalculationParameters();
 
-            if (data.hasOwnProperty('componentid')) {
+            if (data.hasOwnProperty('componentid') && obj['componentid'] === undefined) {
                 obj['componentid'] = ApiClient.convertToType(data['componentid'], 'String');
             }
-            if (data.hasOwnProperty('accounts')) {
+            if (data.hasOwnProperty('accounts') && obj['accounts'] === undefined) {
                 obj['accounts'] = ApiClient.convertToType(data['accounts'], [PAIdentifier]);
             }
-            if (data.hasOwnProperty('benchmarks')) {
+            if (data.hasOwnProperty('benchmarks') && obj['benchmarks'] === undefined) {
                 obj['benchmarks'] = ApiClient.convertToType(data['benchmarks'], [PAIdentifier]);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = PADateParameters.constructFromObject(data['dates']);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [PACalculationGroup]);
             }
-            if (data.hasOwnProperty('currencyisocode')) {
+            if (data.hasOwnProperty('currencyisocode') && obj['currencyisocode'] === undefined) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
             }
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], [PACalculationColumn]);
             }
-            if (data.hasOwnProperty('datasources')) {
+            if (data.hasOwnProperty('datasources') && obj['datasources'] === undefined) {
                 obj['datasources'] = PACalculationDataSources.constructFromObject(data['datasources']);
             }
-            if (data.hasOwnProperty('componentdetail')) {
+            if (data.hasOwnProperty('componentdetail') && obj['componentdetail'] === undefined) {
                 obj['componentdetail'] = ApiClient.convertToType(data['componentdetail'], 'String');
             }
+            
         }
         return obj;
     }

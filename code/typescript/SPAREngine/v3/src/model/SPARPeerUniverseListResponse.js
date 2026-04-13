@@ -47,9 +47,10 @@ class SPARPeerUniverseListResponse {
         if (data) {
             obj = obj || new SPARPeerUniverseListResponse();
 
-            if (data.hasOwnProperty('peerUniverseList')) {
+            if (data.hasOwnProperty('peerUniverseList') && obj['peerUniverseList'] === undefined) {
                 obj['peerUniverseList'] = ApiClient.convertToType(data['peerUniverseList'], [SPARPeerUniverseResponseItem]);
             }
+            
         }
         return obj;
     }

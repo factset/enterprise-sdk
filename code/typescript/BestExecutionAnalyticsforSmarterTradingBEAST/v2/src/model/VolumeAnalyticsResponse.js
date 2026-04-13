@@ -48,9 +48,10 @@ class VolumeAnalyticsResponse {
         if (data) {
             obj = obj || new VolumeAnalyticsResponse();
 
-            if (data.hasOwnProperty('analytics')) {
+            if (data.hasOwnProperty('analytics') && obj['analytics'] === undefined) {
                 obj['analytics'] = ApiClient.convertToType(data['analytics'], [VolumeAnalytic]);
             }
+            
         }
         return obj;
     }

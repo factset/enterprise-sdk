@@ -46,30 +46,31 @@ class BoxplotBoxplotSummary {
         if (data) {
             obj = obj || new BoxplotBoxplotSummary();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
-            if (data.hasOwnProperty('q1')) {
+            if (data.hasOwnProperty('q1') && obj['q1'] === undefined) {
                 obj['q1'] = ApiClient.convertToType(data['q1'], 'Number');
             }
-            if (data.hasOwnProperty('q3')) {
+            if (data.hasOwnProperty('q3') && obj['q3'] === undefined) {
                 obj['q3'] = ApiClient.convertToType(data['q3'], 'Number');
             }
-            if (data.hasOwnProperty('minRegularValue')) {
+            if (data.hasOwnProperty('minRegularValue') && obj['minRegularValue'] === undefined) {
                 obj['minRegularValue'] = ApiClient.convertToType(data['minRegularValue'], 'Number');
             }
-            if (data.hasOwnProperty('maxRegularValue')) {
+            if (data.hasOwnProperty('maxRegularValue') && obj['maxRegularValue'] === undefined) {
                 obj['maxRegularValue'] = ApiClient.convertToType(data['maxRegularValue'], 'Number');
             }
-            if (data.hasOwnProperty('minOutlier')) {
+            if (data.hasOwnProperty('minOutlier') && obj['minOutlier'] === undefined) {
                 obj['minOutlier'] = ApiClient.convertToType(data['minOutlier'], 'Number');
             }
-            if (data.hasOwnProperty('maxOutlier')) {
+            if (data.hasOwnProperty('maxOutlier') && obj['maxOutlier'] === undefined) {
                 obj['maxOutlier'] = ApiClient.convertToType(data['maxOutlier'], 'Number');
             }
+            
         }
         return obj;
     }

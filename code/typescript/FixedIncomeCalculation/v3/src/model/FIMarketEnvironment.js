@@ -46,9 +46,10 @@ class FIMarketEnvironment {
         if (data) {
             obj = obj || new FIMarketEnvironment();
 
-            if (data.hasOwnProperty('ratePath')) {
+            if (data.hasOwnProperty('ratePath') && obj['ratePath'] === undefined) {
                 obj['ratePath'] = ApiClient.convertToType(data['ratePath'], 'String');
             }
+            
         }
         return obj;
     }

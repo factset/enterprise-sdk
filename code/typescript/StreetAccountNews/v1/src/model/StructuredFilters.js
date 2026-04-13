@@ -52,21 +52,22 @@ class StructuredFilters {
         if (data) {
             obj = obj || new StructuredFilters();
 
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [StructuredFiltersCategoriesObject]);
             }
-            if (data.hasOwnProperty('topics')) {
+            if (data.hasOwnProperty('topics') && obj['topics'] === undefined) {
                 obj['topics'] = ApiClient.convertToType(data['topics'], [StructuredFiltersTopicsObject]);
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = ApiClient.convertToType(data['regions'], [StructuredFiltersRegionsObject]);
             }
-            if (data.hasOwnProperty('sectors')) {
+            if (data.hasOwnProperty('sectors') && obj['sectors'] === undefined) {
                 obj['sectors'] = ApiClient.convertToType(data['sectors'], [StructuredFiltersSectorsObject]);
             }
-            if (data.hasOwnProperty('watchlists')) {
+            if (data.hasOwnProperty('watchlists') && obj['watchlists'] === undefined) {
                 obj['watchlists'] = ApiClient.convertToType(data['watchlists'], [StructuredFiltersWatchlistsObject]);
             }
+            
         }
         return obj;
     }

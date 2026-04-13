@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsPerformanceSinceIs
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsPerformanceSinceIssue();
 
-            if (data.hasOwnProperty('ask')) {
+            if (data.hasOwnProperty('ask') && obj['ask'] === undefined) {
                 obj['ask'] = ApiClient.convertToType(data['ask'], 'Number');
             }
-            if (data.hasOwnProperty('bid')) {
+            if (data.hasOwnProperty('bid') && obj['bid'] === undefined) {
                 obj['bid'] = ApiClient.convertToType(data['bid'], 'Number');
             }
+            
         }
         return obj;
     }

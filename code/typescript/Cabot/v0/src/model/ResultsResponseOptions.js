@@ -47,9 +47,10 @@ class ResultsResponseOptions {
         if (data) {
             obj = obj || new ResultsResponseOptions();
 
-            if (data.hasOwnProperty('resultValues')) {
+            if (data.hasOwnProperty('resultValues') && obj['resultValues'] === undefined) {
                 obj['resultValues'] = ResultsModelAnalytics.constructFromObject(data['resultValues']);
             }
+            
         }
         return obj;
     }

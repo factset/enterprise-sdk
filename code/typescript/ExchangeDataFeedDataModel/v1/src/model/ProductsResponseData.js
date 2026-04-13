@@ -48,9 +48,10 @@ class ProductsResponseData {
         if (data) {
             obj = obj || new ProductsResponseData();
 
-            if (data.hasOwnProperty('products')) {
+            if (data.hasOwnProperty('products') && obj['products'] === undefined) {
                 obj['products'] = ApiClient.convertToType(data['products'], [ProductItem]);
             }
+            
         }
         return obj;
     }

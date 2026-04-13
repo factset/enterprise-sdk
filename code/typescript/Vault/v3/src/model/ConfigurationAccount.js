@@ -46,39 +46,40 @@ class ConfigurationAccount {
         if (data) {
             obj = obj || new ConfigurationAccount();
 
-            if (data.hasOwnProperty('benchmarkCode')) {
+            if (data.hasOwnProperty('benchmarkCode') && obj['benchmarkCode'] === undefined) {
                 obj['benchmarkCode'] = ApiClient.convertToType(data['benchmarkCode'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkName')) {
+            if (data.hasOwnProperty('benchmarkName') && obj['benchmarkName'] === undefined) {
                 obj['benchmarkName'] = ApiClient.convertToType(data['benchmarkName'], 'String');
             }
-            if (data.hasOwnProperty('maxEndDate')) {
+            if (data.hasOwnProperty('maxEndDate') && obj['maxEndDate'] === undefined) {
                 obj['maxEndDate'] = ApiClient.convertToType(data['maxEndDate'], 'String');
             }
-            if (data.hasOwnProperty('minStartDate')) {
+            if (data.hasOwnProperty('minStartDate') && obj['minStartDate'] === undefined) {
                 obj['minStartDate'] = ApiClient.convertToType(data['minStartDate'], 'String');
             }
-            if (data.hasOwnProperty('lockingDate')) {
+            if (data.hasOwnProperty('lockingDate') && obj['lockingDate'] === undefined) {
                 obj['lockingDate'] = ApiClient.convertToType(data['lockingDate'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('firstSnapshotDate')) {
+            if (data.hasOwnProperty('firstSnapshotDate') && obj['firstSnapshotDate'] === undefined) {
                 obj['firstSnapshotDate'] = ApiClient.convertToType(data['firstSnapshotDate'], 'String');
             }
-            if (data.hasOwnProperty('lastSnapshotDate')) {
+            if (data.hasOwnProperty('lastSnapshotDate') && obj['lastSnapshotDate'] === undefined) {
                 obj['lastSnapshotDate'] = ApiClient.convertToType(data['lastSnapshotDate'], 'String');
             }
-            if (data.hasOwnProperty('portfolioSnapshotLockingDate')) {
+            if (data.hasOwnProperty('portfolioSnapshotLockingDate') && obj['portfolioSnapshotLockingDate'] === undefined) {
                 obj['portfolioSnapshotLockingDate'] = ApiClient.convertToType(data['portfolioSnapshotLockingDate'], 'String');
             }
-            if (data.hasOwnProperty('snapshotBenchmarkCode')) {
+            if (data.hasOwnProperty('snapshotBenchmarkCode') && obj['snapshotBenchmarkCode'] === undefined) {
                 obj['snapshotBenchmarkCode'] = ApiClient.convertToType(data['snapshotBenchmarkCode'], 'String');
             }
-            if (data.hasOwnProperty('snapshotBenchmarkName')) {
+            if (data.hasOwnProperty('snapshotBenchmarkName') && obj['snapshotBenchmarkName'] === undefined) {
                 obj['snapshotBenchmarkName'] = ApiClient.convertToType(data['snapshotBenchmarkName'], 'String');
             }
+            
         }
         return obj;
     }

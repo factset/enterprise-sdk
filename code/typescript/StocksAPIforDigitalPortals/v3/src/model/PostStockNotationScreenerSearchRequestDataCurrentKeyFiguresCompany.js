@@ -50,15 +50,16 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany();
 
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstanding.constructFromObject(data['sharesOutstanding']);
             }
-            if (data.hasOwnProperty('freeFloat')) {
+            if (data.hasOwnProperty('freeFloat') && obj['freeFloat'] === undefined) {
                 obj['freeFloat'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyFreeFloat.constructFromObject(data['freeFloat']);
             }
-            if (data.hasOwnProperty('currencyDependent')) {
+            if (data.hasOwnProperty('currencyDependent') && obj['currencyDependent'] === undefined) {
                 obj['currencyDependent'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependent.constructFromObject(data['currencyDependent']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class NrtSpeakerIds {
         if (data) {
             obj = obj || new NrtSpeakerIds();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [NrtSpeakerIdObject]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = NrtSpeakerIdsMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

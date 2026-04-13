@@ -47,12 +47,13 @@ class InlineResponse200DataFinancialReportAnnual {
         if (data) {
             obj = obj || new InlineResponse200DataFinancialReportAnnual();
 
-            if (data.hasOwnProperty('isAvailable')) {
+            if (data.hasOwnProperty('isAvailable') && obj['isAvailable'] === undefined) {
                 obj['isAvailable'] = ApiClient.convertToType(data['isAvailable'], 'Boolean');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

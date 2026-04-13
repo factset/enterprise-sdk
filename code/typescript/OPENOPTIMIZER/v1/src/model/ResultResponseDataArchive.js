@@ -46,12 +46,13 @@ class ResultResponseDataArchive {
         if (data) {
             obj = obj || new ResultResponseDataArchive();
 
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('optimalAccount')) {
+            if (data.hasOwnProperty('optimalAccount') && obj['optimalAccount'] === undefined) {
                 obj['optimalAccount'] = ApiClient.convertToType(data['optimalAccount'], 'String');
             }
+            
         }
         return obj;
     }

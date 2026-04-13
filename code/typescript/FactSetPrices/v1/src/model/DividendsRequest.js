@@ -50,21 +50,22 @@ class DividendsRequest {
         if (data) {
             obj = obj || new DividendsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('adjust')) {
+            if (data.hasOwnProperty('adjust') && obj['adjust'] === undefined) {
                 obj['adjust'] = Adjust.constructFromObject(data['adjust']);
             }
+            
         }
         return obj;
     }

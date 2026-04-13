@@ -47,24 +47,24 @@ class Meta {
         if (data) {
             obj = obj || new Meta();
 
-            ApiClient.constructFromObject(data, obj, 'String');
-            
-
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('noCoverage')) {
+            if (data.hasOwnProperty('noCoverage') && obj['noCoverage'] === undefined) {
                 obj['noCoverage'] = ApiClient.convertToType(data['noCoverage'], 'Boolean');
             }
-            if (data.hasOwnProperty('noData')) {
+            if (data.hasOwnProperty('noData') && obj['noData'] === undefined) {
                 obj['noData'] = ApiClient.convertToType(data['noData'], 'Boolean');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
+            ApiClient.constructFromObject(data, obj, String);
+            
         }
         return obj;
     }

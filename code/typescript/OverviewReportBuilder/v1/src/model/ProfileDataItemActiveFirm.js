@@ -49,9 +49,10 @@ class ProfileDataItemActiveFirm {
         if (data) {
             obj = obj || new ProfileDataItemActiveFirm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['name']);
             }
+            
         }
         return obj;
     }

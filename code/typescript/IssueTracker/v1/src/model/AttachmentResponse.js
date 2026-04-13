@@ -47,9 +47,10 @@ class AttachmentResponse {
         if (data) {
             obj = obj || new AttachmentResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = Attachment.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

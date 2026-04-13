@@ -47,9 +47,10 @@ class SMCreateResponse {
         if (data) {
             obj = obj || new SMCreateResponse();
 
-            if (data.hasOwnProperty('securities')) {
+            if (data.hasOwnProperty('securities') && obj['securities'] === undefined) {
                 obj['securities'] = ApiClient.convertToType(data['securities'], [SMSecurityResponse]);
             }
+            
         }
         return obj;
     }

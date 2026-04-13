@@ -54,39 +54,40 @@ class InlineResponse2001DataFiscalYearData {
         if (data) {
             obj = obj || new InlineResponse2001DataFiscalYearData();
 
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = InlineResponse2001DataFiscalYear.constructFromObject(data['fiscalYear']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse2001DataCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('freeFloat')) {
+            if (data.hasOwnProperty('freeFloat') && obj['freeFloat'] === undefined) {
                 obj['freeFloat'] = ApiClient.convertToType(data['freeFloat'], 'Number');
             }
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = InlineResponse2001DataSharesOutstanding.constructFromObject(data['sharesOutstanding']);
             }
-            if (data.hasOwnProperty('marketCapitalization')) {
+            if (data.hasOwnProperty('marketCapitalization') && obj['marketCapitalization'] === undefined) {
                 obj['marketCapitalization'] = ApiClient.convertToType(data['marketCapitalization'], 'Number');
             }
-            if (data.hasOwnProperty('incomeStatement')) {
+            if (data.hasOwnProperty('incomeStatement') && obj['incomeStatement'] === undefined) {
                 obj['incomeStatement'] = InlineResponse2001DataIncomeStatement.constructFromObject(data['incomeStatement']);
             }
-            if (data.hasOwnProperty('balanceSheet')) {
+            if (data.hasOwnProperty('balanceSheet') && obj['balanceSheet'] === undefined) {
                 obj['balanceSheet'] = InlineResponse2001DataBalanceSheet.constructFromObject(data['balanceSheet']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2001DataCashFlow.constructFromObject(data['cashFlow']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = InlineResponse2001DataRatios.constructFromObject(data['ratios']);
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = InlineResponse2001DataPerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

@@ -54,27 +54,28 @@ class PostNewsArticleListByInstrumentRequestDataFilter {
         if (data) {
             obj = obj || new PostNewsArticleListByInstrumentRequestDataFilter();
 
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = PostNewsArticleListByInstrumentRequestDataFilterRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = PostNewsArticleListByInstrumentRequestDataFilterCategories.constructFromObject(data['categories']);
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = PostNewsArticleListByIndexRequestDataFilterRegions.constructFromObject(data['regions']);
             }
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = PostNewsArticleListByInstrumentRequestDataFilterDistributor.constructFromObject(data['distributor']);
             }
-            if (data.hasOwnProperty('publisher')) {
+            if (data.hasOwnProperty('publisher') && obj['publisher'] === undefined) {
                 obj['publisher'] = PostNewsArticleListByInstrumentRequestDataFilterPublisher.constructFromObject(data['publisher']);
             }
-            if (data.hasOwnProperty('language')) {
+            if (data.hasOwnProperty('language') && obj['language'] === undefined) {
                 obj['language'] = PostNewsArticleListRequestDataFilterLanguage.constructFromObject(data['language']);
             }
-            if (data.hasOwnProperty('types')) {
+            if (data.hasOwnProperty('types') && obj['types'] === undefined) {
                 obj['types'] = PostNewsArticleListByIndexRequestDataFilterTypes.constructFromObject(data['types']);
             }
+            
         }
         return obj;
     }

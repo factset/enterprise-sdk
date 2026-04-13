@@ -47,12 +47,13 @@ class PostOptionClassScreenerSearchRequestDataText {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchRequestDataText();
 
-            if (data.hasOwnProperty('attributes')) {
+            if (data.hasOwnProperty('attributes') && obj['attributes'] === undefined) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], ['String']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
+            
         }
         return obj;
     }

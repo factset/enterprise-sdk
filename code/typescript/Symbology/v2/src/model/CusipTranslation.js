@@ -47,18 +47,19 @@ class CusipTranslation {
         if (data) {
             obj = obj || new CusipTranslation();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('cusip')) {
+            if (data.hasOwnProperty('cusip') && obj['cusip'] === undefined) {
                 obj['cusip'] = ApiClient.convertToType(data['cusip'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

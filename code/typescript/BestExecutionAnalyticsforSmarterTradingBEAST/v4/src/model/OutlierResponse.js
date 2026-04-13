@@ -49,15 +49,16 @@ class OutlierResponse {
         if (data) {
             obj = obj || new OutlierResponse();
 
-            if (data.hasOwnProperty('rawData')) {
+            if (data.hasOwnProperty('rawData') && obj['rawData'] === undefined) {
                 obj['rawData'] = OutlierData.constructFromObject(data['rawData']);
             }
-            if (data.hasOwnProperty('winsorizedData')) {
+            if (data.hasOwnProperty('winsorizedData') && obj['winsorizedData'] === undefined) {
                 obj['winsorizedData'] = OutlierData.constructFromObject(data['winsorizedData']);
             }
-            if (data.hasOwnProperty('outlier')) {
+            if (data.hasOwnProperty('outlier') && obj['outlier'] === undefined) {
                 obj['outlier'] = ApiClient.convertToType(data['outlier'], [Outlier]);
             }
+            
         }
         return obj;
     }

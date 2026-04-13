@@ -46,18 +46,19 @@ class PACommentaryStatus {
         if (data) {
             obj = obj || new PACommentaryStatus();
 
-            if (data.hasOwnProperty('result')) {
+            if (data.hasOwnProperty('result') && obj['result'] === undefined) {
                 obj['result'] = ApiClient.convertToType(data['result'], 'String');
             }
-            if (data.hasOwnProperty('calculationid')) {
+            if (data.hasOwnProperty('calculationid') && obj['calculationid'] === undefined) {
                 obj['calculationid'] = ApiClient.convertToType(data['calculationid'], 'String');
             }
-            if (data.hasOwnProperty('unitid')) {
+            if (data.hasOwnProperty('unitid') && obj['unitid'] === undefined) {
                 obj['unitid'] = ApiClient.convertToType(data['unitid'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            
         }
         return obj;
     }

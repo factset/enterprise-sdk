@@ -53,15 +53,16 @@ class StartJob {
         if (data) {
             obj = obj || new StartJob();
 
-            if (data.hasOwnProperty('jobName')) {
+            if (data.hasOwnProperty('jobName') && obj['jobName'] === undefined) {
                 obj['jobName'] = ApiClient.convertToType(data['jobName'], 'String');
             }
-            if (data.hasOwnProperty('overrides')) {
+            if (data.hasOwnProperty('overrides') && obj['overrides'] === undefined) {
                 obj['overrides'] = JobOverrides.constructFromObject(data['overrides']);
             }
-            if (data.hasOwnProperty('jobType')) {
+            if (data.hasOwnProperty('jobType') && obj['jobType'] === undefined) {
                 obj['jobType'] = JobTypes.constructFromObject(data['jobType']);
             }
+            
         }
         return obj;
     }

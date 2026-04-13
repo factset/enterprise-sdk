@@ -54,27 +54,28 @@ class ReturnsRequest {
         if (data) {
             obj = obj || new ReturnsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = Frequency.constructFromObject(data['frequency']);
             }
-            if (data.hasOwnProperty('dividendAdjust')) {
+            if (data.hasOwnProperty('dividendAdjust') && obj['dividendAdjust'] === undefined) {
                 obj['dividendAdjust'] = DividendAdjust.constructFromObject(data['dividendAdjust']);
             }
-            if (data.hasOwnProperty('batch')) {
+            if (data.hasOwnProperty('batch') && obj['batch'] === undefined) {
                 obj['batch'] = Batch.constructFromObject(data['batch']);
             }
+            
         }
         return obj;
     }

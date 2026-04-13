@@ -46,81 +46,82 @@ class DetailEstimate {
         if (data) {
             obj = obj || new DetailEstimate();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = ApiClient.convertToType(data['periodicity'], 'String');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalPeriod')) {
+            if (data.hasOwnProperty('fiscalPeriod') && obj['fiscalPeriod'] === undefined) {
                 obj['fiscalPeriod'] = ApiClient.convertToType(data['fiscalPeriod'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalEndDate')) {
+            if (data.hasOwnProperty('fiscalEndDate') && obj['fiscalEndDate'] === undefined) {
                 obj['fiscalEndDate'] = ApiClient.convertToType(data['fiscalEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('relativePeriod')) {
+            if (data.hasOwnProperty('relativePeriod') && obj['relativePeriod'] === undefined) {
                 obj['relativePeriod'] = ApiClient.convertToType(data['relativePeriod'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('estimateCurrency')) {
+            if (data.hasOwnProperty('estimateCurrency') && obj['estimateCurrency'] === undefined) {
                 obj['estimateCurrency'] = ApiClient.convertToType(data['estimateCurrency'], 'String');
             }
-            if (data.hasOwnProperty('estimateDate')) {
+            if (data.hasOwnProperty('estimateDate') && obj['estimateDate'] === undefined) {
                 obj['estimateDate'] = ApiClient.convertToType(data['estimateDate'], 'Date');
             }
-            if (data.hasOwnProperty('estimateValue')) {
+            if (data.hasOwnProperty('estimateValue') && obj['estimateValue'] === undefined) {
                 obj['estimateValue'] = ApiClient.convertToType(data['estimateValue'], 'Number');
             }
-            if (data.hasOwnProperty('analystId')) {
+            if (data.hasOwnProperty('analystId') && obj['analystId'] === undefined) {
                 obj['analystId'] = ApiClient.convertToType(data['analystId'], 'String');
             }
-            if (data.hasOwnProperty('analystName')) {
+            if (data.hasOwnProperty('analystName') && obj['analystName'] === undefined) {
                 obj['analystName'] = ApiClient.convertToType(data['analystName'], 'String');
             }
-            if (data.hasOwnProperty('brokerId')) {
+            if (data.hasOwnProperty('brokerId') && obj['brokerId'] === undefined) {
                 obj['brokerId'] = ApiClient.convertToType(data['brokerId'], 'String');
             }
-            if (data.hasOwnProperty('brokerName')) {
+            if (data.hasOwnProperty('brokerName') && obj['brokerName'] === undefined) {
                 obj['brokerName'] = ApiClient.convertToType(data['brokerName'], 'String');
             }
-            if (data.hasOwnProperty('lastModifiedDate')) {
+            if (data.hasOwnProperty('lastModifiedDate') && obj['lastModifiedDate'] === undefined) {
                 obj['lastModifiedDate'] = ApiClient.convertToType(data['lastModifiedDate'], 'Date');
             }
-            if (data.hasOwnProperty('prevEstimateDate')) {
+            if (data.hasOwnProperty('prevEstimateDate') && obj['prevEstimateDate'] === undefined) {
                 obj['prevEstimateDate'] = ApiClient.convertToType(data['prevEstimateDate'], 'Date');
             }
-            if (data.hasOwnProperty('prevEstimateValue')) {
+            if (data.hasOwnProperty('prevEstimateValue') && obj['prevEstimateValue'] === undefined) {
                 obj['prevEstimateValue'] = ApiClient.convertToType(data['prevEstimateValue'], 'Number');
             }
-            if (data.hasOwnProperty('section')) {
+            if (data.hasOwnProperty('section') && obj['section'] === undefined) {
                 obj['section'] = ApiClient.convertToType(data['section'], 'String');
             }
-            if (data.hasOwnProperty('statusCode')) {
+            if (data.hasOwnProperty('statusCode') && obj['statusCode'] === undefined) {
                 obj['statusCode'] = ApiClient.convertToType(data['statusCode'], 'Number');
             }
-            if (data.hasOwnProperty('statusText')) {
+            if (data.hasOwnProperty('statusText') && obj['statusText'] === undefined) {
                 obj['statusText'] = ApiClient.convertToType(data['statusText'], 'String');
             }
-            if (data.hasOwnProperty('inputDateTime')) {
+            if (data.hasOwnProperty('inputDateTime') && obj['inputDateTime'] === undefined) {
                 obj['inputDateTime'] = ApiClient.convertToType(data['inputDateTime'], 'String');
             }
-            if (data.hasOwnProperty('securityCurrency')) {
+            if (data.hasOwnProperty('securityCurrency') && obj['securityCurrency'] === undefined) {
                 obj['securityCurrency'] = ApiClient.convertToType(data['securityCurrency'], 'String');
             }
-            if (data.hasOwnProperty('brokerEstimateCurrency')) {
+            if (data.hasOwnProperty('brokerEstimateCurrency') && obj['brokerEstimateCurrency'] === undefined) {
                 obj['brokerEstimateCurrency'] = ApiClient.convertToType(data['brokerEstimateCurrency'], 'String');
             }
+            
         }
         return obj;
     }

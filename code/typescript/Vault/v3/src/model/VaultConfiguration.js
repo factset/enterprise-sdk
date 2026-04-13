@@ -47,12 +47,13 @@ class VaultConfiguration {
         if (data) {
             obj = obj || new VaultConfiguration();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('accounts')) {
+            if (data.hasOwnProperty('accounts') && obj['accounts'] === undefined) {
                 obj['accounts'] = ApiClient.convertToType(data['accounts'], {'String': ConfigurationAccount});
             }
+            
         }
         return obj;
     }

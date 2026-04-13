@@ -50,15 +50,16 @@ class ExPostSeriesRollingData {
         if (data) {
             obj = obj || new ExPostSeriesRollingData();
 
-            if (data.hasOwnProperty('portfolio')) {
+            if (data.hasOwnProperty('portfolio') && obj['portfolio'] === undefined) {
                 obj['portfolio'] = Portfolio.constructFromObject(data['portfolio']);
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = Portfolio.constructFromObject(data['benchmark']);
             }
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = ExPostSeriesRollingSettings.constructFromObject(data['settings']);
             }
+            
         }
         return obj;
     }

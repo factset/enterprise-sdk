@@ -53,24 +53,24 @@ class TvlArticle {
         if (data) {
             obj = obj || new TvlArticle();
 
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
-
-            if (data.hasOwnProperty('datePublication')) {
+            if (data.hasOwnProperty('datePublication') && obj['datePublication'] === undefined) {
                 obj['datePublication'] = ApiClient.convertToType(data['datePublication'], 'Date');
             }
-            if (data.hasOwnProperty('factsetEntityId')) {
+            if (data.hasOwnProperty('factsetEntityId') && obj['factsetEntityId'] === undefined) {
                 obj['factsetEntityId'] = ApiClient.convertToType(data['factsetEntityId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('articleId')) {
+            if (data.hasOwnProperty('articleId') && obj['articleId'] === undefined) {
                 obj['articleId'] = ApiClient.convertToType(data['articleId'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
+            
+            ApiClient.constructFromObject(data, obj, Object);
+            
         }
         return obj;
     }

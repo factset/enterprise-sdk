@@ -46,12 +46,13 @@ class StopLossModelAnalytics {
         if (data) {
             obj = obj || new StopLossModelAnalytics();
 
-            if (data.hasOwnProperty('percent')) {
+            if (data.hasOwnProperty('percent') && obj['percent'] === undefined) {
                 obj['percent'] = ApiClient.convertToType(data['percent'], 'Number');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

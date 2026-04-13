@@ -51,12 +51,13 @@ class SearchFilter {
         if (data) {
             obj = obj || new SearchFilter();
 
-            if (data.hasOwnProperty('joinType')) {
+            if (data.hasOwnProperty('joinType') && obj['joinType'] === undefined) {
                 obj['joinType'] = JoinType.constructFromObject(data['joinType']);
             }
-            if (data.hasOwnProperty('criteria')) {
+            if (data.hasOwnProperty('criteria') && obj['criteria'] === undefined) {
                 obj['criteria'] = ApiClient.convertToType(data['criteria'], [SearchCriterion]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class BodyNrt {
         if (data) {
             obj = obj || new BodyNrt();
 
-            if (data.hasOwnProperty('section')) {
+            if (data.hasOwnProperty('section') && obj['section'] === undefined) {
                 obj['section'] = ApiClient.convertToType(data['section'], [SectionNrt]);
             }
+            
         }
         return obj;
     }

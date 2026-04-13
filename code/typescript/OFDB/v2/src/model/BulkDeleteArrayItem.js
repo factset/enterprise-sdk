@@ -45,7 +45,8 @@ class BulkDeleteArrayItem {
      */
     static constructFromObject(data, obj) {
         // openApiType:array format:
-        if (Array.isArray(data)) return ApiClient.setValue(obj || new BulkDeleteArrayItem(), data);
+        if (Array.isArray(data)) return data;
+        throw new Error("Failed to construct BulkDeleteArrayItem due to oneOf-schemas not matching the data: " + data);
     }
 
 

@@ -49,12 +49,13 @@ class TagFilterModel {
         if (data) {
             obj = obj || new TagFilterModel();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = MetaRequestModel.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TagFilterModelData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

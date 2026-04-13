@@ -47,9 +47,10 @@ class DatedCorrelationStatsPerTimeWindow {
         if (data) {
             obj = obj || new DatedCorrelationStatsPerTimeWindow();
 
-            if (data.hasOwnProperty('correlations')) {
+            if (data.hasOwnProperty('correlations') && obj['correlations'] === undefined) {
                 obj['correlations'] = CorrelationStats.constructFromObject(data['correlations']);
             }
+            
         }
         return obj;
     }

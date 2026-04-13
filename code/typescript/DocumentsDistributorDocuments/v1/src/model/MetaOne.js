@@ -49,12 +49,13 @@ class MetaOne {
         if (data) {
             obj = obj || new MetaOne();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = PaginationOne.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('partial')) {
+            if (data.hasOwnProperty('partial') && obj['partial'] === undefined) {
                 obj['partial'] = IsPartialOne.constructFromObject(data['partial']);
             }
+            
         }
         return obj;
     }

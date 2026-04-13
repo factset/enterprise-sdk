@@ -47,9 +47,10 @@ class InlineResponse200DataLifeCycleDelivery {
         if (data) {
             obj = obj || new InlineResponse200DataLifeCycleDelivery();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

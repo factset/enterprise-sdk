@@ -49,24 +49,25 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItemsInstrument {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItemsInstrument();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
+            if (data.hasOwnProperty('shortName') && obj['shortName'] === undefined) {
                 obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
+            if (data.hasOwnProperty('nsin') && obj['nsin'] === undefined) {
                 obj['nsin'] = InlineResponse200DataNsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotationInstrumentFsym.constructFromObject(data['fsym']);
             }
+            
         }
         return obj;
     }

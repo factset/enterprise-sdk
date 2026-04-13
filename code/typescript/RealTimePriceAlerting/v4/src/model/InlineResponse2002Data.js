@@ -52,30 +52,31 @@ class InlineResponse2002Data {
         if (data) {
             obj = obj || new InlineResponse2002Data();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('creation')) {
+            if (data.hasOwnProperty('creation') && obj['creation'] === undefined) {
                 obj['creation'] = ApiClient.convertToType(data['creation'], 'Date');
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = InlineResponse200DataTriggerNotation.constructFromObject(data['notation']);
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = InlineResponse2002DataPrice.constructFromObject(data['price']);
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = InlineResponse2002DataRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('comment')) {
+            if (data.hasOwnProperty('comment') && obj['comment'] === undefined) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
-            if (data.hasOwnProperty('notification')) {
+            if (data.hasOwnProperty('notification') && obj['notification'] === undefined) {
                 obj['notification'] = InlineResponse2002DataNotification.constructFromObject(data['notification']);
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = InlineResponse2002DataStatus.constructFromObject(data['status']);
             }
+            
         }
         return obj;
     }

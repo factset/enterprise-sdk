@@ -45,7 +45,8 @@ class BulkDeleteRespItemNested {
     static constructFromObject(data, obj) {
         // openApiType:object format:
         // openApiType:array format:
-        if (Array.isArray(data)) return ApiClient.setValue(obj || new BulkDeleteRespItemNested(), data);
+        if (Array.isArray(data)) return data;
+        throw new Error("Failed to construct BulkDeleteRespItemNested due to oneOf-schemas not matching the data: " + data);
     }
 
 

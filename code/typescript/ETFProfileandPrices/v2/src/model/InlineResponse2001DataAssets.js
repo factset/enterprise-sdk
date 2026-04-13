@@ -46,12 +46,13 @@ class InlineResponse2001DataAssets {
         if (data) {
             obj = obj || new InlineResponse2001DataAssets();
 
-            if (data.hasOwnProperty('assetClass')) {
+            if (data.hasOwnProperty('assetClass') && obj['assetClass'] === undefined) {
                 obj['assetClass'] = ApiClient.convertToType(data['assetClass'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

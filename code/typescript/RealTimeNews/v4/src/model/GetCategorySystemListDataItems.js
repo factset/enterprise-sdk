@@ -48,21 +48,22 @@ class GetCategorySystemListDataItems {
         if (data) {
             obj = obj || new GetCategorySystemListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = GetCategorySystemListDataItemsType.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('numberOfLevels')) {
+            if (data.hasOwnProperty('numberOfLevels') && obj['numberOfLevels'] === undefined) {
                 obj['numberOfLevels'] = ApiClient.convertToType(data['numberOfLevels'], 'Number');
             }
-            if (data.hasOwnProperty('firstLevelWithLeafCategories')) {
+            if (data.hasOwnProperty('firstLevelWithLeafCategories') && obj['firstLevelWithLeafCategories'] === undefined) {
                 obj['firstLevelWithLeafCategories'] = ApiClient.convertToType(data['firstLevelWithLeafCategories'], 'Number');
             }
+            
         }
         return obj;
     }

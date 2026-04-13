@@ -48,9 +48,10 @@ class IdStatus {
         if (data) {
             obj = obj || new IdStatus();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = IdStatusData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

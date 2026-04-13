@@ -48,12 +48,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentBonusLev
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentBonusLevel();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentBonusLevelDistance.constructFromObject(data['distance']);
             }
+            
         }
         return obj;
     }

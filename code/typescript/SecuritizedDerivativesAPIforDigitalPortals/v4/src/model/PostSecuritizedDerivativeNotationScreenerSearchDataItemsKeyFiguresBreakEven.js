@@ -48,12 +48,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresBreakEve
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresBreakEven();
 
-            if (data.hasOwnProperty('breakEvenPoint')) {
+            if (data.hasOwnProperty('breakEvenPoint') && obj['breakEvenPoint'] === undefined) {
                 obj['breakEvenPoint'] = ApiClient.convertToType(data['breakEvenPoint'], 'Number');
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresBreakEvenDistance.constructFromObject(data['distance']);
             }
+            
         }
         return obj;
     }

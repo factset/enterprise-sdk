@@ -51,12 +51,13 @@ class PostVendorChartIQTimeSeriesEodSubsampleListRequest {
         if (data) {
             obj = obj || new PostVendorChartIQTimeSeriesEodSubsampleListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostVendorChartIQTimeSeriesEodSubsampleListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostVendorChartIQTimeSeriesEodListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

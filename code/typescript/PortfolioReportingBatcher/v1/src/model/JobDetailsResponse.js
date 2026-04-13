@@ -48,9 +48,10 @@ class JobDetailsResponse {
         if (data) {
             obj = obj || new JobDetailsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = JobDetailsResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

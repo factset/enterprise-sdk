@@ -47,9 +47,10 @@ class PostStockNotationRankingIntradayListRequestDataCompanyCountry {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestDataCompanyCountry();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
+            
         }
         return obj;
     }

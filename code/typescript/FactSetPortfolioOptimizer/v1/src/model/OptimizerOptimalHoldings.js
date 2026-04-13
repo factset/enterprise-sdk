@@ -46,15 +46,16 @@ class OptimizerOptimalHoldings {
         if (data) {
             obj = obj || new OptimizerOptimalHoldings();
 
-            if (data.hasOwnProperty('identifiertype')) {
+            if (data.hasOwnProperty('identifiertype') && obj['identifiertype'] === undefined) {
                 obj['identifiertype'] = ApiClient.convertToType(data['identifiertype'], 'String');
             }
-            if (data.hasOwnProperty('includecash')) {
+            if (data.hasOwnProperty('includecash') && obj['includecash'] === undefined) {
                 obj['includecash'] = ApiClient.convertToType(data['includecash'], 'Boolean');
             }
-            if (data.hasOwnProperty('excludezero')) {
+            if (data.hasOwnProperty('excludezero') && obj['excludezero'] === undefined) {
                 obj['excludezero'] = ApiClient.convertToType(data['excludezero'], 'Boolean');
             }
+            
         }
         return obj;
     }

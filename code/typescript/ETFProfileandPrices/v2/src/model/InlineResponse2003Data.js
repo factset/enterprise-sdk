@@ -48,12 +48,13 @@ class InlineResponse2003Data {
         if (data) {
             obj = obj || new InlineResponse2003Data();
 
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('currencies')) {
+            if (data.hasOwnProperty('currencies') && obj['currencies'] === undefined) {
                 obj['currencies'] = ApiClient.convertToType(data['currencies'], [InlineResponse2003DataCurrencies]);
             }
+            
         }
         return obj;
     }

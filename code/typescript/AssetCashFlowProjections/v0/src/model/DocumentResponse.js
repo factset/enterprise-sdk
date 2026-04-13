@@ -47,9 +47,10 @@ class DocumentResponse {
         if (data) {
             obj = obj || new DocumentResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DocumentResponseRoot.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

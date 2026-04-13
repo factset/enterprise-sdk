@@ -47,9 +47,10 @@ class InlineResponse200DataUnderlyingNotationInstrumentFsymSecurity {
         if (data) {
             obj = obj || new InlineResponse200DataUnderlyingNotationInstrumentFsymSecurity();
 
-            if (data.hasOwnProperty('permanentIdentifier')) {
+            if (data.hasOwnProperty('permanentIdentifier') && obj['permanentIdentifier'] === undefined) {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
+            
         }
         return obj;
     }

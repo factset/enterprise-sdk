@@ -71,42 +71,43 @@ class InlineResponse2001Data {
         if (data) {
             obj = obj || new InlineResponse2001Data();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('currencies')) {
+            if (data.hasOwnProperty('currencies') && obj['currencies'] === undefined) {
                 obj['currencies'] = ApiClient.convertToType(data['currencies'], ['String']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], [RiskModelFactorDetails]);
             }
-            if (data.hasOwnProperty('factorIdToIsoCurrency')) {
+            if (data.hasOwnProperty('factorIdToIsoCurrency') && obj['factorIdToIsoCurrency'] === undefined) {
                 obj['factorIdToIsoCurrency'] = ApiClient.convertToType(data['factorIdToIsoCurrency'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('firstDate')) {
+            if (data.hasOwnProperty('firstDate') && obj['firstDate'] === undefined) {
                 obj['firstDate'] = ApiClient.convertToType(data['firstDate'], 'Date');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
             }
-            if (data.hasOwnProperty('latestDate')) {
+            if (data.hasOwnProperty('latestDate') && obj['latestDate'] === undefined) {
                 obj['latestDate'] = ApiClient.convertToType(data['latestDate'], 'Date');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('riskModelAppendFormat')) {
+            if (data.hasOwnProperty('riskModelAppendFormat') && obj['riskModelAppendFormat'] === undefined) {
                 obj['riskModelAppendFormat'] = ApiClient.convertToType(data['riskModelAppendFormat'], [RiskModelAppendFieldType]);
             }
-            if (data.hasOwnProperty('universeCount')) {
+            if (data.hasOwnProperty('universeCount') && obj['universeCount'] === undefined) {
                 obj['universeCount'] = ApiClient.convertToType(data['universeCount'], 'Number');
             }
-            if (data.hasOwnProperty('vendor')) {
+            if (data.hasOwnProperty('vendor') && obj['vendor'] === undefined) {
                 obj['vendor'] = ApiClient.convertToType(data['vendor'], 'String');
             }
+            
         }
         return obj;
     }

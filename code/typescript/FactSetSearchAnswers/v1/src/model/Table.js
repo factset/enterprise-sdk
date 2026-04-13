@@ -48,15 +48,16 @@ class Table {
         if (data) {
             obj = obj || new Table();
 
-            if (data.hasOwnProperty('tableHeaders')) {
+            if (data.hasOwnProperty('tableHeaders') && obj['tableHeaders'] === undefined) {
                 obj['tableHeaders'] = ApiClient.convertToType(data['tableHeaders'], ['String']);
             }
-            if (data.hasOwnProperty('tableRows')) {
+            if (data.hasOwnProperty('tableRows') && obj['tableRows'] === undefined) {
                 obj['tableRows'] = ApiClient.convertToType(data['tableRows'], [['String']]);
             }
-            if (data.hasOwnProperty('tableFooters')) {
+            if (data.hasOwnProperty('tableFooters') && obj['tableFooters'] === undefined) {
                 obj['tableFooters'] = ApiClient.convertToType(data['tableFooters'], ['String']);
             }
+            
         }
         return obj;
     }

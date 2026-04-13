@@ -46,9 +46,10 @@ class InvoiceDetailsNonRecurringDetails {
         if (data) {
             obj = obj || new InvoiceDetailsNonRecurringDetails();
 
-            if (data.hasOwnProperty('workstations')) {
+            if (data.hasOwnProperty('workstations') && obj['workstations'] === undefined) {
                 obj['workstations'] = ApiClient.convertToType(data['workstations'], [Object]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class KeyStatsDataObjectEntityMetaSector {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityMetaSector();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
+            
         }
         return obj;
     }

@@ -51,12 +51,13 @@ class HeadlinesRequestByView {
         if (data) {
             obj = obj || new HeadlinesRequestByView();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = HeadlinesRequestByViewData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = HeadlinesRequestByViewMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

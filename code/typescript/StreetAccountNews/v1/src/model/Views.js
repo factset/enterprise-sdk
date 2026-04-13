@@ -48,9 +48,10 @@ class Views {
         if (data) {
             obj = obj || new Views();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ViewsObject]);
             }
+            
         }
         return obj;
     }

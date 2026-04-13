@@ -53,18 +53,19 @@ class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates();
 
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('ebit')) {
+            if (data.hasOwnProperty('ebit') && obj['ebit'] === undefined) {
                 obj['ebit'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbit.constructFromObject(data['ebit']);
             }
-            if (data.hasOwnProperty('ebitda')) {
+            if (data.hasOwnProperty('ebitda') && obj['ebitda'] === undefined) {
                 obj['ebitda'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitda.constructFromObject(data['ebitda']);
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

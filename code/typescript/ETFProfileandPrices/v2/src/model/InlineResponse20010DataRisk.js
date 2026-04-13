@@ -47,15 +47,16 @@ class InlineResponse20010DataRisk {
         if (data) {
             obj = obj || new InlineResponse20010DataRisk();
 
-            if (data.hasOwnProperty('isCorporateActionPending')) {
+            if (data.hasOwnProperty('isCorporateActionPending') && obj['isCorporateActionPending'] === undefined) {
                 obj['isCorporateActionPending'] = ApiClient.convertToType(data['isCorporateActionPending'], 'Boolean');
             }
-            if (data.hasOwnProperty('counterParty')) {
+            if (data.hasOwnProperty('counterParty') && obj['counterParty'] === undefined) {
                 obj['counterParty'] = ApiClient.convertToType(data['counterParty'], 'String');
             }
-            if (data.hasOwnProperty('fundClosure')) {
+            if (data.hasOwnProperty('fundClosure') && obj['fundClosure'] === undefined) {
                 obj['fundClosure'] = ApiClient.convertToType(data['fundClosure'], 'String');
             }
+            
         }
         return obj;
     }

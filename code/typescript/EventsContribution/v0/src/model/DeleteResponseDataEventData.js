@@ -47,9 +47,10 @@ class DeleteResponseDataEventData {
         if (data) {
             obj = obj || new DeleteResponseDataEventData();
 
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
+            
         }
         return obj;
     }

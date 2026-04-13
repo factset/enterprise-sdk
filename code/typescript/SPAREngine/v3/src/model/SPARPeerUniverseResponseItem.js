@@ -50,18 +50,19 @@ class SPARPeerUniverseResponseItem {
         if (data) {
             obj = obj || new SPARPeerUniverseResponseItem();
 
-            if (data.hasOwnProperty('categoryname')) {
+            if (data.hasOwnProperty('categoryname') && obj['categoryname'] === undefined) {
                 obj['categoryname'] = ApiClient.convertToType(data['categoryname'], 'String');
             }
-            if (data.hasOwnProperty('categoryid')) {
+            if (data.hasOwnProperty('categoryid') && obj['categoryid'] === undefined) {
                 obj['categoryid'] = ApiClient.convertToType(data['categoryid'], 'String');
             }
-            if (data.hasOwnProperty('universename')) {
+            if (data.hasOwnProperty('universename') && obj['universename'] === undefined) {
                 obj['universename'] = ApiClient.convertToType(data['universename'], 'String');
             }
-            if (data.hasOwnProperty('universeid')) {
+            if (data.hasOwnProperty('universeid') && obj['universeid'] === undefined) {
                 obj['universeid'] = ApiClient.convertToType(data['universeid'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,30 +47,31 @@ class Greeks {
         if (data) {
             obj = obj || new Greeks();
 
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = ApiClient.convertToType(data['delta'], 'Number');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('gamma')) {
+            if (data.hasOwnProperty('gamma') && obj['gamma'] === undefined) {
                 obj['gamma'] = ApiClient.convertToType(data['gamma'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('rho')) {
+            if (data.hasOwnProperty('rho') && obj['rho'] === undefined) {
                 obj['rho'] = ApiClient.convertToType(data['rho'], 'Number');
             }
-            if (data.hasOwnProperty('theta')) {
+            if (data.hasOwnProperty('theta') && obj['theta'] === undefined) {
                 obj['theta'] = ApiClient.convertToType(data['theta'], 'Number');
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = ApiClient.convertToType(data['vega'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

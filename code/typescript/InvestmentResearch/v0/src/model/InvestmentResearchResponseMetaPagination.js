@@ -47,12 +47,13 @@ class InvestmentResearchResponseMetaPagination {
         if (data) {
             obj = obj || new InvestmentResearchResponseMetaPagination();
 
-            if (data.hasOwnProperty('isEstimatedTotal')) {
+            if (data.hasOwnProperty('isEstimatedTotal') && obj['isEstimatedTotal'] === undefined) {
                 obj['isEstimatedTotal'] = ApiClient.convertToType(data['isEstimatedTotal'], 'Boolean');
             }
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = ApiClient.convertToType(data['total'], 'Number');
             }
+            
         }
         return obj;
     }

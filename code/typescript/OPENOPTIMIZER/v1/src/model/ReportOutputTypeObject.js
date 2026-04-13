@@ -48,9 +48,10 @@ class ReportOutputTypeObject {
         if (data) {
             obj = obj || new ReportOutputTypeObject();
 
-            if (data.hasOwnProperty('identifierType')) {
+            if (data.hasOwnProperty('identifierType') && obj['identifierType'] === undefined) {
                 obj['identifierType'] = ApiClient.convertToType(data['identifierType'], 'String');
             }
+            
         }
         return obj;
     }

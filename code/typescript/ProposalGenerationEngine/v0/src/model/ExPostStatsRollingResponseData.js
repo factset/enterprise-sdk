@@ -47,9 +47,10 @@ class ExPostStatsRollingResponseData {
         if (data) {
             obj = obj || new ExPostStatsRollingResponseData();
 
-            if (data.hasOwnProperty('portfolio')) {
+            if (data.hasOwnProperty('portfolio') && obj['portfolio'] === undefined) {
                 obj['portfolio'] = PortfolioWithRollingStats.constructFromObject(data['portfolio']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class CostImpactResponseRootV3 {
         if (data) {
             obj = obj || new CostImpactResponseRootV3();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AggregateMarketImpact.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -61,75 +61,76 @@ class InlineResponse2003Data {
         if (data) {
             obj = obj || new InlineResponse2003Data();
 
-            if (data.hasOwnProperty('idNotation')) {
+            if (data.hasOwnProperty('idNotation') && obj['idNotation'] === undefined) {
                 obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('prices')) {
+            if (data.hasOwnProperty('prices') && obj['prices'] === undefined) {
                 obj['prices'] = InlineResponse2003DataPrices.constructFromObject(data['prices']);
             }
-            if (data.hasOwnProperty('underlyings')) {
+            if (data.hasOwnProperty('underlyings') && obj['underlyings'] === undefined) {
                 obj['underlyings'] = ApiClient.convertToType(data['underlyings'], [GetSecuritizedDerivativeKeyFiguresNotationGetDataUnderlyingsItems]);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse2003DataCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('performanceIssue')) {
+            if (data.hasOwnProperty('performanceIssue') && obj['performanceIssue'] === undefined) {
                 obj['performanceIssue'] = InlineResponse2003DataPerformanceIssue.constructFromObject(data['performanceIssue']);
             }
-            if (data.hasOwnProperty('bonusYield')) {
+            if (data.hasOwnProperty('bonusYield') && obj['bonusYield'] === undefined) {
                 obj['bonusYield'] = InlineResponse2003DataBonusYield.constructFromObject(data['bonusYield']);
             }
-            if (data.hasOwnProperty('sidewaysYield')) {
+            if (data.hasOwnProperty('sidewaysYield') && obj['sidewaysYield'] === undefined) {
                 obj['sidewaysYield'] = InlineResponse2003DataSidewaysYield.constructFromObject(data['sidewaysYield']);
             }
-            if (data.hasOwnProperty('maximumYield')) {
+            if (data.hasOwnProperty('maximumYield') && obj['maximumYield'] === undefined) {
                 obj['maximumYield'] = InlineResponse2003DataMaximumYield.constructFromObject(data['maximumYield']);
             }
-            if (data.hasOwnProperty('agio')) {
+            if (data.hasOwnProperty('agio') && obj['agio'] === undefined) {
                 obj['agio'] = InlineResponse2003DataAgio.constructFromObject(data['agio']);
             }
-            if (data.hasOwnProperty('discount')) {
+            if (data.hasOwnProperty('discount') && obj['discount'] === undefined) {
                 obj['discount'] = InlineResponse2003DataDiscount.constructFromObject(data['discount']);
             }
-            if (data.hasOwnProperty('breakEven')) {
+            if (data.hasOwnProperty('breakEven') && obj['breakEven'] === undefined) {
                 obj['breakEven'] = InlineResponse2003DataBreakEven.constructFromObject(data['breakEven']);
             }
-            if (data.hasOwnProperty('spread')) {
+            if (data.hasOwnProperty('spread') && obj['spread'] === undefined) {
                 obj['spread'] = InlineResponse2003DataSpread.constructFromObject(data['spread']);
             }
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = InlineResponse2003DataDelta.constructFromObject(data['delta']);
             }
-            if (data.hasOwnProperty('thetaOneWeek')) {
+            if (data.hasOwnProperty('thetaOneWeek') && obj['thetaOneWeek'] === undefined) {
                 obj['thetaOneWeek'] = InlineResponse2003DataThetaOneWeek.constructFromObject(data['thetaOneWeek']);
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = InlineResponse2003DataVega.constructFromObject(data['vega']);
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = ApiClient.convertToType(data['leverage'], 'Number');
             }
-            if (data.hasOwnProperty('omega')) {
+            if (data.hasOwnProperty('omega') && obj['omega'] === undefined) {
                 obj['omega'] = ApiClient.convertToType(data['omega'], 'Number');
             }
-            if (data.hasOwnProperty('impliedVolatility')) {
+            if (data.hasOwnProperty('impliedVolatility') && obj['impliedVolatility'] === undefined) {
                 obj['impliedVolatility'] = ApiClient.convertToType(data['impliedVolatility'], 'Number');
             }
-            if (data.hasOwnProperty('intrinsicValue')) {
+            if (data.hasOwnProperty('intrinsicValue') && obj['intrinsicValue'] === undefined) {
                 obj['intrinsicValue'] = ApiClient.convertToType(data['intrinsicValue'], 'Number');
             }
-            if (data.hasOwnProperty('timeValue')) {
+            if (data.hasOwnProperty('timeValue') && obj['timeValue'] === undefined) {
                 obj['timeValue'] = ApiClient.convertToType(data['timeValue'], 'Number');
             }
-            if (data.hasOwnProperty('outperformancePoint')) {
+            if (data.hasOwnProperty('outperformancePoint') && obj['outperformancePoint'] === undefined) {
                 obj['outperformancePoint'] = ApiClient.convertToType(data['outperformancePoint'], 'Number');
             }
-            if (data.hasOwnProperty('parity')) {
+            if (data.hasOwnProperty('parity') && obj['parity'] === undefined) {
                 obj['parity'] = ApiClient.convertToType(data['parity'], 'Number');
             }
+            
         }
         return obj;
     }

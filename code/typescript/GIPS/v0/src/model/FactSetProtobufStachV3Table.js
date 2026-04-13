@@ -53,33 +53,34 @@ class FactSetProtobufStachV3Table {
         if (data) {
             obj = obj || new FactSetProtobufStachV3Table();
 
-            if (data.hasOwnProperty('primaryKeys')) {
+            if (data.hasOwnProperty('primaryKeys') && obj['primaryKeys'] === undefined) {
                 obj['primaryKeys'] = ApiClient.convertToType(data['primaryKeys'], ['String']);
             }
-            if (data.hasOwnProperty('totalNumRows')) {
+            if (data.hasOwnProperty('totalNumRows') && obj['totalNumRows'] === undefined) {
                 obj['totalNumRows'] = ApiClient.convertToType(data['totalNumRows'], 'Number');
             }
-            if (data.hasOwnProperty('groupResult')) {
+            if (data.hasOwnProperty('groupResult') && obj['groupResult'] === undefined) {
                 obj['groupResult'] = FactSetProtobufStachV3TableTypesGroupResult.constructFromObject(data['groupResult']);
             }
-            if (data.hasOwnProperty('splitResult')) {
+            if (data.hasOwnProperty('splitResult') && obj['splitResult'] === undefined) {
                 obj['splitResult'] = FactSetProtobufStachV3TableTypesSplitResult.constructFromObject(data['splitResult']);
             }
-            if (data.hasOwnProperty('sortResult')) {
+            if (data.hasOwnProperty('sortResult') && obj['sortResult'] === undefined) {
                 obj['sortResult'] = ApiClient.convertToType(data['sortResult'], [FactSetProtobufStachV3SortColumn]);
             }
-            if (data.hasOwnProperty('formatResult')) {
+            if (data.hasOwnProperty('formatResult') && obj['formatResult'] === undefined) {
                 obj['formatResult'] = FactSetProtobufStachV3TableTypesFormatResult.constructFromObject(data['formatResult']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = FactSetProtobufStachV3TableTypesPagination.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [FactSetProtobufStachV3TableTypesError]);
             }
-            if (data.hasOwnProperty('customMetadata')) {
+            if (data.hasOwnProperty('customMetadata') && obj['customMetadata'] === undefined) {
                 obj['customMetadata'] = ApiClient.convertToType(data['customMetadata'], {'String': FactSetProtobufStachV3MetadataItem});
             }
+            
         }
         return obj;
     }

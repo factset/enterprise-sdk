@@ -47,9 +47,10 @@ class AtmImpliedVolatilityResponse {
         if (data) {
             obj = obj || new AtmImpliedVolatilityResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [AtmImpliedVolatility]);
             }
+            
         }
         return obj;
     }

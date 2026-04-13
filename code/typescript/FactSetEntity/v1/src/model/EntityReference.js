@@ -46,81 +46,82 @@ class EntityReference {
         if (data) {
             obj = obj || new EntityReference();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('entityProperName')) {
+            if (data.hasOwnProperty('entityProperName') && obj['entityProperName'] === undefined) {
                 obj['entityProperName'] = ApiClient.convertToType(data['entityProperName'], 'String');
             }
-            if (data.hasOwnProperty('fsymEntityId')) {
+            if (data.hasOwnProperty('fsymEntityId') && obj['fsymEntityId'] === undefined) {
                 obj['fsymEntityId'] = ApiClient.convertToType(data['fsymEntityId'], 'String');
             }
-            if (data.hasOwnProperty('ultimateParentId')) {
+            if (data.hasOwnProperty('ultimateParentId') && obj['ultimateParentId'] === undefined) {
                 obj['ultimateParentId'] = ApiClient.convertToType(data['ultimateParentId'], 'String');
             }
-            if (data.hasOwnProperty('ultimateParentName')) {
+            if (data.hasOwnProperty('ultimateParentName') && obj['ultimateParentName'] === undefined) {
                 obj['ultimateParentName'] = ApiClient.convertToType(data['ultimateParentName'], 'String');
             }
-            if (data.hasOwnProperty('creditParentId')) {
+            if (data.hasOwnProperty('creditParentId') && obj['creditParentId'] === undefined) {
                 obj['creditParentId'] = ApiClient.convertToType(data['creditParentId'], 'String');
             }
-            if (data.hasOwnProperty('parentEquityId')) {
+            if (data.hasOwnProperty('parentEquityId') && obj['parentEquityId'] === undefined) {
                 obj['parentEquityId'] = ApiClient.convertToType(data['parentEquityId'], 'String');
             }
-            if (data.hasOwnProperty('privateEntityFlag')) {
+            if (data.hasOwnProperty('privateEntityFlag') && obj['privateEntityFlag'] === undefined) {
                 obj['privateEntityFlag'] = ApiClient.convertToType(data['privateEntityFlag'], 'Number');
             }
-            if (data.hasOwnProperty('publicEntityFlag')) {
+            if (data.hasOwnProperty('publicEntityFlag') && obj['publicEntityFlag'] === undefined) {
                 obj['publicEntityFlag'] = ApiClient.convertToType(data['publicEntityFlag'], 'Number');
             }
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
-            if (data.hasOwnProperty('website')) {
+            if (data.hasOwnProperty('website') && obj['website'] === undefined) {
                 obj['website'] = ApiClient.convertToType(data['website'], 'String');
             }
-            if (data.hasOwnProperty('incorporationDate')) {
+            if (data.hasOwnProperty('incorporationDate') && obj['incorporationDate'] === undefined) {
                 obj['incorporationDate'] = ApiClient.convertToType(data['incorporationDate'], 'Date');
             }
-            if (data.hasOwnProperty('countryOfRisk')) {
+            if (data.hasOwnProperty('countryOfRisk') && obj['countryOfRisk'] === undefined) {
                 obj['countryOfRisk'] = ApiClient.convertToType(data['countryOfRisk'], 'String');
             }
-            if (data.hasOwnProperty('countryOfRiskGeoRev')) {
+            if (data.hasOwnProperty('countryOfRiskGeoRev') && obj['countryOfRiskGeoRev'] === undefined) {
                 obj['countryOfRiskGeoRev'] = ApiClient.convertToType(data['countryOfRiskGeoRev'], 'String');
             }
-            if (data.hasOwnProperty('incorporationCountry')) {
+            if (data.hasOwnProperty('incorporationCountry') && obj['incorporationCountry'] === undefined) {
                 obj['incorporationCountry'] = ApiClient.convertToType(data['incorporationCountry'], 'String');
             }
-            if (data.hasOwnProperty('businessDescription')) {
+            if (data.hasOwnProperty('businessDescription') && obj['businessDescription'] === undefined) {
                 obj['businessDescription'] = ApiClient.convertToType(data['businessDescription'], 'String');
             }
-            if (data.hasOwnProperty('phone')) {
+            if (data.hasOwnProperty('phone') && obj['phone'] === undefined) {
                 obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
             }
-            if (data.hasOwnProperty('headquartersStreet')) {
+            if (data.hasOwnProperty('headquartersStreet') && obj['headquartersStreet'] === undefined) {
                 obj['headquartersStreet'] = ApiClient.convertToType(data['headquartersStreet'], 'String');
             }
-            if (data.hasOwnProperty('headquartersCity')) {
+            if (data.hasOwnProperty('headquartersCity') && obj['headquartersCity'] === undefined) {
                 obj['headquartersCity'] = ApiClient.convertToType(data['headquartersCity'], 'String');
             }
-            if (data.hasOwnProperty('headquartersState')) {
+            if (data.hasOwnProperty('headquartersState') && obj['headquartersState'] === undefined) {
                 obj['headquartersState'] = ApiClient.convertToType(data['headquartersState'], 'String');
             }
-            if (data.hasOwnProperty('headquartersZip')) {
+            if (data.hasOwnProperty('headquartersZip') && obj['headquartersZip'] === undefined) {
                 obj['headquartersZip'] = ApiClient.convertToType(data['headquartersZip'], 'String');
             }
-            if (data.hasOwnProperty('headquartersCountry')) {
+            if (data.hasOwnProperty('headquartersCountry') && obj['headquartersCountry'] === undefined) {
                 obj['headquartersCountry'] = ApiClient.convertToType(data['headquartersCountry'], 'String');
             }
-            if (data.hasOwnProperty('emailIR')) {
+            if (data.hasOwnProperty('emailIR') && obj['emailIR'] === undefined) {
                 obj['emailIR'] = ApiClient.convertToType(data['emailIR'], 'String');
             }
-            if (data.hasOwnProperty('websiteIR')) {
+            if (data.hasOwnProperty('websiteIR') && obj['websiteIR'] === undefined) {
                 obj['websiteIR'] = ApiClient.convertToType(data['websiteIR'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

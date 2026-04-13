@@ -50,9 +50,10 @@ class SecurityExplanationParametersRoot {
         if (data) {
             obj = obj || new SecurityExplanationParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SecurityExplanationRequestParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

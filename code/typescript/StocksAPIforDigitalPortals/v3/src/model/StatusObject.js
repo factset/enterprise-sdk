@@ -49,9 +49,10 @@ class StatusObject {
         if (data) {
             obj = obj || new StatusObject();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class InlineResponse2005DataKeyFiguresBreakEven {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresBreakEven();
 
-            if (data.hasOwnProperty('breakEvenPoint')) {
+            if (data.hasOwnProperty('breakEvenPoint') && obj['breakEvenPoint'] === undefined) {
                 obj['breakEvenPoint'] = InlineResponse2005DataKeyFiguresBreakEvenBreakEvenPoint.constructFromObject(data['breakEvenPoint']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataKeyFiguresBreakEvenDistance.constructFromObject(data['distance']);
             }
+            
         }
         return obj;
     }

@@ -46,21 +46,22 @@ class TeamConfigDto {
         if (data) {
             obj = obj || new TeamConfigDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('defaultSubjectId')) {
+            if (data.hasOwnProperty('defaultSubjectId') && obj['defaultSubjectId'] === undefined) {
                 obj['defaultSubjectId'] = ApiClient.convertToType(data['defaultSubjectId'], 'String');
             }
-            if (data.hasOwnProperty('userIds')) {
+            if (data.hasOwnProperty('userIds') && obj['userIds'] === undefined) {
                 obj['userIds'] = ApiClient.convertToType(data['userIds'], ['String']);
             }
+            
         }
         return obj;
     }

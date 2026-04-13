@@ -48,12 +48,13 @@ class KeyStatsDataObjectFundMeta {
         if (data) {
             obj = obj || new KeyStatsDataObjectFundMeta();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = KeyStatsDataObjectFundMetaAsOfDate.constructFromObject(data['asOfDate']);
             }
-            if (data.hasOwnProperty('sources')) {
+            if (data.hasOwnProperty('sources') && obj['sources'] === undefined) {
                 obj['sources'] = KeyStatsDataObjectEntityMetaSources.constructFromObject(data['sources']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class ChatPollingRequest {
         if (data) {
             obj = obj || new ChatPollingRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ChatPollingRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

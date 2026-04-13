@@ -46,15 +46,16 @@ class StatResponseObject {
         if (data) {
             obj = obj || new StatResponseObject();
 
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = ApiClient.convertToType(data['delta'], 'Number');
             }
-            if (data.hasOwnProperty('final')) {
+            if (data.hasOwnProperty('final') && obj['final'] === undefined) {
                 obj['final'] = ApiClient.convertToType(data['final'], 'Number');
             }
-            if (data.hasOwnProperty('initial')) {
+            if (data.hasOwnProperty('initial') && obj['initial'] === undefined) {
                 obj['initial'] = ApiClient.convertToType(data['initial'], 'Number');
             }
+            
         }
         return obj;
     }

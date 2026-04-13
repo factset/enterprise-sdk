@@ -50,24 +50,25 @@ class OptimizerInputsNumberofAssetsConstraint {
         if (data) {
             obj = obj || new OptimizerInputsNumberofAssetsConstraint();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('min')) {
+            if (data.hasOwnProperty('min') && obj['min'] === undefined) {
                 obj['min'] = OptimizerInputsValue.constructFromObject(data['min']);
             }
-            if (data.hasOwnProperty('max')) {
+            if (data.hasOwnProperty('max') && obj['max'] === undefined) {
                 obj['max'] = OptimizerInputsValue.constructFromObject(data['max']);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [OptimizerInputsConstraintGroup]);
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = OptimizerInputsEConstraintLevelEnum.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], 'Number');
             }
+            
         }
         return obj;
     }

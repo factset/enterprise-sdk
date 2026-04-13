@@ -47,12 +47,13 @@ class GetCategoryListBySystemDataCategoriesItemsLevel {
         if (data) {
             obj = obj || new GetCategoryListBySystemDataCategoriesItemsLevel();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('number')) {
+            if (data.hasOwnProperty('number') && obj['number'] === undefined) {
                 obj['number'] = ApiClient.convertToType(data['number'], 'Number');
             }
+            
         }
         return obj;
     }

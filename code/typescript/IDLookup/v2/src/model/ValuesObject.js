@@ -47,12 +47,13 @@ class ValuesObject {
         if (data) {
             obj = obj || new ValuesObject();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

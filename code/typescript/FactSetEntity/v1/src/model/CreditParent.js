@@ -46,27 +46,28 @@ class CreditParent {
         if (data) {
             obj = obj || new CreditParent();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('entityProperName')) {
+            if (data.hasOwnProperty('entityProperName') && obj['entityProperName'] === undefined) {
                 obj['entityProperName'] = ApiClient.convertToType(data['entityProperName'], 'String');
             }
-            if (data.hasOwnProperty('factsetCreditParentId')) {
+            if (data.hasOwnProperty('factsetCreditParentId') && obj['factsetCreditParentId'] === undefined) {
                 obj['factsetCreditParentId'] = ApiClient.convertToType(data['factsetCreditParentId'], 'String');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('effectiveStartDate')) {
+            if (data.hasOwnProperty('effectiveStartDate') && obj['effectiveStartDate'] === undefined) {
                 obj['effectiveStartDate'] = ApiClient.convertToType(data['effectiveStartDate'], 'Date');
             }
-            if (data.hasOwnProperty('effectiveEndDate')) {
+            if (data.hasOwnProperty('effectiveEndDate') && obj['effectiveEndDate'] === undefined) {
                 obj['effectiveEndDate'] = ApiClient.convertToType(data['effectiveEndDate'], 'Date');
             }
+            
         }
         return obj;
     }

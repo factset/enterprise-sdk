@@ -47,9 +47,10 @@ class ConvertibleHistoryResponse {
         if (data) {
             obj = obj || new ConvertibleHistoryResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ConvertibleHistory]);
             }
+            
         }
         return obj;
     }

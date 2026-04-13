@@ -48,9 +48,10 @@ class StructuredFiltersRegions {
         if (data) {
             obj = obj || new StructuredFiltersRegions();
 
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = ApiClient.convertToType(data['regions'], [StructuredFiltersRegionsObject]);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class FactSetProtobufStachV3TableTypesErrorTypesSourceTypesCell {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesErrorTypesSourceTypesCell();
 
-            if (data.hasOwnProperty('columnName')) {
+            if (data.hasOwnProperty('columnName') && obj['columnName'] === undefined) {
                 obj['columnName'] = ApiClient.convertToType(data['columnName'], 'String');
             }
-            if (data.hasOwnProperty('primaryKeyValues')) {
+            if (data.hasOwnProperty('primaryKeyValues') && obj['primaryKeyValues'] === undefined) {
                 obj['primaryKeyValues'] = ApiClient.convertToType(data['primaryKeyValues'], {'String': GoogleProtobufWellKnownTypesValue});
             }
+            
         }
         return obj;
     }

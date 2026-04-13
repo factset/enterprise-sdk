@@ -52,15 +52,16 @@ class SearchRequestBody {
         if (data) {
             obj = obj || new SearchRequestBody();
 
-            if (data.hasOwnProperty('contentSets')) {
+            if (data.hasOwnProperty('contentSets') && obj['contentSets'] === undefined) {
                 obj['contentSets'] = ApiClient.convertToType(data['contentSets'], [ContentSetItem]);
             }
-            if (data.hasOwnProperty('filters')) {
+            if (data.hasOwnProperty('filters') && obj['filters'] === undefined) {
                 obj['filters'] = ApiClient.convertToType(data['filters'], [SearchFilter]);
             }
-            if (data.hasOwnProperty('joinType')) {
+            if (data.hasOwnProperty('joinType') && obj['joinType'] === undefined) {
                 obj['joinType'] = JoinType.constructFromObject(data['joinType']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PortfolioWithExPostSeriesAllOf {
         if (data) {
             obj = obj || new PortfolioWithExPostSeriesAllOf();
 
-            if (data.hasOwnProperty('series')) {
+            if (data.hasOwnProperty('series') && obj['series'] === undefined) {
                 obj['series'] = TimeWindowSeries.constructFromObject(data['series']);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = PeriodSeries.constructFromObject(data['periods']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class StatisticsRequest {
         if (data) {
             obj = obj || new StatisticsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = StatisticsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

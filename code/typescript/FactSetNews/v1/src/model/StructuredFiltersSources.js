@@ -48,9 +48,10 @@ class StructuredFiltersSources {
         if (data) {
             obj = obj || new StructuredFiltersSources();
 
-            if (data.hasOwnProperty('sources')) {
+            if (data.hasOwnProperty('sources') && obj['sources'] === undefined) {
                 obj['sources'] = ApiClient.convertToType(data['sources'], [StructuredFiltersSourcesObject]);
             }
+            
         }
         return obj;
     }

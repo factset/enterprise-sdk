@@ -46,24 +46,25 @@ class CustomSymbolContact {
         if (data) {
             obj = obj || new CustomSymbolContact();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('employerName')) {
+            if (data.hasOwnProperty('employerName') && obj['employerName'] === undefined) {
                 obj['employerName'] = ApiClient.convertToType(data['employerName'], 'String');
             }
-            if (data.hasOwnProperty('roleName')) {
+            if (data.hasOwnProperty('roleName') && obj['roleName'] === undefined) {
                 obj['roleName'] = ApiClient.convertToType(data['roleName'], 'String');
             }
-            if (data.hasOwnProperty('isDeleted')) {
+            if (data.hasOwnProperty('isDeleted') && obj['isDeleted'] === undefined) {
                 obj['isDeleted'] = ApiClient.convertToType(data['isDeleted'], 'Boolean');
             }
-            if (data.hasOwnProperty('irnPersonId')) {
+            if (data.hasOwnProperty('irnPersonId') && obj['irnPersonId'] === undefined) {
                 obj['irnPersonId'] = ApiClient.convertToType(data['irnPersonId'], 'String');
             }
+            
         }
         return obj;
     }

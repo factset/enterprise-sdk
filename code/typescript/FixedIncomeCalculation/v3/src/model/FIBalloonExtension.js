@@ -46,21 +46,22 @@ class FIBalloonExtension {
         if (data) {
             obj = obj || new FIBalloonExtension();
 
-            if (data.hasOwnProperty('months')) {
+            if (data.hasOwnProperty('months') && obj['months'] === undefined) {
                 obj['months'] = ApiClient.convertToType(data['months'], 'Number');
             }
-            if (data.hasOwnProperty('percentage')) {
+            if (data.hasOwnProperty('percentage') && obj['percentage'] === undefined) {
                 obj['percentage'] = ApiClient.convertToType(data['percentage'], 'Number');
             }
-            if (data.hasOwnProperty('amortizationType')) {
+            if (data.hasOwnProperty('amortizationType') && obj['amortizationType'] === undefined) {
                 obj['amortizationType'] = ApiClient.convertToType(data['amortizationType'], 'String');
             }
-            if (data.hasOwnProperty('units')) {
+            if (data.hasOwnProperty('units') && obj['units'] === undefined) {
                 obj['units'] = ApiClient.convertToType(data['units'], 'String');
             }
-            if (data.hasOwnProperty('couponStepup')) {
+            if (data.hasOwnProperty('couponStepup') && obj['couponStepup'] === undefined) {
                 obj['couponStepup'] = ApiClient.convertToType(data['couponStepup'], 'Number');
             }
+            
         }
         return obj;
     }

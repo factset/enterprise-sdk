@@ -48,24 +48,25 @@ class EntityUniverseRequest {
         if (data) {
             obj = obj || new EntityUniverseRequest();
 
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
-            if (data.hasOwnProperty('offset')) {
+            if (data.hasOwnProperty('offset') && obj['offset'] === undefined) {
                 obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
             }
-            if (data.hasOwnProperty('limit')) {
+            if (data.hasOwnProperty('limit') && obj['limit'] === undefined) {
                 obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
-            if (data.hasOwnProperty('mapStatus')) {
+            if (data.hasOwnProperty('mapStatus') && obj['mapStatus'] === undefined) {
                 obj['mapStatus'] = ApiClient.convertToType(data['mapStatus'], ['String']);
             }
-            if (data.hasOwnProperty('clientId')) {
+            if (data.hasOwnProperty('clientId') && obj['clientId'] === undefined) {
                 obj['clientId'] = ApiClient.convertToType(data['clientId'], ['String']);
             }
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], ['String']);
             }
+            
         }
         return obj;
     }

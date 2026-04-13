@@ -50,30 +50,31 @@ class EntityMatchRequest {
         if (data) {
             obj = obj || new EntityMatchRequest();
 
-            if (data.hasOwnProperty('input')) {
+            if (data.hasOwnProperty('input') && obj['input'] === undefined) {
                 obj['input'] = ApiClient.convertToType(data['input'], [EntityMatchRequestInput]);
             }
-            if (data.hasOwnProperty('includeEntityType')) {
+            if (data.hasOwnProperty('includeEntityType') && obj['includeEntityType'] === undefined) {
                 obj['includeEntityType'] = ApiClient.convertToType(data['includeEntityType'], ['String']);
             }
-            if (data.hasOwnProperty('excludeEntityType')) {
+            if (data.hasOwnProperty('excludeEntityType') && obj['excludeEntityType'] === undefined) {
                 obj['excludeEntityType'] = ApiClient.convertToType(data['excludeEntityType'], ['String']);
             }
-            if (data.hasOwnProperty('candidatesCount')) {
+            if (data.hasOwnProperty('candidatesCount') && obj['candidatesCount'] === undefined) {
                 obj['candidatesCount'] = ApiClient.convertToType(data['candidatesCount'], 'Number');
             }
-            if (data.hasOwnProperty('includeEntitySubType')) {
+            if (data.hasOwnProperty('includeEntitySubType') && obj['includeEntitySubType'] === undefined) {
                 obj['includeEntitySubType'] = ApiClient.convertToType(data['includeEntitySubType'], ['String']);
             }
-            if (data.hasOwnProperty('excludeEntitySubType')) {
+            if (data.hasOwnProperty('excludeEntitySubType') && obj['excludeEntitySubType'] === undefined) {
                 obj['excludeEntitySubType'] = ApiClient.convertToType(data['excludeEntitySubType'], ['String']);
             }
-            if (data.hasOwnProperty('includeParent')) {
+            if (data.hasOwnProperty('includeParent') && obj['includeParent'] === undefined) {
                 obj['includeParent'] = ApiClient.convertToType(data['includeParent'], 'Boolean');
             }
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
+            
         }
         return obj;
     }

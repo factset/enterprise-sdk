@@ -48,24 +48,25 @@ class GetFilesResponse {
         if (data) {
             obj = obj || new GetFilesResponse();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('request')) {
+            if (data.hasOwnProperty('request') && obj['request'] === undefined) {
                 obj['request'] = ApiClient.convertToType(data['request'], 'String');
             }
-            if (data.hasOwnProperty('requestTimestamp')) {
+            if (data.hasOwnProperty('requestTimestamp') && obj['requestTimestamp'] === undefined) {
                 obj['requestTimestamp'] = ApiClient.convertToType(data['requestTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('updateTimestamp')) {
+            if (data.hasOwnProperty('updateTimestamp') && obj['updateTimestamp'] === undefined) {
                 obj['updateTimestamp'] = ApiClient.convertToType(data['updateTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Data]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], [Meta]);
             }
+            
         }
         return obj;
     }

@@ -48,41 +48,44 @@ class CriteriaOneOf {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new CriteriaOneOf();
-            Criteria.constructFromObject(data, obj);
+            try {
+              obj = Criteria.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('detail')) {
+            if (data.hasOwnProperty('detail') && obj['detail'] === undefined) {
                 obj['detail'] = CriteriaDetail.constructFromObject(data['detail']);
             }
-            if (data.hasOwnProperty('operator')) {
+            if (data.hasOwnProperty('operator') && obj['operator'] === undefined) {
                 obj['operator'] = ApiClient.convertToType(data['operator'], 'String');
             }
-            if (data.hasOwnProperty('effect')) {
+            if (data.hasOwnProperty('effect') && obj['effect'] === undefined) {
                 obj['effect'] = ApiClient.convertToType(data['effect'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], ['String']);
             }
-            if (data.hasOwnProperty('criteria')) {
+            if (data.hasOwnProperty('criteria') && obj['criteria'] === undefined) {
                 obj['criteria'] = CriteriaOneOf.constructFromObject(data['criteria']);
             }
-            if (data.hasOwnProperty('caseSensitive')) {
+            if (data.hasOwnProperty('caseSensitive') && obj['caseSensitive'] === undefined) {
                 obj['caseSensitive'] = ApiClient.convertToType(data['caseSensitive'], 'Boolean');
             }
-            if (data.hasOwnProperty('enableHighlight')) {
+            if (data.hasOwnProperty('enableHighlight') && obj['enableHighlight'] === undefined) {
                 obj['enableHighlight'] = ApiClient.convertToType(data['enableHighlight'], 'Boolean');
             }
-            if (data.hasOwnProperty('enableStemming')) {
+            if (data.hasOwnProperty('enableStemming') && obj['enableStemming'] === undefined) {
                 obj['enableStemming'] = ApiClient.convertToType(data['enableStemming'], 'Boolean');
             }
-            if (data.hasOwnProperty('enableThesaurus')) {
+            if (data.hasOwnProperty('enableThesaurus') && obj['enableThesaurus'] === undefined) {
                 obj['enableThesaurus'] = ApiClient.convertToType(data['enableThesaurus'], 'Boolean');
             }
-            if (data.hasOwnProperty('textSearchSlop')) {
+            if (data.hasOwnProperty('textSearchSlop') && obj['textSearchSlop'] === undefined) {
                 obj['textSearchSlop'] = ApiClient.convertToType(data['textSearchSlop'], 'Number');
             }
+            
         }
         return obj;
     }

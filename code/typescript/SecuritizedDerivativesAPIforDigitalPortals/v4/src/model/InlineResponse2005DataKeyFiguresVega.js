@@ -49,12 +49,13 @@ class InlineResponse2005DataKeyFiguresVega {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresVega();
 
-            if (data.hasOwnProperty('effective')) {
+            if (data.hasOwnProperty('effective') && obj['effective'] === undefined) {
                 obj['effective'] = InlineResponse2005DataKeyFiguresVegaEffective.constructFromObject(data['effective']);
             }
-            if (data.hasOwnProperty('unadjusted')) {
+            if (data.hasOwnProperty('unadjusted') && obj['unadjusted'] === undefined) {
                 obj['unadjusted'] = InlineResponse2005DataKeyFiguresVegaUnadjusted.constructFromObject(data['unadjusted']);
             }
+            
         }
         return obj;
     }

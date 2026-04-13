@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationRankingIntradayListRequestDataFactorCerti
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListRequestDataFactorCertificatesEffectiveUnderlyingInstrument();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
+            
         }
         return obj;
     }

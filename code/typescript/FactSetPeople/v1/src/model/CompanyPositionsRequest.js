@@ -49,12 +49,13 @@ class CompanyPositionsRequest {
         if (data) {
             obj = obj || new CompanyPositionsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('position')) {
+            if (data.hasOwnProperty('position') && obj['position'] === undefined) {
                 obj['position'] = Position.constructFromObject(data['position']);
             }
+            
         }
         return obj;
     }

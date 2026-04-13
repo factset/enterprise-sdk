@@ -46,27 +46,28 @@ class RelatedFunds {
         if (data) {
             obj = obj || new RelatedFunds();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('relatedFundIdOne')) {
+            if (data.hasOwnProperty('relatedFundIdOne') && obj['relatedFundIdOne'] === undefined) {
                 obj['relatedFundIdOne'] = ApiClient.convertToType(data['relatedFundIdOne'], 'String');
             }
-            if (data.hasOwnProperty('relatedFundIdTwo')) {
+            if (data.hasOwnProperty('relatedFundIdTwo') && obj['relatedFundIdTwo'] === undefined) {
                 obj['relatedFundIdTwo'] = ApiClient.convertToType(data['relatedFundIdTwo'], 'String');
             }
-            if (data.hasOwnProperty('relatedFundIdThree')) {
+            if (data.hasOwnProperty('relatedFundIdThree') && obj['relatedFundIdThree'] === undefined) {
                 obj['relatedFundIdThree'] = ApiClient.convertToType(data['relatedFundIdThree'], 'String');
             }
-            if (data.hasOwnProperty('relatedFundIdFour')) {
+            if (data.hasOwnProperty('relatedFundIdFour') && obj['relatedFundIdFour'] === undefined) {
                 obj['relatedFundIdFour'] = ApiClient.convertToType(data['relatedFundIdFour'], 'String');
             }
-            if (data.hasOwnProperty('relatedFundIdFive')) {
+            if (data.hasOwnProperty('relatedFundIdFive') && obj['relatedFundIdFive'] === undefined) {
                 obj['relatedFundIdFive'] = ApiClient.convertToType(data['relatedFundIdFive'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

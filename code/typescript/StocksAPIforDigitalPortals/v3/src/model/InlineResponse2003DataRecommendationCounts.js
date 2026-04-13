@@ -47,24 +47,25 @@ class InlineResponse2003DataRecommendationCounts {
         if (data) {
             obj = obj || new InlineResponse2003DataRecommendationCounts();
 
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = ApiClient.convertToType(data['total'], 'Number');
             }
-            if (data.hasOwnProperty('buy')) {
+            if (data.hasOwnProperty('buy') && obj['buy'] === undefined) {
                 obj['buy'] = ApiClient.convertToType(data['buy'], 'Number');
             }
-            if (data.hasOwnProperty('overweight')) {
+            if (data.hasOwnProperty('overweight') && obj['overweight'] === undefined) {
                 obj['overweight'] = ApiClient.convertToType(data['overweight'], 'Number');
             }
-            if (data.hasOwnProperty('hold')) {
+            if (data.hasOwnProperty('hold') && obj['hold'] === undefined) {
                 obj['hold'] = ApiClient.convertToType(data['hold'], 'Number');
             }
-            if (data.hasOwnProperty('underweight')) {
+            if (data.hasOwnProperty('underweight') && obj['underweight'] === undefined) {
                 obj['underweight'] = ApiClient.convertToType(data['underweight'], 'Number');
             }
-            if (data.hasOwnProperty('sell')) {
+            if (data.hasOwnProperty('sell') && obj['sell'] === undefined) {
                 obj['sell'] = ApiClient.convertToType(data['sell'], 'Number');
             }
+            
         }
         return obj;
     }

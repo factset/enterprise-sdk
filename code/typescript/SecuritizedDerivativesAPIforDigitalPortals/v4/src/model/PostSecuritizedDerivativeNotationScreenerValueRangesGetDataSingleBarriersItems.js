@@ -52,24 +52,25 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersI
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItems();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsObservation.constructFromObject(data['observation']);
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('breach')) {
+            if (data.hasOwnProperty('breach') && obj['breach'] === undefined) {
                 obj['breach'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsBreach.constructFromObject(data['breach']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

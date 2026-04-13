@@ -46,21 +46,22 @@ class BPMOptimization {
         if (data) {
             obj = obj || new BPMOptimization();
 
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = ApiClient.convertToType(data['market'], 'String');
             }
-            if (data.hasOwnProperty('investAllCash')) {
+            if (data.hasOwnProperty('investAllCash') && obj['investAllCash'] === undefined) {
                 obj['investAllCash'] = ApiClient.convertToType(data['investAllCash'], 'Boolean');
             }
-            if (data.hasOwnProperty('riskModelDate')) {
+            if (data.hasOwnProperty('riskModelDate') && obj['riskModelDate'] === undefined) {
                 obj['riskModelDate'] = ApiClient.convertToType(data['riskModelDate'], 'String');
             }
-            if (data.hasOwnProperty('backtestDate')) {
+            if (data.hasOwnProperty('backtestDate') && obj['backtestDate'] === undefined) {
                 obj['backtestDate'] = ApiClient.convertToType(data['backtestDate'], 'String');
             }
-            if (data.hasOwnProperty('cashflow')) {
+            if (data.hasOwnProperty('cashflow') && obj['cashflow'] === undefined) {
                 obj['cashflow'] = ApiClient.convertToType(data['cashflow'], 'String');
             }
+            
         }
         return obj;
     }

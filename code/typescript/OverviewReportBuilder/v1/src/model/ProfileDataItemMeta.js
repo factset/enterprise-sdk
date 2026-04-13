@@ -48,17 +48,20 @@ class ProfileDataItemMeta {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ProfileDataItemMeta();
-            ProfileDataItemMetaAnyOf.constructFromObject(data, obj);
+            try {
+              obj = ProfileDataItemMetaAnyOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('currencyCode')) {
+            if (data.hasOwnProperty('currencyCode') && obj['currencyCode'] === undefined) {
                 obj['currencyCode'] = ApiClient.convertToType(data['currencyCode'], 'String');
             }
-            if (data.hasOwnProperty('currencySymbol')) {
+            if (data.hasOwnProperty('currencySymbol') && obj['currencySymbol'] === undefined) {
                 obj['currencySymbol'] = ApiClient.convertToType(data['currencySymbol'], 'String');
             }
-            if (data.hasOwnProperty('scale')) {
+            if (data.hasOwnProperty('scale') && obj['scale'] === undefined) {
                 obj['scale'] = ApiClient.convertToType(data['scale'], 'Number');
             }
+            
         }
         return obj;
     }

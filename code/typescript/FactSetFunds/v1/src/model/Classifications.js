@@ -46,33 +46,34 @@ class Classifications {
         if (data) {
             obj = obj || new Classifications();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('assetClass')) {
+            if (data.hasOwnProperty('assetClass') && obj['assetClass'] === undefined) {
                 obj['assetClass'] = ApiClient.convertToType(data['assetClass'], 'String');
             }
-            if (data.hasOwnProperty('categoryClass')) {
+            if (data.hasOwnProperty('categoryClass') && obj['categoryClass'] === undefined) {
                 obj['categoryClass'] = ApiClient.convertToType(data['categoryClass'], 'String');
             }
-            if (data.hasOwnProperty('economicDevelopmentClass')) {
+            if (data.hasOwnProperty('economicDevelopmentClass') && obj['economicDevelopmentClass'] === undefined) {
                 obj['economicDevelopmentClass'] = ApiClient.convertToType(data['economicDevelopmentClass'], 'String');
             }
-            if (data.hasOwnProperty('focusClass')) {
+            if (data.hasOwnProperty('focusClass') && obj['focusClass'] === undefined) {
                 obj['focusClass'] = ApiClient.convertToType(data['focusClass'], 'String');
             }
-            if (data.hasOwnProperty('geographicClass')) {
+            if (data.hasOwnProperty('geographicClass') && obj['geographicClass'] === undefined) {
                 obj['geographicClass'] = ApiClient.convertToType(data['geographicClass'], 'String');
             }
-            if (data.hasOwnProperty('nicheClass')) {
+            if (data.hasOwnProperty('nicheClass') && obj['nicheClass'] === undefined) {
                 obj['nicheClass'] = ApiClient.convertToType(data['nicheClass'], 'String');
             }
-            if (data.hasOwnProperty('regionClass')) {
+            if (data.hasOwnProperty('regionClass') && obj['regionClass'] === undefined) {
                 obj['regionClass'] = ApiClient.convertToType(data['regionClass'], 'String');
             }
+            
         }
         return obj;
     }

@@ -46,39 +46,40 @@ class ConsensusRatings {
         if (data) {
             obj = obj || new ConsensusRatings();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('estimateDate')) {
+            if (data.hasOwnProperty('estimateDate') && obj['estimateDate'] === undefined) {
                 obj['estimateDate'] = ApiClient.convertToType(data['estimateDate'], 'Date');
             }
-            if (data.hasOwnProperty('buyCount')) {
+            if (data.hasOwnProperty('buyCount') && obj['buyCount'] === undefined) {
                 obj['buyCount'] = ApiClient.convertToType(data['buyCount'], 'Number');
             }
-            if (data.hasOwnProperty('overweightCount')) {
+            if (data.hasOwnProperty('overweightCount') && obj['overweightCount'] === undefined) {
                 obj['overweightCount'] = ApiClient.convertToType(data['overweightCount'], 'Number');
             }
-            if (data.hasOwnProperty('holdCount')) {
+            if (data.hasOwnProperty('holdCount') && obj['holdCount'] === undefined) {
                 obj['holdCount'] = ApiClient.convertToType(data['holdCount'], 'Number');
             }
-            if (data.hasOwnProperty('underweightCount')) {
+            if (data.hasOwnProperty('underweightCount') && obj['underweightCount'] === undefined) {
                 obj['underweightCount'] = ApiClient.convertToType(data['underweightCount'], 'Number');
             }
-            if (data.hasOwnProperty('sellCount')) {
+            if (data.hasOwnProperty('sellCount') && obj['sellCount'] === undefined) {
                 obj['sellCount'] = ApiClient.convertToType(data['sellCount'], 'Number');
             }
-            if (data.hasOwnProperty('ratingsNestTotal')) {
+            if (data.hasOwnProperty('ratingsNestTotal') && obj['ratingsNestTotal'] === undefined) {
                 obj['ratingsNestTotal'] = ApiClient.convertToType(data['ratingsNestTotal'], 'Number');
             }
-            if (data.hasOwnProperty('ratingsNote')) {
+            if (data.hasOwnProperty('ratingsNote') && obj['ratingsNote'] === undefined) {
                 obj['ratingsNote'] = ApiClient.convertToType(data['ratingsNote'], 'Number');
             }
-            if (data.hasOwnProperty('ratingsNoteText')) {
+            if (data.hasOwnProperty('ratingsNoteText') && obj['ratingsNoteText'] === undefined) {
                 obj['ratingsNoteText'] = ApiClient.convertToType(data['ratingsNoteText'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

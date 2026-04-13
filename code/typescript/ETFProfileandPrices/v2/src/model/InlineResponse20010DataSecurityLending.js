@@ -47,18 +47,19 @@ class InlineResponse20010DataSecurityLending {
         if (data) {
             obj = obj || new InlineResponse20010DataSecurityLending();
 
-            if (data.hasOwnProperty('isAllowed')) {
+            if (data.hasOwnProperty('isAllowed') && obj['isAllowed'] === undefined) {
                 obj['isAllowed'] = ApiClient.convertToType(data['isAllowed'], 'Boolean');
             }
-            if (data.hasOwnProperty('isActive')) {
+            if (data.hasOwnProperty('isActive') && obj['isActive'] === undefined) {
                 obj['isActive'] = ApiClient.convertToType(data['isActive'], 'Boolean');
             }
-            if (data.hasOwnProperty('revenue')) {
+            if (data.hasOwnProperty('revenue') && obj['revenue'] === undefined) {
                 obj['revenue'] = ApiClient.convertToType(data['revenue'], 'Number');
             }
-            if (data.hasOwnProperty('revenuePolicy')) {
+            if (data.hasOwnProperty('revenuePolicy') && obj['revenuePolicy'] === undefined) {
                 obj['revenuePolicy'] = ApiClient.convertToType(data['revenuePolicy'], 'String');
             }
+            
         }
         return obj;
     }

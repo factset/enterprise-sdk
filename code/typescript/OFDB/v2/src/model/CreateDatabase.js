@@ -47,9 +47,10 @@ class CreateDatabase {
         if (data) {
             obj = obj || new CreateDatabase();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CreateDatabaseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

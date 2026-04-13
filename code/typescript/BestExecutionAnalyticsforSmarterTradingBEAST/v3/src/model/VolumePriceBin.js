@@ -47,30 +47,31 @@ class VolumePriceBin {
         if (data) {
             obj = obj || new VolumePriceBin();
 
-            if (data.hasOwnProperty('bin')) {
+            if (data.hasOwnProperty('bin') && obj['bin'] === undefined) {
                 obj['bin'] = ApiClient.convertToType(data['bin'], 'Number');
             }
-            if (data.hasOwnProperty('minPrice')) {
+            if (data.hasOwnProperty('minPrice') && obj['minPrice'] === undefined) {
                 obj['minPrice'] = ApiClient.convertToType(data['minPrice'], 'Number');
             }
-            if (data.hasOwnProperty('maxPrice')) {
+            if (data.hasOwnProperty('maxPrice') && obj['maxPrice'] === undefined) {
                 obj['maxPrice'] = ApiClient.convertToType(data['maxPrice'], 'Number');
             }
-            if (data.hasOwnProperty('binPrice')) {
+            if (data.hasOwnProperty('binPrice') && obj['binPrice'] === undefined) {
                 obj['binPrice'] = ApiClient.convertToType(data['binPrice'], 'Number');
             }
-            if (data.hasOwnProperty('tradesVolumePct')) {
+            if (data.hasOwnProperty('tradesVolumePct') && obj['tradesVolumePct'] === undefined) {
                 obj['tradesVolumePct'] = ApiClient.convertToType(data['tradesVolumePct'], 'Number');
             }
-            if (data.hasOwnProperty('fillVolumePct')) {
+            if (data.hasOwnProperty('fillVolumePct') && obj['fillVolumePct'] === undefined) {
                 obj['fillVolumePct'] = ApiClient.convertToType(data['fillVolumePct'], 'Number');
             }
-            if (data.hasOwnProperty('tradeVolume')) {
+            if (data.hasOwnProperty('tradeVolume') && obj['tradeVolume'] === undefined) {
                 obj['tradeVolume'] = ApiClient.convertToType(data['tradeVolume'], 'Number');
             }
-            if (data.hasOwnProperty('fillVolume')) {
+            if (data.hasOwnProperty('fillVolume') && obj['fillVolume'] === undefined) {
                 obj['fillVolume'] = ApiClient.convertToType(data['fillVolume'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -48,30 +48,31 @@ class OptimizerInputsSTARRTerm {
         if (data) {
             obj = obj || new OptimizerInputsSTARRTerm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('multiplier')) {
+            if (data.hasOwnProperty('multiplier') && obj['multiplier'] === undefined) {
                 obj['multiplier'] = OptimizerInputsValue.constructFromObject(data['multiplier']);
             }
-            if (data.hasOwnProperty('risk_free_rate')) {
+            if (data.hasOwnProperty('risk_free_rate') && obj['risk_free_rate'] === undefined) {
                 obj['risk_free_rate'] = OptimizerInputsValue.constructFromObject(data['risk_free_rate']);
             }
-            if (data.hasOwnProperty('direction')) {
+            if (data.hasOwnProperty('direction') && obj['direction'] === undefined) {
                 obj['direction'] = OptimizerInputsEObjectiveTermDirectionEnum.constructFromObject(data['direction']);
             }
-            if (data.hasOwnProperty('confidence_level')) {
+            if (data.hasOwnProperty('confidence_level') && obj['confidence_level'] === undefined) {
                 obj['confidence_level'] = ApiClient.convertToType(data['confidence_level'], 'Number');
             }
-            if (data.hasOwnProperty('use_centered_etl')) {
+            if (data.hasOwnProperty('use_centered_etl') && obj['use_centered_etl'] === undefined) {
                 obj['use_centered_etl'] = ApiClient.convertToType(data['use_centered_etl'], 'Boolean');
             }
-            if (data.hasOwnProperty('active_risk')) {
+            if (data.hasOwnProperty('active_risk') && obj['active_risk'] === undefined) {
                 obj['active_risk'] = ApiClient.convertToType(data['active_risk'], 'Boolean');
             }
-            if (data.hasOwnProperty('benchmark_index')) {
+            if (data.hasOwnProperty('benchmark_index') && obj['benchmark_index'] === undefined) {
                 obj['benchmark_index'] = ApiClient.convertToType(data['benchmark_index'], 'Number');
             }
+            
         }
         return obj;
     }

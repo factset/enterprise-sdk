@@ -46,15 +46,16 @@ class FactSetProtobufStachV3TableTypesGroupResultTypesAggregateValueTypesFunctio
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesGroupResultTypesAggregateValueTypesFunction();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('columnName')) {
+            if (data.hasOwnProperty('columnName') && obj['columnName'] === undefined) {
                 obj['columnName'] = ApiClient.convertToType(data['columnName'], 'String');
             }
+            
         }
         return obj;
     }

@@ -54,39 +54,40 @@ class InlineResponse20043Data {
         if (data) {
             obj = obj || new InlineResponse20043Data();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('summary')) {
+            if (data.hasOwnProperty('summary') && obj['summary'] === undefined) {
                 obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
             }
-            if (data.hasOwnProperty('body')) {
+            if (data.hasOwnProperty('body') && obj['body'] === undefined) {
                 obj['body'] = ApiClient.convertToType(data['body'], 'String');
             }
-            if (data.hasOwnProperty('types')) {
+            if (data.hasOwnProperty('types') && obj['types'] === undefined) {
                 obj['types'] = ApiClient.convertToType(data['types'], [GetNewsArticleGetDataTypesItems]);
             }
-            if (data.hasOwnProperty('language')) {
+            if (data.hasOwnProperty('language') && obj['language'] === undefined) {
                 obj['language'] = InlineResponse20043DataLanguage.constructFromObject(data['language']);
             }
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = InlineResponse20043DataDistributor.constructFromObject(data['distributor']);
             }
-            if (data.hasOwnProperty('publisher')) {
+            if (data.hasOwnProperty('publisher') && obj['publisher'] === undefined) {
                 obj['publisher'] = InlineResponse20043DataPublisher.constructFromObject(data['publisher']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [GetNewsArticleGetDataCategoriesItems]);
             }
-            if (data.hasOwnProperty('instruments')) {
+            if (data.hasOwnProperty('instruments') && obj['instruments'] === undefined) {
                 obj['instruments'] = ApiClient.convertToType(data['instruments'], [GetNewsArticleGetDataInstrumentsItems]);
             }
-            if (data.hasOwnProperty('media')) {
+            if (data.hasOwnProperty('media') && obj['media'] === undefined) {
                 obj['media'] = ApiClient.convertToType(data['media'], [GetNewsArticleGetDataMediaItems]);
             }
+            
         }
         return obj;
     }

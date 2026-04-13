@@ -46,15 +46,16 @@ class FactSetProtobufStachV3TableTypesCollapsedColumnResult {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesCollapsedColumnResult();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('by')) {
+            if (data.hasOwnProperty('by') && obj['by'] === undefined) {
                 obj['by'] = ApiClient.convertToType(data['by'], ['String']);
             }
-            if (data.hasOwnProperty('headers')) {
+            if (data.hasOwnProperty('headers') && obj['headers'] === undefined) {
                 obj['headers'] = ApiClient.convertToType(data['headers'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

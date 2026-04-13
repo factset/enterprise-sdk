@@ -47,9 +47,10 @@ class NRTSnippetsTranscriptData {
         if (data) {
             obj = obj || new NRTSnippetsTranscriptData();
 
-            if (data.hasOwnProperty('snippetData')) {
+            if (data.hasOwnProperty('snippetData') && obj['snippetData'] === undefined) {
                 obj['snippetData'] = NRTSnippetsSnippetData.constructFromObject(data['snippetData']);
             }
+            
         }
         return obj;
     }

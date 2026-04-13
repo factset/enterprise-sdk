@@ -48,12 +48,13 @@ class Patch {
         if (data) {
             obj = obj || new Patch();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('Operations')) {
+            if (data.hasOwnProperty('Operations') && obj['Operations'] === undefined) {
                 obj['Operations'] = ApiClient.convertToType(data['Operations'], [PatchOperation]);
             }
+            
         }
         return obj;
     }

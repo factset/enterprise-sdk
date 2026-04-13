@@ -49,15 +49,16 @@ class PortfolioWithExPostStatsAllOf {
         if (data) {
             obj = obj || new PortfolioWithExPostStatsAllOf();
 
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = TimeWindowStats.constructFromObject(data['stats']);
             }
-            if (data.hasOwnProperty('udfs')) {
+            if (data.hasOwnProperty('udfs') && obj['udfs'] === undefined) {
                 obj['udfs'] = ApiClient.convertToType(data['udfs'], Object);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ExPostPeriodStats.constructFromObject(data['periods']);
             }
+            
         }
         return obj;
     }

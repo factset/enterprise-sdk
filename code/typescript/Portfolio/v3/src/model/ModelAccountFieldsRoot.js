@@ -49,12 +49,13 @@ class ModelAccountFieldsRoot {
         if (data) {
             obj = obj || new ModelAccountFieldsRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ModelAccountFields.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

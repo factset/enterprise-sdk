@@ -46,21 +46,22 @@ class Splits {
         if (data) {
             obj = obj || new Splits();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('splitFactor')) {
+            if (data.hasOwnProperty('splitFactor') && obj['splitFactor'] === undefined) {
                 obj['splitFactor'] = ApiClient.convertToType(data['splitFactor'], 'Number');
             }
-            if (data.hasOwnProperty('splitComment')) {
+            if (data.hasOwnProperty('splitComment') && obj['splitComment'] === undefined) {
                 obj['splitComment'] = ApiClient.convertToType(data['splitComment'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

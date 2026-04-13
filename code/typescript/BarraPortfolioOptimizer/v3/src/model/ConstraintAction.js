@@ -46,12 +46,13 @@ class ConstraintAction {
         if (data) {
             obj = obj || new ConstraintAction();
 
-            if (data.hasOwnProperty('item1')) {
+            if (data.hasOwnProperty('item1') && obj['item1'] === undefined) {
                 obj['item1'] = ApiClient.convertToType(data['item1'], 'String');
             }
-            if (data.hasOwnProperty('item2')) {
+            if (data.hasOwnProperty('item2') && obj['item2'] === undefined) {
                 obj['item2'] = ApiClient.convertToType(data['item2'], 'String');
             }
+            
         }
         return obj;
     }

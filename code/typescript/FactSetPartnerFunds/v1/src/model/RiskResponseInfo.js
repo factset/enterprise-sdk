@@ -47,36 +47,37 @@ class RiskResponseInfo {
         if (data) {
             obj = obj || new RiskResponseInfo();
 
-            if (data.hasOwnProperty('year')) {
+            if (data.hasOwnProperty('year') && obj['year'] === undefined) {
                 obj['year'] = ApiClient.convertToType(data['year'], 'Number');
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = ApiClient.convertToType(data['benchmark'], 'String');
             }
-            if (data.hasOwnProperty('alpha')) {
+            if (data.hasOwnProperty('alpha') && obj['alpha'] === undefined) {
                 obj['alpha'] = ApiClient.convertToType(data['alpha'], 'Number');
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = ApiClient.convertToType(data['beta'], 'Number');
             }
-            if (data.hasOwnProperty('sharpeRatio')) {
+            if (data.hasOwnProperty('sharpeRatio') && obj['sharpeRatio'] === undefined) {
                 obj['sharpeRatio'] = ApiClient.convertToType(data['sharpeRatio'], 'Number');
             }
-            if (data.hasOwnProperty('treynorRatio')) {
+            if (data.hasOwnProperty('treynorRatio') && obj['treynorRatio'] === undefined) {
                 obj['treynorRatio'] = ApiClient.convertToType(data['treynorRatio'], 'Number');
             }
-            if (data.hasOwnProperty('rSquared')) {
+            if (data.hasOwnProperty('rSquared') && obj['rSquared'] === undefined) {
                 obj['rSquared'] = ApiClient.convertToType(data['rSquared'], 'Number');
             }
-            if (data.hasOwnProperty('sortino')) {
+            if (data.hasOwnProperty('sortino') && obj['sortino'] === undefined) {
                 obj['sortino'] = ApiClient.convertToType(data['sortino'], 'Number');
             }
-            if (data.hasOwnProperty('standardDeviation')) {
+            if (data.hasOwnProperty('standardDeviation') && obj['standardDeviation'] === undefined) {
                 obj['standardDeviation'] = ApiClient.convertToType(data['standardDeviation'], 'Number');
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
             }
+            
         }
         return obj;
     }

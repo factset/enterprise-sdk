@@ -50,9 +50,10 @@ class EntityMatchRequest {
         if (data) {
             obj = obj || new EntityMatchRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [EntityMatchRequestBody]);
             }
+            
         }
         return obj;
     }

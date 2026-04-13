@@ -48,18 +48,19 @@ class StructuredFiltersSectorsObject {
         if (data) {
             obj = obj || new StructuredFiltersSectorsObject();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('expanded')) {
+            if (data.hasOwnProperty('expanded') && obj['expanded'] === undefined) {
                 obj['expanded'] = ApiClient.convertToType(data['expanded'], 'Boolean');
             }
-            if (data.hasOwnProperty('children')) {
+            if (data.hasOwnProperty('children') && obj['children'] === undefined) {
                 obj['children'] = ApiClient.convertToType(data['children'], [StructuredFiltersChildrenObjectSectors]);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['Number']);
             }
+            
         }
         return obj;
     }

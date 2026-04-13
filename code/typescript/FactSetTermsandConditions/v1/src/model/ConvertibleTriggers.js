@@ -47,21 +47,22 @@ class ConvertibleTriggers {
         if (data) {
             obj = obj || new ConvertibleTriggers();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('convTriggerEvent')) {
+            if (data.hasOwnProperty('convTriggerEvent') && obj['convTriggerEvent'] === undefined) {
                 obj['convTriggerEvent'] = ApiClient.convertToType(data['convTriggerEvent'], 'String');
             }
-            if (data.hasOwnProperty('convTriggerEventDesc')) {
+            if (data.hasOwnProperty('convTriggerEventDesc') && obj['convTriggerEventDesc'] === undefined) {
                 obj['convTriggerEventDesc'] = ApiClient.convertToType(data['convTriggerEventDesc'], 'String');
             }
-            if (data.hasOwnProperty('triggerId')) {
+            if (data.hasOwnProperty('triggerId') && obj['triggerId'] === undefined) {
                 obj['triggerId'] = ApiClient.convertToType(data['triggerId'], 'Number');
             }
+            
         }
         return obj;
     }

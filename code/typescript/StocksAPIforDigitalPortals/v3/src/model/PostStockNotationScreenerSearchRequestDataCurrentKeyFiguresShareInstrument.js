@@ -51,18 +51,19 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument();
 
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstanding.constructFromObject(data['sharesOutstanding']);
             }
-            if (data.hasOwnProperty('freeFloat')) {
+            if (data.hasOwnProperty('freeFloat') && obj['freeFloat'] === undefined) {
                 obj['freeFloat'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyFreeFloat.constructFromObject(data['freeFloat']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatios.constructFromObject(data['ratios']);
             }
-            if (data.hasOwnProperty('currencyDependent')) {
+            if (data.hasOwnProperty('currencyDependent') && obj['currencyDependent'] === undefined) {
                 obj['currencyDependent'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependent.constructFromObject(data['currencyDependent']);
             }
+            
         }
         return obj;
     }

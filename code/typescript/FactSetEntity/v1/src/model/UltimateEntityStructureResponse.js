@@ -47,9 +47,10 @@ class UltimateEntityStructureResponse {
         if (data) {
             obj = obj || new UltimateEntityStructureResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [UtlimateEntityStructure]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class RampUpRequestBodyRoot {
         if (data) {
             obj = obj || new RampUpRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = RampUpRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

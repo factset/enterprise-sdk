@@ -47,9 +47,10 @@ class RollingSeries {
         if (data) {
             obj = obj || new RollingSeries();
 
-            if (data.hasOwnProperty('timeWindow')) {
+            if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': RollingSeriesPerTimeWindow});
             }
+            
         }
         return obj;
     }

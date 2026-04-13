@@ -52,21 +52,22 @@ class InlineResponse2005DataRangeKnockOut {
         if (data) {
             obj = obj || new InlineResponse2005DataRangeKnockOut();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = ApiClient.convertToType(data['observation'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataRangeKnockOutObservationItems]);
             }
-            if (data.hasOwnProperty('upper')) {
+            if (data.hasOwnProperty('upper') && obj['upper'] === undefined) {
                 obj['upper'] = InlineResponse2005DataRangeKnockOutUpper.constructFromObject(data['upper']);
             }
-            if (data.hasOwnProperty('lower')) {
+            if (data.hasOwnProperty('lower') && obj['lower'] === undefined) {
                 obj['lower'] = InlineResponse2005DataRangeKnockOutLower.constructFromObject(data['lower']);
             }
-            if (data.hasOwnProperty('breached')) {
+            if (data.hasOwnProperty('breached') && obj['breached'] === undefined) {
                 obj['breached'] = ApiClient.convertToType(data['breached'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataRangeKnockOutBreachedItems]);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2005DataKnockInCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

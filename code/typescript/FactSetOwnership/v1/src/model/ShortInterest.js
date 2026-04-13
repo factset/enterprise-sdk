@@ -47,27 +47,28 @@ class ShortInterest {
         if (data) {
             obj = obj || new ShortInterest();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('shortInterestShares')) {
+            if (data.hasOwnProperty('shortInterestShares') && obj['shortInterestShares'] === undefined) {
                 obj['shortInterestShares'] = ApiClient.convertToType(data['shortInterestShares'], 'Number');
             }
-            if (data.hasOwnProperty('daysToCover')) {
+            if (data.hasOwnProperty('daysToCover') && obj['daysToCover'] === undefined) {
                 obj['daysToCover'] = ApiClient.convertToType(data['daysToCover'], 'Number');
             }
-            if (data.hasOwnProperty('shortInterestPct')) {
+            if (data.hasOwnProperty('shortInterestPct') && obj['shortInterestPct'] === undefined) {
                 obj['shortInterestPct'] = ApiClient.convertToType(data['shortInterestPct'], 'Number');
             }
-            if (data.hasOwnProperty('shortInterestFloatPct')) {
+            if (data.hasOwnProperty('shortInterestFloatPct') && obj['shortInterestFloatPct'] === undefined) {
                 obj['shortInterestFloatPct'] = ApiClient.convertToType(data['shortInterestFloatPct'], 'Number');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
+            
         }
         return obj;
     }

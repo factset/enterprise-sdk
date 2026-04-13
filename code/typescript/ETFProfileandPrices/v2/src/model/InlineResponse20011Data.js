@@ -47,33 +47,34 @@ class InlineResponse20011Data {
         if (data) {
             obj = obj || new InlineResponse20011Data();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('numberHoldings')) {
+            if (data.hasOwnProperty('numberHoldings') && obj['numberHoldings'] === undefined) {
                 obj['numberHoldings'] = ApiClient.convertToType(data['numberHoldings'], 'Number');
             }
-            if (data.hasOwnProperty('concentration')) {
+            if (data.hasOwnProperty('concentration') && obj['concentration'] === undefined) {
                 obj['concentration'] = ApiClient.convertToType(data['concentration'], 'String');
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = ApiClient.convertToType(data['dividendYield'], 'Number');
             }
-            if (data.hasOwnProperty('priceEarningsRatio')) {
+            if (data.hasOwnProperty('priceEarningsRatio') && obj['priceEarningsRatio'] === undefined) {
                 obj['priceEarningsRatio'] = ApiClient.convertToType(data['priceEarningsRatio'], 'Number');
             }
-            if (data.hasOwnProperty('priceBookRatio')) {
+            if (data.hasOwnProperty('priceBookRatio') && obj['priceBookRatio'] === undefined) {
                 obj['priceBookRatio'] = ApiClient.convertToType(data['priceBookRatio'], 'Number');
             }
-            if (data.hasOwnProperty('marketCapitalization')) {
+            if (data.hasOwnProperty('marketCapitalization') && obj['marketCapitalization'] === undefined) {
                 obj['marketCapitalization'] = ApiClient.convertToType(data['marketCapitalization'], 'Number');
             }
-            if (data.hasOwnProperty('timeToMaturity')) {
+            if (data.hasOwnProperty('timeToMaturity') && obj['timeToMaturity'] === undefined) {
                 obj['timeToMaturity'] = ApiClient.convertToType(data['timeToMaturity'], 'Number');
             }
-            if (data.hasOwnProperty('creditRating')) {
+            if (data.hasOwnProperty('creditRating') && obj['creditRating'] === undefined) {
                 obj['creditRating'] = ApiClient.convertToType(data['creditRating'], 'String');
             }
+            
         }
         return obj;
     }

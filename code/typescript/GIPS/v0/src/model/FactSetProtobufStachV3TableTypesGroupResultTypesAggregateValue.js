@@ -47,9 +47,10 @@ class FactSetProtobufStachV3TableTypesGroupResultTypesAggregateValue {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesGroupResultTypesAggregateValue();
 
-            if (data.hasOwnProperty('functions')) {
+            if (data.hasOwnProperty('functions') && obj['functions'] === undefined) {
                 obj['functions'] = ApiClient.convertToType(data['functions'], [FactSetProtobufStachV3TableTypesGroupResultTypesAggregateValueTypesFunction]);
             }
+            
         }
         return obj;
     }

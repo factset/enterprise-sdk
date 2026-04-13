@@ -46,42 +46,43 @@ class SurpriseHistory {
         if (data) {
             obj = obj || new SurpriseHistory();
 
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('high')) {
+            if (data.hasOwnProperty('high') && obj['high'] === undefined) {
                 obj['high'] = ApiClient.convertToType(data['high'], 'Number');
             }
-            if (data.hasOwnProperty('low')) {
+            if (data.hasOwnProperty('low') && obj['low'] === undefined) {
                 obj['low'] = ApiClient.convertToType(data['low'], 'Number');
             }
-            if (data.hasOwnProperty('up')) {
+            if (data.hasOwnProperty('up') && obj['up'] === undefined) {
                 obj['up'] = ApiClient.convertToType(data['up'], 'Number');
             }
-            if (data.hasOwnProperty('down')) {
+            if (data.hasOwnProperty('down') && obj['down'] === undefined) {
                 obj['down'] = ApiClient.convertToType(data['down'], 'Number');
             }
-            if (data.hasOwnProperty('analystCount')) {
+            if (data.hasOwnProperty('analystCount') && obj['analystCount'] === undefined) {
                 obj['analystCount'] = ApiClient.convertToType(data['analystCount'], 'Number');
             }
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
-            if (data.hasOwnProperty('standardDeviation')) {
+            if (data.hasOwnProperty('standardDeviation') && obj['standardDeviation'] === undefined) {
                 obj['standardDeviation'] = ApiClient.convertToType(data['standardDeviation'], 'Number');
             }
-            if (data.hasOwnProperty('actual')) {
+            if (data.hasOwnProperty('actual') && obj['actual'] === undefined) {
                 obj['actual'] = ApiClient.convertToType(data['actual'], 'Number');
             }
-            if (data.hasOwnProperty('surprisePercent')) {
+            if (data.hasOwnProperty('surprisePercent') && obj['surprisePercent'] === undefined) {
                 obj['surprisePercent'] = ApiClient.convertToType(data['surprisePercent'], 'Number');
             }
+            
         }
         return obj;
     }

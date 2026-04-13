@@ -50,36 +50,37 @@ class ContactRelationshipDto {
         if (data) {
             obj = obj || new ContactRelationshipDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('relationshipCategory')) {
+            if (data.hasOwnProperty('relationshipCategory') && obj['relationshipCategory'] === undefined) {
                 obj['relationshipCategory'] = RelationshipCategoryIdNameDto.constructFromObject(data['relationshipCategory']);
             }
-            if (data.hasOwnProperty('relationship')) {
+            if (data.hasOwnProperty('relationship') && obj['relationship'] === undefined) {
                 obj['relationship'] = RelationshipIdNameDto.constructFromObject(data['relationship']);
             }
-            if (data.hasOwnProperty('contact')) {
+            if (data.hasOwnProperty('contact') && obj['contact'] === undefined) {
                 obj['contact'] = ContactIdNameDto.constructFromObject(data['contact']);
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = RelationshipSymbolSummaryDto.constructFromObject(data['symbol']);
             }
-            if (data.hasOwnProperty('isCurrent')) {
+            if (data.hasOwnProperty('isCurrent') && obj['isCurrent'] === undefined) {
                 obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('start')) {
+            if (data.hasOwnProperty('start') && obj['start'] === undefined) {
                 obj['start'] = ApiClient.convertToType(data['start'], 'Date');
             }
-            if (data.hasOwnProperty('end')) {
+            if (data.hasOwnProperty('end') && obj['end'] === undefined) {
                 obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('comment')) {
+            if (data.hasOwnProperty('comment') && obj['comment'] === undefined) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
+            
         }
         return obj;
     }

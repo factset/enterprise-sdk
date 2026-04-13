@@ -47,12 +47,13 @@ class InlineResponse2008DataOwnership {
         if (data) {
             obj = obj || new InlineResponse2008DataOwnership();
 
-            if (data.hasOwnProperty('fraction')) {
+            if (data.hasOwnProperty('fraction') && obj['fraction'] === undefined) {
                 obj['fraction'] = ApiClient.convertToType(data['fraction'], 'Number');
             }
-            if (data.hasOwnProperty('numberShares')) {
+            if (data.hasOwnProperty('numberShares') && obj['numberShares'] === undefined) {
                 obj['numberShares'] = ApiClient.convertToType(data['numberShares'], 'Number');
             }
+            
         }
         return obj;
     }

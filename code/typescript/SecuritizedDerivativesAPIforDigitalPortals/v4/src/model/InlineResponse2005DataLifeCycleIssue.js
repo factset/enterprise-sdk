@@ -47,12 +47,13 @@ class InlineResponse2005DataLifeCycleIssue {
         if (data) {
             obj = obj || new InlineResponse2005DataLifeCycleIssue();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = ApiClient.convertToType(data['minimum'], 'Date');
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = ApiClient.convertToType(data['maximum'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -61,6 +61,8 @@ class AudioRequestData {
             case 'object4':
               return AudioByIdsRequest.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct AudioRequestData due to no matching discriminator value: " + data['Audio']);
         return obj;
     }
 

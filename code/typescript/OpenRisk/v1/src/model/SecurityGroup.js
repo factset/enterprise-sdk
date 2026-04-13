@@ -47,15 +47,16 @@ class SecurityGroup {
         if (data) {
             obj = obj || new SecurityGroup();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('indices')) {
+            if (data.hasOwnProperty('indices') && obj['indices'] === undefined) {
                 obj['indices'] = ApiClient.convertToType(data['indices'], ['Number']);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [SecurityGroup]);
             }
+            
         }
         return obj;
     }

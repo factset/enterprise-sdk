@@ -48,9 +48,10 @@ class InlineResponse2001Meta {
         if (data) {
             obj = obj || new InlineResponse2001Meta();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = StatusObject.constructFromObject(data['status']);
             }
+            
         }
         return obj;
     }

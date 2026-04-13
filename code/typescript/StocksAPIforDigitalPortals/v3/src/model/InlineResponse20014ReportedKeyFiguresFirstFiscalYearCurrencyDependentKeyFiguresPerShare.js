@@ -47,21 +47,22 @@ class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFi
         if (data) {
             obj = obj || new InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = ApiClient.convertToType(data['sales'], 'Number');
             }
-            if (data.hasOwnProperty('recurringDilutedEarnings')) {
+            if (data.hasOwnProperty('recurringDilutedEarnings') && obj['recurringDilutedEarnings'] === undefined) {
                 obj['recurringDilutedEarnings'] = ApiClient.convertToType(data['recurringDilutedEarnings'], 'Number');
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = ApiClient.convertToType(data['dividends'], 'Number');
             }
-            if (data.hasOwnProperty('bookValue')) {
+            if (data.hasOwnProperty('bookValue') && obj['bookValue'] === undefined) {
                 obj['bookValue'] = ApiClient.convertToType(data['bookValue'], 'Number');
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = ApiClient.convertToType(data['cashFlow'], 'Number');
             }
+            
         }
         return obj;
     }

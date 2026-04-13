@@ -46,27 +46,28 @@ class SymbolsRelationshipDto {
         if (data) {
             obj = obj || new SymbolsRelationshipDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('relationshipCode')) {
+            if (data.hasOwnProperty('relationshipCode') && obj['relationshipCode'] === undefined) {
                 obj['relationshipCode'] = ApiClient.convertToType(data['relationshipCode'], 'String');
             }
-            if (data.hasOwnProperty('parentToChildName')) {
+            if (data.hasOwnProperty('parentToChildName') && obj['parentToChildName'] === undefined) {
                 obj['parentToChildName'] = ApiClient.convertToType(data['parentToChildName'], 'String');
             }
-            if (data.hasOwnProperty('childToParentName')) {
+            if (data.hasOwnProperty('childToParentName') && obj['childToParentName'] === undefined) {
                 obj['childToParentName'] = ApiClient.convertToType(data['childToParentName'], 'String');
             }
-            if (data.hasOwnProperty('peerName')) {
+            if (data.hasOwnProperty('peerName') && obj['peerName'] === undefined) {
                 obj['peerName'] = ApiClient.convertToType(data['peerName'], 'String');
             }
-            if (data.hasOwnProperty('hideDates')) {
+            if (data.hasOwnProperty('hideDates') && obj['hideDates'] === undefined) {
                 obj['hideDates'] = ApiClient.convertToType(data['hideDates'], 'Boolean');
             }
-            if (data.hasOwnProperty('hideComment')) {
+            if (data.hasOwnProperty('hideComment') && obj['hideComment'] === undefined) {
                 obj['hideComment'] = ApiClient.convertToType(data['hideComment'], 'Boolean');
             }
+            
         }
         return obj;
     }

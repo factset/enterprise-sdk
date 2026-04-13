@@ -48,20 +48,23 @@ class ListSchemas {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ListSchemas();
-            SchemaDetails.constructFromObject(data, obj);
+            try {
+              obj = SchemaDetails.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('schema')) {
+            if (data.hasOwnProperty('schema') && obj['schema'] === undefined) {
                 obj['schema'] = ApiClient.convertToType(data['schema'], 'String');
             }
-            if (data.hasOwnProperty('sequence')) {
+            if (data.hasOwnProperty('sequence') && obj['sequence'] === undefined) {
                 obj['sequence'] = ApiClient.convertToType(data['sequence'], 'Number');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('timestamp')) {
+            if (data.hasOwnProperty('timestamp') && obj['timestamp'] === undefined) {
                 obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
             }
+            
         }
         return obj;
     }

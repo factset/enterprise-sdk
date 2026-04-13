@@ -48,18 +48,19 @@ class ContactCustomFieldValueSaveDto {
         if (data) {
             obj = obj || new ContactCustomFieldValueSaveDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('optionValues')) {
+            if (data.hasOwnProperty('optionValues') && obj['optionValues'] === undefined) {
                 obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['String']);
             }
-            if (data.hasOwnProperty('evaluateFormula')) {
+            if (data.hasOwnProperty('evaluateFormula') && obj['evaluateFormula'] === undefined) {
                 obj['evaluateFormula'] = ApiClient.convertToType(data['evaluateFormula'], 'Boolean');
             }
+            
         }
         return obj;
     }

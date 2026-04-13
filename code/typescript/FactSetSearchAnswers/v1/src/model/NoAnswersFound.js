@@ -55,18 +55,23 @@ class NoAnswersFound {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new NoAnswersFound();
-            NoAnswersBase.constructFromObject(data, obj);
-            NoAnswersFoundAllOf.constructFromObject(data, obj);
+            try {
+              obj = NoAnswersBase.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = NoAnswersFoundAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('querySuggestions')) {
+            if (data.hasOwnProperty('querySuggestions') && obj['querySuggestions'] === undefined) {
                 obj['querySuggestions'] = ApiClient.convertToType(data['querySuggestions'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -51,18 +51,19 @@ class InlineResponse2005DataLockOut {
         if (data) {
             obj = obj || new InlineResponse2005DataLockOut();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = ApiClient.convertToType(data['observation'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataLockOutObservationItems]);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataLockOutValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataLockOutDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2005DataLockOutCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

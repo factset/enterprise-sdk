@@ -46,15 +46,16 @@ class UnlinkedPATemplateGroupDetails {
         if (data) {
             obj = obj || new UnlinkedPATemplateGroupDetails();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
             }
+            
         }
         return obj;
     }

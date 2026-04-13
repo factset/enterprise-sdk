@@ -50,12 +50,13 @@ class ExPostStatsRollingResponse {
         if (data) {
             obj = obj || new ExPostStatsRollingResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExPostStatsRollingResponseData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ExPostStatsRollingResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

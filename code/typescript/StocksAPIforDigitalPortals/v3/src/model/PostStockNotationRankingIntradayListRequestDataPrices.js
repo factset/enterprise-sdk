@@ -47,9 +47,10 @@ class PostStockNotationRankingIntradayListRequestDataPrices {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestDataPrices();
 
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
+            
         }
         return obj;
     }

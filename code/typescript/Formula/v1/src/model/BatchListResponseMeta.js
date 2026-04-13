@@ -46,9 +46,10 @@ class BatchListResponseMeta {
         if (data) {
             obj = obj || new BatchListResponseMeta();
 
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
+            
         }
         return obj;
     }

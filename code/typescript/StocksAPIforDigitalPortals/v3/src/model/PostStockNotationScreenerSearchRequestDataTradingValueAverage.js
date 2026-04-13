@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataTradingValueAverage {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataTradingValueAverage();
 
-            if (data.hasOwnProperty('days5')) {
+            if (data.hasOwnProperty('days5') && obj['days5'] === undefined) {
                 obj['days5'] = PostStockNotationScreenerSearchRequestDataTradingValueAverageDays5.constructFromObject(data['days5']);
             }
-            if (data.hasOwnProperty('days30')) {
+            if (data.hasOwnProperty('days30') && obj['days30'] === undefined) {
                 obj['days30'] = PostStockNotationScreenerSearchRequestDataTradingValueAverageDays30.constructFromObject(data['days30']);
             }
+            
         }
         return obj;
     }

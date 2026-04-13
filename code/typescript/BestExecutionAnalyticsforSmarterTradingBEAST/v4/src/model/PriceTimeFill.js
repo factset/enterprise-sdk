@@ -47,30 +47,31 @@ class PriceTimeFill {
         if (data) {
             obj = obj || new PriceTimeFill();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Number');
             }
-            if (data.hasOwnProperty('lastFillTimeUtc')) {
+            if (data.hasOwnProperty('lastFillTimeUtc') && obj['lastFillTimeUtc'] === undefined) {
                 obj['lastFillTimeUtc'] = ApiClient.convertToType(data['lastFillTimeUtc'], 'String');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('venue')) {
+            if (data.hasOwnProperty('venue') && obj['venue'] === undefined) {
                 obj['venue'] = ApiClient.convertToType(data['venue'], 'String');
             }
-            if (data.hasOwnProperty('orderId')) {
+            if (data.hasOwnProperty('orderId') && obj['orderId'] === undefined) {
                 obj['orderId'] = ApiClient.convertToType(data['orderId'], 'String');
             }
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('spreadCross')) {
+            if (data.hasOwnProperty('spreadCross') && obj['spreadCross'] === undefined) {
                 obj['spreadCross'] = ApiClient.convertToType(data['spreadCross'], 'Number');
             }
-            if (data.hasOwnProperty('cumVwap')) {
+            if (data.hasOwnProperty('cumVwap') && obj['cumVwap'] === undefined) {
                 obj['cumVwap'] = ApiClient.convertToType(data['cumVwap'], 'Number');
             }
+            
         }
         return obj;
     }

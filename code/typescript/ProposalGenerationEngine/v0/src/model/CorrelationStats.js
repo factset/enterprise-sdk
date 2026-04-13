@@ -48,12 +48,13 @@ class CorrelationStats {
         if (data) {
             obj = obj || new CorrelationStats();
 
-            if (data.hasOwnProperty('correlationMatrix')) {
+            if (data.hasOwnProperty('correlationMatrix') && obj['correlationMatrix'] === undefined) {
                 obj['correlationMatrix'] = CorrelationMatrix.constructFromObject(data['correlationMatrix']);
             }
-            if (data.hasOwnProperty('portfolioCorrelationMatrix')) {
+            if (data.hasOwnProperty('portfolioCorrelationMatrix') && obj['portfolioCorrelationMatrix'] === undefined) {
                 obj['portfolioCorrelationMatrix'] = PortfolioCorrelationMatrix.constructFromObject(data['portfolioCorrelationMatrix']);
             }
+            
         }
         return obj;
     }

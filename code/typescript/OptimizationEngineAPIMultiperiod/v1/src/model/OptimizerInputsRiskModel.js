@@ -49,15 +49,16 @@ class OptimizerInputsRiskModel {
         if (data) {
             obj = obj || new OptimizerInputsRiskModel();
 
-            if (data.hasOwnProperty('simulated_risk_model')) {
+            if (data.hasOwnProperty('simulated_risk_model') && obj['simulated_risk_model'] === undefined) {
                 obj['simulated_risk_model'] = OptimizerInputsSimulatedRiskModel.constructFromObject(data['simulated_risk_model']);
             }
-            if (data.hasOwnProperty('quant_risk_model')) {
+            if (data.hasOwnProperty('quant_risk_model') && obj['quant_risk_model'] === undefined) {
                 obj['quant_risk_model'] = OptimizerInputsQuantRiskModel.constructFromObject(data['quant_risk_model']);
             }
-            if (data.hasOwnProperty('raw_model')) {
+            if (data.hasOwnProperty('raw_model') && obj['raw_model'] === undefined) {
                 obj['raw_model'] = OptimizerInputsRawRiskModel.constructFromObject(data['raw_model']);
             }
+            
         }
         return obj;
     }

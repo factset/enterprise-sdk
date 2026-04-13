@@ -61,33 +61,34 @@ class CreateCustomSymbolCustomFieldDto {
         if (data) {
             obj = obj || new CreateCustomSymbolCustomFieldDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('isMandatory')) {
+            if (data.hasOwnProperty('isMandatory') && obj['isMandatory'] === undefined) {
                 obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('isShownInInfobox')) {
+            if (data.hasOwnProperty('isShownInInfobox') && obj['isShownInInfobox'] === undefined) {
                 obj['isShownInInfobox'] = ApiClient.convertToType(data['isShownInInfobox'], 'Boolean');
             }
-            if (data.hasOwnProperty('formulaConfig')) {
+            if (data.hasOwnProperty('formulaConfig') && obj['formulaConfig'] === undefined) {
                 obj['formulaConfig'] = CustomSymbolCustomFieldFormulaConfigDto.constructFromObject(data['formulaConfig']);
             }
-            if (data.hasOwnProperty('optionsConfig')) {
+            if (data.hasOwnProperty('optionsConfig') && obj['optionsConfig'] === undefined) {
                 obj['optionsConfig'] = ApiClient.convertToType(data['optionsConfig'], ['String']);
             }
-            if (data.hasOwnProperty('customSymbolTypes')) {
+            if (data.hasOwnProperty('customSymbolTypes') && obj['customSymbolTypes'] === undefined) {
                 obj['customSymbolTypes'] = ApiClient.convertToType(data['customSymbolTypes'], ['String']);
             }
+            
         }
         return obj;
     }

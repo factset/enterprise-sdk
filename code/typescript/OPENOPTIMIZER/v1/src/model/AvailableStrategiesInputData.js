@@ -46,9 +46,10 @@ class AvailableStrategiesInputData {
         if (data) {
             obj = obj || new AvailableStrategiesInputData();
 
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], ['String']);
             }
+            
         }
         return obj;
     }

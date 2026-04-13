@@ -48,18 +48,19 @@ class HitRateModelAnalytics {
         if (data) {
             obj = obj || new HitRateModelAnalytics();
 
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
-            if (data.hasOwnProperty('losers')) {
+            if (data.hasOwnProperty('losers') && obj['losers'] === undefined) {
                 obj['losers'] = HitRateModelAnalyticsLosers.constructFromObject(data['losers']);
             }
-            if (data.hasOwnProperty('winLossRatio')) {
+            if (data.hasOwnProperty('winLossRatio') && obj['winLossRatio'] === undefined) {
                 obj['winLossRatio'] = ApiClient.convertToType(data['winLossRatio'], 'Number');
             }
-            if (data.hasOwnProperty('winners')) {
+            if (data.hasOwnProperty('winners') && obj['winners'] === undefined) {
                 obj['winners'] = HitRateModelAnalyticsWinners.constructFromObject(data['winners']);
             }
+            
         }
         return obj;
     }

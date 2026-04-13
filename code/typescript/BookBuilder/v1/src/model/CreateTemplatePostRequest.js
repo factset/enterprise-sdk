@@ -48,15 +48,16 @@ class CreateTemplatePostRequest {
         if (data) {
             obj = obj || new CreateTemplatePostRequest();
 
-            if (data.hasOwnProperty('tmpl_name')) {
+            if (data.hasOwnProperty('tmpl_name') && obj['tmpl_name'] === undefined) {
                 obj['tmpl_name'] = ApiClient.convertToType(data['tmpl_name'], 'String');
             }
-            if (data.hasOwnProperty('tmpl_type')) {
+            if (data.hasOwnProperty('tmpl_type') && obj['tmpl_type'] === undefined) {
                 obj['tmpl_type'] = ApiClient.convertToType(data['tmpl_type'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [TemplateContentSection]);
             }
+            
         }
         return obj;
     }

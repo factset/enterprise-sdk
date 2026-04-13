@@ -53,15 +53,16 @@ class PostCompanyEstimatesListByInstrumentRequestData {
         if (data) {
             obj = obj || new PostCompanyEstimatesListByInstrumentRequestData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('fiscalYears')) {
+            if (data.hasOwnProperty('fiscalYears') && obj['fiscalYears'] === undefined) {
                 obj['fiscalYears'] = PostCompanyEstimatesListByInstrumentRequestDataFiscalYears.constructFromObject(data['fiscalYears']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostCompanyEstimatesListByInstrumentRequestDataCurrency.constructFromObject(data['currency']);
             }
+            
         }
         return obj;
     }

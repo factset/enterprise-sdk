@@ -50,15 +50,16 @@ class GroupHoldingsRequest {
         if (data) {
             obj = obj || new GroupHoldingsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = Group.constructFromObject(data['group']);
             }
+            
         }
         return obj;
     }

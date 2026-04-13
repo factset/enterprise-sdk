@@ -53,15 +53,16 @@ class EventsEntities {
         if (data) {
             obj = obj || new EventsEntities();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], ['String']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ScreenMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorItem]);
             }
+            
         }
         return obj;
     }

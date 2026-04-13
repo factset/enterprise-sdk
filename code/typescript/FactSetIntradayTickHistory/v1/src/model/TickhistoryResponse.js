@@ -48,36 +48,37 @@ class TickhistoryResponse {
         if (data) {
             obj = obj || new TickhistoryResponse();
 
-            if (data.hasOwnProperty('Requested ID')) {
+            if (data.hasOwnProperty('Requested ID') && obj['Requested ID'] === undefined) {
                 obj['Requested ID'] = ApiClient.convertToType(data['Requested ID'], 'String');
             }
-            if (data.hasOwnProperty('Requested Symbol')) {
+            if (data.hasOwnProperty('Requested Symbol') && obj['Requested Symbol'] === undefined) {
                 obj['Requested Symbol'] = ApiClient.convertToType(data['Requested Symbol'], 'String');
             }
-            if (data.hasOwnProperty('Requested Fields')) {
+            if (data.hasOwnProperty('Requested Fields') && obj['Requested Fields'] === undefined) {
                 obj['Requested Fields'] = ApiClient.convertToType(data['Requested Fields'], [Fields]);
             }
-            if (data.hasOwnProperty('Request Key')) {
+            if (data.hasOwnProperty('Request Key') && obj['Request Key'] === undefined) {
                 obj['Request Key'] = ApiClient.convertToType(data['Request Key'], 'String');
             }
-            if (data.hasOwnProperty('Error Code')) {
+            if (data.hasOwnProperty('Error Code') && obj['Error Code'] === undefined) {
                 obj['Error Code'] = ApiClient.convertToType(data['Error Code'], 'String');
             }
-            if (data.hasOwnProperty('Error Description')) {
+            if (data.hasOwnProperty('Error Description') && obj['Error Description'] === undefined) {
                 obj['Error Description'] = ApiClient.convertToType(data['Error Description'], 'String');
             }
-            if (data.hasOwnProperty('Field Names')) {
+            if (data.hasOwnProperty('Field Names') && obj['Field Names'] === undefined) {
                 obj['Field Names'] = ApiClient.convertToType(data['Field Names'], 'String');
             }
-            if (data.hasOwnProperty('Field IDs')) {
+            if (data.hasOwnProperty('Field IDs') && obj['Field IDs'] === undefined) {
                 obj['Field IDs'] = ApiClient.convertToType(data['Field IDs'], 'Number');
             }
-            if (data.hasOwnProperty('Key')) {
+            if (data.hasOwnProperty('Key') && obj['Key'] === undefined) {
                 obj['Key'] = ApiClient.convertToType(data['Key'], 'String');
             }
-            if (data.hasOwnProperty('Values')) {
+            if (data.hasOwnProperty('Values') && obj['Values'] === undefined) {
                 obj['Values'] = ApiClient.convertToType(data['Values'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -46,57 +46,58 @@ class IndexSnapshot {
         if (data) {
             obj = obj || new IndexSnapshot();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('inceptionDate')) {
+            if (data.hasOwnProperty('inceptionDate') && obj['inceptionDate'] === undefined) {
                 obj['inceptionDate'] = ApiClient.convertToType(data['inceptionDate'], 'Date');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('constituentNumber')) {
+            if (data.hasOwnProperty('constituentNumber') && obj['constituentNumber'] === undefined) {
                 obj['constituentNumber'] = ApiClient.convertToType(data['constituentNumber'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('marketValue')) {
+            if (data.hasOwnProperty('marketValue') && obj['marketValue'] === undefined) {
                 obj['marketValue'] = ApiClient.convertToType(data['marketValue'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('priceReturnPercent1D')) {
+            if (data.hasOwnProperty('priceReturnPercent1D') && obj['priceReturnPercent1D'] === undefined) {
                 obj['priceReturnPercent1D'] = ApiClient.convertToType(data['priceReturnPercent1D'], 'Number');
             }
-            if (data.hasOwnProperty('priceReturnPercentQTD')) {
+            if (data.hasOwnProperty('priceReturnPercentQTD') && obj['priceReturnPercentQTD'] === undefined) {
                 obj['priceReturnPercentQTD'] = ApiClient.convertToType(data['priceReturnPercentQTD'], 'Number');
             }
-            if (data.hasOwnProperty('priceReturnPercentYTD')) {
+            if (data.hasOwnProperty('priceReturnPercentYTD') && obj['priceReturnPercentYTD'] === undefined) {
                 obj['priceReturnPercentYTD'] = ApiClient.convertToType(data['priceReturnPercentYTD'], 'Number');
             }
-            if (data.hasOwnProperty('totalReturnLevel')) {
+            if (data.hasOwnProperty('totalReturnLevel') && obj['totalReturnLevel'] === undefined) {
                 obj['totalReturnLevel'] = ApiClient.convertToType(data['totalReturnLevel'], 'Number');
             }
-            if (data.hasOwnProperty('totalReturnPercent1D')) {
+            if (data.hasOwnProperty('totalReturnPercent1D') && obj['totalReturnPercent1D'] === undefined) {
                 obj['totalReturnPercent1D'] = ApiClient.convertToType(data['totalReturnPercent1D'], 'Number');
             }
-            if (data.hasOwnProperty('totalReturnPercentQTD')) {
+            if (data.hasOwnProperty('totalReturnPercentQTD') && obj['totalReturnPercentQTD'] === undefined) {
                 obj['totalReturnPercentQTD'] = ApiClient.convertToType(data['totalReturnPercentQTD'], 'Number');
             }
-            if (data.hasOwnProperty('totalReturnPercentYTD')) {
+            if (data.hasOwnProperty('totalReturnPercentYTD') && obj['totalReturnPercentYTD'] === undefined) {
                 obj['totalReturnPercentYTD'] = ApiClient.convertToType(data['totalReturnPercentYTD'], 'Number');
             }
-            if (data.hasOwnProperty('returnType')) {
+            if (data.hasOwnProperty('returnType') && obj['returnType'] === undefined) {
                 obj['returnType'] = ApiClient.convertToType(data['returnType'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

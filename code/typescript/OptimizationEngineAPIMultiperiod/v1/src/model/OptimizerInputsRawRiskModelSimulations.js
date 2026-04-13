@@ -46,12 +46,13 @@ class OptimizerInputsRawRiskModelSimulations {
         if (data) {
             obj = obj || new OptimizerInputsRawRiskModelSimulations();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('simulatedReturns')) {
+            if (data.hasOwnProperty('simulatedReturns') && obj['simulatedReturns'] === undefined) {
                 obj['simulatedReturns'] = ApiClient.convertToType(data['simulatedReturns'], ['Number']);
             }
+            
         }
         return obj;
     }

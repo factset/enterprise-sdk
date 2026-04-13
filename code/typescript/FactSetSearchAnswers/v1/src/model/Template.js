@@ -49,15 +49,16 @@ class Template {
         if (data) {
             obj = obj || new Template();
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
             }
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
+            
         }
         return obj;
     }

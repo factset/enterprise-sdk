@@ -47,9 +47,10 @@ class SplitsResponse {
         if (data) {
             obj = obj || new SplitsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Splits]);
             }
+            
         }
         return obj;
     }

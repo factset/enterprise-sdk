@@ -46,18 +46,19 @@ class RecommendationSettingsDto {
         if (data) {
             obj = obj || new RecommendationSettingsDto();
 
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('isMandatory')) {
+            if (data.hasOwnProperty('isMandatory') && obj['isMandatory'] === undefined) {
                 obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('usePrevious')) {
+            if (data.hasOwnProperty('usePrevious') && obj['usePrevious'] === undefined) {
                 obj['usePrevious'] = ApiClient.convertToType(data['usePrevious'], 'Boolean');
             }
-            if (data.hasOwnProperty('defaultId')) {
+            if (data.hasOwnProperty('defaultId') && obj['defaultId'] === undefined) {
                 obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
             }
+            
         }
         return obj;
     }

@@ -51,15 +51,16 @@ class ParticipantsData {
         if (data) {
             obj = obj || new ParticipantsData();
 
-            if (data.hasOwnProperty('firstName')) {
+            if (data.hasOwnProperty('firstName') && obj['firstName'] === undefined) {
                 obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
             }
-            if (data.hasOwnProperty('lastName')) {
+            if (data.hasOwnProperty('lastName') && obj['lastName'] === undefined) {
                 obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,27 +47,28 @@ class UserConfigDto {
         if (data) {
             obj = obj || new UserConfigDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('userName')) {
+            if (data.hasOwnProperty('userName') && obj['userName'] === undefined) {
                 obj['userName'] = ApiClient.convertToType(data['userName'], 'String');
             }
-            if (data.hasOwnProperty('serialNumber')) {
+            if (data.hasOwnProperty('serialNumber') && obj['serialNumber'] === undefined) {
                 obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
             }
-            if (data.hasOwnProperty('firstName')) {
+            if (data.hasOwnProperty('firstName') && obj['firstName'] === undefined) {
                 obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
             }
-            if (data.hasOwnProperty('lastName')) {
+            if (data.hasOwnProperty('lastName') && obj['lastName'] === undefined) {
                 obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
             }
-            if (data.hasOwnProperty('emailAddress')) {
+            if (data.hasOwnProperty('emailAddress') && obj['emailAddress'] === undefined) {
                 obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
             }
-            if (data.hasOwnProperty('team')) {
+            if (data.hasOwnProperty('team') && obj['team'] === undefined) {
                 obj['team'] = TeamSummaryDto.constructFromObject(data['team']);
             }
+            
         }
         return obj;
     }

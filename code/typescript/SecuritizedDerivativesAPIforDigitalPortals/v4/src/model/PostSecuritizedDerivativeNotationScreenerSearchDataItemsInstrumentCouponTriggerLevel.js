@@ -48,15 +48,16 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCouponTr
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCouponTriggerLevel();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCouponTriggerLevelDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = ApiClient.convertToType(data['cashFlow'], 'Number');
             }
+            
         }
         return obj;
     }

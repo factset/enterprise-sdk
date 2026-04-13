@@ -56,33 +56,34 @@ class Download {
         if (data) {
             obj = obj || new Download();
 
-            if (data.hasOwnProperty('action')) {
+            if (data.hasOwnProperty('action') && obj['action'] === undefined) {
                 obj['action'] = ApiClient.convertToType(data['action'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
             }
-            if (data.hasOwnProperty('fileId')) {
+            if (data.hasOwnProperty('fileId') && obj['fileId'] === undefined) {
                 obj['fileId'] = ApiClient.convertToType(data['fileId'], 'String');
             }
-            if (data.hasOwnProperty('contentType')) {
+            if (data.hasOwnProperty('contentType') && obj['contentType'] === undefined) {
                 obj['contentType'] = ApiClient.convertToType(data['contentType'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = FileGenerationErrorObject.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

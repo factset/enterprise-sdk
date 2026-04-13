@@ -51,21 +51,22 @@ class OptimizerInputsMultiPeriodStrategy {
         if (data) {
             obj = obj || new OptimizerInputsMultiPeriodStrategy();
 
-            if (data.hasOwnProperty('objective')) {
+            if (data.hasOwnProperty('objective') && obj['objective'] === undefined) {
                 obj['objective'] = OptimizerInputsMultiPeriodObjective.constructFromObject(data['objective']);
             }
-            if (data.hasOwnProperty('constraints')) {
+            if (data.hasOwnProperty('constraints') && obj['constraints'] === undefined) {
                 obj['constraints'] = OptimizerInputsMultiPeriodConstraints.constructFromObject(data['constraints']);
             }
-            if (data.hasOwnProperty('transaction_cost')) {
+            if (data.hasOwnProperty('transaction_cost') && obj['transaction_cost'] === undefined) {
                 obj['transaction_cost'] = OptimizerInputsTransactionCost.constructFromObject(data['transaction_cost']);
             }
-            if (data.hasOwnProperty('options')) {
+            if (data.hasOwnProperty('options') && obj['options'] === undefined) {
                 obj['options'] = OptimizerInputsMultiPeriodOptions.constructFromObject(data['options']);
             }
-            if (data.hasOwnProperty('expected_return')) {
+            if (data.hasOwnProperty('expected_return') && obj['expected_return'] === undefined) {
                 obj['expected_return'] = OptimizerInputsExpectedReturn.constructFromObject(data['expected_return']);
             }
+            
         }
         return obj;
     }

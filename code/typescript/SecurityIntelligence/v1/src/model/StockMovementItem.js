@@ -59,21 +59,22 @@ class StockMovementItem {
         if (data) {
             obj = obj || new StockMovementItem();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
-            if (data.hasOwnProperty('generatedTimestamp')) {
+            if (data.hasOwnProperty('generatedTimestamp') && obj['generatedTimestamp'] === undefined) {
                 obj['generatedTimestamp'] = ApiClient.convertToType(data['generatedTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('references')) {
+            if (data.hasOwnProperty('references') && obj['references'] === undefined) {
                 obj['references'] = ApiClient.convertToType(data['references'], [Reference]);
             }
-            if (data.hasOwnProperty('competitors')) {
+            if (data.hasOwnProperty('competitors') && obj['competitors'] === undefined) {
                 obj['competitors'] = ApiClient.convertToType(data['competitors'], [Competitor]);
             }
+            
         }
         return obj;
     }

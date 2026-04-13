@@ -46,24 +46,25 @@ class MarketAggregate {
         if (data) {
             obj = obj || new MarketAggregate();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('couponRate')) {
+            if (data.hasOwnProperty('couponRate') && obj['couponRate'] === undefined) {
                 obj['couponRate'] = ApiClient.convertToType(data['couponRate'], 'Number');
             }
-            if (data.hasOwnProperty('couponCurveDuration')) {
+            if (data.hasOwnProperty('couponCurveDuration') && obj['couponCurveDuration'] === undefined) {
                 obj['couponCurveDuration'] = ApiClient.convertToType(data['couponCurveDuration'], 'Number');
             }
-            if (data.hasOwnProperty('effectiveDuration')) {
+            if (data.hasOwnProperty('effectiveDuration') && obj['effectiveDuration'] === undefined) {
                 obj['effectiveDuration'] = ApiClient.convertToType(data['effectiveDuration'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

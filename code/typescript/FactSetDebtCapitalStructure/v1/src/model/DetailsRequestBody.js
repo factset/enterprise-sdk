@@ -50,15 +50,16 @@ class DetailsRequestBody {
         if (data) {
             obj = obj || new DetailsRequestBody();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = Periodicity.constructFromObject(data['periodicity']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

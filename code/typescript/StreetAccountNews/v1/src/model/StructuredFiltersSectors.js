@@ -48,9 +48,10 @@ class StructuredFiltersSectors {
         if (data) {
             obj = obj || new StructuredFiltersSectors();
 
-            if (data.hasOwnProperty('sectors')) {
+            if (data.hasOwnProperty('sectors') && obj['sectors'] === undefined) {
                 obj['sectors'] = ApiClient.convertToType(data['sectors'], [StructuredFiltersSectorsObject]);
             }
+            
         }
         return obj;
     }

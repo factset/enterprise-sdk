@@ -47,9 +47,10 @@ class ResultsRequestBodyRoot {
         if (data) {
             obj = obj || new ResultsRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ResultsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

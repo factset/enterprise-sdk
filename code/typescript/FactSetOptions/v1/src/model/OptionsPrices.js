@@ -47,60 +47,61 @@ class OptionsPrices {
         if (data) {
             obj = obj || new OptionsPrices();
 
-            if (data.hasOwnProperty('askTime')) {
+            if (data.hasOwnProperty('askTime') && obj['askTime'] === undefined) {
                 obj['askTime'] = ApiClient.convertToType(data['askTime'], 'Number');
             }
-            if (data.hasOwnProperty('bidTime')) {
+            if (data.hasOwnProperty('bidTime') && obj['bidTime'] === undefined) {
                 obj['bidTime'] = ApiClient.convertToType(data['bidTime'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('price52WeekHigh')) {
+            if (data.hasOwnProperty('price52WeekHigh') && obj['price52WeekHigh'] === undefined) {
                 obj['price52WeekHigh'] = ApiClient.convertToType(data['price52WeekHigh'], 'Number');
             }
-            if (data.hasOwnProperty('price52WeekLow')) {
+            if (data.hasOwnProperty('price52WeekLow') && obj['price52WeekLow'] === undefined) {
                 obj['price52WeekLow'] = ApiClient.convertToType(data['price52WeekLow'], 'Number');
             }
-            if (data.hasOwnProperty('priceAsk')) {
+            if (data.hasOwnProperty('priceAsk') && obj['priceAsk'] === undefined) {
                 obj['priceAsk'] = ApiClient.convertToType(data['priceAsk'], 'Number');
             }
-            if (data.hasOwnProperty('priceBid')) {
+            if (data.hasOwnProperty('priceBid') && obj['priceBid'] === undefined) {
                 obj['priceBid'] = ApiClient.convertToType(data['priceBid'], 'Number');
             }
-            if (data.hasOwnProperty('priceMidBidAsk')) {
+            if (data.hasOwnProperty('priceMidBidAsk') && obj['priceMidBidAsk'] === undefined) {
                 obj['priceMidBidAsk'] = ApiClient.convertToType(data['priceMidBidAsk'], 'Number');
             }
-            if (data.hasOwnProperty('priceOpen')) {
+            if (data.hasOwnProperty('priceOpen') && obj['priceOpen'] === undefined) {
                 obj['priceOpen'] = ApiClient.convertToType(data['priceOpen'], 'Number');
             }
-            if (data.hasOwnProperty('priceHigh')) {
+            if (data.hasOwnProperty('priceHigh') && obj['priceHigh'] === undefined) {
                 obj['priceHigh'] = ApiClient.convertToType(data['priceHigh'], 'Number');
             }
-            if (data.hasOwnProperty('priceLow')) {
+            if (data.hasOwnProperty('priceLow') && obj['priceLow'] === undefined) {
                 obj['priceLow'] = ApiClient.convertToType(data['priceLow'], 'Number');
             }
-            if (data.hasOwnProperty('priceSettlement')) {
+            if (data.hasOwnProperty('priceSettlement') && obj['priceSettlement'] === undefined) {
                 obj['priceSettlement'] = ApiClient.convertToType(data['priceSettlement'], 'Number');
             }
-            if (data.hasOwnProperty('priceStrike')) {
+            if (data.hasOwnProperty('priceStrike') && obj['priceStrike'] === undefined) {
                 obj['priceStrike'] = ApiClient.convertToType(data['priceStrike'], 'Number');
             }
-            if (data.hasOwnProperty('priceUnderlying')) {
+            if (data.hasOwnProperty('priceUnderlying') && obj['priceUnderlying'] === undefined) {
                 obj['priceUnderlying'] = ApiClient.convertToType(data['priceUnderlying'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('quoteType')) {
+            if (data.hasOwnProperty('quoteType') && obj['quoteType'] === undefined) {
                 obj['quoteType'] = ApiClient.convertToType(data['quoteType'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

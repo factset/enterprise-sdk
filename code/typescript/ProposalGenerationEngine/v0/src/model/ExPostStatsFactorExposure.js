@@ -49,9 +49,10 @@ class ExPostStatsFactorExposure {
         if (data) {
             obj = obj || new ExPostStatsFactorExposure();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExPostStatsFactorExposureData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

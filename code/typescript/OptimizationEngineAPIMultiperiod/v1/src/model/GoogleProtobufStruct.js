@@ -47,9 +47,10 @@ class GoogleProtobufStruct {
         if (data) {
             obj = obj || new GoogleProtobufStruct();
 
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = OptimizerInputsValue.constructFromObject(data['fields']);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class CostsFeesResponse {
         if (data) {
             obj = obj || new CostsFeesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CostsFees]);
             }
+            
         }
         return obj;
     }

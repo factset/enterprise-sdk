@@ -55,18 +55,19 @@ class SignalDefinitionData {
         if (data) {
             obj = obj || new SignalDefinitionData();
 
-            if (data.hasOwnProperty('signalId')) {
+            if (data.hasOwnProperty('signalId') && obj['signalId'] === undefined) {
                 obj['signalId'] = ApiClient.convertToType(data['signalId'], 'String');
             }
-            if (data.hasOwnProperty('theme')) {
+            if (data.hasOwnProperty('theme') && obj['theme'] === undefined) {
                 obj['theme'] = ApiClient.convertToType(data['theme'], 'String');
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('contract')) {
+            if (data.hasOwnProperty('contract') && obj['contract'] === undefined) {
                 obj['contract'] = Contract.constructFromObject(data['contract']);
             }
+            
         }
         return obj;
     }

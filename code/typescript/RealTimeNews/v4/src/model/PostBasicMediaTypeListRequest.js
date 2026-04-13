@@ -51,12 +51,13 @@ class PostBasicMediaTypeListRequest {
         if (data) {
             obj = obj || new PostBasicMediaTypeListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostBasicMediaTypeListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostBasicMediaTypeListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

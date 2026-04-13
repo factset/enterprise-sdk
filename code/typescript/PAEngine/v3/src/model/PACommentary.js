@@ -47,15 +47,16 @@ class PACommentary {
         if (data) {
             obj = obj || new PACommentary();
 
-            if (data.hasOwnProperty('commentaryId')) {
+            if (data.hasOwnProperty('commentaryId') && obj['commentaryId'] === undefined) {
                 obj['commentaryId'] = ApiClient.convertToType(data['commentaryId'], 'String');
             }
-            if (data.hasOwnProperty('sections')) {
+            if (data.hasOwnProperty('sections') && obj['sections'] === undefined) {
                 obj['sections'] = ApiClient.convertToType(data['sections'], [Section]);
             }
-            if (data.hasOwnProperty('disclaimer')) {
+            if (data.hasOwnProperty('disclaimer') && obj['disclaimer'] === undefined) {
                 obj['disclaimer'] = ApiClient.convertToType(data['disclaimer'], 'String');
             }
+            
         }
         return obj;
     }

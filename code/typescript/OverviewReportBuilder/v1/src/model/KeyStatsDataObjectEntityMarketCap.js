@@ -54,15 +54,16 @@ class KeyStatsDataObjectEntityMarketCap {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityMarketCap();
 
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = KeyStatsAttributeLabel.constructFromObject(data['label']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = KeyStatsAttributeMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = KeyStatsAttributeValueNumber.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

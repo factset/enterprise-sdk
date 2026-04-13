@@ -46,18 +46,19 @@ class NRTSpeakerids400ResponseDetailsValidParameters {
         if (data) {
             obj = obj || new NRTSpeakerids400ResponseDetailsValidParameters();
 
-            if (data.hasOwnProperty('_sort')) {
+            if (data.hasOwnProperty('_sort') && obj['_sort'] === undefined) {
                 obj['_sort'] = ApiClient.convertToType(data['_sort'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationLimit')) {
+            if (data.hasOwnProperty('_paginationLimit') && obj['_paginationLimit'] === undefined) {
                 obj['_paginationLimit'] = ApiClient.convertToType(data['_paginationLimit'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationOffset')) {
+            if (data.hasOwnProperty('_paginationOffset') && obj['_paginationOffset'] === undefined) {
                 obj['_paginationOffset'] = ApiClient.convertToType(data['_paginationOffset'], ['String']);
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], ['String']);
             }
+            
         }
         return obj;
     }

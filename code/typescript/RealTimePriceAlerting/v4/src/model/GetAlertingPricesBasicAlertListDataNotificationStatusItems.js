@@ -48,15 +48,16 @@ class GetAlertingPricesBasicAlertListDataNotificationStatusItems {
         if (data) {
             obj = obj || new GetAlertingPricesBasicAlertListDataNotificationStatusItems();
 
-            if (data.hasOwnProperty('channel')) {
+            if (data.hasOwnProperty('channel') && obj['channel'] === undefined) {
                 obj['channel'] = GetAlertingPricesBasicAlertListDataNotificationStatusItemsChannel.constructFromObject(data['channel']);
             }
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
+            
         }
         return obj;
     }

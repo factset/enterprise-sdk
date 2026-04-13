@@ -47,9 +47,10 @@ class AvailableTranscostsResultObject {
         if (data) {
             obj = obj || new AvailableTranscostsResultObject();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AvailableTranscostsResultObjectData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

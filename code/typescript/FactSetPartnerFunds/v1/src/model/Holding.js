@@ -47,15 +47,16 @@ class Holding {
         if (data) {
             obj = obj || new Holding();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('holdingId')) {
+            if (data.hasOwnProperty('holdingId') && obj['holdingId'] === undefined) {
                 obj['holdingId'] = ApiClient.convertToType(data['holdingId'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class InvalidUploadDocumentRequest {
         if (data) {
             obj = obj || new InvalidUploadDocumentRequest();
 
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
+            
         }
         return obj;
     }

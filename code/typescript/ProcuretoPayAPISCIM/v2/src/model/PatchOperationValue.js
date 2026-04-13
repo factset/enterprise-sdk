@@ -44,6 +44,7 @@ class PatchOperationValue {
      * @return {module:model/PatchOperationValue} The populated <code>PatchOperationValue</code> instance.
      */
     static constructFromObject(data, obj) {
+        throw new Error("Failed to construct PatchOperationValue due to oneOf-schemas not matching the data: " + data);
     }
 
 

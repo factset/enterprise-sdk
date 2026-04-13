@@ -47,12 +47,13 @@ class InlineResponse200DataInsight {
         if (data) {
             obj = obj || new InlineResponse200DataInsight();
 
-            if (data.hasOwnProperty('overview')) {
+            if (data.hasOwnProperty('overview') && obj['overview'] === undefined) {
                 obj['overview'] = ApiClient.convertToType(data['overview'], 'String');
             }
-            if (data.hasOwnProperty('quote')) {
+            if (data.hasOwnProperty('quote') && obj['quote'] === undefined) {
                 obj['quote'] = ApiClient.convertToType(data['quote'], 'String');
             }
+            
         }
         return obj;
     }

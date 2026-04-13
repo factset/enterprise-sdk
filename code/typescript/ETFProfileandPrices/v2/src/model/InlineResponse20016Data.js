@@ -46,9 +46,10 @@ class InlineResponse20016Data {
         if (data) {
             obj = obj || new InlineResponse20016Data();
 
-            if (data.hasOwnProperty('broadCategory')) {
+            if (data.hasOwnProperty('broadCategory') && obj['broadCategory'] === undefined) {
                 obj['broadCategory'] = ApiClient.convertToType(data['broadCategory'], 'String');
             }
+            
         }
         return obj;
     }

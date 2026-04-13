@@ -47,9 +47,10 @@ class LookupAssettype {
         if (data) {
             obj = obj || new LookupAssettype();
 
-            if (data.hasOwnProperty('people')) {
+            if (data.hasOwnProperty('people') && obj['people'] === undefined) {
                 obj['people'] = ApiClient.convertToType(data['people'], 'Number');
             }
+            
         }
         return obj;
     }

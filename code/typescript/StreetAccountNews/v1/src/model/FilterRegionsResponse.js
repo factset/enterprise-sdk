@@ -48,9 +48,10 @@ class FilterRegionsResponse {
         if (data) {
             obj = obj || new FilterRegionsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FilterRegionsResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class CompanyEventRequest {
         if (data) {
             obj = obj || new CompanyEventRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CompanyEventRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

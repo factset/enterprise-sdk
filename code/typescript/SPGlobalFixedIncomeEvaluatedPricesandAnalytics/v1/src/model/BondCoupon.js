@@ -46,27 +46,28 @@ class BondCoupon {
         if (data) {
             obj = obj || new BondCoupon();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('accruedInterest')) {
+            if (data.hasOwnProperty('accruedInterest') && obj['accruedInterest'] === undefined) {
                 obj['accruedInterest'] = ApiClient.convertToType(data['accruedInterest'], 'Number');
             }
-            if (data.hasOwnProperty('coupon')) {
+            if (data.hasOwnProperty('coupon') && obj['coupon'] === undefined) {
                 obj['coupon'] = ApiClient.convertToType(data['coupon'], 'Number');
             }
-            if (data.hasOwnProperty('couponType')) {
+            if (data.hasOwnProperty('couponType') && obj['couponType'] === undefined) {
                 obj['couponType'] = ApiClient.convertToType(data['couponType'], 'String');
             }
-            if (data.hasOwnProperty('couponFrequency')) {
+            if (data.hasOwnProperty('couponFrequency') && obj['couponFrequency'] === undefined) {
                 obj['couponFrequency'] = ApiClient.convertToType(data['couponFrequency'], 'String');
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class PostBasicDeliveryListRequestData {
         if (data) {
             obj = obj || new PostBasicDeliveryListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicDeliveryListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

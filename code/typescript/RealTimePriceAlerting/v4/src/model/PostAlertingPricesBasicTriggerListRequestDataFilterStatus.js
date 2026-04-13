@@ -47,9 +47,10 @@ class PostAlertingPricesBasicTriggerListRequestDataFilterStatus {
         if (data) {
             obj = obj || new PostAlertingPricesBasicTriggerListRequestDataFilterStatus();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
+            
         }
         return obj;
     }

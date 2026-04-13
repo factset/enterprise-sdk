@@ -47,15 +47,16 @@ class ReturnStats {
         if (data) {
             obj = obj || new ReturnStats();
 
-            if (data.hasOwnProperty('annReturn')) {
+            if (data.hasOwnProperty('annReturn') && obj['annReturn'] === undefined) {
                 obj['annReturn'] = ApiClient.convertToType(data['annReturn'], 'Number');
             }
-            if (data.hasOwnProperty('cumReturn')) {
+            if (data.hasOwnProperty('cumReturn') && obj['cumReturn'] === undefined) {
                 obj['cumReturn'] = ApiClient.convertToType(data['cumReturn'], 'Number');
             }
-            if (data.hasOwnProperty('meanReturn')) {
+            if (data.hasOwnProperty('meanReturn') && obj['meanReturn'] === undefined) {
                 obj['meanReturn'] = ApiClient.convertToType(data['meanReturn'], 'Number');
             }
+            
         }
         return obj;
     }

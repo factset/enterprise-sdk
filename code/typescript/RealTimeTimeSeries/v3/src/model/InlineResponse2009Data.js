@@ -48,18 +48,19 @@ class InlineResponse2009Data {
         if (data) {
             obj = obj || new InlineResponse2009Data();
 
-            if (data.hasOwnProperty('idNotation')) {
+            if (data.hasOwnProperty('idNotation') && obj['idNotation'] === undefined) {
                 obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('subsample')) {
+            if (data.hasOwnProperty('subsample') && obj['subsample'] === undefined) {
                 obj['subsample'] = InlineResponse2009DataSubsample.constructFromObject(data['subsample']);
             }
+            
         }
         return obj;
     }

@@ -64,57 +64,58 @@ class KeyStatsDataObjectFund {
         if (data) {
             obj = obj || new KeyStatsDataObjectFund();
 
-            if (data.hasOwnProperty('aumFundMonth')) {
+            if (data.hasOwnProperty('aumFundMonth') && obj['aumFundMonth'] === undefined) {
                 obj['aumFundMonth'] = KeyStatsDataObjectFundAumFundMonth.constructFromObject(data['aumFundMonth']);
             }
-            if (data.hasOwnProperty('aumShareDaily')) {
+            if (data.hasOwnProperty('aumShareDaily') && obj['aumShareDaily'] === undefined) {
                 obj['aumShareDaily'] = KeyStatsDataObjectFundAumShareDaily.constructFromObject(data['aumShareDaily']);
             }
-            if (data.hasOwnProperty('availableForSale')) {
+            if (data.hasOwnProperty('availableForSale') && obj['availableForSale'] === undefined) {
                 obj['availableForSale'] = KeyStatsDataObjectFundAvailableForSale.constructFromObject(data['availableForSale']);
             }
-            if (data.hasOwnProperty('averageSpread')) {
+            if (data.hasOwnProperty('averageSpread') && obj['averageSpread'] === undefined) {
                 obj['averageSpread'] = KeyStatsDataObjectFundAverageSpread.constructFromObject(data['averageSpread']);
             }
-            if (data.hasOwnProperty('currencyIso')) {
+            if (data.hasOwnProperty('currencyIso') && obj['currencyIso'] === undefined) {
                 obj['currencyIso'] = KeyStatsDataObjectFundCurrencyIso.constructFromObject(data['currencyIso']);
             }
-            if (data.hasOwnProperty('dailyTradingVol')) {
+            if (data.hasOwnProperty('dailyTradingVol') && obj['dailyTradingVol'] === undefined) {
                 obj['dailyTradingVol'] = KeyStatsDataObjectFundDailyTradingVol.constructFromObject(data['dailyTradingVol']);
             }
-            if (data.hasOwnProperty('distributionYield')) {
+            if (data.hasOwnProperty('distributionYield') && obj['distributionYield'] === undefined) {
                 obj['distributionYield'] = KeyStatsDataObjectFundDistributionYield.constructFromObject(data['distributionYield']);
             }
-            if (data.hasOwnProperty('esgCompliance')) {
+            if (data.hasOwnProperty('esgCompliance') && obj['esgCompliance'] === undefined) {
                 obj['esgCompliance'] = KeyStatsDataObjectFundEsgCompliance.constructFromObject(data['esgCompliance']);
             }
-            if (data.hasOwnProperty('esgObjective')) {
+            if (data.hasOwnProperty('esgObjective') && obj['esgObjective'] === undefined) {
                 obj['esgObjective'] = KeyStatsDataObjectFundEsgObjective.constructFromObject(data['esgObjective']);
             }
-            if (data.hasOwnProperty('expenseRatio')) {
+            if (data.hasOwnProperty('expenseRatio') && obj['expenseRatio'] === undefined) {
                 obj['expenseRatio'] = KeyStatsDataObjectFundExpenseRatio.constructFromObject(data['expenseRatio']);
             }
-            if (data.hasOwnProperty('firstNavRecord')) {
+            if (data.hasOwnProperty('firstNavRecord') && obj['firstNavRecord'] === undefined) {
                 obj['firstNavRecord'] = KeyStatsDataObjectFundFirstNavRecord.constructFromObject(data['firstNavRecord']);
             }
-            if (data.hasOwnProperty('fundFlowYTD')) {
+            if (data.hasOwnProperty('fundFlowYTD') && obj['fundFlowYTD'] === undefined) {
                 obj['fundFlowYTD'] = KeyStatsDataObjectFundFundFlowYTD.constructFromObject(data['fundFlowYTD']);
             }
-            if (data.hasOwnProperty('inceptionDateFund')) {
+            if (data.hasOwnProperty('inceptionDateFund') && obj['inceptionDateFund'] === undefined) {
                 obj['inceptionDateFund'] = KeyStatsDataObjectFundInceptionDateFund.constructFromObject(data['inceptionDateFund']);
             }
-            if (data.hasOwnProperty('inceptionDateShare')) {
+            if (data.hasOwnProperty('inceptionDateShare') && obj['inceptionDateShare'] === undefined) {
                 obj['inceptionDateShare'] = KeyStatsDataObjectFundInceptionDateShare.constructFromObject(data['inceptionDateShare']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = KeyStatsDataObjectFundMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('outstandingShare')) {
+            if (data.hasOwnProperty('outstandingShare') && obj['outstandingShare'] === undefined) {
                 obj['outstandingShare'] = KeyStatsDataObjectFundOutstandingShare.constructFromObject(data['outstandingShare']);
             }
-            if (data.hasOwnProperty('sfdrClassification')) {
+            if (data.hasOwnProperty('sfdrClassification') && obj['sfdrClassification'] === undefined) {
                 obj['sfdrClassification'] = KeyStatsDataObjectFundSfdrClassification.constructFromObject(data['sfdrClassification']);
             }
+            
         }
         return obj;
     }

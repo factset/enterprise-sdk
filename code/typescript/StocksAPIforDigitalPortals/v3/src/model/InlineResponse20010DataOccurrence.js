@@ -48,12 +48,13 @@ class InlineResponse20010DataOccurrence {
         if (data) {
             obj = obj || new InlineResponse20010DataOccurrence();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = InlineResponse20010DataOccurrenceFrequency.constructFromObject(data['frequency']);
             }
+            
         }
         return obj;
     }

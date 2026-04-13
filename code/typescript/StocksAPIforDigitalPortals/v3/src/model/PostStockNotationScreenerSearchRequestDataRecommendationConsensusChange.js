@@ -52,21 +52,22 @@ class PostStockNotationScreenerSearchRequestDataRecommendationConsensusChange {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRecommendationConsensusChange();
 
-            if (data.hasOwnProperty('week1')) {
+            if (data.hasOwnProperty('week1') && obj['week1'] === undefined) {
                 obj['week1'] = PostStockNotationScreenerSearchRequestDataBenchmarkBetaWeek1.constructFromObject(data['week1']);
             }
-            if (data.hasOwnProperty('month1')) {
+            if (data.hasOwnProperty('month1') && obj['month1'] === undefined) {
                 obj['month1'] = PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonth1.constructFromObject(data['month1']);
             }
-            if (data.hasOwnProperty('months3')) {
+            if (data.hasOwnProperty('months3') && obj['months3'] === undefined) {
                 obj['months3'] = PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths3.constructFromObject(data['months3']);
             }
-            if (data.hasOwnProperty('months6')) {
+            if (data.hasOwnProperty('months6') && obj['months6'] === undefined) {
                 obj['months6'] = PostStockNotationScreenerSearchRequestDataBenchmarkBetaMonths6.constructFromObject(data['months6']);
             }
-            if (data.hasOwnProperty('year1')) {
+            if (data.hasOwnProperty('year1') && obj['year1'] === undefined) {
                 obj['year1'] = PostStockNotationScreenerSearchRequestDataBenchmarkBetaYear1.constructFromObject(data['year1']);
             }
+            
         }
         return obj;
     }

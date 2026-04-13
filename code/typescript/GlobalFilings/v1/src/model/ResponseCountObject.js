@@ -46,15 +46,16 @@ class ResponseCountObject {
         if (data) {
             obj = obj || new ResponseCountObject();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'String');
             }
+            
         }
         return obj;
     }

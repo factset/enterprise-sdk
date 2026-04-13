@@ -47,9 +47,10 @@ class GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotationInstrume
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotationInstrumentFsymSecurity();
 
-            if (data.hasOwnProperty('permanentIdentifier')) {
+            if (data.hasOwnProperty('permanentIdentifier') && obj['permanentIdentifier'] === undefined) {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,30 +47,31 @@ class DrawdownStats {
         if (data) {
             obj = obj || new DrawdownStats();
 
-            if (data.hasOwnProperty('longestDrawdownStart')) {
+            if (data.hasOwnProperty('longestDrawdownStart') && obj['longestDrawdownStart'] === undefined) {
                 obj['longestDrawdownStart'] = ApiClient.convertToType(data['longestDrawdownStart'], 'Date');
             }
-            if (data.hasOwnProperty('longestDrawdownEnd')) {
+            if (data.hasOwnProperty('longestDrawdownEnd') && obj['longestDrawdownEnd'] === undefined) {
                 obj['longestDrawdownEnd'] = ApiClient.convertToType(data['longestDrawdownEnd'], 'Date');
             }
-            if (data.hasOwnProperty('maxDrawdown')) {
+            if (data.hasOwnProperty('maxDrawdown') && obj['maxDrawdown'] === undefined) {
                 obj['maxDrawdown'] = ApiClient.convertToType(data['maxDrawdown'], 'Number');
             }
-            if (data.hasOwnProperty('maxDrawdownDate')) {
+            if (data.hasOwnProperty('maxDrawdownDate') && obj['maxDrawdownDate'] === undefined) {
                 obj['maxDrawdownDate'] = ApiClient.convertToType(data['maxDrawdownDate'], 'Date');
             }
-            if (data.hasOwnProperty('maxDrawdownStart')) {
+            if (data.hasOwnProperty('maxDrawdownStart') && obj['maxDrawdownStart'] === undefined) {
                 obj['maxDrawdownStart'] = ApiClient.convertToType(data['maxDrawdownStart'], 'Date');
             }
-            if (data.hasOwnProperty('maxDrawdownEnd')) {
+            if (data.hasOwnProperty('maxDrawdownEnd') && obj['maxDrawdownEnd'] === undefined) {
                 obj['maxDrawdownEnd'] = ApiClient.convertToType(data['maxDrawdownEnd'], 'Date');
             }
-            if (data.hasOwnProperty('maxDrawdownPeriods')) {
+            if (data.hasOwnProperty('maxDrawdownPeriods') && obj['maxDrawdownPeriods'] === undefined) {
                 obj['maxDrawdownPeriods'] = ApiClient.convertToType(data['maxDrawdownPeriods'], 'Number');
             }
-            if (data.hasOwnProperty('topDrawdowns')) {
+            if (data.hasOwnProperty('topDrawdowns') && obj['topDrawdowns'] === undefined) {
                 obj['topDrawdowns'] = ApiClient.convertToType(data['topDrawdowns'], [Drawdown]);
             }
+            
         }
         return obj;
     }

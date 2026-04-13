@@ -49,27 +49,28 @@ class OptimizerInputsGeneralLinearTerm {
         if (data) {
             obj = obj || new OptimizerInputsGeneralLinearTerm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('multiplier')) {
+            if (data.hasOwnProperty('multiplier') && obj['multiplier'] === undefined) {
                 obj['multiplier'] = OptimizerInputsValue.constructFromObject(data['multiplier']);
             }
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = OptimizerInputsValue.constructFromObject(data['attribute']);
             }
-            if (data.hasOwnProperty('direction')) {
+            if (data.hasOwnProperty('direction') && obj['direction'] === undefined) {
                 obj['direction'] = OptimizerInputsEObjectiveTermDirectionEnum.constructFromObject(data['direction']);
             }
-            if (data.hasOwnProperty('method')) {
+            if (data.hasOwnProperty('method') && obj['method'] === undefined) {
                 obj['method'] = OptimizerInputsEAggregationMethodEnum.constructFromObject(data['method']);
             }
-            if (data.hasOwnProperty('rel_to_benchmark')) {
+            if (data.hasOwnProperty('rel_to_benchmark') && obj['rel_to_benchmark'] === undefined) {
                 obj['rel_to_benchmark'] = ApiClient.convertToType(data['rel_to_benchmark'], 'Boolean');
             }
-            if (data.hasOwnProperty('benchmark_index')) {
+            if (data.hasOwnProperty('benchmark_index') && obj['benchmark_index'] === undefined) {
                 obj['benchmark_index'] = ApiClient.convertToType(data['benchmark_index'], 'Number');
             }
+            
         }
         return obj;
     }

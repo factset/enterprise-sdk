@@ -51,12 +51,13 @@ class PostAlertingPricesBasicTriggerListRequest {
         if (data) {
             obj = obj || new PostAlertingPricesBasicTriggerListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostAlertingPricesBasicTriggerListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostAlertingPricesBasicTriggerListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

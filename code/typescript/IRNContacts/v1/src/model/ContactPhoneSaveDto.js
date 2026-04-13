@@ -46,18 +46,19 @@ class ContactPhoneSaveDto {
         if (data) {
             obj = obj || new ContactPhoneSaveDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('number')) {
+            if (data.hasOwnProperty('number') && obj['number'] === undefined) {
                 obj['number'] = ApiClient.convertToType(data['number'], 'String');
             }
-            if (data.hasOwnProperty('typeId')) {
+            if (data.hasOwnProperty('typeId') && obj['typeId'] === undefined) {
                 obj['typeId'] = ApiClient.convertToType(data['typeId'], 'String');
             }
-            if (data.hasOwnProperty('isPrimary')) {
+            if (data.hasOwnProperty('isPrimary') && obj['isPrimary'] === undefined) {
                 obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
             }
+            
         }
         return obj;
     }

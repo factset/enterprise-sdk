@@ -48,9 +48,10 @@ class CommentRequest {
         if (data) {
             obj = obj || new CommentRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CommentRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

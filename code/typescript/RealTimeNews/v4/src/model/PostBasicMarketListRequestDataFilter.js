@@ -48,12 +48,13 @@ class PostBasicMarketListRequestDataFilter {
         if (data) {
             obj = obj || new PostBasicMarketListRequestDataFilter();
 
-            if (data.hasOwnProperty('markets')) {
+            if (data.hasOwnProperty('markets') && obj['markets'] === undefined) {
                 obj['markets'] = PostBasicMarketListRequestDataFilterMarkets.constructFromObject(data['markets']);
             }
-            if (data.hasOwnProperty('onlyActive')) {
+            if (data.hasOwnProperty('onlyActive') && obj['onlyActive'] === undefined) {
                 obj['onlyActive'] = ApiClient.convertToType(data['onlyActive'], 'Boolean');
             }
+            
         }
         return obj;
     }

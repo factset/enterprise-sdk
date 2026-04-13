@@ -50,18 +50,19 @@ class RankedTableRow {
         if (data) {
             obj = obj || new RankedTableRow();
 
-            if (data.hasOwnProperty('rank')) {
+            if (data.hasOwnProperty('rank') && obj['rank'] === undefined) {
                 obj['rank'] = ApiClient.convertToType(data['rank'], 'Number');
             }
-            if (data.hasOwnProperty('entity')) {
+            if (data.hasOwnProperty('entity') && obj['entity'] === undefined) {
                 obj['entity'] = RankedTableEntity.constructFromObject(data['entity']);
             }
-            if (data.hasOwnProperty('applicationLink')) {
+            if (data.hasOwnProperty('applicationLink') && obj['applicationLink'] === undefined) {
                 obj['applicationLink'] = ApplicationLink.constructFromObject(data['applicationLink']);
             }
-            if (data.hasOwnProperty('additionalData')) {
+            if (data.hasOwnProperty('additionalData') && obj['additionalData'] === undefined) {
                 obj['additionalData'] = ApiClient.convertToType(data['additionalData'], ['String']);
             }
+            
         }
         return obj;
     }

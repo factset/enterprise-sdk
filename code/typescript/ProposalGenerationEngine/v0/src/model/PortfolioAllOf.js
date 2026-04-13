@@ -48,12 +48,13 @@ class PortfolioAllOf {
         if (data) {
             obj = obj || new PortfolioAllOf();
 
-            if (data.hasOwnProperty('initialValue')) {
+            if (data.hasOwnProperty('initialValue') && obj['initialValue'] === undefined) {
                 obj['initialValue'] = ApiClient.convertToType(data['initialValue'], 'Number');
             }
-            if (data.hasOwnProperty('rebalancing')) {
+            if (data.hasOwnProperty('rebalancing') && obj['rebalancing'] === undefined) {
                 obj['rebalancing'] = Rebalancing.constructFromObject(data['rebalancing']);
             }
+            
         }
         return obj;
     }

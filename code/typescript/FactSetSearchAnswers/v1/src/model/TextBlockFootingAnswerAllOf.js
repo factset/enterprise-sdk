@@ -49,9 +49,10 @@ class TextBlockFootingAnswerAllOf {
         if (data) {
             obj = obj || new TextBlockFootingAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = TextBlockFootingTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

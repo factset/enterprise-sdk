@@ -47,9 +47,10 @@ class GoogleProtobufWellKnownTypesStruct {
         if (data) {
             obj = obj || new GoogleProtobufWellKnownTypesStruct();
 
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], {'String': GoogleProtobufWellKnownTypesValue});
             }
+            
         }
         return obj;
     }

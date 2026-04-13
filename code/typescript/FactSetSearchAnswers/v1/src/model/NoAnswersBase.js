@@ -53,15 +53,20 @@ class NoAnswersBase {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new NoAnswersBase();
-            DataAnswer.constructFromObject(data, obj);
-            NoAnswersBaseAllOf.constructFromObject(data, obj);
+            try {
+              obj = DataAnswer.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = NoAnswersBaseAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
+            
         }
         return obj;
     }

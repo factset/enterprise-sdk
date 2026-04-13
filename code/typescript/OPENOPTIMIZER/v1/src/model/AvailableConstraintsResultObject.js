@@ -47,9 +47,10 @@ class AvailableConstraintsResultObject {
         if (data) {
             obj = obj || new AvailableConstraintsResultObject();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AvailableConstraintsResultObjectData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

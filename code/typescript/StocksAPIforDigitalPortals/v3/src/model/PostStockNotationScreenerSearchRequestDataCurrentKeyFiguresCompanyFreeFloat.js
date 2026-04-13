@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyFreeFloa
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyFreeFloat();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanySharesOutstandingMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

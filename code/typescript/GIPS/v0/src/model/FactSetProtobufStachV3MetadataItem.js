@@ -47,12 +47,13 @@ class FactSetProtobufStachV3MetadataItem {
         if (data) {
             obj = obj || new FactSetProtobufStachV3MetadataItem();
 
-            if (data.hasOwnProperty('contextualType')) {
+            if (data.hasOwnProperty('contextualType') && obj['contextualType'] === undefined) {
                 obj['contextualType'] = ApiClient.convertToType(data['contextualType'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = GoogleProtobufWellKnownTypesValue.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

@@ -47,48 +47,49 @@ class OutputStrategyBinData {
         if (data) {
             obj = obj || new OutputStrategyBinData();
 
-            if (data.hasOwnProperty('binTime')) {
+            if (data.hasOwnProperty('binTime') && obj['binTime'] === undefined) {
                 obj['binTime'] = ApiClient.convertToType(data['binTime'], 'String');
             }
-            if (data.hasOwnProperty('dateId')) {
+            if (data.hasOwnProperty('dateId') && obj['dateId'] === undefined) {
                 obj['dateId'] = ApiClient.convertToType(data['dateId'], 'Date');
             }
-            if (data.hasOwnProperty('totalCost')) {
+            if (data.hasOwnProperty('totalCost') && obj['totalCost'] === undefined) {
                 obj['totalCost'] = ApiClient.convertToType(data['totalCost'], 'Number');
             }
-            if (data.hasOwnProperty('spreadCost')) {
+            if (data.hasOwnProperty('spreadCost') && obj['spreadCost'] === undefined) {
                 obj['spreadCost'] = ApiClient.convertToType(data['spreadCost'], 'Number');
             }
-            if (data.hasOwnProperty('liquidityCost')) {
+            if (data.hasOwnProperty('liquidityCost') && obj['liquidityCost'] === undefined) {
                 obj['liquidityCost'] = ApiClient.convertToType(data['liquidityCost'], 'Number');
             }
-            if (data.hasOwnProperty('confidenceInterval')) {
+            if (data.hasOwnProperty('confidenceInterval') && obj['confidenceInterval'] === undefined) {
                 obj['confidenceInterval'] = ApiClient.convertToType(data['confidenceInterval'], 'Number');
             }
-            if (data.hasOwnProperty('signalCost')) {
+            if (data.hasOwnProperty('signalCost') && obj['signalCost'] === undefined) {
                 obj['signalCost'] = ApiClient.convertToType(data['signalCost'], 'Number');
             }
-            if (data.hasOwnProperty('cappedPrice')) {
+            if (data.hasOwnProperty('cappedPrice') && obj['cappedPrice'] === undefined) {
                 obj['cappedPrice'] = ApiClient.convertToType(data['cappedPrice'], 'Number');
             }
-            if (data.hasOwnProperty('reversionPrice')) {
+            if (data.hasOwnProperty('reversionPrice') && obj['reversionPrice'] === undefined) {
                 obj['reversionPrice'] = ApiClient.convertToType(data['reversionPrice'], 'Number');
             }
-            if (data.hasOwnProperty('stockPrice')) {
+            if (data.hasOwnProperty('stockPrice') && obj['stockPrice'] === undefined) {
                 obj['stockPrice'] = ApiClient.convertToType(data['stockPrice'], 'Number');
             }
-            if (data.hasOwnProperty('arrivalMid')) {
+            if (data.hasOwnProperty('arrivalMid') && obj['arrivalMid'] === undefined) {
                 obj['arrivalMid'] = ApiClient.convertToType(data['arrivalMid'], 'Number');
             }
-            if (data.hasOwnProperty('strategyVolume')) {
+            if (data.hasOwnProperty('strategyVolume') && obj['strategyVolume'] === undefined) {
                 obj['strategyVolume'] = ApiClient.convertToType(data['strategyVolume'], 'Number');
             }
-            if (data.hasOwnProperty('partRate')) {
+            if (data.hasOwnProperty('partRate') && obj['partRate'] === undefined) {
                 obj['partRate'] = ApiClient.convertToType(data['partRate'], 'Number');
             }
-            if (data.hasOwnProperty('momentum')) {
+            if (data.hasOwnProperty('momentum') && obj['momentum'] === undefined) {
                 obj['momentum'] = ApiClient.convertToType(data['momentum'], 'Number');
             }
+            
         }
         return obj;
     }

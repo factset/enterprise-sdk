@@ -47,42 +47,43 @@ class CompanyPeople {
         if (data) {
             obj = obj || new CompanyPeople();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('email')) {
+            if (data.hasOwnProperty('email') && obj['email'] === undefined) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('jobFunction1')) {
+            if (data.hasOwnProperty('jobFunction1') && obj['jobFunction1'] === undefined) {
                 obj['jobFunction1'] = ApiClient.convertToType(data['jobFunction1'], 'String');
             }
-            if (data.hasOwnProperty('jobFunction2')) {
+            if (data.hasOwnProperty('jobFunction2') && obj['jobFunction2'] === undefined) {
                 obj['jobFunction2'] = ApiClient.convertToType(data['jobFunction2'], 'String');
             }
-            if (data.hasOwnProperty('jobFunction3')) {
+            if (data.hasOwnProperty('jobFunction3') && obj['jobFunction3'] === undefined) {
                 obj['jobFunction3'] = ApiClient.convertToType(data['jobFunction3'], 'String');
             }
-            if (data.hasOwnProperty('jobFunction4')) {
+            if (data.hasOwnProperty('jobFunction4') && obj['jobFunction4'] === undefined) {
                 obj['jobFunction4'] = ApiClient.convertToType(data['jobFunction4'], 'String');
             }
-            if (data.hasOwnProperty('mainPhone')) {
+            if (data.hasOwnProperty('mainPhone') && obj['mainPhone'] === undefined) {
                 obj['mainPhone'] = ApiClient.convertToType(data['mainPhone'], 'String');
             }
-            if (data.hasOwnProperty('personId')) {
+            if (data.hasOwnProperty('personId') && obj['personId'] === undefined) {
                 obj['personId'] = ApiClient.convertToType(data['personId'], 'String');
             }
-            if (data.hasOwnProperty('phone')) {
+            if (data.hasOwnProperty('phone') && obj['phone'] === undefined) {
                 obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

@@ -50,12 +50,13 @@ class EntitySecuritiesRequest {
         if (data) {
             obj = obj || new EntitySecuritiesRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = SecurityType.constructFromObject(data['securityType']);
             }
+            
         }
         return obj;
     }

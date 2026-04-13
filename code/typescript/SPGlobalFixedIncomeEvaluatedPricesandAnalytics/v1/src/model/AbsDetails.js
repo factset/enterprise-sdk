@@ -46,63 +46,64 @@ class AbsDetails {
         if (data) {
             obj = obj || new AbsDetails();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('cdr')) {
+            if (data.hasOwnProperty('cdr') && obj['cdr'] === undefined) {
                 obj['cdr'] = ApiClient.convertToType(data['cdr'], 'String');
             }
-            if (data.hasOwnProperty('cpr')) {
+            if (data.hasOwnProperty('cpr') && obj['cpr'] === undefined) {
                 obj['cpr'] = ApiClient.convertToType(data['cpr'], 'Number');
             }
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = ApiClient.convertToType(data['factor'], 'Number');
             }
-            if (data.hasOwnProperty('estimatedFactor')) {
+            if (data.hasOwnProperty('estimatedFactor') && obj['estimatedFactor'] === undefined) {
                 obj['estimatedFactor'] = ApiClient.convertToType(data['estimatedFactor'], 'Number');
             }
-            if (data.hasOwnProperty('bidPricePreFactor')) {
+            if (data.hasOwnProperty('bidPricePreFactor') && obj['bidPricePreFactor'] === undefined) {
                 obj['bidPricePreFactor'] = ApiClient.convertToType(data['bidPricePreFactor'], 'Number');
             }
-            if (data.hasOwnProperty('midPricePreFactor')) {
+            if (data.hasOwnProperty('midPricePreFactor') && obj['midPricePreFactor'] === undefined) {
                 obj['midPricePreFactor'] = ApiClient.convertToType(data['midPricePreFactor'], 'Number');
             }
-            if (data.hasOwnProperty('askPricePreFactor')) {
+            if (data.hasOwnProperty('askPricePreFactor') && obj['askPricePreFactor'] === undefined) {
                 obj['askPricePreFactor'] = ApiClient.convertToType(data['askPricePreFactor'], 'Number');
             }
-            if (data.hasOwnProperty('CPREstimatePreFactor')) {
+            if (data.hasOwnProperty('CPREstimatePreFactor') && obj['CPREstimatePreFactor'] === undefined) {
                 obj['CPREstimatePreFactor'] = ApiClient.convertToType(data['CPREstimatePreFactor'], 'Number');
             }
-            if (data.hasOwnProperty('liquidity')) {
+            if (data.hasOwnProperty('liquidity') && obj['liquidity'] === undefined) {
                 obj['liquidity'] = ApiClient.convertToType(data['liquidity'], 'Number');
             }
-            if (data.hasOwnProperty('payUp')) {
+            if (data.hasOwnProperty('payUp') && obj['payUp'] === undefined) {
                 obj['payUp'] = ApiClient.convertToType(data['payUp'], 'Number');
             }
-            if (data.hasOwnProperty('payUpDescription')) {
+            if (data.hasOwnProperty('payUpDescription') && obj['payUpDescription'] === undefined) {
                 obj['payUpDescription'] = ApiClient.convertToType(data['payUpDescription'], 'String');
             }
-            if (data.hasOwnProperty('prePayRate')) {
+            if (data.hasOwnProperty('prePayRate') && obj['prePayRate'] === undefined) {
                 obj['prePayRate'] = ApiClient.convertToType(data['prePayRate'], 'Number');
             }
-            if (data.hasOwnProperty('prePayType')) {
+            if (data.hasOwnProperty('prePayType') && obj['prePayType'] === undefined) {
                 obj['prePayType'] = ApiClient.convertToType(data['prePayType'], 'String');
             }
-            if (data.hasOwnProperty('severity')) {
+            if (data.hasOwnProperty('severity') && obj['severity'] === undefined) {
                 obj['severity'] = ApiClient.convertToType(data['severity'], 'Number');
             }
-            if (data.hasOwnProperty('wal')) {
+            if (data.hasOwnProperty('wal') && obj['wal'] === undefined) {
                 obj['wal'] = ApiClient.convertToType(data['wal'], 'Number');
             }
-            if (data.hasOwnProperty('WALPrincipal')) {
+            if (data.hasOwnProperty('WALPrincipal') && obj['WALPrincipal'] === undefined) {
                 obj['WALPrincipal'] = ApiClient.convertToType(data['WALPrincipal'], 'Number');
             }
+            
         }
         return obj;
     }

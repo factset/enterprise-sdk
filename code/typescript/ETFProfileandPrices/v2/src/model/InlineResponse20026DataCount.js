@@ -47,15 +47,16 @@ class InlineResponse20026DataCount {
         if (data) {
             obj = obj || new InlineResponse20026DataCount();
 
-            if (data.hasOwnProperty('premium')) {
+            if (data.hasOwnProperty('premium') && obj['premium'] === undefined) {
                 obj['premium'] = ApiClient.convertToType(data['premium'], 'Number');
             }
-            if (data.hasOwnProperty('discount')) {
+            if (data.hasOwnProperty('discount') && obj['discount'] === undefined) {
                 obj['discount'] = ApiClient.convertToType(data['discount'], 'Number');
             }
-            if (data.hasOwnProperty('neutral')) {
+            if (data.hasOwnProperty('neutral') && obj['neutral'] === undefined) {
                 obj['neutral'] = ApiClient.convertToType(data['neutral'], 'Number');
             }
+            
         }
         return obj;
     }

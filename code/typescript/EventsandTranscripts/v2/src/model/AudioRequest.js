@@ -48,12 +48,13 @@ class AudioRequest {
         if (data) {
             obj = obj || new AudioRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AudioRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = AudioRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class CrossSectionalRequest {
         if (data) {
             obj = obj || new CrossSectionalRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CrossSectionalRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

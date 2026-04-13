@@ -51,21 +51,22 @@ class Fdc3Instrument {
         if (data) {
             obj = obj || new Fdc3Instrument();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('exchangeMic')) {
+            if (data.hasOwnProperty('exchangeMic') && obj['exchangeMic'] === undefined) {
                 obj['exchangeMic'] = ApiClient.convertToType(data['exchangeMic'], 'String');
             }
-            if (data.hasOwnProperty('exchangeMicFds')) {
+            if (data.hasOwnProperty('exchangeMicFds') && obj['exchangeMicFds'] === undefined) {
                 obj['exchangeMicFds'] = ApiClient.convertToType(data['exchangeMicFds'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = InstrumentID.constructFromObject(data['id']);
             }
+            
         }
         return obj;
     }

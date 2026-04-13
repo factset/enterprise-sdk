@@ -46,15 +46,16 @@ class SkillsModelAnalytics {
         if (data) {
             obj = obj || new SkillsModelAnalytics();
 
-            if (data.hasOwnProperty('buySkill')) {
+            if (data.hasOwnProperty('buySkill') && obj['buySkill'] === undefined) {
                 obj['buySkill'] = ApiClient.convertToType(data['buySkill'], 'Number');
             }
-            if (data.hasOwnProperty('sellSkill')) {
+            if (data.hasOwnProperty('sellSkill') && obj['sellSkill'] === undefined) {
                 obj['sellSkill'] = ApiClient.convertToType(data['sellSkill'], 'Number');
             }
-            if (data.hasOwnProperty('sizingSkill')) {
+            if (data.hasOwnProperty('sizingSkill') && obj['sizingSkill'] === undefined) {
                 obj['sizingSkill'] = ApiClient.convertToType(data['sizingSkill'], 'Number');
             }
+            
         }
         return obj;
     }

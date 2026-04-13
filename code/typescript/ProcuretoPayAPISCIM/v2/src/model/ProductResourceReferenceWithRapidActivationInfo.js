@@ -48,21 +48,22 @@ class ProductResourceReferenceWithRapidActivationInfo {
         if (data) {
             obj = obj || new ProductResourceReferenceWithRapidActivationInfo();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('$ref')) {
+            if (data.hasOwnProperty('$ref') && obj['$ref'] === undefined) {
                 obj['$ref'] = ApiClient.convertToType(data['$ref'], 'String');
             }
-            if (data.hasOwnProperty('display')) {
+            if (data.hasOwnProperty('display') && obj['display'] === undefined) {
                 obj['display'] = ApiClient.convertToType(data['display'], 'String');
             }
-            if (data.hasOwnProperty('rapidActivationStatus')) {
+            if (data.hasOwnProperty('rapidActivationStatus') && obj['rapidActivationStatus'] === undefined) {
                 obj['rapidActivationStatus'] = ApiClient.convertToType(data['rapidActivationStatus'], 'String');
             }
-            if (data.hasOwnProperty('activationHistoryMonths')) {
+            if (data.hasOwnProperty('activationHistoryMonths') && obj['activationHistoryMonths'] === undefined) {
                 obj['activationHistoryMonths'] = ApiClient.convertToType(data['activationHistoryMonths'], ['String']);
             }
+            
         }
         return obj;
     }

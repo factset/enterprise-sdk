@@ -47,9 +47,10 @@ class InlineResponse2002 {
         if (data) {
             obj = obj || new InlineResponse2002();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FieldProperties]);
             }
+            
         }
         return obj;
     }

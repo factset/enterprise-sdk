@@ -47,15 +47,16 @@ class TranscriptsByTimesRequest {
         if (data) {
             obj = obj || new TranscriptsByTimesRequest();
 
-            if (data.hasOwnProperty('startDateTime')) {
+            if (data.hasOwnProperty('startDateTime') && obj['startDateTime'] === undefined) {
                 obj['startDateTime'] = ApiClient.convertToType(data['startDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('endDateTime')) {
+            if (data.hasOwnProperty('endDateTime') && obj['endDateTime'] === undefined) {
                 obj['endDateTime'] = ApiClient.convertToType(data['endDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('dateType')) {
+            if (data.hasOwnProperty('dateType') && obj['dateType'] === undefined) {
                 obj['dateType'] = ApiClient.convertToType(data['dateType'], 'String');
             }
+            
         }
         return obj;
     }

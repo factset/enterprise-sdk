@@ -46,30 +46,31 @@ class BenchmarkRatios {
         if (data) {
             obj = obj || new BenchmarkRatios();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = ApiClient.convertToType(data['periodicity'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

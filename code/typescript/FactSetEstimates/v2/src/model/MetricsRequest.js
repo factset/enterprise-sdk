@@ -49,12 +49,13 @@ class MetricsRequest {
         if (data) {
             obj = obj || new MetricsRequest();
 
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = Category.constructFromObject(data['category']);
             }
-            if (data.hasOwnProperty('subcategory')) {
+            if (data.hasOwnProperty('subcategory') && obj['subcategory'] === undefined) {
                 obj['subcategory'] = Subcategory.constructFromObject(data['subcategory']);
             }
+            
         }
         return obj;
     }

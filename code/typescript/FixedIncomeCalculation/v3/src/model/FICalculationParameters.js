@@ -54,15 +54,16 @@ class FICalculationParameters {
         if (data) {
             obj = obj || new FICalculationParameters();
 
-            if (data.hasOwnProperty('securities')) {
+            if (data.hasOwnProperty('securities') && obj['securities'] === undefined) {
                 obj['securities'] = ApiClient.convertToType(data['securities'], [FISecurity]);
             }
-            if (data.hasOwnProperty('calculations')) {
+            if (data.hasOwnProperty('calculations') && obj['calculations'] === undefined) {
                 obj['calculations'] = ApiClient.convertToType(data['calculations'], ['String']);
             }
-            if (data.hasOwnProperty('jobSettings')) {
+            if (data.hasOwnProperty('jobSettings') && obj['jobSettings'] === undefined) {
                 obj['jobSettings'] = FIJobSettings.constructFromObject(data['jobSettings']);
             }
+            
         }
         return obj;
     }

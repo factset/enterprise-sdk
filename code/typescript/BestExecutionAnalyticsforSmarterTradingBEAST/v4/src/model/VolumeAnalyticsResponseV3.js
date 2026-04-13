@@ -48,18 +48,19 @@ class VolumeAnalyticsResponseV3 {
         if (data) {
             obj = obj || new VolumeAnalyticsResponseV3();
 
-            if (data.hasOwnProperty('volumeAnalytics')) {
+            if (data.hasOwnProperty('volumeAnalytics') && obj['volumeAnalytics'] === undefined) {
                 obj['volumeAnalytics'] = ApiClient.convertToType(data['volumeAnalytics'], [VolumeAnalytic]);
             }
-            if (data.hasOwnProperty('securityId')) {
+            if (data.hasOwnProperty('securityId') && obj['securityId'] === undefined) {
                 obj['securityId'] = ApiClient.convertToType(data['securityId'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
+            
         }
         return obj;
     }

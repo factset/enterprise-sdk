@@ -48,12 +48,13 @@ class PostOptionByClassValueRangesGetRequestDataLifeCycleMaturity {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataLifeCycleMaturity();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = PostOptionByClassValueRangesGetRequestDataLifeCycleMaturityDate.constructFromObject(data['date']);
             }
-            if (data.hasOwnProperty('interval')) {
+            if (data.hasOwnProperty('interval') && obj['interval'] === undefined) {
                 obj['interval'] = ApiClient.convertToType(data['interval'], ['String']);
             }
+            
         }
         return obj;
     }

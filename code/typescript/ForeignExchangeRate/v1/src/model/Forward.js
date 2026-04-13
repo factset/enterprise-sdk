@@ -46,27 +46,28 @@ class Forward {
         if (data) {
             obj = obj || new Forward();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('currencyName')) {
+            if (data.hasOwnProperty('currencyName') && obj['currencyName'] === undefined) {
                 obj['currencyName'] = ApiClient.convertToType(data['currencyName'], 'String');
             }
-            if (data.hasOwnProperty('forwardBid')) {
+            if (data.hasOwnProperty('forwardBid') && obj['forwardBid'] === undefined) {
                 obj['forwardBid'] = ApiClient.convertToType(data['forwardBid'], 'Number');
             }
-            if (data.hasOwnProperty('forwardMid')) {
+            if (data.hasOwnProperty('forwardMid') && obj['forwardMid'] === undefined) {
                 obj['forwardMid'] = ApiClient.convertToType(data['forwardMid'], 'Number');
             }
-            if (data.hasOwnProperty('forwardAsk')) {
+            if (data.hasOwnProperty('forwardAsk') && obj['forwardAsk'] === undefined) {
                 obj['forwardAsk'] = ApiClient.convertToType(data['forwardAsk'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('forwardPeriod')) {
+            if (data.hasOwnProperty('forwardPeriod') && obj['forwardPeriod'] === undefined) {
                 obj['forwardPeriod'] = ApiClient.convertToType(data['forwardPeriod'], 'String');
             }
+            
         }
         return obj;
     }

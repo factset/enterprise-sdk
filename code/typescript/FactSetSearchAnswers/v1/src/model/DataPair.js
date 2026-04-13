@@ -50,12 +50,13 @@ class DataPair {
         if (data) {
             obj = obj || new DataPair();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
+            
         }
         return obj;
     }

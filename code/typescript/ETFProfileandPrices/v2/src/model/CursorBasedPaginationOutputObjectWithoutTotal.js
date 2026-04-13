@@ -51,12 +51,13 @@ class CursorBasedPaginationOutputObjectWithoutTotal {
         if (data) {
             obj = obj || new CursorBasedPaginationOutputObjectWithoutTotal();
 
-            if (data.hasOwnProperty('next')) {
+            if (data.hasOwnProperty('next') && obj['next'] === undefined) {
                 obj['next'] = ApiClient.convertToType(data['next'], 'String');
             }
-            if (data.hasOwnProperty('previous')) {
+            if (data.hasOwnProperty('previous') && obj['previous'] === undefined) {
                 obj['previous'] = ApiClient.convertToType(data['previous'], 'String');
             }
+            
         }
         return obj;
     }

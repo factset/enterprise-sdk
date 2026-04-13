@@ -48,9 +48,10 @@ class InlineResponse20014EsgTruvalueLabsSdg {
         if (data) {
             obj = obj || new InlineResponse20014EsgTruvalueLabsSdg();
 
-            if (data.hasOwnProperty('impact')) {
+            if (data.hasOwnProperty('impact') && obj['impact'] === undefined) {
                 obj['impact'] = InlineResponse20014EsgTruvalueLabsSdgImpact.constructFromObject(data['impact']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class IsinHistoryTranslationResponse {
         if (data) {
             obj = obj || new IsinHistoryTranslationResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [IsinHistoryTranslation]);
             }
+            
         }
         return obj;
     }

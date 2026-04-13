@@ -48,12 +48,12 @@ class DateAndFieldsObject {
         if (data) {
             obj = obj || new DateAndFieldsObject();
 
-            ApiClient.constructFromObject(data, obj, 'DataValue');
-            
-
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
+            
+            ApiClient.constructFromObject(data, obj, DataValue);
+            
         }
         return obj;
     }

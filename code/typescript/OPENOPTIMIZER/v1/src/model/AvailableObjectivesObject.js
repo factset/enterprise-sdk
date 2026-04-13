@@ -47,21 +47,22 @@ class AvailableObjectivesObject {
         if (data) {
             obj = obj || new AvailableObjectivesObject();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('tags')) {
+            if (data.hasOwnProperty('tags') && obj['tags'] === undefined) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
-            if (data.hasOwnProperty('terms')) {
+            if (data.hasOwnProperty('terms') && obj['terms'] === undefined) {
                 obj['terms'] = ApiClient.convertToType(data['terms'], {'String': AvailableTermsObject});
             }
+            
         }
         return obj;
     }

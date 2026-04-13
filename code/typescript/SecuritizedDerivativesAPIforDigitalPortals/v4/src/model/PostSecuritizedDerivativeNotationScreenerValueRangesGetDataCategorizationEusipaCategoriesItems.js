@@ -48,18 +48,19 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationE
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationEusipaCategoriesItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('parent')) {
+            if (data.hasOwnProperty('parent') && obj['parent'] === undefined) {
                 obj['parent'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationEusipaCategoriesItemsParent.constructFromObject(data['parent']);
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
+            
         }
         return obj;
     }

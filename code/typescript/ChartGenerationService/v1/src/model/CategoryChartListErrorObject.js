@@ -47,12 +47,13 @@ class CategoryChartListErrorObject {
         if (data) {
             obj = obj || new CategoryChartListErrorObject();
 
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('chartList')) {
+            if (data.hasOwnProperty('chartList') && obj['chartList'] === undefined) {
                 obj['chartList'] = ApiClient.convertToType(data['chartList'], [ChartList]);
             }
+            
         }
         return obj;
     }

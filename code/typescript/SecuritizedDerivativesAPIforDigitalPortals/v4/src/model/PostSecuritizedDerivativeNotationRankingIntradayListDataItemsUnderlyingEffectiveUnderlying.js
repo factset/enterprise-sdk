@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlyingEff
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlyingEffectiveUnderlying();
 
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlyingEffectiveUnderlyingInstrument.constructFromObject(data['instrument']);
             }
+            
         }
         return obj;
     }

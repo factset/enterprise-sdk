@@ -46,30 +46,31 @@ class EntityReferenceChi {
         if (data) {
             obj = obj || new EntityReferenceChi();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('fsymEntityId')) {
+            if (data.hasOwnProperty('fsymEntityId') && obj['fsymEntityId'] === undefined) {
                 obj['fsymEntityId'] = ApiClient.convertToType(data['fsymEntityId'], 'String');
             }
-            if (data.hasOwnProperty('simplifiedChineseName')) {
+            if (data.hasOwnProperty('simplifiedChineseName') && obj['simplifiedChineseName'] === undefined) {
                 obj['simplifiedChineseName'] = ApiClient.convertToType(data['simplifiedChineseName'], 'String');
             }
-            if (data.hasOwnProperty('traditionalChineseName')) {
+            if (data.hasOwnProperty('traditionalChineseName') && obj['traditionalChineseName'] === undefined) {
                 obj['traditionalChineseName'] = ApiClient.convertToType(data['traditionalChineseName'], 'String');
             }
-            if (data.hasOwnProperty('entityProperName')) {
+            if (data.hasOwnProperty('entityProperName') && obj['entityProperName'] === undefined) {
                 obj['entityProperName'] = ApiClient.convertToType(data['entityProperName'], 'String');
             }
-            if (data.hasOwnProperty('simplifiedChineseDescription')) {
+            if (data.hasOwnProperty('simplifiedChineseDescription') && obj['simplifiedChineseDescription'] === undefined) {
                 obj['simplifiedChineseDescription'] = ApiClient.convertToType(data['simplifiedChineseDescription'], 'String');
             }
-            if (data.hasOwnProperty('traditionalChineseDescription')) {
+            if (data.hasOwnProperty('traditionalChineseDescription') && obj['traditionalChineseDescription'] === undefined) {
                 obj['traditionalChineseDescription'] = ApiClient.convertToType(data['traditionalChineseDescription'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

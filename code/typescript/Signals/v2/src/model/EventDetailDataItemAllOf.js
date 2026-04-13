@@ -52,15 +52,16 @@ class EventDetailDataItemAllOf {
         if (data) {
             obj = obj || new EventDetailDataItemAllOf();
 
-            if (data.hasOwnProperty('created')) {
+            if (data.hasOwnProperty('created') && obj['created'] === undefined) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Date');
             }
-            if (data.hasOwnProperty('updated')) {
+            if (data.hasOwnProperty('updated') && obj['updated'] === undefined) {
                 obj['updated'] = ApiClient.convertToType(data['updated'], 'Date');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = ApiClient.convertToType(data['details'], {'String': Object});
             }
+            
         }
         return obj;
     }

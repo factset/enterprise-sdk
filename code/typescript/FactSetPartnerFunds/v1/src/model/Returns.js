@@ -47,36 +47,37 @@ class Returns {
         if (data) {
             obj = obj || new Returns();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('oneMonth')) {
+            if (data.hasOwnProperty('oneMonth') && obj['oneMonth'] === undefined) {
                 obj['oneMonth'] = ApiClient.convertToType(data['oneMonth'], 'Number');
             }
-            if (data.hasOwnProperty('threeMonths')) {
+            if (data.hasOwnProperty('threeMonths') && obj['threeMonths'] === undefined) {
                 obj['threeMonths'] = ApiClient.convertToType(data['threeMonths'], 'Number');
             }
-            if (data.hasOwnProperty('sixMonths')) {
+            if (data.hasOwnProperty('sixMonths') && obj['sixMonths'] === undefined) {
                 obj['sixMonths'] = ApiClient.convertToType(data['sixMonths'], 'Number');
             }
-            if (data.hasOwnProperty('yearToDate')) {
+            if (data.hasOwnProperty('yearToDate') && obj['yearToDate'] === undefined) {
                 obj['yearToDate'] = ApiClient.convertToType(data['yearToDate'], 'Number');
             }
-            if (data.hasOwnProperty('annualizedOneYear')) {
+            if (data.hasOwnProperty('annualizedOneYear') && obj['annualizedOneYear'] === undefined) {
                 obj['annualizedOneYear'] = ApiClient.convertToType(data['annualizedOneYear'], 'Number');
             }
-            if (data.hasOwnProperty('annualizedThreeYears')) {
+            if (data.hasOwnProperty('annualizedThreeYears') && obj['annualizedThreeYears'] === undefined) {
                 obj['annualizedThreeYears'] = ApiClient.convertToType(data['annualizedThreeYears'], 'Number');
             }
-            if (data.hasOwnProperty('annualizedFiveYears')) {
+            if (data.hasOwnProperty('annualizedFiveYears') && obj['annualizedFiveYears'] === undefined) {
                 obj['annualizedFiveYears'] = ApiClient.convertToType(data['annualizedFiveYears'], 'Number');
             }
-            if (data.hasOwnProperty('annualizedTenYears')) {
+            if (data.hasOwnProperty('annualizedTenYears') && obj['annualizedTenYears'] === undefined) {
                 obj['annualizedTenYears'] = ApiClient.convertToType(data['annualizedTenYears'], 'Number');
             }
-            if (data.hasOwnProperty('annualizedSinceInception')) {
+            if (data.hasOwnProperty('annualizedSinceInception') && obj['annualizedSinceInception'] === undefined) {
                 obj['annualizedSinceInception'] = ApiClient.convertToType(data['annualizedSinceInception'], 'Number');
             }
+            
         }
         return obj;
     }

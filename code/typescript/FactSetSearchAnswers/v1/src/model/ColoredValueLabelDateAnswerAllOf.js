@@ -49,9 +49,10 @@ class ColoredValueLabelDateAnswerAllOf {
         if (data) {
             obj = obj || new ColoredValueLabelDateAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = ColoredValueLabelDateTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

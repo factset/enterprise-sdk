@@ -48,9 +48,10 @@ class StructuredFiltersWatchlists {
         if (data) {
             obj = obj || new StructuredFiltersWatchlists();
 
-            if (data.hasOwnProperty('watchlists')) {
+            if (data.hasOwnProperty('watchlists') && obj['watchlists'] === undefined) {
                 obj['watchlists'] = ApiClient.convertToType(data['watchlists'], [StructuredFiltersWatchlistsObject]);
             }
+            
         }
         return obj;
     }

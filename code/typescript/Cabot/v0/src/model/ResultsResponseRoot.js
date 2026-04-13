@@ -47,9 +47,10 @@ class ResultsResponseRoot {
         if (data) {
             obj = obj || new ResultsResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ResultsResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

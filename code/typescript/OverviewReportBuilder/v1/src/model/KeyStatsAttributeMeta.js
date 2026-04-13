@@ -48,24 +48,25 @@ class KeyStatsAttributeMeta {
         if (data) {
             obj = obj || new KeyStatsAttributeMeta();
 
-            if (data.hasOwnProperty('currencyCode')) {
+            if (data.hasOwnProperty('currencyCode') && obj['currencyCode'] === undefined) {
                 obj['currencyCode'] = KeyStatsAttributeMetaCurrencyCode.constructFromObject(data['currencyCode']);
             }
-            if (data.hasOwnProperty('currencySymbol')) {
+            if (data.hasOwnProperty('currencySymbol') && obj['currencySymbol'] === undefined) {
                 obj['currencySymbol'] = KeyStatsAttributeMetaCurrencyCode.constructFromObject(data['currencySymbol']);
             }
-            if (data.hasOwnProperty('metricType')) {
+            if (data.hasOwnProperty('metricType') && obj['metricType'] === undefined) {
                 obj['metricType'] = KeyStatsAttributeMetaCurrencyCode.constructFromObject(data['metricType']);
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['periodicity']);
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = KeyStatsAttributeMetaCurrencyCode.constructFromObject(data['ticker']);
             }
-            if (data.hasOwnProperty('units')) {
+            if (data.hasOwnProperty('units') && obj['units'] === undefined) {
                 obj['units'] = KeyStatsAttributeMetaCurrencyCode.constructFromObject(data['units']);
             }
+            
         }
         return obj;
     }

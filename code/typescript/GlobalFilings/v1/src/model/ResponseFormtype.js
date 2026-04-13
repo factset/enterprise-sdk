@@ -48,9 +48,10 @@ class ResponseFormtype {
         if (data) {
             obj = obj || new ResponseFormtype();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ResponseFormtypeObject]);
             }
+            
         }
         return obj;
     }

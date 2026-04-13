@@ -48,12 +48,13 @@ class GetFilesStatus {
         if (data) {
             obj = obj || new GetFilesStatus();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = GetFilesErrorDetail.constructFromObject(data['details']);
             }
+            
         }
         return obj;
     }

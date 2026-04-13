@@ -47,15 +47,16 @@ class ConstructionModelAnalyticsActiveWeightsMaxOver {
         if (data) {
             obj = obj || new ConstructionModelAnalyticsActiveWeightsMaxOver();
 
-            if (data.hasOwnProperty('large')) {
+            if (data.hasOwnProperty('large') && obj['large'] === undefined) {
                 obj['large'] = ApiClient.convertToType(data['large'], 'Number');
             }
-            if (data.hasOwnProperty('medium')) {
+            if (data.hasOwnProperty('medium') && obj['medium'] === undefined) {
                 obj['medium'] = ApiClient.convertToType(data['medium'], 'Number');
             }
-            if (data.hasOwnProperty('small')) {
+            if (data.hasOwnProperty('small') && obj['small'] === undefined) {
                 obj['small'] = ApiClient.convertToType(data['small'], 'Number');
             }
+            
         }
         return obj;
     }

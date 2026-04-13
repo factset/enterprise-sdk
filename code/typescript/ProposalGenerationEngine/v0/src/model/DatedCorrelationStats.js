@@ -48,12 +48,13 @@ class DatedCorrelationStats {
         if (data) {
             obj = obj || new DatedCorrelationStats();
 
-            if (data.hasOwnProperty('timeWindow')) {
+            if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': DatedCorrelationStatsPerTimeWindow});
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ApiClient.convertToType(data['periods'], [PeriodCorrelationStats]);
             }
+            
         }
         return obj;
     }

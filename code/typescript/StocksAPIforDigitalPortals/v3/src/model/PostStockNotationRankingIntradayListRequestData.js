@@ -56,33 +56,34 @@ class PostStockNotationRankingIntradayListRequestData {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestData();
 
-            if (data.hasOwnProperty('prices')) {
+            if (data.hasOwnProperty('prices') && obj['prices'] === undefined) {
                 obj['prices'] = PostStockNotationRankingIntradayListRequestDataPrices.constructFromObject(data['prices']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostStockNotationRankingIntradayListRequestDataCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostStockNotationRankingIntradayListRequestDataMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('instrumentRestrictionList')) {
+            if (data.hasOwnProperty('instrumentRestrictionList') && obj['instrumentRestrictionList'] === undefined) {
                 obj['instrumentRestrictionList'] = PostStockNotationRankingIntradayListRequestDataInstrumentRestrictionList.constructFromObject(data['instrumentRestrictionList']);
             }
-            if (data.hasOwnProperty('notationRestrictionList')) {
+            if (data.hasOwnProperty('notationRestrictionList') && obj['notationRestrictionList'] === undefined) {
                 obj['notationRestrictionList'] = PostStockNotationRankingIntradayListRequestDataNotationRestrictionList.constructFromObject(data['notationRestrictionList']);
             }
-            if (data.hasOwnProperty('industryClassification')) {
+            if (data.hasOwnProperty('industryClassification') && obj['industryClassification'] === undefined) {
                 obj['industryClassification'] = PostStockNotationRankingIntradayListRequestDataIndustryClassification.constructFromObject(data['industryClassification']);
             }
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = PostStockNotationRankingIntradayListRequestDataCompany.constructFromObject(data['company']);
             }
-            if (data.hasOwnProperty('indexMembership')) {
+            if (data.hasOwnProperty('indexMembership') && obj['indexMembership'] === undefined) {
                 obj['indexMembership'] = PostStockNotationRankingIntradayListRequestDataIndexMembership.constructFromObject(data['indexMembership']);
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = PostStockNotationRankingIntradayListRequestDataPerformance.constructFromObject(data['performance']);
             }
+            
         }
         return obj;
     }

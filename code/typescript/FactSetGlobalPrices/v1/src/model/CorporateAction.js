@@ -47,39 +47,39 @@ class CorporateAction {
         if (data) {
             obj = obj || new CorporateAction();
 
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
-
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('eventTypeCode')) {
+            if (data.hasOwnProperty('eventTypeCode') && obj['eventTypeCode'] === undefined) {
                 obj['eventTypeCode'] = ApiClient.convertToType(data['eventTypeCode'], 'String');
             }
-            if (data.hasOwnProperty('eventTypeDesc')) {
+            if (data.hasOwnProperty('eventTypeDesc') && obj['eventTypeDesc'] === undefined) {
                 obj['eventTypeDesc'] = ApiClient.convertToType(data['eventTypeDesc'], 'String');
             }
-            if (data.hasOwnProperty('divTypeCode')) {
+            if (data.hasOwnProperty('divTypeCode') && obj['divTypeCode'] === undefined) {
                 obj['divTypeCode'] = ApiClient.convertToType(data['divTypeCode'], 'String');
             }
-            if (data.hasOwnProperty('announcementDate')) {
+            if (data.hasOwnProperty('announcementDate') && obj['announcementDate'] === undefined) {
                 obj['announcementDate'] = ApiClient.convertToType(data['announcementDate'], 'String');
             }
-            if (data.hasOwnProperty('recordDate')) {
+            if (data.hasOwnProperty('recordDate') && obj['recordDate'] === undefined) {
                 obj['recordDate'] = ApiClient.convertToType(data['recordDate'], 'String');
             }
-            if (data.hasOwnProperty('payDate')) {
+            if (data.hasOwnProperty('payDate') && obj['payDate'] === undefined) {
                 obj['payDate'] = ApiClient.convertToType(data['payDate'], 'String');
             }
-            if (data.hasOwnProperty('effectiveDate')) {
+            if (data.hasOwnProperty('effectiveDate') && obj['effectiveDate'] === undefined) {
                 obj['effectiveDate'] = ApiClient.convertToType(data['effectiveDate'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
+            ApiClient.constructFromObject(data, obj, Object);
+            
         }
         return obj;
     }

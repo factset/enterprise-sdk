@@ -47,9 +47,10 @@ class LookupLimit {
         if (data) {
             obj = obj || new LookupLimit();
 
-            if (data.hasOwnProperty('result_limit')) {
+            if (data.hasOwnProperty('result_limit') && obj['result_limit'] === undefined) {
                 obj['result_limit'] = ApiClient.convertToType(data['result_limit'], 'Number');
             }
+            
         }
         return obj;
     }

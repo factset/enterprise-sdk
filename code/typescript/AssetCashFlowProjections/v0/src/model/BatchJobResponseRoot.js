@@ -46,9 +46,10 @@ class BatchJobResponseRoot {
         if (data) {
             obj = obj || new BatchJobResponseRoot();
 
-            if (data.hasOwnProperty('batchId')) {
+            if (data.hasOwnProperty('batchId') && obj['batchId'] === undefined) {
                 obj['batchId'] = ApiClient.convertToType(data['batchId'], 'String');
             }
+            
         }
         return obj;
     }

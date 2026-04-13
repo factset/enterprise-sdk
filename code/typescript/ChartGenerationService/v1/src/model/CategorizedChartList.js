@@ -47,6 +47,7 @@ class CategorizedChartList extends Array {
      * @return {module:model/CategorizedChartList} The populated <code>CategorizedChartList</code> instance.
      */
     static constructFromObject(data, obj) {
+        throw new Error("Failed to construct CategorizedChartList due to oneOf-schemas not matching the data: " + data);
     }
 
 

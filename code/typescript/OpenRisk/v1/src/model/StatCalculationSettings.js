@@ -47,42 +47,43 @@ class StatCalculationSettings {
         if (data) {
             obj = obj || new StatCalculationSettings();
 
-            if (data.hasOwnProperty('useAbsoluteWeightsForLotExpansion')) {
+            if (data.hasOwnProperty('useAbsoluteWeightsForLotExpansion') && obj['useAbsoluteWeightsForLotExpansion'] === undefined) {
                 obj['useAbsoluteWeightsForLotExpansion'] = ApiClient.convertToType(data['useAbsoluteWeightsForLotExpansion'], 'Boolean');
             }
-            if (data.hasOwnProperty('covarianceTimesTwo')) {
+            if (data.hasOwnProperty('covarianceTimesTwo') && obj['covarianceTimesTwo'] === undefined) {
                 obj['covarianceTimesTwo'] = ApiClient.convertToType(data['covarianceTimesTwo'], 'Boolean');
             }
-            if (data.hasOwnProperty('covarianceTimesTwoTerm')) {
+            if (data.hasOwnProperty('covarianceTimesTwoTerm') && obj['covarianceTimesTwoTerm'] === undefined) {
                 obj['covarianceTimesTwoTerm'] = ApiClient.convertToType(data['covarianceTimesTwoTerm'], 'Boolean');
             }
-            if (data.hasOwnProperty('correlatedSpecificRisk')) {
+            if (data.hasOwnProperty('correlatedSpecificRisk') && obj['correlatedSpecificRisk'] === undefined) {
                 obj['correlatedSpecificRisk'] = ApiClient.convertToType(data['correlatedSpecificRisk'], 'Boolean');
             }
-            if (data.hasOwnProperty('sparse')) {
+            if (data.hasOwnProperty('sparse') && obj['sparse'] === undefined) {
                 obj['sparse'] = ApiClient.convertToType(data['sparse'], 'Boolean');
             }
-            if (data.hasOwnProperty('horizon')) {
+            if (data.hasOwnProperty('horizon') && obj['horizon'] === undefined) {
                 obj['horizon'] = ApiClient.convertToType(data['horizon'], 'Number');
             }
-            if (data.hasOwnProperty('daysPerYear')) {
+            if (data.hasOwnProperty('daysPerYear') && obj['daysPerYear'] === undefined) {
                 obj['daysPerYear'] = ApiClient.convertToType(data['daysPerYear'], 'Number');
             }
-            if (data.hasOwnProperty('confidenceLevel')) {
+            if (data.hasOwnProperty('confidenceLevel') && obj['confidenceLevel'] === undefined) {
                 obj['confidenceLevel'] = ApiClient.convertToType(data['confidenceLevel'], 'Number');
             }
-            if (data.hasOwnProperty('lamda')) {
+            if (data.hasOwnProperty('lamda') && obj['lamda'] === undefined) {
                 obj['lamda'] = ApiClient.convertToType(data['lamda'], 'Number');
             }
-            if (data.hasOwnProperty('specificToFactorRatio')) {
+            if (data.hasOwnProperty('specificToFactorRatio') && obj['specificToFactorRatio'] === undefined) {
                 obj['specificToFactorRatio'] = ApiClient.convertToType(data['specificToFactorRatio'], 'Number');
             }
-            if (data.hasOwnProperty('rapSys')) {
+            if (data.hasOwnProperty('rapSys') && obj['rapSys'] === undefined) {
                 obj['rapSys'] = ApiClient.convertToType(data['rapSys'], 'Number');
             }
-            if (data.hasOwnProperty('rapUnsys')) {
+            if (data.hasOwnProperty('rapUnsys') && obj['rapUnsys'] === undefined) {
                 obj['rapUnsys'] = ApiClient.convertToType(data['rapUnsys'], 'Number');
             }
+            
         }
         return obj;
     }

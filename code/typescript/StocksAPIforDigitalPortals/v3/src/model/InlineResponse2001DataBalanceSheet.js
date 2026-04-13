@@ -57,36 +57,37 @@ class InlineResponse2001DataBalanceSheet {
         if (data) {
             obj = obj || new InlineResponse2001DataBalanceSheet();
 
-            if (data.hasOwnProperty('cashAndShortTermInvestments')) {
+            if (data.hasOwnProperty('cashAndShortTermInvestments') && obj['cashAndShortTermInvestments'] === undefined) {
                 obj['cashAndShortTermInvestments'] = InlineResponse2001DataBalanceSheetCashAndShortTermInvestments.constructFromObject(data['cashAndShortTermInvestments']);
             }
-            if (data.hasOwnProperty('totalAssets')) {
+            if (data.hasOwnProperty('totalAssets') && obj['totalAssets'] === undefined) {
                 obj['totalAssets'] = InlineResponse2001DataBalanceSheetTotalAssets.constructFromObject(data['totalAssets']);
             }
-            if (data.hasOwnProperty('totalDebt')) {
+            if (data.hasOwnProperty('totalDebt') && obj['totalDebt'] === undefined) {
                 obj['totalDebt'] = InlineResponse2001DataBalanceSheetTotalDebt.constructFromObject(data['totalDebt']);
             }
-            if (data.hasOwnProperty('netDebt')) {
+            if (data.hasOwnProperty('netDebt') && obj['netDebt'] === undefined) {
                 obj['netDebt'] = InlineResponse2001DataBalanceSheetNetDebt.constructFromObject(data['netDebt']);
             }
-            if (data.hasOwnProperty('totalLiabilities')) {
+            if (data.hasOwnProperty('totalLiabilities') && obj['totalLiabilities'] === undefined) {
                 obj['totalLiabilities'] = InlineResponse2001DataBalanceSheetTotalLiabilities.constructFromObject(data['totalLiabilities']);
             }
-            if (data.hasOwnProperty('totalShareholdersEquity')) {
+            if (data.hasOwnProperty('totalShareholdersEquity') && obj['totalShareholdersEquity'] === undefined) {
                 obj['totalShareholdersEquity'] = InlineResponse2001DataBalanceSheetTotalShareholdersEquity.constructFromObject(data['totalShareholdersEquity']);
             }
-            if (data.hasOwnProperty('totalLoans')) {
+            if (data.hasOwnProperty('totalLoans') && obj['totalLoans'] === undefined) {
                 obj['totalLoans'] = InlineResponse2001DataBalanceSheetTotalLoans.constructFromObject(data['totalLoans']);
             }
-            if (data.hasOwnProperty('cashAndDueFromBanks')) {
+            if (data.hasOwnProperty('cashAndDueFromBanks') && obj['cashAndDueFromBanks'] === undefined) {
                 obj['cashAndDueFromBanks'] = InlineResponse2001DataBalanceSheetCashAndDueFromBanks.constructFromObject(data['cashAndDueFromBanks']);
             }
-            if (data.hasOwnProperty('totalDeposits')) {
+            if (data.hasOwnProperty('totalDeposits') && obj['totalDeposits'] === undefined) {
                 obj['totalDeposits'] = InlineResponse2001DataBalanceSheetTotalDeposits.constructFromObject(data['totalDeposits']);
             }
-            if (data.hasOwnProperty('totalCash')) {
+            if (data.hasOwnProperty('totalCash') && obj['totalCash'] === undefined) {
                 obj['totalCash'] = InlineResponse2001DataBalanceSheetTotalCash.constructFromObject(data['totalCash']);
             }
+            
         }
         return obj;
     }

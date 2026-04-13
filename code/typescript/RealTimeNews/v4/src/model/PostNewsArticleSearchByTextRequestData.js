@@ -49,12 +49,13 @@ class PostNewsArticleSearchByTextRequestData {
         if (data) {
             obj = obj || new PostNewsArticleSearchByTextRequestData();
 
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = PostNewsArticleSearchByTextRequestDataText.constructFromObject(data['text']);
             }
-            if (data.hasOwnProperty('criteria')) {
+            if (data.hasOwnProperty('criteria') && obj['criteria'] === undefined) {
                 obj['criteria'] = ApiClient.convertToType(data['criteria'], [PostNewsArticleSearchByTextDataCriteriaItems]);
             }
+            
         }
         return obj;
     }

@@ -47,18 +47,19 @@ class ClientUploadResponseParameters {
         if (data) {
             obj = obj || new ClientUploadResponseParameters();
 
-            if (data.hasOwnProperty('expirationTime')) {
+            if (data.hasOwnProperty('expirationTime') && obj['expirationTime'] === undefined) {
                 obj['expirationTime'] = ApiClient.convertToType(data['expirationTime'], 'Date');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('signedUrl')) {
+            if (data.hasOwnProperty('signedUrl') && obj['signedUrl'] === undefined) {
                 obj['signedUrl'] = ApiClient.convertToType(data['signedUrl'], 'String');
             }
-            if (data.hasOwnProperty('uploadId')) {
+            if (data.hasOwnProperty('uploadId') && obj['uploadId'] === undefined) {
                 obj['uploadId'] = ApiClient.convertToType(data['uploadId'], 'String');
             }
+            
         }
         return obj;
     }

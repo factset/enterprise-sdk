@@ -49,15 +49,16 @@ class PostNewsArticleListRequestMeta {
         if (data) {
             obj = obj || new PostNewsArticleListRequestMeta();
 
-            if (data.hasOwnProperty('attributes')) {
+            if (data.hasOwnProperty('attributes') && obj['attributes'] === undefined) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], ['String']);
             }
-            if (data.hasOwnProperty('subscription')) {
+            if (data.hasOwnProperty('subscription') && obj['subscription'] === undefined) {
                 obj['subscription'] = PostNewsArticleListRequestMetaSubscription.constructFromObject(data['subscription']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = PostNewsArticleListRequestMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

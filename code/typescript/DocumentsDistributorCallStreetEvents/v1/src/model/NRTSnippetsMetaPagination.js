@@ -46,18 +46,19 @@ class NRTSnippetsMetaPagination {
         if (data) {
             obj = obj || new NRTSnippetsMetaPagination();
 
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = ApiClient.convertToType(data['total'], 'Number');
             }
-            if (data.hasOwnProperty('isEstimatedTotal')) {
+            if (data.hasOwnProperty('isEstimatedTotal') && obj['isEstimatedTotal'] === undefined) {
                 obj['isEstimatedTotal'] = ApiClient.convertToType(data['isEstimatedTotal'], 'Boolean');
             }
-            if (data.hasOwnProperty('limit')) {
+            if (data.hasOwnProperty('limit') && obj['limit'] === undefined) {
                 obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
-            if (data.hasOwnProperty('offset')) {
+            if (data.hasOwnProperty('offset') && obj['offset'] === undefined) {
                 obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
             }
+            
         }
         return obj;
     }

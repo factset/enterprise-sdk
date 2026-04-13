@@ -51,21 +51,22 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKno
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKnockOut();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLockInObservation.constructFromObject(data['observation']);
             }
-            if (data.hasOwnProperty('upper')) {
+            if (data.hasOwnProperty('upper') && obj['upper'] === undefined) {
                 obj['upper'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKnockOutUpper.constructFromObject(data['upper']);
             }
-            if (data.hasOwnProperty('lower')) {
+            if (data.hasOwnProperty('lower') && obj['lower'] === undefined) {
                 obj['lower'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKnockOutLower.constructFromObject(data['lower']);
             }
-            if (data.hasOwnProperty('breach')) {
+            if (data.hasOwnProperty('breach') && obj['breach'] === undefined) {
                 obj['breach'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKnockOutBreach.constructFromObject(data['breach']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = ApiClient.convertToType(data['cashFlow'], 'Number');
             }
+            
         }
         return obj;
     }

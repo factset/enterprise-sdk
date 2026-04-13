@@ -60,24 +60,25 @@ class MinutesbarRequestBody {
         if (data) {
             obj = obj || new MinutesbarRequestBody();
 
-            if (data.hasOwnProperty('tickers')) {
+            if (data.hasOwnProperty('tickers') && obj['tickers'] === undefined) {
                 obj['tickers'] = ApiClient.convertToType(data['tickers'], ['String']);
             }
-            if (data.hasOwnProperty('factsetExchangeCode')) {
+            if (data.hasOwnProperty('factsetExchangeCode') && obj['factsetExchangeCode'] === undefined) {
                 obj['factsetExchangeCode'] = ApiClient.convertToType(data['factsetExchangeCode'], 'String');
             }
-            if (data.hasOwnProperty('dateTimeRange')) {
+            if (data.hasOwnProperty('dateTimeRange') && obj['dateTimeRange'] === undefined) {
                 obj['dateTimeRange'] = DateTimePeriodMin.constructFromObject(data['dateTimeRange']);
             }
-            if (data.hasOwnProperty('granularity')) {
+            if (data.hasOwnProperty('granularity') && obj['granularity'] === undefined) {
                 obj['granularity'] = Granularity.constructFromObject(data['granularity']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = Type.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('single')) {
+            if (data.hasOwnProperty('single') && obj['single'] === undefined) {
                 obj['single'] = ApiClient.convertToType(data['single'], 'Boolean');
             }
+            
         }
         return obj;
     }

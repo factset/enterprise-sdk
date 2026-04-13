@@ -47,9 +47,10 @@ class EntityResponse {
         if (data) {
             obj = obj || new EntityResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = EntityMapping.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

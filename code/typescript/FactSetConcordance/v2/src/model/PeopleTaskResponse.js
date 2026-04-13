@@ -47,9 +47,10 @@ class PeopleTaskResponse {
         if (data) {
             obj = obj || new PeopleTaskResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PeopleTask.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

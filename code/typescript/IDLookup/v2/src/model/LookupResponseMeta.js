@@ -48,9 +48,10 @@ class LookupResponseMeta {
         if (data) {
             obj = obj || new LookupResponseMeta();
 
-            if (data.hasOwnProperty('resultCount')) {
+            if (data.hasOwnProperty('resultCount') && obj['resultCount'] === undefined) {
                 obj['resultCount'] = LookupResponseMetaResultCount.constructFromObject(data['resultCount']);
             }
+            
         }
         return obj;
     }

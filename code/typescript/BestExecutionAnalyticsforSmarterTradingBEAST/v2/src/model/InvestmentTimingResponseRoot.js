@@ -50,9 +50,10 @@ class InvestmentTimingResponseRoot {
         if (data) {
             obj = obj || new InvestmentTimingResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InvestmentTimingResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

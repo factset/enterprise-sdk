@@ -49,12 +49,13 @@ class PAPricingSourceRoot {
         if (data) {
             obj = obj || new PAPricingSourceRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': PAPricingSource});
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], Object);
             }
+            
         }
         return obj;
     }

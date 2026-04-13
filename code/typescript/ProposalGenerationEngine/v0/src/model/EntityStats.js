@@ -53,24 +53,25 @@ class EntityStats {
         if (data) {
             obj = obj || new EntityStats();
 
-            if (data.hasOwnProperty('risks')) {
+            if (data.hasOwnProperty('risks') && obj['risks'] === undefined) {
                 obj['risks'] = RiskStats.constructFromObject(data['risks']);
             }
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = ReturnStats.constructFromObject(data['returns']);
             }
-            if (data.hasOwnProperty('relativeRisk')) {
+            if (data.hasOwnProperty('relativeRisk') && obj['relativeRisk'] === undefined) {
                 obj['relativeRisk'] = RelativeRiskStats.constructFromObject(data['relativeRisk']);
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = PerformanceStats.constructFromObject(data['performance']);
             }
-            if (data.hasOwnProperty('drawdown')) {
+            if (data.hasOwnProperty('drawdown') && obj['drawdown'] === undefined) {
                 obj['drawdown'] = DrawdownStats.constructFromObject(data['drawdown']);
             }
-            if (data.hasOwnProperty('boxplot')) {
+            if (data.hasOwnProperty('boxplot') && obj['boxplot'] === undefined) {
                 obj['boxplot'] = Boxplot.constructFromObject(data['boxplot']);
             }
+            
         }
         return obj;
     }

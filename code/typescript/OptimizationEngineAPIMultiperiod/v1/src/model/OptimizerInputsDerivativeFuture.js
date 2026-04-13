@@ -47,15 +47,16 @@ class OptimizerInputsDerivativeFuture {
         if (data) {
             obj = obj || new OptimizerInputsDerivativeFuture();
 
-            if (data.hasOwnProperty('contract_size')) {
+            if (data.hasOwnProperty('contract_size') && obj['contract_size'] === undefined) {
                 obj['contract_size'] = ApiClient.convertToType(data['contract_size'], 'Number');
             }
-            if (data.hasOwnProperty('method')) {
+            if (data.hasOwnProperty('method') && obj['method'] === undefined) {
                 obj['method'] = OptimizerInputsDerivativeFutureEComputationMethodEnum.constructFromObject(data['method']);
             }
-            if (data.hasOwnProperty('using_pa_multiply')) {
+            if (data.hasOwnProperty('using_pa_multiply') && obj['using_pa_multiply'] === undefined) {
                 obj['using_pa_multiply'] = ApiClient.convertToType(data['using_pa_multiply'], 'Boolean');
             }
+            
         }
         return obj;
     }

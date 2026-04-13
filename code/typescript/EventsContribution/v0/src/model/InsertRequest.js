@@ -48,9 +48,10 @@ class InsertRequest {
         if (data) {
             obj = obj || new InsertRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InsertRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

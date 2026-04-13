@@ -46,9 +46,10 @@ class TagFilterModelData {
         if (data) {
             obj = obj || new TagFilterModelData();
 
-            if (data.hasOwnProperty('tags')) {
+            if (data.hasOwnProperty('tags') && obj['tags'] === undefined) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

@@ -46,12 +46,13 @@ class LocationDto {
         if (data) {
             obj = obj || new LocationDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('locationName')) {
+            if (data.hasOwnProperty('locationName') && obj['locationName'] === undefined) {
                 obj['locationName'] = ApiClient.convertToType(data['locationName'], 'String');
             }
+            
         }
         return obj;
     }

@@ -51,30 +51,31 @@ class PostOptionClassScreenerSearchDataItems {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostOptionClassScreenerSearchDataItemsMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = PostOptionClassScreenerSearchDataItemsUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostOptionClassScreenerSearchDataItemsCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = PostOptionClassScreenerSearchDataItemsCategory.constructFromObject(data['category']);
             }
+            
         }
         return obj;
     }

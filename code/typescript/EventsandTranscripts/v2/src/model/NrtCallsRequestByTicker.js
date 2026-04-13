@@ -47,15 +47,16 @@ class NrtCallsRequestByTicker {
         if (data) {
             obj = obj || new NrtCallsRequestByTicker();
 
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('callStatus')) {
+            if (data.hasOwnProperty('callStatus') && obj['callStatus'] === undefined) {
                 obj['callStatus'] = ApiClient.convertToType(data['callStatus'], 'String');
             }
+            
         }
         return obj;
     }

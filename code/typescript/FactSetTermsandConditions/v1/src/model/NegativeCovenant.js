@@ -47,18 +47,19 @@ class NegativeCovenant {
         if (data) {
             obj = obj || new NegativeCovenant();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('negCovenantLvl')) {
+            if (data.hasOwnProperty('negCovenantLvl') && obj['negCovenantLvl'] === undefined) {
                 obj['negCovenantLvl'] = ApiClient.convertToType(data['negCovenantLvl'], 'String');
             }
-            if (data.hasOwnProperty('negCovenantType')) {
+            if (data.hasOwnProperty('negCovenantType') && obj['negCovenantType'] === undefined) {
                 obj['negCovenantType'] = ApiClient.convertToType(data['negCovenantType'], 'String');
             }
+            
         }
         return obj;
     }

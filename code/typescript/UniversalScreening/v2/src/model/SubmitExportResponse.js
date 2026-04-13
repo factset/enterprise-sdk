@@ -48,9 +48,10 @@ class SubmitExportResponse {
         if (data) {
             obj = obj || new SubmitExportResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SubmitExportResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

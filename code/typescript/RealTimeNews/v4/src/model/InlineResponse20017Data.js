@@ -48,12 +48,13 @@ class InlineResponse20017Data {
         if (data) {
             obj = obj || new InlineResponse20017Data();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('countries')) {
+            if (data.hasOwnProperty('countries') && obj['countries'] === undefined) {
                 obj['countries'] = ApiClient.convertToType(data['countries'], [GetBasicRegionContinentGetDataCountriesItems]);
             }
+            
         }
         return obj;
     }

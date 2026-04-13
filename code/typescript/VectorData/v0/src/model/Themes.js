@@ -49,18 +49,19 @@ class Themes {
         if (data) {
             obj = obj || new Themes();
 
-            if (data.hasOwnProperty('esgTheme')) {
+            if (data.hasOwnProperty('esgTheme') && obj['esgTheme'] === undefined) {
                 obj['esgTheme'] = ApiClient.convertToType(data['esgTheme'], 'String');
             }
-            if (data.hasOwnProperty('searchConcept')) {
+            if (data.hasOwnProperty('searchConcept') && obj['searchConcept'] === undefined) {
                 obj['searchConcept'] = ApiClient.convertToType(data['searchConcept'], 'String');
             }
-            if (data.hasOwnProperty('sentiment')) {
+            if (data.hasOwnProperty('sentiment') && obj['sentiment'] === undefined) {
                 obj['sentiment'] = ApiClient.convertToType(data['sentiment'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class InlineResponse20014Nsin {
         if (data) {
             obj = obj || new InlineResponse20014Nsin();
 
-            if (data.hasOwnProperty('sedol')) {
+            if (data.hasOwnProperty('sedol') && obj['sedol'] === undefined) {
                 obj['sedol'] = ApiClient.convertToType(data['sedol'], 'String');
             }
+            
         }
         return obj;
     }

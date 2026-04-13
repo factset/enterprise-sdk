@@ -50,24 +50,29 @@ class ExPostPeriodStats {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExPostPeriodStats();
-            PeriodInfo.constructFromObject(data, obj);
-            ExPostPeriodStatsAllOf.constructFromObject(data, obj);
+            try {
+              obj = PeriodInfo.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ExPostPeriodStatsAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('numberOfDays')) {
+            if (data.hasOwnProperty('numberOfDays') && obj['numberOfDays'] === undefined) {
                 obj['numberOfDays'] = ApiClient.convertToType(data['numberOfDays'], 'Number');
             }
-            if (data.hasOwnProperty('basedOnTimeWindow')) {
+            if (data.hasOwnProperty('basedOnTimeWindow') && obj['basedOnTimeWindow'] === undefined) {
                 obj['basedOnTimeWindow'] = ApiClient.convertToType(data['basedOnTimeWindow'], 'String');
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = EntityStats.constructFromObject(data['stats']);
             }
+            
         }
         return obj;
     }

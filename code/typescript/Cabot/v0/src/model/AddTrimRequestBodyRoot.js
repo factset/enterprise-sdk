@@ -47,9 +47,10 @@ class AddTrimRequestBodyRoot {
         if (data) {
             obj = obj || new AddTrimRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AddTrimRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

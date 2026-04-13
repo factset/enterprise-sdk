@@ -46,18 +46,19 @@ class ResponseDetails {
         if (data) {
             obj = obj || new ResponseDetails();
 
-            if (data.hasOwnProperty('index')) {
+            if (data.hasOwnProperty('index') && obj['index'] === undefined) {
                 obj['index'] = ApiClient.convertToType(data['index'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('entity_id')) {
+            if (data.hasOwnProperty('entity_id') && obj['entity_id'] === undefined) {
                 obj['entity_id'] = ApiClient.convertToType(data['entity_id'], 'String');
             }
+            
         }
         return obj;
     }

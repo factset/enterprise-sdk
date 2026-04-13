@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationRankingIntradayListRequestDataLifeCycleMa
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListRequestDataLifeCycleMaturity();
 
-            if (data.hasOwnProperty('perpetual')) {
+            if (data.hasOwnProperty('perpetual') && obj['perpetual'] === undefined) {
                 obj['perpetual'] = ApiClient.convertToType(data['perpetual'], 'String');
             }
+            
         }
         return obj;
     }

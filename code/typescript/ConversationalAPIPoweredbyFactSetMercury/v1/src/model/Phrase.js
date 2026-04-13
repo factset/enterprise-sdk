@@ -58,24 +58,25 @@ class Phrase {
         if (data) {
             obj = obj || new Phrase();
 
-            if (data.hasOwnProperty('phraseId')) {
+            if (data.hasOwnProperty('phraseId') && obj['phraseId'] === undefined) {
                 obj['phraseId'] = ApiClient.convertToType(data['phraseId'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
-            if (data.hasOwnProperty('sourceURL')) {
+            if (data.hasOwnProperty('sourceURL') && obj['sourceURL'] === undefined) {
                 obj['sourceURL'] = ApiClient.convertToType(data['sourceURL'], 'String');
             }
-            if (data.hasOwnProperty('sourceTitle')) {
+            if (data.hasOwnProperty('sourceTitle') && obj['sourceTitle'] === undefined) {
                 obj['sourceTitle'] = ApiClient.convertToType(data['sourceTitle'], 'String');
             }
-            if (data.hasOwnProperty('sourceDate')) {
+            if (data.hasOwnProperty('sourceDate') && obj['sourceDate'] === undefined) {
                 obj['sourceDate'] = ApiClient.convertToType(data['sourceDate'], 'Date');
             }
-            if (data.hasOwnProperty('speakerInfo')) {
+            if (data.hasOwnProperty('speakerInfo') && obj['speakerInfo'] === undefined) {
                 obj['speakerInfo'] = SpeakerInfo.constructFromObject(data['speakerInfo']);
             }
+            
         }
         return obj;
     }

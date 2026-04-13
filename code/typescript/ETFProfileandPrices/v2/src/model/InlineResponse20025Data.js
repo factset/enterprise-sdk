@@ -49,15 +49,16 @@ class InlineResponse20025Data {
         if (data) {
             obj = obj || new InlineResponse20025Data();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('optionAdjustedSpread')) {
+            if (data.hasOwnProperty('optionAdjustedSpread') && obj['optionAdjustedSpread'] === undefined) {
                 obj['optionAdjustedSpread'] = InlineResponse20025DataOptionAdjustedSpread.constructFromObject(data['optionAdjustedSpread']);
             }
-            if (data.hasOwnProperty('averageLife')) {
+            if (data.hasOwnProperty('averageLife') && obj['averageLife'] === undefined) {
                 obj['averageLife'] = InlineResponse20025DataAverageLife.constructFromObject(data['averageLife']);
             }
+            
         }
         return obj;
     }

@@ -47,15 +47,16 @@ class SPARBenchmark {
         if (data) {
             obj = obj || new SPARBenchmark();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('identifiers')) {
+            if (data.hasOwnProperty('identifiers') && obj['identifiers'] === undefined) {
                 obj['identifiers'] = ApiClient.convertToType(data['identifiers'], [SPARIdentifier]);
             }
+            
         }
         return obj;
     }

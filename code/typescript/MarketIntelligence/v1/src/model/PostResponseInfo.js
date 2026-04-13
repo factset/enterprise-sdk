@@ -47,12 +47,13 @@ class PostResponseInfo {
         if (data) {
             obj = obj || new PostResponseInfo();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('report_id')) {
+            if (data.hasOwnProperty('report_id') && obj['report_id'] === undefined) {
                 obj['report_id'] = ApiClient.convertToType(data['report_id'], 'String');
             }
+            
         }
         return obj;
     }

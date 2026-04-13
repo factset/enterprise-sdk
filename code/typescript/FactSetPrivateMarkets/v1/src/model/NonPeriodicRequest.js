@@ -49,12 +49,13 @@ class NonPeriodicRequest {
         if (data) {
             obj = obj || new NonPeriodicRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], ['String']);
             }
+            
         }
         return obj;
     }

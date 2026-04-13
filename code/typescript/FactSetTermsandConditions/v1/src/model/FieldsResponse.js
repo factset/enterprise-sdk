@@ -47,9 +47,10 @@ class FieldsResponse {
         if (data) {
             obj = obj || new FieldsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Field]);
             }
+            
         }
         return obj;
     }

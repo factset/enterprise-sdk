@@ -49,9 +49,10 @@ class QuickAlertsBody {
         if (data) {
             obj = obj || new QuickAlertsBody();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = QuickAlertsBodyData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

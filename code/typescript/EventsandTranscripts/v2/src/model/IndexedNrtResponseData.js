@@ -46,18 +46,19 @@ class IndexedNrtResponseData {
         if (data) {
             obj = obj || new IndexedNrtResponseData();
 
-            if (data.hasOwnProperty('snippetEndTimestamp')) {
+            if (data.hasOwnProperty('snippetEndTimestamp') && obj['snippetEndTimestamp'] === undefined) {
                 obj['snippetEndTimestamp'] = ApiClient.convertToType(data['snippetEndTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('snippetSequence')) {
+            if (data.hasOwnProperty('snippetSequence') && obj['snippetSequence'] === undefined) {
                 obj['snippetSequence'] = ApiClient.convertToType(data['snippetSequence'], 'Number');
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], 'Number');
             }
-            if (data.hasOwnProperty('transcriptData')) {
+            if (data.hasOwnProperty('transcriptData') && obj['transcriptData'] === undefined) {
                 obj['transcriptData'] = ApiClient.convertToType(data['transcriptData'], [Object]);
             }
+            
         }
         return obj;
     }

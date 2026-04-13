@@ -46,18 +46,19 @@ class PostNewsArticleSearchByTextRequestDataTextCriteria {
         if (data) {
             obj = obj || new PostNewsArticleSearchByTextRequestDataTextCriteria();
 
-            if (data.hasOwnProperty('selectionType')) {
+            if (data.hasOwnProperty('selectionType') && obj['selectionType'] === undefined) {
                 obj['selectionType'] = ApiClient.convertToType(data['selectionType'], 'String');
             }
-            if (data.hasOwnProperty('phrases')) {
+            if (data.hasOwnProperty('phrases') && obj['phrases'] === undefined) {
                 obj['phrases'] = ApiClient.convertToType(data['phrases'], ['String']);
             }
-            if (data.hasOwnProperty('minimumMatchScore')) {
+            if (data.hasOwnProperty('minimumMatchScore') && obj['minimumMatchScore'] === undefined) {
                 obj['minimumMatchScore'] = ApiClient.convertToType(data['minimumMatchScore'], 'Number');
             }
-            if (data.hasOwnProperty('scope')) {
+            if (data.hasOwnProperty('scope') && obj['scope'] === undefined) {
                 obj['scope'] = ApiClient.convertToType(data['scope'], 'String');
             }
+            
         }
         return obj;
     }

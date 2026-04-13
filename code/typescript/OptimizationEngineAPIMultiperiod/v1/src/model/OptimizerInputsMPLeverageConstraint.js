@@ -48,12 +48,13 @@ class OptimizerInputsMPLeverageConstraint {
         if (data) {
             obj = obj || new OptimizerInputsMPLeverageConstraint();
 
-            if (data.hasOwnProperty('constraint')) {
+            if (data.hasOwnProperty('constraint') && obj['constraint'] === undefined) {
                 obj['constraint'] = OptimizerInputsLeverageConstraint.constructFromObject(data['constraint']);
             }
-            if (data.hasOwnProperty('on_periods')) {
+            if (data.hasOwnProperty('on_periods') && obj['on_periods'] === undefined) {
                 obj['on_periods'] = OptimizerInputsOnPeriods.constructFromObject(data['on_periods']);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class InvestmentResearchMetaPagination {
         if (data) {
             obj = obj || new InvestmentResearchMetaPagination();
 
-            if (data.hasOwnProperty('isEstimatedTotal')) {
+            if (data.hasOwnProperty('isEstimatedTotal') && obj['isEstimatedTotal'] === undefined) {
                 obj['isEstimatedTotal'] = ApiClient.convertToType(data['isEstimatedTotal'], 'Boolean');
             }
+            
         }
         return obj;
     }

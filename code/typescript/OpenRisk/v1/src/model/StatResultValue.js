@@ -47,30 +47,33 @@ class StatResultValue {
      */
     static constructFromObject(data, obj) {
         // openApiType:number format:double
-        if (typeof data === 'number') return ApiClient.setValue(obj || new StatResultValue(), data);
+        if (typeof data === 'number') return data;
         // openApiType:array format:double
-        if (Array.isArray(data)) return ApiClient.setValue(obj || new StatResultValue(), data);
+        if (Array.isArray(data)) return data;
         // openApiType:array format:double
-        if (Array.isArray(data)) return ApiClient.setValue(obj || new StatResultValue(), data);
+        if (Array.isArray(data)) return data;
         if (data) {
             obj = obj || new StatResultValue();
-            StatResultValueSparseMatrix.constructFromObject(data, obj);
+            try {
+              obj = StatResultValueSparseMatrix.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('rows')) {
+            if (data.hasOwnProperty('rows') && obj['rows'] === undefined) {
                 obj['rows'] = ApiClient.convertToType(data['rows'], 'Number');
             }
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], 'Number');
             }
-            if (data.hasOwnProperty('indexPointer')) {
+            if (data.hasOwnProperty('indexPointer') && obj['indexPointer'] === undefined) {
                 obj['indexPointer'] = ApiClient.convertToType(data['indexPointer'], ['Number']);
             }
-            if (data.hasOwnProperty('indices')) {
+            if (data.hasOwnProperty('indices') && obj['indices'] === undefined) {
                 obj['indices'] = ApiClient.convertToType(data['indices'], ['Number']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['Number']);
             }
+            
         }
         return obj;
     }

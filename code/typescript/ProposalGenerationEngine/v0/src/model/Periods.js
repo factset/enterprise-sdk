@@ -47,9 +47,10 @@ class Periods {
         if (data) {
             obj = obj || new Periods();
 
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ApiClient.convertToType(data['periods'], [Period]);
             }
+            
         }
         return obj;
     }

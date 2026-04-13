@@ -46,9 +46,10 @@ class FactSetProtobufStachV3TableViewTypesFormatTypesSingleValueFormatString {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesFormatTypesSingleValueFormatString();
 
-            if (data.hasOwnProperty('formatString')) {
+            if (data.hasOwnProperty('formatString') && obj['formatString'] === undefined) {
                 obj['formatString'] = ApiClient.convertToType(data['formatString'], 'String');
             }
+            
         }
         return obj;
     }

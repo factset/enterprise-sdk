@@ -47,15 +47,16 @@ class InlineResponse200DataReferenceDebtorLegalEntity {
         if (data) {
             obj = obj || new InlineResponse200DataReferenceDebtorLegalEntity();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('lei')) {
+            if (data.hasOwnProperty('lei') && obj['lei'] === undefined) {
                 obj['lei'] = ApiClient.convertToType(data['lei'], 'String');
             }
+            
         }
         return obj;
     }

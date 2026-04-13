@@ -51,18 +51,19 @@ class InlineResponse2005DataKnockOut {
         if (data) {
             obj = obj || new InlineResponse2005DataKnockOut();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = ApiClient.convertToType(data['observation'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataKnockOutObservationItems]);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataKnockOutValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataKnockOutDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('breached')) {
+            if (data.hasOwnProperty('breached') && obj['breached'] === undefined) {
                 obj['breached'] = ApiClient.convertToType(data['breached'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataKnockOutBreachedItems]);
             }
+            
         }
         return obj;
     }

@@ -46,54 +46,55 @@ class CompanyEventResponseObject {
         if (data) {
             obj = obj || new CompanyEventResponseObject();
 
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('eventDateTime')) {
+            if (data.hasOwnProperty('eventDateTime') && obj['eventDateTime'] === undefined) {
                 obj['eventDateTime'] = ApiClient.convertToType(data['eventDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('marketTimeCode')) {
+            if (data.hasOwnProperty('marketTimeCode') && obj['marketTimeCode'] === undefined) {
                 obj['marketTimeCode'] = ApiClient.convertToType(data['marketTimeCode'], 'String');
             }
-            if (data.hasOwnProperty('eventType')) {
+            if (data.hasOwnProperty('eventType') && obj['eventType'] === undefined) {
                 obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('webcastLink')) {
+            if (data.hasOwnProperty('webcastLink') && obj['webcastLink'] === undefined) {
                 obj['webcastLink'] = ApiClient.convertToType(data['webcastLink'], 'String');
             }
-            if (data.hasOwnProperty('irLink')) {
+            if (data.hasOwnProperty('irLink') && obj['irLink'] === undefined) {
                 obj['irLink'] = ApiClient.convertToType(data['irLink'], 'String');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'String');
             }
-            if (data.hasOwnProperty('fiscalPeriod')) {
+            if (data.hasOwnProperty('fiscalPeriod') && obj['fiscalPeriod'] === undefined) {
                 obj['fiscalPeriod'] = ApiClient.convertToType(data['fiscalPeriod'], 'String');
             }
-            if (data.hasOwnProperty('contactEmail')) {
+            if (data.hasOwnProperty('contactEmail') && obj['contactEmail'] === undefined) {
                 obj['contactEmail'] = ApiClient.convertToType(data['contactEmail'], 'String');
             }
-            if (data.hasOwnProperty('contactPhone')) {
+            if (data.hasOwnProperty('contactPhone') && obj['contactPhone'] === undefined) {
                 obj['contactPhone'] = ApiClient.convertToType(data['contactPhone'], 'String');
             }
-            if (data.hasOwnProperty('contactName')) {
+            if (data.hasOwnProperty('contactName') && obj['contactName'] === undefined) {
                 obj['contactName'] = ApiClient.convertToType(data['contactName'], 'String');
             }
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'String');
             }
-            if (data.hasOwnProperty('lastModifiedDate')) {
+            if (data.hasOwnProperty('lastModifiedDate') && obj['lastModifiedDate'] === undefined) {
                 obj['lastModifiedDate'] = ApiClient.convertToType(data['lastModifiedDate'], 'Date');
             }
+            
         }
         return obj;
     }

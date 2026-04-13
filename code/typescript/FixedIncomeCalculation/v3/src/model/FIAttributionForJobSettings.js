@@ -46,12 +46,13 @@ class FIAttributionForJobSettings {
         if (data) {
             obj = obj || new FIAttributionForJobSettings();
 
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
+            
         }
         return obj;
     }

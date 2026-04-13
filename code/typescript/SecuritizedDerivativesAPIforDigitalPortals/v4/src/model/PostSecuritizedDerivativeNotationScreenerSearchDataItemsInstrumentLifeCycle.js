@@ -48,21 +48,22 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLifeCycl
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLifeCycle();
 
-            if (data.hasOwnProperty('issue')) {
+            if (data.hasOwnProperty('issue') && obj['issue'] === undefined) {
                 obj['issue'] = ApiClient.convertToType(data['issue'], 'Date');
             }
-            if (data.hasOwnProperty('maturity')) {
+            if (data.hasOwnProperty('maturity') && obj['maturity'] === undefined) {
                 obj['maturity'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLifeCycleMaturity.constructFromObject(data['maturity']);
             }
-            if (data.hasOwnProperty('callable')) {
+            if (data.hasOwnProperty('callable') && obj['callable'] === undefined) {
                 obj['callable'] = ApiClient.convertToType(data['callable'], 'Boolean');
             }
-            if (data.hasOwnProperty('valuation')) {
+            if (data.hasOwnProperty('valuation') && obj['valuation'] === undefined) {
                 obj['valuation'] = ApiClient.convertToType(data['valuation'], 'Date');
             }
-            if (data.hasOwnProperty('repayment')) {
+            if (data.hasOwnProperty('repayment') && obj['repayment'] === undefined) {
                 obj['repayment'] = ApiClient.convertToType(data['repayment'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -50,27 +50,28 @@ class InlineResponse20032Data {
         if (data) {
             obj = obj || new InlineResponse20032Data();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('active')) {
+            if (data.hasOwnProperty('active') && obj['active'] === undefined) {
                 obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = InlineResponse20032DataLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('parent')) {
+            if (data.hasOwnProperty('parent') && obj['parent'] === undefined) {
                 obj['parent'] = InlineResponse20032DataParent.constructFromObject(data['parent']);
             }
-            if (data.hasOwnProperty('system')) {
+            if (data.hasOwnProperty('system') && obj['system'] === undefined) {
                 obj['system'] = InlineResponse20032DataSystem.constructFromObject(data['system']);
             }
+            
         }
         return obj;
     }

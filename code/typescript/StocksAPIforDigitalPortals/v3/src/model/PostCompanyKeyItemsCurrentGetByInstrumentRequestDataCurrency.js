@@ -49,9 +49,10 @@ class PostCompanyKeyItemsCurrentGetByInstrumentRequestDataCurrency {
         if (data) {
             obj = obj || new PostCompanyKeyItemsCurrentGetByInstrumentRequestDataCurrency();
 
-            if (data.hasOwnProperty('isoCode')) {
+            if (data.hasOwnProperty('isoCode') && obj['isoCode'] === undefined) {
                 obj['isoCode'] = ApiClient.convertToType(data['isoCode'], 'String');
             }
+            
         }
         return obj;
     }

@@ -46,51 +46,52 @@ class SharesOutstandingResponseObject {
         if (data) {
             obj = obj || new SharesOutstandingResponseObject();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('documentId')) {
+            if (data.hasOwnProperty('documentId') && obj['documentId'] === undefined) {
                 obj['documentId'] = ApiClient.convertToType(data['documentId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('publicationDate')) {
+            if (data.hasOwnProperty('publicationDate') && obj['publicationDate'] === undefined) {
                 obj['publicationDate'] = ApiClient.convertToType(data['publicationDate'], 'Date');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'Number');
             }
-            if (data.hasOwnProperty('reportingPeriodDescription')) {
+            if (data.hasOwnProperty('reportingPeriodDescription') && obj['reportingPeriodDescription'] === undefined) {
                 obj['reportingPeriodDescription'] = ApiClient.convertToType(data['reportingPeriodDescription'], 'String');
             }
-            if (data.hasOwnProperty('reportingPeriod')) {
+            if (data.hasOwnProperty('reportingPeriod') && obj['reportingPeriod'] === undefined) {
                 obj['reportingPeriod'] = ApiClient.convertToType(data['reportingPeriod'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('adrDescription')) {
+            if (data.hasOwnProperty('adrDescription') && obj['adrDescription'] === undefined) {
                 obj['adrDescription'] = ApiClient.convertToType(data['adrDescription'], 'String');
             }
-            if (data.hasOwnProperty('adrRatio')) {
+            if (data.hasOwnProperty('adrRatio') && obj['adrRatio'] === undefined) {
                 obj['adrRatio'] = ApiClient.convertToType(data['adrRatio'], 'Number');
             }
-            if (data.hasOwnProperty('adrFsymId')) {
+            if (data.hasOwnProperty('adrFsymId') && obj['adrFsymId'] === undefined) {
                 obj['adrFsymId'] = ApiClient.convertToType(data['adrFsymId'], 'String');
             }
-            if (data.hasOwnProperty('totalOutstanding')) {
+            if (data.hasOwnProperty('totalOutstanding') && obj['totalOutstanding'] === undefined) {
                 obj['totalOutstanding'] = ApiClient.convertToType(data['totalOutstanding'], 'Number');
             }
-            if (data.hasOwnProperty('adrTotalOutstanding')) {
+            if (data.hasOwnProperty('adrTotalOutstanding') && obj['adrTotalOutstanding'] === undefined) {
                 obj['adrTotalOutstanding'] = ApiClient.convertToType(data['adrTotalOutstanding'], 'Number');
             }
+            
         }
         return obj;
     }

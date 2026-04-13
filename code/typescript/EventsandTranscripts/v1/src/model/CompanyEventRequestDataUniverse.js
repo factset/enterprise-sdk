@@ -50,12 +50,13 @@ class CompanyEventRequestDataUniverse {
         if (data) {
             obj = obj || new CompanyEventRequestDataUniverse();
 
-            if (data.hasOwnProperty('symbols')) {
+            if (data.hasOwnProperty('symbols') && obj['symbols'] === undefined) {
                 obj['symbols'] = ApiClient.convertToType(data['symbols'], ['String']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

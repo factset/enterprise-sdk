@@ -55,6 +55,8 @@ class OneOfSMFields {
             case 'CCF':
               return SMCustomCashFlowFields.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct OneOfSMFields due to no matching discriminator value: " + data['securityType']);
         return obj;
     }
 

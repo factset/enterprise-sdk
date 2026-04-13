@@ -48,24 +48,25 @@ class FactSetProtobufFormatV1FdsFormatSettings {
         if (data) {
             obj = obj || new FactSetProtobufFormatV1FdsFormatSettings();
 
-            if (data.hasOwnProperty('version')) {
+            if (data.hasOwnProperty('version') && obj['version'] === undefined) {
                 obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
-            if (data.hasOwnProperty('culture')) {
+            if (data.hasOwnProperty('culture') && obj['culture'] === undefined) {
                 obj['culture'] = ApiClient.convertToType(data['culture'], 'String');
             }
-            if (data.hasOwnProperty('timeZone')) {
+            if (data.hasOwnProperty('timeZone') && obj['timeZone'] === undefined) {
                 obj['timeZone'] = ApiClient.convertToType(data['timeZone'], 'String');
             }
-            if (data.hasOwnProperty('nullValue')) {
+            if (data.hasOwnProperty('nullValue') && obj['nullValue'] === undefined) {
                 obj['nullValue'] = ApiClient.convertToType(data['nullValue'], 'String');
             }
-            if (data.hasOwnProperty('numberFormat')) {
+            if (data.hasOwnProperty('numberFormat') && obj['numberFormat'] === undefined) {
                 obj['numberFormat'] = FactSetProtobufFormatV1NumberFormat.constructFromObject(data['numberFormat']);
             }
-            if (data.hasOwnProperty('dateTimeFormat')) {
+            if (data.hasOwnProperty('dateTimeFormat') && obj['dateTimeFormat'] === undefined) {
                 obj['dateTimeFormat'] = FactSetProtobufFormatV1DateTimeFormat.constructFromObject(data['dateTimeFormat']);
             }
+            
         }
         return obj;
     }

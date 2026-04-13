@@ -49,12 +49,13 @@ class HeadlinesResponse {
         if (data) {
             obj = obj || new HeadlinesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SearchResponseArrayObject]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = HeadlinesResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

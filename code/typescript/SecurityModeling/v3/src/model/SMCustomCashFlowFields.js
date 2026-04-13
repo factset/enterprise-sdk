@@ -49,98 +49,101 @@ class SMCustomCashFlowFields {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new SMCustomCashFlowFields();
-            SMFields.constructFromObject(data, obj);
+            try {
+              obj = SMFields.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('cashFlowAmounts')) {
+            if (data.hasOwnProperty('cashFlowAmounts') && obj['cashFlowAmounts'] === undefined) {
                 obj['cashFlowAmounts'] = ApiClient.convertToType(data['cashFlowAmounts'], ['Number']);
             }
-            if (data.hasOwnProperty('cashFlowDates')) {
+            if (data.hasOwnProperty('cashFlowDates') && obj['cashFlowDates'] === undefined) {
                 obj['cashFlowDates'] = ApiClient.convertToType(data['cashFlowDates'], ['String']);
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('issueName')) {
+            if (data.hasOwnProperty('issueName') && obj['issueName'] === undefined) {
                 obj['issueName'] = ApiClient.convertToType(data['issueName'], 'String');
             }
-            if (data.hasOwnProperty('parAmt')) {
+            if (data.hasOwnProperty('parAmt') && obj['parAmt'] === undefined) {
                 obj['parAmt'] = ApiClient.convertToType(data['parAmt'], 'Number');
             }
-            if (data.hasOwnProperty('parentName')) {
+            if (data.hasOwnProperty('parentName') && obj['parentName'] === undefined) {
                 obj['parentName'] = ApiClient.convertToType(data['parentName'], 'String');
             }
-            if (data.hasOwnProperty('ratingFitch')) {
+            if (data.hasOwnProperty('ratingFitch') && obj['ratingFitch'] === undefined) {
                 obj['ratingFitch'] = ApiClient.convertToType(data['ratingFitch'], 'String');
             }
-            if (data.hasOwnProperty('ratingFitchDates')) {
+            if (data.hasOwnProperty('ratingFitchDates') && obj['ratingFitchDates'] === undefined) {
                 obj['ratingFitchDates'] = ApiClient.convertToType(data['ratingFitchDates'], ['String']);
             }
-            if (data.hasOwnProperty('ratingFitchValues')) {
+            if (data.hasOwnProperty('ratingFitchValues') && obj['ratingFitchValues'] === undefined) {
                 obj['ratingFitchValues'] = ApiClient.convertToType(data['ratingFitchValues'], ['String']);
             }
-            if (data.hasOwnProperty('ratingMoodysDates')) {
+            if (data.hasOwnProperty('ratingMoodysDates') && obj['ratingMoodysDates'] === undefined) {
                 obj['ratingMoodysDates'] = ApiClient.convertToType(data['ratingMoodysDates'], ['String']);
             }
-            if (data.hasOwnProperty('ratingMoodysValues')) {
+            if (data.hasOwnProperty('ratingMoodysValues') && obj['ratingMoodysValues'] === undefined) {
                 obj['ratingMoodysValues'] = ApiClient.convertToType(data['ratingMoodysValues'], ['String']);
             }
-            if (data.hasOwnProperty('ratingSpDates')) {
+            if (data.hasOwnProperty('ratingSpDates') && obj['ratingSpDates'] === undefined) {
                 obj['ratingSpDates'] = ApiClient.convertToType(data['ratingSpDates'], ['String']);
             }
-            if (data.hasOwnProperty('ratingSpValues')) {
+            if (data.hasOwnProperty('ratingSpValues') && obj['ratingSpValues'] === undefined) {
                 obj['ratingSpValues'] = ApiClient.convertToType(data['ratingSpValues'], ['String']);
             }
-            if (data.hasOwnProperty('secondaryToVendorFlag')) {
+            if (data.hasOwnProperty('secondaryToVendorFlag') && obj['secondaryToVendorFlag'] === undefined) {
                 obj['secondaryToVendorFlag'] = ApiClient.convertToType(data['secondaryToVendorFlag'], 'Boolean');
             }
-            if (data.hasOwnProperty('sector')) {
+            if (data.hasOwnProperty('sector') && obj['sector'] === undefined) {
                 obj['sector'] = ApiClient.convertToType(data['sector'], 'String');
             }
-            if (data.hasOwnProperty('sectorBarclay1')) {
+            if (data.hasOwnProperty('sectorBarclay1') && obj['sectorBarclay1'] === undefined) {
                 obj['sectorBarclay1'] = ApiClient.convertToType(data['sectorBarclay1'], 'String');
             }
-            if (data.hasOwnProperty('sectorBarclay2')) {
+            if (data.hasOwnProperty('sectorBarclay2') && obj['sectorBarclay2'] === undefined) {
                 obj['sectorBarclay2'] = ApiClient.convertToType(data['sectorBarclay2'], 'String');
             }
-            if (data.hasOwnProperty('sectorBarclay3')) {
+            if (data.hasOwnProperty('sectorBarclay3') && obj['sectorBarclay3'] === undefined) {
                 obj['sectorBarclay3'] = ApiClient.convertToType(data['sectorBarclay3'], 'String');
             }
-            if (data.hasOwnProperty('sectorBarclay4')) {
+            if (data.hasOwnProperty('sectorBarclay4') && obj['sectorBarclay4'] === undefined) {
                 obj['sectorBarclay4'] = ApiClient.convertToType(data['sectorBarclay4'], 'String');
             }
-            if (data.hasOwnProperty('sectorDef')) {
+            if (data.hasOwnProperty('sectorDef') && obj['sectorDef'] === undefined) {
                 obj['sectorDef'] = ApiClient.convertToType(data['sectorDef'], 'String');
             }
-            if (data.hasOwnProperty('sectorIndustry')) {
+            if (data.hasOwnProperty('sectorIndustry') && obj['sectorIndustry'] === undefined) {
                 obj['sectorIndustry'] = ApiClient.convertToType(data['sectorIndustry'], 'String');
             }
-            if (data.hasOwnProperty('sectorMain')) {
+            if (data.hasOwnProperty('sectorMain') && obj['sectorMain'] === undefined) {
                 obj['sectorMain'] = ApiClient.convertToType(data['sectorMain'], 'String');
             }
-            if (data.hasOwnProperty('sectorMerrill1')) {
+            if (data.hasOwnProperty('sectorMerrill1') && obj['sectorMerrill1'] === undefined) {
                 obj['sectorMerrill1'] = ApiClient.convertToType(data['sectorMerrill1'], 'String');
             }
-            if (data.hasOwnProperty('sectorMerrill2')) {
+            if (data.hasOwnProperty('sectorMerrill2') && obj['sectorMerrill2'] === undefined) {
                 obj['sectorMerrill2'] = ApiClient.convertToType(data['sectorMerrill2'], 'String');
             }
-            if (data.hasOwnProperty('sectorMerrill3')) {
+            if (data.hasOwnProperty('sectorMerrill3') && obj['sectorMerrill3'] === undefined) {
                 obj['sectorMerrill3'] = ApiClient.convertToType(data['sectorMerrill3'], 'String');
             }
-            if (data.hasOwnProperty('sectorMerrill4')) {
+            if (data.hasOwnProperty('sectorMerrill4') && obj['sectorMerrill4'] === undefined) {
                 obj['sectorMerrill4'] = ApiClient.convertToType(data['sectorMerrill4'], 'String');
             }
-            if (data.hasOwnProperty('sectorSubGroup')) {
+            if (data.hasOwnProperty('sectorSubGroup') && obj['sectorSubGroup'] === undefined) {
                 obj['sectorSubGroup'] = ApiClient.convertToType(data['sectorSubGroup'], 'String');
             }
-            if (data.hasOwnProperty('vendorCoverageDate')) {
+            if (data.hasOwnProperty('vendorCoverageDate') && obj['vendorCoverageDate'] === undefined) {
                 obj['vendorCoverageDate'] = ApiClient.convertToType(data['vendorCoverageDate'], 'String');
             }
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
+            
         }
         return obj;
     }

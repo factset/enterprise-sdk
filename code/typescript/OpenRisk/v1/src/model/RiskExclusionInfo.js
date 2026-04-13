@@ -54,15 +54,16 @@ class RiskExclusionInfo {
         if (data) {
             obj = obj || new RiskExclusionInfo();
 
-            if (data.hasOwnProperty('covered')) {
+            if (data.hasOwnProperty('covered') && obj['covered'] === undefined) {
                 obj['covered'] = ApiClient.convertToType(data['covered'], 'Boolean');
             }
-            if (data.hasOwnProperty('exclusionInfo')) {
+            if (data.hasOwnProperty('exclusionInfo') && obj['exclusionInfo'] === undefined) {
                 obj['exclusionInfo'] = RiskExclusionInfoExclusionInfo.constructFromObject(data['exclusionInfo']);
             }
-            if (data.hasOwnProperty('modelClass')) {
+            if (data.hasOwnProperty('modelClass') && obj['modelClass'] === undefined) {
                 obj['modelClass'] = ApiClient.convertToType(data['modelClass'], 'String');
             }
+            
         }
         return obj;
     }

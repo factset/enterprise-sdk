@@ -48,15 +48,16 @@ class InlineResponse20010Data {
         if (data) {
             obj = obj || new InlineResponse20010Data();
 
-            if (data.hasOwnProperty('idInstrument')) {
+            if (data.hasOwnProperty('idInstrument') && obj['idInstrument'] === undefined) {
                 obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = ApiClient.convertToType(data['dividends'], [InlineResponse20010DataDividends]);
             }
+            
         }
         return obj;
     }

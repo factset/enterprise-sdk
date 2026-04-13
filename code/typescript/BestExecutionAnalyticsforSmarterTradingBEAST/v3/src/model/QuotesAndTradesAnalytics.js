@@ -47,36 +47,37 @@ class QuotesAndTradesAnalytics {
         if (data) {
             obj = obj || new QuotesAndTradesAnalytics();
 
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('histAvg')) {
+            if (data.hasOwnProperty('histAvg') && obj['histAvg'] === undefined) {
                 obj['histAvg'] = ApiClient.convertToType(data['histAvg'], 'Number');
             }
-            if (data.hasOwnProperty('histStd')) {
+            if (data.hasOwnProperty('histStd') && obj['histStd'] === undefined) {
                 obj['histStd'] = ApiClient.convertToType(data['histStd'], 'Number');
             }
-            if (data.hasOwnProperty('histMax')) {
+            if (data.hasOwnProperty('histMax') && obj['histMax'] === undefined) {
                 obj['histMax'] = ApiClient.convertToType(data['histMax'], 'Number');
             }
-            if (data.hasOwnProperty('histMin')) {
+            if (data.hasOwnProperty('histMin') && obj['histMin'] === undefined) {
                 obj['histMin'] = ApiClient.convertToType(data['histMin'], 'Number');
             }
-            if (data.hasOwnProperty('histMedian')) {
+            if (data.hasOwnProperty('histMedian') && obj['histMedian'] === undefined) {
                 obj['histMedian'] = ApiClient.convertToType(data['histMedian'], 'Number');
             }
-            if (data.hasOwnProperty('firstQuartile')) {
+            if (data.hasOwnProperty('firstQuartile') && obj['firstQuartile'] === undefined) {
                 obj['firstQuartile'] = ApiClient.convertToType(data['firstQuartile'], 'Number');
             }
-            if (data.hasOwnProperty('thirdQuartile')) {
+            if (data.hasOwnProperty('thirdQuartile') && obj['thirdQuartile'] === undefined) {
                 obj['thirdQuartile'] = ApiClient.convertToType(data['thirdQuartile'], 'Number');
             }
-            if (data.hasOwnProperty('recentValue')) {
+            if (data.hasOwnProperty('recentValue') && obj['recentValue'] === undefined) {
                 obj['recentValue'] = ApiClient.convertToType(data['recentValue'], 'Number');
             }
-            if (data.hasOwnProperty('recentDate')) {
+            if (data.hasOwnProperty('recentDate') && obj['recentDate'] === undefined) {
                 obj['recentDate'] = ApiClient.convertToType(data['recentDate'], 'Date');
             }
+            
         }
         return obj;
     }

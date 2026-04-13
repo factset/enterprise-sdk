@@ -46,12 +46,13 @@ class PACommentaryDate {
         if (data) {
             obj = obj || new PACommentaryDate();
 
-            if (data.hasOwnProperty('yyyymmdd')) {
+            if (data.hasOwnProperty('yyyymmdd') && obj['yyyymmdd'] === undefined) {
                 obj['yyyymmdd'] = ApiClient.convertToType(data['yyyymmdd'], 'Number');
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = ApiClient.convertToType(data['relative'], 'String');
             }
+            
         }
         return obj;
     }

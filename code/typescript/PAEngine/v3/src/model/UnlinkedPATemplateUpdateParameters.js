@@ -52,36 +52,37 @@ class UnlinkedPATemplateUpdateParameters {
         if (data) {
             obj = obj || new UnlinkedPATemplateUpdateParameters();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('accounts')) {
+            if (data.hasOwnProperty('accounts') && obj['accounts'] === undefined) {
                 obj['accounts'] = ApiClient.convertToType(data['accounts'], [PAIdentifier]);
             }
-            if (data.hasOwnProperty('benchmarks')) {
+            if (data.hasOwnProperty('benchmarks') && obj['benchmarks'] === undefined) {
                 obj['benchmarks'] = ApiClient.convertToType(data['benchmarks'], [PAIdentifier]);
             }
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], [PACalculationColumn]);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = PADateParameters.constructFromObject(data['dates']);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [PACalculationGroup]);
             }
-            if (data.hasOwnProperty('datasources')) {
+            if (data.hasOwnProperty('datasources') && obj['datasources'] === undefined) {
                 obj['datasources'] = PACalculationDataSources.constructFromObject(data['datasources']);
             }
-            if (data.hasOwnProperty('currencyisocode')) {
+            if (data.hasOwnProperty('currencyisocode') && obj['currencyisocode'] === undefined) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
             }
-            if (data.hasOwnProperty('componentdetail')) {
+            if (data.hasOwnProperty('componentdetail') && obj['componentdetail'] === undefined) {
                 obj['componentdetail'] = ApiClient.convertToType(data['componentdetail'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = TemplateContentTypes.constructFromObject(data['content']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsB
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeLowerParticipationFactor();
 
-            if (data.hasOwnProperty('positive')) {
+            if (data.hasOwnProperty('positive') && obj['positive'] === undefined) {
                 obj['positive'] = ApiClient.convertToType(data['positive'], 'Number');
             }
-            if (data.hasOwnProperty('negative')) {
+            if (data.hasOwnProperty('negative') && obj['negative'] === undefined) {
                 obj['negative'] = ApiClient.convertToType(data['negative'], 'Number');
             }
+            
         }
         return obj;
     }

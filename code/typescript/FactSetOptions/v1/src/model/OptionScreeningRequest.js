@@ -54,30 +54,31 @@ class OptionScreeningRequest {
         if (data) {
             obj = obj || new OptionScreeningRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ExchangeScreeningId.constructFromObject(data['ids']);
             }
-            if (data.hasOwnProperty('conditionOne')) {
+            if (data.hasOwnProperty('conditionOne') && obj['conditionOne'] === undefined) {
                 obj['conditionOne'] = ApiClient.convertToType(data['conditionOne'], 'String');
             }
-            if (data.hasOwnProperty('conditionOneValue')) {
+            if (data.hasOwnProperty('conditionOneValue') && obj['conditionOneValue'] === undefined) {
                 obj['conditionOneValue'] = ApiClient.convertToType(data['conditionOneValue'], 'String');
             }
-            if (data.hasOwnProperty('conditionTwo')) {
+            if (data.hasOwnProperty('conditionTwo') && obj['conditionTwo'] === undefined) {
                 obj['conditionTwo'] = ApiClient.convertToType(data['conditionTwo'], 'String');
             }
-            if (data.hasOwnProperty('conditionTwoValue')) {
+            if (data.hasOwnProperty('conditionTwoValue') && obj['conditionTwoValue'] === undefined) {
                 obj['conditionTwoValue'] = ApiClient.convertToType(data['conditionTwoValue'], 'String');
             }
-            if (data.hasOwnProperty('conditionThree')) {
+            if (data.hasOwnProperty('conditionThree') && obj['conditionThree'] === undefined) {
                 obj['conditionThree'] = ApiClient.convertToType(data['conditionThree'], 'String');
             }
-            if (data.hasOwnProperty('conditionThreeValue')) {
+            if (data.hasOwnProperty('conditionThreeValue') && obj['conditionThreeValue'] === undefined) {
                 obj['conditionThreeValue'] = ApiClient.convertToType(data['conditionThreeValue'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
+            
         }
         return obj;
     }

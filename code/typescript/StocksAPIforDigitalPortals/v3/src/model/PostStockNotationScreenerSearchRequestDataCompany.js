@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataCompany {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCompany();
 
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = PostStockNotationScreenerSearchRequestDataCompanyCountry.constructFromObject(data['country']);
             }
+            
         }
         return obj;
     }

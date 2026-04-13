@@ -57,94 +57,107 @@ class BatchResult {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new BatchResult();
-            Price.constructFromObject(data, obj);
-            Returns.constructFromObject(data, obj);
-            CorporateAction.constructFromObject(data, obj);
-            AnnualizedDividendsObject.constructFromObject(data, obj);
-            SharesOutstandingResponseObject.constructFromObject(data, obj);
-            MarketValueResponseObject.constructFromObject(data, obj);
+            try {
+              obj = Price.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = Returns.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = CorporateAction.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = AnnualizedDividendsObject.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = SharesOutstandingResponseObject.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = MarketValueResponseObject.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('totalReturn')) {
+            if (data.hasOwnProperty('totalReturn') && obj['totalReturn'] === undefined) {
                 obj['totalReturn'] = ApiClient.convertToType(data['totalReturn'], 'Number');
             }
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('eventTypeCode')) {
+            if (data.hasOwnProperty('eventTypeCode') && obj['eventTypeCode'] === undefined) {
                 obj['eventTypeCode'] = ApiClient.convertToType(data['eventTypeCode'], 'String');
             }
-            if (data.hasOwnProperty('eventTypeDesc')) {
+            if (data.hasOwnProperty('eventTypeDesc') && obj['eventTypeDesc'] === undefined) {
                 obj['eventTypeDesc'] = ApiClient.convertToType(data['eventTypeDesc'], 'String');
             }
-            if (data.hasOwnProperty('divTypeCode')) {
+            if (data.hasOwnProperty('divTypeCode') && obj['divTypeCode'] === undefined) {
                 obj['divTypeCode'] = ApiClient.convertToType(data['divTypeCode'], 'String');
             }
-            if (data.hasOwnProperty('announcementDate')) {
+            if (data.hasOwnProperty('announcementDate') && obj['announcementDate'] === undefined) {
                 obj['announcementDate'] = ApiClient.convertToType(data['announcementDate'], 'String');
             }
-            if (data.hasOwnProperty('recordDate')) {
+            if (data.hasOwnProperty('recordDate') && obj['recordDate'] === undefined) {
                 obj['recordDate'] = ApiClient.convertToType(data['recordDate'], 'String');
             }
-            if (data.hasOwnProperty('payDate')) {
+            if (data.hasOwnProperty('payDate') && obj['payDate'] === undefined) {
                 obj['payDate'] = ApiClient.convertToType(data['payDate'], 'String');
             }
-            if (data.hasOwnProperty('effectiveDate')) {
+            if (data.hasOwnProperty('effectiveDate') && obj['effectiveDate'] === undefined) {
                 obj['effectiveDate'] = ApiClient.convertToType(data['effectiveDate'], 'String');
             }
-            if (data.hasOwnProperty('iadDefTradingAdj')) {
+            if (data.hasOwnProperty('iadDefTradingAdj') && obj['iadDefTradingAdj'] === undefined) {
                 obj['iadDefTradingAdj'] = ApiClient.convertToType(data['iadDefTradingAdj'], 'Number');
             }
-            if (data.hasOwnProperty('documentId')) {
+            if (data.hasOwnProperty('documentId') && obj['documentId'] === undefined) {
                 obj['documentId'] = ApiClient.convertToType(data['documentId'], 'String');
             }
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('publicationDate')) {
+            if (data.hasOwnProperty('publicationDate') && obj['publicationDate'] === undefined) {
                 obj['publicationDate'] = ApiClient.convertToType(data['publicationDate'], 'Date');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'Number');
             }
-            if (data.hasOwnProperty('reportingPeriodDescription')) {
+            if (data.hasOwnProperty('reportingPeriodDescription') && obj['reportingPeriodDescription'] === undefined) {
                 obj['reportingPeriodDescription'] = ApiClient.convertToType(data['reportingPeriodDescription'], 'String');
             }
-            if (data.hasOwnProperty('reportingPeriod')) {
+            if (data.hasOwnProperty('reportingPeriod') && obj['reportingPeriod'] === undefined) {
                 obj['reportingPeriod'] = ApiClient.convertToType(data['reportingPeriod'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('adrDescription')) {
+            if (data.hasOwnProperty('adrDescription') && obj['adrDescription'] === undefined) {
                 obj['adrDescription'] = ApiClient.convertToType(data['adrDescription'], 'String');
             }
-            if (data.hasOwnProperty('adrRatio')) {
+            if (data.hasOwnProperty('adrRatio') && obj['adrRatio'] === undefined) {
                 obj['adrRatio'] = ApiClient.convertToType(data['adrRatio'], 'Number');
             }
-            if (data.hasOwnProperty('adrFsymId')) {
+            if (data.hasOwnProperty('adrFsymId') && obj['adrFsymId'] === undefined) {
                 obj['adrFsymId'] = ApiClient.convertToType(data['adrFsymId'], 'String');
             }
-            if (data.hasOwnProperty('totalOutstanding')) {
+            if (data.hasOwnProperty('totalOutstanding') && obj['totalOutstanding'] === undefined) {
                 obj['totalOutstanding'] = ApiClient.convertToType(data['totalOutstanding'], 'Number');
             }
-            if (data.hasOwnProperty('adrTotalOutstanding')) {
+            if (data.hasOwnProperty('adrTotalOutstanding') && obj['adrTotalOutstanding'] === undefined) {
                 obj['adrTotalOutstanding'] = ApiClient.convertToType(data['adrTotalOutstanding'], 'Number');
             }
-            if (data.hasOwnProperty('currentMarketValue')) {
+            if (data.hasOwnProperty('currentMarketValue') && obj['currentMarketValue'] === undefined) {
                 obj['currentMarketValue'] = ApiClient.convertToType(data['currentMarketValue'], 'Number');
             }
+            
         }
         return obj;
     }

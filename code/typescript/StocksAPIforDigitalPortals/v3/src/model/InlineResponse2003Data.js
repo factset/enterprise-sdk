@@ -49,18 +49,19 @@ class InlineResponse2003Data {
         if (data) {
             obj = obj || new InlineResponse2003Data();
 
-            if (data.hasOwnProperty('idInstrument')) {
+            if (data.hasOwnProperty('idInstrument') && obj['idInstrument'] === undefined) {
                 obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('targetPrice')) {
+            if (data.hasOwnProperty('targetPrice') && obj['targetPrice'] === undefined) {
                 obj['targetPrice'] = InlineResponse2003DataTargetPrice.constructFromObject(data['targetPrice']);
             }
-            if (data.hasOwnProperty('recommendation')) {
+            if (data.hasOwnProperty('recommendation') && obj['recommendation'] === undefined) {
                 obj['recommendation'] = InlineResponse2003DataRecommendation.constructFromObject(data['recommendation']);
             }
+            
         }
         return obj;
     }

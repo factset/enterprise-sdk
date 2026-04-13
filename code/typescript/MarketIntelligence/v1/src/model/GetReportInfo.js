@@ -47,18 +47,19 @@ class GetReportInfo {
         if (data) {
             obj = obj || new GetReportInfo();
 
-            if (data.hasOwnProperty('report_id')) {
+            if (data.hasOwnProperty('report_id') && obj['report_id'] === undefined) {
                 obj['report_id'] = ApiClient.convertToType(data['report_id'], 'String');
             }
-            if (data.hasOwnProperty('report_name')) {
+            if (data.hasOwnProperty('report_name') && obj['report_name'] === undefined) {
                 obj['report_name'] = ApiClient.convertToType(data['report_name'], 'String');
             }
-            if (data.hasOwnProperty('time_zone')) {
+            if (data.hasOwnProperty('time_zone') && obj['time_zone'] === undefined) {
                 obj['time_zone'] = ApiClient.convertToType(data['time_zone'], 'String');
             }
-            if (data.hasOwnProperty('last_run_date_time')) {
+            if (data.hasOwnProperty('last_run_date_time') && obj['last_run_date_time'] === undefined) {
                 obj['last_run_date_time'] = ApiClient.convertToType(data['last_run_date_time'], 'String');
             }
+            
         }
         return obj;
     }

@@ -51,12 +51,13 @@ class PostOptionByClassListRequest {
         if (data) {
             obj = obj || new PostOptionByClassListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostOptionByClassListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostOptionByClassListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

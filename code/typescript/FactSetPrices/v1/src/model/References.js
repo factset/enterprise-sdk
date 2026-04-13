@@ -46,48 +46,49 @@ class References {
         if (data) {
             obj = obj || new References();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('secType')) {
+            if (data.hasOwnProperty('secType') && obj['secType'] === undefined) {
                 obj['secType'] = ApiClient.convertToType(data['secType'], 'String');
             }
-            if (data.hasOwnProperty('secTypeCode')) {
+            if (data.hasOwnProperty('secTypeCode') && obj['secTypeCode'] === undefined) {
                 obj['secTypeCode'] = ApiClient.convertToType(data['secTypeCode'], 'String');
             }
-            if (data.hasOwnProperty('secTypeCodeDet')) {
+            if (data.hasOwnProperty('secTypeCodeDet') && obj['secTypeCodeDet'] === undefined) {
                 obj['secTypeCodeDet'] = ApiClient.convertToType(data['secTypeCodeDet'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('primaryExchange')) {
+            if (data.hasOwnProperty('primaryExchange') && obj['primaryExchange'] === undefined) {
                 obj['primaryExchange'] = ApiClient.convertToType(data['primaryExchange'], 'String');
             }
-            if (data.hasOwnProperty('exchangeCountry')) {
+            if (data.hasOwnProperty('exchangeCountry') && obj['exchangeCountry'] === undefined) {
                 obj['exchangeCountry'] = ApiClient.convertToType(data['exchangeCountry'], 'String');
             }
-            if (data.hasOwnProperty('localIndex')) {
+            if (data.hasOwnProperty('localIndex') && obj['localIndex'] === undefined) {
                 obj['localIndex'] = ApiClient.convertToType(data['localIndex'], 'String');
             }
-            if (data.hasOwnProperty('nextTradingHolidayDate')) {
+            if (data.hasOwnProperty('nextTradingHolidayDate') && obj['nextTradingHolidayDate'] === undefined) {
                 obj['nextTradingHolidayDate'] = ApiClient.convertToType(data['nextTradingHolidayDate'], 'Date');
             }
-            if (data.hasOwnProperty('firstDate')) {
+            if (data.hasOwnProperty('firstDate') && obj['firstDate'] === undefined) {
                 obj['firstDate'] = ApiClient.convertToType(data['firstDate'], 'Date');
             }
-            if (data.hasOwnProperty('lastDate')) {
+            if (data.hasOwnProperty('lastDate') && obj['lastDate'] === undefined) {
                 obj['lastDate'] = ApiClient.convertToType(data['lastDate'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

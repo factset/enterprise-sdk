@@ -47,9 +47,10 @@ class TemplateWithLinksAllOf {
         if (data) {
             obj = obj || new TemplateWithLinksAllOf();
 
-            if (data.hasOwnProperty('applicationLinks')) {
+            if (data.hasOwnProperty('applicationLinks') && obj['applicationLinks'] === undefined) {
                 obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
             }
+            
         }
         return obj;
     }

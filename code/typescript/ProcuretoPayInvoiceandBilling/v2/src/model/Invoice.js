@@ -48,9 +48,10 @@ class Invoice {
         if (data) {
             obj = obj || new Invoice();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InvoiceData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

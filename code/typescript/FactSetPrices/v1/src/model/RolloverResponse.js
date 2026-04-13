@@ -47,9 +47,10 @@ class RolloverResponse {
         if (data) {
             obj = obj || new RolloverResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Rollover]);
             }
+            
         }
         return obj;
     }

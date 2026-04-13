@@ -49,15 +49,16 @@ class PostOptionClassScreenerSearchDataItemsUnderlyingNotation {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchDataItemsUnderlyingNotation();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = PostOptionClassScreenerSearchDataItemsUnderlyingNotationFsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = InlineResponse200DataUnderlyingNotationInstrument.constructFromObject(data['instrument']);
             }
+            
         }
         return obj;
     }

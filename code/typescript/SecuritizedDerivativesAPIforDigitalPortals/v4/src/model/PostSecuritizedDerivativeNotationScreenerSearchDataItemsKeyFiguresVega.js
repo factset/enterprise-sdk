@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresVega {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresVega();
 
-            if (data.hasOwnProperty('effective')) {
+            if (data.hasOwnProperty('effective') && obj['effective'] === undefined) {
                 obj['effective'] = ApiClient.convertToType(data['effective'], 'Number');
             }
-            if (data.hasOwnProperty('unadjusted')) {
+            if (data.hasOwnProperty('unadjusted') && obj['unadjusted'] === undefined) {
                 obj['unadjusted'] = ApiClient.convertToType(data['unadjusted'], 'Number');
             }
+            
         }
         return obj;
     }

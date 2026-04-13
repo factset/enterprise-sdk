@@ -50,9 +50,10 @@ class QuotesAnalyticsResponseRoot {
         if (data) {
             obj = obj || new QuotesAnalyticsResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [QuotesAndTradesAnalyticsResponse]);
             }
+            
         }
         return obj;
     }

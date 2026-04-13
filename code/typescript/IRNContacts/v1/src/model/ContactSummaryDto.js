@@ -50,57 +50,58 @@ class ContactSummaryDto {
         if (data) {
             obj = obj || new ContactSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('irnPersonId')) {
+            if (data.hasOwnProperty('irnPersonId') && obj['irnPersonId'] === undefined) {
                 obj['irnPersonId'] = ApiClient.convertToType(data['irnPersonId'], 'String');
             }
-            if (data.hasOwnProperty('primaryEmailAddress')) {
+            if (data.hasOwnProperty('primaryEmailAddress') && obj['primaryEmailAddress'] === undefined) {
                 obj['primaryEmailAddress'] = ApiClient.convertToType(data['primaryEmailAddress'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('fullName')) {
+            if (data.hasOwnProperty('fullName') && obj['fullName'] === undefined) {
                 obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
             }
-            if (data.hasOwnProperty('employerName')) {
+            if (data.hasOwnProperty('employerName') && obj['employerName'] === undefined) {
                 obj['employerName'] = ApiClient.convertToType(data['employerName'], 'String');
             }
-            if (data.hasOwnProperty('employerIdentifier')) {
+            if (data.hasOwnProperty('employerIdentifier') && obj['employerIdentifier'] === undefined) {
                 obj['employerIdentifier'] = ApiClient.convertToType(data['employerIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('city')) {
+            if (data.hasOwnProperty('city') && obj['city'] === undefined) {
                 obj['city'] = ApiClient.convertToType(data['city'], 'String');
             }
-            if (data.hasOwnProperty('stateProvince')) {
+            if (data.hasOwnProperty('stateProvince') && obj['stateProvince'] === undefined) {
                 obj['stateProvince'] = ApiClient.convertToType(data['stateProvince'], 'String');
             }
-            if (data.hasOwnProperty('postalCode')) {
+            if (data.hasOwnProperty('postalCode') && obj['postalCode'] === undefined) {
                 obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('role')) {
+            if (data.hasOwnProperty('role') && obj['role'] === undefined) {
                 obj['role'] = ContactRoleDto.constructFromObject(data['role']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ContactTypeDto.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('isDeleted')) {
+            if (data.hasOwnProperty('isDeleted') && obj['isDeleted'] === undefined) {
                 obj['isDeleted'] = ApiClient.convertToType(data['isDeleted'], 'Boolean');
             }
-            if (data.hasOwnProperty('lastMeeting')) {
+            if (data.hasOwnProperty('lastMeeting') && obj['lastMeeting'] === undefined) {
                 obj['lastMeeting'] = ApiClient.convertToType(data['lastMeeting'], 'String');
             }
-            if (data.hasOwnProperty('alternativeEmailAddresses')) {
+            if (data.hasOwnProperty('alternativeEmailAddresses') && obj['alternativeEmailAddresses'] === undefined) {
                 obj['alternativeEmailAddresses'] = ApiClient.convertToType(data['alternativeEmailAddresses'], [AlternativeEmailAddressDto]);
             }
-            if (data.hasOwnProperty('customFieldValues')) {
+            if (data.hasOwnProperty('customFieldValues') && obj['customFieldValues'] === undefined) {
                 obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [ContactCustomFieldValueDto]);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostOptionByClassValueRangesGetRequestDataKeyFiguresVega {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataKeyFiguresVega();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostOptionByClassListRequestDataContractStrikePriceMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostOptionByClassValueRangesGetRequestDataContractStrikePriceMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

@@ -49,27 +49,28 @@ class OptimizerInputsVolatilityTerm {
         if (data) {
             obj = obj || new OptimizerInputsVolatilityTerm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('multiplier')) {
+            if (data.hasOwnProperty('multiplier') && obj['multiplier'] === undefined) {
                 obj['multiplier'] = OptimizerInputsValue.constructFromObject(data['multiplier']);
             }
-            if (data.hasOwnProperty('direction')) {
+            if (data.hasOwnProperty('direction') && obj['direction'] === undefined) {
                 obj['direction'] = OptimizerInputsEObjectiveTermDirectionEnum.constructFromObject(data['direction']);
             }
-            if (data.hasOwnProperty('risk_type')) {
+            if (data.hasOwnProperty('risk_type') && obj['risk_type'] === undefined) {
                 obj['risk_type'] = OptimizerInputsEObjectiveRiskTypeEnum.constructFromObject(data['risk_type']);
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], ['String']);
             }
-            if (data.hasOwnProperty('active_risk')) {
+            if (data.hasOwnProperty('active_risk') && obj['active_risk'] === undefined) {
                 obj['active_risk'] = ApiClient.convertToType(data['active_risk'], 'Boolean');
             }
-            if (data.hasOwnProperty('benchmark_index')) {
+            if (data.hasOwnProperty('benchmark_index') && obj['benchmark_index'] === undefined) {
                 obj['benchmark_index'] = ApiClient.convertToType(data['benchmark_index'], 'Number');
             }
+            
         }
         return obj;
     }

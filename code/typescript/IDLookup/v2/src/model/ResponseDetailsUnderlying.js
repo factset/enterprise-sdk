@@ -47,9 +47,10 @@ class ResponseDetailsUnderlying {
         if (data) {
             obj = obj || new ResponseDetailsUnderlying();
 
-            if (data.hasOwnProperty('tickerRegion')) {
+            if (data.hasOwnProperty('tickerRegion') && obj['tickerRegion'] === undefined) {
                 obj['tickerRegion'] = ApiClient.convertToType(data['tickerRegion'], 'String');
             }
+            
         }
         return obj;
     }

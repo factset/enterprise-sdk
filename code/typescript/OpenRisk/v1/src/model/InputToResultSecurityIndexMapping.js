@@ -49,15 +49,16 @@ class InputToResultSecurityIndexMapping {
         if (data) {
             obj = obj || new InputToResultSecurityIndexMapping();
 
-            if (data.hasOwnProperty('portfolio')) {
+            if (data.hasOwnProperty('portfolio') && obj['portfolio'] === undefined) {
                 obj['portfolio'] = ApiClient.convertToType(data['portfolio'], ['Number']);
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = ApiClient.convertToType(data['benchmark'], ['Number']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = ApiClient.convertToType(data['market'], ['Number']);
             }
+            
         }
         return obj;
     }

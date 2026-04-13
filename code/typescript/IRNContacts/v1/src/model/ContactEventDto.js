@@ -47,18 +47,19 @@ class ContactEventDto {
         if (data) {
             obj = obj || new ContactEventDto();
 
-            if (data.hasOwnProperty('eventType')) {
+            if (data.hasOwnProperty('eventType') && obj['eventType'] === undefined) {
                 obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('fullName')) {
+            if (data.hasOwnProperty('fullName') && obj['fullName'] === undefined) {
                 obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = ApiClient.convertToType(data['details'], [ContactEventUpdateDto]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class PostOptionClassScreenerSearchRequestDataCategoryRestrict {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchRequestDataCategoryRestrict();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
+            
         }
         return obj;
     }

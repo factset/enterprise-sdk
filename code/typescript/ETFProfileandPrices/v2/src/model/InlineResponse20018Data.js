@@ -46,9 +46,10 @@ class InlineResponse20018Data {
         if (data) {
             obj = obj || new InlineResponse20018Data();
 
-            if (data.hasOwnProperty('nicheCategory')) {
+            if (data.hasOwnProperty('nicheCategory') && obj['nicheCategory'] === undefined) {
                 obj['nicheCategory'] = ApiClient.convertToType(data['nicheCategory'], 'String');
             }
+            
         }
         return obj;
     }

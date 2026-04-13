@@ -48,12 +48,13 @@ class StructuredFiltersChildrenObjectTopicsNested {
         if (data) {
             obj = obj || new StructuredFiltersChildrenObjectTopicsNested();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('children')) {
+            if (data.hasOwnProperty('children') && obj['children'] === undefined) {
                 obj['children'] = ApiClient.convertToType(data['children'], [StructuredFiltersChildrenObjectTopicsNested2]);
             }
+            
         }
         return obj;
     }

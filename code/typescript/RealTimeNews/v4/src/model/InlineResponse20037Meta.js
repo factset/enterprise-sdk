@@ -50,15 +50,16 @@ class InlineResponse20037Meta {
         if (data) {
             obj = obj || new InlineResponse20037Meta();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = StatusObject.constructFromObject(data['status']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = OffsetBasedPaginationOutputObject.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('partial')) {
+            if (data.hasOwnProperty('partial') && obj['partial'] === undefined) {
                 obj['partial'] = PartialOutputObject.constructFromObject(data['partial']);
             }
+            
         }
         return obj;
     }

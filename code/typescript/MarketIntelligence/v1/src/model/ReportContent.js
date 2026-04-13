@@ -47,18 +47,19 @@ class ReportContent {
         if (data) {
             obj = obj || new ReportContent();
 
-            if (data.hasOwnProperty('subject_matched_order')) {
+            if (data.hasOwnProperty('subject_matched_order') && obj['subject_matched_order'] === undefined) {
                 obj['subject_matched_order'] = ApiClient.convertToType(data['subject_matched_order'], 'String');
             }
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('story_dt')) {
+            if (data.hasOwnProperty('story_dt') && obj['story_dt'] === undefined) {
                 obj['story_dt'] = ApiClient.convertToType(data['story_dt'], 'String');
             }
-            if (data.hasOwnProperty('doc_disp_content')) {
+            if (data.hasOwnProperty('doc_disp_content') && obj['doc_disp_content'] === undefined) {
                 obj['doc_disp_content'] = ApiClient.convertToType(data['doc_disp_content'], 'String');
             }
+            
         }
         return obj;
     }

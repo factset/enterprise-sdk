@@ -47,27 +47,28 @@ class Nav {
         if (data) {
             obj = obj || new Nav();
 
-            if (data.hasOwnProperty('nav')) {
+            if (data.hasOwnProperty('nav') && obj['nav'] === undefined) {
                 obj['nav'] = ApiClient.convertToType(data['nav'], 'Number');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('highFiftyTwoWeeks')) {
+            if (data.hasOwnProperty('highFiftyTwoWeeks') && obj['highFiftyTwoWeeks'] === undefined) {
                 obj['highFiftyTwoWeeks'] = ApiClient.convertToType(data['highFiftyTwoWeeks'], 'Number');
             }
-            if (data.hasOwnProperty('lowFiftyTwoWeeks')) {
+            if (data.hasOwnProperty('lowFiftyTwoWeeks') && obj['lowFiftyTwoWeeks'] === undefined) {
                 obj['lowFiftyTwoWeeks'] = ApiClient.convertToType(data['lowFiftyTwoWeeks'], 'Number');
             }
-            if (data.hasOwnProperty('changeDollar')) {
+            if (data.hasOwnProperty('changeDollar') && obj['changeDollar'] === undefined) {
                 obj['changeDollar'] = ApiClient.convertToType(data['changeDollar'], 'Number');
             }
-            if (data.hasOwnProperty('changePercent')) {
+            if (data.hasOwnProperty('changePercent') && obj['changePercent'] === undefined) {
                 obj['changePercent'] = ApiClient.convertToType(data['changePercent'], 'Number');
             }
-            if (data.hasOwnProperty('previous')) {
+            if (data.hasOwnProperty('previous') && obj['previous'] === undefined) {
                 obj['previous'] = ApiClient.convertToType(data['previous'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,15 +49,16 @@ class PostOptionByClassListRequestDataFilterValidationPrice {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataFilterValidationPrice();
 
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('latest')) {
+            if (data.hasOwnProperty('latest') && obj['latest'] === undefined) {
                 obj['latest'] = PostOptionByClassListRequestDataFilterValidationPriceLatest.constructFromObject(data['latest']);
             }
-            if (data.hasOwnProperty('previous')) {
+            if (data.hasOwnProperty('previous') && obj['previous'] === undefined) {
                 obj['previous'] = PostOptionByClassListRequestDataFilterValidationPricePrevious.constructFromObject(data['previous']);
             }
+            
         }
         return obj;
     }

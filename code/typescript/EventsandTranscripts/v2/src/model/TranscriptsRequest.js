@@ -48,12 +48,13 @@ class TranscriptsRequest {
         if (data) {
             obj = obj || new TranscriptsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TranscriptsRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = TranscriptsRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

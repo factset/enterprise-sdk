@@ -49,9 +49,10 @@ class ValueLabelAnswerAllOf {
         if (data) {
             obj = obj || new ValueLabelAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = ValueLabelTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

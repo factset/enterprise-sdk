@@ -48,9 +48,10 @@ class InvoiceDetailsSubscriptionChanges {
         if (data) {
             obj = obj || new InvoiceDetailsSubscriptionChanges();
 
-            if (data.hasOwnProperty('exchanges')) {
+            if (data.hasOwnProperty('exchanges') && obj['exchanges'] === undefined) {
                 obj['exchanges'] = ApiClient.convertToType(data['exchanges'], [InvoiceDetailsSubscriptionChangesExchanges]);
             }
+            
         }
         return obj;
     }

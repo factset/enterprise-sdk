@@ -47,45 +47,46 @@ class MarketImpactTradeAnalytics {
         if (data) {
             obj = obj || new MarketImpactTradeAnalytics();
 
-            if (data.hasOwnProperty('avgVolume')) {
+            if (data.hasOwnProperty('avgVolume') && obj['avgVolume'] === undefined) {
                 obj['avgVolume'] = ApiClient.convertToType(data['avgVolume'], 'Number');
             }
-            if (data.hasOwnProperty('avgVolatility')) {
+            if (data.hasOwnProperty('avgVolatility') && obj['avgVolatility'] === undefined) {
                 obj['avgVolatility'] = ApiClient.convertToType(data['avgVolatility'], 'Number');
             }
-            if (data.hasOwnProperty('binTime')) {
+            if (data.hasOwnProperty('binTime') && obj['binTime'] === undefined) {
                 obj['binTime'] = ApiClient.convertToType(data['binTime'], 'String');
             }
-            if (data.hasOwnProperty('vwap')) {
+            if (data.hasOwnProperty('vwap') && obj['vwap'] === undefined) {
                 obj['vwap'] = ApiClient.convertToType(data['vwap'], 'Number');
             }
-            if (data.hasOwnProperty('regularVolume')) {
+            if (data.hasOwnProperty('regularVolume') && obj['regularVolume'] === undefined) {
                 obj['regularVolume'] = ApiClient.convertToType(data['regularVolume'], 'Number');
             }
-            if (data.hasOwnProperty('blockVolume')) {
+            if (data.hasOwnProperty('blockVolume') && obj['blockVolume'] === undefined) {
                 obj['blockVolume'] = ApiClient.convertToType(data['blockVolume'], 'Number');
             }
-            if (data.hasOwnProperty('nonRegularVolume')) {
+            if (data.hasOwnProperty('nonRegularVolume') && obj['nonRegularVolume'] === undefined) {
                 obj['nonRegularVolume'] = ApiClient.convertToType(data['nonRegularVolume'], 'Number');
             }
-            if (data.hasOwnProperty('oddLot')) {
+            if (data.hasOwnProperty('oddLot') && obj['oddLot'] === undefined) {
                 obj['oddLot'] = ApiClient.convertToType(data['oddLot'], 'Number');
             }
-            if (data.hasOwnProperty('darkVolume')) {
+            if (data.hasOwnProperty('darkVolume') && obj['darkVolume'] === undefined) {
                 obj['darkVolume'] = ApiClient.convertToType(data['darkVolume'], 'Number');
             }
-            if (data.hasOwnProperty('numTrades')) {
+            if (data.hasOwnProperty('numTrades') && obj['numTrades'] === undefined) {
                 obj['numTrades'] = ApiClient.convertToType(data['numTrades'], 'Number');
             }
-            if (data.hasOwnProperty('fractionalVolume')) {
+            if (data.hasOwnProperty('fractionalVolume') && obj['fractionalVolume'] === undefined) {
                 obj['fractionalVolume'] = ApiClient.convertToType(data['fractionalVolume'], 'Number');
             }
-            if (data.hasOwnProperty('fittedVolume')) {
+            if (data.hasOwnProperty('fittedVolume') && obj['fittedVolume'] === undefined) {
                 obj['fittedVolume'] = ApiClient.convertToType(data['fittedVolume'], 'Number');
             }
-            if (data.hasOwnProperty('fittedVolatility')) {
+            if (data.hasOwnProperty('fittedVolatility') && obj['fittedVolatility'] === undefined) {
                 obj['fittedVolatility'] = ApiClient.convertToType(data['fittedVolatility'], 'Number');
             }
+            
         }
         return obj;
     }

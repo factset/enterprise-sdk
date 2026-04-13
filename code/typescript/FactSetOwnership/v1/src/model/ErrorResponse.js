@@ -48,21 +48,22 @@ class ErrorResponse {
         if (data) {
             obj = obj || new ErrorResponse();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('timestamp')) {
+            if (data.hasOwnProperty('timestamp') && obj['timestamp'] === undefined) {
                 obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Date');
             }
-            if (data.hasOwnProperty('path')) {
+            if (data.hasOwnProperty('path') && obj['path'] === undefined) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('subErrors')) {
+            if (data.hasOwnProperty('subErrors') && obj['subErrors'] === undefined) {
                 obj['subErrors'] = ErrorResponseSubErrors.constructFromObject(data['subErrors']);
             }
+            
         }
         return obj;
     }

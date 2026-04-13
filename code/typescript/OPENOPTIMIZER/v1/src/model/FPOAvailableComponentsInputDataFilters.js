@@ -50,15 +50,16 @@ class FPOAvailableComponentsInputDataFilters {
         if (data) {
             obj = obj || new FPOAvailableComponentsInputDataFilters();
 
-            if (data.hasOwnProperty('constraints')) {
+            if (data.hasOwnProperty('constraints') && obj['constraints'] === undefined) {
                 obj['constraints'] = FPOAvailableComponentsInputDataFiltersConstraints.constructFromObject(data['constraints']);
             }
-            if (data.hasOwnProperty('objectives')) {
+            if (data.hasOwnProperty('objectives') && obj['objectives'] === undefined) {
                 obj['objectives'] = FPOAvailableComponentsInputDataFiltersObjectives.constructFromObject(data['objectives']);
             }
-            if (data.hasOwnProperty('transactionCosts')) {
+            if (data.hasOwnProperty('transactionCosts') && obj['transactionCosts'] === undefined) {
                 obj['transactionCosts'] = FPOAvailableComponentsInputDataFiltersTransactionCosts.constructFromObject(data['transactionCosts']);
             }
+            
         }
         return obj;
     }

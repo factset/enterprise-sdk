@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSi
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDays();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200NumberDaysMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

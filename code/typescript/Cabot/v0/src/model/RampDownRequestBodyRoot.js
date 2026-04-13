@@ -47,9 +47,10 @@ class RampDownRequestBodyRoot {
         if (data) {
             obj = obj || new RampDownRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = RampDownRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

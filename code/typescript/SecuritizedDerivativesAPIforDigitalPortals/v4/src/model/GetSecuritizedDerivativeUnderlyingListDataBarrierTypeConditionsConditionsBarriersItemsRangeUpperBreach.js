@@ -47,12 +47,13 @@ class GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsB
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeUpperBreach();
 
-            if (data.hasOwnProperty('isBreached')) {
+            if (data.hasOwnProperty('isBreached') && obj['isBreached'] === undefined) {
                 obj['isBreached'] = ApiClient.convertToType(data['isBreached'], 'Boolean');
             }
-            if (data.hasOwnProperty('datetimeBreach')) {
+            if (data.hasOwnProperty('datetimeBreach') && obj['datetimeBreach'] === undefined) {
                 obj['datetimeBreach'] = ApiClient.convertToType(data['datetimeBreach'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class AFIOptimizerStrategyInput {
         if (data) {
             obj = obj || new AFIOptimizerStrategyInput();
 
-            if (data.hasOwnProperty('overrides')) {
+            if (data.hasOwnProperty('overrides') && obj['overrides'] === undefined) {
                 obj['overrides'] = AFIOptimizerStrategyOverridesInput.constructFromObject(data['overrides']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            
         }
         return obj;
     }

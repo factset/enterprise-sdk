@@ -48,9 +48,10 @@ class ClientScenariosUpload {
         if (data) {
             obj = obj || new ClientScenariosUpload();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ClientScenariosUploadParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

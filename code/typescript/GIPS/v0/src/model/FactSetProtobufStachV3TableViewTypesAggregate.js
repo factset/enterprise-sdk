@@ -47,9 +47,10 @@ class FactSetProtobufStachV3TableViewTypesAggregate {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesAggregate();
 
-            if (data.hasOwnProperty('functions')) {
+            if (data.hasOwnProperty('functions') && obj['functions'] === undefined) {
                 obj['functions'] = ApiClient.convertToType(data['functions'], [FactSetProtobufStachV3TableViewTypesAggregateTypesFunction]);
             }
+            
         }
         return obj;
     }

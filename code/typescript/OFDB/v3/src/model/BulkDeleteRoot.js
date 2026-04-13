@@ -47,9 +47,10 @@ class BulkDeleteRoot {
         if (data) {
             obj = obj || new BulkDeleteRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BulkDeleteRootData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

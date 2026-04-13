@@ -50,15 +50,16 @@ class InlineResponse20045Data {
         if (data) {
             obj = obj || new InlineResponse20045Data();
 
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = InlineResponse20045DataDistributor.constructFromObject(data['distributor']);
             }
-            if (data.hasOwnProperty('publisher')) {
+            if (data.hasOwnProperty('publisher') && obj['publisher'] === undefined) {
                 obj['publisher'] = InlineResponse20045DataPublisher.constructFromObject(data['publisher']);
             }
-            if (data.hasOwnProperty('articles')) {
+            if (data.hasOwnProperty('articles') && obj['articles'] === undefined) {
                 obj['articles'] = ApiClient.convertToType(data['articles'], [PostNewsArticleListByChainDataArticlesItems]);
             }
+            
         }
         return obj;
     }

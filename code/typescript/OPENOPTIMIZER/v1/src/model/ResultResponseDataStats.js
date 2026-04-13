@@ -47,120 +47,121 @@ class ResultResponseDataStats {
         if (data) {
             obj = obj || new ResultResponseDataStats();
 
-            if (data.hasOwnProperty('activeCoefficientOfDetermination')) {
+            if (data.hasOwnProperty('activeCoefficientOfDetermination') && obj['activeCoefficientOfDetermination'] === undefined) {
                 obj['activeCoefficientOfDetermination'] = StatResponseObject.constructFromObject(data['activeCoefficientOfDetermination']);
             }
-            if (data.hasOwnProperty('activeFactorRisk')) {
+            if (data.hasOwnProperty('activeFactorRisk') && obj['activeFactorRisk'] === undefined) {
                 obj['activeFactorRisk'] = StatResponseObject.constructFromObject(data['activeFactorRisk']);
             }
-            if (data.hasOwnProperty('activePredictedBeta')) {
+            if (data.hasOwnProperty('activePredictedBeta') && obj['activePredictedBeta'] === undefined) {
                 obj['activePredictedBeta'] = StatResponseObject.constructFromObject(data['activePredictedBeta']);
             }
-            if (data.hasOwnProperty('activeRisk')) {
+            if (data.hasOwnProperty('activeRisk') && obj['activeRisk'] === undefined) {
                 obj['activeRisk'] = StatResponseObject.constructFromObject(data['activeRisk']);
             }
-            if (data.hasOwnProperty('activeRiskWithAlphaFactor')) {
+            if (data.hasOwnProperty('activeRiskWithAlphaFactor') && obj['activeRiskWithAlphaFactor'] === undefined) {
                 obj['activeRiskWithAlphaFactor'] = StatResponseObject.constructFromObject(data['activeRiskWithAlphaFactor']);
             }
-            if (data.hasOwnProperty('activeSpecificRisk')) {
+            if (data.hasOwnProperty('activeSpecificRisk') && obj['activeSpecificRisk'] === undefined) {
                 obj['activeSpecificRisk'] = StatResponseObject.constructFromObject(data['activeSpecificRisk']);
             }
-            if (data.hasOwnProperty('benchmarkRisk')) {
+            if (data.hasOwnProperty('benchmarkRisk') && obj['benchmarkRisk'] === undefined) {
                 obj['benchmarkRisk'] = StatResponseObject.constructFromObject(data['benchmarkRisk']);
             }
-            if (data.hasOwnProperty('buyTurnover')) {
+            if (data.hasOwnProperty('buyTurnover') && obj['buyTurnover'] === undefined) {
                 obj['buyTurnover'] = StatResponseObject.constructFromObject(data['buyTurnover']);
             }
-            if (data.hasOwnProperty('buyTurnoverPercent')) {
+            if (data.hasOwnProperty('buyTurnoverPercent') && obj['buyTurnoverPercent'] === undefined) {
                 obj['buyTurnoverPercent'] = StatResponseObject.constructFromObject(data['buyTurnoverPercent']);
             }
-            if (data.hasOwnProperty('cashValue')) {
+            if (data.hasOwnProperty('cashValue') && obj['cashValue'] === undefined) {
                 obj['cashValue'] = StatResponseObject.constructFromObject(data['cashValue']);
             }
-            if (data.hasOwnProperty('cashValuePercent')) {
+            if (data.hasOwnProperty('cashValuePercent') && obj['cashValuePercent'] === undefined) {
                 obj['cashValuePercent'] = StatResponseObject.constructFromObject(data['cashValuePercent']);
             }
-            if (data.hasOwnProperty('coefficientOfDetermination')) {
+            if (data.hasOwnProperty('coefficientOfDetermination') && obj['coefficientOfDetermination'] === undefined) {
                 obj['coefficientOfDetermination'] = StatResponseObject.constructFromObject(data['coefficientOfDetermination']);
             }
-            if (data.hasOwnProperty('expectedReturnPercent')) {
+            if (data.hasOwnProperty('expectedReturnPercent') && obj['expectedReturnPercent'] === undefined) {
                 obj['expectedReturnPercent'] = StatResponseObject.constructFromObject(data['expectedReturnPercent']);
             }
-            if (data.hasOwnProperty('historicalBeta')) {
+            if (data.hasOwnProperty('historicalBeta') && obj['historicalBeta'] === undefined) {
                 obj['historicalBeta'] = StatResponseObject.constructFromObject(data['historicalBeta']);
             }
-            if (data.hasOwnProperty('longCount')) {
+            if (data.hasOwnProperty('longCount') && obj['longCount'] === undefined) {
                 obj['longCount'] = StatResponseObject.constructFromObject(data['longCount']);
             }
-            if (data.hasOwnProperty('longShortRatio')) {
+            if (data.hasOwnProperty('longShortRatio') && obj['longShortRatio'] === undefined) {
                 obj['longShortRatio'] = StatResponseObject.constructFromObject(data['longShortRatio']);
             }
-            if (data.hasOwnProperty('longValue')) {
+            if (data.hasOwnProperty('longValue') && obj['longValue'] === undefined) {
                 obj['longValue'] = StatResponseObject.constructFromObject(data['longValue']);
             }
-            if (data.hasOwnProperty('longValuePercent')) {
+            if (data.hasOwnProperty('longValuePercent') && obj['longValuePercent'] === undefined) {
                 obj['longValuePercent'] = StatResponseObject.constructFromObject(data['longValuePercent']);
             }
-            if (data.hasOwnProperty('netValue')) {
+            if (data.hasOwnProperty('netValue') && obj['netValue'] === undefined) {
                 obj['netValue'] = StatResponseObject.constructFromObject(data['netValue']);
             }
-            if (data.hasOwnProperty('predictedBeta')) {
+            if (data.hasOwnProperty('predictedBeta') && obj['predictedBeta'] === undefined) {
                 obj['predictedBeta'] = StatResponseObject.constructFromObject(data['predictedBeta']);
             }
-            if (data.hasOwnProperty('predictedInformationRatio')) {
+            if (data.hasOwnProperty('predictedInformationRatio') && obj['predictedInformationRatio'] === undefined) {
                 obj['predictedInformationRatio'] = StatResponseObject.constructFromObject(data['predictedInformationRatio']);
             }
-            if (data.hasOwnProperty('referenceValue')) {
+            if (data.hasOwnProperty('referenceValue') && obj['referenceValue'] === undefined) {
                 obj['referenceValue'] = StatResponseObject.constructFromObject(data['referenceValue']);
             }
-            if (data.hasOwnProperty('sellTurnover')) {
+            if (data.hasOwnProperty('sellTurnover') && obj['sellTurnover'] === undefined) {
                 obj['sellTurnover'] = StatResponseObject.constructFromObject(data['sellTurnover']);
             }
-            if (data.hasOwnProperty('sellTurnoverPercent')) {
+            if (data.hasOwnProperty('sellTurnoverPercent') && obj['sellTurnoverPercent'] === undefined) {
                 obj['sellTurnoverPercent'] = StatResponseObject.constructFromObject(data['sellTurnoverPercent']);
             }
-            if (data.hasOwnProperty('shortCount')) {
+            if (data.hasOwnProperty('shortCount') && obj['shortCount'] === undefined) {
                 obj['shortCount'] = StatResponseObject.constructFromObject(data['shortCount']);
             }
-            if (data.hasOwnProperty('shortValue')) {
+            if (data.hasOwnProperty('shortValue') && obj['shortValue'] === undefined) {
                 obj['shortValue'] = StatResponseObject.constructFromObject(data['shortValue']);
             }
-            if (data.hasOwnProperty('shortValuePercent')) {
+            if (data.hasOwnProperty('shortValuePercent') && obj['shortValuePercent'] === undefined) {
                 obj['shortValuePercent'] = StatResponseObject.constructFromObject(data['shortValuePercent']);
             }
-            if (data.hasOwnProperty('totalFactorRisk')) {
+            if (data.hasOwnProperty('totalFactorRisk') && obj['totalFactorRisk'] === undefined) {
                 obj['totalFactorRisk'] = StatResponseObject.constructFromObject(data['totalFactorRisk']);
             }
-            if (data.hasOwnProperty('totalRisk')) {
+            if (data.hasOwnProperty('totalRisk') && obj['totalRisk'] === undefined) {
                 obj['totalRisk'] = StatResponseObject.constructFromObject(data['totalRisk']);
             }
-            if (data.hasOwnProperty('totalRiskWithAlphaFactor')) {
+            if (data.hasOwnProperty('totalRiskWithAlphaFactor') && obj['totalRiskWithAlphaFactor'] === undefined) {
                 obj['totalRiskWithAlphaFactor'] = StatResponseObject.constructFromObject(data['totalRiskWithAlphaFactor']);
             }
-            if (data.hasOwnProperty('totalSpecificRisk')) {
+            if (data.hasOwnProperty('totalSpecificRisk') && obj['totalSpecificRisk'] === undefined) {
                 obj['totalSpecificRisk'] = StatResponseObject.constructFromObject(data['totalSpecificRisk']);
             }
-            if (data.hasOwnProperty('tradeCount')) {
+            if (data.hasOwnProperty('tradeCount') && obj['tradeCount'] === undefined) {
                 obj['tradeCount'] = StatResponseObject.constructFromObject(data['tradeCount']);
             }
-            if (data.hasOwnProperty('transactionCost')) {
+            if (data.hasOwnProperty('transactionCost') && obj['transactionCost'] === undefined) {
                 obj['transactionCost'] = StatResponseObject.constructFromObject(data['transactionCost']);
             }
-            if (data.hasOwnProperty('transactionCostPercent')) {
+            if (data.hasOwnProperty('transactionCostPercent') && obj['transactionCostPercent'] === undefined) {
                 obj['transactionCostPercent'] = StatResponseObject.constructFromObject(data['transactionCostPercent']);
             }
-            if (data.hasOwnProperty('transactionCostPercentOfTradedValue')) {
+            if (data.hasOwnProperty('transactionCostPercentOfTradedValue') && obj['transactionCostPercentOfTradedValue'] === undefined) {
                 obj['transactionCostPercentOfTradedValue'] = StatResponseObject.constructFromObject(data['transactionCostPercentOfTradedValue']);
             }
-            if (data.hasOwnProperty('transferCoefficient')) {
+            if (data.hasOwnProperty('transferCoefficient') && obj['transferCoefficient'] === undefined) {
                 obj['transferCoefficient'] = StatResponseObject.constructFromObject(data['transferCoefficient']);
             }
-            if (data.hasOwnProperty('turnover')) {
+            if (data.hasOwnProperty('turnover') && obj['turnover'] === undefined) {
                 obj['turnover'] = StatResponseObject.constructFromObject(data['turnover']);
             }
-            if (data.hasOwnProperty('turnoverPercent')) {
+            if (data.hasOwnProperty('turnoverPercent') && obj['turnoverPercent'] === undefined) {
                 obj['turnoverPercent'] = StatResponseObject.constructFromObject(data['turnoverPercent']);
             }
+            
         }
         return obj;
     }

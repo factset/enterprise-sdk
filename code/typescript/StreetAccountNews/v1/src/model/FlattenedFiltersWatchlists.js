@@ -48,9 +48,10 @@ class FlattenedFiltersWatchlists {
         if (data) {
             obj = obj || new FlattenedFiltersWatchlists();
 
-            if (data.hasOwnProperty('watchlists')) {
+            if (data.hasOwnProperty('watchlists') && obj['watchlists'] === undefined) {
                 obj['watchlists'] = ApiClient.convertToType(data['watchlists'], [FlattenedFiltersWatchlistsObject]);
             }
+            
         }
         return obj;
     }

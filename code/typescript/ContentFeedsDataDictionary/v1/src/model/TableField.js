@@ -46,42 +46,43 @@ class TableField {
         if (data) {
             obj = obj || new TableField();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('dataItemId')) {
+            if (data.hasOwnProperty('dataItemId') && obj['dataItemId'] === undefined) {
                 obj['dataItemId'] = ApiClient.convertToType(data['dataItemId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('dataType')) {
+            if (data.hasOwnProperty('dataType') && obj['dataType'] === undefined) {
                 obj['dataType'] = ApiClient.convertToType(data['dataType'], 'String');
             }
-            if (data.hasOwnProperty('position')) {
+            if (data.hasOwnProperty('position') && obj['position'] === undefined) {
                 obj['position'] = ApiClient.convertToType(data['position'], 'Number');
             }
-            if (data.hasOwnProperty('isPrimaryKey')) {
+            if (data.hasOwnProperty('isPrimaryKey') && obj['isPrimaryKey'] === undefined) {
                 obj['isPrimaryKey'] = ApiClient.convertToType(data['isPrimaryKey'], 'Boolean');
             }
-            if (data.hasOwnProperty('nullable')) {
+            if (data.hasOwnProperty('nullable') && obj['nullable'] === undefined) {
                 obj['nullable'] = ApiClient.convertToType(data['nullable'], 'Boolean');
             }
-            if (data.hasOwnProperty('hasCodeDependency')) {
+            if (data.hasOwnProperty('hasCodeDependency') && obj['hasCodeDependency'] === undefined) {
                 obj['hasCodeDependency'] = ApiClient.convertToType(data['hasCodeDependency'], 'Boolean');
             }
-            if (data.hasOwnProperty('monetary')) {
+            if (data.hasOwnProperty('monetary') && obj['monetary'] === undefined) {
                 obj['monetary'] = ApiClient.convertToType(data['monetary'], 'Boolean');
             }
-            if (data.hasOwnProperty('splitAffected')) {
+            if (data.hasOwnProperty('splitAffected') && obj['splitAffected'] === undefined) {
                 obj['splitAffected'] = ApiClient.convertToType(data['splitAffected'], 'Boolean');
             }
-            if (data.hasOwnProperty('unitFactor')) {
+            if (data.hasOwnProperty('unitFactor') && obj['unitFactor'] === undefined) {
                 obj['unitFactor'] = ApiClient.convertToType(data['unitFactor'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class NonPeriodicRequest {
         if (data) {
             obj = obj || new NonPeriodicRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = NonPeriodicRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

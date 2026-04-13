@@ -46,36 +46,37 @@ class Price {
         if (data) {
             obj = obj || new Price();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('adjDate')) {
+            if (data.hasOwnProperty('adjDate') && obj['adjDate'] === undefined) {
                 obj['adjDate'] = ApiClient.convertToType(data['adjDate'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('priceOpen')) {
+            if (data.hasOwnProperty('priceOpen') && obj['priceOpen'] === undefined) {
                 obj['priceOpen'] = ApiClient.convertToType(data['priceOpen'], 'Number');
             }
-            if (data.hasOwnProperty('priceHigh')) {
+            if (data.hasOwnProperty('priceHigh') && obj['priceHigh'] === undefined) {
                 obj['priceHigh'] = ApiClient.convertToType(data['priceHigh'], 'Number');
             }
-            if (data.hasOwnProperty('priceLow')) {
+            if (data.hasOwnProperty('priceLow') && obj['priceLow'] === undefined) {
                 obj['priceLow'] = ApiClient.convertToType(data['priceLow'], 'Number');
             }
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

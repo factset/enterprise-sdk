@@ -46,15 +46,16 @@ class UnlinkedPATemplateSummary {
         if (data) {
             obj = obj || new UnlinkedPATemplateSummary();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
+            
         }
         return obj;
     }

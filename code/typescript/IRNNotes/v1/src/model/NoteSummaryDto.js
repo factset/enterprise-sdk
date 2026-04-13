@@ -47,54 +47,55 @@ class NoteSummaryDto {
         if (data) {
             obj = obj || new NoteSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
+            if (data.hasOwnProperty('createdAt') && obj['createdAt'] === undefined) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
-            if (data.hasOwnProperty('authorId')) {
+            if (data.hasOwnProperty('authorId') && obj['authorId'] === undefined) {
                 obj['authorId'] = ApiClient.convertToType(data['authorId'], 'String');
             }
-            if (data.hasOwnProperty('contributorId')) {
+            if (data.hasOwnProperty('contributorId') && obj['contributorId'] === undefined) {
                 obj['contributorId'] = ApiClient.convertToType(data['contributorId'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('subjectId')) {
+            if (data.hasOwnProperty('subjectId') && obj['subjectId'] === undefined) {
                 obj['subjectId'] = ApiClient.convertToType(data['subjectId'], 'String');
             }
-            if (data.hasOwnProperty('isPersonal')) {
+            if (data.hasOwnProperty('isPersonal') && obj['isPersonal'] === undefined) {
                 obj['isPersonal'] = ApiClient.convertToType(data['isPersonal'], 'Boolean');
             }
-            if (data.hasOwnProperty('state')) {
+            if (data.hasOwnProperty('state') && obj['state'] === undefined) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
-            if (data.hasOwnProperty('approvalStatus')) {
+            if (data.hasOwnProperty('approvalStatus') && obj['approvalStatus'] === undefined) {
                 obj['approvalStatus'] = ApiClient.convertToType(data['approvalStatus'], 'String');
             }
-            if (data.hasOwnProperty('attachmentIds')) {
+            if (data.hasOwnProperty('attachmentIds') && obj['attachmentIds'] === undefined) {
                 obj['attachmentIds'] = ApiClient.convertToType(data['attachmentIds'], ['String']);
             }
-            if (data.hasOwnProperty('relatedSymbols')) {
+            if (data.hasOwnProperty('relatedSymbols') && obj['relatedSymbols'] === undefined) {
                 obj['relatedSymbols'] = ApiClient.convertToType(data['relatedSymbols'], ['String']);
             }
-            if (data.hasOwnProperty('recommendationId')) {
+            if (data.hasOwnProperty('recommendationId') && obj['recommendationId'] === undefined) {
                 obj['recommendationId'] = ApiClient.convertToType(data['recommendationId'], 'String');
             }
-            if (data.hasOwnProperty('sentimentId')) {
+            if (data.hasOwnProperty('sentimentId') && obj['sentimentId'] === undefined) {
                 obj['sentimentId'] = ApiClient.convertToType(data['sentimentId'], 'String');
             }
-            if (data.hasOwnProperty('customFields')) {
+            if (data.hasOwnProperty('customFields') && obj['customFields'] === undefined) {
                 obj['customFields'] = ApiClient.convertToType(data['customFields'], [CustomFieldValueDto]);
             }
+            
         }
         return obj;
     }

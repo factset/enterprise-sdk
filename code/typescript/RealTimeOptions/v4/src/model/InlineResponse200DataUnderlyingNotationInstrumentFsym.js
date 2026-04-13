@@ -48,9 +48,10 @@ class InlineResponse200DataUnderlyingNotationInstrumentFsym {
         if (data) {
             obj = obj || new InlineResponse200DataUnderlyingNotationInstrumentFsym();
 
-            if (data.hasOwnProperty('security')) {
+            if (data.hasOwnProperty('security') && obj['security'] === undefined) {
                 obj['security'] = InlineResponse200DataUnderlyingNotationInstrumentFsymSecurity.constructFromObject(data['security']);
             }
+            
         }
         return obj;
     }

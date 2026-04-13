@@ -48,9 +48,10 @@ class BondYieldResponse {
         if (data) {
             obj = obj || new BondYieldResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [BondYield]);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class InlineResponse20012DataFit {
         if (data) {
             obj = obj || new InlineResponse20012DataFit();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('average')) {
+            if (data.hasOwnProperty('average') && obj['average'] === undefined) {
                 obj['average'] = ApiClient.convertToType(data['average'], 'Number');
             }
+            
         }
         return obj;
     }

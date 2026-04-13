@@ -53,15 +53,16 @@ class ServiceProviderConfigBulk {
         if (data) {
             obj = obj || new ServiceProviderConfigBulk();
 
-            if (data.hasOwnProperty('supported')) {
+            if (data.hasOwnProperty('supported') && obj['supported'] === undefined) {
                 obj['supported'] = ApiClient.convertToType(data['supported'], 'Boolean');
             }
-            if (data.hasOwnProperty('maxOperations')) {
+            if (data.hasOwnProperty('maxOperations') && obj['maxOperations'] === undefined) {
                 obj['maxOperations'] = ApiClient.convertToType(data['maxOperations'], 'Number');
             }
-            if (data.hasOwnProperty('maxPayloadSize')) {
+            if (data.hasOwnProperty('maxPayloadSize') && obj['maxPayloadSize'] === undefined) {
                 obj['maxPayloadSize'] = ApiClient.convertToType(data['maxPayloadSize'], 'Number');
             }
+            
         }
         return obj;
     }

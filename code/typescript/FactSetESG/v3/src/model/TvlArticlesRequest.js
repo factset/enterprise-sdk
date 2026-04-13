@@ -50,9 +50,10 @@ class TvlArticlesRequest {
         if (data) {
             obj = obj || new TvlArticlesRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TvlArticlesRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

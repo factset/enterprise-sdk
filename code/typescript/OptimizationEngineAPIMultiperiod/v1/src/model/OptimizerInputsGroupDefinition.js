@@ -47,9 +47,10 @@ class OptimizerInputsGroupDefinition {
         if (data) {
             obj = obj || new OptimizerInputsGroupDefinition();
 
-            if (data.hasOwnProperty('univ_indices')) {
+            if (data.hasOwnProperty('univ_indices') && obj['univ_indices'] === undefined) {
                 obj['univ_indices'] = ApiClient.convertToType(data['univ_indices'], ['Number']);
             }
+            
         }
         return obj;
     }

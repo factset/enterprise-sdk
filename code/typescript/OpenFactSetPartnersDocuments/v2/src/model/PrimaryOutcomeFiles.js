@@ -47,24 +47,25 @@ class PrimaryOutcomeFiles {
         if (data) {
             obj = obj || new PrimaryOutcomeFiles();
 
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('primaryOutcomeMeasure')) {
+            if (data.hasOwnProperty('primaryOutcomeMeasure') && obj['primaryOutcomeMeasure'] === undefined) {
                 obj['primaryOutcomeMeasure'] = ApiClient.convertToType(data['primaryOutcomeMeasure'], 'String');
             }
-            if (data.hasOwnProperty('primaryOutcomeDesc')) {
+            if (data.hasOwnProperty('primaryOutcomeDesc') && obj['primaryOutcomeDesc'] === undefined) {
                 obj['primaryOutcomeDesc'] = ApiClient.convertToType(data['primaryOutcomeDesc'], 'String');
             }
-            if (data.hasOwnProperty('primaryOutcomeTimeFrame')) {
+            if (data.hasOwnProperty('primaryOutcomeTimeFrame') && obj['primaryOutcomeTimeFrame'] === undefined) {
                 obj['primaryOutcomeTimeFrame'] = ApiClient.convertToType(data['primaryOutcomeTimeFrame'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

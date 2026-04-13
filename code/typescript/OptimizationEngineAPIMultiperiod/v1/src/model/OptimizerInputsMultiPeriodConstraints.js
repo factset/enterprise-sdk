@@ -64,60 +64,61 @@ class OptimizerInputsMultiPeriodConstraints {
         if (data) {
             obj = obj || new OptimizerInputsMultiPeriodConstraints();
 
-            if (data.hasOwnProperty('expected_returns')) {
+            if (data.hasOwnProperty('expected_returns') && obj['expected_returns'] === undefined) {
                 obj['expected_returns'] = ApiClient.convertToType(data['expected_returns'], [OptimizerInputsMPExpectedReturnConstraint]);
             }
-            if (data.hasOwnProperty('diversification')) {
+            if (data.hasOwnProperty('diversification') && obj['diversification'] === undefined) {
                 obj['diversification'] = ApiClient.convertToType(data['diversification'], [OptimizerInputsMPDiversificationConstraint]);
             }
-            if (data.hasOwnProperty('factor_exposures')) {
+            if (data.hasOwnProperty('factor_exposures') && obj['factor_exposures'] === undefined) {
                 obj['factor_exposures'] = ApiClient.convertToType(data['factor_exposures'], [OptimizerInputsMPFactorExposureConstraint]);
             }
-            if (data.hasOwnProperty('general_linear')) {
+            if (data.hasOwnProperty('general_linear') && obj['general_linear'] === undefined) {
                 obj['general_linear'] = ApiClient.convertToType(data['general_linear'], [OptimizerInputsMPGeneralLinearConstraint]);
             }
-            if (data.hasOwnProperty('holding_threshold')) {
+            if (data.hasOwnProperty('holding_threshold') && obj['holding_threshold'] === undefined) {
                 obj['holding_threshold'] = ApiClient.convertToType(data['holding_threshold'], [OptimizerInputsMPHoldingsThresholdConstraint]);
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = ApiClient.convertToType(data['leverage'], [OptimizerInputsMPLeverageConstraint]);
             }
-            if (data.hasOwnProperty('num_of_assets')) {
+            if (data.hasOwnProperty('num_of_assets') && obj['num_of_assets'] === undefined) {
                 obj['num_of_assets'] = ApiClient.convertToType(data['num_of_assets'], [OptimizerInputsMPNumberofAssetsConstraint]);
             }
-            if (data.hasOwnProperty('sensitivity')) {
+            if (data.hasOwnProperty('sensitivity') && obj['sensitivity'] === undefined) {
                 obj['sensitivity'] = ApiClient.convertToType(data['sensitivity'], [OptimizerInputsMPSensitivityConstraint]);
             }
-            if (data.hasOwnProperty('weight_constraint')) {
+            if (data.hasOwnProperty('weight_constraint') && obj['weight_constraint'] === undefined) {
                 obj['weight_constraint'] = ApiClient.convertToType(data['weight_constraint'], [OptimizerInputsMPHoldingsWeightConstraint]);
             }
-            if (data.hasOwnProperty('number_of_buys')) {
+            if (data.hasOwnProperty('number_of_buys') && obj['number_of_buys'] === undefined) {
                 obj['number_of_buys'] = ApiClient.convertToType(data['number_of_buys'], [OptimizerInputsMPNumberOfBuysConstraint]);
             }
-            if (data.hasOwnProperty('number_of_sells')) {
+            if (data.hasOwnProperty('number_of_sells') && obj['number_of_sells'] === undefined) {
                 obj['number_of_sells'] = ApiClient.convertToType(data['number_of_sells'], [OptimizerInputsMPNumberOfSellsConstraint]);
             }
-            if (data.hasOwnProperty('round_lots')) {
+            if (data.hasOwnProperty('round_lots') && obj['round_lots'] === undefined) {
                 obj['round_lots'] = ApiClient.convertToType(data['round_lots'], [OptimizerInputsMPRoundlotsConstraint]);
             }
-            if (data.hasOwnProperty('trade_threshold')) {
+            if (data.hasOwnProperty('trade_threshold') && obj['trade_threshold'] === undefined) {
                 obj['trade_threshold'] = ApiClient.convertToType(data['trade_threshold'], [OptimizerInputsMPTradeThresholdConstraint]);
             }
-            if (data.hasOwnProperty('trading_turnover')) {
+            if (data.hasOwnProperty('trading_turnover') && obj['trading_turnover'] === undefined) {
                 obj['trading_turnover'] = ApiClient.convertToType(data['trading_turnover'], [OptimizerInputsMPTurnoverConstraint]);
             }
-            if (data.hasOwnProperty('risk_contribution')) {
+            if (data.hasOwnProperty('risk_contribution') && obj['risk_contribution'] === undefined) {
                 obj['risk_contribution'] = ApiClient.convertToType(data['risk_contribution'], [OptimizerInputsMPRiskContributionConstraint]);
             }
-            if (data.hasOwnProperty('risk_volatility')) {
+            if (data.hasOwnProperty('risk_volatility') && obj['risk_volatility'] === undefined) {
                 obj['risk_volatility'] = ApiClient.convertToType(data['risk_volatility'], [OptimizerInputsMPRiskVolatilityConstraint]);
             }
-            if (data.hasOwnProperty('tail_risk')) {
+            if (data.hasOwnProperty('tail_risk') && obj['tail_risk'] === undefined) {
                 obj['tail_risk'] = ApiClient.convertToType(data['tail_risk'], [OptimizerInputsMPLimitTailRiskConstraint]);
             }
-            if (data.hasOwnProperty('target_probability')) {
+            if (data.hasOwnProperty('target_probability') && obj['target_probability'] === undefined) {
                 obj['target_probability'] = ApiClient.convertToType(data['target_probability'], [OptimizerInputsMPTargetProbabilityConstraint]);
             }
+            
         }
         return obj;
     }

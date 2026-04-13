@@ -47,27 +47,28 @@ class UpdateIssueRequestData {
         if (data) {
             obj = obj || new UpdateIssueRequestData();
 
-            if (data.hasOwnProperty('subject')) {
+            if (data.hasOwnProperty('subject') && obj['subject'] === undefined) {
                 obj['subject'] = ApiClient.convertToType(data['subject'], 'String');
             }
-            if (data.hasOwnProperty('severity')) {
+            if (data.hasOwnProperty('severity') && obj['severity'] === undefined) {
                 obj['severity'] = ApiClient.convertToType(data['severity'], 'String');
             }
-            if (data.hasOwnProperty('productId')) {
+            if (data.hasOwnProperty('productId') && obj['productId'] === undefined) {
                 obj['productId'] = ApiClient.convertToType(data['productId'], 'String');
             }
-            if (data.hasOwnProperty('categoryId')) {
+            if (data.hasOwnProperty('categoryId') && obj['categoryId'] === undefined) {
                 obj['categoryId'] = ApiClient.convertToType(data['categoryId'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('closeContent')) {
+            if (data.hasOwnProperty('closeContent') && obj['closeContent'] === undefined) {
                 obj['closeContent'] = ApiClient.convertToType(data['closeContent'], 'String');
             }
-            if (data.hasOwnProperty('readOnly')) {
+            if (data.hasOwnProperty('readOnly') && obj['readOnly'] === undefined) {
                 obj['readOnly'] = ApiClient.convertToType(data['readOnly'], 'Boolean');
             }
+            
         }
         return obj;
     }

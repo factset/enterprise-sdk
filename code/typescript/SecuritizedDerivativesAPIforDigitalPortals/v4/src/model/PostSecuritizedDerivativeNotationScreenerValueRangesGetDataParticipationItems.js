@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataParticipationIt
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataParticipationItems();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
+            
         }
         return obj;
     }

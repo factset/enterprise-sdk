@@ -50,9 +50,10 @@ class CreateContentSetRequest {
         if (data) {
             obj = obj || new CreateContentSetRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CreateContentSetRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

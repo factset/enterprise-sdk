@@ -48,9 +48,10 @@ class PaginationMeta {
         if (data) {
             obj = obj || new PaginationMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = PaginationInfo.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

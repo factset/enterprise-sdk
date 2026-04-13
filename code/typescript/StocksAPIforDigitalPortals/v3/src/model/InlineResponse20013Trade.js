@@ -48,15 +48,16 @@ class InlineResponse20013Trade {
         if (data) {
             obj = obj || new InlineResponse20013Trade();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'String');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = InlineResponse20013TradePerformance.constructFromObject(data['performance']);
             }
+            
         }
         return obj;
     }

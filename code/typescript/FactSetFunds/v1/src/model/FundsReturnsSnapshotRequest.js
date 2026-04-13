@@ -50,15 +50,16 @@ class FundsReturnsSnapshotRequest {
         if (data) {
             obj = obj || new FundsReturnsSnapshotRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('dividendAdjust')) {
+            if (data.hasOwnProperty('dividendAdjust') && obj['dividendAdjust'] === undefined) {
                 obj['dividendAdjust'] = DividendAdjust.constructFromObject(data['dividendAdjust']);
             }
+            
         }
         return obj;
     }

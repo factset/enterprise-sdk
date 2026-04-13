@@ -48,9 +48,10 @@ class FilterCountriesResponse {
         if (data) {
             obj = obj || new FilterCountriesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FilterCountriesResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

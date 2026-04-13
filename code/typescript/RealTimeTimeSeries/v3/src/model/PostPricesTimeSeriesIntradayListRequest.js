@@ -51,12 +51,13 @@ class PostPricesTimeSeriesIntradayListRequest {
         if (data) {
             obj = obj || new PostPricesTimeSeriesIntradayListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostPricesTimeSeriesIntradayListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostPricesTimeSeriesIntradayListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

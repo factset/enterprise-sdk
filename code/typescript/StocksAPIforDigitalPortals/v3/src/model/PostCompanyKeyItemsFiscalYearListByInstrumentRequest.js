@@ -48,12 +48,13 @@ class PostCompanyKeyItemsFiscalYearListByInstrumentRequest {
         if (data) {
             obj = obj || new PostCompanyKeyItemsFiscalYearListByInstrumentRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostCompanyKeyItemsFiscalYearListByInstrumentRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostCompanyKeyItemsCurrentGetByInstrumentRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

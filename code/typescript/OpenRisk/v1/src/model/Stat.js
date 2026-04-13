@@ -53,15 +53,16 @@ class Stat {
         if (data) {
             obj = obj || new Stat();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = StatCalculationLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = StatCalculationSettings.constructFromObject(data['settings']);
             }
+            
         }
         return obj;
     }

@@ -46,18 +46,19 @@ class UserResourceMeta {
         if (data) {
             obj = obj || new UserResourceMeta();
 
-            if (data.hasOwnProperty('resourceType')) {
+            if (data.hasOwnProperty('resourceType') && obj['resourceType'] === undefined) {
                 obj['resourceType'] = ApiClient.convertToType(data['resourceType'], 'String');
             }
-            if (data.hasOwnProperty('created')) {
+            if (data.hasOwnProperty('created') && obj['created'] === undefined) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Date');
             }
-            if (data.hasOwnProperty('lastModified')) {
+            if (data.hasOwnProperty('lastModified') && obj['lastModified'] === undefined) {
                 obj['lastModified'] = ApiClient.convertToType(data['lastModified'], 'Date');
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
             }
+            
         }
         return obj;
     }

@@ -46,12 +46,13 @@ class NumericConfigDto {
         if (data) {
             obj = obj || new NumericConfigDto();
 
-            if (data.hasOwnProperty('decimals')) {
+            if (data.hasOwnProperty('decimals') && obj['decimals'] === undefined) {
                 obj['decimals'] = ApiClient.convertToType(data['decimals'], 'Number');
             }
-            if (data.hasOwnProperty('splitType')) {
+            if (data.hasOwnProperty('splitType') && obj['splitType'] === undefined) {
                 obj['splitType'] = ApiClient.convertToType(data['splitType'], 'String');
             }
+            
         }
         return obj;
     }

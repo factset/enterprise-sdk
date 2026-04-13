@@ -51,12 +51,13 @@ class ContentSetItem {
         if (data) {
             obj = obj || new ContentSetItem();
 
-            if (data.hasOwnProperty('contentSet')) {
+            if (data.hasOwnProperty('contentSet') && obj['contentSet'] === undefined) {
                 obj['contentSet'] = ApiClient.convertToType(data['contentSet'], 'String');
             }
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], ['String']);
             }
+            
         }
         return obj;
     }

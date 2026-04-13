@@ -47,15 +47,16 @@ class RegistrationInfoData {
         if (data) {
             obj = obj || new RegistrationInfoData();
 
-            if (data.hasOwnProperty('contactEmailAddress')) {
+            if (data.hasOwnProperty('contactEmailAddress') && obj['contactEmailAddress'] === undefined) {
                 obj['contactEmailAddress'] = ApiClient.convertToType(data['contactEmailAddress'], 'String');
             }
-            if (data.hasOwnProperty('contactName')) {
+            if (data.hasOwnProperty('contactName') && obj['contactName'] === undefined) {
                 obj['contactName'] = ApiClient.convertToType(data['contactName'], 'String');
             }
-            if (data.hasOwnProperty('extraInfo')) {
+            if (data.hasOwnProperty('extraInfo') && obj['extraInfo'] === undefined) {
                 obj['extraInfo'] = ApiClient.convertToType(data['extraInfo'], 'String');
             }
+            
         }
         return obj;
     }

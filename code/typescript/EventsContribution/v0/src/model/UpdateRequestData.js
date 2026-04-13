@@ -49,9 +49,10 @@ class UpdateRequestData {
         if (data) {
             obj = obj || new UpdateRequestData();
 
-            if (data.hasOwnProperty('eventData')) {
+            if (data.hasOwnProperty('eventData') && obj['eventData'] === undefined) {
                 obj['eventData'] = EventUpdateData.constructFromObject(data['eventData']);
             }
+            
         }
         return obj;
     }

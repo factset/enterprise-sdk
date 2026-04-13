@@ -49,9 +49,10 @@ class ServiceProviderConfigSort {
         if (data) {
             obj = obj || new ServiceProviderConfigSort();
 
-            if (data.hasOwnProperty('supported')) {
+            if (data.hasOwnProperty('supported') && obj['supported'] === undefined) {
                 obj['supported'] = ApiClient.convertToType(data['supported'], 'Boolean');
             }
+            
         }
         return obj;
     }

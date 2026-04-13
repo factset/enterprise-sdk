@@ -48,12 +48,13 @@ class InlineResponse20014RecommendationConsensus {
         if (data) {
             obj = obj || new InlineResponse20014RecommendationConsensus();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('change')) {
+            if (data.hasOwnProperty('change') && obj['change'] === undefined) {
                 obj['change'] = InlineResponse20014RecommendationConsensusChange.constructFromObject(data['change']);
             }
+            
         }
         return obj;
     }

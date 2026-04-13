@@ -47,15 +47,16 @@ class InlineResponse20013DataTrackingDifference {
         if (data) {
             obj = obj || new InlineResponse20013DataTrackingDifference();
 
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
-            if (data.hasOwnProperty('maxUpside')) {
+            if (data.hasOwnProperty('maxUpside') && obj['maxUpside'] === undefined) {
                 obj['maxUpside'] = ApiClient.convertToType(data['maxUpside'], 'Number');
             }
-            if (data.hasOwnProperty('maxDownside')) {
+            if (data.hasOwnProperty('maxDownside') && obj['maxDownside'] === undefined) {
                 obj['maxDownside'] = ApiClient.convertToType(data['maxDownside'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class InlineResponse200DataLifeCycleMaturity {
         if (data) {
             obj = obj || new InlineResponse200DataLifeCycleMaturity();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('interval')) {
+            if (data.hasOwnProperty('interval') && obj['interval'] === undefined) {
                 obj['interval'] = ApiClient.convertToType(data['interval'], 'String');
             }
+            
         }
         return obj;
     }

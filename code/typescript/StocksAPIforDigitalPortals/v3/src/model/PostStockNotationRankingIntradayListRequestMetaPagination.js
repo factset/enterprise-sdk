@@ -47,12 +47,13 @@ class PostStockNotationRankingIntradayListRequestMetaPagination {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestMetaPagination();
 
-            if (data.hasOwnProperty('offset')) {
+            if (data.hasOwnProperty('offset') && obj['offset'] === undefined) {
                 obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
             }
-            if (data.hasOwnProperty('limit')) {
+            if (data.hasOwnProperty('limit') && obj['limit'] === undefined) {
                 obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
+            
         }
         return obj;
     }

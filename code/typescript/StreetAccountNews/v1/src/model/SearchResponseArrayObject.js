@@ -47,33 +47,34 @@ class SearchResponseArrayObject {
         if (data) {
             obj = obj || new SearchResponseArrayObject();
 
-            if (data.hasOwnProperty('storyTime')) {
+            if (data.hasOwnProperty('storyTime') && obj['storyTime'] === undefined) {
                 obj['storyTime'] = ApiClient.convertToType(data['storyTime'], 'Date');
             }
-            if (data.hasOwnProperty('headlines')) {
+            if (data.hasOwnProperty('headlines') && obj['headlines'] === undefined) {
                 obj['headlines'] = ApiClient.convertToType(data['headlines'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('primarySymbols')) {
+            if (data.hasOwnProperty('primarySymbols') && obj['primarySymbols'] === undefined) {
                 obj['primarySymbols'] = ApiClient.convertToType(data['primarySymbols'], ['String']);
             }
-            if (data.hasOwnProperty('symbols')) {
+            if (data.hasOwnProperty('symbols') && obj['symbols'] === undefined) {
                 obj['symbols'] = ApiClient.convertToType(data['symbols'], ['String']);
             }
-            if (data.hasOwnProperty('subjects')) {
+            if (data.hasOwnProperty('subjects') && obj['subjects'] === undefined) {
                 obj['subjects'] = ApiClient.convertToType(data['subjects'], ['String']);
             }
-            if (data.hasOwnProperty('storyBody')) {
+            if (data.hasOwnProperty('storyBody') && obj['storyBody'] === undefined) {
                 obj['storyBody'] = ApiClient.convertToType(data['storyBody'], 'String');
             }
-            if (data.hasOwnProperty('referenceUris')) {
+            if (data.hasOwnProperty('referenceUris') && obj['referenceUris'] === undefined) {
                 obj['referenceUris'] = ApiClient.convertToType(data['referenceUris'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

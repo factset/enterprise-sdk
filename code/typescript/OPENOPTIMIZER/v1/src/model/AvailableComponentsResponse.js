@@ -47,9 +47,10 @@ class AvailableComponentsResponse {
         if (data) {
             obj = obj || new AvailableComponentsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AvailableComponentsResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

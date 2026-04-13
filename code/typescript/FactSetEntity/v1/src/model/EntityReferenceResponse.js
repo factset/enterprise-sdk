@@ -47,9 +47,10 @@ class EntityReferenceResponse {
         if (data) {
             obj = obj || new EntityReferenceResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [EntityReference]);
             }
+            
         }
         return obj;
     }

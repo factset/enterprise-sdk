@@ -54,15 +54,16 @@ class KeyStatsDataObjectEntityLastFundingRound {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityLastFundingRound();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = KeyStatsDataObjectEntityExDividendDateValue.constructFromObject(data['asOfDate']);
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = KeyStatsAttributeLabel.constructFromObject(data['label']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = KeyStatsAttributeValueString.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

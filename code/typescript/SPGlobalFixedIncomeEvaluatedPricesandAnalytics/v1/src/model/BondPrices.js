@@ -46,57 +46,58 @@ class BondPrices {
         if (data) {
             obj = obj || new BondPrices();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('cleanBidPrice')) {
+            if (data.hasOwnProperty('cleanBidPrice') && obj['cleanBidPrice'] === undefined) {
                 obj['cleanBidPrice'] = ApiClient.convertToType(data['cleanBidPrice'], 'Number');
             }
-            if (data.hasOwnProperty('cleanMidPrice')) {
+            if (data.hasOwnProperty('cleanMidPrice') && obj['cleanMidPrice'] === undefined) {
                 obj['cleanMidPrice'] = ApiClient.convertToType(data['cleanMidPrice'], 'Number');
             }
-            if (data.hasOwnProperty('cleanAskPrice')) {
+            if (data.hasOwnProperty('cleanAskPrice') && obj['cleanAskPrice'] === undefined) {
                 obj['cleanAskPrice'] = ApiClient.convertToType(data['cleanAskPrice'], 'Number');
             }
-            if (data.hasOwnProperty('dirtyBidPrice')) {
+            if (data.hasOwnProperty('dirtyBidPrice') && obj['dirtyBidPrice'] === undefined) {
                 obj['dirtyBidPrice'] = ApiClient.convertToType(data['dirtyBidPrice'], 'Number');
             }
-            if (data.hasOwnProperty('dirtyMidPrice')) {
+            if (data.hasOwnProperty('dirtyMidPrice') && obj['dirtyMidPrice'] === undefined) {
                 obj['dirtyMidPrice'] = ApiClient.convertToType(data['dirtyMidPrice'], 'Number');
             }
-            if (data.hasOwnProperty('dirtyAskPrice')) {
+            if (data.hasOwnProperty('dirtyAskPrice') && obj['dirtyAskPrice'] === undefined) {
                 obj['dirtyAskPrice'] = ApiClient.convertToType(data['dirtyAskPrice'], 'Number');
             }
-            if (data.hasOwnProperty('pv')) {
+            if (data.hasOwnProperty('pv') && obj['pv'] === undefined) {
                 obj['pv'] = ApiClient.convertToType(data['pv'], 'Number');
             }
-            if (data.hasOwnProperty('bidPriceDate')) {
+            if (data.hasOwnProperty('bidPriceDate') && obj['bidPriceDate'] === undefined) {
                 obj['bidPriceDate'] = ApiClient.convertToType(data['bidPriceDate'], 'Date');
             }
-            if (data.hasOwnProperty('midPriceDate')) {
+            if (data.hasOwnProperty('midPriceDate') && obj['midPriceDate'] === undefined) {
                 obj['midPriceDate'] = ApiClient.convertToType(data['midPriceDate'], 'Date');
             }
-            if (data.hasOwnProperty('askPriceDate')) {
+            if (data.hasOwnProperty('askPriceDate') && obj['askPriceDate'] === undefined) {
                 obj['askPriceDate'] = ApiClient.convertToType(data['askPriceDate'], 'Date');
             }
-            if (data.hasOwnProperty('bidPriceType')) {
+            if (data.hasOwnProperty('bidPriceType') && obj['bidPriceType'] === undefined) {
                 obj['bidPriceType'] = ApiClient.convertToType(data['bidPriceType'], 'String');
             }
-            if (data.hasOwnProperty('midPriceType')) {
+            if (data.hasOwnProperty('midPriceType') && obj['midPriceType'] === undefined) {
                 obj['midPriceType'] = ApiClient.convertToType(data['midPriceType'], 'String');
             }
-            if (data.hasOwnProperty('askPriceType')) {
+            if (data.hasOwnProperty('askPriceType') && obj['askPriceType'] === undefined) {
                 obj['askPriceType'] = ApiClient.convertToType(data['askPriceType'], 'String');
             }
+            
         }
         return obj;
     }

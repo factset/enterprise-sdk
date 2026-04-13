@@ -47,9 +47,10 @@ class RollingStatsPerTimeWindow {
         if (data) {
             obj = obj || new RollingStatsPerTimeWindow();
 
-            if (data.hasOwnProperty('rolling')) {
+            if (data.hasOwnProperty('rolling') && obj['rolling'] === undefined) {
                 obj['rolling'] = RollingStatsPerTimeWindowRolling.constructFromObject(data['rolling']);
             }
+            
         }
         return obj;
     }

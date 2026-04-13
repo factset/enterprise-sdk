@@ -47,15 +47,16 @@ class InlineResponse20013FsymListing {
         if (data) {
             obj = obj || new InlineResponse20013FsymListing();
 
-            if (data.hasOwnProperty('permanentIdentifier')) {
+            if (data.hasOwnProperty('permanentIdentifier') && obj['permanentIdentifier'] === undefined) {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('tickerExchange')) {
+            if (data.hasOwnProperty('tickerExchange') && obj['tickerExchange'] === undefined) {
                 obj['tickerExchange'] = ApiClient.convertToType(data['tickerExchange'], 'String');
             }
-            if (data.hasOwnProperty('isPrimary')) {
+            if (data.hasOwnProperty('isPrimary') && obj['isPrimary'] === undefined) {
                 obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
             }
+            
         }
         return obj;
     }

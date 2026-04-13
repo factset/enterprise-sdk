@@ -50,27 +50,28 @@ class PostOptionByClassListDataItemsInstrument {
         if (data) {
             obj = obj || new PostOptionByClassListDataItemsInstrument();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('normalizedSymbol')) {
+            if (data.hasOwnProperty('normalizedSymbol') && obj['normalizedSymbol'] === undefined) {
                 obj['normalizedSymbol'] = ApiClient.convertToType(data['normalizedSymbol'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('exercise')) {
+            if (data.hasOwnProperty('exercise') && obj['exercise'] === undefined) {
                 obj['exercise'] = PostOptionByClassListDataItemsInstrumentExercise.constructFromObject(data['exercise']);
             }
-            if (data.hasOwnProperty('strikePrice')) {
+            if (data.hasOwnProperty('strikePrice') && obj['strikePrice'] === undefined) {
                 obj['strikePrice'] = PostOptionByClassListDataItemsInstrumentStrikePrice.constructFromObject(data['strikePrice']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = PostOptionByClassListDataItemsInstrumentLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('contractSize')) {
+            if (data.hasOwnProperty('contractSize') && obj['contractSize'] === undefined) {
                 obj['contractSize'] = ApiClient.convertToType(data['contractSize'], 'Number');
             }
+            
         }
         return obj;
     }

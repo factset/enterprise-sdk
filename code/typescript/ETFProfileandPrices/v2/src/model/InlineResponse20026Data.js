@@ -48,12 +48,13 @@ class InlineResponse20026Data {
         if (data) {
             obj = obj || new InlineResponse20026Data();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('summary')) {
+            if (data.hasOwnProperty('summary') && obj['summary'] === undefined) {
                 obj['summary'] = ApiClient.convertToType(data['summary'], [InlineResponse20026DataSummary]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class HoldingsResponseOptions {
         if (data) {
             obj = obj || new HoldingsResponseOptions();
 
-            if (data.hasOwnProperty('holdings')) {
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
                 obj['holdings'] = ApiClient.convertToType(data['holdings'], [HoldingAnalytics]);
             }
+            
         }
         return obj;
     }

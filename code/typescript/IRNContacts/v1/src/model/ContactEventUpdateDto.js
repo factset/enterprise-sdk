@@ -46,15 +46,16 @@ class ContactEventUpdateDto {
         if (data) {
             obj = obj || new ContactEventUpdateDto();
 
-            if (data.hasOwnProperty('fieldName')) {
+            if (data.hasOwnProperty('fieldName') && obj['fieldName'] === undefined) {
                 obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
-            if (data.hasOwnProperty('oldValue')) {
+            if (data.hasOwnProperty('oldValue') && obj['oldValue'] === undefined) {
                 obj['oldValue'] = ApiClient.convertToType(data['oldValue'], 'String');
             }
-            if (data.hasOwnProperty('newValue')) {
+            if (data.hasOwnProperty('newValue') && obj['newValue'] === undefined) {
                 obj['newValue'] = ApiClient.convertToType(data['newValue'], 'String');
             }
+            
         }
         return obj;
     }

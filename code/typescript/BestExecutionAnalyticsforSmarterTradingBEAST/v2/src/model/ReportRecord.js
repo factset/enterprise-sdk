@@ -47,102 +47,103 @@ class ReportRecord {
         if (data) {
             obj = obj || new ReportRecord();
 
-            if (data.hasOwnProperty('dateId')) {
+            if (data.hasOwnProperty('dateId') && obj['dateId'] === undefined) {
                 obj['dateId'] = ApiClient.convertToType(data['dateId'], 'String');
             }
-            if (data.hasOwnProperty('firstFillMidPerfBps')) {
+            if (data.hasOwnProperty('firstFillMidPerfBps') && obj['firstFillMidPerfBps'] === undefined) {
                 obj['firstFillMidPerfBps'] = ApiClient.convertToType(data['firstFillMidPerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('tPlus5ClosePerfBps')) {
+            if (data.hasOwnProperty('tPlus5ClosePerfBps') && obj['tPlus5ClosePerfBps'] === undefined) {
                 obj['tPlus5ClosePerfBps'] = ApiClient.convertToType(data['tPlus5ClosePerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('reversion60MinMidBps')) {
+            if (data.hasOwnProperty('reversion60MinMidBps') && obj['reversion60MinMidBps'] === undefined) {
                 obj['reversion60MinMidBps'] = ApiClient.convertToType(data['reversion60MinMidBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp10PerfBps')) {
+            if (data.hasOwnProperty('pwp10PerfBps') && obj['pwp10PerfBps'] === undefined) {
                 obj['pwp10PerfBps'] = ApiClient.convertToType(data['pwp10PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp01PerfBps')) {
+            if (data.hasOwnProperty('pwp01PerfBps') && obj['pwp01PerfBps'] === undefined) {
                 obj['pwp01PerfBps'] = ApiClient.convertToType(data['pwp01PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('tMinus1ClosePerfBps')) {
+            if (data.hasOwnProperty('tMinus1ClosePerfBps') && obj['tMinus1ClosePerfBps'] === undefined) {
                 obj['tMinus1ClosePerfBps'] = ApiClient.convertToType(data['tMinus1ClosePerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp05PerfBps')) {
+            if (data.hasOwnProperty('pwp05PerfBps') && obj['pwp05PerfBps'] === undefined) {
                 obj['pwp05PerfBps'] = ApiClient.convertToType(data['pwp05PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp03PerfBps')) {
+            if (data.hasOwnProperty('pwp03PerfBps') && obj['pwp03PerfBps'] === undefined) {
                 obj['pwp03PerfBps'] = ApiClient.convertToType(data['pwp03PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp02PerfBps')) {
+            if (data.hasOwnProperty('pwp02PerfBps') && obj['pwp02PerfBps'] === undefined) {
                 obj['pwp02PerfBps'] = ApiClient.convertToType(data['pwp02PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('tPlus1ClosePerfBps')) {
+            if (data.hasOwnProperty('tPlus1ClosePerfBps') && obj['tPlus1ClosePerfBps'] === undefined) {
                 obj['tPlus1ClosePerfBps'] = ApiClient.convertToType(data['tPlus1ClosePerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp50PerfBps')) {
+            if (data.hasOwnProperty('pwp50PerfBps') && obj['pwp50PerfBps'] === undefined) {
                 obj['pwp50PerfBps'] = ApiClient.convertToType(data['pwp50PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp20PerfBps')) {
+            if (data.hasOwnProperty('pwp20PerfBps') && obj['pwp20PerfBps'] === undefined) {
                 obj['pwp20PerfBps'] = ApiClient.convertToType(data['pwp20PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('refValue')) {
+            if (data.hasOwnProperty('refValue') && obj['refValue'] === undefined) {
                 obj['refValue'] = ApiClient.convertToType(data['refValue'], 'Number');
             }
-            if (data.hasOwnProperty('reversion10MinMidBps')) {
+            if (data.hasOwnProperty('reversion10MinMidBps') && obj['reversion10MinMidBps'] === undefined) {
                 obj['reversion10MinMidBps'] = ApiClient.convertToType(data['reversion10MinMidBps'], 'Number');
             }
-            if (data.hasOwnProperty('reversion15MinMidBps')) {
+            if (data.hasOwnProperty('reversion15MinMidBps') && obj['reversion15MinMidBps'] === undefined) {
                 obj['reversion15MinMidBps'] = ApiClient.convertToType(data['reversion15MinMidBps'], 'Number');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('region')) {
+            if (data.hasOwnProperty('region') && obj['region'] === undefined) {
                 obj['region'] = ApiClient.convertToType(data['region'], 'String');
             }
-            if (data.hasOwnProperty('openPerfBps')) {
+            if (data.hasOwnProperty('openPerfBps') && obj['openPerfBps'] === undefined) {
                 obj['openPerfBps'] = ApiClient.convertToType(data['openPerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pmCode')) {
+            if (data.hasOwnProperty('pmCode') && obj['pmCode'] === undefined) {
                 obj['pmCode'] = ApiClient.convertToType(data['pmCode'], 'String');
             }
-            if (data.hasOwnProperty('vwapFfLfPerfBps')) {
+            if (data.hasOwnProperty('vwapFfLfPerfBps') && obj['vwapFfLfPerfBps'] === undefined) {
                 obj['vwapFfLfPerfBps'] = ApiClient.convertToType(data['vwapFfLfPerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('tMinus3ClosePerfBps')) {
+            if (data.hasOwnProperty('tMinus3ClosePerfBps') && obj['tMinus3ClosePerfBps'] === undefined) {
                 obj['tMinus3ClosePerfBps'] = ApiClient.convertToType(data['tMinus3ClosePerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('reversion5MinMidBps')) {
+            if (data.hasOwnProperty('reversion5MinMidBps') && obj['reversion5MinMidBps'] === undefined) {
                 obj['reversion5MinMidBps'] = ApiClient.convertToType(data['reversion5MinMidBps'], 'Number');
             }
-            if (data.hasOwnProperty('tMinus5ClosePerfBps')) {
+            if (data.hasOwnProperty('tMinus5ClosePerfBps') && obj['tMinus5ClosePerfBps'] === undefined) {
                 obj['tMinus5ClosePerfBps'] = ApiClient.convertToType(data['tMinus5ClosePerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('tPlus3ClosePerfBps')) {
+            if (data.hasOwnProperty('tPlus3ClosePerfBps') && obj['tPlus3ClosePerfBps'] === undefined) {
                 obj['tPlus3ClosePerfBps'] = ApiClient.convertToType(data['tPlus3ClosePerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('lastFillMidPerfBps')) {
+            if (data.hasOwnProperty('lastFillMidPerfBps') && obj['lastFillMidPerfBps'] === undefined) {
                 obj['lastFillMidPerfBps'] = ApiClient.convertToType(data['lastFillMidPerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('pwp100PerfBps')) {
+            if (data.hasOwnProperty('pwp100PerfBps') && obj['pwp100PerfBps'] === undefined) {
                 obj['pwp100PerfBps'] = ApiClient.convertToType(data['pwp100PerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('closePerfBps')) {
+            if (data.hasOwnProperty('closePerfBps') && obj['closePerfBps'] === undefined) {
                 obj['closePerfBps'] = ApiClient.convertToType(data['closePerfBps'], 'Number');
             }
-            if (data.hasOwnProperty('orders')) {
+            if (data.hasOwnProperty('orders') && obj['orders'] === undefined) {
                 obj['orders'] = ApiClient.convertToType(data['orders'], 'Number');
             }
-            if (data.hasOwnProperty('side')) {
+            if (data.hasOwnProperty('side') && obj['side'] === undefined) {
                 obj['side'] = ApiClient.convertToType(data['side'], 'String');
             }
-            if (data.hasOwnProperty('idm')) {
+            if (data.hasOwnProperty('idm') && obj['idm'] === undefined) {
                 obj['idm'] = ApiClient.convertToType(data['idm'], 'String');
             }
+            
         }
         return obj;
     }

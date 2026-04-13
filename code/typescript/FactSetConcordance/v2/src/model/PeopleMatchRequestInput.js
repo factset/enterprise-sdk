@@ -46,33 +46,34 @@ class PeopleMatchRequestInput {
         if (data) {
             obj = obj || new PeopleMatchRequestInput();
 
-            if (data.hasOwnProperty('personName')) {
+            if (data.hasOwnProperty('personName') && obj['personName'] === undefined) {
                 obj['personName'] = ApiClient.convertToType(data['personName'], 'String');
             }
-            if (data.hasOwnProperty('clientId')) {
+            if (data.hasOwnProperty('clientId') && obj['clientId'] === undefined) {
                 obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
             }
-            if (data.hasOwnProperty('salutation')) {
+            if (data.hasOwnProperty('salutation') && obj['salutation'] === undefined) {
                 obj['salutation'] = ApiClient.convertToType(data['salutation'], 'String');
             }
-            if (data.hasOwnProperty('firstName')) {
+            if (data.hasOwnProperty('firstName') && obj['firstName'] === undefined) {
                 obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
             }
-            if (data.hasOwnProperty('middleName')) {
+            if (data.hasOwnProperty('middleName') && obj['middleName'] === undefined) {
                 obj['middleName'] = ApiClient.convertToType(data['middleName'], 'String');
             }
-            if (data.hasOwnProperty('lastName')) {
+            if (data.hasOwnProperty('lastName') && obj['lastName'] === undefined) {
                 obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
             }
-            if (data.hasOwnProperty('additionalContext')) {
+            if (data.hasOwnProperty('additionalContext') && obj['additionalContext'] === undefined) {
                 obj['additionalContext'] = ApiClient.convertToType(data['additionalContext'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('suffix')) {
+            if (data.hasOwnProperty('suffix') && obj['suffix'] === undefined) {
                 obj['suffix'] = ApiClient.convertToType(data['suffix'], 'String');
             }
-            if (data.hasOwnProperty('entity')) {
+            if (data.hasOwnProperty('entity') && obj['entity'] === undefined) {
                 obj['entity'] = ApiClient.convertToType(data['entity'], 'String');
             }
+            
         }
         return obj;
     }

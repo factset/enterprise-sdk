@@ -48,9 +48,10 @@ class GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotationInstrume
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotationInstrumentFsym();
 
-            if (data.hasOwnProperty('security')) {
+            if (data.hasOwnProperty('security') && obj['security'] === undefined) {
                 obj['security'] = GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotationInstrumentFsymSecurity.constructFromObject(data['security']);
             }
+            
         }
         return obj;
     }

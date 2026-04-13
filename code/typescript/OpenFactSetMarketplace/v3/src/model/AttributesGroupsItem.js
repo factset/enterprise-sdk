@@ -47,15 +47,16 @@ class AttributesGroupsItem {
         if (data) {
             obj = obj || new AttributesGroupsItem();
 
-            if (data.hasOwnProperty('key')) {
+            if (data.hasOwnProperty('key') && obj['key'] === undefined) {
                 obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('isPreviewTag')) {
+            if (data.hasOwnProperty('isPreviewTag') && obj['isPreviewTag'] === undefined) {
                 obj['isPreviewTag'] = ApiClient.convertToType(data['isPreviewTag'], 'Boolean');
             }
+            
         }
         return obj;
     }

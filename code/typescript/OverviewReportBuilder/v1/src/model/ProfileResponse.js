@@ -48,12 +48,13 @@ class ProfileResponse {
         if (data) {
             obj = obj || new ProfileResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ProfileDataObject.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

@@ -50,15 +50,16 @@ class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategories
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategories();
 
-            if (data.hasOwnProperty('insight')) {
+            if (data.hasOwnProperty('insight') && obj['insight'] === undefined) {
                 obj['insight'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsight.constructFromObject(data['insight']);
             }
-            if (data.hasOwnProperty('momentum')) {
+            if (data.hasOwnProperty('momentum') && obj['momentum'] === undefined) {
                 obj['momentum'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesMomentum.constructFromObject(data['momentum']);
             }
-            if (data.hasOwnProperty('ranking')) {
+            if (data.hasOwnProperty('ranking') && obj['ranking'] === undefined) {
                 obj['ranking'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesRanking.constructFromObject(data['ranking']);
             }
+            
         }
         return obj;
     }

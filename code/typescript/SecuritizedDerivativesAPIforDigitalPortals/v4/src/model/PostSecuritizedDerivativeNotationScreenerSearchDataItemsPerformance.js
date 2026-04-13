@@ -49,15 +49,16 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsPerformance {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsPerformance();
 
-            if (data.hasOwnProperty('intraday')) {
+            if (data.hasOwnProperty('intraday') && obj['intraday'] === undefined) {
                 obj['intraday'] = ApiClient.convertToType(data['intraday'], 'Number');
             }
-            if (data.hasOwnProperty('sinceIssue')) {
+            if (data.hasOwnProperty('sinceIssue') && obj['sinceIssue'] === undefined) {
                 obj['sinceIssue'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsPerformanceSinceIssue.constructFromObject(data['sinceIssue']);
             }
-            if (data.hasOwnProperty('endOfDay')) {
+            if (data.hasOwnProperty('endOfDay') && obj['endOfDay'] === undefined) {
                 obj['endOfDay'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsPerformanceEndOfDay.constructFromObject(data['endOfDay']);
             }
+            
         }
         return obj;
     }

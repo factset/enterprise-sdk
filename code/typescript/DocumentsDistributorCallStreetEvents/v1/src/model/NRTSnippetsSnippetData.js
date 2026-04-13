@@ -46,15 +46,16 @@ class NRTSnippetsSnippetData {
         if (data) {
             obj = obj || new NRTSnippetsSnippetData();
 
-            if (data.hasOwnProperty('transcript')) {
+            if (data.hasOwnProperty('transcript') && obj['transcript'] === undefined) {
                 obj['transcript'] = ApiClient.convertToType(data['transcript'], 'String');
             }
-            if (data.hasOwnProperty('endTime')) {
+            if (data.hasOwnProperty('endTime') && obj['endTime'] === undefined) {
                 obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Number');
             }
-            if (data.hasOwnProperty('startTime')) {
+            if (data.hasOwnProperty('startTime') && obj['startTime'] === undefined) {
                 obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Number');
             }
+            
         }
         return obj;
     }

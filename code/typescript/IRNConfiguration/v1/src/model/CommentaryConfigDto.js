@@ -46,15 +46,16 @@ class CommentaryConfigDto {
         if (data) {
             obj = obj || new CommentaryConfigDto();
 
-            if (data.hasOwnProperty('shouldSendEmailAlertsToAuthor')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsToAuthor') && obj['shouldSendEmailAlertsToAuthor'] === undefined) {
                 obj['shouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsToCommenters')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsToCommenters') && obj['shouldSendEmailAlertsToCommenters'] === undefined) {
                 obj['shouldSendEmailAlertsToCommenters'] = ApiClient.convertToType(data['shouldSendEmailAlertsToCommenters'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsToAll')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsToAll') && obj['shouldSendEmailAlertsToAll'] === undefined) {
                 obj['shouldSendEmailAlertsToAll'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAll'], 'Boolean');
             }
+            
         }
         return obj;
     }

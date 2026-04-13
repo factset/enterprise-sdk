@@ -50,9 +50,10 @@ class GenerateIdMappingRequestBody {
         if (data) {
             obj = obj || new GenerateIdMappingRequestBody();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = GenerateIdMappingRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -47,24 +47,25 @@ class ConvertibleHistory {
         if (data) {
             obj = obj || new ConvertibleHistory();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('convEffDate')) {
+            if (data.hasOwnProperty('convEffDate') && obj['convEffDate'] === undefined) {
                 obj['convEffDate'] = ApiClient.convertToType(data['convEffDate'], 'Date');
             }
-            if (data.hasOwnProperty('convPrice')) {
+            if (data.hasOwnProperty('convPrice') && obj['convPrice'] === undefined) {
                 obj['convPrice'] = ApiClient.convertToType(data['convPrice'], 'Number');
             }
-            if (data.hasOwnProperty('convRatio')) {
+            if (data.hasOwnProperty('convRatio') && obj['convRatio'] === undefined) {
                 obj['convRatio'] = ApiClient.convertToType(data['convRatio'], 'Number');
             }
-            if (data.hasOwnProperty('convUlyFsymId')) {
+            if (data.hasOwnProperty('convUlyFsymId') && obj['convUlyFsymId'] === undefined) {
                 obj['convUlyFsymId'] = ApiClient.convertToType(data['convUlyFsymId'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,15 +47,16 @@ class ContactCustomFieldValueDto {
         if (data) {
             obj = obj || new ContactCustomFieldValueDto();
 
-            if (data.hasOwnProperty('fieldCode')) {
+            if (data.hasOwnProperty('fieldCode') && obj['fieldCode'] === undefined) {
                 obj['fieldCode'] = ApiClient.convertToType(data['fieldCode'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('optionValues')) {
+            if (data.hasOwnProperty('optionValues') && obj['optionValues'] === undefined) {
                 obj['optionValues'] = ApiClient.convertToType(data['optionValues'], [ContactCustomFieldOptionValueDto]);
             }
+            
         }
         return obj;
     }

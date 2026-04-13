@@ -51,30 +51,31 @@ class PostNewsArticleListByChainDataArticlesItems {
         if (data) {
             obj = obj || new PostNewsArticleListByChainDataArticlesItems();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('summary')) {
+            if (data.hasOwnProperty('summary') && obj['summary'] === undefined) {
                 obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
             }
-            if (data.hasOwnProperty('types')) {
+            if (data.hasOwnProperty('types') && obj['types'] === undefined) {
                 obj['types'] = ApiClient.convertToType(data['types'], [PostNewsArticleListByChainDataArticlesTypesItems]);
             }
-            if (data.hasOwnProperty('language')) {
+            if (data.hasOwnProperty('language') && obj['language'] === undefined) {
                 obj['language'] = PostNewsArticleListByChainDataArticlesItemsLanguage.constructFromObject(data['language']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [PostNewsArticleListByChainDataArticlesCategoriesItems]);
             }
-            if (data.hasOwnProperty('instruments')) {
+            if (data.hasOwnProperty('instruments') && obj['instruments'] === undefined) {
                 obj['instruments'] = ApiClient.convertToType(data['instruments'], [PostNewsArticleListByChainDataArticlesInstrumentsItems]);
             }
+            
         }
         return obj;
     }

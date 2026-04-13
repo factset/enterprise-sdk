@@ -47,42 +47,43 @@ class InlineResponse20031Data {
         if (data) {
             obj = obj || new InlineResponse20031Data();
 
-            if (data.hasOwnProperty('isEtn')) {
+            if (data.hasOwnProperty('isEtn') && obj['isEtn'] === undefined) {
                 obj['isEtn'] = ApiClient.convertToType(data['isEtn'], 'Boolean');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('isActivelyManaged')) {
+            if (data.hasOwnProperty('isActivelyManaged') && obj['isActivelyManaged'] === undefined) {
                 obj['isActivelyManaged'] = ApiClient.convertToType(data['isActivelyManaged'], 'Boolean');
             }
-            if (data.hasOwnProperty('backing')) {
+            if (data.hasOwnProperty('backing') && obj['backing'] === undefined) {
                 obj['backing'] = ApiClient.convertToType(data['backing'], 'String');
             }
-            if (data.hasOwnProperty('syntheticType')) {
+            if (data.hasOwnProperty('syntheticType') && obj['syntheticType'] === undefined) {
                 obj['syntheticType'] = ApiClient.convertToType(data['syntheticType'], 'String');
             }
-            if (data.hasOwnProperty('legalStructure')) {
+            if (data.hasOwnProperty('legalStructure') && obj['legalStructure'] === undefined) {
                 obj['legalStructure'] = ApiClient.convertToType(data['legalStructure'], 'String');
             }
-            if (data.hasOwnProperty('isUcitsCompliant')) {
+            if (data.hasOwnProperty('isUcitsCompliant') && obj['isUcitsCompliant'] === undefined) {
                 obj['isUcitsCompliant'] = ApiClient.convertToType(data['isUcitsCompliant'], 'Boolean');
             }
-            if (data.hasOwnProperty('isHoldingsTransparent')) {
+            if (data.hasOwnProperty('isHoldingsTransparent') && obj['isHoldingsTransparent'] === undefined) {
                 obj['isHoldingsTransparent'] = ApiClient.convertToType(data['isHoldingsTransparent'], 'Boolean');
             }
-            if (data.hasOwnProperty('portfolioDisclosure')) {
+            if (data.hasOwnProperty('portfolioDisclosure') && obj['portfolioDisclosure'] === undefined) {
                 obj['portfolioDisclosure'] = ApiClient.convertToType(data['portfolioDisclosure'], 'String');
             }
-            if (data.hasOwnProperty('cashFlowFrequency')) {
+            if (data.hasOwnProperty('cashFlowFrequency') && obj['cashFlowFrequency'] === undefined) {
                 obj['cashFlowFrequency'] = ApiClient.convertToType(data['cashFlowFrequency'], 'String');
             }
-            if (data.hasOwnProperty('isEligibleForRegisteredAccounts')) {
+            if (data.hasOwnProperty('isEligibleForRegisteredAccounts') && obj['isEligibleForRegisteredAccounts'] === undefined) {
                 obj['isEligibleForRegisteredAccounts'] = ApiClient.convertToType(data['isEligibleForRegisteredAccounts'], 'Boolean');
             }
-            if (data.hasOwnProperty('isDripEligible')) {
+            if (data.hasOwnProperty('isDripEligible') && obj['isDripEligible'] === undefined) {
                 obj['isDripEligible'] = ApiClient.convertToType(data['isDripEligible'], 'Boolean');
             }
+            
         }
         return obj;
     }

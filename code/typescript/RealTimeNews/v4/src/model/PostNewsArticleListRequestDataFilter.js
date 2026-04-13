@@ -54,27 +54,28 @@ class PostNewsArticleListRequestDataFilter {
         if (data) {
             obj = obj || new PostNewsArticleListRequestDataFilter();
 
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = PostNewsArticleListRequestDataFilterRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = PostNewsArticleListRequestDataFilterCategories.constructFromObject(data['categories']);
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = PostNewsArticleListRequestDataFilterRegions.constructFromObject(data['regions']);
             }
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = PostNewsArticleListRequestDataFilterDistributor.constructFromObject(data['distributor']);
             }
-            if (data.hasOwnProperty('publisher')) {
+            if (data.hasOwnProperty('publisher') && obj['publisher'] === undefined) {
                 obj['publisher'] = PostNewsArticleListRequestDataFilterPublisher.constructFromObject(data['publisher']);
             }
-            if (data.hasOwnProperty('language')) {
+            if (data.hasOwnProperty('language') && obj['language'] === undefined) {
                 obj['language'] = PostNewsArticleListRequestDataFilterLanguage.constructFromObject(data['language']);
             }
-            if (data.hasOwnProperty('types')) {
+            if (data.hasOwnProperty('types') && obj['types'] === undefined) {
                 obj['types'] = PostNewsArticleListRequestDataFilterTypes.constructFromObject(data['types']);
             }
+            
         }
         return obj;
     }

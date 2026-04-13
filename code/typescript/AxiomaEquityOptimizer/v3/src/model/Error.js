@@ -47,15 +47,16 @@ class Error {
         if (data) {
             obj = obj || new Error();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('detail')) {
+            if (data.hasOwnProperty('detail') && obj['detail'] === undefined) {
                 obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ErrorSource.constructFromObject(data['source']);
             }
+            
         }
         return obj;
     }

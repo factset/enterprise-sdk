@@ -48,18 +48,19 @@ class InlineResponse2001DataIncomeStatementOperatingIncome {
         if (data) {
             obj = obj || new InlineResponse2001DataIncomeStatementOperatingIncome();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('operatingMargin')) {
+            if (data.hasOwnProperty('operatingMargin') && obj['operatingMargin'] === undefined) {
                 obj['operatingMargin'] = ApiClient.convertToType(data['operatingMargin'], 'Number');
             }
-            if (data.hasOwnProperty('afterInterestExpense')) {
+            if (data.hasOwnProperty('afterInterestExpense') && obj['afterInterestExpense'] === undefined) {
                 obj['afterInterestExpense'] = InlineResponse2001DataIncomeStatementOperatingIncomeAfterInterestExpense.constructFromObject(data['afterInterestExpense']);
             }
+            
         }
         return obj;
     }

@@ -51,18 +51,19 @@ class PostStockNotationScreenerSearchRequestDataSimpleMovingAverage {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataSimpleMovingAverage();
 
-            if (data.hasOwnProperty('days20')) {
+            if (data.hasOwnProperty('days20') && obj['days20'] === undefined) {
                 obj['days20'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays20.constructFromObject(data['days20']);
             }
-            if (data.hasOwnProperty('days50')) {
+            if (data.hasOwnProperty('days50') && obj['days50'] === undefined) {
                 obj['days50'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays50.constructFromObject(data['days50']);
             }
-            if (data.hasOwnProperty('days200')) {
+            if (data.hasOwnProperty('days200') && obj['days200'] === undefined) {
                 obj['days200'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverageDays200.constructFromObject(data['days200']);
             }
-            if (data.hasOwnProperty('tradingDaysSinceCrossover')) {
+            if (data.hasOwnProperty('tradingDaysSinceCrossover') && obj['tradingDaysSinceCrossover'] === undefined) {
                 obj['tradingDaysSinceCrossover'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossover.constructFromObject(data['tradingDaysSinceCrossover']);
             }
+            
         }
         return obj;
     }

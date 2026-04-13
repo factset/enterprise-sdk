@@ -46,21 +46,22 @@ class TemplateInfo {
         if (data) {
             obj = obj || new TemplateInfo();
 
-            if (data.hasOwnProperty('template_id')) {
+            if (data.hasOwnProperty('template_id') && obj['template_id'] === undefined) {
                 obj['template_id'] = ApiClient.convertToType(data['template_id'], 'String');
             }
-            if (data.hasOwnProperty('template_name')) {
+            if (data.hasOwnProperty('template_name') && obj['template_name'] === undefined) {
                 obj['template_name'] = ApiClient.convertToType(data['template_name'], 'String');
             }
-            if (data.hasOwnProperty('created_on')) {
+            if (data.hasOwnProperty('created_on') && obj['created_on'] === undefined) {
                 obj['created_on'] = ApiClient.convertToType(data['created_on'], 'String');
             }
-            if (data.hasOwnProperty('template_source')) {
+            if (data.hasOwnProperty('template_source') && obj['template_source'] === undefined) {
                 obj['template_source'] = ApiClient.convertToType(data['template_source'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

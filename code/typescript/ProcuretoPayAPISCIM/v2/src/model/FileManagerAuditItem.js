@@ -51,12 +51,13 @@ class FileManagerAuditItem {
         if (data) {
             obj = obj || new FileManagerAuditItem();
 
-            if (data.hasOwnProperty('username')) {
+            if (data.hasOwnProperty('username') && obj['username'] === undefined) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('paths')) {
+            if (data.hasOwnProperty('paths') && obj['paths'] === undefined) {
                 obj['paths'] = ApiClient.convertToType(data['paths'], {'String': [FileManagerAuditItemAdditionalProperty]});
             }
+            
         }
         return obj;
     }

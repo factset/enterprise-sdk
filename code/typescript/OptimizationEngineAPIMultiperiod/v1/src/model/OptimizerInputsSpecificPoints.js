@@ -46,9 +46,10 @@ class OptimizerInputsSpecificPoints {
         if (data) {
             obj = obj || new OptimizerInputsSpecificPoints();
 
-            if (data.hasOwnProperty('points')) {
+            if (data.hasOwnProperty('points') && obj['points'] === undefined) {
                 obj['points'] = ApiClient.convertToType(data['points'], ['Number']);
             }
+            
         }
         return obj;
     }

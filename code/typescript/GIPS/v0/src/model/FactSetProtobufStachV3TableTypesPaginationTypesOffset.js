@@ -46,9 +46,10 @@ class FactSetProtobufStachV3TableTypesPaginationTypesOffset {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesPaginationTypesOffset();
 
-            if (data.hasOwnProperty('hasNext')) {
+            if (data.hasOwnProperty('hasNext') && obj['hasNext'] === undefined) {
                 obj['hasNext'] = ApiClient.convertToType(data['hasNext'], 'Boolean');
             }
+            
         }
         return obj;
     }

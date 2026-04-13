@@ -46,12 +46,13 @@ class AdaptiveCardWithThumbnail {
         if (data) {
             obj = obj || new AdaptiveCardWithThumbnail();
 
-            if (data.hasOwnProperty('adaptiveCard')) {
+            if (data.hasOwnProperty('adaptiveCard') && obj['adaptiveCard'] === undefined) {
                 obj['adaptiveCard'] = ApiClient.convertToType(data['adaptiveCard'], Object);
             }
-            if (data.hasOwnProperty('thumbnail')) {
+            if (data.hasOwnProperty('thumbnail') && obj['thumbnail'] === undefined) {
                 obj['thumbnail'] = ApiClient.convertToType(data['thumbnail'], Object);
             }
+            
         }
         return obj;
     }

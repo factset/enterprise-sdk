@@ -46,21 +46,22 @@ class FIAttributionForSecurities {
         if (data) {
             obj = obj || new FIAttributionForSecurities();
 
-            if (data.hasOwnProperty('startPrice')) {
+            if (data.hasOwnProperty('startPrice') && obj['startPrice'] === undefined) {
                 obj['startPrice'] = ApiClient.convertToType(data['startPrice'], 'Number');
             }
-            if (data.hasOwnProperty('endPrice')) {
+            if (data.hasOwnProperty('endPrice') && obj['endPrice'] === undefined) {
                 obj['endPrice'] = ApiClient.convertToType(data['endPrice'], 'Number');
             }
-            if (data.hasOwnProperty('startSpread')) {
+            if (data.hasOwnProperty('startSpread') && obj['startSpread'] === undefined) {
                 obj['startSpread'] = ApiClient.convertToType(data['startSpread'], 'Number');
             }
-            if (data.hasOwnProperty('endSpread')) {
+            if (data.hasOwnProperty('endSpread') && obj['endSpread'] === undefined) {
                 obj['endSpread'] = ApiClient.convertToType(data['endSpread'], 'Number');
             }
-            if (data.hasOwnProperty('pricingMethod')) {
+            if (data.hasOwnProperty('pricingMethod') && obj['pricingMethod'] === undefined) {
                 obj['pricingMethod'] = ApiClient.convertToType(data['pricingMethod'], 'String');
             }
+            
         }
         return obj;
     }

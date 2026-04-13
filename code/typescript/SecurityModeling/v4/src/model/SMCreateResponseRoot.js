@@ -50,12 +50,13 @@ class SMCreateResponseRoot {
         if (data) {
             obj = obj || new SMCreateResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SMCreateResponse.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = SMCreateResponseRootMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

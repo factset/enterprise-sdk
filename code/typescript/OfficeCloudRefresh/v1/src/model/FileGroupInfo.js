@@ -48,9 +48,10 @@ class FileGroupInfo {
         if (data) {
             obj = obj || new FileGroupInfo();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FileGroupInfoData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

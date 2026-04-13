@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1 {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataBenchmarkOutperformanceMonth1();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostStockNotationScreenerSearchRequestDataEbitMarginMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostStockNotationScreenerSearchRequestDataEbitMarginMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

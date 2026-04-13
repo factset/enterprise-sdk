@@ -49,9 +49,10 @@ class SPARPeerUniverseRoot {
         if (data) {
             obj = obj || new SPARPeerUniverseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SPARPeerUniverseListResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

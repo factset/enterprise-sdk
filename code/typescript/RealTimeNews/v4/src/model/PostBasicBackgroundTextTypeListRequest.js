@@ -51,12 +51,13 @@ class PostBasicBackgroundTextTypeListRequest {
         if (data) {
             obj = obj || new PostBasicBackgroundTextTypeListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostBasicBackgroundTextTypeListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostBasicBackgroundTextTypeListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

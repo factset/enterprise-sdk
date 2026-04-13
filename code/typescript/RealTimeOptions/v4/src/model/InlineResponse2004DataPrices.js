@@ -48,9 +48,10 @@ class InlineResponse2004DataPrices {
         if (data) {
             obj = obj || new InlineResponse2004DataPrices();
 
-            if (data.hasOwnProperty('ask')) {
+            if (data.hasOwnProperty('ask') && obj['ask'] === undefined) {
                 obj['ask'] = InlineResponse2004DataPricesAsk.constructFromObject(data['ask']);
             }
+            
         }
         return obj;
     }

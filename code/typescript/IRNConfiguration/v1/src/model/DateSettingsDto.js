@@ -46,12 +46,13 @@ class DateSettingsDto {
         if (data) {
             obj = obj || new DateSettingsDto();
 
-            if (data.hasOwnProperty('allowEdit')) {
+            if (data.hasOwnProperty('allowEdit') && obj['allowEdit'] === undefined) {
                 obj['allowEdit'] = ApiClient.convertToType(data['allowEdit'], 'Boolean');
             }
-            if (data.hasOwnProperty('isLocked')) {
+            if (data.hasOwnProperty('isLocked') && obj['isLocked'] === undefined) {
                 obj['isLocked'] = ApiClient.convertToType(data['isLocked'], 'Boolean');
             }
+            
         }
         return obj;
     }

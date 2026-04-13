@@ -53,72 +53,73 @@ class InvoiceData {
         if (data) {
             obj = obj || new InvoiceData();
 
-            if (data.hasOwnProperty('invoiceTitle')) {
+            if (data.hasOwnProperty('invoiceTitle') && obj['invoiceTitle'] === undefined) {
                 obj['invoiceTitle'] = ApiClient.convertToType(data['invoiceTitle'], 'String');
             }
-            if (data.hasOwnProperty('invoiceId')) {
+            if (data.hasOwnProperty('invoiceId') && obj['invoiceId'] === undefined) {
                 obj['invoiceId'] = ApiClient.convertToType(data['invoiceId'], 'String');
             }
-            if (data.hasOwnProperty('invoiceDate')) {
+            if (data.hasOwnProperty('invoiceDate') && obj['invoiceDate'] === undefined) {
                 obj['invoiceDate'] = ApiClient.convertToType(data['invoiceDate'], 'Date');
             }
-            if (data.hasOwnProperty('accountId')) {
+            if (data.hasOwnProperty('accountId') && obj['accountId'] === undefined) {
                 obj['accountId'] = ApiClient.convertToType(data['accountId'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('servicesRenderedCompanyName')) {
+            if (data.hasOwnProperty('servicesRenderedCompanyName') && obj['servicesRenderedCompanyName'] === undefined) {
                 obj['servicesRenderedCompanyName'] = ApiClient.convertToType(data['servicesRenderedCompanyName'], 'String');
             }
-            if (data.hasOwnProperty('startPeriod')) {
+            if (data.hasOwnProperty('startPeriod') && obj['startPeriod'] === undefined) {
                 obj['startPeriod'] = ApiClient.convertToType(data['startPeriod'], 'Date');
             }
-            if (data.hasOwnProperty('endPeriod')) {
+            if (data.hasOwnProperty('endPeriod') && obj['endPeriod'] === undefined) {
                 obj['endPeriod'] = ApiClient.convertToType(data['endPeriod'], 'Date');
             }
-            if (data.hasOwnProperty('currencyId')) {
+            if (data.hasOwnProperty('currencyId') && obj['currencyId'] === undefined) {
                 obj['currencyId'] = ApiClient.convertToType(data['currencyId'], 'String');
             }
-            if (data.hasOwnProperty('currencySymbol')) {
+            if (data.hasOwnProperty('currencySymbol') && obj['currencySymbol'] === undefined) {
                 obj['currencySymbol'] = ApiClient.convertToType(data['currencySymbol'], 'String');
             }
-            if (data.hasOwnProperty('openingBalance')) {
+            if (data.hasOwnProperty('openingBalance') && obj['openingBalance'] === undefined) {
                 obj['openingBalance'] = ApiClient.convertToType(data['openingBalance'], 'Number');
             }
-            if (data.hasOwnProperty('billingAdjustmentsTotal')) {
+            if (data.hasOwnProperty('billingAdjustmentsTotal') && obj['billingAdjustmentsTotal'] === undefined) {
                 obj['billingAdjustmentsTotal'] = ApiClient.convertToType(data['billingAdjustmentsTotal'], 'Number');
             }
-            if (data.hasOwnProperty('tax')) {
+            if (data.hasOwnProperty('tax') && obj['tax'] === undefined) {
                 obj['tax'] = ApiClient.convertToType(data['tax'], 'Number');
             }
-            if (data.hasOwnProperty('closingBalance')) {
+            if (data.hasOwnProperty('closingBalance') && obj['closingBalance'] === undefined) {
                 obj['closingBalance'] = ApiClient.convertToType(data['closingBalance'], 'Number');
             }
-            if (data.hasOwnProperty('serviceDetails')) {
+            if (data.hasOwnProperty('serviceDetails') && obj['serviceDetails'] === undefined) {
                 obj['serviceDetails'] = ApiClient.convertToType(data['serviceDetails'], {'String': [ServiceDetail]});
             }
-            if (data.hasOwnProperty('nonRecurringDetails')) {
+            if (data.hasOwnProperty('nonRecurringDetails') && obj['nonRecurringDetails'] === undefined) {
                 obj['nonRecurringDetails'] = ApiClient.convertToType(data['nonRecurringDetails'], {'String': [ServiceDetail]});
             }
-            if (data.hasOwnProperty('taxDetails')) {
+            if (data.hasOwnProperty('taxDetails') && obj['taxDetails'] === undefined) {
                 obj['taxDetails'] = ApiClient.convertToType(data['taxDetails'], [TaxDetail]);
             }
-            if (data.hasOwnProperty('billingAddressDetails')) {
+            if (data.hasOwnProperty('billingAddressDetails') && obj['billingAddressDetails'] === undefined) {
                 obj['billingAddressDetails'] = ApiClient.convertToType(data['billingAddressDetails'], [BillingAddress]);
             }
-            if (data.hasOwnProperty('statementOfAccountDetails')) {
+            if (data.hasOwnProperty('statementOfAccountDetails') && obj['statementOfAccountDetails'] === undefined) {
                 obj['statementOfAccountDetails'] = ApiClient.convertToType(data['statementOfAccountDetails'], [StatementOfAccount]);
             }
-            if (data.hasOwnProperty('subscriptionChanges')) {
+            if (data.hasOwnProperty('subscriptionChanges') && obj['subscriptionChanges'] === undefined) {
                 obj['subscriptionChanges'] = ApiClient.convertToType(data['subscriptionChanges'], {'String': [SubscriptionChange]});
             }
-            if (data.hasOwnProperty('notes')) {
+            if (data.hasOwnProperty('notes') && obj['notes'] === undefined) {
                 obj['notes'] = ApiClient.convertToType(data['notes'], ['String']);
             }
-            if (data.hasOwnProperty('billingAdjustments')) {
+            if (data.hasOwnProperty('billingAdjustments') && obj['billingAdjustments'] === undefined) {
                 obj['billingAdjustments'] = ApiClient.convertToType(data['billingAdjustments'], [BillingAdjustment]);
             }
+            
         }
         return obj;
     }

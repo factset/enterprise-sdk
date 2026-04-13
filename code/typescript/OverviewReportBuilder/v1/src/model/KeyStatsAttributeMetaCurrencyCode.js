@@ -48,9 +48,10 @@ class KeyStatsAttributeMetaCurrencyCode {
         if (data) {
             obj = obj || new KeyStatsAttributeMetaCurrencyCode();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
+            
         }
         return obj;
     }

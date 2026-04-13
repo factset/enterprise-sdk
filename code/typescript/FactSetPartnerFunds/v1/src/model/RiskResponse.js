@@ -48,9 +48,10 @@ class RiskResponse {
         if (data) {
             obj = obj || new RiskResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [RiskData]);
             }
+            
         }
         return obj;
     }

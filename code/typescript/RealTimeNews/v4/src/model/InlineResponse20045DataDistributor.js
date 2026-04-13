@@ -47,9 +47,10 @@ class InlineResponse20045DataDistributor {
         if (data) {
             obj = obj || new InlineResponse20045DataDistributor();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
+            
         }
         return obj;
     }

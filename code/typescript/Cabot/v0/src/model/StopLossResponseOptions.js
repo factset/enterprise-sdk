@@ -48,21 +48,22 @@ class StopLossResponseOptions {
         if (data) {
             obj = obj || new StopLossResponseOptions();
 
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = ApiClient.convertToType(data['attribute'], 'String');
             }
-            if (data.hasOwnProperty('highStopLossValues')) {
+            if (data.hasOwnProperty('highStopLossValues') && obj['highStopLossValues'] === undefined) {
                 obj['highStopLossValues'] = ApiClient.convertToType(data['highStopLossValues'], [StopLossModelAnalytics]);
             }
-            if (data.hasOwnProperty('holdingsData')) {
+            if (data.hasOwnProperty('holdingsData') && obj['holdingsData'] === undefined) {
                 obj['holdingsData'] = HoldingsResponseOptions.constructFromObject(data['holdingsData']);
             }
-            if (data.hasOwnProperty('lowStopLossValues')) {
+            if (data.hasOwnProperty('lowStopLossValues') && obj['lowStopLossValues'] === undefined) {
                 obj['lowStopLossValues'] = ApiClient.convertToType(data['lowStopLossValues'], [StopLossModelAnalytics]);
             }
-            if (data.hasOwnProperty('stopLossValues')) {
+            if (data.hasOwnProperty('stopLossValues') && obj['stopLossValues'] === undefined) {
                 obj['stopLossValues'] = ApiClient.convertToType(data['stopLossValues'], [StopLossModelAnalytics]);
             }
+            
         }
         return obj;
     }

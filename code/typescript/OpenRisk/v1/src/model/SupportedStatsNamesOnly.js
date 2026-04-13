@@ -49,9 +49,10 @@ class SupportedStatsNamesOnly {
         if (data) {
             obj = obj || new SupportedStatsNamesOnly();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], ['String']);
             }
+            
         }
         return obj;
     }

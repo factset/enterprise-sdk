@@ -51,18 +51,19 @@ class InlineResponse2005DataLockIn {
         if (data) {
             obj = obj || new InlineResponse2005DataLockIn();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = ApiClient.convertToType(data['observation'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataLockInObservationItems]);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataLockInValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataLockInDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2005DataLockInCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

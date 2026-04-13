@@ -51,18 +51,19 @@ class SMCreateParameters {
         if (data) {
             obj = obj || new SMCreateParameters();
 
-            if (data.hasOwnProperty('securityName')) {
+            if (data.hasOwnProperty('securityName') && obj['securityName'] === undefined) {
                 obj['securityName'] = ApiClient.convertToType(data['securityName'], 'String');
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
             }
-            if (data.hasOwnProperty('asofdate')) {
+            if (data.hasOwnProperty('asofdate') && obj['asofdate'] === undefined) {
                 obj['asofdate'] = ApiClient.convertToType(data['asofdate'], 'String');
             }
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = OneOfSMFields.constructFromObject(data['fields']);
             }
+            
         }
         return obj;
     }

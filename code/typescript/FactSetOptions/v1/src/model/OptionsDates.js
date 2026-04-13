@@ -47,42 +47,43 @@ class OptionsDates {
         if (data) {
             obj = obj || new OptionsDates();
 
-            if (data.hasOwnProperty('expirationDate')) {
+            if (data.hasOwnProperty('expirationDate') && obj['expirationDate'] === undefined) {
                 obj['expirationDate'] = ApiClient.convertToType(data['expirationDate'], 'Date');
             }
-            if (data.hasOwnProperty('firstAskDate')) {
+            if (data.hasOwnProperty('firstAskDate') && obj['firstAskDate'] === undefined) {
                 obj['firstAskDate'] = ApiClient.convertToType(data['firstAskDate'], 'Date');
             }
-            if (data.hasOwnProperty('firstBidDate')) {
+            if (data.hasOwnProperty('firstBidDate') && obj['firstBidDate'] === undefined) {
                 obj['firstBidDate'] = ApiClient.convertToType(data['firstBidDate'], 'Date');
             }
-            if (data.hasOwnProperty('firstSettlementDate')) {
+            if (data.hasOwnProperty('firstSettlementDate') && obj['firstSettlementDate'] === undefined) {
                 obj['firstSettlementDate'] = ApiClient.convertToType(data['firstSettlementDate'], 'Date');
             }
-            if (data.hasOwnProperty('firstTradeDate')) {
+            if (data.hasOwnProperty('firstTradeDate') && obj['firstTradeDate'] === undefined) {
                 obj['firstTradeDate'] = ApiClient.convertToType(data['firstTradeDate'], 'Date');
             }
-            if (data.hasOwnProperty('lastAskDate')) {
+            if (data.hasOwnProperty('lastAskDate') && obj['lastAskDate'] === undefined) {
                 obj['lastAskDate'] = ApiClient.convertToType(data['lastAskDate'], 'Date');
             }
-            if (data.hasOwnProperty('lastBidDate')) {
+            if (data.hasOwnProperty('lastBidDate') && obj['lastBidDate'] === undefined) {
                 obj['lastBidDate'] = ApiClient.convertToType(data['lastBidDate'], 'Date');
             }
-            if (data.hasOwnProperty('lastSettlementDate')) {
+            if (data.hasOwnProperty('lastSettlementDate') && obj['lastSettlementDate'] === undefined) {
                 obj['lastSettlementDate'] = ApiClient.convertToType(data['lastSettlementDate'], 'Date');
             }
-            if (data.hasOwnProperty('lastTradeDate')) {
+            if (data.hasOwnProperty('lastTradeDate') && obj['lastTradeDate'] === undefined) {
                 obj['lastTradeDate'] = ApiClient.convertToType(data['lastTradeDate'], 'Date');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

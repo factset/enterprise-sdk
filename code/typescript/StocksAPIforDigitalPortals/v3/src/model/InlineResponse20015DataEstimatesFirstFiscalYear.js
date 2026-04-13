@@ -52,21 +52,22 @@ class InlineResponse20015DataEstimatesFirstFiscalYear {
         if (data) {
             obj = obj || new InlineResponse20015DataEstimatesFirstFiscalYear();
 
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = InlineResponse20015DataEstimatesFirstFiscalYearFiscalYear.constructFromObject(data['fiscalYear']);
             }
-            if (data.hasOwnProperty('currencyDependentEstimates')) {
+            if (data.hasOwnProperty('currencyDependentEstimates') && obj['currencyDependentEstimates'] === undefined) {
                 obj['currencyDependentEstimates'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimates.constructFromObject(data['currencyDependentEstimates']);
             }
-            if (data.hasOwnProperty('returnOnAssets')) {
+            if (data.hasOwnProperty('returnOnAssets') && obj['returnOnAssets'] === undefined) {
                 obj['returnOnAssets'] = InlineResponse20015DataEstimatesFirstFiscalYearReturnOnAssets.constructFromObject(data['returnOnAssets']);
             }
-            if (data.hasOwnProperty('returnOnEquity')) {
+            if (data.hasOwnProperty('returnOnEquity') && obj['returnOnEquity'] === undefined) {
                 obj['returnOnEquity'] = InlineResponse20015DataEstimatesFirstFiscalYearReturnOnEquity.constructFromObject(data['returnOnEquity']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = InlineResponse20015DataEstimatesFirstFiscalYearRatios.constructFromObject(data['ratios']);
             }
+            
         }
         return obj;
     }

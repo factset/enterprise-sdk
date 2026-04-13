@@ -47,24 +47,25 @@ class DiseasesFiles {
         if (data) {
             obj = obj || new DiseasesFiles();
 
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('diseaseArea')) {
+            if (data.hasOwnProperty('diseaseArea') && obj['diseaseArea'] === undefined) {
                 obj['diseaseArea'] = ApiClient.convertToType(data['diseaseArea'], 'String');
             }
-            if (data.hasOwnProperty('subTherapyArea')) {
+            if (data.hasOwnProperty('subTherapyArea') && obj['subTherapyArea'] === undefined) {
                 obj['subTherapyArea'] = ApiClient.convertToType(data['subTherapyArea'], 'String');
             }
-            if (data.hasOwnProperty('therapyArea')) {
+            if (data.hasOwnProperty('therapyArea') && obj['therapyArea'] === undefined) {
                 obj['therapyArea'] = ApiClient.convertToType(data['therapyArea'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

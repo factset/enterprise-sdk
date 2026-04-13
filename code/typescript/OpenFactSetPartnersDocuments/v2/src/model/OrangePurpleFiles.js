@@ -47,27 +47,28 @@ class OrangePurpleFiles {
         if (data) {
             obj = obj || new OrangePurpleFiles();
 
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('beamOpNovelDrug')) {
+            if (data.hasOwnProperty('beamOpNovelDrug') && obj['beamOpNovelDrug'] === undefined) {
                 obj['beamOpNovelDrug'] = ApiClient.convertToType(data['beamOpNovelDrug'], 'String');
             }
-            if (data.hasOwnProperty('beamOpNovelTarget')) {
+            if (data.hasOwnProperty('beamOpNovelTarget') && obj['beamOpNovelTarget'] === undefined) {
                 obj['beamOpNovelTarget'] = ApiClient.convertToType(data['beamOpNovelTarget'], 'String');
             }
-            if (data.hasOwnProperty('beamOpNovelDrugList')) {
+            if (data.hasOwnProperty('beamOpNovelDrugList') && obj['beamOpNovelDrugList'] === undefined) {
                 obj['beamOpNovelDrugList'] = ApiClient.convertToType(data['beamOpNovelDrugList'], 'String');
             }
-            if (data.hasOwnProperty('beamOpNovelTargetList')) {
+            if (data.hasOwnProperty('beamOpNovelTargetList') && obj['beamOpNovelTargetList'] === undefined) {
                 obj['beamOpNovelTargetList'] = ApiClient.convertToType(data['beamOpNovelTargetList'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

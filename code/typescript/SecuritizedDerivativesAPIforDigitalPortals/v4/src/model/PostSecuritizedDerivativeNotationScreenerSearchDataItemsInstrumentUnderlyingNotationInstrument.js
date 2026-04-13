@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentUnderlyi
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentUnderlyingNotationInstrument();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('typeComposite')) {
+            if (data.hasOwnProperty('typeComposite') && obj['typeComposite'] === undefined) {
                 obj['typeComposite'] = ApiClient.convertToType(data['typeComposite'], 'String');
             }
+            
         }
         return obj;
     }

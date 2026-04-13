@@ -47,54 +47,55 @@ class BillingAddress {
         if (data) {
             obj = obj || new BillingAddress();
 
-            if (data.hasOwnProperty('invoiceContactId')) {
+            if (data.hasOwnProperty('invoiceContactId') && obj['invoiceContactId'] === undefined) {
                 obj['invoiceContactId'] = ApiClient.convertToType(data['invoiceContactId'], 'Number');
             }
-            if (data.hasOwnProperty('invoiceId')) {
+            if (data.hasOwnProperty('invoiceId') && obj['invoiceId'] === undefined) {
                 obj['invoiceId'] = ApiClient.convertToType(data['invoiceId'], 'String');
             }
-            if (data.hasOwnProperty('contactId')) {
+            if (data.hasOwnProperty('contactId') && obj['contactId'] === undefined) {
                 obj['contactId'] = ApiClient.convertToType(data['contactId'], 'Number');
             }
-            if (data.hasOwnProperty('firstName')) {
+            if (data.hasOwnProperty('firstName') && obj['firstName'] === undefined) {
                 obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
             }
-            if (data.hasOwnProperty('middleName')) {
+            if (data.hasOwnProperty('middleName') && obj['middleName'] === undefined) {
                 obj['middleName'] = ApiClient.convertToType(data['middleName'], 'String');
             }
-            if (data.hasOwnProperty('lastName')) {
+            if (data.hasOwnProperty('lastName') && obj['lastName'] === undefined) {
                 obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
             }
-            if (data.hasOwnProperty('suffix')) {
+            if (data.hasOwnProperty('suffix') && obj['suffix'] === undefined) {
                 obj['suffix'] = ApiClient.convertToType(data['suffix'], 'String');
             }
-            if (data.hasOwnProperty('address1')) {
+            if (data.hasOwnProperty('address1') && obj['address1'] === undefined) {
                 obj['address1'] = ApiClient.convertToType(data['address1'], 'String');
             }
-            if (data.hasOwnProperty('address2')) {
+            if (data.hasOwnProperty('address2') && obj['address2'] === undefined) {
                 obj['address2'] = ApiClient.convertToType(data['address2'], 'String');
             }
-            if (data.hasOwnProperty('address3')) {
+            if (data.hasOwnProperty('address3') && obj['address3'] === undefined) {
                 obj['address3'] = ApiClient.convertToType(data['address3'], 'String');
             }
-            if (data.hasOwnProperty('city')) {
+            if (data.hasOwnProperty('city') && obj['city'] === undefined) {
                 obj['city'] = ApiClient.convertToType(data['city'], 'String');
             }
-            if (data.hasOwnProperty('regionCode')) {
+            if (data.hasOwnProperty('regionCode') && obj['regionCode'] === undefined) {
                 obj['regionCode'] = ApiClient.convertToType(data['regionCode'], 'String');
             }
-            if (data.hasOwnProperty('countryCode')) {
+            if (data.hasOwnProperty('countryCode') && obj['countryCode'] === undefined) {
                 obj['countryCode'] = ApiClient.convertToType(data['countryCode'], 'String');
             }
-            if (data.hasOwnProperty('postCode')) {
+            if (data.hasOwnProperty('postCode') && obj['postCode'] === undefined) {
                 obj['postCode'] = ApiClient.convertToType(data['postCode'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('emailAddress')) {
+            if (data.hasOwnProperty('emailAddress') && obj['emailAddress'] === undefined) {
                 obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
             }
+            
         }
         return obj;
     }

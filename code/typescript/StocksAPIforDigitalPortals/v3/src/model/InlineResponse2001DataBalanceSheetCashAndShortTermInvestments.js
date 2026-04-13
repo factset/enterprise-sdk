@@ -47,15 +47,16 @@ class InlineResponse2001DataBalanceSheetCashAndShortTermInvestments {
         if (data) {
             obj = obj || new InlineResponse2001DataBalanceSheetCashAndShortTermInvestments();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('ratioToTotalAssets')) {
+            if (data.hasOwnProperty('ratioToTotalAssets') && obj['ratioToTotalAssets'] === undefined) {
                 obj['ratioToTotalAssets'] = ApiClient.convertToType(data['ratioToTotalAssets'], 'Number');
             }
+            
         }
         return obj;
     }

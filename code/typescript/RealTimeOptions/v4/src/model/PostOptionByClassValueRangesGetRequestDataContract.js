@@ -49,12 +49,13 @@ class PostOptionByClassValueRangesGetRequestDataContract {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataContract();
 
-            if (data.hasOwnProperty('excercise')) {
+            if (data.hasOwnProperty('excercise') && obj['excercise'] === undefined) {
                 obj['excercise'] = PostOptionByClassListRequestDataContractExcercise.constructFromObject(data['excercise']);
             }
-            if (data.hasOwnProperty('strikePrice')) {
+            if (data.hasOwnProperty('strikePrice') && obj['strikePrice'] === undefined) {
                 obj['strikePrice'] = PostOptionByClassValueRangesGetRequestDataContractStrikePrice.constructFromObject(data['strikePrice']);
             }
+            
         }
         return obj;
     }

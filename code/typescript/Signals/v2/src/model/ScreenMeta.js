@@ -52,15 +52,16 @@ class ScreenMeta {
         if (data) {
             obj = obj || new ScreenMeta();
 
-            if (data.hasOwnProperty('signalRequestId')) {
+            if (data.hasOwnProperty('signalRequestId') && obj['signalRequestId'] === undefined) {
                 obj['signalRequestId'] = ApiClient.convertToType(data['signalRequestId'], 'String');
             }
-            if (data.hasOwnProperty('dateRange')) {
+            if (data.hasOwnProperty('dateRange') && obj['dateRange'] === undefined) {
                 obj['dateRange'] = EventsMetaDateRange.constructFromObject(data['dateRange']);
             }
-            if (data.hasOwnProperty('partial')) {
+            if (data.hasOwnProperty('partial') && obj['partial'] === undefined) {
                 obj['partial'] = ScreenMetaPartial.constructFromObject(data['partial']);
             }
+            
         }
         return obj;
     }

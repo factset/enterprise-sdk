@@ -48,27 +48,28 @@ class SymbolRelationshipDto {
         if (data) {
             obj = obj || new SymbolRelationshipDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('symbolsRelationship')) {
+            if (data.hasOwnProperty('symbolsRelationship') && obj['symbolsRelationship'] === undefined) {
                 obj['symbolsRelationship'] = SymbolsRelationshipIdNameDto.constructFromObject(data['symbolsRelationship']);
             }
-            if (data.hasOwnProperty('parentSymbol')) {
+            if (data.hasOwnProperty('parentSymbol') && obj['parentSymbol'] === undefined) {
                 obj['parentSymbol'] = SymbolIdNameDto.constructFromObject(data['parentSymbol']);
             }
-            if (data.hasOwnProperty('childSymbol')) {
+            if (data.hasOwnProperty('childSymbol') && obj['childSymbol'] === undefined) {
                 obj['childSymbol'] = SymbolIdNameDto.constructFromObject(data['childSymbol']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('comment')) {
+            if (data.hasOwnProperty('comment') && obj['comment'] === undefined) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
+            
         }
         return obj;
     }

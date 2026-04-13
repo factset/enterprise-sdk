@@ -47,12 +47,13 @@ class HoldingAllOf {
         if (data) {
             obj = obj || new HoldingAllOf();
 
-            if (data.hasOwnProperty('grouping')) {
+            if (data.hasOwnProperty('grouping') && obj['grouping'] === undefined) {
                 obj['grouping'] = SecurityGroup.constructFromObject(data['grouping']);
             }
-            if (data.hasOwnProperty('uncoveredAssets')) {
+            if (data.hasOwnProperty('uncoveredAssets') && obj['uncoveredAssets'] === undefined) {
                 obj['uncoveredAssets'] = ApiClient.convertToType(data['uncoveredAssets'], 'String');
             }
+            
         }
         return obj;
     }

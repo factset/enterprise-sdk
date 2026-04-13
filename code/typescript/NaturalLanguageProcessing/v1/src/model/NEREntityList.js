@@ -47,9 +47,10 @@ class NEREntityList {
         if (data) {
             obj = obj || new NEREntityList();
 
-            if (data.hasOwnProperty('entities')) {
+            if (data.hasOwnProperty('entities') && obj['entities'] === undefined) {
                 obj['entities'] = ApiClient.convertToType(data['entities'], [NEREntity]);
             }
+            
         }
         return obj;
     }

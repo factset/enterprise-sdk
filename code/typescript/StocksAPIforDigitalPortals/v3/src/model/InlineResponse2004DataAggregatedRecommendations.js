@@ -48,15 +48,16 @@ class InlineResponse2004DataAggregatedRecommendations {
         if (data) {
             obj = obj || new InlineResponse2004DataAggregatedRecommendations();
 
-            if (data.hasOwnProperty('snapshot')) {
+            if (data.hasOwnProperty('snapshot') && obj['snapshot'] === undefined) {
                 obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'String');
             }
-            if (data.hasOwnProperty('targetPrice')) {
+            if (data.hasOwnProperty('targetPrice') && obj['targetPrice'] === undefined) {
                 obj['targetPrice'] = InlineResponse2003DataTargetPrice.constructFromObject(data['targetPrice']);
             }
-            if (data.hasOwnProperty('recommendation')) {
+            if (data.hasOwnProperty('recommendation') && obj['recommendation'] === undefined) {
                 obj['recommendation'] = InlineResponse2004DataRecommendation.constructFromObject(data['recommendation']);
             }
+            
         }
         return obj;
     }

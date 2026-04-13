@@ -48,9 +48,10 @@ class SpotlightsResponse {
         if (data) {
             obj = obj || new SpotlightsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Spotlights]);
             }
+            
         }
         return obj;
     }

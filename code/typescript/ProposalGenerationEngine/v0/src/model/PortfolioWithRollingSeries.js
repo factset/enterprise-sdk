@@ -51,18 +51,23 @@ class PortfolioWithRollingSeries {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new PortfolioWithRollingSeries();
-            PortfolioEntity.constructFromObject(data, obj);
-            PortfolioWithRollingSeriesAllOf.constructFromObject(data, obj);
+            try {
+              obj = PortfolioEntity.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = PortfolioWithRollingSeriesAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = PortfolioEntityDetails.constructFromObject(data['details']);
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = RollingSeries.constructFromObject(data['stats']);
             }
+            
         }
         return obj;
     }

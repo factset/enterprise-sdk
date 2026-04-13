@@ -50,15 +50,16 @@ class InlineResponse2002IncomeStatement {
         if (data) {
             obj = obj || new InlineResponse2002IncomeStatement();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = InlineResponse2002IncomeStatementSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('ebit')) {
+            if (data.hasOwnProperty('ebit') && obj['ebit'] === undefined) {
                 obj['ebit'] = InlineResponse2002IncomeStatementEbit.constructFromObject(data['ebit']);
             }
-            if (data.hasOwnProperty('ebitda')) {
+            if (data.hasOwnProperty('ebitda') && obj['ebitda'] === undefined) {
                 obj['ebitda'] = InlineResponse2002IncomeStatementEbitda.constructFromObject(data['ebitda']);
             }
+            
         }
         return obj;
     }

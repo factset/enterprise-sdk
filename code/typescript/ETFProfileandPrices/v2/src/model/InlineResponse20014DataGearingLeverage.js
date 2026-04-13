@@ -47,15 +47,16 @@ class InlineResponse20014DataGearingLeverage {
         if (data) {
             obj = obj || new InlineResponse20014DataGearingLeverage();
 
-            if (data.hasOwnProperty('isLeverageFund')) {
+            if (data.hasOwnProperty('isLeverageFund') && obj['isLeverageFund'] === undefined) {
                 obj['isLeverageFund'] = ApiClient.convertToType(data['isLeverageFund'], 'Boolean');
             }
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = ApiClient.convertToType(data['factor'], 'Number');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

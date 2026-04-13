@@ -48,24 +48,25 @@ class OptimizerInputsFactorExposureTerm {
         if (data) {
             obj = obj || new OptimizerInputsFactorExposureTerm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('multiplier')) {
+            if (data.hasOwnProperty('multiplier') && obj['multiplier'] === undefined) {
                 obj['multiplier'] = OptimizerInputsValue.constructFromObject(data['multiplier']);
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], ['String']);
             }
-            if (data.hasOwnProperty('direction')) {
+            if (data.hasOwnProperty('direction') && obj['direction'] === undefined) {
                 obj['direction'] = OptimizerInputsEObjectiveTermDirectionEnum.constructFromObject(data['direction']);
             }
-            if (data.hasOwnProperty('rel_to_benchmark')) {
+            if (data.hasOwnProperty('rel_to_benchmark') && obj['rel_to_benchmark'] === undefined) {
                 obj['rel_to_benchmark'] = ApiClient.convertToType(data['rel_to_benchmark'], 'Boolean');
             }
-            if (data.hasOwnProperty('benchmark_index')) {
+            if (data.hasOwnProperty('benchmark_index') && obj['benchmark_index'] === undefined) {
                 obj['benchmark_index'] = ApiClient.convertToType(data['benchmark_index'], 'Number');
             }
+            
         }
         return obj;
     }

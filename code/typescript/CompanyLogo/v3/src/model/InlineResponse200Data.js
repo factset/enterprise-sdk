@@ -51,24 +51,25 @@ class InlineResponse200Data {
         if (data) {
             obj = obj || new InlineResponse200Data();
 
-            if (data.hasOwnProperty('idInstrument')) {
+            if (data.hasOwnProperty('idInstrument') && obj['idInstrument'] === undefined) {
                 obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('small')) {
+            if (data.hasOwnProperty('small') && obj['small'] === undefined) {
                 obj['small'] = InlineResponse200DataSmall.constructFromObject(data['small']);
             }
-            if (data.hasOwnProperty('medium')) {
+            if (data.hasOwnProperty('medium') && obj['medium'] === undefined) {
                 obj['medium'] = InlineResponse200DataMedium.constructFromObject(data['medium']);
             }
-            if (data.hasOwnProperty('large')) {
+            if (data.hasOwnProperty('large') && obj['large'] === undefined) {
                 obj['large'] = InlineResponse200DataLarge.constructFromObject(data['large']);
             }
-            if (data.hasOwnProperty('vector')) {
+            if (data.hasOwnProperty('vector') && obj['vector'] === undefined) {
                 obj['vector'] = InlineResponse200DataVector.constructFromObject(data['vector']);
             }
+            
         }
         return obj;
     }

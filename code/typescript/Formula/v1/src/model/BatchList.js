@@ -46,18 +46,19 @@ class BatchList {
         if (data) {
             obj = obj || new BatchList();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
             }
-            if (data.hasOwnProperty('expiration')) {
+            if (data.hasOwnProperty('expiration') && obj['expiration'] === undefined) {
                 obj['expiration'] = ApiClient.convertToType(data['expiration'], 'Date');
             }
+            
         }
         return obj;
     }

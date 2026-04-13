@@ -49,12 +49,13 @@ class InlineResponse2005DataCapDistance {
         if (data) {
             obj = obj || new InlineResponse2005DataCapDistance();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = InlineResponse2005DataCapDistanceAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = InlineResponse2005DataCapDistanceRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

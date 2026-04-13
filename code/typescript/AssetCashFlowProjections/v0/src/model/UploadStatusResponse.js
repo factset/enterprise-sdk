@@ -48,9 +48,10 @@ class UploadStatusResponse {
         if (data) {
             obj = obj || new UploadStatusResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = UploadStatusResponseParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -46,15 +46,16 @@ class HeadlineFormatConfigDto {
         if (data) {
             obj = obj || new HeadlineFormatConfigDto();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('customString')) {
+            if (data.hasOwnProperty('customString') && obj['customString'] === undefined) {
                 obj['customString'] = ApiClient.convertToType(data['customString'], 'String');
             }
-            if (data.hasOwnProperty('customFieldName')) {
+            if (data.hasOwnProperty('customFieldName') && obj['customFieldName'] === undefined) {
                 obj['customFieldName'] = ApiClient.convertToType(data['customFieldName'], 'String');
             }
+            
         }
         return obj;
     }

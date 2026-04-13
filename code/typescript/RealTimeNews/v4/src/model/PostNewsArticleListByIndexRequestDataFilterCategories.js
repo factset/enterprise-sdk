@@ -47,9 +47,10 @@ class PostNewsArticleListByIndexRequestDataFilterCategories {
         if (data) {
             obj = obj || new PostNewsArticleListByIndexRequestDataFilterCategories();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
+            
         }
         return obj;
     }

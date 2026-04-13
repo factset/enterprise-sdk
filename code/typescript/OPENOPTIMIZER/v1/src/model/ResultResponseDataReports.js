@@ -46,27 +46,28 @@ class ResultResponseDataReports {
         if (data) {
             obj = obj || new ResultResponseDataReports();
 
-            if (data.hasOwnProperty('constraintSummary')) {
+            if (data.hasOwnProperty('constraintSummary') && obj['constraintSummary'] === undefined) {
                 obj['constraintSummary'] = ApiClient.convertToType(data['constraintSummary'], Object);
             }
-            if (data.hasOwnProperty('factorExposure')) {
+            if (data.hasOwnProperty('factorExposure') && obj['factorExposure'] === undefined) {
                 obj['factorExposure'] = ApiClient.convertToType(data['factorExposure'], Object);
             }
-            if (data.hasOwnProperty('objectiveSummary')) {
+            if (data.hasOwnProperty('objectiveSummary') && obj['objectiveSummary'] === undefined) {
                 obj['objectiveSummary'] = ApiClient.convertToType(data['objectiveSummary'], Object);
             }
-            if (data.hasOwnProperty('tradeList')) {
+            if (data.hasOwnProperty('tradeList') && obj['tradeList'] === undefined) {
                 obj['tradeList'] = ApiClient.convertToType(data['tradeList'], Object);
             }
-            if (data.hasOwnProperty('optimizerLog')) {
+            if (data.hasOwnProperty('optimizerLog') && obj['optimizerLog'] === undefined) {
                 obj['optimizerLog'] = ApiClient.convertToType(data['optimizerLog'], Object);
             }
-            if (data.hasOwnProperty('workspace')) {
+            if (data.hasOwnProperty('workspace') && obj['workspace'] === undefined) {
                 obj['workspace'] = ApiClient.convertToType(data['workspace'], Object);
             }
-            if (data.hasOwnProperty('excludedSecurities')) {
+            if (data.hasOwnProperty('excludedSecurities') && obj['excludedSecurities'] === undefined) {
                 obj['excludedSecurities'] = ApiClient.convertToType(data['excludedSecurities'], Object);
             }
+            
         }
         return obj;
     }

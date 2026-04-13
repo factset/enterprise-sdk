@@ -47,12 +47,13 @@ class OptimizerInputsRiskParityTerm {
         if (data) {
             obj = obj || new OptimizerInputsRiskParityTerm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('risk_type')) {
+            if (data.hasOwnProperty('risk_type') && obj['risk_type'] === undefined) {
                 obj['risk_type'] = OptimizerInputsEObjectiveRiskTypeEnum.constructFromObject(data['risk_type']);
             }
+            
         }
         return obj;
     }

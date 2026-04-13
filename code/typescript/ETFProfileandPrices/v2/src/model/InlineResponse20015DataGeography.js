@@ -47,12 +47,13 @@ class InlineResponse20015DataGeography {
         if (data) {
             obj = obj || new InlineResponse20015DataGeography();
 
-            if (data.hasOwnProperty('region')) {
+            if (data.hasOwnProperty('region') && obj['region'] === undefined) {
                 obj['region'] = ApiClient.convertToType(data['region'], 'String');
             }
-            if (data.hasOwnProperty('specific')) {
+            if (data.hasOwnProperty('specific') && obj['specific'] === undefined) {
                 obj['specific'] = ApiClient.convertToType(data['specific'], 'String');
             }
+            
         }
         return obj;
     }

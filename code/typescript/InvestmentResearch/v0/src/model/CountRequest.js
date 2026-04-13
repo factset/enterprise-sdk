@@ -50,9 +50,10 @@ class CountRequest {
         if (data) {
             obj = obj || new CountRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CountRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

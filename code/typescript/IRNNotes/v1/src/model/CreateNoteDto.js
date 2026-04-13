@@ -54,51 +54,52 @@ class CreateNoteDto {
         if (data) {
             obj = obj || new CreateNoteDto();
 
-            if (data.hasOwnProperty('author')) {
+            if (data.hasOwnProperty('author') && obj['author'] === undefined) {
                 obj['author'] = UserSerialDto.constructFromObject(data['author']);
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('subjectId')) {
+            if (data.hasOwnProperty('subjectId') && obj['subjectId'] === undefined) {
                 obj['subjectId'] = ApiClient.convertToType(data['subjectId'], 'String');
             }
-            if (data.hasOwnProperty('recommendationId')) {
+            if (data.hasOwnProperty('recommendationId') && obj['recommendationId'] === undefined) {
                 obj['recommendationId'] = ApiClient.convertToType(data['recommendationId'], 'String');
             }
-            if (data.hasOwnProperty('sentimentId')) {
+            if (data.hasOwnProperty('sentimentId') && obj['sentimentId'] === undefined) {
                 obj['sentimentId'] = ApiClient.convertToType(data['sentimentId'], 'String');
             }
-            if (data.hasOwnProperty('body')) {
+            if (data.hasOwnProperty('body') && obj['body'] === undefined) {
                 obj['body'] = CreateBodyDto.constructFromObject(data['body']);
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('link')) {
+            if (data.hasOwnProperty('link') && obj['link'] === undefined) {
                 obj['link'] = ApiClient.convertToType(data['link'], 'String');
             }
-            if (data.hasOwnProperty('relatedSymbols')) {
+            if (data.hasOwnProperty('relatedSymbols') && obj['relatedSymbols'] === undefined) {
                 obj['relatedSymbols'] = ApiClient.convertToType(data['relatedSymbols'], ['String']);
             }
-            if (data.hasOwnProperty('relatedContacts')) {
+            if (data.hasOwnProperty('relatedContacts') && obj['relatedContacts'] === undefined) {
                 obj['relatedContacts'] = ApiClient.convertToType(data['relatedContacts'], ['String']);
             }
-            if (data.hasOwnProperty('relatedRecords')) {
+            if (data.hasOwnProperty('relatedRecords') && obj['relatedRecords'] === undefined) {
                 obj['relatedRecords'] = RelatedRecordsDto.constructFromObject(data['relatedRecords']);
             }
-            if (data.hasOwnProperty('customFieldValues')) {
+            if (data.hasOwnProperty('customFieldValues') && obj['customFieldValues'] === undefined) {
                 obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [CreateCustomFieldValueDto]);
             }
-            if (data.hasOwnProperty('isPersonal')) {
+            if (data.hasOwnProperty('isPersonal') && obj['isPersonal'] === undefined) {
                 obj['isPersonal'] = ApiClient.convertToType(data['isPersonal'], 'Boolean');
             }
+            
         }
         return obj;
     }

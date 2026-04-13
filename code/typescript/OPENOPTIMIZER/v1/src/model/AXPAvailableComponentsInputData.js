@@ -48,15 +48,16 @@ class AXPAvailableComponentsInputData {
         if (data) {
             obj = obj || new AXPAvailableComponentsInputData();
 
-            if (data.hasOwnProperty('components')) {
+            if (data.hasOwnProperty('components') && obj['components'] === undefined) {
                 obj['components'] = ApiClient.convertToType(data['components'], ['String']);
             }
-            if (data.hasOwnProperty('documentLevel')) {
+            if (data.hasOwnProperty('documentLevel') && obj['documentLevel'] === undefined) {
                 obj['documentLevel'] = FPOAvailableComponentsInputDataDocumentLevel.constructFromObject(data['documentLevel']);
             }
-            if (data.hasOwnProperty('filters')) {
+            if (data.hasOwnProperty('filters') && obj['filters'] === undefined) {
                 obj['filters'] = AXPAvailableComponentsInputDataFilters.constructFromObject(data['filters']);
             }
+            
         }
         return obj;
     }

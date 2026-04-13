@@ -48,9 +48,10 @@ class NoAnswersFoundAllOf {
         if (data) {
             obj = obj || new NoAnswersFoundAllOf();
 
-            if (data.hasOwnProperty('querySuggestions')) {
+            if (data.hasOwnProperty('querySuggestions') && obj['querySuggestions'] === undefined) {
                 obj['querySuggestions'] = ApiClient.convertToType(data['querySuggestions'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsItems {
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsItems();
 
-            if (data.hasOwnProperty('barrierType')) {
+            if (data.hasOwnProperty('barrierType') && obj['barrierType'] === undefined) {
                 obj['barrierType'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsItemsBarrierType.constructFromObject(data['barrierType']);
             }
-            if (data.hasOwnProperty('conditions')) {
+            if (data.hasOwnProperty('conditions') && obj['conditions'] === undefined) {
                 obj['conditions'] = ApiClient.convertToType(data['conditions'], [GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItems]);
             }
+            
         }
         return obj;
     }

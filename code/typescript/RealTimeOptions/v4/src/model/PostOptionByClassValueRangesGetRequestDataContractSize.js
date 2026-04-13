@@ -49,12 +49,13 @@ class PostOptionByClassValueRangesGetRequestDataContractSize {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataContractSize();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostOptionByClassValueRangesGetRequestDataContractSizeRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostOptionByClassValueRangesGetRequestDataContractSizeExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

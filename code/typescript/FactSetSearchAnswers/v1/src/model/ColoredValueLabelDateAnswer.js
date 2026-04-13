@@ -56,18 +56,23 @@ class ColoredValueLabelDateAnswer {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ColoredValueLabelDateAnswer();
-            AnswerWithTitle.constructFromObject(data, obj);
-            ColoredValueLabelDateAnswerAllOf.constructFromObject(data, obj);
+            try {
+              obj = AnswerWithTitle.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ColoredValueLabelDateAnswerAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = ColoredValueLabelDateTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class InlineResponse200DataTradingMedian {
         if (data) {
             obj = obj || new InlineResponse200DataTradingMedian();
 
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

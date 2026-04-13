@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidati
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationValueUnit();
 
-            if (data.hasOwnProperty('selection')) {
+            if (data.hasOwnProperty('selection') && obj['selection'] === undefined) {
                 obj['selection'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationValueUnitSelection.constructFromObject(data['selection']);
             }
+            
         }
         return obj;
     }

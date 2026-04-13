@@ -48,9 +48,10 @@ class PriceTimeQuoteResponse {
         if (data) {
             obj = obj || new PriceTimeQuoteResponse();
 
-            if (data.hasOwnProperty('priceTimeQuotes')) {
+            if (data.hasOwnProperty('priceTimeQuotes') && obj['priceTimeQuotes'] === undefined) {
                 obj['priceTimeQuotes'] = ApiClient.convertToType(data['priceTimeQuotes'], [PriceTimeQuote]);
             }
+            
         }
         return obj;
     }

@@ -46,18 +46,19 @@ class OptimizerInputsQuantRiskRequestInfo {
         if (data) {
             obj = obj || new OptimizerInputsQuantRiskRequestInfo();
 
-            if (data.hasOwnProperty('service_url')) {
+            if (data.hasOwnProperty('service_url') && obj['service_url'] === undefined) {
                 obj['service_url'] = ApiClient.convertToType(data['service_url'], 'String');
             }
-            if (data.hasOwnProperty('json_post_body')) {
+            if (data.hasOwnProperty('json_post_body') && obj['json_post_body'] === undefined) {
                 obj['json_post_body'] = ApiClient.convertToType(data['json_post_body'], 'String');
             }
-            if (data.hasOwnProperty('lima_header')) {
+            if (data.hasOwnProperty('lima_header') && obj['lima_header'] === undefined) {
                 obj['lima_header'] = ApiClient.convertToType(data['lima_header'], 'String');
             }
-            if (data.hasOwnProperty('pickup_base_url')) {
+            if (data.hasOwnProperty('pickup_base_url') && obj['pickup_base_url'] === undefined) {
                 obj['pickup_base_url'] = ApiClient.convertToType(data['pickup_base_url'], 'String');
             }
+            
         }
         return obj;
     }

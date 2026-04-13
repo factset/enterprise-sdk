@@ -47,21 +47,22 @@ class Manager {
         if (data) {
             obj = obj || new Manager();
 
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = ApiClient.convertToType(data['company'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('biography')) {
+            if (data.hasOwnProperty('biography') && obj['biography'] === undefined) {
                 obj['biography'] = ApiClient.convertToType(data['biography'], 'String');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('education')) {
+            if (data.hasOwnProperty('education') && obj['education'] === undefined) {
                 obj['education'] = ApiClient.convertToType(data['education'], 'String');
             }
+            
         }
         return obj;
     }

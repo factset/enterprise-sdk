@@ -47,9 +47,10 @@ class DealsPublicResponse {
         if (data) {
             obj = obj || new DealsPublicResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [DealPublic]);
             }
+            
         }
         return obj;
     }

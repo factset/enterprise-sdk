@@ -48,12 +48,13 @@ class PostCompanyEstimatesListByInstrumentRequest {
         if (data) {
             obj = obj || new PostCompanyEstimatesListByInstrumentRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostCompanyEstimatesListByInstrumentRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostCompanyEstimatesListByInstrumentRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

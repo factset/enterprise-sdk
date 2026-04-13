@@ -48,9 +48,10 @@ class PostNewsArticleListRequestData {
         if (data) {
             obj = obj || new PostNewsArticleListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostNewsArticleListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

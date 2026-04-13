@@ -47,9 +47,10 @@ class OptimizerInputsRawRiskModel {
         if (data) {
             obj = obj || new OptimizerInputsRawRiskModel();
 
-            if (data.hasOwnProperty('simulations')) {
+            if (data.hasOwnProperty('simulations') && obj['simulations'] === undefined) {
                 obj['simulations'] = ApiClient.convertToType(data['simulations'], [OptimizerInputsRawRiskModelSimulations]);
             }
+            
         }
         return obj;
     }

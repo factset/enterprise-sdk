@@ -46,51 +46,52 @@ class SegmentActuals {
         if (data) {
             obj = obj || new SegmentActuals();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = ApiClient.convertToType(data['periodicity'], 'String');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalPeriod')) {
+            if (data.hasOwnProperty('fiscalPeriod') && obj['fiscalPeriod'] === undefined) {
                 obj['fiscalPeriod'] = ApiClient.convertToType(data['fiscalPeriod'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalEndDate')) {
+            if (data.hasOwnProperty('fiscalEndDate') && obj['fiscalEndDate'] === undefined) {
                 obj['fiscalEndDate'] = ApiClient.convertToType(data['fiscalEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('segmentType')) {
+            if (data.hasOwnProperty('segmentType') && obj['segmentType'] === undefined) {
                 obj['segmentType'] = ApiClient.convertToType(data['segmentType'], 'String');
             }
-            if (data.hasOwnProperty('segmentLabel')) {
+            if (data.hasOwnProperty('segmentLabel') && obj['segmentLabel'] === undefined) {
                 obj['segmentLabel'] = ApiClient.convertToType(data['segmentLabel'], 'String');
             }
-            if (data.hasOwnProperty('segmentLevel')) {
+            if (data.hasOwnProperty('segmentLevel') && obj['segmentLevel'] === undefined) {
                 obj['segmentLevel'] = ApiClient.convertToType(data['segmentLevel'], 'String');
             }
-            if (data.hasOwnProperty('segmentActualValue')) {
+            if (data.hasOwnProperty('segmentActualValue') && obj['segmentActualValue'] === undefined) {
                 obj['segmentActualValue'] = ApiClient.convertToType(data['segmentActualValue'], 'Number');
             }
-            if (data.hasOwnProperty('segmentActualType')) {
+            if (data.hasOwnProperty('segmentActualType') && obj['segmentActualType'] === undefined) {
                 obj['segmentActualType'] = ApiClient.convertToType(data['segmentActualType'], 'String');
             }
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('estimateCurrency')) {
+            if (data.hasOwnProperty('estimateCurrency') && obj['estimateCurrency'] === undefined) {
                 obj['estimateCurrency'] = ApiClient.convertToType(data['estimateCurrency'], 'String');
             }
+            
         }
         return obj;
     }

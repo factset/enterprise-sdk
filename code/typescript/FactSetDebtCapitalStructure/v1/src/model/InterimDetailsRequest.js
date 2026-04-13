@@ -50,9 +50,10 @@ class InterimDetailsRequest {
         if (data) {
             obj = obj || new InterimDetailsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InterimDetailsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

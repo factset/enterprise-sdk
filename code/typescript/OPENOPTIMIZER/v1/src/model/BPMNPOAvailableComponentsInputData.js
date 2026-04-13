@@ -46,9 +46,10 @@ class BPMNPOAvailableComponentsInputData {
         if (data) {
             obj = obj || new BPMNPOAvailableComponentsInputData();
 
-            if (data.hasOwnProperty('components')) {
+            if (data.hasOwnProperty('components') && obj['components'] === undefined) {
                 obj['components'] = ApiClient.convertToType(data['components'], ['String']);
             }
+            
         }
         return obj;
     }

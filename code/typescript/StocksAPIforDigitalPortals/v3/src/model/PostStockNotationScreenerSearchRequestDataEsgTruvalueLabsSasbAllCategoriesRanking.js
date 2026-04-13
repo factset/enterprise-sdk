@@ -47,9 +47,10 @@ class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategories
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesRanking();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = ApiClient.convertToType(data['minimum'], 'String');
             }
+            
         }
         return obj;
     }

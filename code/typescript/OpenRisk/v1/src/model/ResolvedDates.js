@@ -53,15 +53,16 @@ class ResolvedDates {
         if (data) {
             obj = obj || new ResolvedDates();
 
-            if (data.hasOwnProperty('universeDate')) {
+            if (data.hasOwnProperty('universeDate') && obj['universeDate'] === undefined) {
                 obj['universeDate'] = ApiClient.convertToType(data['universeDate'], 'Date');
             }
-            if (data.hasOwnProperty('covarianceDate')) {
+            if (data.hasOwnProperty('covarianceDate') && obj['covarianceDate'] === undefined) {
                 obj['covarianceDate'] = ApiClient.convertToType(data['covarianceDate'], 'Date');
             }
-            if (data.hasOwnProperty('ssrDate')) {
+            if (data.hasOwnProperty('ssrDate') && obj['ssrDate'] === undefined) {
                 obj['ssrDate'] = ApiClient.convertToType(data['ssrDate'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -48,15 +48,16 @@ class FirmDescriptionResourceReference {
         if (data) {
             obj = obj || new FirmDescriptionResourceReference();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('$ref')) {
+            if (data.hasOwnProperty('$ref') && obj['$ref'] === undefined) {
                 obj['$ref'] = ApiClient.convertToType(data['$ref'], 'String');
             }
-            if (data.hasOwnProperty('display')) {
+            if (data.hasOwnProperty('display') && obj['display'] === undefined) {
                 obj['display'] = ApiClient.convertToType(data['display'], 'String');
             }
+            
         }
         return obj;
     }

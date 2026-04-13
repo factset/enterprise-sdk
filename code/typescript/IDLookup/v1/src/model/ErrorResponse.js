@@ -46,12 +46,13 @@ class ErrorResponse {
         if (data) {
             obj = obj || new ErrorResponse();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('RequestKey')) {
+            if (data.hasOwnProperty('RequestKey') && obj['RequestKey'] === undefined) {
                 obj['RequestKey'] = ApiClient.convertToType(data['RequestKey'], 'String');
             }
+            
         }
         return obj;
     }

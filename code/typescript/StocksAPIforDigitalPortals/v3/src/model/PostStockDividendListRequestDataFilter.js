@@ -49,12 +49,13 @@ class PostStockDividendListRequestDataFilter {
         if (data) {
             obj = obj || new PostStockDividendListRequestDataFilter();
 
-            if (data.hasOwnProperty('period')) {
+            if (data.hasOwnProperty('period') && obj['period'] === undefined) {
                 obj['period'] = PostStockDividendListRequestDataFilterPeriod.constructFromObject(data['period']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = PostStockDividendListRequestDataFilterType.constructFromObject(data['type']);
             }
+            
         }
         return obj;
     }

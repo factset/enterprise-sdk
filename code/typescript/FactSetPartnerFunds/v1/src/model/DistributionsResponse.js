@@ -48,9 +48,10 @@ class DistributionsResponse {
         if (data) {
             obj = obj || new DistributionsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [DistributionsData]);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataSingleBarriersItemsDist
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataSingleBarriersItemsDistance();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = PostSecuritizedDerivativeNotationScreenerSearchDataSingleBarriersItemsDistanceAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = PostSecuritizedDerivativeNotationScreenerSearchDataSingleBarriersItemsDistanceRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

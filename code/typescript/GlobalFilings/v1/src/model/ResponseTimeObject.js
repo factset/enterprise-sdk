@@ -46,9 +46,10 @@ class ResponseTimeObject {
         if (data) {
             obj = obj || new ResponseTimeObject();
 
-            if (data.hasOwnProperty('timeZone')) {
+            if (data.hasOwnProperty('timeZone') && obj['timeZone'] === undefined) {
                 obj['timeZone'] = ApiClient.convertToType(data['timeZone'], 'String');
             }
+            
         }
         return obj;
     }

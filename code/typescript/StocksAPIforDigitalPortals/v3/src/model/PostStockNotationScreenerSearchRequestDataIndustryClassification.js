@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataIndustryClassification {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataIndustryClassification();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostStockNotationScreenerSearchRequestDataIndustryClassificationRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostStockNotationScreenerSearchRequestDataIndustryClassificationExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

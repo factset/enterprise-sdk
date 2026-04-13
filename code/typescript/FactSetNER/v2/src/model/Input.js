@@ -48,15 +48,16 @@ class Input {
         if (data) {
             obj = obj || new Input();
 
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
-            if (data.hasOwnProperty('filterEntities')) {
+            if (data.hasOwnProperty('filterEntities') && obj['filterEntities'] === undefined) {
                 obj['filterEntities'] = ApiClient.convertToType(data['filterEntities'], 'Boolean');
             }
-            if (data.hasOwnProperty('enableIdLookup')) {
+            if (data.hasOwnProperty('enableIdLookup') && obj['enableIdLookup'] === undefined) {
                 obj['enableIdLookup'] = ApiClient.convertToType(data['enableIdLookup'], 'Boolean');
             }
+            
         }
         return obj;
     }

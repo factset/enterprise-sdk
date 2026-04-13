@@ -48,12 +48,13 @@ class GroupResourceUrnScimSchemasExtensionFactSetVRS10Group {
         if (data) {
             obj = obj || new GroupResourceUrnScimSchemasExtensionFactSetVRS10Group();
 
-            if (data.hasOwnProperty('tenant')) {
+            if (data.hasOwnProperty('tenant') && obj['tenant'] === undefined) {
                 obj['tenant'] = ApiClient.convertToType(data['tenant'], 'String');
             }
-            if (data.hasOwnProperty('domainCode')) {
+            if (data.hasOwnProperty('domainCode') && obj['domainCode'] === undefined) {
                 obj['domainCode'] = ApiClient.convertToType(data['domainCode'], 'String');
             }
+            
         }
         return obj;
     }

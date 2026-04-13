@@ -46,24 +46,25 @@ class RatingsCount {
         if (data) {
             obj = obj || new RatingsCount();
 
-            if (data.hasOwnProperty('buy')) {
+            if (data.hasOwnProperty('buy') && obj['buy'] === undefined) {
                 obj['buy'] = ApiClient.convertToType(data['buy'], 'Number');
             }
-            if (data.hasOwnProperty('overWeight')) {
+            if (data.hasOwnProperty('overWeight') && obj['overWeight'] === undefined) {
                 obj['overWeight'] = ApiClient.convertToType(data['overWeight'], 'Number');
             }
-            if (data.hasOwnProperty('hold')) {
+            if (data.hasOwnProperty('hold') && obj['hold'] === undefined) {
                 obj['hold'] = ApiClient.convertToType(data['hold'], 'Number');
             }
-            if (data.hasOwnProperty('underWeight')) {
+            if (data.hasOwnProperty('underWeight') && obj['underWeight'] === undefined) {
                 obj['underWeight'] = ApiClient.convertToType(data['underWeight'], 'Number');
             }
-            if (data.hasOwnProperty('sell')) {
+            if (data.hasOwnProperty('sell') && obj['sell'] === undefined) {
                 obj['sell'] = ApiClient.convertToType(data['sell'], 'Number');
             }
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = ApiClient.convertToType(data['total'], 'Number');
             }
+            
         }
         return obj;
     }

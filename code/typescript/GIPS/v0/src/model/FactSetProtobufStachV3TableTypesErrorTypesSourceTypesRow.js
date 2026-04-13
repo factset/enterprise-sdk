@@ -47,9 +47,10 @@ class FactSetProtobufStachV3TableTypesErrorTypesSourceTypesRow {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesErrorTypesSourceTypesRow();
 
-            if (data.hasOwnProperty('primaryKeyValues')) {
+            if (data.hasOwnProperty('primaryKeyValues') && obj['primaryKeyValues'] === undefined) {
                 obj['primaryKeyValues'] = ApiClient.convertToType(data['primaryKeyValues'], {'String': GoogleProtobufWellKnownTypesValue});
             }
+            
         }
         return obj;
     }

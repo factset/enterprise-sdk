@@ -46,12 +46,13 @@ class WarningsObject {
         if (data) {
             obj = obj || new WarningsObject();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('effect')) {
+            if (data.hasOwnProperty('effect') && obj['effect'] === undefined) {
                 obj['effect'] = ApiClient.convertToType(data['effect'], 'String');
             }
+            
         }
         return obj;
     }

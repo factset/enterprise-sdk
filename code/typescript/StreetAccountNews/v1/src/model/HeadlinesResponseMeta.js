@@ -48,12 +48,13 @@ class HeadlinesResponseMeta {
         if (data) {
             obj = obj || new HeadlinesResponseMeta();
 
-            if (data.hasOwnProperty('requestGuid')) {
+            if (data.hasOwnProperty('requestGuid') && obj['requestGuid'] === undefined) {
                 obj['requestGuid'] = ApiClient.convertToType(data['requestGuid'], 'String');
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = HeadlinesResponseMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

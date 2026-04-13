@@ -56,21 +56,22 @@ class OpenUrl {
         if (data) {
             obj = obj || new OpenUrl();
 
-            if (data.hasOwnProperty('action')) {
+            if (data.hasOwnProperty('action') && obj['action'] === undefined) {
                 obj['action'] = ApiClient.convertToType(data['action'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = OpenUrlUrl.constructFromObject(data['url']);
             }
+            
         }
         return obj;
     }

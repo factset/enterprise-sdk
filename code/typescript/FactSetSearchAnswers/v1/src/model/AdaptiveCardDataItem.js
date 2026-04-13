@@ -48,14 +48,17 @@ class AdaptiveCardDataItem {
         // openApiType:object format:
         if (data) {
             obj = obj || new AdaptiveCardDataItem();
-            AdaptiveCardWithThumbnail.constructFromObject(data, obj);
+            try {
+              obj = AdaptiveCardWithThumbnail.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('adaptiveCard')) {
+            if (data.hasOwnProperty('adaptiveCard') && obj['adaptiveCard'] === undefined) {
                 obj['adaptiveCard'] = ApiClient.convertToType(data['adaptiveCard'], Object);
             }
-            if (data.hasOwnProperty('thumbnail')) {
+            if (data.hasOwnProperty('thumbnail') && obj['thumbnail'] === undefined) {
                 obj['thumbnail'] = ApiClient.convertToType(data['thumbnail'], Object);
             }
+            
         }
         return obj;
     }

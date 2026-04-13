@@ -48,9 +48,10 @@ class PostBasicMicOperatingListRequestData {
         if (data) {
             obj = obj || new PostBasicMicOperatingListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicMicOperatingListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

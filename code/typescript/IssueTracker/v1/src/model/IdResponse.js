@@ -48,9 +48,10 @@ class IdResponse {
         if (data) {
             obj = obj || new IdResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = IdResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class ErrorArray {
         if (data) {
             obj = obj || new ErrorArray();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorObject]);
             }
+            
         }
         return obj;
     }

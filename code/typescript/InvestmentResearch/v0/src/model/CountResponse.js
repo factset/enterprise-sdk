@@ -48,9 +48,10 @@ class CountResponse {
         if (data) {
             obj = obj || new CountResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CountResponseObject]);
             }
+            
         }
         return obj;
     }

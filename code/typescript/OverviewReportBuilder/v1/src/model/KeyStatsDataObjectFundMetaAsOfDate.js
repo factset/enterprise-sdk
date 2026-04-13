@@ -47,9 +47,10 @@ class KeyStatsDataObjectFundMetaAsOfDate {
         if (data) {
             obj = obj || new KeyStatsDataObjectFundMetaAsOfDate();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['Date']);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class Meta {
         if (data) {
             obj = obj || new Meta();
 
-            if (data.hasOwnProperty('numberOfResults')) {
+            if (data.hasOwnProperty('numberOfResults') && obj['numberOfResults'] === undefined) {
                 obj['numberOfResults'] = ApiClient.convertToType(data['numberOfResults'], 'Number');
             }
+            
         }
         return obj;
     }

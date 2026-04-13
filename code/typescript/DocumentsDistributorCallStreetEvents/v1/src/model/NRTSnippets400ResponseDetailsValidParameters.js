@@ -46,18 +46,19 @@ class NRTSnippets400ResponseDetailsValidParameters {
         if (data) {
             obj = obj || new NRTSnippets400ResponseDetailsValidParameters();
 
-            if (data.hasOwnProperty('_paginationLimit')) {
+            if (data.hasOwnProperty('_paginationLimit') && obj['_paginationLimit'] === undefined) {
                 obj['_paginationLimit'] = ApiClient.convertToType(data['_paginationLimit'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationOffset')) {
+            if (data.hasOwnProperty('_paginationOffset') && obj['_paginationOffset'] === undefined) {
                 obj['_paginationOffset'] = ApiClient.convertToType(data['_paginationOffset'], ['String']);
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], ['String']);
             }
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], ['String']);
             }
+            
         }
         return obj;
     }

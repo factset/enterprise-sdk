@@ -49,24 +49,25 @@ class GoogleProtobufValue {
         if (data) {
             obj = obj || new GoogleProtobufValue();
 
-            if (data.hasOwnProperty('nullValue')) {
+            if (data.hasOwnProperty('nullValue') && obj['nullValue'] === undefined) {
                 obj['nullValue'] = GoogleProtobufNullValue.constructFromObject(data['nullValue']);
             }
-            if (data.hasOwnProperty('numberValue')) {
+            if (data.hasOwnProperty('numberValue') && obj['numberValue'] === undefined) {
                 obj['numberValue'] = ApiClient.convertToType(data['numberValue'], 'Number');
             }
-            if (data.hasOwnProperty('stringValue')) {
+            if (data.hasOwnProperty('stringValue') && obj['stringValue'] === undefined) {
                 obj['stringValue'] = ApiClient.convertToType(data['stringValue'], 'String');
             }
-            if (data.hasOwnProperty('boolValue')) {
+            if (data.hasOwnProperty('boolValue') && obj['boolValue'] === undefined) {
                 obj['boolValue'] = ApiClient.convertToType(data['boolValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('structValue')) {
+            if (data.hasOwnProperty('structValue') && obj['structValue'] === undefined) {
                 obj['structValue'] = GoogleProtobufStruct.constructFromObject(data['structValue']);
             }
-            if (data.hasOwnProperty('listValue')) {
+            if (data.hasOwnProperty('listValue') && obj['listValue'] === undefined) {
                 obj['listValue'] = GoogleProtobufListValue.constructFromObject(data['listValue']);
             }
+            
         }
         return obj;
     }

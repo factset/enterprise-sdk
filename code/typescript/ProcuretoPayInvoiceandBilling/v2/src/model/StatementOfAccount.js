@@ -47,21 +47,22 @@ class StatementOfAccount {
         if (data) {
             obj = obj || new StatementOfAccount();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('agingDate')) {
+            if (data.hasOwnProperty('agingDate') && obj['agingDate'] === undefined) {
                 obj['agingDate'] = ApiClient.convertToType(data['agingDate'], 'Date');
             }
-            if (data.hasOwnProperty('documentTypeId')) {
+            if (data.hasOwnProperty('documentTypeId') && obj['documentTypeId'] === undefined) {
                 obj['documentTypeId'] = ApiClient.convertToType(data['documentTypeId'], 'String');
             }
-            if (data.hasOwnProperty('amount')) {
+            if (data.hasOwnProperty('amount') && obj['amount'] === undefined) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

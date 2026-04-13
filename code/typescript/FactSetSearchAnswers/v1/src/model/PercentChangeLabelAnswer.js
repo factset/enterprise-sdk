@@ -56,18 +56,23 @@ class PercentChangeLabelAnswer {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new PercentChangeLabelAnswer();
-            AnswerWithTitle.constructFromObject(data, obj);
-            PercentChangeLabelAnswerAllOf.constructFromObject(data, obj);
+            try {
+              obj = AnswerWithTitle.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = PercentChangeLabelAnswerAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = PercentChangeLabelTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

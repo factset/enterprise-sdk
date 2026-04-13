@@ -48,9 +48,10 @@ class InlineResponse2005DataRangeKnockOutUpper {
         if (data) {
             obj = obj || new InlineResponse2005DataRangeKnockOutUpper();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataRangeKnockOutUpperValue.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

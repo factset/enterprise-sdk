@@ -49,12 +49,13 @@ class PostOptionByClassValueRangesGetDataItemsExercise {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetDataItemsExercise();
 
-            if (data.hasOwnProperty('right')) {
+            if (data.hasOwnProperty('right') && obj['right'] === undefined) {
                 obj['right'] = ApiClient.convertToType(data['right'], [PostOptionByClassValueRangesGetDataExerciseRightItems]);
             }
-            if (data.hasOwnProperty('style')) {
+            if (data.hasOwnProperty('style') && obj['style'] === undefined) {
                 obj['style'] = ApiClient.convertToType(data['style'], [PostOptionByClassValueRangesGetDataExerciseStyleItems]);
             }
+            
         }
         return obj;
     }

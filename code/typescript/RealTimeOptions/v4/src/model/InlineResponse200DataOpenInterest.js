@@ -47,12 +47,13 @@ class InlineResponse200DataOpenInterest {
         if (data) {
             obj = obj || new InlineResponse200DataOpenInterest();
 
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
+            
         }
         return obj;
     }

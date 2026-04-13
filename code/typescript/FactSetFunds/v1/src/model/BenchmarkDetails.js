@@ -46,39 +46,40 @@ class BenchmarkDetails {
         if (data) {
             obj = obj || new BenchmarkDetails();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkId')) {
+            if (data.hasOwnProperty('benchmarkId') && obj['benchmarkId'] === undefined) {
                 obj['benchmarkId'] = ApiClient.convertToType(data['benchmarkId'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkName')) {
+            if (data.hasOwnProperty('benchmarkName') && obj['benchmarkName'] === undefined) {
                 obj['benchmarkName'] = ApiClient.convertToType(data['benchmarkName'], 'String');
             }
-            if (data.hasOwnProperty('multipleBenchmarkFlag')) {
+            if (data.hasOwnProperty('multipleBenchmarkFlag') && obj['multipleBenchmarkFlag'] === undefined) {
                 obj['multipleBenchmarkFlag'] = ApiClient.convertToType(data['multipleBenchmarkFlag'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkChangeDate')) {
+            if (data.hasOwnProperty('benchmarkChangeDate') && obj['benchmarkChangeDate'] === undefined) {
                 obj['benchmarkChangeDate'] = ApiClient.convertToType(data['benchmarkChangeDate'], 'Date');
             }
-            if (data.hasOwnProperty('segment')) {
+            if (data.hasOwnProperty('segment') && obj['segment'] === undefined) {
                 obj['segment'] = ApiClient.convertToType(data['segment'], 'String');
             }
-            if (data.hasOwnProperty('segmentBenchmarkId')) {
+            if (data.hasOwnProperty('segmentBenchmarkId') && obj['segmentBenchmarkId'] === undefined) {
                 obj['segmentBenchmarkId'] = ApiClient.convertToType(data['segmentBenchmarkId'], 'String');
             }
-            if (data.hasOwnProperty('segmentBenchmarkName')) {
+            if (data.hasOwnProperty('segmentBenchmarkName') && obj['segmentBenchmarkName'] === undefined) {
                 obj['segmentBenchmarkName'] = ApiClient.convertToType(data['segmentBenchmarkName'], 'String');
             }
-            if (data.hasOwnProperty('segmentBenchmarkCurrency')) {
+            if (data.hasOwnProperty('segmentBenchmarkCurrency') && obj['segmentBenchmarkCurrency'] === undefined) {
                 obj['segmentBenchmarkCurrency'] = ApiClient.convertToType(data['segmentBenchmarkCurrency'], 'String');
             }
-            if (data.hasOwnProperty('segmentBenchmarkReturnType')) {
+            if (data.hasOwnProperty('segmentBenchmarkReturnType') && obj['segmentBenchmarkReturnType'] === undefined) {
                 obj['segmentBenchmarkReturnType'] = ApiClient.convertToType(data['segmentBenchmarkReturnType'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

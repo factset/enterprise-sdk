@@ -48,12 +48,13 @@ class InlineResponse2001DataSharesOutstanding {
         if (data) {
             obj = obj || new InlineResponse2001DataSharesOutstanding();
 
-            if (data.hasOwnProperty('reported')) {
+            if (data.hasOwnProperty('reported') && obj['reported'] === undefined) {
                 obj['reported'] = ApiClient.convertToType(data['reported'], 'Number');
             }
-            if (data.hasOwnProperty('average')) {
+            if (data.hasOwnProperty('average') && obj['average'] === undefined) {
                 obj['average'] = InlineResponse2001DataSharesOutstandingAverage.constructFromObject(data['average']);
             }
+            
         }
         return obj;
     }

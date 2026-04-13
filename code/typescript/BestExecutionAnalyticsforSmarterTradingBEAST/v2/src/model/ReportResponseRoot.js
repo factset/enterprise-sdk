@@ -50,9 +50,10 @@ class ReportResponseRoot {
         if (data) {
             obj = obj || new ReportResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ReportResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

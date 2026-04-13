@@ -47,15 +47,16 @@ class InlineResponse200DataLifeCycleMaturity {
         if (data) {
             obj = obj || new InlineResponse200DataLifeCycleMaturity();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('isPerpetual')) {
+            if (data.hasOwnProperty('isPerpetual') && obj['isPerpetual'] === undefined) {
                 obj['isPerpetual'] = ApiClient.convertToType(data['isPerpetual'], 'Boolean');
             }
-            if (data.hasOwnProperty('isCallable')) {
+            if (data.hasOwnProperty('isCallable') && obj['isCallable'] === undefined) {
                 obj['isCallable'] = ApiClient.convertToType(data['isCallable'], 'Boolean');
             }
+            
         }
         return obj;
     }

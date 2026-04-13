@@ -53,18 +53,19 @@ class FinancialsRequestBody {
         if (data) {
             obj = obj || new FinancialsRequestBody();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('metrics')) {
+            if (data.hasOwnProperty('metrics') && obj['metrics'] === undefined) {
                 obj['metrics'] = ApiClient.convertToType(data['metrics'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -52,21 +52,22 @@ class InlineResponse20013Data {
         if (data) {
             obj = obj || new InlineResponse20013Data();
 
-            if (data.hasOwnProperty('impedimentsToCreation')) {
+            if (data.hasOwnProperty('impedimentsToCreation') && obj['impedimentsToCreation'] === undefined) {
                 obj['impedimentsToCreation'] = InlineResponse20013DataImpedimentsToCreation.constructFromObject(data['impedimentsToCreation']);
             }
-            if (data.hasOwnProperty('premiumDiscount')) {
+            if (data.hasOwnProperty('premiumDiscount') && obj['premiumDiscount'] === undefined) {
                 obj['premiumDiscount'] = InlineResponse20013DataPremiumDiscount.constructFromObject(data['premiumDiscount']);
             }
-            if (data.hasOwnProperty('blockTrade')) {
+            if (data.hasOwnProperty('blockTrade') && obj['blockTrade'] === undefined) {
                 obj['blockTrade'] = InlineResponse20013DataBlockTrade.constructFromObject(data['blockTrade']);
             }
-            if (data.hasOwnProperty('spread')) {
+            if (data.hasOwnProperty('spread') && obj['spread'] === undefined) {
                 obj['spread'] = InlineResponse20013DataSpread.constructFromObject(data['spread']);
             }
-            if (data.hasOwnProperty('trackingDifference')) {
+            if (data.hasOwnProperty('trackingDifference') && obj['trackingDifference'] === undefined) {
                 obj['trackingDifference'] = InlineResponse20013DataTrackingDifference.constructFromObject(data['trackingDifference']);
             }
+            
         }
         return obj;
     }

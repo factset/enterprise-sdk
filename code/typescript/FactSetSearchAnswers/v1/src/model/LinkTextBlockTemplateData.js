@@ -53,27 +53,32 @@ class LinkTextBlockTemplateData {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new LinkTextBlockTemplateData();
-            TemplateWithLinks.constructFromObject(data, obj);
-            LinkTextBlockTemplateDataAllOf.constructFromObject(data, obj);
+            try {
+              obj = TemplateWithLinks.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = LinkTextBlockTemplateDataAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
             }
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
-            if (data.hasOwnProperty('applicationLinks')) {
+            if (data.hasOwnProperty('applicationLinks') && obj['applicationLinks'] === undefined) {
                 obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
             }
-            if (data.hasOwnProperty('link')) {
+            if (data.hasOwnProperty('link') && obj['link'] === undefined) {
                 obj['link'] = ApiClient.convertToType(data['link'], 'String');
             }
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
+            
         }
         return obj;
     }

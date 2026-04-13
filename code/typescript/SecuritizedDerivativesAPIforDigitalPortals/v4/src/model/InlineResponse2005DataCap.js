@@ -50,15 +50,16 @@ class InlineResponse2005DataCap {
         if (data) {
             obj = obj || new InlineResponse2005DataCap();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataCapValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataCapDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2005DataCapCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

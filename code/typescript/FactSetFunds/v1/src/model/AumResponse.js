@@ -47,9 +47,10 @@ class AumResponse {
         if (data) {
             obj = obj || new AumResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Aum]);
             }
+            
         }
         return obj;
     }

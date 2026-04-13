@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataCurrentI
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataCurrentInterestRateValue();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataCurrentInterestRateValueMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataCurrentInterestRateValueMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

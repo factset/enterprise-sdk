@@ -51,12 +51,13 @@ class InlineResponse2002 {
         if (data) {
             obj = obj || new InlineResponse2002();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('version')) {
+            if (data.hasOwnProperty('version') && obj['version'] === undefined) {
                 obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
+            
         }
         return obj;
     }

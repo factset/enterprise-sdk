@@ -50,12 +50,13 @@ class PostNewsArticleListByChainRequestData {
         if (data) {
             obj = obj || new PostNewsArticleListByChainRequestData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostNewsArticleListByChainRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

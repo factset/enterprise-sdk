@@ -48,15 +48,16 @@ class HelperObject {
         if (data) {
             obj = obj || new HelperObject();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('dataset')) {
+            if (data.hasOwnProperty('dataset') && obj['dataset'] === undefined) {
                 obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
             }
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], [FieldsObject]);
             }
+            
         }
         return obj;
     }

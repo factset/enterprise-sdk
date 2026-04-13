@@ -46,21 +46,22 @@ class EventsAudioHistoryData {
         if (data) {
             obj = obj || new EventsAudioHistoryData();
 
-            if (data.hasOwnProperty('year')) {
+            if (data.hasOwnProperty('year') && obj['year'] === undefined) {
                 obj['year'] = ApiClient.convertToType(data['year'], 'Number');
             }
-            if (data.hasOwnProperty('trimmed')) {
+            if (data.hasOwnProperty('trimmed') && obj['trimmed'] === undefined) {
                 obj['trimmed'] = ApiClient.convertToType(data['trimmed'], 'Boolean');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('fileSize')) {
+            if (data.hasOwnProperty('fileSize') && obj['fileSize'] === undefined) {
                 obj['fileSize'] = ApiClient.convertToType(data['fileSize'], 'Number');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class AbsDetailsResponse {
         if (data) {
             obj = obj || new AbsDetailsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [AbsDetails]);
             }
+            
         }
         return obj;
     }

@@ -47,15 +47,16 @@ class IncludeExcludeObject {
         if (data) {
             obj = obj || new IncludeExcludeObject();
 
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('entity')) {
+            if (data.hasOwnProperty('entity') && obj['entity'] === undefined) {
                 obj['entity'] = ApiClient.convertToType(data['entity'], 'String');
             }
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], [Object]);
             }
+            
         }
         return obj;
     }

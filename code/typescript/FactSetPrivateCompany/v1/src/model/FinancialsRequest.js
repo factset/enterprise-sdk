@@ -50,9 +50,10 @@ class FinancialsRequest {
         if (data) {
             obj = obj || new FinancialsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FinancialsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

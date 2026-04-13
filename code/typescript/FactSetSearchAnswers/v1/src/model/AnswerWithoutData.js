@@ -58,21 +58,26 @@ class AnswerWithoutData {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new AnswerWithoutData();
-            NoAnswersBase.constructFromObject(data, obj);
-            AnswerWithoutDataAllOf.constructFromObject(data, obj);
+            try {
+              obj = NoAnswersBase.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = AnswerWithoutDataAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = AnswerWithoutDataAllOfTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

@@ -47,18 +47,19 @@ class Meta {
         if (data) {
             obj = obj || new Meta();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('companies')) {
+            if (data.hasOwnProperty('companies') && obj['companies'] === undefined) {
                 obj['companies'] = ApiClient.convertToType(data['companies'], ['String']);
             }
-            if (data.hasOwnProperty('participants')) {
+            if (data.hasOwnProperty('participants') && obj['participants'] === undefined) {
                 obj['participants'] = ApiClient.convertToType(data['participants'], [Participant]);
             }
+            
         }
         return obj;
     }

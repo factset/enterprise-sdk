@@ -47,12 +47,13 @@ class InvestmentTiming {
         if (data) {
             obj = obj || new InvestmentTiming();
 
-            if (data.hasOwnProperty('dateId')) {
+            if (data.hasOwnProperty('dateId') && obj['dateId'] === undefined) {
                 obj['dateId'] = ApiClient.convertToType(data['dateId'], 'String');
             }
-            if (data.hasOwnProperty('vwapValue')) {
+            if (data.hasOwnProperty('vwapValue') && obj['vwapValue'] === undefined) {
                 obj['vwapValue'] = ApiClient.convertToType(data['vwapValue'], 'Number');
             }
+            
         }
         return obj;
     }

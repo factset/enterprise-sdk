@@ -48,18 +48,19 @@ class OptimizerInputsPortfolios {
         if (data) {
             obj = obj || new OptimizerInputsPortfolios();
 
-            if (data.hasOwnProperty('initial')) {
+            if (data.hasOwnProperty('initial') && obj['initial'] === undefined) {
                 obj['initial'] = OptimizerInputsPortfolio.constructFromObject(data['initial']);
             }
-            if (data.hasOwnProperty('benchmarks')) {
+            if (data.hasOwnProperty('benchmarks') && obj['benchmarks'] === undefined) {
                 obj['benchmarks'] = ApiClient.convertToType(data['benchmarks'], [OptimizerInputsPortfolio]);
             }
-            if (data.hasOwnProperty('buylist')) {
+            if (data.hasOwnProperty('buylist') && obj['buylist'] === undefined) {
                 obj['buylist'] = ApiClient.convertToType(data['buylist'], [OptimizerInputsBuyListItem]);
             }
-            if (data.hasOwnProperty('cash_univ_index')) {
+            if (data.hasOwnProperty('cash_univ_index') && obj['cash_univ_index'] === undefined) {
                 obj['cash_univ_index'] = ApiClient.convertToType(data['cash_univ_index'], 'Number');
             }
+            
         }
         return obj;
     }

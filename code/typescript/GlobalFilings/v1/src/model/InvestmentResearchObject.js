@@ -46,42 +46,43 @@ class InvestmentResearchObject {
         if (data) {
             obj = obj || new InvestmentResearchObject();
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('primaryIds')) {
+            if (data.hasOwnProperty('primaryIds') && obj['primaryIds'] === undefined) {
                 obj['primaryIds'] = ApiClient.convertToType(data['primaryIds'], ['String']);
             }
-            if (data.hasOwnProperty('allIds')) {
+            if (data.hasOwnProperty('allIds') && obj['allIds'] === undefined) {
                 obj['allIds'] = ApiClient.convertToType(data['allIds'], ['String']);
             }
-            if (data.hasOwnProperty('filingsDateTime')) {
+            if (data.hasOwnProperty('filingsDateTime') && obj['filingsDateTime'] === undefined) {
                 obj['filingsDateTime'] = ApiClient.convertToType(data['filingsDateTime'], 'String');
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('filingsLink')) {
+            if (data.hasOwnProperty('filingsLink') && obj['filingsLink'] === undefined) {
                 obj['filingsLink'] = ApiClient.convertToType(data['filingsLink'], 'String');
             }
-            if (data.hasOwnProperty('documentId')) {
+            if (data.hasOwnProperty('documentId') && obj['documentId'] === undefined) {
                 obj['documentId'] = ApiClient.convertToType(data['documentId'], 'String');
             }
-            if (data.hasOwnProperty('filingSize')) {
+            if (data.hasOwnProperty('filingSize') && obj['filingSize'] === undefined) {
                 obj['filingSize'] = ApiClient.convertToType(data['filingSize'], 'String');
             }
-            if (data.hasOwnProperty('formType')) {
+            if (data.hasOwnProperty('formType') && obj['formType'] === undefined) {
                 obj['formType'] = ApiClient.convertToType(data['formType'], 'String');
             }
-            if (data.hasOwnProperty('accession')) {
+            if (data.hasOwnProperty('accession') && obj['accession'] === undefined) {
                 obj['accession'] = ApiClient.convertToType(data['accession'], 'String');
             }
-            if (data.hasOwnProperty('searchIds')) {
+            if (data.hasOwnProperty('searchIds') && obj['searchIds'] === undefined) {
                 obj['searchIds'] = ApiClient.convertToType(data['searchIds'], 'String');
             }
+            
         }
         return obj;
     }

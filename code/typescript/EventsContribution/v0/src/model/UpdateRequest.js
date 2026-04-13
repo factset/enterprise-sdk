@@ -48,9 +48,10 @@ class UpdateRequest {
         if (data) {
             obj = obj || new UpdateRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = UpdateRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

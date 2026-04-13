@@ -47,18 +47,19 @@ class MarketValueResponseObject {
         if (data) {
             obj = obj || new MarketValueResponseObject();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('currentMarketValue')) {
+            if (data.hasOwnProperty('currentMarketValue') && obj['currentMarketValue'] === undefined) {
                 obj['currentMarketValue'] = ApiClient.convertToType(data['currentMarketValue'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -47,18 +47,19 @@ class InlineResponse20014DataServiceProvider {
         if (data) {
             obj = obj || new InlineResponse20014DataServiceProvider();
 
-            if (data.hasOwnProperty('primaryAdvisor')) {
+            if (data.hasOwnProperty('primaryAdvisor') && obj['primaryAdvisor'] === undefined) {
                 obj['primaryAdvisor'] = ApiClient.convertToType(data['primaryAdvisor'], 'String');
             }
-            if (data.hasOwnProperty('subAdvisor')) {
+            if (data.hasOwnProperty('subAdvisor') && obj['subAdvisor'] === undefined) {
                 obj['subAdvisor'] = ApiClient.convertToType(data['subAdvisor'], 'String');
             }
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = ApiClient.convertToType(data['distributor'], 'String');
             }
-            if (data.hasOwnProperty('isIssuerAffiliate')) {
+            if (data.hasOwnProperty('isIssuerAffiliate') && obj['isIssuerAffiliate'] === undefined) {
                 obj['isIssuerAffiliate'] = ApiClient.convertToType(data['isIssuerAffiliate'], 'Boolean');
             }
+            
         }
         return obj;
     }

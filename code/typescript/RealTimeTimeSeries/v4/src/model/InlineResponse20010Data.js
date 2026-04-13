@@ -49,24 +49,25 @@ class InlineResponse20010Data {
         if (data) {
             obj = obj || new InlineResponse20010Data();
 
-            if (data.hasOwnProperty('idNotation')) {
+            if (data.hasOwnProperty('idNotation') && obj['idNotation'] === undefined) {
                 obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = InlineResponse20010DataRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('volumeWeightedAveragePrice')) {
+            if (data.hasOwnProperty('volumeWeightedAveragePrice') && obj['volumeWeightedAveragePrice'] === undefined) {
                 obj['volumeWeightedAveragePrice'] = ApiClient.convertToType(data['volumeWeightedAveragePrice'], 'Number');
             }
-            if (data.hasOwnProperty('subsamples')) {
+            if (data.hasOwnProperty('subsamples') && obj['subsamples'] === undefined) {
                 obj['subsamples'] = ApiClient.convertToType(data['subsamples'], [PostPricesTimeSeriesIntradaySubsampleListDataSubsamplesItems]);
             }
+            
         }
         return obj;
     }

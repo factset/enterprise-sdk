@@ -47,15 +47,16 @@ class BuyContextModelAnalytics {
         if (data) {
             obj = obj || new BuyContextModelAnalytics();
 
-            if (data.hasOwnProperty('affect')) {
+            if (data.hasOwnProperty('affect') && obj['affect'] === undefined) {
                 obj['affect'] = ApiClient.convertToType(data['affect'], 'Number');
             }
-            if (data.hasOwnProperty('context')) {
+            if (data.hasOwnProperty('context') && obj['context'] === undefined) {
                 obj['context'] = BuyContextModelAnalyticsContext.constructFromObject(data['context']);
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = ApiClient.convertToType(data['range'], 'Number');
             }
+            
         }
         return obj;
     }

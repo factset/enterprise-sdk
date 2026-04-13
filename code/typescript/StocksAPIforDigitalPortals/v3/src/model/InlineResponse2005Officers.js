@@ -47,21 +47,22 @@ class InlineResponse2005Officers {
         if (data) {
             obj = obj || new InlineResponse2005Officers();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('presentationName')) {
+            if (data.hasOwnProperty('presentationName') && obj['presentationName'] === undefined) {
                 obj['presentationName'] = ApiClient.convertToType(data['presentationName'], 'String');
             }
-            if (data.hasOwnProperty('titleOfficer')) {
+            if (data.hasOwnProperty('titleOfficer') && obj['titleOfficer'] === undefined) {
                 obj['titleOfficer'] = ApiClient.convertToType(data['titleOfficer'], 'String');
             }
-            if (data.hasOwnProperty('function')) {
+            if (data.hasOwnProperty('function') && obj['function'] === undefined) {
                 obj['function'] = InlineResponse2005Function.constructFromObject(data['function']);
             }
+            
         }
         return obj;
     }

@@ -47,15 +47,16 @@ class InlineResponse20015DataCategory {
         if (data) {
             obj = obj || new InlineResponse20015DataCategory();
 
-            if (data.hasOwnProperty('broad')) {
+            if (data.hasOwnProperty('broad') && obj['broad'] === undefined) {
                 obj['broad'] = ApiClient.convertToType(data['broad'], 'String');
             }
-            if (data.hasOwnProperty('focus')) {
+            if (data.hasOwnProperty('focus') && obj['focus'] === undefined) {
                 obj['focus'] = ApiClient.convertToType(data['focus'], 'String');
             }
-            if (data.hasOwnProperty('niche')) {
+            if (data.hasOwnProperty('niche') && obj['niche'] === undefined) {
                 obj['niche'] = ApiClient.convertToType(data['niche'], 'String');
             }
+            
         }
         return obj;
     }

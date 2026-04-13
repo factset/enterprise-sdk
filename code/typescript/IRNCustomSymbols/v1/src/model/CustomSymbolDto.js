@@ -51,51 +51,52 @@ class CustomSymbolDto {
         if (data) {
             obj = obj || new CustomSymbolDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = CustomSymbolTypeSummaryDto.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('subType')) {
+            if (data.hasOwnProperty('subType') && obj['subType'] === undefined) {
                 obj['subType'] = CustomSymbolSubTypeSummaryDto.constructFromObject(data['subType']);
             }
-            if (data.hasOwnProperty('address')) {
+            if (data.hasOwnProperty('address') && obj['address'] === undefined) {
                 obj['address'] = CustomSymbolAddressDto.constructFromObject(data['address']);
             }
-            if (data.hasOwnProperty('customFields')) {
+            if (data.hasOwnProperty('customFields') && obj['customFields'] === undefined) {
                 obj['customFields'] = ApiClient.convertToType(data['customFields'], [CustomSymbolCustomFieldValueDto]);
             }
-            if (data.hasOwnProperty('createdDate')) {
+            if (data.hasOwnProperty('createdDate') && obj['createdDate'] === undefined) {
                 obj['createdDate'] = ApiClient.convertToType(data['createdDate'], 'String');
             }
-            if (data.hasOwnProperty('createdBy')) {
+            if (data.hasOwnProperty('createdBy') && obj['createdBy'] === undefined) {
                 obj['createdBy'] = ApiClient.convertToType(data['createdBy'], 'String');
             }
-            if (data.hasOwnProperty('standardSymbol')) {
+            if (data.hasOwnProperty('standardSymbol') && obj['standardSymbol'] === undefined) {
                 obj['standardSymbol'] = ApiClient.convertToType(data['standardSymbol'], 'String');
             }
-            if (data.hasOwnProperty('standardSymbolInstrumentData')) {
+            if (data.hasOwnProperty('standardSymbolInstrumentData') && obj['standardSymbolInstrumentData'] === undefined) {
                 obj['standardSymbolInstrumentData'] = InstrumentDto.constructFromObject(data['standardSymbolInstrumentData']);
             }
-            if (data.hasOwnProperty('isAddressAutoFilled')) {
+            if (data.hasOwnProperty('isAddressAutoFilled') && obj['isAddressAutoFilled'] === undefined) {
                 obj['isAddressAutoFilled'] = ApiClient.convertToType(data['isAddressAutoFilled'], 'Boolean');
             }
-            if (data.hasOwnProperty('isDescriptionAutoFilled')) {
+            if (data.hasOwnProperty('isDescriptionAutoFilled') && obj['isDescriptionAutoFilled'] === undefined) {
                 obj['isDescriptionAutoFilled'] = ApiClient.convertToType(data['isDescriptionAutoFilled'], 'Boolean');
             }
-            if (data.hasOwnProperty('isDeleted')) {
+            if (data.hasOwnProperty('isDeleted') && obj['isDeleted'] === undefined) {
                 obj['isDeleted'] = ApiClient.convertToType(data['isDeleted'], 'Boolean');
             }
+            
         }
         return obj;
     }

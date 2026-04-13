@@ -46,21 +46,22 @@ class RecordPreviewDto {
         if (data) {
             obj = obj || new RecordPreviewDto();
 
-            if (data.hasOwnProperty('noteGuid')) {
+            if (data.hasOwnProperty('noteGuid') && obj['noteGuid'] === undefined) {
                 obj['noteGuid'] = ApiClient.convertToType(data['noteGuid'], 'String');
             }
-            if (data.hasOwnProperty('meetingGuid')) {
+            if (data.hasOwnProperty('meetingGuid') && obj['meetingGuid'] === undefined) {
                 obj['meetingGuid'] = ApiClient.convertToType(data['meetingGuid'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('subjectName')) {
+            if (data.hasOwnProperty('subjectName') && obj['subjectName'] === undefined) {
                 obj['subjectName'] = ApiClient.convertToType(data['subjectName'], 'String');
             }
+            
         }
         return obj;
     }

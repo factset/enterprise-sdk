@@ -46,9 +46,10 @@ class FIServicerAdvances {
         if (data) {
             obj = obj || new FIServicerAdvances();
 
-            if (data.hasOwnProperty('advanceType')) {
+            if (data.hasOwnProperty('advanceType') && obj['advanceType'] === undefined) {
                 obj['advanceType'] = ApiClient.convertToType(data['advanceType'], 'String');
             }
+            
         }
         return obj;
     }

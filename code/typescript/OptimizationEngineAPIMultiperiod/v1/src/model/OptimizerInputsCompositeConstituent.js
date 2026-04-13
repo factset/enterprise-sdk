@@ -47,15 +47,16 @@ class OptimizerInputsCompositeConstituent {
         if (data) {
             obj = obj || new OptimizerInputsCompositeConstituent();
 
-            if (data.hasOwnProperty('univ_index')) {
+            if (data.hasOwnProperty('univ_index') && obj['univ_index'] === undefined) {
                 obj['univ_index'] = ApiClient.convertToType(data['univ_index'], 'Number');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = OptimizerInputsAssetPrice.constructFromObject(data['price']);
             }
+            
         }
         return obj;
     }

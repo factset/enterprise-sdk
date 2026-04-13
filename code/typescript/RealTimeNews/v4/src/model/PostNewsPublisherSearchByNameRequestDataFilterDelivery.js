@@ -47,9 +47,10 @@ class PostNewsPublisherSearchByNameRequestDataFilterDelivery {
         if (data) {
             obj = obj || new PostNewsPublisherSearchByNameRequestDataFilterDelivery();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
+            
         }
         return obj;
     }

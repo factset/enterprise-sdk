@@ -50,15 +50,16 @@ class FPOAccount {
         if (data) {
             obj = obj || new FPOAccount();
 
-            if (data.hasOwnProperty('paDocument')) {
+            if (data.hasOwnProperty('paDocument') && obj['paDocument'] === undefined) {
                 obj['paDocument'] = PaDoc.constructFromObject(data['paDocument']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('overrides')) {
+            if (data.hasOwnProperty('overrides') && obj['overrides'] === undefined) {
                 obj['overrides'] = OptimizerAccountOverrides.constructFromObject(data['overrides']);
             }
+            
         }
         return obj;
     }

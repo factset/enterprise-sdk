@@ -48,9 +48,10 @@ class CreateViewResponse {
         if (data) {
             obj = obj || new CreateViewResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CreateViewResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

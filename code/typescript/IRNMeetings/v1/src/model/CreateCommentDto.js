@@ -46,18 +46,19 @@ class CreateCommentDto {
         if (data) {
             obj = obj || new CreateCommentDto();
 
-            if (data.hasOwnProperty('authorId')) {
+            if (data.hasOwnProperty('authorId') && obj['authorId'] === undefined) {
                 obj['authorId'] = ApiClient.convertToType(data['authorId'], 'String');
             }
-            if (data.hasOwnProperty('parentCommentId')) {
+            if (data.hasOwnProperty('parentCommentId') && obj['parentCommentId'] === undefined) {
                 obj['parentCommentId'] = ApiClient.convertToType(data['parentCommentId'], 'String');
             }
-            if (data.hasOwnProperty('body')) {
+            if (data.hasOwnProperty('body') && obj['body'] === undefined) {
                 obj['body'] = ApiClient.convertToType(data['body'], 'String');
             }
-            if (data.hasOwnProperty('attachmentsCount')) {
+            if (data.hasOwnProperty('attachmentsCount') && obj['attachmentsCount'] === undefined) {
                 obj['attachmentsCount'] = ApiClient.convertToType(data['attachmentsCount'], 'Number');
             }
+            
         }
         return obj;
     }

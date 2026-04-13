@@ -47,15 +47,16 @@ class OptimizerInputsValue {
         if (data) {
             obj = obj || new OptimizerInputsValue();
 
-            if (data.hasOwnProperty('value_type')) {
+            if (data.hasOwnProperty('value_type') && obj['value_type'] === undefined) {
                 obj['value_type'] = OptimizerInputsEValueTypeEnum.constructFromObject(data['value_type']);
             }
-            if (data.hasOwnProperty('raw_value')) {
+            if (data.hasOwnProperty('raw_value') && obj['raw_value'] === undefined) {
                 obj['raw_value'] = ApiClient.convertToType(data['raw_value'], 'Number');
             }
-            if (data.hasOwnProperty('ref_index')) {
+            if (data.hasOwnProperty('ref_index') && obj['ref_index'] === undefined) {
                 obj['ref_index'] = ApiClient.convertToType(data['ref_index'], 'Number');
             }
+            
         }
         return obj;
     }

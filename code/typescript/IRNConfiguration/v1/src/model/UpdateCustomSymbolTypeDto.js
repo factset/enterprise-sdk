@@ -50,27 +50,28 @@ class UpdateCustomSymbolTypeDto {
         if (data) {
             obj = obj || new UpdateCustomSymbolTypeDto();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('hideAddressField')) {
+            if (data.hasOwnProperty('hideAddressField') && obj['hideAddressField'] === undefined) {
                 obj['hideAddressField'] = ApiClient.convertToType(data['hideAddressField'], 'Boolean');
             }
-            if (data.hasOwnProperty('hideSymbolSubtype')) {
+            if (data.hasOwnProperty('hideSymbolSubtype') && obj['hideSymbolSubtype'] === undefined) {
                 obj['hideSymbolSubtype'] = ApiClient.convertToType(data['hideSymbolSubtype'], 'Boolean');
             }
-            if (data.hasOwnProperty('isDefault')) {
+            if (data.hasOwnProperty('isDefault') && obj['isDefault'] === undefined) {
                 obj['isDefault'] = ApiClient.convertToType(data['isDefault'], 'Boolean');
             }
-            if (data.hasOwnProperty('dueDiligenceSymbolEntityType')) {
+            if (data.hasOwnProperty('dueDiligenceSymbolEntityType') && obj['dueDiligenceSymbolEntityType'] === undefined) {
                 obj['dueDiligenceSymbolEntityType'] = EntityType.constructFromObject(data['dueDiligenceSymbolEntityType']);
             }
-            if (data.hasOwnProperty('subTypes')) {
+            if (data.hasOwnProperty('subTypes') && obj['subTypes'] === undefined) {
                 obj['subTypes'] = ApiClient.convertToType(data['subTypes'], [CustomSymbolSubTypeDto]);
             }
-            if (data.hasOwnProperty('customFieldIds')) {
+            if (data.hasOwnProperty('customFieldIds') && obj['customFieldIds'] === undefined) {
                 obj['customFieldIds'] = ApiClient.convertToType(data['customFieldIds'], ['String']);
             }
+            
         }
         return obj;
     }

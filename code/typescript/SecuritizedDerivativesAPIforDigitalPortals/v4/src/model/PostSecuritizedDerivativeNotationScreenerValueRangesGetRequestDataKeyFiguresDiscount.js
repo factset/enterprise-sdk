@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFigur
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresDiscount();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresDiscountAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresDiscountRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

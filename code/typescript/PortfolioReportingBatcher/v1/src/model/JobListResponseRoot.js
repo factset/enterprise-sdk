@@ -49,24 +49,25 @@ class JobListResponseRoot {
         if (data) {
             obj = obj || new JobListResponseRoot();
 
-            if (data.hasOwnProperty('runId')) {
+            if (data.hasOwnProperty('runId') && obj['runId'] === undefined) {
                 obj['runId'] = ApiClient.convertToType(data['runId'], 'String');
             }
-            if (data.hasOwnProperty('isApiTriggered')) {
+            if (data.hasOwnProperty('isApiTriggered') && obj['isApiTriggered'] === undefined) {
                 obj['isApiTriggered'] = ApiClient.convertToType(data['isApiTriggered'], 'Boolean');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('serialNumber')) {
+            if (data.hasOwnProperty('serialNumber') && obj['serialNumber'] === undefined) {
                 obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = Status.constructFromObject(data['status']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = JobTypes.constructFromObject(data['type']);
             }
+            
         }
         return obj;
     }

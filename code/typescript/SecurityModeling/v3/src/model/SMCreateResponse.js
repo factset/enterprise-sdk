@@ -48,18 +48,19 @@ class SMCreateResponse {
         if (data) {
             obj = obj || new SMCreateResponse();
 
-            if (data.hasOwnProperty('securityName')) {
+            if (data.hasOwnProperty('securityName') && obj['securityName'] === undefined) {
                 obj['securityName'] = ApiClient.convertToType(data['securityName'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('warnings')) {
+            if (data.hasOwnProperty('warnings') && obj['warnings'] === undefined) {
                 obj['warnings'] = ApiClient.convertToType(data['warnings'], [SMWarning]);
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [SMError]);
             }
+            
         }
         return obj;
     }

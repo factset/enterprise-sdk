@@ -48,21 +48,22 @@ class BuyTimingResponseOptions {
         if (data) {
             obj = obj || new BuyTimingResponseOptions();
 
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = ApiClient.convertToType(data['attribute'], 'String');
             }
-            if (data.hasOwnProperty('buyTimingValues')) {
+            if (data.hasOwnProperty('buyTimingValues') && obj['buyTimingValues'] === undefined) {
                 obj['buyTimingValues'] = ApiClient.convertToType(data['buyTimingValues'], [BuyTimingModelAnalytics]);
             }
-            if (data.hasOwnProperty('highBuyTimingValues')) {
+            if (data.hasOwnProperty('highBuyTimingValues') && obj['highBuyTimingValues'] === undefined) {
                 obj['highBuyTimingValues'] = ApiClient.convertToType(data['highBuyTimingValues'], [BuyTimingModelAnalytics]);
             }
-            if (data.hasOwnProperty('holdingsData')) {
+            if (data.hasOwnProperty('holdingsData') && obj['holdingsData'] === undefined) {
                 obj['holdingsData'] = HoldingsResponseOptions.constructFromObject(data['holdingsData']);
             }
-            if (data.hasOwnProperty('lowBuyTimingValues')) {
+            if (data.hasOwnProperty('lowBuyTimingValues') && obj['lowBuyTimingValues'] === undefined) {
                 obj['lowBuyTimingValues'] = ApiClient.convertToType(data['lowBuyTimingValues'], [BuyTimingModelAnalytics]);
             }
+            
         }
         return obj;
     }

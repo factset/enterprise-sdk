@@ -50,9 +50,10 @@ class CreateOrEditViewBody {
         if (data) {
             obj = obj || new CreateOrEditViewBody();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CreateOrEditViewBodyData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -50,21 +50,22 @@ class PerformanceRankings {
         if (data) {
             obj = obj || new PerformanceRankings();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('quartileRankings')) {
+            if (data.hasOwnProperty('quartileRankings') && obj['quartileRankings'] === undefined) {
                 obj['quartileRankings'] = Rankings.constructFromObject(data['quartileRankings']);
             }
-            if (data.hasOwnProperty('totalFunds')) {
+            if (data.hasOwnProperty('totalFunds') && obj['totalFunds'] === undefined) {
                 obj['totalFunds'] = FundCounts.constructFromObject(data['totalFunds']);
             }
+            
         }
         return obj;
     }

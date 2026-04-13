@@ -46,24 +46,25 @@ class RecordChangeDto {
         if (data) {
             obj = obj || new RecordChangeDto();
 
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('operation')) {
+            if (data.hasOwnProperty('operation') && obj['operation'] === undefined) {
                 obj['operation'] = ApiClient.convertToType(data['operation'], 'String');
             }
-            if (data.hasOwnProperty('oldValue')) {
+            if (data.hasOwnProperty('oldValue') && obj['oldValue'] === undefined) {
                 obj['oldValue'] = ApiClient.convertToType(data['oldValue'], 'String');
             }
-            if (data.hasOwnProperty('newValue')) {
+            if (data.hasOwnProperty('newValue') && obj['newValue'] === undefined) {
                 obj['newValue'] = ApiClient.convertToType(data['newValue'], 'String');
             }
-            if (data.hasOwnProperty('oldList')) {
+            if (data.hasOwnProperty('oldList') && obj['oldList'] === undefined) {
                 obj['oldList'] = ApiClient.convertToType(data['oldList'], ['String']);
             }
-            if (data.hasOwnProperty('newList')) {
+            if (data.hasOwnProperty('newList') && obj['newList'] === undefined) {
                 obj['newList'] = ApiClient.convertToType(data['newList'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -49,9 +49,10 @@ class ExPostStatsRolling {
         if (data) {
             obj = obj || new ExPostStatsRolling();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExPostStatsRollingData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

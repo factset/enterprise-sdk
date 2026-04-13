@@ -58,35 +58,38 @@ class TimeSeriesResultObjectNonflattenedScalar {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new TimeSeriesResultObjectNonflattenedScalar();
-            TimeSeriesResultObjectNonflattenedBase.constructFromObject(data, obj);
+            try {
+              obj = TimeSeriesResultObjectNonflattenedBase.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('result')) {
+            if (data.hasOwnProperty('result') && obj['result'] === undefined) {
                 obj['result'] = TimeSeriesScalarValue.constructFromObject(data['result']);
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'Number');
             }
-            if (data.hasOwnProperty('errorMessage')) {
+            if (data.hasOwnProperty('errorMessage') && obj['errorMessage'] === undefined) {
                 obj['errorMessage'] = ApiClient.convertToType(data['errorMessage'], 'String');
             }
-            if (data.hasOwnProperty('formula')) {
+            if (data.hasOwnProperty('formula') && obj['formula'] === undefined) {
                 obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('dataType')) {
+            if (data.hasOwnProperty('dataType') && obj['dataType'] === undefined) {
                 obj['dataType'] = ApiClient.convertToType(data['dataType'], 'String');
             }
-            if (data.hasOwnProperty('objectType')) {
+            if (data.hasOwnProperty('objectType') && obj['objectType'] === undefined) {
                 obj['objectType'] = ApiClient.convertToType(data['objectType'], 'String');
             }
+            
         }
         return obj;
     }

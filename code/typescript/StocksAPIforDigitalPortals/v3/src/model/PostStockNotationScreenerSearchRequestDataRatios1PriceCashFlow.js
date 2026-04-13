@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataRatios1PriceCashFlow {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRatios1PriceCashFlow();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean.constructFromObject(data['mean']);
             }
+            
         }
         return obj;
     }

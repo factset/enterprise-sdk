@@ -50,12 +50,13 @@ class SummariesRequest {
         if (data) {
             obj = obj || new SummariesRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('lang')) {
+            if (data.hasOwnProperty('lang') && obj['lang'] === undefined) {
                 obj['lang'] = Lang.constructFromObject(data['lang']);
             }
+            
         }
         return obj;
     }

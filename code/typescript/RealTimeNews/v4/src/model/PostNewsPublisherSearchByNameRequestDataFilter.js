@@ -49,12 +49,13 @@ class PostNewsPublisherSearchByNameRequestDataFilter {
         if (data) {
             obj = obj || new PostNewsPublisherSearchByNameRequestDataFilter();
 
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = PostNewsPublisherSearchByNameRequestDataFilterDistributor.constructFromObject(data['distributor']);
             }
-            if (data.hasOwnProperty('delivery')) {
+            if (data.hasOwnProperty('delivery') && obj['delivery'] === undefined) {
                 obj['delivery'] = PostNewsPublisherSearchByNameRequestDataFilterDelivery.constructFromObject(data['delivery']);
             }
+            
         }
         return obj;
     }

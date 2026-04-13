@@ -50,15 +50,16 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFigur
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSidewaysYield();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSidewaysYieldAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSidewaysYieldRelative.constructFromObject(data['relative']);
             }
-            if (data.hasOwnProperty('annualized')) {
+            if (data.hasOwnProperty('annualized') && obj['annualized'] === undefined) {
                 obj['annualized'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSidewaysYieldAnnualized.constructFromObject(data['annualized']);
             }
+            
         }
         return obj;
     }

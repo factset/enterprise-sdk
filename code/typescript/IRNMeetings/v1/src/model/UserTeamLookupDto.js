@@ -46,12 +46,13 @@ class UserTeamLookupDto {
         if (data) {
             obj = obj || new UserTeamLookupDto();
 
-            if (data.hasOwnProperty('userIds')) {
+            if (data.hasOwnProperty('userIds') && obj['userIds'] === undefined) {
                 obj['userIds'] = ApiClient.convertToType(data['userIds'], ['String']);
             }
-            if (data.hasOwnProperty('teamIds')) {
+            if (data.hasOwnProperty('teamIds') && obj['teamIds'] === undefined) {
                 obj['teamIds'] = ApiClient.convertToType(data['teamIds'], ['String']);
             }
+            
         }
         return obj;
     }

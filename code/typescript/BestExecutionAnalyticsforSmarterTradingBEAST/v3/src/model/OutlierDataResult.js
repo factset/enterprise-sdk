@@ -47,12 +47,13 @@ class OutlierDataResult {
         if (data) {
             obj = obj || new OutlierDataResult();
 
-            if (data.hasOwnProperty('bin')) {
+            if (data.hasOwnProperty('bin') && obj['bin'] === undefined) {
                 obj['bin'] = ApiClient.convertToType(data['bin'], 'Number');
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
+            
         }
         return obj;
     }

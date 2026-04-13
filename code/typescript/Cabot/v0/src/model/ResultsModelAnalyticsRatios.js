@@ -46,15 +46,16 @@ class ResultsModelAnalyticsRatios {
         if (data) {
             obj = obj || new ResultsModelAnalyticsRatios();
 
-            if (data.hasOwnProperty('informationRatio')) {
+            if (data.hasOwnProperty('informationRatio') && obj['informationRatio'] === undefined) {
                 obj['informationRatio'] = ApiClient.convertToType(data['informationRatio'], 'Number');
             }
-            if (data.hasOwnProperty('sharpeRatio')) {
+            if (data.hasOwnProperty('sharpeRatio') && obj['sharpeRatio'] === undefined) {
                 obj['sharpeRatio'] = ApiClient.convertToType(data['sharpeRatio'], 'Number');
             }
-            if (data.hasOwnProperty('treynorRatio')) {
+            if (data.hasOwnProperty('treynorRatio') && obj['treynorRatio'] === undefined) {
                 obj['treynorRatio'] = ApiClient.convertToType(data['treynorRatio'], 'Number');
             }
+            
         }
         return obj;
     }

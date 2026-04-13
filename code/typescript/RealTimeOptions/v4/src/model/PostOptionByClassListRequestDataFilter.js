@@ -48,9 +48,10 @@ class PostOptionByClassListRequestDataFilter {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataFilter();
 
-            if (data.hasOwnProperty('validation')) {
+            if (data.hasOwnProperty('validation') && obj['validation'] === undefined) {
                 obj['validation'] = PostOptionByClassListRequestDataFilterValidation.constructFromObject(data['validation']);
             }
+            
         }
         return obj;
     }

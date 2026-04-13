@@ -49,48 +49,49 @@ class InlineResponse20032Data {
         if (data) {
             obj = obj || new InlineResponse20032Data();
 
-            if (data.hasOwnProperty('maxCapitalGainsRate')) {
+            if (data.hasOwnProperty('maxCapitalGainsRate') && obj['maxCapitalGainsRate'] === undefined) {
                 obj['maxCapitalGainsRate'] = InlineResponse20032DataMaxCapitalGainsRate.constructFromObject(data['maxCapitalGainsRate']);
             }
-            if (data.hasOwnProperty('dividendTreatment')) {
+            if (data.hasOwnProperty('dividendTreatment') && obj['dividendTreatment'] === undefined) {
                 obj['dividendTreatment'] = ApiClient.convertToType(data['dividendTreatment'], 'String');
             }
-            if (data.hasOwnProperty('distributeK1')) {
+            if (data.hasOwnProperty('distributeK1') && obj['distributeK1'] === undefined) {
                 obj['distributeK1'] = ApiClient.convertToType(data['distributeK1'], 'String');
             }
-            if (data.hasOwnProperty('taxType')) {
+            if (data.hasOwnProperty('taxType') && obj['taxType'] === undefined) {
                 obj['taxType'] = ApiClient.convertToType(data['taxType'], 'String');
             }
-            if (data.hasOwnProperty('taxOnDistributions')) {
+            if (data.hasOwnProperty('taxOnDistributions') && obj['taxOnDistributions'] === undefined) {
                 obj['taxOnDistributions'] = ApiClient.convertToType(data['taxOnDistributions'], 'String');
             }
-            if (data.hasOwnProperty('expenseRatio')) {
+            if (data.hasOwnProperty('expenseRatio') && obj['expenseRatio'] === undefined) {
                 obj['expenseRatio'] = InlineResponse20032DataExpenseRatio.constructFromObject(data['expenseRatio']);
             }
-            if (data.hasOwnProperty('potentialCostIncreaseDate')) {
+            if (data.hasOwnProperty('potentialCostIncreaseDate') && obj['potentialCostIncreaseDate'] === undefined) {
                 obj['potentialCostIncreaseDate'] = ApiClient.convertToType(data['potentialCostIncreaseDate'], 'Date');
             }
-            if (data.hasOwnProperty('contractAdvisoryFee')) {
+            if (data.hasOwnProperty('contractAdvisoryFee') && obj['contractAdvisoryFee'] === undefined) {
                 obj['contractAdvisoryFee'] = ApiClient.convertToType(data['contractAdvisoryFee'], 'Number');
             }
-            if (data.hasOwnProperty('capitalGains')) {
+            if (data.hasOwnProperty('capitalGains') && obj['capitalGains'] === undefined) {
                 obj['capitalGains'] = ApiClient.convertToType(data['capitalGains'], 'Number');
             }
-            if (data.hasOwnProperty('capitalGainsDistirbutions3Y')) {
+            if (data.hasOwnProperty('capitalGainsDistirbutions3Y') && obj['capitalGainsDistirbutions3Y'] === undefined) {
                 obj['capitalGainsDistirbutions3Y'] = ApiClient.convertToType(data['capitalGainsDistirbutions3Y'], 'Number');
             }
-            if (data.hasOwnProperty('managementExpenseRatio')) {
+            if (data.hasOwnProperty('managementExpenseRatio') && obj['managementExpenseRatio'] === undefined) {
                 obj['managementExpenseRatio'] = ApiClient.convertToType(data['managementExpenseRatio'], 'Number');
             }
-            if (data.hasOwnProperty('managementFee')) {
+            if (data.hasOwnProperty('managementFee') && obj['managementFee'] === undefined) {
                 obj['managementFee'] = ApiClient.convertToType(data['managementFee'], 'Number');
             }
-            if (data.hasOwnProperty('tradingExpenseRatio')) {
+            if (data.hasOwnProperty('tradingExpenseRatio') && obj['tradingExpenseRatio'] === undefined) {
                 obj['tradingExpenseRatio'] = ApiClient.convertToType(data['tradingExpenseRatio'], 'Number');
             }
-            if (data.hasOwnProperty('feeWaiver')) {
+            if (data.hasOwnProperty('feeWaiver') && obj['feeWaiver'] === undefined) {
                 obj['feeWaiver'] = ApiClient.convertToType(data['feeWaiver'], 'String');
             }
+            
         }
         return obj;
     }

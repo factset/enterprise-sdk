@@ -47,9 +47,10 @@ class GroupHoldingsResponse {
         if (data) {
             obj = obj || new GroupHoldingsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [GroupHolding]);
             }
+            
         }
         return obj;
     }

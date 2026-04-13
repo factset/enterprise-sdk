@@ -47,12 +47,13 @@ class EnableTemplateInfoPost {
         if (data) {
             obj = obj || new EnableTemplateInfoPost();
 
-            if (data.hasOwnProperty('tmpl_id')) {
+            if (data.hasOwnProperty('tmpl_id') && obj['tmpl_id'] === undefined) {
                 obj['tmpl_id'] = ApiClient.convertToType(data['tmpl_id'], 'String');
             }
-            if (data.hasOwnProperty('tmpl_name')) {
+            if (data.hasOwnProperty('tmpl_name') && obj['tmpl_name'] === undefined) {
                 obj['tmpl_name'] = ApiClient.convertToType(data['tmpl_name'], 'String');
             }
+            
         }
         return obj;
     }

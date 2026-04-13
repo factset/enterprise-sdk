@@ -46,27 +46,28 @@ class InlineResponse20010DataSubsamples {
         if (data) {
             obj = obj || new InlineResponse20010DataSubsamples();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'String');
             }
-            if (data.hasOwnProperty('first')) {
+            if (data.hasOwnProperty('first') && obj['first'] === undefined) {
                 obj['first'] = ApiClient.convertToType(data['first'], 'Number');
             }
-            if (data.hasOwnProperty('last')) {
+            if (data.hasOwnProperty('last') && obj['last'] === undefined) {
                 obj['last'] = ApiClient.convertToType(data['last'], 'Number');
             }
-            if (data.hasOwnProperty('low')) {
+            if (data.hasOwnProperty('low') && obj['low'] === undefined) {
                 obj['low'] = ApiClient.convertToType(data['low'], 'Number');
             }
-            if (data.hasOwnProperty('high')) {
+            if (data.hasOwnProperty('high') && obj['high'] === undefined) {
                 obj['high'] = ApiClient.convertToType(data['high'], 'Number');
             }
-            if (data.hasOwnProperty('tradingVolume')) {
+            if (data.hasOwnProperty('tradingVolume') && obj['tradingVolume'] === undefined) {
                 obj['tradingVolume'] = ApiClient.convertToType(data['tradingVolume'], 'Number');
             }
-            if (data.hasOwnProperty('tradingValue')) {
+            if (data.hasOwnProperty('tradingValue') && obj['tradingValue'] === undefined) {
                 obj['tradingValue'] = ApiClient.convertToType(data['tradingValue'], 'Number');
             }
+            
         }
         return obj;
     }

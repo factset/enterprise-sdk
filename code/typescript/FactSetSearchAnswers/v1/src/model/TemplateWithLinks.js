@@ -53,21 +53,26 @@ class TemplateWithLinks {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new TemplateWithLinks();
-            Template.constructFromObject(data, obj);
-            TemplateWithLinksAllOf.constructFromObject(data, obj);
+            try {
+              obj = Template.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = TemplateWithLinksAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
             }
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
-            if (data.hasOwnProperty('applicationLinks')) {
+            if (data.hasOwnProperty('applicationLinks') && obj['applicationLinks'] === undefined) {
                 obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
             }
+            
         }
         return obj;
     }

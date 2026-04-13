@@ -46,24 +46,25 @@ class FIConvertibleSettings {
         if (data) {
             obj = obj || new FIConvertibleSettings();
 
-            if (data.hasOwnProperty('equityPrice')) {
+            if (data.hasOwnProperty('equityPrice') && obj['equityPrice'] === undefined) {
                 obj['equityPrice'] = ApiClient.convertToType(data['equityPrice'], 'Number');
             }
-            if (data.hasOwnProperty('equityIndexVolatility')) {
+            if (data.hasOwnProperty('equityIndexVolatility') && obj['equityIndexVolatility'] === undefined) {
                 obj['equityIndexVolatility'] = ApiClient.convertToType(data['equityIndexVolatility'], 'Number');
             }
-            if (data.hasOwnProperty('equityDividendYield')) {
+            if (data.hasOwnProperty('equityDividendYield') && obj['equityDividendYield'] === undefined) {
                 obj['equityDividendYield'] = ApiClient.convertToType(data['equityDividendYield'], 'Number');
             }
-            if (data.hasOwnProperty('volatilityCapMethod')) {
+            if (data.hasOwnProperty('volatilityCapMethod') && obj['volatilityCapMethod'] === undefined) {
                 obj['volatilityCapMethod'] = ApiClient.convertToType(data['volatilityCapMethod'], 'String');
             }
-            if (data.hasOwnProperty('volatilityCapMethodValue')) {
+            if (data.hasOwnProperty('volatilityCapMethodValue') && obj['volatilityCapMethodValue'] === undefined) {
                 obj['volatilityCapMethodValue'] = ApiClient.convertToType(data['volatilityCapMethodValue'], 'Number');
             }
-            if (data.hasOwnProperty('equityExchangeRate')) {
+            if (data.hasOwnProperty('equityExchangeRate') && obj['equityExchangeRate'] === undefined) {
                 obj['equityExchangeRate'] = ApiClient.convertToType(data['equityExchangeRate'], 'Number');
             }
+            
         }
         return obj;
     }

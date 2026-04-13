@@ -50,21 +50,22 @@ class UserClassResource {
         if (data) {
             obj = obj || new UserClassResource();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('userPositions')) {
+            if (data.hasOwnProperty('userPositions') && obj['userPositions'] === undefined) {
                 obj['userPositions'] = ApiClient.convertToType(data['userPositions'], [UserPositionResourceReference]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = UserClassResourceMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

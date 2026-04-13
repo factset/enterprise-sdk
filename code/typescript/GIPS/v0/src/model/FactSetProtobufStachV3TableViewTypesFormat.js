@@ -48,18 +48,19 @@ class FactSetProtobufStachV3TableViewTypesFormat {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesFormat();
 
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = FactSetProtobufFormatV1FdsFormatSettings.constructFromObject(data['settings']);
             }
-            if (data.hasOwnProperty('cultureColumn')) {
+            if (data.hasOwnProperty('cultureColumn') && obj['cultureColumn'] === undefined) {
                 obj['cultureColumn'] = ApiClient.convertToType(data['cultureColumn'], 'String');
             }
-            if (data.hasOwnProperty('timeZoneColumn')) {
+            if (data.hasOwnProperty('timeZoneColumn') && obj['timeZoneColumn'] === undefined) {
                 obj['timeZoneColumn'] = ApiClient.convertToType(data['timeZoneColumn'], 'String');
             }
-            if (data.hasOwnProperty('strings')) {
+            if (data.hasOwnProperty('strings') && obj['strings'] === undefined) {
                 obj['strings'] = ApiClient.convertToType(data['strings'], {'String': FactSetProtobufStachV3TableViewTypesFormatTypesFormatString});
             }
+            
         }
         return obj;
     }

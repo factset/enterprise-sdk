@@ -46,9 +46,10 @@ class Frequency {
         if (data) {
             obj = obj || new Frequency();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            
         }
         return obj;
     }

@@ -50,18 +50,19 @@ class Calculation {
         if (data) {
             obj = obj || new Calculation();
 
-            if (data.hasOwnProperty('pa')) {
+            if (data.hasOwnProperty('pa') && obj['pa'] === undefined) {
                 obj['pa'] = ApiClient.convertToType(data['pa'], {'String': PACalculationParameters});
             }
-            if (data.hasOwnProperty('spar')) {
+            if (data.hasOwnProperty('spar') && obj['spar'] === undefined) {
                 obj['spar'] = ApiClient.convertToType(data['spar'], {'String': SPARCalculationParameters});
             }
-            if (data.hasOwnProperty('vault')) {
+            if (data.hasOwnProperty('vault') && obj['vault'] === undefined) {
                 obj['vault'] = ApiClient.convertToType(data['vault'], {'String': VaultCalculationParameters});
             }
-            if (data.hasOwnProperty('pub')) {
+            if (data.hasOwnProperty('pub') && obj['pub'] === undefined) {
                 obj['pub'] = ApiClient.convertToType(data['pub'], {'String': PubCalculationParameters});
             }
+            
         }
         return obj;
     }

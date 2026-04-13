@@ -46,9 +46,10 @@ class TimeWindowStatsGeneric {
         if (data) {
             obj = obj || new TimeWindowStatsGeneric();
 
-            if (data.hasOwnProperty('salesChage')) {
+            if (data.hasOwnProperty('salesChage') && obj['salesChage'] === undefined) {
                 obj['salesChage'] = ApiClient.convertToType(data['salesChage'], 'Number');
             }
+            
         }
         return obj;
     }

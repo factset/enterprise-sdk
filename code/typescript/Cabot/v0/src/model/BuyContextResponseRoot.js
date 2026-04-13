@@ -47,9 +47,10 @@ class BuyContextResponseRoot {
         if (data) {
             obj = obj || new BuyContextResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BuyContextResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

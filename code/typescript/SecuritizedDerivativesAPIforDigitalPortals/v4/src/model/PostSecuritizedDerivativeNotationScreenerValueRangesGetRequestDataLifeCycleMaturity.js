@@ -48,12 +48,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycl
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycleMaturity();
 
-            if (data.hasOwnProperty('restriction')) {
+            if (data.hasOwnProperty('restriction') && obj['restriction'] === undefined) {
                 obj['restriction'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycleMaturityRestriction.constructFromObject(data['restriction']);
             }
-            if (data.hasOwnProperty('perpetual')) {
+            if (data.hasOwnProperty('perpetual') && obj['perpetual'] === undefined) {
                 obj['perpetual'] = ApiClient.convertToType(data['perpetual'], 'String');
             }
+            
         }
         return obj;
     }

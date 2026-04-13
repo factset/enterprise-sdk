@@ -47,12 +47,13 @@ class PostCompanyEstimatesListByInstrumentRequestDataFiscalYears {
         if (data) {
             obj = obj || new PostCompanyEstimatesListByInstrumentRequestDataFiscalYears();
 
-            if (data.hasOwnProperty('start')) {
+            if (data.hasOwnProperty('start') && obj['start'] === undefined) {
                 obj['start'] = ApiClient.convertToType(data['start'], 'Number');
             }
-            if (data.hasOwnProperty('end')) {
+            if (data.hasOwnProperty('end') && obj['end'] === undefined) {
                 obj['end'] = ApiClient.convertToType(data['end'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -46,12 +46,13 @@ class ReportSection {
         if (data) {
             obj = obj || new ReportSection();
 
-            if (data.hasOwnProperty('section_id')) {
+            if (data.hasOwnProperty('section_id') && obj['section_id'] === undefined) {
                 obj['section_id'] = ApiClient.convertToType(data['section_id'], 'String');
             }
-            if (data.hasOwnProperty('reports')) {
+            if (data.hasOwnProperty('reports') && obj['reports'] === undefined) {
                 obj['reports'] = ApiClient.convertToType(data['reports'], ['String']);
             }
+            
         }
         return obj;
     }

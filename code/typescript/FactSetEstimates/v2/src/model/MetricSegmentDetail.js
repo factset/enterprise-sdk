@@ -46,24 +46,25 @@ class MetricSegmentDetail {
         if (data) {
             obj = obj || new MetricSegmentDetail();
 
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('segmentId')) {
+            if (data.hasOwnProperty('segmentId') && obj['segmentId'] === undefined) {
                 obj['segmentId'] = ApiClient.convertToType(data['segmentId'], 'String');
             }
-            if (data.hasOwnProperty('segmentLabel')) {
+            if (data.hasOwnProperty('segmentLabel') && obj['segmentLabel'] === undefined) {
                 obj['segmentLabel'] = ApiClient.convertToType(data['segmentLabel'], 'String');
             }
-            if (data.hasOwnProperty('segmentType')) {
+            if (data.hasOwnProperty('segmentType') && obj['segmentType'] === undefined) {
                 obj['segmentType'] = ApiClient.convertToType(data['segmentType'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
+            
         }
         return obj;
     }

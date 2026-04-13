@@ -53,24 +53,25 @@ class Agent {
         if (data) {
             obj = obj || new Agent();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('agentEntityId')) {
+            if (data.hasOwnProperty('agentEntityId') && obj['agentEntityId'] === undefined) {
                 obj['agentEntityId'] = ApiClient.convertToType(data['agentEntityId'], 'String');
             }
-            if (data.hasOwnProperty('agentCommAmt')) {
+            if (data.hasOwnProperty('agentCommAmt') && obj['agentCommAmt'] === undefined) {
                 obj['agentCommAmt'] = ApiClient.convertToType(data['agentCommAmt'], 'Number');
             }
-            if (data.hasOwnProperty('agentName')) {
+            if (data.hasOwnProperty('agentName') && obj['agentName'] === undefined) {
                 obj['agentName'] = ApiClient.convertToType(data['agentName'], 'String');
             }
-            if (data.hasOwnProperty('agentType')) {
+            if (data.hasOwnProperty('agentType') && obj['agentType'] === undefined) {
                 obj['agentType'] = ApiClient.convertToType(data['agentType'], 'String');
             }
+            
         }
         return obj;
     }

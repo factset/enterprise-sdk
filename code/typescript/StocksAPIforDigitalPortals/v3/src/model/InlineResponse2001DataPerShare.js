@@ -56,33 +56,34 @@ class InlineResponse2001DataPerShare {
         if (data) {
             obj = obj || new InlineResponse2001DataPerShare();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = InlineResponse2001DataPerShareSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('earnings')) {
+            if (data.hasOwnProperty('earnings') && obj['earnings'] === undefined) {
                 obj['earnings'] = InlineResponse2001DataPerShareEarnings.constructFromObject(data['earnings']);
             }
-            if (data.hasOwnProperty('recurringDilutedEarnings')) {
+            if (data.hasOwnProperty('recurringDilutedEarnings') && obj['recurringDilutedEarnings'] === undefined) {
                 obj['recurringDilutedEarnings'] = InlineResponse2001DataPerShareRecurringDilutedEarnings.constructFromObject(data['recurringDilutedEarnings']);
             }
-            if (data.hasOwnProperty('dilutedEarnings')) {
+            if (data.hasOwnProperty('dilutedEarnings') && obj['dilutedEarnings'] === undefined) {
                 obj['dilutedEarnings'] = InlineResponse2001DataPerShareDilutedEarnings.constructFromObject(data['dilutedEarnings']);
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = InlineResponse2001DataPerShareDividends.constructFromObject(data['dividends']);
             }
-            if (data.hasOwnProperty('bookValue')) {
+            if (data.hasOwnProperty('bookValue') && obj['bookValue'] === undefined) {
                 obj['bookValue'] = InlineResponse2001DataPerShareBookValue.constructFromObject(data['bookValue']);
             }
-            if (data.hasOwnProperty('tangibleBookValue')) {
+            if (data.hasOwnProperty('tangibleBookValue') && obj['tangibleBookValue'] === undefined) {
                 obj['tangibleBookValue'] = InlineResponse2001DataPerShareTangibleBookValue.constructFromObject(data['tangibleBookValue']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2001DataPerShareCashFlow.constructFromObject(data['cashFlow']);
             }
-            if (data.hasOwnProperty('freeCashFlow')) {
+            if (data.hasOwnProperty('freeCashFlow') && obj['freeCashFlow'] === undefined) {
                 obj['freeCashFlow'] = InlineResponse2001DataPerShareFreeCashFlow.constructFromObject(data['freeCashFlow']);
             }
+            
         }
         return obj;
     }

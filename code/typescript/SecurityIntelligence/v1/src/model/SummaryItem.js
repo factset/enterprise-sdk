@@ -53,15 +53,16 @@ class SummaryItem {
         if (data) {
             obj = obj || new SummaryItem();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
-            if (data.hasOwnProperty('generatedTimestamp')) {
+            if (data.hasOwnProperty('generatedTimestamp') && obj['generatedTimestamp'] === undefined) {
                 obj['generatedTimestamp'] = ApiClient.convertToType(data['generatedTimestamp'], 'Date');
             }
+            
         }
         return obj;
     }

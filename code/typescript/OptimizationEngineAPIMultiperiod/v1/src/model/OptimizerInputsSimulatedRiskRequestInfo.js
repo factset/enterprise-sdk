@@ -46,12 +46,13 @@ class OptimizerInputsSimulatedRiskRequestInfo {
         if (data) {
             obj = obj || new OptimizerInputsSimulatedRiskRequestInfo();
 
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('lima_header')) {
+            if (data.hasOwnProperty('lima_header') && obj['lima_header'] === undefined) {
                 obj['lima_header'] = ApiClient.convertToType(data['lima_header'], 'String');
             }
+            
         }
         return obj;
     }

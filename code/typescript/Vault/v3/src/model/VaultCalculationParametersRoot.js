@@ -48,12 +48,13 @@ class VaultCalculationParametersRoot {
         if (data) {
             obj = obj || new VaultCalculationParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': VaultCalculationParameters});
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = CalculationMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

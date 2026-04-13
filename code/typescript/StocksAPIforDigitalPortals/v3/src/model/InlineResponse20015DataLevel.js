@@ -47,12 +47,13 @@ class InlineResponse20015DataLevel {
         if (data) {
             obj = obj || new InlineResponse20015DataLevel();
 
-            if (data.hasOwnProperty('number')) {
+            if (data.hasOwnProperty('number') && obj['number'] === undefined) {
                 obj['number'] = ApiClient.convertToType(data['number'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            
         }
         return obj;
     }

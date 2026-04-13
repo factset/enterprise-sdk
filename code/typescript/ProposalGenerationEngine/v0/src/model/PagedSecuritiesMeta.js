@@ -47,9 +47,10 @@ class PagedSecuritiesMeta {
         if (data) {
             obj = obj || new PagedSecuritiesMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = PagedSecuritiesMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

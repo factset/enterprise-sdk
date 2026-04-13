@@ -48,15 +48,16 @@ class PatchOperation {
         if (data) {
             obj = obj || new PatchOperation();
 
-            if (data.hasOwnProperty('op')) {
+            if (data.hasOwnProperty('op') && obj['op'] === undefined) {
                 obj['op'] = ApiClient.convertToType(data['op'], 'String');
             }
-            if (data.hasOwnProperty('path')) {
+            if (data.hasOwnProperty('path') && obj['path'] === undefined) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = PatchOperationValue.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

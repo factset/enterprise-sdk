@@ -49,12 +49,13 @@ class InlineResponse20015DataTradingValueAverage {
         if (data) {
             obj = obj || new InlineResponse20015DataTradingValueAverage();
 
-            if (data.hasOwnProperty('days5')) {
+            if (data.hasOwnProperty('days5') && obj['days5'] === undefined) {
                 obj['days5'] = InlineResponse20015DataTradingValueAverageDays5.constructFromObject(data['days5']);
             }
-            if (data.hasOwnProperty('days30')) {
+            if (data.hasOwnProperty('days30') && obj['days30'] === undefined) {
                 obj['days30'] = InlineResponse20015DataTradingValueAverageDays30.constructFromObject(data['days30']);
             }
+            
         }
         return obj;
     }

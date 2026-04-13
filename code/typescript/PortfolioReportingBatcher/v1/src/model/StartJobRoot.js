@@ -50,9 +50,10 @@ class StartJobRoot {
         if (data) {
             obj = obj || new StartJobRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = StartJob.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -44,7 +44,8 @@ class ErrorDetail {
      */
     static constructFromObject(data, obj) {
         // openApiType:object format:
-        if (typeof data === 'string') return ApiClient.setValue(obj || new ErrorDetail(), data);
+        if (typeof data === 'string') return data;
+        throw new Error("Failed to construct ErrorDetail due to oneOf-schemas not matching the data: " + data);
     }
 
 

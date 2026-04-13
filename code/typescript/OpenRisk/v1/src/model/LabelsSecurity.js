@@ -51,15 +51,16 @@ class LabelsSecurity {
         if (data) {
             obj = obj || new LabelsSecurity();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('indicesInputToResult')) {
+            if (data.hasOwnProperty('indicesInputToResult') && obj['indicesInputToResult'] === undefined) {
                 obj['indicesInputToResult'] = InputToResultSecurityIndexMapping.constructFromObject(data['indicesInputToResult']);
             }
-            if (data.hasOwnProperty('indicesResultToInput')) {
+            if (data.hasOwnProperty('indicesResultToInput') && obj['indicesResultToInput'] === undefined) {
                 obj['indicesResultToInput'] = ResultToInputSecurityIndexMapping.constructFromObject(data['indicesResultToInput']);
             }
+            
         }
         return obj;
     }

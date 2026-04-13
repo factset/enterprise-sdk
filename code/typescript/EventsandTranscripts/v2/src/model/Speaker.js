@@ -47,12 +47,13 @@ class Speaker {
         if (data) {
             obj = obj || new Speaker();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('plist')) {
+            if (data.hasOwnProperty('plist') && obj['plist'] === undefined) {
                 obj['plist'] = Plist.constructFromObject(data['plist']);
             }
+            
         }
         return obj;
     }

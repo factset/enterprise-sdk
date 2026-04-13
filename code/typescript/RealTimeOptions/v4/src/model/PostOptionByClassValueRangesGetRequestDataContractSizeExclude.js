@@ -47,9 +47,10 @@ class PostOptionByClassValueRangesGetRequestDataContractSizeExclude {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataContractSizeExclude();
 
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], ['Number']);
             }
+            
         }
         return obj;
     }

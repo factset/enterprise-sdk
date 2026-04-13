@@ -51,21 +51,22 @@ class ReturnsSnapshotRequest {
         if (data) {
             obj = obj || new ReturnsSnapshotRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = Calendar.constructFromObject(data['calendar']);
             }
-            if (data.hasOwnProperty('dividendAdjust')) {
+            if (data.hasOwnProperty('dividendAdjust') && obj['dividendAdjust'] === undefined) {
                 obj['dividendAdjust'] = DividendAdjustSnapshot.constructFromObject(data['dividendAdjust']);
             }
+            
         }
         return obj;
     }

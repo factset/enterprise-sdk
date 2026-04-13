@@ -52,21 +52,22 @@ class PostOptionClassScreenerSearchRequestData {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchRequestData();
 
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = PostOptionClassScreenerSearchRequestDataText.constructFromObject(data['text']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostOptionClassScreenerSearchRequestDataMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = PostOptionClassScreenerSearchRequestDataUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostOptionClassScreenerSearchRequestDataCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = PostOptionClassScreenerSearchRequestDataCategory.constructFromObject(data['category']);
             }
+            
         }
         return obj;
     }

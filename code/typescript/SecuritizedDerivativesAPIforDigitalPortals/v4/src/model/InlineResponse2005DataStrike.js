@@ -49,12 +49,13 @@ class InlineResponse2005DataStrike {
         if (data) {
             obj = obj || new InlineResponse2005DataStrike();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataStrikeValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataStrikeDistance.constructFromObject(data['distance']);
             }
+            
         }
         return obj;
     }

@@ -51,18 +51,19 @@ class InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShare 
         if (data) {
             obj = obj || new InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShare();
 
-            if (data.hasOwnProperty('earnings')) {
+            if (data.hasOwnProperty('earnings') && obj['earnings'] === undefined) {
                 obj['earnings'] = InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShareEarnings.constructFromObject(data['earnings']);
             }
-            if (data.hasOwnProperty('bookValue')) {
+            if (data.hasOwnProperty('bookValue') && obj['bookValue'] === undefined) {
                 obj['bookValue'] = InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShareBookValue.constructFromObject(data['bookValue']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShareCashFlow.constructFromObject(data['cashFlow']);
             }
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShareSales.constructFromObject(data['sales']);
             }
+            
         }
         return obj;
     }

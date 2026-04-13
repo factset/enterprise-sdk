@@ -48,12 +48,13 @@ class PostStockNotationRankingIntradayListRequest {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostStockNotationRankingIntradayListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostStockNotationRankingIntradayListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

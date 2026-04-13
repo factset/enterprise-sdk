@@ -47,9 +47,10 @@ class InlineResponse20014RecommendationCounts {
         if (data) {
             obj = obj || new InlineResponse20014RecommendationCounts();
 
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = ApiClient.convertToType(data['total'], 'Number');
             }
+            
         }
         return obj;
     }

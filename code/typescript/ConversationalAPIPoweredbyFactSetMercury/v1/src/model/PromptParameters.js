@@ -52,12 +52,13 @@ class PromptParameters {
         if (data) {
             obj = obj || new PromptParameters();
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
-            if (data.hasOwnProperty('params')) {
+            if (data.hasOwnProperty('params') && obj['params'] === undefined) {
                 obj['params'] = ApiClient.convertToType(data['params'], [PromptParameter]);
             }
+            
         }
         return obj;
     }

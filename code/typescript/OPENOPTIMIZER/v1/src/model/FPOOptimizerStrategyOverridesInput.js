@@ -48,18 +48,19 @@ class FPOOptimizerStrategyOverridesInput {
         if (data) {
             obj = obj || new FPOOptimizerStrategyOverridesInput();
 
-            if (data.hasOwnProperty('objective')) {
+            if (data.hasOwnProperty('objective') && obj['objective'] === undefined) {
                 obj['objective'] = FPOObjectiveInput.constructFromObject(data['objective']);
             }
-            if (data.hasOwnProperty('constraints')) {
+            if (data.hasOwnProperty('constraints') && obj['constraints'] === undefined) {
                 obj['constraints'] = Constraints.constructFromObject(data['constraints']);
             }
-            if (data.hasOwnProperty('alpha')) {
+            if (data.hasOwnProperty('alpha') && obj['alpha'] === undefined) {
                 obj['alpha'] = ApiClient.convertToType(data['alpha'], 'String');
             }
-            if (data.hasOwnProperty('transactionCost')) {
+            if (data.hasOwnProperty('transactionCost') && obj['transactionCost'] === undefined) {
                 obj['transactionCost'] = ApiClient.convertToType(data['transactionCost'], 'String');
             }
+            
         }
         return obj;
     }

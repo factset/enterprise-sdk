@@ -48,12 +48,13 @@ class FilterResponseData {
         if (data) {
             obj = obj || new FilterResponseData();
 
-            if (data.hasOwnProperty('structured')) {
+            if (data.hasOwnProperty('structured') && obj['structured'] === undefined) {
                 obj['structured'] = StructuredFilters.constructFromObject(data['structured']);
             }
-            if (data.hasOwnProperty('flattened')) {
+            if (data.hasOwnProperty('flattened') && obj['flattened'] === undefined) {
                 obj['flattened'] = FlattenedFilters.constructFromObject(data['flattened']);
             }
+            
         }
         return obj;
     }

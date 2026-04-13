@@ -47,9 +47,10 @@ class InsertResponseDataMessage {
         if (data) {
             obj = obj || new InsertResponseDataMessage();
 
-            if (data.hasOwnProperty('event')) {
+            if (data.hasOwnProperty('event') && obj['event'] === undefined) {
                 obj['event'] = ApiClient.convertToType(data['event'], 'String');
             }
+            
         }
         return obj;
     }

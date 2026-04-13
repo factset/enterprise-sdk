@@ -48,21 +48,22 @@ class SellTimingResponseOptions {
         if (data) {
             obj = obj || new SellTimingResponseOptions();
 
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = ApiClient.convertToType(data['attribute'], 'String');
             }
-            if (data.hasOwnProperty('highSellTimingValues')) {
+            if (data.hasOwnProperty('highSellTimingValues') && obj['highSellTimingValues'] === undefined) {
                 obj['highSellTimingValues'] = SellTimingModelAnalytics.constructFromObject(data['highSellTimingValues']);
             }
-            if (data.hasOwnProperty('holdingsData')) {
+            if (data.hasOwnProperty('holdingsData') && obj['holdingsData'] === undefined) {
                 obj['holdingsData'] = HoldingsResponseOptions.constructFromObject(data['holdingsData']);
             }
-            if (data.hasOwnProperty('lowSellTimingValues')) {
+            if (data.hasOwnProperty('lowSellTimingValues') && obj['lowSellTimingValues'] === undefined) {
                 obj['lowSellTimingValues'] = SellTimingModelAnalytics.constructFromObject(data['lowSellTimingValues']);
             }
-            if (data.hasOwnProperty('sellTimingValues')) {
+            if (data.hasOwnProperty('sellTimingValues') && obj['sellTimingValues'] === undefined) {
                 obj['sellTimingValues'] = SellTimingModelAnalytics.constructFromObject(data['sellTimingValues']);
             }
+            
         }
         return obj;
     }

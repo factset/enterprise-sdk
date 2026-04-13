@@ -47,12 +47,13 @@ class InlineResponse200DataOrderVolume {
         if (data) {
             obj = obj || new InlineResponse200DataOrderVolume();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = ApiClient.convertToType(data['minimum'], 'Number');
             }
-            if (data.hasOwnProperty('increment')) {
+            if (data.hasOwnProperty('increment') && obj['increment'] === undefined) {
                 obj['increment'] = ApiClient.convertToType(data['increment'], 'Number');
             }
+            
         }
         return obj;
     }

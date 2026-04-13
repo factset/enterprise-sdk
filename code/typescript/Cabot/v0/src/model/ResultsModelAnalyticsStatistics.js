@@ -46,18 +46,19 @@ class ResultsModelAnalyticsStatistics {
         if (data) {
             obj = obj || new ResultsModelAnalyticsStatistics();
 
-            if (data.hasOwnProperty('drawdown')) {
+            if (data.hasOwnProperty('drawdown') && obj['drawdown'] === undefined) {
                 obj['drawdown'] = ApiClient.convertToType(data['drawdown'], 'Number');
             }
-            if (data.hasOwnProperty('modiglianiReturn')) {
+            if (data.hasOwnProperty('modiglianiReturn') && obj['modiglianiReturn'] === undefined) {
                 obj['modiglianiReturn'] = ApiClient.convertToType(data['modiglianiReturn'], 'Number');
             }
-            if (data.hasOwnProperty('standardDeviation')) {
+            if (data.hasOwnProperty('standardDeviation') && obj['standardDeviation'] === undefined) {
                 obj['standardDeviation'] = ApiClient.convertToType(data['standardDeviation'], 'Number');
             }
-            if (data.hasOwnProperty('trackingError')) {
+            if (data.hasOwnProperty('trackingError') && obj['trackingError'] === undefined) {
                 obj['trackingError'] = ApiClient.convertToType(data['trackingError'], 'Number');
             }
+            
         }
         return obj;
     }

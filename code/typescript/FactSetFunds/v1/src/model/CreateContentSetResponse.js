@@ -48,9 +48,10 @@ class CreateContentSetResponse {
         if (data) {
             obj = obj || new CreateContentSetResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CreateContentSetResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

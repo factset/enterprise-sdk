@@ -48,12 +48,13 @@ class DocumentRequest {
         if (data) {
             obj = obj || new DocumentRequest();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = MetaRequestModel.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DocumentRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class ResultResponseDataDebugFile {
         if (data) {
             obj = obj || new ResultResponseDataDebugFile();
 
-            if (data.hasOwnProperty('idRef')) {
+            if (data.hasOwnProperty('idRef') && obj['idRef'] === undefined) {
                 obj['idRef'] = ApiClient.convertToType(data['idRef'], Object);
             }
-            if (data.hasOwnProperty('input')) {
+            if (data.hasOwnProperty('input') && obj['input'] === undefined) {
                 obj['input'] = ResultResponseDataDebugFileInput.constructFromObject(data['input']);
             }
+            
         }
         return obj;
     }

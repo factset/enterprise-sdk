@@ -45,8 +45,9 @@ class RemoveCurrencyRisk {
      */
     static constructFromObject(data, obj) {
         // openApiType:boolean format:
-        if (typeof data === 'boolean') return ApiClient.setValue(obj || new RemoveCurrencyRisk(), data);
+        if (typeof data === 'boolean') return data;
         // openApiType:object format:
+        throw new Error("Failed to construct RemoveCurrencyRisk due to oneOf-schemas not matching the data: " + data);
     }
 
 

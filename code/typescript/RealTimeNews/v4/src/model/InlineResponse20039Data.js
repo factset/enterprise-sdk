@@ -48,9 +48,10 @@ class InlineResponse20039Data {
         if (data) {
             obj = obj || new InlineResponse20039Data();
 
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [GetCategoryPathGetDataCategoriesItems]);
             }
+            
         }
         return obj;
     }

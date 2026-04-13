@@ -54,27 +54,28 @@ class PostVendorChartIQTimeSeriesIntradaySubsampleListRequestData {
         if (data) {
             obj = obj || new PostVendorChartIQTimeSeriesIntradaySubsampleListRequestData();
 
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = PostVendorChartIQTimeSeriesEodListRequestDataIdentifier.constructFromObject(data['identifier']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('granularity')) {
+            if (data.hasOwnProperty('granularity') && obj['granularity'] === undefined) {
                 obj['granularity'] = ApiClient.convertToType(data['granularity'], 'String');
             }
-            if (data.hasOwnProperty('newestFirst')) {
+            if (data.hasOwnProperty('newestFirst') && obj['newestFirst'] === undefined) {
                 obj['newestFirst'] = ApiClient.convertToType(data['newestFirst'], 'Boolean');
             }
-            if (data.hasOwnProperty('adjustments')) {
+            if (data.hasOwnProperty('adjustments') && obj['adjustments'] === undefined) {
                 obj['adjustments'] = PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustments.constructFromObject(data['adjustments']);
             }
+            
         }
         return obj;
     }

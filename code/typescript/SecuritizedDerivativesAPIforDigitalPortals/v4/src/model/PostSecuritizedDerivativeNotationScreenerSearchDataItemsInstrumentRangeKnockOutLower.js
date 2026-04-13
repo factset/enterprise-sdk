@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKno
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKnockOutLower();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

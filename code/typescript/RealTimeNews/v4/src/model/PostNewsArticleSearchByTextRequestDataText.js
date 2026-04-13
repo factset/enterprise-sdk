@@ -48,9 +48,10 @@ class PostNewsArticleSearchByTextRequestDataText {
         if (data) {
             obj = obj || new PostNewsArticleSearchByTextRequestDataText();
 
-            if (data.hasOwnProperty('criteria')) {
+            if (data.hasOwnProperty('criteria') && obj['criteria'] === undefined) {
                 obj['criteria'] = PostNewsArticleSearchByTextRequestDataTextCriteria.constructFromObject(data['criteria']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataPerformance {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataPerformance();
 
-            if (data.hasOwnProperty('intraday')) {
+            if (data.hasOwnProperty('intraday') && obj['intraday'] === undefined) {
                 obj['intraday'] = PostStockNotationScreenerSearchRequestDataPerformanceIntraday.constructFromObject(data['intraday']);
             }
-            if (data.hasOwnProperty('endOfDay')) {
+            if (data.hasOwnProperty('endOfDay') && obj['endOfDay'] === undefined) {
                 obj['endOfDay'] = PostStockNotationScreenerSearchRequestDataPerformanceEndOfDay.constructFromObject(data['endOfDay']);
             }
+            
         }
         return obj;
     }

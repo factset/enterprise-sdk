@@ -47,15 +47,16 @@ class BulkDeleteItem {
         if (data) {
             obj = obj || new BulkDeleteItem();
 
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Number');
             }
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
+            
         }
         return obj;
     }

@@ -51,12 +51,13 @@ class PostNewsArticleListByIndexRequestData {
         if (data) {
             obj = obj || new PostNewsArticleListByIndexRequestData();
 
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = PostNewsArticleListByIndexRequestDataIdentifier.constructFromObject(data['identifier']);
             }
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostNewsArticleListByIndexRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

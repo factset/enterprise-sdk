@@ -48,9 +48,10 @@ class HeadlinesRequestByViewMeta {
         if (data) {
             obj = obj || new HeadlinesRequestByViewMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = HeadlinesRequestMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

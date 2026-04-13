@@ -47,30 +47,31 @@ class HistoricalFileObject {
         if (data) {
             obj = obj || new HistoricalFileObject();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('bundle')) {
+            if (data.hasOwnProperty('bundle') && obj['bundle'] === undefined) {
                 obj['bundle'] = ApiClient.convertToType(data['bundle'], 'String');
             }
-            if (data.hasOwnProperty('schema')) {
+            if (data.hasOwnProperty('schema') && obj['schema'] === undefined) {
                 obj['schema'] = ApiClient.convertToType(data['schema'], 'String');
             }
-            if (data.hasOwnProperty('version')) {
+            if (data.hasOwnProperty('version') && obj['version'] === undefined) {
                 obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
-            if (data.hasOwnProperty('relatedBundles')) {
+            if (data.hasOwnProperty('relatedBundles') && obj['relatedBundles'] === undefined) {
                 obj['relatedBundles'] = ApiClient.convertToType(data['relatedBundles'], [HistoricalFileObjectObject]);
             }
-            if (data.hasOwnProperty('timestamp')) {
+            if (data.hasOwnProperty('timestamp') && obj['timestamp'] === undefined) {
                 obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Date');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('fileSize')) {
+            if (data.hasOwnProperty('fileSize') && obj['fileSize'] === undefined) {
                 obj['fileSize'] = ApiClient.convertToType(data['fileSize'], 'String');
             }
+            
         }
         return obj;
     }

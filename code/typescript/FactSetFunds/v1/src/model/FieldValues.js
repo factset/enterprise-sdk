@@ -48,15 +48,16 @@ class FieldValues {
         if (data) {
             obj = obj || new FieldValues();
 
-            if (data.hasOwnProperty('fieldName')) {
+            if (data.hasOwnProperty('fieldName') && obj['fieldName'] === undefined) {
                 obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('valueArray')) {
+            if (data.hasOwnProperty('valueArray') && obj['valueArray'] === undefined) {
                 obj['valueArray'] = ApiClient.convertToType(data['valueArray'], [NestedFieldValues]);
             }
+            
         }
         return obj;
     }

@@ -46,102 +46,103 @@ class BondSpread {
         if (data) {
             obj = obj || new BondSpread();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('actualCDSBondBasisMid')) {
+            if (data.hasOwnProperty('actualCDSBondBasisMid') && obj['actualCDSBondBasisMid'] === undefined) {
                 obj['actualCDSBondBasisMid'] = ApiClient.convertToType(data['actualCDSBondBasisMid'], 'Number');
             }
-            if (data.hasOwnProperty('actualIMMCDSBondBasis')) {
+            if (data.hasOwnProperty('actualIMMCDSBondBasis') && obj['actualIMMCDSBondBasis'] === undefined) {
                 obj['actualIMMCDSBondBasis'] = ApiClient.convertToType(data['actualIMMCDSBondBasis'], 'Number');
             }
-            if (data.hasOwnProperty('CDSBondBasisDate')) {
+            if (data.hasOwnProperty('CDSBondBasisDate') && obj['CDSBondBasisDate'] === undefined) {
                 obj['CDSBondBasisDate'] = ApiClient.convertToType(data['CDSBondBasisDate'], 'Date');
             }
-            if (data.hasOwnProperty('bidDiscountMargin')) {
+            if (data.hasOwnProperty('bidDiscountMargin') && obj['bidDiscountMargin'] === undefined) {
                 obj['bidDiscountMargin'] = ApiClient.convertToType(data['bidDiscountMargin'], 'Number');
             }
-            if (data.hasOwnProperty('midDiscountMargin')) {
+            if (data.hasOwnProperty('midDiscountMargin') && obj['midDiscountMargin'] === undefined) {
                 obj['midDiscountMargin'] = ApiClient.convertToType(data['midDiscountMargin'], 'Number');
             }
-            if (data.hasOwnProperty('askDiscountMargin')) {
+            if (data.hasOwnProperty('askDiscountMargin') && obj['askDiscountMargin'] === undefined) {
                 obj['askDiscountMargin'] = ApiClient.convertToType(data['askDiscountMargin'], 'Number');
             }
-            if (data.hasOwnProperty('bidOAS')) {
+            if (data.hasOwnProperty('bidOAS') && obj['bidOAS'] === undefined) {
                 obj['bidOAS'] = ApiClient.convertToType(data['bidOAS'], 'Number');
             }
-            if (data.hasOwnProperty('midOAS')) {
+            if (data.hasOwnProperty('midOAS') && obj['midOAS'] === undefined) {
                 obj['midOAS'] = ApiClient.convertToType(data['midOAS'], 'Number');
             }
-            if (data.hasOwnProperty('askOAS')) {
+            if (data.hasOwnProperty('askOAS') && obj['askOAS'] === undefined) {
                 obj['askOAS'] = ApiClient.convertToType(data['askOAS'], 'Number');
             }
-            if (data.hasOwnProperty('bidAssetSwapSpread')) {
+            if (data.hasOwnProperty('bidAssetSwapSpread') && obj['bidAssetSwapSpread'] === undefined) {
                 obj['bidAssetSwapSpread'] = ApiClient.convertToType(data['bidAssetSwapSpread'], 'Number');
             }
-            if (data.hasOwnProperty('midAssetSwapSpread')) {
+            if (data.hasOwnProperty('midAssetSwapSpread') && obj['midAssetSwapSpread'] === undefined) {
                 obj['midAssetSwapSpread'] = ApiClient.convertToType(data['midAssetSwapSpread'], 'Number');
             }
-            if (data.hasOwnProperty('askAssetSwapSpread')) {
+            if (data.hasOwnProperty('askAssetSwapSpread') && obj['askAssetSwapSpread'] === undefined) {
                 obj['askAssetSwapSpread'] = ApiClient.convertToType(data['askAssetSwapSpread'], 'Number');
             }
-            if (data.hasOwnProperty('bidZSpread')) {
+            if (data.hasOwnProperty('bidZSpread') && obj['bidZSpread'] === undefined) {
                 obj['bidZSpread'] = ApiClient.convertToType(data['bidZSpread'], 'Number');
             }
-            if (data.hasOwnProperty('midZSpread')) {
+            if (data.hasOwnProperty('midZSpread') && obj['midZSpread'] === undefined) {
                 obj['midZSpread'] = ApiClient.convertToType(data['midZSpread'], 'Number');
             }
-            if (data.hasOwnProperty('askZSpread')) {
+            if (data.hasOwnProperty('askZSpread') && obj['askZSpread'] === undefined) {
                 obj['askZSpread'] = ApiClient.convertToType(data['askZSpread'], 'Number');
             }
-            if (data.hasOwnProperty('bidGSpread')) {
+            if (data.hasOwnProperty('bidGSpread') && obj['bidGSpread'] === undefined) {
                 obj['bidGSpread'] = ApiClient.convertToType(data['bidGSpread'], 'Number');
             }
-            if (data.hasOwnProperty('midGSpread')) {
+            if (data.hasOwnProperty('midGSpread') && obj['midGSpread'] === undefined) {
                 obj['midGSpread'] = ApiClient.convertToType(data['midGSpread'], 'Number');
             }
-            if (data.hasOwnProperty('askGSpread')) {
+            if (data.hasOwnProperty('askGSpread') && obj['askGSpread'] === undefined) {
                 obj['askGSpread'] = ApiClient.convertToType(data['askGSpread'], 'Number');
             }
-            if (data.hasOwnProperty('bidYieldSpreadvBenchmark')) {
+            if (data.hasOwnProperty('bidYieldSpreadvBenchmark') && obj['bidYieldSpreadvBenchmark'] === undefined) {
                 obj['bidYieldSpreadvBenchmark'] = ApiClient.convertToType(data['bidYieldSpreadvBenchmark'], 'Number');
             }
-            if (data.hasOwnProperty('midYieldSpreadvBenchmark')) {
+            if (data.hasOwnProperty('midYieldSpreadvBenchmark') && obj['midYieldSpreadvBenchmark'] === undefined) {
                 obj['midYieldSpreadvBenchmark'] = ApiClient.convertToType(data['midYieldSpreadvBenchmark'], 'Number');
             }
-            if (data.hasOwnProperty('askYieldSpreadvBenchmark')) {
+            if (data.hasOwnProperty('askYieldSpreadvBenchmark') && obj['askYieldSpreadvBenchmark'] === undefined) {
                 obj['askYieldSpreadvBenchmark'] = ApiClient.convertToType(data['askYieldSpreadvBenchmark'], 'Number');
             }
-            if (data.hasOwnProperty('bidAskPriceSpread')) {
+            if (data.hasOwnProperty('bidAskPriceSpread') && obj['bidAskPriceSpread'] === undefined) {
                 obj['bidAskPriceSpread'] = ApiClient.convertToType(data['bidAskPriceSpread'], 'Number');
             }
-            if (data.hasOwnProperty('bidAskYieldSpread')) {
+            if (data.hasOwnProperty('bidAskYieldSpread') && obj['bidAskYieldSpread'] === undefined) {
                 obj['bidAskYieldSpread'] = ApiClient.convertToType(data['bidAskYieldSpread'], 'Number');
             }
-            if (data.hasOwnProperty('bidSTWSpread')) {
+            if (data.hasOwnProperty('bidSTWSpread') && obj['bidSTWSpread'] === undefined) {
                 obj['bidSTWSpread'] = ApiClient.convertToType(data['bidSTWSpread'], 'Number');
             }
-            if (data.hasOwnProperty('midISpread')) {
+            if (data.hasOwnProperty('midISpread') && obj['midISpread'] === undefined) {
                 obj['midISpread'] = ApiClient.convertToType(data['midISpread'], 'Number');
             }
-            if (data.hasOwnProperty('midWALTreasurySpread')) {
+            if (data.hasOwnProperty('midWALTreasurySpread') && obj['midWALTreasurySpread'] === undefined) {
                 obj['midWALTreasurySpread'] = ApiClient.convertToType(data['midWALTreasurySpread'], 'Number');
             }
-            if (data.hasOwnProperty('midEDSFSpread')) {
+            if (data.hasOwnProperty('midEDSFSpread') && obj['midEDSFSpread'] === undefined) {
                 obj['midEDSFSpread'] = ApiClient.convertToType(data['midEDSFSpread'], 'Number');
             }
-            if (data.hasOwnProperty('treasurySwapSpread')) {
+            if (data.hasOwnProperty('treasurySwapSpread') && obj['treasurySwapSpread'] === undefined) {
                 obj['treasurySwapSpread'] = ApiClient.convertToType(data['treasurySwapSpread'], 'Number');
             }
-            if (data.hasOwnProperty('midSwapSpread')) {
+            if (data.hasOwnProperty('midSwapSpread') && obj['midSwapSpread'] === undefined) {
                 obj['midSwapSpread'] = ApiClient.convertToType(data['midSwapSpread'], 'Number');
             }
+            
         }
         return obj;
     }

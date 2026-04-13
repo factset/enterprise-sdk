@@ -47,45 +47,46 @@ class VectorDataResult {
         if (data) {
             obj = obj || new VectorDataResult();
 
-            if (data.hasOwnProperty('vector')) {
+            if (data.hasOwnProperty('vector') && obj['vector'] === undefined) {
                 obj['vector'] = ApiClient.convertToType(data['vector'], ['String']);
             }
-            if (data.hasOwnProperty('vectorId')) {
+            if (data.hasOwnProperty('vectorId') && obj['vectorId'] === undefined) {
                 obj['vectorId'] = ApiClient.convertToType(data['vectorId'], 'String');
             }
-            if (data.hasOwnProperty('similarityScore')) {
+            if (data.hasOwnProperty('similarityScore') && obj['similarityScore'] === undefined) {
                 obj['similarityScore'] = ApiClient.convertToType(data['similarityScore'], 'Number');
             }
-            if (data.hasOwnProperty('storyDate')) {
+            if (data.hasOwnProperty('storyDate') && obj['storyDate'] === undefined) {
                 obj['storyDate'] = ApiClient.convertToType(data['storyDate'], 'Date');
             }
-            if (data.hasOwnProperty('themes')) {
+            if (data.hasOwnProperty('themes') && obj['themes'] === undefined) {
                 obj['themes'] = ApiClient.convertToType(data['themes'], 'String');
             }
-            if (data.hasOwnProperty('documentType')) {
+            if (data.hasOwnProperty('documentType') && obj['documentType'] === undefined) {
                 obj['documentType'] = ApiClient.convertToType(data['documentType'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('documentID')) {
+            if (data.hasOwnProperty('documentID') && obj['documentID'] === undefined) {
                 obj['documentID'] = ApiClient.convertToType(data['documentID'], 'String');
             }
-            if (data.hasOwnProperty('property')) {
+            if (data.hasOwnProperty('property') && obj['property'] === undefined) {
                 obj['property'] = ApiClient.convertToType(data['property'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('trimmed')) {
+            if (data.hasOwnProperty('trimmed') && obj['trimmed'] === undefined) {
                 obj['trimmed'] = ApiClient.convertToType(data['trimmed'], 'Boolean');
             }
-            if (data.hasOwnProperty('sentiment')) {
+            if (data.hasOwnProperty('sentiment') && obj['sentiment'] === undefined) {
                 obj['sentiment'] = ApiClient.convertToType(data['sentiment'], 'String');
             }
+            
         }
         return obj;
     }

@@ -53,45 +53,46 @@ class ContactDto {
         if (data) {
             obj = obj || new ContactDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('primaryEmailAddress')) {
+            if (data.hasOwnProperty('primaryEmailAddress') && obj['primaryEmailAddress'] === undefined) {
                 obj['primaryEmailAddress'] = ApiClient.convertToType(data['primaryEmailAddress'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('fullName')) {
+            if (data.hasOwnProperty('fullName') && obj['fullName'] === undefined) {
                 obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
             }
-            if (data.hasOwnProperty('address')) {
+            if (data.hasOwnProperty('address') && obj['address'] === undefined) {
                 obj['address'] = ContactAddressDto.constructFromObject(data['address']);
             }
-            if (data.hasOwnProperty('linkedInProfile')) {
+            if (data.hasOwnProperty('linkedInProfile') && obj['linkedInProfile'] === undefined) {
                 obj['linkedInProfile'] = ApiClient.convertToType(data['linkedInProfile'], 'String');
             }
-            if (data.hasOwnProperty('isDeleted')) {
+            if (data.hasOwnProperty('isDeleted') && obj['isDeleted'] === undefined) {
                 obj['isDeleted'] = ApiClient.convertToType(data['isDeleted'], 'Boolean');
             }
-            if (data.hasOwnProperty('employer')) {
+            if (data.hasOwnProperty('employer') && obj['employer'] === undefined) {
                 obj['employer'] = EmployerDto.constructFromObject(data['employer']);
             }
-            if (data.hasOwnProperty('role')) {
+            if (data.hasOwnProperty('role') && obj['role'] === undefined) {
                 obj['role'] = ContactRoleDto.constructFromObject(data['role']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ContactTypeDto.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('phoneNumbers')) {
+            if (data.hasOwnProperty('phoneNumbers') && obj['phoneNumbers'] === undefined) {
                 obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [ContactPhoneDto]);
             }
-            if (data.hasOwnProperty('alternativeEmailAddresses')) {
+            if (data.hasOwnProperty('alternativeEmailAddresses') && obj['alternativeEmailAddresses'] === undefined) {
                 obj['alternativeEmailAddresses'] = ApiClient.convertToType(data['alternativeEmailAddresses'], [AlternativeEmailAddressDto]);
             }
-            if (data.hasOwnProperty('customFields')) {
+            if (data.hasOwnProperty('customFields') && obj['customFields'] === undefined) {
                 obj['customFields'] = ApiClient.convertToType(data['customFields'], [ContactCustomFieldValueDto]);
             }
+            
         }
         return obj;
     }

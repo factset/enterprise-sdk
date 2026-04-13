@@ -47,18 +47,19 @@ class InlineResponse20010DataDates {
         if (data) {
             obj = obj || new InlineResponse20010DataDates();
 
-            if (data.hasOwnProperty('announcement')) {
+            if (data.hasOwnProperty('announcement') && obj['announcement'] === undefined) {
                 obj['announcement'] = ApiClient.convertToType(data['announcement'], 'Date');
             }
-            if (data.hasOwnProperty('record')) {
+            if (data.hasOwnProperty('record') && obj['record'] === undefined) {
                 obj['record'] = ApiClient.convertToType(data['record'], 'Date');
             }
-            if (data.hasOwnProperty('effective')) {
+            if (data.hasOwnProperty('effective') && obj['effective'] === undefined) {
                 obj['effective'] = ApiClient.convertToType(data['effective'], 'Date');
             }
-            if (data.hasOwnProperty('payment')) {
+            if (data.hasOwnProperty('payment') && obj['payment'] === undefined) {
                 obj['payment'] = ApiClient.convertToType(data['payment'], 'Date');
             }
+            
         }
         return obj;
     }

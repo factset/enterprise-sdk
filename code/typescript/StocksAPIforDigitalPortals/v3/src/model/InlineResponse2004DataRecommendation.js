@@ -48,18 +48,19 @@ class InlineResponse2004DataRecommendation {
         if (data) {
             obj = obj || new InlineResponse2004DataRecommendation();
 
-            if (data.hasOwnProperty('latestUpdate')) {
+            if (data.hasOwnProperty('latestUpdate') && obj['latestUpdate'] === undefined) {
                 obj['latestUpdate'] = ApiClient.convertToType(data['latestUpdate'], 'Date');
             }
-            if (data.hasOwnProperty('counts')) {
+            if (data.hasOwnProperty('counts') && obj['counts'] === undefined) {
                 obj['counts'] = InlineResponse2003DataRecommendationCounts.constructFromObject(data['counts']);
             }
-            if (data.hasOwnProperty('consensus')) {
+            if (data.hasOwnProperty('consensus') && obj['consensus'] === undefined) {
                 obj['consensus'] = ApiClient.convertToType(data['consensus'], 'Number');
             }
-            if (data.hasOwnProperty('change')) {
+            if (data.hasOwnProperty('change') && obj['change'] === undefined) {
                 obj['change'] = ApiClient.convertToType(data['change'], 'Number');
             }
+            
         }
         return obj;
     }

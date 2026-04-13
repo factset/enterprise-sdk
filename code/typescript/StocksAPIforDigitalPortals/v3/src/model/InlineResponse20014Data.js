@@ -63,63 +63,64 @@ class InlineResponse20014Data {
         if (data) {
             obj = obj || new InlineResponse20014Data();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = InlineResponse20014ValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = InlineResponse20014Market.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
+            if (data.hasOwnProperty('nsin') && obj['nsin'] === undefined) {
                 obj['nsin'] = InlineResponse20014Nsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = InlineResponse20013Fsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = InlineResponse20014Instrument.constructFromObject(data['instrument']);
             }
-            if (data.hasOwnProperty('esg')) {
+            if (data.hasOwnProperty('esg') && obj['esg'] === undefined) {
                 obj['esg'] = InlineResponse20014Esg.constructFromObject(data['esg']);
             }
-            if (data.hasOwnProperty('compliance')) {
+            if (data.hasOwnProperty('compliance') && obj['compliance'] === undefined) {
                 obj['compliance'] = InlineResponse20014Compliance.constructFromObject(data['compliance']);
             }
-            if (data.hasOwnProperty('currentKeyFigures')) {
+            if (data.hasOwnProperty('currentKeyFigures') && obj['currentKeyFigures'] === undefined) {
                 obj['currentKeyFigures'] = InlineResponse20014CurrentKeyFigures.constructFromObject(data['currentKeyFigures']);
             }
-            if (data.hasOwnProperty('reportedKeyFigures')) {
+            if (data.hasOwnProperty('reportedKeyFigures') && obj['reportedKeyFigures'] === undefined) {
                 obj['reportedKeyFigures'] = InlineResponse20014ReportedKeyFigures.constructFromObject(data['reportedKeyFigures']);
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = InlineResponse20014Benchmark.constructFromObject(data['benchmark']);
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = InlineResponse20014Performance.constructFromObject(data['performance']);
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = InlineResponse20014Volatility.constructFromObject(data['volatility']);
             }
-            if (data.hasOwnProperty('tradingValue')) {
+            if (data.hasOwnProperty('tradingValue') && obj['tradingValue'] === undefined) {
                 obj['tradingValue'] = InlineResponse20014TradingValue.constructFromObject(data['tradingValue']);
             }
-            if (data.hasOwnProperty('simpleMovingAverage')) {
+            if (data.hasOwnProperty('simpleMovingAverage') && obj['simpleMovingAverage'] === undefined) {
                 obj['simpleMovingAverage'] = InlineResponse20014SimpleMovingAverage.constructFromObject(data['simpleMovingAverage']);
             }
-            if (data.hasOwnProperty('rsiWilder')) {
+            if (data.hasOwnProperty('rsiWilder') && obj['rsiWilder'] === undefined) {
                 obj['rsiWilder'] = InlineResponse20014RsiWilder.constructFromObject(data['rsiWilder']);
             }
-            if (data.hasOwnProperty('recommendation')) {
+            if (data.hasOwnProperty('recommendation') && obj['recommendation'] === undefined) {
                 obj['recommendation'] = InlineResponse20014Recommendation.constructFromObject(data['recommendation']);
             }
-            if (data.hasOwnProperty('estimates')) {
+            if (data.hasOwnProperty('estimates') && obj['estimates'] === undefined) {
                 obj['estimates'] = InlineResponse20014Estimates.constructFromObject(data['estimates']);
             }
+            
         }
         return obj;
     }

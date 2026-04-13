@@ -53,12 +53,13 @@ class StockMovementResponse {
         if (data) {
             obj = obj || new StockMovementResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [StockMovementItem]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = StockMovementMetaData.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

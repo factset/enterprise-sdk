@@ -61,57 +61,58 @@ class ProfileDataObjectStage {
         if (data) {
             obj = obj || new ProfileDataObjectStage();
 
-            if (data.hasOwnProperty('crunchbaseRank')) {
+            if (data.hasOwnProperty('crunchbaseRank') && obj['crunchbaseRank'] === undefined) {
                 obj['crunchbaseRank'] = ProfileDataObjectStageCrunchbaseRank.constructFromObject(data['crunchbaseRank']);
             }
-            if (data.hasOwnProperty('exchangePrimary')) {
+            if (data.hasOwnProperty('exchangePrimary') && obj['exchangePrimary'] === undefined) {
                 obj['exchangePrimary'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['exchangePrimary']);
             }
-            if (data.hasOwnProperty('foundedYear')) {
+            if (data.hasOwnProperty('foundedYear') && obj['foundedYear'] === undefined) {
                 obj['foundedYear'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['foundedYear']);
             }
-            if (data.hasOwnProperty('peActiveAcqAmt')) {
+            if (data.hasOwnProperty('peActiveAcqAmt') && obj['peActiveAcqAmt'] === undefined) {
                 obj['peActiveAcqAmt'] = ProfileDataObjectSizeEv.constructFromObject(data['peActiveAcqAmt']);
             }
-            if (data.hasOwnProperty('peActiveAcqDate')) {
+            if (data.hasOwnProperty('peActiveAcqDate') && obj['peActiveAcqDate'] === undefined) {
                 obj['peActiveAcqDate'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['peActiveAcqDate']);
             }
-            if (data.hasOwnProperty('peActiveFirmNumber')) {
+            if (data.hasOwnProperty('peActiveFirmNumber') && obj['peActiveFirmNumber'] === undefined) {
                 obj['peActiveFirmNumber'] = KeyStatsDataObjectEntityEmployeesAsOfDate.constructFromObject(data['peActiveFirmNumber']);
             }
-            if (data.hasOwnProperty('peActiveFirms')) {
+            if (data.hasOwnProperty('peActiveFirms') && obj['peActiveFirms'] === undefined) {
                 obj['peActiveFirms'] = ApiClient.convertToType(data['peActiveFirms'], [ProfileDataItemActiveFirm]);
             }
-            if (data.hasOwnProperty('peActiveInvestmentNumber')) {
+            if (data.hasOwnProperty('peActiveInvestmentNumber') && obj['peActiveInvestmentNumber'] === undefined) {
                 obj['peActiveInvestmentNumber'] = KeyStatsDataObjectEntityEmployeesAsOfDate.constructFromObject(data['peActiveInvestmentNumber']);
             }
-            if (data.hasOwnProperty('peLastInvestmentDate')) {
+            if (data.hasOwnProperty('peLastInvestmentDate') && obj['peLastInvestmentDate'] === undefined) {
                 obj['peLastInvestmentDate'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['peLastInvestmentDate']);
             }
-            if (data.hasOwnProperty('pevcBacking')) {
+            if (data.hasOwnProperty('pevcBacking') && obj['pevcBacking'] === undefined) {
                 obj['pevcBacking'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['pevcBacking']);
             }
-            if (data.hasOwnProperty('pevcLatestPostMoneyValuation')) {
+            if (data.hasOwnProperty('pevcLatestPostMoneyValuation') && obj['pevcLatestPostMoneyValuation'] === undefined) {
                 obj['pevcLatestPostMoneyValuation'] = ProfileDataObjectStagePevcLatestPostMoneyValuation.constructFromObject(data['pevcLatestPostMoneyValuation']);
             }
-            if (data.hasOwnProperty('tradeDateRange')) {
+            if (data.hasOwnProperty('tradeDateRange') && obj['tradeDateRange'] === undefined) {
                 obj['tradeDateRange'] = ProfileDataObjectStageTradeDateRange.constructFromObject(data['tradeDateRange']);
             }
-            if (data.hasOwnProperty('vcLastRound')) {
+            if (data.hasOwnProperty('vcLastRound') && obj['vcLastRound'] === undefined) {
                 obj['vcLastRound'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['vcLastRound']);
             }
-            if (data.hasOwnProperty('vcLastRoundAmt')) {
+            if (data.hasOwnProperty('vcLastRoundAmt') && obj['vcLastRoundAmt'] === undefined) {
                 obj['vcLastRoundAmt'] = ProfileDataObjectSizeEv.constructFromObject(data['vcLastRoundAmt']);
             }
-            if (data.hasOwnProperty('vcLastRoundDate')) {
+            if (data.hasOwnProperty('vcLastRoundDate') && obj['vcLastRoundDate'] === undefined) {
                 obj['vcLastRoundDate'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['vcLastRoundDate']);
             }
-            if (data.hasOwnProperty('vcLastRoundInvestorNumber')) {
+            if (data.hasOwnProperty('vcLastRoundInvestorNumber') && obj['vcLastRoundInvestorNumber'] === undefined) {
                 obj['vcLastRoundInvestorNumber'] = KeyStatsDataObjectEntityEmployeesAsOfDate.constructFromObject(data['vcLastRoundInvestorNumber']);
             }
-            if (data.hasOwnProperty('vcTotalEstRaised')) {
+            if (data.hasOwnProperty('vcTotalEstRaised') && obj['vcTotalEstRaised'] === undefined) {
                 obj['vcTotalEstRaised'] = ProfileDataObjectSizeEv.constructFromObject(data['vcTotalEstRaised']);
             }
+            
         }
         return obj;
     }

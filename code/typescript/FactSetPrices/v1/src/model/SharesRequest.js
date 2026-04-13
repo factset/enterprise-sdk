@@ -52,24 +52,25 @@ class SharesRequest {
         if (data) {
             obj = obj || new SharesRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = Frequency.constructFromObject(data['frequency']);
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = Calendar.constructFromObject(data['calendar']);
             }
-            if (data.hasOwnProperty('splitAdjust')) {
+            if (data.hasOwnProperty('splitAdjust') && obj['splitAdjust'] === undefined) {
                 obj['splitAdjust'] = SplitAdjust.constructFromObject(data['splitAdjust']);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataCashFlowCurrency
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataCashFlowCurrency();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
+            
         }
         return obj;
     }

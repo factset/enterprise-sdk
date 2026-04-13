@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOf
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayMonths3();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataCapitalProtectionMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresMaximumYieldAnnualizedMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

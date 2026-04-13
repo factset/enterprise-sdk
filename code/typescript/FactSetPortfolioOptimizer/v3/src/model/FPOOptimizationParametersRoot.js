@@ -47,12 +47,13 @@ class FPOOptimizationParametersRoot {
         if (data) {
             obj = obj || new FPOOptimizationParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FPOOptimizationParameters.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], Object);
             }
+            
         }
         return obj;
     }

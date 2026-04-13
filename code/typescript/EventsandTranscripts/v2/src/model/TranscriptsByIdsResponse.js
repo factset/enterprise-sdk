@@ -51,18 +51,19 @@ class TranscriptsByIdsResponse {
         if (data) {
             obj = obj || new TranscriptsByIdsResponse();
 
-            if (data.hasOwnProperty('transcriptResponseType')) {
+            if (data.hasOwnProperty('transcriptResponseType') && obj['transcriptResponseType'] === undefined) {
                 obj['transcriptResponseType'] = ApiClient.convertToType(data['transcriptResponseType'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('documents')) {
+            if (data.hasOwnProperty('documents') && obj['documents'] === undefined) {
                 obj['documents'] = ApiClient.convertToType(data['documents'], [DocumentResult]);
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorData.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

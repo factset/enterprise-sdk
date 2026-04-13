@@ -48,9 +48,10 @@ class ResearchContributorResponse {
         if (data) {
             obj = obj || new ResearchContributorResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ResearchContributorResponseObject]);
             }
+            
         }
         return obj;
     }

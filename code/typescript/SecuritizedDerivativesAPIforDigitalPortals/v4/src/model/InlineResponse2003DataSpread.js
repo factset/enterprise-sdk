@@ -47,12 +47,13 @@ class InlineResponse2003DataSpread {
         if (data) {
             obj = obj || new InlineResponse2003DataSpread();
 
-            if (data.hasOwnProperty('harmonized')) {
+            if (data.hasOwnProperty('harmonized') && obj['harmonized'] === undefined) {
                 obj['harmonized'] = ApiClient.convertToType(data['harmonized'], 'Number');
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = ApiClient.convertToType(data['relative'], 'Number');
             }
+            
         }
         return obj;
     }

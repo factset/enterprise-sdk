@@ -46,30 +46,31 @@ class ExchangeItem {
         if (data) {
             obj = obj || new ExchangeItem();
 
-            if (data.hasOwnProperty('exchange_code')) {
+            if (data.hasOwnProperty('exchange_code') && obj['exchange_code'] === undefined) {
                 obj['exchange_code'] = ApiClient.convertToType(data['exchange_code'], 'Number');
             }
-            if (data.hasOwnProperty('exchange_name')) {
+            if (data.hasOwnProperty('exchange_name') && obj['exchange_name'] === undefined) {
                 obj['exchange_name'] = ApiClient.convertToType(data['exchange_name'], 'String');
             }
-            if (data.hasOwnProperty('market_open')) {
+            if (data.hasOwnProperty('market_open') && obj['market_open'] === undefined) {
                 obj['market_open'] = ApiClient.convertToType(data['market_open'], 'Number');
             }
-            if (data.hasOwnProperty('market_close')) {
+            if (data.hasOwnProperty('market_close') && obj['market_close'] === undefined) {
                 obj['market_close'] = ApiClient.convertToType(data['market_close'], 'Number');
             }
-            if (data.hasOwnProperty('iso_code')) {
+            if (data.hasOwnProperty('iso_code') && obj['iso_code'] === undefined) {
                 obj['iso_code'] = ApiClient.convertToType(data['iso_code'], 'String');
             }
-            if (data.hasOwnProperty('delay_time')) {
+            if (data.hasOwnProperty('delay_time') && obj['delay_time'] === undefined) {
                 obj['delay_time'] = ApiClient.convertToType(data['delay_time'], 'Number');
             }
-            if (data.hasOwnProperty('product_code')) {
+            if (data.hasOwnProperty('product_code') && obj['product_code'] === undefined) {
                 obj['product_code'] = ApiClient.convertToType(data['product_code'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,15 +47,16 @@ class InlineResponse200DataUnderlyingNotationInstrumentNsin {
         if (data) {
             obj = obj || new InlineResponse200DataUnderlyingNotationInstrumentNsin();
 
-            if (data.hasOwnProperty('wkn')) {
+            if (data.hasOwnProperty('wkn') && obj['wkn'] === undefined) {
                 obj['wkn'] = ApiClient.convertToType(data['wkn'], 'String');
             }
-            if (data.hasOwnProperty('valor')) {
+            if (data.hasOwnProperty('valor') && obj['valor'] === undefined) {
                 obj['valor'] = ApiClient.convertToType(data['valor'], 'String');
             }
-            if (data.hasOwnProperty('cusip')) {
+            if (data.hasOwnProperty('cusip') && obj['cusip'] === undefined) {
                 obj['cusip'] = ApiClient.convertToType(data['cusip'], 'String');
             }
+            
         }
         return obj;
     }

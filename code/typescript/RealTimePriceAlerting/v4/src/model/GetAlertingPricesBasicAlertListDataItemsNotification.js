@@ -48,9 +48,10 @@ class GetAlertingPricesBasicAlertListDataItemsNotification {
         if (data) {
             obj = obj || new GetAlertingPricesBasicAlertListDataItemsNotification();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], [GetAlertingPricesBasicAlertListDataNotificationStatusItems]);
             }
+            
         }
         return obj;
     }

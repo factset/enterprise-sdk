@@ -48,9 +48,10 @@ class InsiderTransactionsResponse {
         if (data) {
             obj = obj || new InsiderTransactionsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [InsiderTransactions]);
             }
+            
         }
         return obj;
     }

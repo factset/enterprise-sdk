@@ -51,18 +51,19 @@ class ThemeSentiment {
         if (data) {
             obj = obj || new ThemeSentiment();
 
-            if (data.hasOwnProperty('sentiment')) {
+            if (data.hasOwnProperty('sentiment') && obj['sentiment'] === undefined) {
                 obj['sentiment'] = ApiClient.convertToType(data['sentiment'], 'String');
             }
-            if (data.hasOwnProperty('sentimentScore')) {
+            if (data.hasOwnProperty('sentimentScore') && obj['sentimentScore'] === undefined) {
                 obj['sentimentScore'] = ApiClient.convertToType(data['sentimentScore'], 'Number');
             }
-            if (data.hasOwnProperty('themeScore')) {
+            if (data.hasOwnProperty('themeScore') && obj['themeScore'] === undefined) {
                 obj['themeScore'] = ApiClient.convertToType(data['themeScore'], 'Number');
             }
-            if (data.hasOwnProperty('themeText')) {
+            if (data.hasOwnProperty('themeText') && obj['themeText'] === undefined) {
                 obj['themeText'] = ApiClient.convertToType(data['themeText'], 'String');
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class ErrorResponse {
         if (data) {
             obj = obj || new ErrorResponse();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorExample]);
             }
+            
         }
         return obj;
     }

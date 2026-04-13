@@ -50,9 +50,10 @@ class GuidanceRequest {
         if (data) {
             obj = obj || new GuidanceRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = GuidanceRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

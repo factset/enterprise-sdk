@@ -46,21 +46,22 @@ class InvoiceDetailsStatementofAccountDetails {
         if (data) {
             obj = obj || new InvoiceDetailsStatementofAccountDetails();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('agingDate')) {
+            if (data.hasOwnProperty('agingDate') && obj['agingDate'] === undefined) {
                 obj['agingDate'] = ApiClient.convertToType(data['agingDate'], 'String');
             }
-            if (data.hasOwnProperty('documentTypeId')) {
+            if (data.hasOwnProperty('documentTypeId') && obj['documentTypeId'] === undefined) {
                 obj['documentTypeId'] = ApiClient.convertToType(data['documentTypeId'], 'String');
             }
-            if (data.hasOwnProperty('amount')) {
+            if (data.hasOwnProperty('amount') && obj['amount'] === undefined) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'Number');
             }
+            
         }
         return obj;
     }

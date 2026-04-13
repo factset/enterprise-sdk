@@ -46,12 +46,13 @@ class InlineResponse2003DataCurrencies {
         if (data) {
             obj = obj || new InlineResponse2003DataCurrencies();
 
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

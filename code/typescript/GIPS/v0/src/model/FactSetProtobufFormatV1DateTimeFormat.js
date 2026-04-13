@@ -46,57 +46,58 @@ class FactSetProtobufFormatV1DateTimeFormat {
         if (data) {
             obj = obj || new FactSetProtobufFormatV1DateTimeFormat();
 
-            if (data.hasOwnProperty('shortDateCustomFormatString')) {
+            if (data.hasOwnProperty('shortDateCustomFormatString') && obj['shortDateCustomFormatString'] === undefined) {
                 obj['shortDateCustomFormatString'] = ApiClient.convertToType(data['shortDateCustomFormatString'], 'String');
             }
-            if (data.hasOwnProperty('longDateCustomFormatString')) {
+            if (data.hasOwnProperty('longDateCustomFormatString') && obj['longDateCustomFormatString'] === undefined) {
                 obj['longDateCustomFormatString'] = ApiClient.convertToType(data['longDateCustomFormatString'], 'String');
             }
-            if (data.hasOwnProperty('shortTimeCustomFormatString')) {
+            if (data.hasOwnProperty('shortTimeCustomFormatString') && obj['shortTimeCustomFormatString'] === undefined) {
                 obj['shortTimeCustomFormatString'] = ApiClient.convertToType(data['shortTimeCustomFormatString'], 'String');
             }
-            if (data.hasOwnProperty('longTimeCustomFormatString')) {
+            if (data.hasOwnProperty('longTimeCustomFormatString') && obj['longTimeCustomFormatString'] === undefined) {
                 obj['longTimeCustomFormatString'] = ApiClient.convertToType(data['longTimeCustomFormatString'], 'String');
             }
-            if (data.hasOwnProperty('monthDayCustomFormatString')) {
+            if (data.hasOwnProperty('monthDayCustomFormatString') && obj['monthDayCustomFormatString'] === undefined) {
                 obj['monthDayCustomFormatString'] = ApiClient.convertToType(data['monthDayCustomFormatString'], 'String');
             }
-            if (data.hasOwnProperty('yearMonthCustomFormatString')) {
+            if (data.hasOwnProperty('yearMonthCustomFormatString') && obj['yearMonthCustomFormatString'] === undefined) {
                 obj['yearMonthCustomFormatString'] = ApiClient.convertToType(data['yearMonthCustomFormatString'], 'String');
             }
-            if (data.hasOwnProperty('dayNames')) {
+            if (data.hasOwnProperty('dayNames') && obj['dayNames'] === undefined) {
                 obj['dayNames'] = ApiClient.convertToType(data['dayNames'], ['String']);
             }
-            if (data.hasOwnProperty('abbreviatedDayNames')) {
+            if (data.hasOwnProperty('abbreviatedDayNames') && obj['abbreviatedDayNames'] === undefined) {
                 obj['abbreviatedDayNames'] = ApiClient.convertToType(data['abbreviatedDayNames'], ['String']);
             }
-            if (data.hasOwnProperty('monthNames')) {
+            if (data.hasOwnProperty('monthNames') && obj['monthNames'] === undefined) {
                 obj['monthNames'] = ApiClient.convertToType(data['monthNames'], ['String']);
             }
-            if (data.hasOwnProperty('abbreviatedMonthNames')) {
+            if (data.hasOwnProperty('abbreviatedMonthNames') && obj['abbreviatedMonthNames'] === undefined) {
                 obj['abbreviatedMonthNames'] = ApiClient.convertToType(data['abbreviatedMonthNames'], ['String']);
             }
-            if (data.hasOwnProperty('monthGenitiveNames')) {
+            if (data.hasOwnProperty('monthGenitiveNames') && obj['monthGenitiveNames'] === undefined) {
                 obj['monthGenitiveNames'] = ApiClient.convertToType(data['monthGenitiveNames'], ['String']);
             }
-            if (data.hasOwnProperty('abbreviatedMonthGenitiveNames')) {
+            if (data.hasOwnProperty('abbreviatedMonthGenitiveNames') && obj['abbreviatedMonthGenitiveNames'] === undefined) {
                 obj['abbreviatedMonthGenitiveNames'] = ApiClient.convertToType(data['abbreviatedMonthGenitiveNames'], ['String']);
             }
-            if (data.hasOwnProperty('amDesignator')) {
+            if (data.hasOwnProperty('amDesignator') && obj['amDesignator'] === undefined) {
                 obj['amDesignator'] = ApiClient.convertToType(data['amDesignator'], 'String');
             }
-            if (data.hasOwnProperty('pmDesignator')) {
+            if (data.hasOwnProperty('pmDesignator') && obj['pmDesignator'] === undefined) {
                 obj['pmDesignator'] = ApiClient.convertToType(data['pmDesignator'], 'String');
             }
-            if (data.hasOwnProperty('dateSeparator')) {
+            if (data.hasOwnProperty('dateSeparator') && obj['dateSeparator'] === undefined) {
                 obj['dateSeparator'] = ApiClient.convertToType(data['dateSeparator'], 'String');
             }
-            if (data.hasOwnProperty('timeSeparator')) {
+            if (data.hasOwnProperty('timeSeparator') && obj['timeSeparator'] === undefined) {
                 obj['timeSeparator'] = ApiClient.convertToType(data['timeSeparator'], 'String');
             }
-            if (data.hasOwnProperty('fractionalSecondsSeparator')) {
+            if (data.hasOwnProperty('fractionalSecondsSeparator') && obj['fractionalSecondsSeparator'] === undefined) {
                 obj['fractionalSecondsSeparator'] = ApiClient.convertToType(data['fractionalSecondsSeparator'], 'String');
             }
+            
         }
         return obj;
     }

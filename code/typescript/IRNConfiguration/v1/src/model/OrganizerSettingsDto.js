@@ -46,12 +46,13 @@ class OrganizerSettingsDto {
         if (data) {
             obj = obj || new OrganizerSettingsDto();
 
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('isMandatory')) {
+            if (data.hasOwnProperty('isMandatory') && obj['isMandatory'] === undefined) {
                 obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
+            
         }
         return obj;
     }

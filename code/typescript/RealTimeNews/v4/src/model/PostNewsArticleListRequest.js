@@ -51,12 +51,13 @@ class PostNewsArticleListRequest {
         if (data) {
             obj = obj || new PostNewsArticleListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostNewsArticleListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostNewsArticleListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

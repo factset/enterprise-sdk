@@ -46,21 +46,22 @@ class EventSnippetDto {
         if (data) {
             obj = obj || new EventSnippetDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('noteId')) {
+            if (data.hasOwnProperty('noteId') && obj['noteId'] === undefined) {
                 obj['noteId'] = ApiClient.convertToType(data['noteId'], 'String');
             }
-            if (data.hasOwnProperty('meetingId')) {
+            if (data.hasOwnProperty('meetingId') && obj['meetingId'] === undefined) {
                 obj['meetingId'] = ApiClient.convertToType(data['meetingId'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
+            if (data.hasOwnProperty('createdAt') && obj['createdAt'] === undefined) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
             }
+            
         }
         return obj;
     }

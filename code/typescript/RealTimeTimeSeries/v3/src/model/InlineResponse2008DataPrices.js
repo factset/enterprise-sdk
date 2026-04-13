@@ -46,21 +46,22 @@ class InlineResponse2008DataPrices {
         if (data) {
             obj = obj || new InlineResponse2008DataPrices();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'String');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('quoteCondition')) {
+            if (data.hasOwnProperty('quoteCondition') && obj['quoteCondition'] === undefined) {
                 obj['quoteCondition'] = ApiClient.convertToType(data['quoteCondition'], 'String');
             }
-            if (data.hasOwnProperty('tradingVolume')) {
+            if (data.hasOwnProperty('tradingVolume') && obj['tradingVolume'] === undefined) {
                 obj['tradingVolume'] = ApiClient.convertToType(data['tradingVolume'], 'Number');
             }
-            if (data.hasOwnProperty('tradingValue')) {
+            if (data.hasOwnProperty('tradingValue') && obj['tradingValue'] === undefined) {
                 obj['tradingValue'] = ApiClient.convertToType(data['tradingValue'], 'Number');
             }
+            
         }
         return obj;
     }

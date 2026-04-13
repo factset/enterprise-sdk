@@ -48,9 +48,10 @@ class KeyStatsDataObjectEntityExDividendDateValue {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityExDividendDateValue();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Date');
             }
+            
         }
         return obj;
     }

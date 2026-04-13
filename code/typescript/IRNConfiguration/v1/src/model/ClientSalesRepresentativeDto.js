@@ -46,12 +46,13 @@ class ClientSalesRepresentativeDto {
         if (data) {
             obj = obj || new ClientSalesRepresentativeDto();
 
-            if (data.hasOwnProperty('fullname')) {
+            if (data.hasOwnProperty('fullname') && obj['fullname'] === undefined) {
                 obj['fullname'] = ApiClient.convertToType(data['fullname'], 'String');
             }
-            if (data.hasOwnProperty('emailAddress')) {
+            if (data.hasOwnProperty('emailAddress') && obj['emailAddress'] === undefined) {
                 obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
             }
+            
         }
         return obj;
     }

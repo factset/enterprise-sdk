@@ -47,12 +47,13 @@ class PostOptionByClassListDataItemsInstrumentLifeCycleExpiration {
         if (data) {
             obj = obj || new PostOptionByClassListDataItemsInstrumentLifeCycleExpiration();
 
-            if (data.hasOwnProperty('month')) {
+            if (data.hasOwnProperty('month') && obj['month'] === undefined) {
                 obj['month'] = ApiClient.convertToType(data['month'], 'Number');
             }
-            if (data.hasOwnProperty('year')) {
+            if (data.hasOwnProperty('year') && obj['year'] === undefined) {
                 obj['year'] = ApiClient.convertToType(data['year'], 'Number');
             }
+            
         }
         return obj;
     }

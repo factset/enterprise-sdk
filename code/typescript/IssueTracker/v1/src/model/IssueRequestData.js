@@ -54,30 +54,31 @@ class IssueRequestData {
         if (data) {
             obj = obj || new IssueRequestData();
 
-            if (data.hasOwnProperty('subject')) {
+            if (data.hasOwnProperty('subject') && obj['subject'] === undefined) {
                 obj['subject'] = ApiClient.convertToType(data['subject'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('productId')) {
+            if (data.hasOwnProperty('productId') && obj['productId'] === undefined) {
                 obj['productId'] = ApiClient.convertToType(data['productId'], 'String');
             }
-            if (data.hasOwnProperty('categoryId')) {
+            if (data.hasOwnProperty('categoryId') && obj['categoryId'] === undefined) {
                 obj['categoryId'] = ApiClient.convertToType(data['categoryId'], 'String');
             }
-            if (data.hasOwnProperty('severity')) {
+            if (data.hasOwnProperty('severity') && obj['severity'] === undefined) {
                 obj['severity'] = ApiClient.convertToType(data['severity'], 'String');
             }
-            if (data.hasOwnProperty('attachments')) {
+            if (data.hasOwnProperty('attachments') && obj['attachments'] === undefined) {
                 obj['attachments'] = ApiClient.convertToType(data['attachments'], [Attachment]);
             }
-            if (data.hasOwnProperty('connectorId')) {
+            if (data.hasOwnProperty('connectorId') && obj['connectorId'] === undefined) {
                 obj['connectorId'] = ApiClient.convertToType(data['connectorId'], 'String');
             }
-            if (data.hasOwnProperty('connectorDisplayId')) {
+            if (data.hasOwnProperty('connectorDisplayId') && obj['connectorDisplayId'] === undefined) {
                 obj['connectorDisplayId'] = ApiClient.convertToType(data['connectorDisplayId'], 'String');
             }
+            
         }
         return obj;
     }

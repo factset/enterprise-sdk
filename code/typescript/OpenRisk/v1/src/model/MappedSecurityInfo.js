@@ -53,15 +53,16 @@ class MappedSecurityInfo {
         if (data) {
             obj = obj || new MappedSecurityInfo();
 
-            if (data.hasOwnProperty('covered')) {
+            if (data.hasOwnProperty('covered') && obj['covered'] === undefined) {
                 obj['covered'] = ApiClient.convertToType(data['covered'], 'Boolean');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('modelClass')) {
+            if (data.hasOwnProperty('modelClass') && obj['modelClass'] === undefined) {
                 obj['modelClass'] = ApiClient.convertToType(data['modelClass'], 'String');
             }
+            
         }
         return obj;
     }

@@ -46,39 +46,40 @@ class InvoiceDetailsSubscriptionChangesExchanges {
         if (data) {
             obj = obj || new InvoiceDetailsSubscriptionChangesExchanges();
 
-            if (data.hasOwnProperty('orderDate')) {
+            if (data.hasOwnProperty('orderDate') && obj['orderDate'] === undefined) {
                 obj['orderDate'] = ApiClient.convertToType(data['orderDate'], 'String');
             }
-            if (data.hasOwnProperty('orderId')) {
+            if (data.hasOwnProperty('orderId') && obj['orderId'] === undefined) {
                 obj['orderId'] = ApiClient.convertToType(data['orderId'], 'Number');
             }
-            if (data.hasOwnProperty('orderType')) {
+            if (data.hasOwnProperty('orderType') && obj['orderType'] === undefined) {
                 obj['orderType'] = ApiClient.convertToType(data['orderType'], 'String');
             }
-            if (data.hasOwnProperty('productId')) {
+            if (data.hasOwnProperty('productId') && obj['productId'] === undefined) {
                 obj['productId'] = ApiClient.convertToType(data['productId'], 'Number');
             }
-            if (data.hasOwnProperty('productName')) {
+            if (data.hasOwnProperty('productName') && obj['productName'] === undefined) {
                 obj['productName'] = ApiClient.convertToType(data['productName'], 'String');
             }
-            if (data.hasOwnProperty('serial')) {
+            if (data.hasOwnProperty('serial') && obj['serial'] === undefined) {
                 obj['serial'] = ApiClient.convertToType(data['serial'], 'String');
             }
-            if (data.hasOwnProperty('individual')) {
+            if (data.hasOwnProperty('individual') && obj['individual'] === undefined) {
                 obj['individual'] = ApiClient.convertToType(data['individual'], 'String');
             }
-            if (data.hasOwnProperty('quanitity')) {
+            if (data.hasOwnProperty('quanitity') && obj['quanitity'] === undefined) {
                 obj['quanitity'] = ApiClient.convertToType(data['quanitity'], 'Number');
             }
-            if (data.hasOwnProperty('amount')) {
+            if (data.hasOwnProperty('amount') && obj['amount'] === undefined) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
             }
-            if (data.hasOwnProperty('subTotalAmount')) {
+            if (data.hasOwnProperty('subTotalAmount') && obj['subTotalAmount'] === undefined) {
                 obj['subTotalAmount'] = ApiClient.convertToType(data['subTotalAmount'], 'Number');
             }
-            if (data.hasOwnProperty('lastMonthAdd')) {
+            if (data.hasOwnProperty('lastMonthAdd') && obj['lastMonthAdd'] === undefined) {
                 obj['lastMonthAdd'] = ApiClient.convertToType(data['lastMonthAdd'], 'Boolean');
             }
+            
         }
         return obj;
     }

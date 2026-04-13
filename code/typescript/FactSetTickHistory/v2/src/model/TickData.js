@@ -48,21 +48,22 @@ class TickData {
         if (data) {
             obj = obj || new TickData();
 
-            if (data.hasOwnProperty('requestTimestamp')) {
+            if (data.hasOwnProperty('requestTimestamp') && obj['requestTimestamp'] === undefined) {
                 obj['requestTimestamp'] = ApiClient.convertToType(data['requestTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('updateTimestamp')) {
+            if (data.hasOwnProperty('updateTimestamp') && obj['updateTimestamp'] === undefined) {
                 obj['updateTimestamp'] = ApiClient.convertToType(data['updateTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('notAuthorizedTickers')) {
+            if (data.hasOwnProperty('notAuthorizedTickers') && obj['notAuthorizedTickers'] === undefined) {
                 obj['notAuthorizedTickers'] = ApiClient.convertToType(data['notAuthorizedTickers'], ['String']);
             }
-            if (data.hasOwnProperty('invalidTickers')) {
+            if (data.hasOwnProperty('invalidTickers') && obj['invalidTickers'] === undefined) {
                 obj['invalidTickers'] = ApiClient.convertToType(data['invalidTickers'], ['String']);
             }
-            if (data.hasOwnProperty('listOfFiles')) {
+            if (data.hasOwnProperty('listOfFiles') && obj['listOfFiles'] === undefined) {
                 obj['listOfFiles'] = ApiClient.convertToType(data['listOfFiles'], [Files]);
             }
+            
         }
         return obj;
     }

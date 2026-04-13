@@ -51,18 +51,19 @@ class InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesP
         if (data) {
             obj = obj || new InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('earnings')) {
+            if (data.hasOwnProperty('earnings') && obj['earnings'] === undefined) {
                 obj['earnings'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareEarnings.constructFromObject(data['earnings']);
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareDividends.constructFromObject(data['dividends']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

@@ -48,27 +48,28 @@ class CreateCustomSymbolCustomFieldValueDto {
         if (data) {
             obj = obj || new CreateCustomSymbolCustomFieldValueDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('textValue')) {
+            if (data.hasOwnProperty('textValue') && obj['textValue'] === undefined) {
                 obj['textValue'] = ApiClient.convertToType(data['textValue'], 'String');
             }
-            if (data.hasOwnProperty('numericValue')) {
+            if (data.hasOwnProperty('numericValue') && obj['numericValue'] === undefined) {
                 obj['numericValue'] = ApiClient.convertToType(data['numericValue'], 'Number');
             }
-            if (data.hasOwnProperty('dateValue')) {
+            if (data.hasOwnProperty('dateValue') && obj['dateValue'] === undefined) {
                 obj['dateValue'] = ApiClient.convertToType(data['dateValue'], 'String');
             }
-            if (data.hasOwnProperty('extendedTextValue')) {
+            if (data.hasOwnProperty('extendedTextValue') && obj['extendedTextValue'] === undefined) {
                 obj['extendedTextValue'] = ApiClient.convertToType(data['extendedTextValue'], 'String');
             }
-            if (data.hasOwnProperty('optionValues')) {
+            if (data.hasOwnProperty('optionValues') && obj['optionValues'] === undefined) {
                 obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['String']);
             }
-            if (data.hasOwnProperty('contactIds')) {
+            if (data.hasOwnProperty('contactIds') && obj['contactIds'] === undefined) {
                 obj['contactIds'] = ApiClient.convertToType(data['contactIds'], ['String']);
             }
+            
         }
         return obj;
     }

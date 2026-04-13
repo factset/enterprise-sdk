@@ -50,15 +50,16 @@ class InlineResponse2005DataLifeCycleMaturity {
         if (data) {
             obj = obj || new InlineResponse2005DataLifeCycleMaturity();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = InlineResponse2005DataLifeCycleMaturityDate.constructFromObject(data['date']);
             }
-            if (data.hasOwnProperty('remainingTermDays')) {
+            if (data.hasOwnProperty('remainingTermDays') && obj['remainingTermDays'] === undefined) {
                 obj['remainingTermDays'] = InlineResponse2005DataLifeCycleMaturityRemainingTermDays.constructFromObject(data['remainingTermDays']);
             }
-            if (data.hasOwnProperty('perpetual')) {
+            if (data.hasOwnProperty('perpetual') && obj['perpetual'] === undefined) {
                 obj['perpetual'] = ApiClient.convertToType(data['perpetual'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataLifeCycleMaturityPerpetualItems]);
             }
+            
         }
         return obj;
     }

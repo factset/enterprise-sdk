@@ -48,21 +48,22 @@ class BatchStatus {
         if (data) {
             obj = obj || new BatchStatus();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('startTime')) {
+            if (data.hasOwnProperty('startTime') && obj['startTime'] === undefined) {
                 obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Date');
             }
-            if (data.hasOwnProperty('endTime')) {
+            if (data.hasOwnProperty('endTime') && obj['endTime'] === undefined) {
                 obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Date');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = BatchErrorObject.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

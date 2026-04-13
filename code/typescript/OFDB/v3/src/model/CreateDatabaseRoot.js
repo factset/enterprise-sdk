@@ -47,9 +47,10 @@ class CreateDatabaseRoot {
         if (data) {
             obj = obj || new CreateDatabaseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CreateDatabaseRootData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -55,27 +55,32 @@ class ExPostPortfolio {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExPostPortfolio();
-            Portfolio.constructFromObject(data, obj);
-            ExPostPortfolioAllOf.constructFromObject(data, obj);
+            try {
+              obj = Portfolio.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ExPostPortfolioAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = PortfolioEntityDetails.constructFromObject(data['details']);
             }
-            if (data.hasOwnProperty('initialValue')) {
+            if (data.hasOwnProperty('initialValue') && obj['initialValue'] === undefined) {
                 obj['initialValue'] = ApiClient.convertToType(data['initialValue'], 'Number');
             }
-            if (data.hasOwnProperty('rebalancing')) {
+            if (data.hasOwnProperty('rebalancing') && obj['rebalancing'] === undefined) {
                 obj['rebalancing'] = Rebalancing.constructFromObject(data['rebalancing']);
             }
-            if (data.hasOwnProperty('holdings')) {
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
                 obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestment]);
             }
-            if (data.hasOwnProperty('transactionRules')) {
+            if (data.hasOwnProperty('transactionRules') && obj['transactionRules'] === undefined) {
                 obj['transactionRules'] = ApiClient.convertToType(data['transactionRules'], [TransactionRule]);
             }
+            
         }
         return obj;
     }

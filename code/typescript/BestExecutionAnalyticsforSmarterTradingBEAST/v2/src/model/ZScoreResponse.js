@@ -48,9 +48,10 @@ class ZScoreResponse {
         if (data) {
             obj = obj || new ZScoreResponse();
 
-            if (data.hasOwnProperty('analytics')) {
+            if (data.hasOwnProperty('analytics') && obj['analytics'] === undefined) {
                 obj['analytics'] = ApiClient.convertToType(data['analytics'], [ZScore]);
             }
+            
         }
         return obj;
     }

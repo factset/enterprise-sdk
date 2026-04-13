@@ -49,12 +49,13 @@ class InvestorSlides {
         if (data) {
             obj = obj || new InvestorSlides();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SlidesObject]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = TranscriptsMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

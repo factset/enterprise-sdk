@@ -50,9 +50,10 @@ class DealsPublicRequest {
         if (data) {
             obj = obj || new DealsPublicRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DealsPublicRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -50,15 +50,16 @@ class InlineResponse20014Estimates {
         if (data) {
             obj = obj || new InlineResponse20014Estimates();
 
-            if (data.hasOwnProperty('firstFiscalYear')) {
+            if (data.hasOwnProperty('firstFiscalYear') && obj['firstFiscalYear'] === undefined) {
                 obj['firstFiscalYear'] = InlineResponse20014EstimatesFirstFiscalYear.constructFromObject(data['firstFiscalYear']);
             }
-            if (data.hasOwnProperty('secondFiscalYear')) {
+            if (data.hasOwnProperty('secondFiscalYear') && obj['secondFiscalYear'] === undefined) {
                 obj['secondFiscalYear'] = InlineResponse20014EstimatesSecondFiscalYear.constructFromObject(data['secondFiscalYear']);
             }
-            if (data.hasOwnProperty('thirdFiscalYear')) {
+            if (data.hasOwnProperty('thirdFiscalYear') && obj['thirdFiscalYear'] === undefined) {
                 obj['thirdFiscalYear'] = InlineResponse20014EstimatesThirdFiscalYear.constructFromObject(data['thirdFiscalYear']);
             }
+            
         }
         return obj;
     }

@@ -51,30 +51,31 @@ class PostBasicMarketListDataItems {
         if (data) {
             obj = obj || new PostBasicMarketListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
+            if (data.hasOwnProperty('shortName') && obj['shortName'] === undefined) {
                 obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('active')) {
+            if (data.hasOwnProperty('active') && obj['active'] === undefined) {
                 obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = PostBasicMarketListDataItemsCountry.constructFromObject(data['country']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = PostBasicMarketListDataItemsType.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = PostBasicMarketListDataItemsGroup.constructFromObject(data['group']);
             }
-            if (data.hasOwnProperty('timezone')) {
+            if (data.hasOwnProperty('timezone') && obj['timezone'] === undefined) {
                 obj['timezone'] = PostBasicMarketListDataItemsTimezone.constructFromObject(data['timezone']);
             }
+            
         }
         return obj;
     }

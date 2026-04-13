@@ -47,12 +47,13 @@ class InlineResponse2001DataNsin {
         if (data) {
             obj = obj || new InlineResponse2001DataNsin();
 
-            if (data.hasOwnProperty('wkn')) {
+            if (data.hasOwnProperty('wkn') && obj['wkn'] === undefined) {
                 obj['wkn'] = ApiClient.convertToType(data['wkn'], 'String');
             }
-            if (data.hasOwnProperty('valor')) {
+            if (data.hasOwnProperty('valor') && obj['valor'] === undefined) {
                 obj['valor'] = ApiClient.convertToType(data['valor'], 'String');
             }
+            
         }
         return obj;
     }

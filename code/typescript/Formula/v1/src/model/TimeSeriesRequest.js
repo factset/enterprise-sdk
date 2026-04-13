@@ -50,9 +50,10 @@ class TimeSeriesRequest {
         if (data) {
             obj = obj || new TimeSeriesRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TimeSeriesRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

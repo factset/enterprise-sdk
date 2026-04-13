@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependentPerShare();
 
-            if (data.hasOwnProperty('dividend')) {
+            if (data.hasOwnProperty('dividend') && obj['dividend'] === undefined) {
                 obj['dividend'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependentPerShareDividend.constructFromObject(data['dividend']);
             }
+            
         }
         return obj;
     }

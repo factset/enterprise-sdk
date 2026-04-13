@@ -47,48 +47,49 @@ class InlineResponse2001DataRatios {
         if (data) {
             obj = obj || new InlineResponse2001DataRatios();
 
-            if (data.hasOwnProperty('priceSales')) {
+            if (data.hasOwnProperty('priceSales') && obj['priceSales'] === undefined) {
                 obj['priceSales'] = ApiClient.convertToType(data['priceSales'], 'Number');
             }
-            if (data.hasOwnProperty('priceEarnings')) {
+            if (data.hasOwnProperty('priceEarnings') && obj['priceEarnings'] === undefined) {
                 obj['priceEarnings'] = ApiClient.convertToType(data['priceEarnings'], 'Number');
             }
-            if (data.hasOwnProperty('priceBookValue')) {
+            if (data.hasOwnProperty('priceBookValue') && obj['priceBookValue'] === undefined) {
                 obj['priceBookValue'] = ApiClient.convertToType(data['priceBookValue'], 'Number');
             }
-            if (data.hasOwnProperty('priceTangibleBookValue')) {
+            if (data.hasOwnProperty('priceTangibleBookValue') && obj['priceTangibleBookValue'] === undefined) {
                 obj['priceTangibleBookValue'] = ApiClient.convertToType(data['priceTangibleBookValue'], 'Number');
             }
-            if (data.hasOwnProperty('priceCashFlow')) {
+            if (data.hasOwnProperty('priceCashFlow') && obj['priceCashFlow'] === undefined) {
                 obj['priceCashFlow'] = ApiClient.convertToType(data['priceCashFlow'], 'Number');
             }
-            if (data.hasOwnProperty('priceFreeCashFlow')) {
+            if (data.hasOwnProperty('priceFreeCashFlow') && obj['priceFreeCashFlow'] === undefined) {
                 obj['priceFreeCashFlow'] = ApiClient.convertToType(data['priceFreeCashFlow'], 'Number');
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = ApiClient.convertToType(data['dividendYield'], 'Number');
             }
-            if (data.hasOwnProperty('enterpriseValueEbit')) {
+            if (data.hasOwnProperty('enterpriseValueEbit') && obj['enterpriseValueEbit'] === undefined) {
                 obj['enterpriseValueEbit'] = ApiClient.convertToType(data['enterpriseValueEbit'], 'Number');
             }
-            if (data.hasOwnProperty('enterpriseValueEbitda')) {
+            if (data.hasOwnProperty('enterpriseValueEbitda') && obj['enterpriseValueEbitda'] === undefined) {
                 obj['enterpriseValueEbitda'] = ApiClient.convertToType(data['enterpriseValueEbitda'], 'Number');
             }
-            if (data.hasOwnProperty('enterpriseValueSales')) {
+            if (data.hasOwnProperty('enterpriseValueSales') && obj['enterpriseValueSales'] === undefined) {
                 obj['enterpriseValueSales'] = ApiClient.convertToType(data['enterpriseValueSales'], 'Number');
             }
-            if (data.hasOwnProperty('ebitInterestExpense')) {
+            if (data.hasOwnProperty('ebitInterestExpense') && obj['ebitInterestExpense'] === undefined) {
                 obj['ebitInterestExpense'] = ApiClient.convertToType(data['ebitInterestExpense'], 'Number');
             }
-            if (data.hasOwnProperty('loansDeposits')) {
+            if (data.hasOwnProperty('loansDeposits') && obj['loansDeposits'] === undefined) {
                 obj['loansDeposits'] = ApiClient.convertToType(data['loansDeposits'], 'Number');
             }
-            if (data.hasOwnProperty('expense')) {
+            if (data.hasOwnProperty('expense') && obj['expense'] === undefined) {
                 obj['expense'] = ApiClient.convertToType(data['expense'], 'Number');
             }
-            if (data.hasOwnProperty('combined')) {
+            if (data.hasOwnProperty('combined') && obj['combined'] === undefined) {
                 obj['combined'] = ApiClient.convertToType(data['combined'], 'Number');
             }
+            
         }
         return obj;
     }

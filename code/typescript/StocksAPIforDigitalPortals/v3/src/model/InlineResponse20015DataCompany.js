@@ -48,9 +48,10 @@ class InlineResponse20015DataCompany {
         if (data) {
             obj = obj || new InlineResponse20015DataCompany();
 
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], [InlineResponse20015DataCompanyCountry]);
             }
+            
         }
         return obj;
     }

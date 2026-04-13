@@ -46,12 +46,13 @@ class DocumentResponseRoot {
         if (data) {
             obj = obj || new DocumentResponseRoot();
 
-            if (data.hasOwnProperty('directories')) {
+            if (data.hasOwnProperty('directories') && obj['directories'] === undefined) {
                 obj['directories'] = ApiClient.convertToType(data['directories'], ['String']);
             }
-            if (data.hasOwnProperty('documents')) {
+            if (data.hasOwnProperty('documents') && obj['documents'] === undefined) {
                 obj['documents'] = ApiClient.convertToType(data['documents'], ['String']);
             }
+            
         }
         return obj;
     }

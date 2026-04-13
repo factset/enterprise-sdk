@@ -47,9 +47,10 @@ class OptimizerInputsCompositeAsset {
         if (data) {
             obj = obj || new OptimizerInputsCompositeAsset();
 
-            if (data.hasOwnProperty('constituents')) {
+            if (data.hasOwnProperty('constituents') && obj['constituents'] === undefined) {
                 obj['constituents'] = ApiClient.convertToType(data['constituents'], [OptimizerInputsCompositeConstituent]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItemsExercise {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItemsExercise();
 
-            if (data.hasOwnProperty('right')) {
+            if (data.hasOwnProperty('right') && obj['right'] === undefined) {
                 obj['right'] = ApiClient.convertToType(data['right'], 'String');
             }
+            
         }
         return obj;
     }

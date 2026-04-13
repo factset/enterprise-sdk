@@ -47,18 +47,19 @@ class FlattenedFiltersTopicsObject {
         if (data) {
             obj = obj || new FlattenedFiltersTopicsObject();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], ['String']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['String']);
             }
+            
         }
         return obj;
     }

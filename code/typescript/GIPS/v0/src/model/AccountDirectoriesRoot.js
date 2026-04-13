@@ -50,9 +50,10 @@ class AccountDirectoriesRoot {
         if (data) {
             obj = obj || new AccountDirectoriesRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AccountDirectories.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class InlineResponse20015DataTradingValue {
         if (data) {
             obj = obj || new InlineResponse20015DataTradingValue();
 
-            if (data.hasOwnProperty('average')) {
+            if (data.hasOwnProperty('average') && obj['average'] === undefined) {
                 obj['average'] = InlineResponse20015DataTradingValueAverage.constructFromObject(data['average']);
             }
+            
         }
         return obj;
     }

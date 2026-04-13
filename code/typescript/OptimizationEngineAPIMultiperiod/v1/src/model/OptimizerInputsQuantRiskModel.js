@@ -48,12 +48,13 @@ class OptimizerInputsQuantRiskModel {
         if (data) {
             obj = obj || new OptimizerInputsQuantRiskModel();
 
-            if (data.hasOwnProperty('raw_data')) {
+            if (data.hasOwnProperty('raw_data') && obj['raw_data'] === undefined) {
                 obj['raw_data'] = OptimizerInputsQuantRiskModelRawData.constructFromObject(data['raw_data']);
             }
-            if (data.hasOwnProperty('request_info')) {
+            if (data.hasOwnProperty('request_info') && obj['request_info'] === undefined) {
                 obj['request_info'] = OptimizerInputsQuantRiskRequestInfo.constructFromObject(data['request_info']);
             }
+            
         }
         return obj;
     }

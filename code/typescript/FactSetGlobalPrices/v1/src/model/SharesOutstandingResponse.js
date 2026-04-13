@@ -47,9 +47,10 @@ class SharesOutstandingResponse {
         if (data) {
             obj = obj || new SharesOutstandingResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SharesOutstandingResponseObject]);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class OptimizerOutputsMultiPeriodOutput {
         if (data) {
             obj = obj || new OptimizerOutputsMultiPeriodOutput();
 
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ApiClient.convertToType(data['periods'], [OptimizerOutputsPeriods]);
             }
-            if (data.hasOwnProperty('raw_stats')) {
+            if (data.hasOwnProperty('raw_stats') && obj['raw_stats'] === undefined) {
                 obj['raw_stats'] = ApiClient.convertToType(data['raw_stats'], 'String');
             }
+            
         }
         return obj;
     }

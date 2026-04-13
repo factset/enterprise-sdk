@@ -51,12 +51,13 @@ class DistinctCountRequest {
         if (data) {
             obj = obj || new DistinctCountRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DistinctCountRequestBody.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = DistinctCountMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

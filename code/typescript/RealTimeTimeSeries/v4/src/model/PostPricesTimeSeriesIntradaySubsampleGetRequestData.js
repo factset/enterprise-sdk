@@ -53,24 +53,25 @@ class PostPricesTimeSeriesIntradaySubsampleGetRequestData {
         if (data) {
             obj = obj || new PostPricesTimeSeriesIntradaySubsampleGetRequestData();
 
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = PostVendorChartIQTimeSeriesEodListRequestDataIdentifier.constructFromObject(data['identifier']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('from')) {
+            if (data.hasOwnProperty('from') && obj['from'] === undefined) {
                 obj['from'] = ApiClient.convertToType(data['from'], 'Date');
             }
-            if (data.hasOwnProperty('granularity')) {
+            if (data.hasOwnProperty('granularity') && obj['granularity'] === undefined) {
                 obj['granularity'] = ApiClient.convertToType(data['granularity'], 'String');
             }
-            if (data.hasOwnProperty('adjustments')) {
+            if (data.hasOwnProperty('adjustments') && obj['adjustments'] === undefined) {
                 obj['adjustments'] = PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustments.constructFromObject(data['adjustments']);
             }
+            
         }
         return obj;
     }

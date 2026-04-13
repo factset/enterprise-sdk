@@ -47,9 +47,10 @@ class EtfReferenceDataResponse {
         if (data) {
             obj = obj || new EtfReferenceDataResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [EtfReferenceData]);
             }
+            
         }
         return obj;
     }

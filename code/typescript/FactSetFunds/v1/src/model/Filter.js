@@ -51,12 +51,13 @@ class Filter {
         if (data) {
             obj = obj || new Filter();
 
-            if (data.hasOwnProperty('joinType')) {
+            if (data.hasOwnProperty('joinType') && obj['joinType'] === undefined) {
                 obj['joinType'] = JoinType.constructFromObject(data['joinType']);
             }
-            if (data.hasOwnProperty('criteria')) {
+            if (data.hasOwnProperty('criteria') && obj['criteria'] === undefined) {
                 obj['criteria'] = ApiClient.convertToType(data['criteria'], [Criterion]);
             }
+            
         }
         return obj;
     }

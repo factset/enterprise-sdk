@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationD
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationDdvItemsLevel();
 
-            if (data.hasOwnProperty('number')) {
+            if (data.hasOwnProperty('number') && obj['number'] === undefined) {
                 obj['number'] = ApiClient.convertToType(data['number'], 'Number');
             }
+            
         }
         return obj;
     }

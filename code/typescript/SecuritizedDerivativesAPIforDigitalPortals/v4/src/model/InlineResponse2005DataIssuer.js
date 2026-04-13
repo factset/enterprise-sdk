@@ -49,12 +49,13 @@ class InlineResponse2005DataIssuer {
         if (data) {
             obj = obj || new InlineResponse2005DataIssuer();
 
-            if (data.hasOwnProperty('juristicPerson')) {
+            if (data.hasOwnProperty('juristicPerson') && obj['juristicPerson'] === undefined) {
                 obj['juristicPerson'] = ApiClient.convertToType(data['juristicPerson'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataIssuerJuristicPersonItems]);
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = ApiClient.convertToType(data['group'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataIssuerGroupItems]);
             }
+            
         }
         return obj;
     }

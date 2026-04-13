@@ -50,21 +50,22 @@ class FirmDescriptionResource {
         if (data) {
             obj = obj || new FirmDescriptionResource();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('userClasses')) {
+            if (data.hasOwnProperty('userClasses') && obj['userClasses'] === undefined) {
                 obj['userClasses'] = ApiClient.convertToType(data['userClasses'], [UserClassResourceReference]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = FirmDescriptionResourceMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

@@ -48,15 +48,16 @@ class NRTSpeakeridsMeta {
         if (data) {
             obj = obj || new NRTSpeakeridsMeta();
 
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], ['String']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = NRTSpeakeridsMetaPagination.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('partial')) {
+            if (data.hasOwnProperty('partial') && obj['partial'] === undefined) {
                 obj['partial'] = NRTSnippetsMetaPartial.constructFromObject(data['partial']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class InlineResponse200DataLifeCycleIntradayActivation {
         if (data) {
             obj = obj || new InlineResponse200DataLifeCycleIntradayActivation();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
-            if (data.hasOwnProperty('isActivated')) {
+            if (data.hasOwnProperty('isActivated') && obj['isActivated'] === undefined) {
                 obj['isActivated'] = ApiClient.convertToType(data['isActivated'], 'Boolean');
             }
+            
         }
         return obj;
     }

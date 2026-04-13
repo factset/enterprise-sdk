@@ -49,12 +49,13 @@ class GetFilesMinuteResponse {
         if (data) {
             obj = obj || new GetFilesMinuteResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = MinTickData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

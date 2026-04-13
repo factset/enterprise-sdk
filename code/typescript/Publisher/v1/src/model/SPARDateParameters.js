@@ -53,15 +53,16 @@ class SPARDateParameters {
         if (data) {
             obj = obj || new SPARDateParameters();
 
-            if (data.hasOwnProperty('startdate')) {
+            if (data.hasOwnProperty('startdate') && obj['startdate'] === undefined) {
                 obj['startdate'] = ApiClient.convertToType(data['startdate'], 'String');
             }
-            if (data.hasOwnProperty('enddate')) {
+            if (data.hasOwnProperty('enddate') && obj['enddate'] === undefined) {
                 obj['enddate'] = ApiClient.convertToType(data['enddate'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
             }
+            
         }
         return obj;
     }

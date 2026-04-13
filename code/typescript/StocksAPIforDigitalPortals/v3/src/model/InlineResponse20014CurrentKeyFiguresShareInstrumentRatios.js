@@ -47,24 +47,25 @@ class InlineResponse20014CurrentKeyFiguresShareInstrumentRatios {
         if (data) {
             obj = obj || new InlineResponse20014CurrentKeyFiguresShareInstrumentRatios();
 
-            if (data.hasOwnProperty('priceEarnings')) {
+            if (data.hasOwnProperty('priceEarnings') && obj['priceEarnings'] === undefined) {
                 obj['priceEarnings'] = ApiClient.convertToType(data['priceEarnings'], 'Number');
             }
-            if (data.hasOwnProperty('priceBookValue')) {
+            if (data.hasOwnProperty('priceBookValue') && obj['priceBookValue'] === undefined) {
                 obj['priceBookValue'] = ApiClient.convertToType(data['priceBookValue'], 'Number');
             }
-            if (data.hasOwnProperty('priceCashFlow')) {
+            if (data.hasOwnProperty('priceCashFlow') && obj['priceCashFlow'] === undefined) {
                 obj['priceCashFlow'] = ApiClient.convertToType(data['priceCashFlow'], 'Number');
             }
-            if (data.hasOwnProperty('priceSales')) {
+            if (data.hasOwnProperty('priceSales') && obj['priceSales'] === undefined) {
                 obj['priceSales'] = ApiClient.convertToType(data['priceSales'], 'Number');
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = ApiClient.convertToType(data['dividendYield'], 'Number');
             }
-            if (data.hasOwnProperty('earningsYield')) {
+            if (data.hasOwnProperty('earningsYield') && obj['earningsYield'] === undefined) {
                 obj['earningsYield'] = ApiClient.convertToType(data['earningsYield'], 'Number');
             }
+            
         }
         return obj;
     }

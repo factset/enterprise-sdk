@@ -49,15 +49,16 @@ class ModelAccountFields {
         if (data) {
             obj = obj || new ModelAccountFields();
 
-            if (data.hasOwnProperty('iterative')) {
+            if (data.hasOwnProperty('iterative') && obj['iterative'] === undefined) {
                 obj['iterative'] = ApiClient.convertToType(data['iterative'], {'String': {'String': {'String': 'String'}}});
             }
-            if (data.hasOwnProperty('nonIterative')) {
+            if (data.hasOwnProperty('nonIterative') && obj['nonIterative'] === undefined) {
                 obj['nonIterative'] = ApiClient.convertToType(data['nonIterative'], {'String': {'String': 'String'}});
             }
-            if (data.hasOwnProperty('additionalFields')) {
+            if (data.hasOwnProperty('additionalFields') && obj['additionalFields'] === undefined) {
                 obj['additionalFields'] = ApiClient.convertToType(data['additionalFields'], [ModelAccountAdditionalField]);
             }
+            
         }
         return obj;
     }

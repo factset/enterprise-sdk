@@ -46,9 +46,10 @@ class IdentifierSettingsDto {
         if (data) {
             obj = obj || new IdentifierSettingsDto();
 
-            if (data.hasOwnProperty('allowEdit')) {
+            if (data.hasOwnProperty('allowEdit') && obj['allowEdit'] === undefined) {
                 obj['allowEdit'] = ApiClient.convertToType(data['allowEdit'], 'Boolean');
             }
+            
         }
         return obj;
     }

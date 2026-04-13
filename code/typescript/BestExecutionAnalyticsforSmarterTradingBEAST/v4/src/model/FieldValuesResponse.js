@@ -47,21 +47,22 @@ class FieldValuesResponse {
         if (data) {
             obj = obj || new FieldValuesResponse();
 
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], ['String']);
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], ['String']);
             }
-            if (data.hasOwnProperty('trader')) {
+            if (data.hasOwnProperty('trader') && obj['trader'] === undefined) {
                 obj['trader'] = ApiClient.convertToType(data['trader'], ['String']);
             }
-            if (data.hasOwnProperty('strategy')) {
+            if (data.hasOwnProperty('strategy') && obj['strategy'] === undefined) {
                 obj['strategy'] = ApiClient.convertToType(data['strategy'], ['String']);
             }
-            if (data.hasOwnProperty('broker')) {
+            if (data.hasOwnProperty('broker') && obj['broker'] === undefined) {
                 obj['broker'] = ApiClient.convertToType(data['broker'], ['String']);
             }
+            
         }
         return obj;
     }

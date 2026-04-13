@@ -46,24 +46,25 @@ class Rollover {
         if (data) {
             obj = obj || new Rollover();
 
-            if (data.hasOwnProperty('americasRollTime')) {
+            if (data.hasOwnProperty('americasRollTime') && obj['americasRollTime'] === undefined) {
                 obj['americasRollTime'] = ApiClient.convertToType(data['americasRollTime'], 'Date');
             }
-            if (data.hasOwnProperty('americasZeroDate')) {
+            if (data.hasOwnProperty('americasZeroDate') && obj['americasZeroDate'] === undefined) {
                 obj['americasZeroDate'] = ApiClient.convertToType(data['americasZeroDate'], 'Date');
             }
-            if (data.hasOwnProperty('asiapacificRollTime')) {
+            if (data.hasOwnProperty('asiapacificRollTime') && obj['asiapacificRollTime'] === undefined) {
                 obj['asiapacificRollTime'] = ApiClient.convertToType(data['asiapacificRollTime'], 'Date');
             }
-            if (data.hasOwnProperty('asiapacificZeroDate')) {
+            if (data.hasOwnProperty('asiapacificZeroDate') && obj['asiapacificZeroDate'] === undefined) {
                 obj['asiapacificZeroDate'] = ApiClient.convertToType(data['asiapacificZeroDate'], 'Date');
             }
-            if (data.hasOwnProperty('europeRollTime')) {
+            if (data.hasOwnProperty('europeRollTime') && obj['europeRollTime'] === undefined) {
                 obj['europeRollTime'] = ApiClient.convertToType(data['europeRollTime'], 'Date');
             }
-            if (data.hasOwnProperty('europeZeroDate')) {
+            if (data.hasOwnProperty('europeZeroDate') && obj['europeZeroDate'] === undefined) {
                 obj['europeZeroDate'] = ApiClient.convertToType(data['europeZeroDate'], 'Date');
             }
+            
         }
         return obj;
     }

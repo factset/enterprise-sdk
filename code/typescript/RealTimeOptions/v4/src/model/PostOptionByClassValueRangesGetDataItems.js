@@ -61,51 +61,52 @@ class PostOptionByClassValueRangesGetDataItems {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetDataItems();
 
-            if (data.hasOwnProperty('totalCount')) {
+            if (data.hasOwnProperty('totalCount') && obj['totalCount'] === undefined) {
                 obj['totalCount'] = ApiClient.convertToType(data['totalCount'], 'Number');
             }
-            if (data.hasOwnProperty('exercise')) {
+            if (data.hasOwnProperty('exercise') && obj['exercise'] === undefined) {
                 obj['exercise'] = PostOptionByClassValueRangesGetDataItemsExercise.constructFromObject(data['exercise']);
             }
-            if (data.hasOwnProperty('strikePrice')) {
+            if (data.hasOwnProperty('strikePrice') && obj['strikePrice'] === undefined) {
                 obj['strikePrice'] = PostOptionByClassValueRangesGetDataItemsStrikePrice.constructFromObject(data['strikePrice']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = PostOptionByClassValueRangesGetDataItemsLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('contractSize')) {
+            if (data.hasOwnProperty('contractSize') && obj['contractSize'] === undefined) {
                 obj['contractSize'] = ApiClient.convertToType(data['contractSize'], [PostOptionByClassValueRangesGetDataContractSizeItems]);
             }
-            if (data.hasOwnProperty('openInterest')) {
+            if (data.hasOwnProperty('openInterest') && obj['openInterest'] === undefined) {
                 obj['openInterest'] = PostOptionByClassValueRangesGetDataItemsOpenInterest.constructFromObject(data['openInterest']);
             }
-            if (data.hasOwnProperty('keyFigures')) {
+            if (data.hasOwnProperty('keyFigures') && obj['keyFigures'] === undefined) {
                 obj['keyFigures'] = PostOptionByClassValueRangesGetDataItemsKeyFigures.constructFromObject(data['keyFigures']);
             }
-            if (data.hasOwnProperty('impliedVolatility')) {
+            if (data.hasOwnProperty('impliedVolatility') && obj['impliedVolatility'] === undefined) {
                 obj['impliedVolatility'] = PostOptionByClassValueRangesGetDataItemsImpliedVolatility.constructFromObject(data['impliedVolatility']);
             }
-            if (data.hasOwnProperty('omega')) {
+            if (data.hasOwnProperty('omega') && obj['omega'] === undefined) {
                 obj['omega'] = PostOptionByClassValueRangesGetDataItemsOmega.constructFromObject(data['omega']);
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = PostOptionByClassValueRangesGetDataItemsLeverage.constructFromObject(data['leverage']);
             }
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = PostOptionByClassValueRangesGetDataItemsDelta.constructFromObject(data['delta']);
             }
-            if (data.hasOwnProperty('thetaOneWeek')) {
+            if (data.hasOwnProperty('thetaOneWeek') && obj['thetaOneWeek'] === undefined) {
                 obj['thetaOneWeek'] = PostOptionByClassValueRangesGetDataItemsThetaOneWeek.constructFromObject(data['thetaOneWeek']);
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = PostOptionByClassValueRangesGetDataItemsVega.constructFromObject(data['vega']);
             }
-            if (data.hasOwnProperty('gamma')) {
+            if (data.hasOwnProperty('gamma') && obj['gamma'] === undefined) {
                 obj['gamma'] = PostOptionByClassValueRangesGetDataItemsGamma.constructFromObject(data['gamma']);
             }
-            if (data.hasOwnProperty('rho')) {
+            if (data.hasOwnProperty('rho') && obj['rho'] === undefined) {
                 obj['rho'] = PostOptionByClassValueRangesGetDataItemsRho.constructFromObject(data['rho']);
             }
+            
         }
         return obj;
     }

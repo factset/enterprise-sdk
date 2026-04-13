@@ -49,15 +49,16 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataFactorCertificat
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataFactorCertificates();
 
-            if (data.hasOwnProperty('effectiveUnderlying')) {
+            if (data.hasOwnProperty('effectiveUnderlying') && obj['effectiveUnderlying'] === undefined) {
                 obj['effectiveUnderlying'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataFactorCertificatesEffectiveUnderlying.constructFromObject(data['effectiveUnderlying']);
             }
-            if (data.hasOwnProperty('participation')) {
+            if (data.hasOwnProperty('participation') && obj['participation'] === undefined) {
                 obj['participation'] = ApiClient.convertToType(data['participation'], 'String');
             }
-            if (data.hasOwnProperty('constantLeverage')) {
+            if (data.hasOwnProperty('constantLeverage') && obj['constantLeverage'] === undefined) {
                 obj['constantLeverage'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataFactorCertificatesConstantLeverage.constructFromObject(data['constantLeverage']);
             }
+            
         }
         return obj;
     }

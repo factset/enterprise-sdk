@@ -686,12 +686,12 @@ class ApiClient {
     static constructFromObject(data, obj, itemType) {
         if (Array.isArray(data)) {
             for (var i = 0; i < data.length; i++) {
-                if (data.hasOwnProperty(i))
+                if (data.hasOwnProperty(i) && obj[i] === undefined)
                     obj[i] = ApiClient.convertToType(data[i], itemType);
             }
         } else {
             for (var k in data) {
-                if (data.hasOwnProperty(k))
+                if (data.hasOwnProperty(k) && obj[k] === undefined)
                     obj[k] = ApiClient.convertToType(data[k], itemType);
             }
         }

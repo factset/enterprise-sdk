@@ -47,9 +47,10 @@ class InlineResponse202 {
         if (data) {
             obj = obj || new InlineResponse202();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InlineResponse202Data.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

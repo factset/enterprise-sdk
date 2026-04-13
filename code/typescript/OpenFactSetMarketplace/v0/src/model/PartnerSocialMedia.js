@@ -47,15 +47,16 @@ class PartnerSocialMedia {
         if (data) {
             obj = obj || new PartnerSocialMedia();
 
-            if (data.hasOwnProperty('linkedin')) {
+            if (data.hasOwnProperty('linkedin') && obj['linkedin'] === undefined) {
                 obj['linkedin'] = ApiClient.convertToType(data['linkedin'], 'String');
             }
-            if (data.hasOwnProperty('x')) {
+            if (data.hasOwnProperty('x') && obj['x'] === undefined) {
                 obj['x'] = ApiClient.convertToType(data['x'], 'String');
             }
-            if (data.hasOwnProperty('facebook')) {
+            if (data.hasOwnProperty('facebook') && obj['facebook'] === undefined) {
                 obj['facebook'] = ApiClient.convertToType(data['facebook'], 'String');
             }
+            
         }
         return obj;
     }

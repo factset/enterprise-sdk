@@ -52,12 +52,13 @@ class PostCompanyKeyItemsCurrentGetByInstrumentRequestData {
         if (data) {
             obj = obj || new PostCompanyKeyItemsCurrentGetByInstrumentRequestData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostCompanyKeyItemsCurrentGetByInstrumentRequestDataCurrency.constructFromObject(data['currency']);
             }
+            
         }
         return obj;
     }

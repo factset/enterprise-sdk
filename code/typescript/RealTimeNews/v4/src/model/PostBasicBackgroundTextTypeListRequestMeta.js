@@ -47,9 +47,10 @@ class PostBasicBackgroundTextTypeListRequestMeta {
         if (data) {
             obj = obj || new PostBasicBackgroundTextTypeListRequestMeta();
 
-            if (data.hasOwnProperty('attributes')) {
+            if (data.hasOwnProperty('attributes') && obj['attributes'] === undefined) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], ['String']);
             }
+            
         }
         return obj;
     }

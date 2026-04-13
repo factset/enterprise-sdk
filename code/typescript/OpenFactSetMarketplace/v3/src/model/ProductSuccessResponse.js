@@ -50,9 +50,10 @@ class ProductSuccessResponse {
         if (data) {
             obj = obj || new ProductSuccessResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = Product.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

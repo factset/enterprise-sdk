@@ -51,12 +51,13 @@ class TickerTranslationRequest {
         if (data) {
             obj = obj || new TickerTranslationRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('tickerType')) {
+            if (data.hasOwnProperty('tickerType') && obj['tickerType'] === undefined) {
                 obj['tickerType'] = ApiClient.convertToType(data['tickerType'], 'String');
             }
+            
         }
         return obj;
     }

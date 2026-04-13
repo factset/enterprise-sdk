@@ -47,12 +47,13 @@ class ColoredValue {
         if (data) {
             obj = obj || new ColoredValue();
 
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
-            if (data.hasOwnProperty('color')) {
+            if (data.hasOwnProperty('color') && obj['color'] === undefined) {
                 obj['color'] = ValueColor.constructFromObject(data['color']);
             }
+            
         }
         return obj;
     }

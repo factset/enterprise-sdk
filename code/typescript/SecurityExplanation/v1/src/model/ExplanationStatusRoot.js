@@ -50,9 +50,10 @@ class ExplanationStatusRoot {
         if (data) {
             obj = obj || new ExplanationStatusRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExplanationStatus.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

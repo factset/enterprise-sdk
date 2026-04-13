@@ -51,39 +51,40 @@ class InlineResponse200DataLifeCycle {
         if (data) {
             obj = obj || new InlineResponse200DataLifeCycle();
 
-            if (data.hasOwnProperty('subscriptionPeriod')) {
+            if (data.hasOwnProperty('subscriptionPeriod') && obj['subscriptionPeriod'] === undefined) {
                 obj['subscriptionPeriod'] = InlineResponse200DataLifeCycleSubscriptionPeriod.constructFromObject(data['subscriptionPeriod']);
             }
-            if (data.hasOwnProperty('valutaIssue')) {
+            if (data.hasOwnProperty('valutaIssue') && obj['valutaIssue'] === undefined) {
                 obj['valutaIssue'] = ApiClient.convertToType(data['valutaIssue'], 'Date');
             }
-            if (data.hasOwnProperty('initialFixing')) {
+            if (data.hasOwnProperty('initialFixing') && obj['initialFixing'] === undefined) {
                 obj['initialFixing'] = ApiClient.convertToType(data['initialFixing'], 'Date');
             }
-            if (data.hasOwnProperty('issue')) {
+            if (data.hasOwnProperty('issue') && obj['issue'] === undefined) {
                 obj['issue'] = ApiClient.convertToType(data['issue'], 'Date');
             }
-            if (data.hasOwnProperty('intradayActivation')) {
+            if (data.hasOwnProperty('intradayActivation') && obj['intradayActivation'] === undefined) {
                 obj['intradayActivation'] = InlineResponse200DataLifeCycleIntradayActivation.constructFromObject(data['intradayActivation']);
             }
-            if (data.hasOwnProperty('tradingPeriod')) {
+            if (data.hasOwnProperty('tradingPeriod') && obj['tradingPeriod'] === undefined) {
                 obj['tradingPeriod'] = InlineResponse200DataLifeCycleTradingPeriod.constructFromObject(data['tradingPeriod']);
             }
-            if (data.hasOwnProperty('startExercisePeriod')) {
+            if (data.hasOwnProperty('startExercisePeriod') && obj['startExercisePeriod'] === undefined) {
                 obj['startExercisePeriod'] = ApiClient.convertToType(data['startExercisePeriod'], 'Date');
             }
-            if (data.hasOwnProperty('valuation')) {
+            if (data.hasOwnProperty('valuation') && obj['valuation'] === undefined) {
                 obj['valuation'] = ApiClient.convertToType(data['valuation'], 'Date');
             }
-            if (data.hasOwnProperty('maturity')) {
+            if (data.hasOwnProperty('maturity') && obj['maturity'] === undefined) {
                 obj['maturity'] = InlineResponse200DataLifeCycleMaturity.constructFromObject(data['maturity']);
             }
-            if (data.hasOwnProperty('repayment')) {
+            if (data.hasOwnProperty('repayment') && obj['repayment'] === undefined) {
                 obj['repayment'] = ApiClient.convertToType(data['repayment'], 'Date');
             }
-            if (data.hasOwnProperty('cancellation')) {
+            if (data.hasOwnProperty('cancellation') && obj['cancellation'] === undefined) {
                 obj['cancellation'] = ApiClient.convertToType(data['cancellation'], 'Date');
             }
+            
         }
         return obj;
     }

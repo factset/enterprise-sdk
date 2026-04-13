@@ -50,24 +50,25 @@ class SPARCalculationParameters {
         if (data) {
             obj = obj || new SPARCalculationParameters();
 
-            if (data.hasOwnProperty('componentid')) {
+            if (data.hasOwnProperty('componentid') && obj['componentid'] === undefined) {
                 obj['componentid'] = ApiClient.convertToType(data['componentid'], 'String');
             }
-            if (data.hasOwnProperty('accounts')) {
+            if (data.hasOwnProperty('accounts') && obj['accounts'] === undefined) {
                 obj['accounts'] = ApiClient.convertToType(data['accounts'], [SPARIdentifier]);
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = SPARIdentifier.constructFromObject(data['benchmark']);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = SPARDateParameters.constructFromObject(data['dates']);
             }
-            if (data.hasOwnProperty('currencyisocode')) {
+            if (data.hasOwnProperty('currencyisocode') && obj['currencyisocode'] === undefined) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
             }
-            if (data.hasOwnProperty('universeid')) {
+            if (data.hasOwnProperty('universeid') && obj['universeid'] === undefined) {
                 obj['universeid'] = ApiClient.convertToType(data['universeid'], 'String');
             }
+            
         }
         return obj;
     }

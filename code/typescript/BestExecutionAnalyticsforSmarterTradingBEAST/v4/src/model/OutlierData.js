@@ -49,12 +49,13 @@ class OutlierData {
         if (data) {
             obj = obj || new OutlierData();
 
-            if (data.hasOwnProperty('result')) {
+            if (data.hasOwnProperty('result') && obj['result'] === undefined) {
                 obj['result'] = ApiClient.convertToType(data['result'], [OutlierDataResult]);
             }
-            if (data.hasOwnProperty('metrics')) {
+            if (data.hasOwnProperty('metrics') && obj['metrics'] === undefined) {
                 obj['metrics'] = OutlierMetrics.constructFromObject(data['metrics']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class StatusPollResponse {
         if (data) {
             obj = obj || new StatusPollResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = StatusPollResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

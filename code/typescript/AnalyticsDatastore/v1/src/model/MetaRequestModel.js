@@ -48,9 +48,10 @@ class MetaRequestModel {
         if (data) {
             obj = obj || new MetaRequestModel();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = MetaRequestModelPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

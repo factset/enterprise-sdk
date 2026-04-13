@@ -47,12 +47,13 @@ class Boxplot {
         if (data) {
             obj = obj || new Boxplot();
 
-            if (data.hasOwnProperty('boxplotSummary')) {
+            if (data.hasOwnProperty('boxplotSummary') && obj['boxplotSummary'] === undefined) {
                 obj['boxplotSummary'] = BoxplotBoxplotSummary.constructFromObject(data['boxplotSummary']);
             }
-            if (data.hasOwnProperty('boxplotOutliers')) {
+            if (data.hasOwnProperty('boxplotOutliers') && obj['boxplotOutliers'] === undefined) {
                 obj['boxplotOutliers'] = ApiClient.convertToType(data['boxplotOutliers'], ['Number']);
             }
+            
         }
         return obj;
     }

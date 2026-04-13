@@ -48,9 +48,10 @@ class FormTypeResponse {
         if (data) {
             obj = obj || new FormTypeResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FormType]);
             }
+            
         }
         return obj;
     }

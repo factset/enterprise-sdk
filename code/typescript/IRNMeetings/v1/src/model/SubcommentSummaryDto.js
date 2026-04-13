@@ -46,15 +46,16 @@ class SubcommentSummaryDto {
         if (data) {
             obj = obj || new SubcommentSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('userId')) {
+            if (data.hasOwnProperty('userId') && obj['userId'] === undefined) {
                 obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
+            if (data.hasOwnProperty('createdAt') && obj['createdAt'] === undefined) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
+            
         }
         return obj;
     }

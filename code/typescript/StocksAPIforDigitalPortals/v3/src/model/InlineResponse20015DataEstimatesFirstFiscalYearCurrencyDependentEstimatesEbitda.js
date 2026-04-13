@@ -48,9 +48,10 @@ class InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesE
         if (data) {
             obj = obj || new InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesEbitda();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesEbitMean.constructFromObject(data['mean']);
             }
+            
         }
         return obj;
     }

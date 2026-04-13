@@ -49,12 +49,13 @@ class InlineResponse20047Data {
         if (data) {
             obj = obj || new InlineResponse20047Data();
 
-            if (data.hasOwnProperty('identifiers')) {
+            if (data.hasOwnProperty('identifiers') && obj['identifiers'] === undefined) {
                 obj['identifiers'] = ApiClient.convertToType(data['identifiers'], [PostNewsArticleListByInstrumentDataIdentifiersItems]);
             }
-            if (data.hasOwnProperty('articles')) {
+            if (data.hasOwnProperty('articles') && obj['articles'] === undefined) {
                 obj['articles'] = ApiClient.convertToType(data['articles'], [PostNewsArticleListByInstrumentDataArticlesItems]);
             }
+            
         }
         return obj;
     }

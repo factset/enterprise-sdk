@@ -48,12 +48,13 @@ class OptimizerInputsExpectedReturn {
         if (data) {
             obj = obj || new OptimizerInputsExpectedReturn();
 
-            if (data.hasOwnProperty('alpha')) {
+            if (data.hasOwnProperty('alpha') && obj['alpha'] === undefined) {
                 obj['alpha'] = OptimizerInputsValue.constructFromObject(data['alpha']);
             }
-            if (data.hasOwnProperty('alpha_unit')) {
+            if (data.hasOwnProperty('alpha_unit') && obj['alpha_unit'] === undefined) {
                 obj['alpha_unit'] = OptimizerInputsEAlphaUnitTypeEnum.constructFromObject(data['alpha_unit']);
             }
+            
         }
         return obj;
     }

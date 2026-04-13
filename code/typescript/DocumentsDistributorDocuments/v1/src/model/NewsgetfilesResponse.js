@@ -48,12 +48,13 @@ class NewsgetfilesResponse {
         if (data) {
             obj = obj || new NewsgetfilesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Getfilesone]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = MetaOne.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

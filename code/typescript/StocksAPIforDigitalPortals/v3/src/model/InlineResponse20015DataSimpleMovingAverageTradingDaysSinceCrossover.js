@@ -49,12 +49,13 @@ class InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossover {
         if (data) {
             obj = obj || new InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossover();
 
-            if (data.hasOwnProperty('sma20vs50')) {
+            if (data.hasOwnProperty('sma20vs50') && obj['sma20vs50'] === undefined) {
                 obj['sma20vs50'] = InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50.constructFromObject(data['sma20vs50']);
             }
-            if (data.hasOwnProperty('sma50vs200')) {
+            if (data.hasOwnProperty('sma50vs200') && obj['sma50vs200'] === undefined) {
                 obj['sma50vs200'] = InlineResponse20015DataSimpleMovingAverageTradingDaysSinceCrossoverSma50vs200.constructFromObject(data['sma50vs200']);
             }
+            
         }
         return obj;
     }

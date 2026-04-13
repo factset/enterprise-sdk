@@ -48,9 +48,10 @@ class BondSensitivityResponse {
         if (data) {
             obj = obj || new BondSensitivityResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [BondSensitivity]);
             }
+            
         }
         return obj;
     }

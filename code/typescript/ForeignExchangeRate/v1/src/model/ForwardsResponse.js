@@ -47,9 +47,10 @@ class ForwardsResponse {
         if (data) {
             obj = obj || new ForwardsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Forward]);
             }
+            
         }
         return obj;
     }

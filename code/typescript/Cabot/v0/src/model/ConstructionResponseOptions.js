@@ -47,9 +47,10 @@ class ConstructionResponseOptions {
         if (data) {
             obj = obj || new ConstructionResponseOptions();
 
-            if (data.hasOwnProperty('constructionValues')) {
+            if (data.hasOwnProperty('constructionValues') && obj['constructionValues'] === undefined) {
                 obj['constructionValues'] = ConstructionModelAnalytics.constructFromObject(data['constructionValues']);
             }
+            
         }
         return obj;
     }

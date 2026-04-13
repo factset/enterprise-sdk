@@ -46,15 +46,16 @@ class CalculationUnitStatus {
         if (data) {
             obj = obj || new CalculationUnitStatus();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
             }
-            if (data.hasOwnProperty('result')) {
+            if (data.hasOwnProperty('result') && obj['result'] === undefined) {
                 obj['result'] = ApiClient.convertToType(data['result'], 'String');
             }
+            
         }
         return obj;
     }

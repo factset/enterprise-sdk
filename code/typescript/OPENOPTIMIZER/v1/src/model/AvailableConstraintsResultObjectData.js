@@ -46,24 +46,25 @@ class AvailableConstraintsResultObjectData {
         if (data) {
             obj = obj || new AvailableConstraintsResultObjectData();
 
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('tags')) {
+            if (data.hasOwnProperty('tags') && obj['tags'] === undefined) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

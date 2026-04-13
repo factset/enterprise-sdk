@@ -46,18 +46,19 @@ class FactSetProtobufFormatV1NumberFormatTypesExponentialStandardSpecifier {
         if (data) {
             obj = obj || new FactSetProtobufFormatV1NumberFormatTypesExponentialStandardSpecifier();
 
-            if (data.hasOwnProperty('decimalDigits')) {
+            if (data.hasOwnProperty('decimalDigits') && obj['decimalDigits'] === undefined) {
                 obj['decimalDigits'] = ApiClient.convertToType(data['decimalDigits'], 'Number');
             }
-            if (data.hasOwnProperty('exponentDigits')) {
+            if (data.hasOwnProperty('exponentDigits') && obj['exponentDigits'] === undefined) {
                 obj['exponentDigits'] = ApiClient.convertToType(data['exponentDigits'], 'Number');
             }
-            if (data.hasOwnProperty('decimalSeparator')) {
+            if (data.hasOwnProperty('decimalSeparator') && obj['decimalSeparator'] === undefined) {
                 obj['decimalSeparator'] = ApiClient.convertToType(data['decimalSeparator'], 'String');
             }
-            if (data.hasOwnProperty('exponentSignRequired')) {
+            if (data.hasOwnProperty('exponentSignRequired') && obj['exponentSignRequired'] === undefined) {
                 obj['exponentSignRequired'] = ApiClient.convertToType(data['exponentSignRequired'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -46,24 +46,25 @@ class FactSetProtobufStachV3TableViewTypesSplit {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesSplit();
 
-            if (data.hasOwnProperty('alias')) {
+            if (data.hasOwnProperty('alias') && obj['alias'] === undefined) {
                 obj['alias'] = ApiClient.convertToType(data['alias'], 'String');
             }
-            if (data.hasOwnProperty('by')) {
+            if (data.hasOwnProperty('by') && obj['by'] === undefined) {
                 obj['by'] = ApiClient.convertToType(data['by'], ['String']);
             }
-            if (data.hasOwnProperty('include')) {
+            if (data.hasOwnProperty('include') && obj['include'] === undefined) {
                 obj['include'] = ApiClient.convertToType(data['include'], ['String']);
             }
-            if (data.hasOwnProperty('over')) {
+            if (data.hasOwnProperty('over') && obj['over'] === undefined) {
                 obj['over'] = ApiClient.convertToType(data['over'], ['String']);
             }
-            if (data.hasOwnProperty('headers')) {
+            if (data.hasOwnProperty('headers') && obj['headers'] === undefined) {
                 obj['headers'] = ApiClient.convertToType(data['headers'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('removeEmptySplitColumns')) {
+            if (data.hasOwnProperty('removeEmptySplitColumns') && obj['removeEmptySplitColumns'] === undefined) {
                 obj['removeEmptySplitColumns'] = ApiClient.convertToType(data['removeEmptySplitColumns'], 'Boolean');
             }
+            
         }
         return obj;
     }

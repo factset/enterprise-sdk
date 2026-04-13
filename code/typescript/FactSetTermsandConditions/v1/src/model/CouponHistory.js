@@ -47,51 +47,52 @@ class CouponHistory {
         if (data) {
             obj = obj || new CouponHistory();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('couponBasketFlag')) {
+            if (data.hasOwnProperty('couponBasketFlag') && obj['couponBasketFlag'] === undefined) {
                 obj['couponBasketFlag'] = ApiClient.convertToType(data['couponBasketFlag'], 'Boolean');
             }
-            if (data.hasOwnProperty('couponEffPmtDate')) {
+            if (data.hasOwnProperty('couponEffPmtDate') && obj['couponEffPmtDate'] === undefined) {
                 obj['couponEffPmtDate'] = ApiClient.convertToType(data['couponEffPmtDate'], 'Date');
             }
-            if (data.hasOwnProperty('couponFormula')) {
+            if (data.hasOwnProperty('couponFormula') && obj['couponFormula'] === undefined) {
                 obj['couponFormula'] = ApiClient.convertToType(data['couponFormula'], 'String');
             }
-            if (data.hasOwnProperty('couponInitResetDate')) {
+            if (data.hasOwnProperty('couponInitResetDate') && obj['couponInitResetDate'] === undefined) {
                 obj['couponInitResetDate'] = ApiClient.convertToType(data['couponInitResetDate'], 'Date');
             }
-            if (data.hasOwnProperty('couponResetFreq')) {
+            if (data.hasOwnProperty('couponResetFreq') && obj['couponResetFreq'] === undefined) {
                 obj['couponResetFreq'] = ApiClient.convertToType(data['couponResetFreq'], 'String');
             }
-            if (data.hasOwnProperty('couponLink')) {
+            if (data.hasOwnProperty('couponLink') && obj['couponLink'] === undefined) {
                 obj['couponLink'] = ApiClient.convertToType(data['couponLink'], 'String');
             }
-            if (data.hasOwnProperty('couponMargin')) {
+            if (data.hasOwnProperty('couponMargin') && obj['couponMargin'] === undefined) {
                 obj['couponMargin'] = ApiClient.convertToType(data['couponMargin'], 'Number');
             }
-            if (data.hasOwnProperty('couponMinFloatRate')) {
+            if (data.hasOwnProperty('couponMinFloatRate') && obj['couponMinFloatRate'] === undefined) {
                 obj['couponMinFloatRate'] = ApiClient.convertToType(data['couponMinFloatRate'], 'Number');
             }
-            if (data.hasOwnProperty('couponStructSubCode')) {
+            if (data.hasOwnProperty('couponStructSubCode') && obj['couponStructSubCode'] === undefined) {
                 obj['couponStructSubCode'] = ApiClient.convertToType(data['couponStructSubCode'], 'String');
             }
-            if (data.hasOwnProperty('couponTypeStruct')) {
+            if (data.hasOwnProperty('couponTypeStruct') && obj['couponTypeStruct'] === undefined) {
                 obj['couponTypeStruct'] = ApiClient.convertToType(data['couponTypeStruct'], 'String');
             }
-            if (data.hasOwnProperty('couponVarPmtFlag')) {
+            if (data.hasOwnProperty('couponVarPmtFlag') && obj['couponVarPmtFlag'] === undefined) {
                 obj['couponVarPmtFlag'] = ApiClient.convertToType(data['couponVarPmtFlag'], 'Boolean');
             }
-            if (data.hasOwnProperty('underlyingIndex')) {
+            if (data.hasOwnProperty('underlyingIndex') && obj['underlyingIndex'] === undefined) {
                 obj['underlyingIndex'] = ApiClient.convertToType(data['underlyingIndex'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,27 +47,28 @@ class BillingAdjustment {
         if (data) {
             obj = obj || new BillingAdjustment();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('services')) {
+            if (data.hasOwnProperty('services') && obj['services'] === undefined) {
                 obj['services'] = ApiClient.convertToType(data['services'], 'Number');
             }
-            if (data.hasOwnProperty('taxes')) {
+            if (data.hasOwnProperty('taxes') && obj['taxes'] === undefined) {
                 obj['taxes'] = ApiClient.convertToType(data['taxes'], 'Number');
             }
-            if (data.hasOwnProperty('fees')) {
+            if (data.hasOwnProperty('fees') && obj['fees'] === undefined) {
                 obj['fees'] = ApiClient.convertToType(data['fees'], 'Number');
             }
-            if (data.hasOwnProperty('currencySymbol')) {
+            if (data.hasOwnProperty('currencySymbol') && obj['currencySymbol'] === undefined) {
                 obj['currencySymbol'] = ApiClient.convertToType(data['currencySymbol'], 'String');
             }
-            if (data.hasOwnProperty('conversionRatio')) {
+            if (data.hasOwnProperty('conversionRatio') && obj['conversionRatio'] === undefined) {
                 obj['conversionRatio'] = ApiClient.convertToType(data['conversionRatio'], 'Number');
             }
+            
         }
         return obj;
     }

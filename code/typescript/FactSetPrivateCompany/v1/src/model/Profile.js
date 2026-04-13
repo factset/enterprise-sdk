@@ -47,72 +47,73 @@ class Profile {
         if (data) {
             obj = obj || new Profile();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('ceo')) {
+            if (data.hasOwnProperty('ceo') && obj['ceo'] === undefined) {
                 obj['ceo'] = ApiClient.convertToType(data['ceo'], 'String');
             }
-            if (data.hasOwnProperty('founders')) {
+            if (data.hasOwnProperty('founders') && obj['founders'] === undefined) {
                 obj['founders'] = ApiClient.convertToType(data['founders'], ['String']);
             }
-            if (data.hasOwnProperty('chair')) {
+            if (data.hasOwnProperty('chair') && obj['chair'] === undefined) {
                 obj['chair'] = ApiClient.convertToType(data['chair'], 'String');
             }
-            if (data.hasOwnProperty('peBackingCurrent')) {
+            if (data.hasOwnProperty('peBackingCurrent') && obj['peBackingCurrent'] === undefined) {
                 obj['peBackingCurrent'] = ApiClient.convertToType(data['peBackingCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('peBackingEver')) {
+            if (data.hasOwnProperty('peBackingEver') && obj['peBackingEver'] === undefined) {
                 obj['peBackingEver'] = ApiClient.convertToType(data['peBackingEver'], 'Boolean');
             }
-            if (data.hasOwnProperty('vcBackingCurrent')) {
+            if (data.hasOwnProperty('vcBackingCurrent') && obj['vcBackingCurrent'] === undefined) {
                 obj['vcBackingCurrent'] = ApiClient.convertToType(data['vcBackingCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('vcBackingEver')) {
+            if (data.hasOwnProperty('vcBackingEver') && obj['vcBackingEver'] === undefined) {
                 obj['vcBackingEver'] = ApiClient.convertToType(data['vcBackingEver'], 'Boolean');
             }
-            if (data.hasOwnProperty('totalInvestors')) {
+            if (data.hasOwnProperty('totalInvestors') && obj['totalInvestors'] === undefined) {
                 obj['totalInvestors'] = ApiClient.convertToType(data['totalInvestors'], 'Number');
             }
-            if (data.hasOwnProperty('activeInvestors')) {
+            if (data.hasOwnProperty('activeInvestors') && obj['activeInvestors'] === undefined) {
                 obj['activeInvestors'] = ApiClient.convertToType(data['activeInvestors'], 'Number');
             }
-            if (data.hasOwnProperty('activeInvestorsList')) {
+            if (data.hasOwnProperty('activeInvestorsList') && obj['activeInvestorsList'] === undefined) {
                 obj['activeInvestorsList'] = ApiClient.convertToType(data['activeInvestorsList'], ['String']);
             }
-            if (data.hasOwnProperty('exitedInvestorsList')) {
+            if (data.hasOwnProperty('exitedInvestorsList') && obj['exitedInvestorsList'] === undefined) {
                 obj['exitedInvestorsList'] = ApiClient.convertToType(data['exitedInvestorsList'], ['String']);
             }
-            if (data.hasOwnProperty('amountRaisedUSD')) {
+            if (data.hasOwnProperty('amountRaisedUSD') && obj['amountRaisedUSD'] === undefined) {
                 obj['amountRaisedUSD'] = ApiClient.convertToType(data['amountRaisedUSD'], 'Number');
             }
-            if (data.hasOwnProperty('amountRaisedLocalCurrency')) {
+            if (data.hasOwnProperty('amountRaisedLocalCurrency') && obj['amountRaisedLocalCurrency'] === undefined) {
                 obj['amountRaisedLocalCurrency'] = ApiClient.convertToType(data['amountRaisedLocalCurrency'], 'Number');
             }
-            if (data.hasOwnProperty('vcpeAmountRaisedUSD')) {
+            if (data.hasOwnProperty('vcpeAmountRaisedUSD') && obj['vcpeAmountRaisedUSD'] === undefined) {
                 obj['vcpeAmountRaisedUSD'] = ApiClient.convertToType(data['vcpeAmountRaisedUSD'], 'Number');
             }
-            if (data.hasOwnProperty('vcpeAmountRaisedLocalCurrency')) {
+            if (data.hasOwnProperty('vcpeAmountRaisedLocalCurrency') && obj['vcpeAmountRaisedLocalCurrency'] === undefined) {
                 obj['vcpeAmountRaisedLocalCurrency'] = ApiClient.convertToType(data['vcpeAmountRaisedLocalCurrency'], 'Number');
             }
-            if (data.hasOwnProperty('investmentStats')) {
+            if (data.hasOwnProperty('investmentStats') && obj['investmentStats'] === undefined) {
                 obj['investmentStats'] = ApiClient.convertToType(data['investmentStats'], 'Number');
             }
-            if (data.hasOwnProperty('lastInvestmentDate')) {
+            if (data.hasOwnProperty('lastInvestmentDate') && obj['lastInvestmentDate'] === undefined) {
                 obj['lastInvestmentDate'] = ApiClient.convertToType(data['lastInvestmentDate'], 'Date');
             }
-            if (data.hasOwnProperty('firstInvestmentDate')) {
+            if (data.hasOwnProperty('firstInvestmentDate') && obj['firstInvestmentDate'] === undefined) {
                 obj['firstInvestmentDate'] = ApiClient.convertToType(data['firstInvestmentDate'], 'Date');
             }
-            if (data.hasOwnProperty('businessTags')) {
+            if (data.hasOwnProperty('businessTags') && obj['businessTags'] === undefined) {
                 obj['businessTags'] = ApiClient.convertToType(data['businessTags'], ['String']);
             }
-            if (data.hasOwnProperty('latestPostMoneyValuation')) {
+            if (data.hasOwnProperty('latestPostMoneyValuation') && obj['latestPostMoneyValuation'] === undefined) {
                 obj['latestPostMoneyValuation'] = ApiClient.convertToType(data['latestPostMoneyValuation'], 'Number');
             }
+            
         }
         return obj;
     }

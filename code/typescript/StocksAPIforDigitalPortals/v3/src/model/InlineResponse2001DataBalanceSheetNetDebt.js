@@ -47,15 +47,16 @@ class InlineResponse2001DataBalanceSheetNetDebt {
         if (data) {
             obj = obj || new InlineResponse2001DataBalanceSheetNetDebt();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('ratioToTotalEquity')) {
+            if (data.hasOwnProperty('ratioToTotalEquity') && obj['ratioToTotalEquity'] === undefined) {
                 obj['ratioToTotalEquity'] = ApiClient.convertToType(data['ratioToTotalEquity'], 'Number');
             }
+            
         }
         return obj;
     }

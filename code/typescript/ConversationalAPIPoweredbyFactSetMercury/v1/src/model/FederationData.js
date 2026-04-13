@@ -77,6 +77,8 @@ class FederationData {
             case 'string':
               return ResponseText.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct FederationData due to no matching discriminator value: " + data['type']);
         return obj;
     }
 

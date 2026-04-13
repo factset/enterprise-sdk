@@ -49,12 +49,13 @@ class PostOptionByClassListRequestDataKeyFiguresVega {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataKeyFiguresVega();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostOptionByClassListRequestDataKeyFiguresOmegaMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostOptionByClassListRequestDataKeyFiguresOmegaMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

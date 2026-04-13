@@ -47,9 +47,10 @@ class HighLowResponse {
         if (data) {
             obj = obj || new HighLowResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [HighLow]);
             }
+            
         }
         return obj;
     }

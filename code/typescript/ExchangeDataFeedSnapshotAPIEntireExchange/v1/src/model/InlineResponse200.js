@@ -46,24 +46,25 @@ class InlineResponse200 {
         if (data) {
             obj = obj || new InlineResponse200();
 
-            if (data.hasOwnProperty('product')) {
+            if (data.hasOwnProperty('product') && obj['product'] === undefined) {
                 obj['product'] = ApiClient.convertToType(data['product'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'String');
             }
-            if (data.hasOwnProperty('responseType')) {
+            if (data.hasOwnProperty('responseType') && obj['responseType'] === undefined) {
                 obj['responseType'] = ApiClient.convertToType(data['responseType'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

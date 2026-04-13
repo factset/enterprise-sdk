@@ -51,33 +51,34 @@ class InlineResponse20012Data {
         if (data) {
             obj = obj || new InlineResponse20012Data();
 
-            if (data.hasOwnProperty('efficiency')) {
+            if (data.hasOwnProperty('efficiency') && obj['efficiency'] === undefined) {
                 obj['efficiency'] = InlineResponse20012DataEfficiency.constructFromObject(data['efficiency']);
             }
-            if (data.hasOwnProperty('tradability')) {
+            if (data.hasOwnProperty('tradability') && obj['tradability'] === undefined) {
                 obj['tradability'] = InlineResponse20012DataTradability.constructFromObject(data['tradability']);
             }
-            if (data.hasOwnProperty('fit')) {
+            if (data.hasOwnProperty('fit') && obj['fit'] === undefined) {
                 obj['fit'] = InlineResponse20012DataFit.constructFromObject(data['fit']);
             }
-            if (data.hasOwnProperty('grade')) {
+            if (data.hasOwnProperty('grade') && obj['grade'] === undefined) {
                 obj['grade'] = ApiClient.convertToType(data['grade'], 'String');
             }
-            if (data.hasOwnProperty('analystPick')) {
+            if (data.hasOwnProperty('analystPick') && obj['analystPick'] === undefined) {
                 obj['analystPick'] = ApiClient.convertToType(data['analystPick'], 'Boolean');
             }
-            if (data.hasOwnProperty('onOpportunitiesList')) {
+            if (data.hasOwnProperty('onOpportunitiesList') && obj['onOpportunitiesList'] === undefined) {
                 obj['onOpportunitiesList'] = ApiClient.convertToType(data['onOpportunitiesList'], 'Boolean');
             }
-            if (data.hasOwnProperty('fitRsquared')) {
+            if (data.hasOwnProperty('fitRsquared') && obj['fitRsquared'] === undefined) {
                 obj['fitRsquared'] = ApiClient.convertToType(data['fitRsquared'], 'Number');
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = InlineResponse20012DataBeta.constructFromObject(data['beta']);
             }
-            if (data.hasOwnProperty('standardDeviationDown')) {
+            if (data.hasOwnProperty('standardDeviationDown') && obj['standardDeviationDown'] === undefined) {
                 obj['standardDeviationDown'] = ApiClient.convertToType(data['standardDeviationDown'], 'Number');
             }
+            
         }
         return obj;
     }

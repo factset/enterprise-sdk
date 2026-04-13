@@ -49,15 +49,16 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidati
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationPrices();
 
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('latest')) {
+            if (data.hasOwnProperty('latest') && obj['latest'] === undefined) {
                 obj['latest'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationPricesLatest.constructFromObject(data['latest']);
             }
-            if (data.hasOwnProperty('previous')) {
+            if (data.hasOwnProperty('previous') && obj['previous'] === undefined) {
                 obj['previous'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationPricesPrevious.constructFromObject(data['previous']);
             }
+            
         }
         return obj;
     }

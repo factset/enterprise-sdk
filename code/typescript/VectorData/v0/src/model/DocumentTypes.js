@@ -51,12 +51,13 @@ class DocumentTypes {
         if (data) {
             obj = obj || new DocumentTypes();
 
-            if (data.hasOwnProperty('documentType')) {
+            if (data.hasOwnProperty('documentType') && obj['documentType'] === undefined) {
                 obj['documentType'] = ApiClient.convertToType(data['documentType'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

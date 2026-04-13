@@ -52,43 +52,50 @@ class ExPostStatsSettings {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExPostStatsSettings();
-            ExPostSettings.constructFromObject(data, obj);
-            Stats.constructFromObject(data, obj);
-            ExPostStatsSettingsAllOf.constructFromObject(data, obj);
+            try {
+              obj = ExPostSettings.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = Stats.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ExPostStatsSettingsAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
             }
-            if (data.hasOwnProperty('returnsPreferences')) {
+            if (data.hasOwnProperty('returnsPreferences') && obj['returnsPreferences'] === undefined) {
                 obj['returnsPreferences'] = ApiClient.convertToType(data['returnsPreferences'], 'String');
             }
-            if (data.hasOwnProperty('validatePortfolio')) {
+            if (data.hasOwnProperty('validatePortfolio') && obj['validatePortfolio'] === undefined) {
                 obj['validatePortfolio'] = ApiClient.convertToType(data['validatePortfolio'], 'Boolean');
             }
-            if (data.hasOwnProperty('levels')) {
+            if (data.hasOwnProperty('levels') && obj['levels'] === undefined) {
                 obj['levels'] = ApiClient.convertToType(data['levels'], ['String']);
             }
-            if (data.hasOwnProperty('confidenceLevels')) {
+            if (data.hasOwnProperty('confidenceLevels') && obj['confidenceLevels'] === undefined) {
                 obj['confidenceLevels'] = ApiClient.convertToType(data['confidenceLevels'], ['Number']);
             }
-            if (data.hasOwnProperty('reportingFrequency')) {
+            if (data.hasOwnProperty('reportingFrequency') && obj['reportingFrequency'] === undefined) {
                 obj['reportingFrequency'] = ApiClient.convertToType(data['reportingFrequency'], 'Number');
             }
-            if (data.hasOwnProperty('timeWindows')) {
+            if (data.hasOwnProperty('timeWindows') && obj['timeWindows'] === undefined) {
                 obj['timeWindows'] = ApiClient.convertToType(data['timeWindows'], ['String']);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ApiClient.convertToType(data['periods'], [Period]);
             }
-            if (data.hasOwnProperty('reportingFrequencyAlignment')) {
+            if (data.hasOwnProperty('reportingFrequencyAlignment') && obj['reportingFrequencyAlignment'] === undefined) {
                 obj['reportingFrequencyAlignment'] = ApiClient.convertToType(data['reportingFrequencyAlignment'], 'String');
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], ['String']);
             }
-            if (data.hasOwnProperty('udfs')) {
+            if (data.hasOwnProperty('udfs') && obj['udfs'] === undefined) {
                 obj['udfs'] = ApiClient.convertToType(data['udfs'], ['String']);
             }
+            
         }
         return obj;
     }

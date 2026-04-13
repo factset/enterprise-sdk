@@ -53,27 +53,28 @@ class HighLowRequest {
         if (data) {
             obj = obj || new HighLowRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('period')) {
+            if (data.hasOwnProperty('period') && obj['period'] === undefined) {
                 obj['period'] = Period.constructFromObject(data['period']);
             }
-            if (data.hasOwnProperty('priceType')) {
+            if (data.hasOwnProperty('priceType') && obj['priceType'] === undefined) {
                 obj['priceType'] = PriceType.constructFromObject(data['priceType']);
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = Calendar.constructFromObject(data['calendar']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('adjust')) {
+            if (data.hasOwnProperty('adjust') && obj['adjust'] === undefined) {
                 obj['adjust'] = Adjust.constructFromObject(data['adjust']);
             }
+            
         }
         return obj;
     }

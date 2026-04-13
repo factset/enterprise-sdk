@@ -52,21 +52,22 @@ class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentK
         if (data) {
             obj = obj || new InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('recurringEarnings')) {
+            if (data.hasOwnProperty('recurringEarnings') && obj['recurringEarnings'] === undefined) {
                 obj['recurringEarnings'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareRecurringEarnings.constructFromObject(data['recurringEarnings']);
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareDividends.constructFromObject(data['dividends']);
             }
-            if (data.hasOwnProperty('bookValue')) {
+            if (data.hasOwnProperty('bookValue') && obj['bookValue'] === undefined) {
                 obj['bookValue'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareBookValue.constructFromObject(data['bookValue']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShareCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

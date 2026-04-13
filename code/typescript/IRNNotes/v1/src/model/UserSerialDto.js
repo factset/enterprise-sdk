@@ -50,12 +50,13 @@ class UserSerialDto {
         if (data) {
             obj = obj || new UserSerialDto();
 
-            if (data.hasOwnProperty('username')) {
+            if (data.hasOwnProperty('username') && obj['username'] === undefined) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('serialNumber')) {
+            if (data.hasOwnProperty('serialNumber') && obj['serialNumber'] === undefined) {
                 obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
             }
+            
         }
         return obj;
     }

@@ -46,24 +46,25 @@ class ChartInput {
         if (data) {
             obj = obj || new ChartInput();
 
-            if (data.hasOwnProperty('in')) {
+            if (data.hasOwnProperty('in') && obj['in'] === undefined) {
                 obj['in'] = ApiClient.convertToType(data['in'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('required')) {
+            if (data.hasOwnProperty('required') && obj['required'] === undefined) {
                 obj['required'] = ApiClient.convertToType(data['required'], 'Boolean');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('example')) {
+            if (data.hasOwnProperty('example') && obj['example'] === undefined) {
                 obj['example'] = ApiClient.convertToType(data['example'], 'String');
             }
+            
         }
         return obj;
     }

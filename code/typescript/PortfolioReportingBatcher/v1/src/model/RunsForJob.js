@@ -49,33 +49,34 @@ class RunsForJob {
         if (data) {
             obj = obj || new RunsForJob();
 
-            if (data.hasOwnProperty('endTime')) {
+            if (data.hasOwnProperty('endTime') && obj['endTime'] === undefined) {
                 obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Date');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('isApiTriggered')) {
+            if (data.hasOwnProperty('isApiTriggered') && obj['isApiTriggered'] === undefined) {
                 obj['isApiTriggered'] = ApiClient.convertToType(data['isApiTriggered'], 'Boolean');
             }
-            if (data.hasOwnProperty('prbStatus')) {
+            if (data.hasOwnProperty('prbStatus') && obj['prbStatus'] === undefined) {
                 obj['prbStatus'] = PrbStatus.constructFromObject(data['prbStatus']);
             }
-            if (data.hasOwnProperty('runDuration')) {
+            if (data.hasOwnProperty('runDuration') && obj['runDuration'] === undefined) {
                 obj['runDuration'] = ApiClient.convertToType(data['runDuration'], 'Number');
             }
-            if (data.hasOwnProperty('startTime')) {
+            if (data.hasOwnProperty('startTime') && obj['startTime'] === undefined) {
                 obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Date');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = Status.constructFromObject(data['status']);
             }
-            if (data.hasOwnProperty('statusDescription')) {
+            if (data.hasOwnProperty('statusDescription') && obj['statusDescription'] === undefined) {
                 obj['statusDescription'] = ApiClient.convertToType(data['statusDescription'], 'String');
             }
-            if (data.hasOwnProperty('submitTime')) {
+            if (data.hasOwnProperty('submitTime') && obj['submitTime'] === undefined) {
                 obj['submitTime'] = ApiClient.convertToType(data['submitTime'], 'Date');
             }
+            
         }
         return obj;
     }

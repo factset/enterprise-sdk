@@ -48,9 +48,10 @@ class InlineResponse2005DataUnderlyingEffectiveUnderlying {
         if (data) {
             obj = obj || new InlineResponse2005DataUnderlyingEffectiveUnderlying();
 
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = ApiClient.convertToType(data['instrument'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlyingEffectiveUnderlyingInstrumentItems]);
             }
+            
         }
         return obj;
     }

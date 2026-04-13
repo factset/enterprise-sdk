@@ -49,18 +49,19 @@ class CreateBookPostRequest {
         if (data) {
             obj = obj || new CreateBookPostRequest();
 
-            if (data.hasOwnProperty('book_name')) {
+            if (data.hasOwnProperty('book_name') && obj['book_name'] === undefined) {
                 obj['book_name'] = ApiClient.convertToType(data['book_name'], 'String');
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = PaginationOptions.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [ContentSection]);
             }
+            
         }
         return obj;
     }

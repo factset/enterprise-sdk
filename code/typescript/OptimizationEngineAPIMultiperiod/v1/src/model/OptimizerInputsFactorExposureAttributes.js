@@ -47,12 +47,13 @@ class OptimizerInputsFactorExposureAttributes {
         if (data) {
             obj = obj || new OptimizerInputsFactorExposureAttributes();
 
-            if (data.hasOwnProperty('min')) {
+            if (data.hasOwnProperty('min') && obj['min'] === undefined) {
                 obj['min'] = OptimizerInputsValue.constructFromObject(data['min']);
             }
-            if (data.hasOwnProperty('max')) {
+            if (data.hasOwnProperty('max') && obj['max'] === undefined) {
                 obj['max'] = OptimizerInputsValue.constructFromObject(data['max']);
             }
+            
         }
         return obj;
     }

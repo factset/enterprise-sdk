@@ -48,9 +48,10 @@ class VolumePriceResponse {
         if (data) {
             obj = obj || new VolumePriceResponse();
 
-            if (data.hasOwnProperty('volumePrice')) {
+            if (data.hasOwnProperty('volumePrice') && obj['volumePrice'] === undefined) {
                 obj['volumePrice'] = VolumePrice.constructFromObject(data['volumePrice']);
             }
+            
         }
         return obj;
     }

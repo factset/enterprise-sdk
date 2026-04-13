@@ -47,12 +47,13 @@ class InlineResponse2005DataKeyFiguresAgioAnnualized {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresAgioAnnualized();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = ApiClient.convertToType(data['minimum'], 'Number');
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = ApiClient.convertToType(data['maximum'], 'Number');
             }
+            
         }
         return obj;
     }

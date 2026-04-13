@@ -47,24 +47,25 @@ class FIABCalculationStatus {
         if (data) {
             obj = obj || new FIABCalculationStatus();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('startdatetime')) {
+            if (data.hasOwnProperty('startdatetime') && obj['startdatetime'] === undefined) {
                 obj['startdatetime'] = ApiClient.convertToType(data['startdatetime'], 'Date');
             }
-            if (data.hasOwnProperty('completiondatetime')) {
+            if (data.hasOwnProperty('completiondatetime') && obj['completiondatetime'] === undefined) {
                 obj['completiondatetime'] = ApiClient.convertToType(data['completiondatetime'], 'Date');
             }
-            if (data.hasOwnProperty('progress')) {
+            if (data.hasOwnProperty('progress') && obj['progress'] === undefined) {
                 obj['progress'] = ApiClient.convertToType(data['progress'], 'Number');
             }
-            if (data.hasOwnProperty('batchevents')) {
+            if (data.hasOwnProperty('batchevents') && obj['batchevents'] === undefined) {
                 obj['batchevents'] = ApiClient.convertToType(data['batchevents'], [EventSummary]);
             }
+            
         }
         return obj;
     }

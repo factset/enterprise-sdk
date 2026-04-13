@@ -46,12 +46,13 @@ class InlineResponse2006DataIndustries {
         if (data) {
             obj = obj || new InlineResponse2006DataIndustries();
 
-            if (data.hasOwnProperty('industry')) {
+            if (data.hasOwnProperty('industry') && obj['industry'] === undefined) {
                 obj['industry'] = ApiClient.convertToType(data['industry'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

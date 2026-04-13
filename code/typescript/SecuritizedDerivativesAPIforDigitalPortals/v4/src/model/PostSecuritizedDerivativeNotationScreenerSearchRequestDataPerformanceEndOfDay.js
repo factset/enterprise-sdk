@@ -56,33 +56,34 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOf
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDay();
 
-            if (data.hasOwnProperty('day1')) {
+            if (data.hasOwnProperty('day1') && obj['day1'] === undefined) {
                 obj['day1'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayDay1.constructFromObject(data['day1']);
             }
-            if (data.hasOwnProperty('week1')) {
+            if (data.hasOwnProperty('week1') && obj['week1'] === undefined) {
                 obj['week1'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayWeek1.constructFromObject(data['week1']);
             }
-            if (data.hasOwnProperty('month1')) {
+            if (data.hasOwnProperty('month1') && obj['month1'] === undefined) {
                 obj['month1'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayMonth1.constructFromObject(data['month1']);
             }
-            if (data.hasOwnProperty('months3')) {
+            if (data.hasOwnProperty('months3') && obj['months3'] === undefined) {
                 obj['months3'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayMonths3.constructFromObject(data['months3']);
             }
-            if (data.hasOwnProperty('months6')) {
+            if (data.hasOwnProperty('months6') && obj['months6'] === undefined) {
                 obj['months6'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataVolatilityMonths6.constructFromObject(data['months6']);
             }
-            if (data.hasOwnProperty('year1')) {
+            if (data.hasOwnProperty('year1') && obj['year1'] === undefined) {
                 obj['year1'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayYear1.constructFromObject(data['year1']);
             }
-            if (data.hasOwnProperty('years3')) {
+            if (data.hasOwnProperty('years3') && obj['years3'] === undefined) {
                 obj['years3'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayYears3.constructFromObject(data['years3']);
             }
-            if (data.hasOwnProperty('years5')) {
+            if (data.hasOwnProperty('years5') && obj['years5'] === undefined) {
                 obj['years5'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataPerformanceEndOfDayYears5.constructFromObject(data['years5']);
             }
-            if (data.hasOwnProperty('yearToDate')) {
+            if (data.hasOwnProperty('yearToDate') && obj['yearToDate'] === undefined) {
                 obj['yearToDate'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceEndOfDayYearToDate.constructFromObject(data['yearToDate']);
             }
+            
         }
         return obj;
     }

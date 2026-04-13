@@ -52,24 +52,25 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataValidation {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataValidation();
 
-            if (data.hasOwnProperty('onlyActive')) {
+            if (data.hasOwnProperty('onlyActive') && obj['onlyActive'] === undefined) {
                 obj['onlyActive'] = ApiClient.convertToType(data['onlyActive'], 'Boolean');
             }
-            if (data.hasOwnProperty('prices')) {
+            if (data.hasOwnProperty('prices') && obj['prices'] === undefined) {
                 obj['prices'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataValidationPrices.constructFromObject(data['prices']);
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataValidationValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataValidationMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('instrumentRestrictionList')) {
+            if (data.hasOwnProperty('instrumentRestrictionList') && obj['instrumentRestrictionList'] === undefined) {
                 obj['instrumentRestrictionList'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataValidationInstrumentRestrictionList.constructFromObject(data['instrumentRestrictionList']);
             }
-            if (data.hasOwnProperty('notationRestrictionList')) {
+            if (data.hasOwnProperty('notationRestrictionList') && obj['notationRestrictionList'] === undefined) {
                 obj['notationRestrictionList'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataValidationNotationRestrictionList.constructFromObject(data['notationRestrictionList']);
             }
+            
         }
         return obj;
     }

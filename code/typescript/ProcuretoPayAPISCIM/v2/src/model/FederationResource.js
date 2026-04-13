@@ -61,39 +61,40 @@ class FederationResource {
         if (data) {
             obj = obj || new FederationResource();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('metadataUrl')) {
+            if (data.hasOwnProperty('metadataUrl') && obj['metadataUrl'] === undefined) {
                 obj['metadataUrl'] = ApiClient.convertToType(data['metadataUrl'], 'String');
             }
-            if (data.hasOwnProperty('singleSignOnServiceUrl')) {
+            if (data.hasOwnProperty('singleSignOnServiceUrl') && obj['singleSignOnServiceUrl'] === undefined) {
                 obj['singleSignOnServiceUrl'] = ApiClient.convertToType(data['singleSignOnServiceUrl'], 'String');
             }
-            if (data.hasOwnProperty('requestBinding')) {
+            if (data.hasOwnProperty('requestBinding') && obj['requestBinding'] === undefined) {
                 obj['requestBinding'] = ApiClient.convertToType(data['requestBinding'], 'String');
             }
-            if (data.hasOwnProperty('certificates')) {
+            if (data.hasOwnProperty('certificates') && obj['certificates'] === undefined) {
                 obj['certificates'] = ApiClient.convertToType(data['certificates'], ['Blob']);
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = FederationResourceLocation.constructFromObject(data['location']);
             }
-            if (data.hasOwnProperty('autoSyncUsernames')) {
+            if (data.hasOwnProperty('autoSyncUsernames') && obj['autoSyncUsernames'] === undefined) {
                 obj['autoSyncUsernames'] = ApiClient.convertToType(data['autoSyncUsernames'], ['String']);
             }
-            if (data.hasOwnProperty('users')) {
+            if (data.hasOwnProperty('users') && obj['users'] === undefined) {
                 obj['users'] = ApiClient.convertToType(data['users'], [FederationResourceUser]);
             }
+            
         }
         return obj;
     }

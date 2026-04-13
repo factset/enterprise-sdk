@@ -54,18 +54,19 @@ class FPOOptimizationParameters {
         if (data) {
             obj = obj || new FPOOptimizationParameters();
 
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = FPOAccount.constructFromObject(data['account']);
             }
-            if (data.hasOwnProperty('strategy')) {
+            if (data.hasOwnProperty('strategy') && obj['strategy'] === undefined) {
                 obj['strategy'] = OptimizerStrategy.constructFromObject(data['strategy']);
             }
-            if (data.hasOwnProperty('optimization')) {
+            if (data.hasOwnProperty('optimization') && obj['optimization'] === undefined) {
                 obj['optimization'] = Optimization.constructFromObject(data['optimization']);
             }
-            if (data.hasOwnProperty('outputtypes')) {
+            if (data.hasOwnProperty('outputtypes') && obj['outputtypes'] === undefined) {
                 obj['outputtypes'] = OptimizerOutputTypes.constructFromObject(data['outputtypes']);
             }
+            
         }
         return obj;
     }

@@ -49,18 +49,19 @@ class JobDetailsResponseData {
         if (data) {
             obj = obj || new JobDetailsResponseData();
 
-            if (data.hasOwnProperty('accounts')) {
+            if (data.hasOwnProperty('accounts') && obj['accounts'] === undefined) {
                 obj['accounts'] = ApiClient.convertToType(data['accounts'], {'String': [AccountsForJobAddProp]});
             }
-            if (data.hasOwnProperty('documents')) {
+            if (data.hasOwnProperty('documents') && obj['documents'] === undefined) {
                 obj['documents'] = ApiClient.convertToType(data['documents'], {'String': ['String']});
             }
-            if (data.hasOwnProperty('runs')) {
+            if (data.hasOwnProperty('runs') && obj['runs'] === undefined) {
                 obj['runs'] = ApiClient.convertToType(data['runs'], [RunsForJob]);
             }
-            if (data.hasOwnProperty('tasks')) {
+            if (data.hasOwnProperty('tasks') && obj['tasks'] === undefined) {
                 obj['tasks'] = ApiClient.convertToType(data['tasks'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -54,15 +54,16 @@ class ProfileDataItemPerson {
         if (data) {
             obj = obj || new ProfileDataItemPerson();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['id']);
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['name']);
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['title']);
             }
+            
         }
         return obj;
     }

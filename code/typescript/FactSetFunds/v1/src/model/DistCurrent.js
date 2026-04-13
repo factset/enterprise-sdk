@@ -46,63 +46,64 @@ class DistCurrent {
         if (data) {
             obj = obj || new DistCurrent();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('totalDistributions')) {
+            if (data.hasOwnProperty('totalDistributions') && obj['totalDistributions'] === undefined) {
                 obj['totalDistributions'] = ApiClient.convertToType(data['totalDistributions'], 'Number');
             }
-            if (data.hasOwnProperty('returnOfCapital')) {
+            if (data.hasOwnProperty('returnOfCapital') && obj['returnOfCapital'] === undefined) {
                 obj['returnOfCapital'] = ApiClient.convertToType(data['returnOfCapital'], 'Number');
             }
-            if (data.hasOwnProperty('qualifiedDividends')) {
+            if (data.hasOwnProperty('qualifiedDividends') && obj['qualifiedDividends'] === undefined) {
                 obj['qualifiedDividends'] = ApiClient.convertToType(data['qualifiedDividends'], 'Number');
             }
-            if (data.hasOwnProperty('nonQualifiedDividends')) {
+            if (data.hasOwnProperty('nonQualifiedDividends') && obj['nonQualifiedDividends'] === undefined) {
                 obj['nonQualifiedDividends'] = ApiClient.convertToType(data['nonQualifiedDividends'], 'Number');
             }
-            if (data.hasOwnProperty('dailyAccruedDividends')) {
+            if (data.hasOwnProperty('dailyAccruedDividends') && obj['dailyAccruedDividends'] === undefined) {
                 obj['dailyAccruedDividends'] = ApiClient.convertToType(data['dailyAccruedDividends'], 'Number');
             }
-            if (data.hasOwnProperty('stCapitalGains')) {
+            if (data.hasOwnProperty('stCapitalGains') && obj['stCapitalGains'] === undefined) {
                 obj['stCapitalGains'] = ApiClient.convertToType(data['stCapitalGains'], 'Number');
             }
-            if (data.hasOwnProperty('ltCapitalGains')) {
+            if (data.hasOwnProperty('ltCapitalGains') && obj['ltCapitalGains'] === undefined) {
                 obj['ltCapitalGains'] = ApiClient.convertToType(data['ltCapitalGains'], 'Number');
             }
-            if (data.hasOwnProperty('indicatedAnnualDividend')) {
+            if (data.hasOwnProperty('indicatedAnnualDividend') && obj['indicatedAnnualDividend'] === undefined) {
                 obj['indicatedAnnualDividend'] = ApiClient.convertToType(data['indicatedAnnualDividend'], 'Number');
             }
-            if (data.hasOwnProperty('distFrequency')) {
+            if (data.hasOwnProperty('distFrequency') && obj['distFrequency'] === undefined) {
                 obj['distFrequency'] = ApiClient.convertToType(data['distFrequency'], 'String');
             }
-            if (data.hasOwnProperty('ltmDistYield')) {
+            if (data.hasOwnProperty('ltmDistYield') && obj['ltmDistYield'] === undefined) {
                 obj['ltmDistYield'] = ApiClient.convertToType(data['ltmDistYield'], 'Number');
             }
-            if (data.hasOwnProperty('firstDistDate')) {
+            if (data.hasOwnProperty('firstDistDate') && obj['firstDistDate'] === undefined) {
                 obj['firstDistDate'] = ApiClient.convertToType(data['firstDistDate'], 'Date');
             }
-            if (data.hasOwnProperty('sevenDayNetSecYield')) {
+            if (data.hasOwnProperty('sevenDayNetSecYield') && obj['sevenDayNetSecYield'] === undefined) {
                 obj['sevenDayNetSecYield'] = ApiClient.convertToType(data['sevenDayNetSecYield'], 'Number');
             }
-            if (data.hasOwnProperty('sevenDayGrossSecYield')) {
+            if (data.hasOwnProperty('sevenDayGrossSecYield') && obj['sevenDayGrossSecYield'] === undefined) {
                 obj['sevenDayGrossSecYield'] = ApiClient.convertToType(data['sevenDayGrossSecYield'], 'Number');
             }
-            if (data.hasOwnProperty('thirtyDayNetSecYield')) {
+            if (data.hasOwnProperty('thirtyDayNetSecYield') && obj['thirtyDayNetSecYield'] === undefined) {
                 obj['thirtyDayNetSecYield'] = ApiClient.convertToType(data['thirtyDayNetSecYield'], 'Number');
             }
-            if (data.hasOwnProperty('thirtyDayGrossSecYield')) {
+            if (data.hasOwnProperty('thirtyDayGrossSecYield') && obj['thirtyDayGrossSecYield'] === undefined) {
                 obj['thirtyDayGrossSecYield'] = ApiClient.convertToType(data['thirtyDayGrossSecYield'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

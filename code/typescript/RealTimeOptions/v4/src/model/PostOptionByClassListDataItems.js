@@ -49,18 +49,19 @@ class PostOptionByClassListDataItems {
         if (data) {
             obj = obj || new PostOptionByClassListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = PostOptionByClassListDataItemsInstrument.constructFromObject(data['instrument']);
             }
-            if (data.hasOwnProperty('openInterest')) {
+            if (data.hasOwnProperty('openInterest') && obj['openInterest'] === undefined) {
                 obj['openInterest'] = ApiClient.convertToType(data['openInterest'], 'Number');
             }
-            if (data.hasOwnProperty('keyFigures')) {
+            if (data.hasOwnProperty('keyFigures') && obj['keyFigures'] === undefined) {
                 obj['keyFigures'] = PostOptionByClassListDataItemsKeyFigures.constructFromObject(data['keyFigures']);
             }
+            
         }
         return obj;
     }

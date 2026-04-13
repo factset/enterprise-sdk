@@ -49,15 +49,16 @@ class HeadlinesRequestByViewData {
         if (data) {
             obj = obj || new HeadlinesRequestByViewData();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('predefinedRange')) {
+            if (data.hasOwnProperty('predefinedRange') && obj['predefinedRange'] === undefined) {
                 obj['predefinedRange'] = ApiClient.convertToType(data['predefinedRange'], 'String');
             }
-            if (data.hasOwnProperty('searchTime')) {
+            if (data.hasOwnProperty('searchTime') && obj['searchTime'] === undefined) {
                 obj['searchTime'] = HeadlinesRequestByViewDataSearchTime.constructFromObject(data['searchTime']);
             }
+            
         }
         return obj;
     }

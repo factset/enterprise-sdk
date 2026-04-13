@@ -53,12 +53,13 @@ class KeyStatsDataObjectFundExpenseRatio {
         if (data) {
             obj = obj || new KeyStatsDataObjectFundExpenseRatio();
 
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = KeyStatsAttributeLabel.constructFromObject(data['label']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = KeyStatsDataObjectFundAverageSpreadValue.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

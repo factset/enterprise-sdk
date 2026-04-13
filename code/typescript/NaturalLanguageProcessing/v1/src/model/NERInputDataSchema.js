@@ -48,15 +48,16 @@ class NERInputDataSchema {
         if (data) {
             obj = obj || new NERInputDataSchema();
 
-            if (data.hasOwnProperty('enableIdLookup')) {
+            if (data.hasOwnProperty('enableIdLookup') && obj['enableIdLookup'] === undefined) {
                 obj['enableIdLookup'] = ApiClient.convertToType(data['enableIdLookup'], 'Boolean');
             }
-            if (data.hasOwnProperty('filterEntities')) {
+            if (data.hasOwnProperty('filterEntities') && obj['filterEntities'] === undefined) {
                 obj['filterEntities'] = ApiClient.convertToType(data['filterEntities'], 'Boolean');
             }
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
+            
         }
         return obj;
     }

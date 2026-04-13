@@ -47,9 +47,10 @@ class PostStockNotationScreenerSearchRequestDataComplianceFranceOr {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataComplianceFranceOr();
 
-            if (data.hasOwnProperty('and')) {
+            if (data.hasOwnProperty('and') && obj['and'] === undefined) {
                 obj['and'] = ApiClient.convertToType(data['and'], [PostStockNotationScreenerSearchRequestDataComplianceFranceAnd]);
             }
+            
         }
         return obj;
     }

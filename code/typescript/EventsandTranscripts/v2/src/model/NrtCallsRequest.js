@@ -48,12 +48,13 @@ class NrtCallsRequest {
         if (data) {
             obj = obj || new NrtCallsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = NrtCallsRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = NrtCallsRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

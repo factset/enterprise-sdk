@@ -50,9 +50,10 @@ class SignalMetaData {
         if (data) {
             obj = obj || new SignalMetaData();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SignalMetaDataData]);
             }
+            
         }
         return obj;
     }

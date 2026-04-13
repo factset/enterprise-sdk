@@ -50,15 +50,16 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategori
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorizationEusipa();
 
-            if (data.hasOwnProperty('level1')) {
+            if (data.hasOwnProperty('level1') && obj['level1'] === undefined) {
                 obj['level1'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorizationDdvLevel1.constructFromObject(data['level1']);
             }
-            if (data.hasOwnProperty('level2')) {
+            if (data.hasOwnProperty('level2') && obj['level2'] === undefined) {
                 obj['level2'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorizationEusipaLevel2.constructFromObject(data['level2']);
             }
-            if (data.hasOwnProperty('level3')) {
+            if (data.hasOwnProperty('level3') && obj['level3'] === undefined) {
                 obj['level3'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorizationEusipaLevel3.constructFromObject(data['level3']);
             }
+            
         }
         return obj;
     }

@@ -51,12 +51,13 @@ class InlineResponse404 {
         if (data) {
             obj = obj || new InlineResponse404();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('output')) {
+            if (data.hasOwnProperty('output') && obj['output'] === undefined) {
                 obj['output'] = ApiClient.convertToType(data['output'], 'String');
             }
+            
         }
         return obj;
     }

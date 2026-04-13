@@ -47,9 +47,10 @@ class SnapshotResponse {
         if (data) {
             obj = obj || new SnapshotResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Snapshot]);
             }
+            
         }
         return obj;
     }

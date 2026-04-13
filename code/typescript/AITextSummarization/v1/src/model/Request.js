@@ -48,9 +48,10 @@ class Request {
         if (data) {
             obj = obj || new Request();
 
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
+            
         }
         return obj;
     }

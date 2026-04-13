@@ -54,15 +54,16 @@ class SecurityOnlySuccessResponseMeta {
         if (data) {
             obj = obj || new SecurityOnlySuccessResponseMeta();
 
-            if (data.hasOwnProperty('labels')) {
+            if (data.hasOwnProperty('labels') && obj['labels'] === undefined) {
                 obj['labels'] = SecurityOnlyLabels.constructFromObject(data['labels']);
             }
-            if (data.hasOwnProperty('resolvedDates')) {
+            if (data.hasOwnProperty('resolvedDates') && obj['resolvedDates'] === undefined) {
                 obj['resolvedDates'] = ResolvedDates.constructFromObject(data['resolvedDates']);
             }
-            if (data.hasOwnProperty('warnings')) {
+            if (data.hasOwnProperty('warnings') && obj['warnings'] === undefined) {
                 obj['warnings'] = ApiClient.convertToType(data['warnings'], [WarningItem]);
             }
+            
         }
         return obj;
     }

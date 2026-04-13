@@ -47,21 +47,22 @@ class AXPOptimizerStrategyOverridesInput {
         if (data) {
             obj = obj || new AXPOptimizerStrategyOverridesInput();
 
-            if (data.hasOwnProperty('objective')) {
+            if (data.hasOwnProperty('objective') && obj['objective'] === undefined) {
                 obj['objective'] = ApiClient.convertToType(data['objective'], 'String');
             }
-            if (data.hasOwnProperty('tax')) {
+            if (data.hasOwnProperty('tax') && obj['tax'] === undefined) {
                 obj['tax'] = ApiClient.convertToType(data['tax'], 'String');
             }
-            if (data.hasOwnProperty('constraints')) {
+            if (data.hasOwnProperty('constraints') && obj['constraints'] === undefined) {
                 obj['constraints'] = ApiClient.convertToType(data['constraints'], {'String': EnabledEnum});
             }
-            if (data.hasOwnProperty('alpha')) {
+            if (data.hasOwnProperty('alpha') && obj['alpha'] === undefined) {
                 obj['alpha'] = ApiClient.convertToType(data['alpha'], 'String');
             }
-            if (data.hasOwnProperty('transactionCost')) {
+            if (data.hasOwnProperty('transactionCost') && obj['transactionCost'] === undefined) {
                 obj['transactionCost'] = ApiClient.convertToType(data['transactionCost'], 'String');
             }
+            
         }
         return obj;
     }

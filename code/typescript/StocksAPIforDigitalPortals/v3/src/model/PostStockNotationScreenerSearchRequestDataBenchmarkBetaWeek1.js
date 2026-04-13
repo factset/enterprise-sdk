@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataBenchmarkBetaWeek1 {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataBenchmarkBetaWeek1();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsightMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class InlineResponse2005DataBonusLevel {
         if (data) {
             obj = obj || new InlineResponse2005DataBonusLevel();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataBonusLevelValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataBonusLevelDistance.constructFromObject(data['distance']);
             }
+            
         }
         return obj;
     }

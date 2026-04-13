@@ -46,12 +46,13 @@ class BookProcessingResponseItem {
         if (data) {
             obj = obj || new BookProcessingResponseItem();
 
-            if (data.hasOwnProperty('Message')) {
+            if (data.hasOwnProperty('Message') && obj['Message'] === undefined) {
                 obj['Message'] = ApiClient.convertToType(data['Message'], 'String');
             }
-            if (data.hasOwnProperty('Status')) {
+            if (data.hasOwnProperty('Status') && obj['Status'] === undefined) {
                 obj['Status'] = ApiClient.convertToType(data['Status'], 'String');
             }
+            
         }
         return obj;
     }

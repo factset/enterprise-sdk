@@ -50,12 +50,13 @@ class FilterObjects {
         if (data) {
             obj = obj || new FilterObjects();
 
-            if (data.hasOwnProperty('dataset')) {
+            if (data.hasOwnProperty('dataset') && obj['dataset'] === undefined) {
                 obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
             }
-            if (data.hasOwnProperty('filters')) {
+            if (data.hasOwnProperty('filters') && obj['filters'] === undefined) {
                 obj['filters'] = Filters.constructFromObject(data['filters']);
             }
+            
         }
         return obj;
     }

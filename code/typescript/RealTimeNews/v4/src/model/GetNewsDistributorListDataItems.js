@@ -48,15 +48,16 @@ class GetNewsDistributorListDataItems {
         if (data) {
             obj = obj || new GetNewsDistributorListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('delivery')) {
+            if (data.hasOwnProperty('delivery') && obj['delivery'] === undefined) {
                 obj['delivery'] = GetNewsDistributorListDataItemsDelivery.constructFromObject(data['delivery']);
             }
+            
         }
         return obj;
     }

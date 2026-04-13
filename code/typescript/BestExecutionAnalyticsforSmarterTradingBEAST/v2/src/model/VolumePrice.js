@@ -49,12 +49,13 @@ class VolumePrice {
         if (data) {
             obj = obj || new VolumePrice();
 
-            if (data.hasOwnProperty('metrics')) {
+            if (data.hasOwnProperty('metrics') && obj['metrics'] === undefined) {
                 obj['metrics'] = VolumePriceMetrics.constructFromObject(data['metrics']);
             }
-            if (data.hasOwnProperty('bins')) {
+            if (data.hasOwnProperty('bins') && obj['bins'] === undefined) {
                 obj['bins'] = ApiClient.convertToType(data['bins'], [VolumePriceBin]);
             }
+            
         }
         return obj;
     }

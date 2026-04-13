@@ -47,9 +47,10 @@ class NERInputSchema {
         if (data) {
             obj = obj || new NERInputSchema();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = NERInputDataSchema.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

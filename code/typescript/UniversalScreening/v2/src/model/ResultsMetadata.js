@@ -48,9 +48,10 @@ class ResultsMetadata {
         if (data) {
             obj = obj || new ResultsMetadata();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = PaginationResponse.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

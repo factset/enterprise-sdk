@@ -47,24 +47,25 @@ class PdfOptions {
         if (data) {
             obj = obj || new PdfOptions();
 
-            if (data.hasOwnProperty('applyAlternateRowShading')) {
+            if (data.hasOwnProperty('applyAlternateRowShading') && obj['applyAlternateRowShading'] === undefined) {
                 obj['applyAlternateRowShading'] = ApiClient.convertToType(data['applyAlternateRowShading'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyFilters')) {
+            if (data.hasOwnProperty('applyFilters') && obj['applyFilters'] === undefined) {
                 obj['applyFilters'] = ApiClient.convertToType(data['applyFilters'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyTextWrapping')) {
+            if (data.hasOwnProperty('applyTextWrapping') && obj['applyTextWrapping'] === undefined) {
                 obj['applyTextWrapping'] = ApiClient.convertToType(data['applyTextWrapping'], 'Boolean');
             }
-            if (data.hasOwnProperty('orientationLandscape')) {
+            if (data.hasOwnProperty('orientationLandscape') && obj['orientationLandscape'] === undefined) {
                 obj['orientationLandscape'] = ApiClient.convertToType(data['orientationLandscape'], 'Boolean');
             }
-            if (data.hasOwnProperty('customTitle')) {
+            if (data.hasOwnProperty('customTitle') && obj['customTitle'] === undefined) {
                 obj['customTitle'] = ApiClient.convertToType(data['customTitle'], 'String');
             }
-            if (data.hasOwnProperty('customSubtitle')) {
+            if (data.hasOwnProperty('customSubtitle') && obj['customSubtitle'] === undefined) {
                 obj['customSubtitle'] = ApiClient.convertToType(data['customSubtitle'], 'String');
             }
+            
         }
         return obj;
     }

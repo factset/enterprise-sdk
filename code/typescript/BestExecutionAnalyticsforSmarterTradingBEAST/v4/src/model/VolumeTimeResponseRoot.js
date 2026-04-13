@@ -50,9 +50,10 @@ class VolumeTimeResponseRoot {
         if (data) {
             obj = obj || new VolumeTimeResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = VolumeTimeResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

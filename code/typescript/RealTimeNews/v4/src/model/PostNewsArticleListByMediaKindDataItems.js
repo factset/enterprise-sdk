@@ -54,39 +54,40 @@ class PostNewsArticleListByMediaKindDataItems {
         if (data) {
             obj = obj || new PostNewsArticleListByMediaKindDataItems();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('summary')) {
+            if (data.hasOwnProperty('summary') && obj['summary'] === undefined) {
                 obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
             }
-            if (data.hasOwnProperty('types')) {
+            if (data.hasOwnProperty('types') && obj['types'] === undefined) {
                 obj['types'] = ApiClient.convertToType(data['types'], [PostNewsArticleListByMediaKindDataTypesItems]);
             }
-            if (data.hasOwnProperty('language')) {
+            if (data.hasOwnProperty('language') && obj['language'] === undefined) {
                 obj['language'] = PostNewsArticleListByMediaKindDataItemsLanguage.constructFromObject(data['language']);
             }
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = PostNewsArticleListByMediaKindDataItemsDistributor.constructFromObject(data['distributor']);
             }
-            if (data.hasOwnProperty('publisher')) {
+            if (data.hasOwnProperty('publisher') && obj['publisher'] === undefined) {
                 obj['publisher'] = PostNewsArticleListByMediaKindDataItemsPublisher.constructFromObject(data['publisher']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [PostNewsArticleListByMediaKindDataCategoriesItems]);
             }
-            if (data.hasOwnProperty('chain')) {
+            if (data.hasOwnProperty('chain') && obj['chain'] === undefined) {
                 obj['chain'] = PostNewsArticleListByMediaKindDataItemsChain.constructFromObject(data['chain']);
             }
-            if (data.hasOwnProperty('instruments')) {
+            if (data.hasOwnProperty('instruments') && obj['instruments'] === undefined) {
                 obj['instruments'] = ApiClient.convertToType(data['instruments'], [PostNewsArticleListByMediaKindDataInstrumentsItems]);
             }
+            
         }
         return obj;
     }

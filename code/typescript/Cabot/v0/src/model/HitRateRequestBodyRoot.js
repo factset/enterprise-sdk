@@ -47,9 +47,10 @@ class HitRateRequestBodyRoot {
         if (data) {
             obj = obj || new HitRateRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = HitRateRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

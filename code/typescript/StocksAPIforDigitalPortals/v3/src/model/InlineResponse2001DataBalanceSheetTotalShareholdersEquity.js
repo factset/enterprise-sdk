@@ -47,18 +47,19 @@ class InlineResponse2001DataBalanceSheetTotalShareholdersEquity {
         if (data) {
             obj = obj || new InlineResponse2001DataBalanceSheetTotalShareholdersEquity();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('ratioToTotalAssets')) {
+            if (data.hasOwnProperty('ratioToTotalAssets') && obj['ratioToTotalAssets'] === undefined) {
                 obj['ratioToTotalAssets'] = ApiClient.convertToType(data['ratioToTotalAssets'], 'Number');
             }
-            if (data.hasOwnProperty('returnOnEquity')) {
+            if (data.hasOwnProperty('returnOnEquity') && obj['returnOnEquity'] === undefined) {
                 obj['returnOnEquity'] = ApiClient.convertToType(data['returnOnEquity'], 'Number');
             }
+            
         }
         return obj;
     }

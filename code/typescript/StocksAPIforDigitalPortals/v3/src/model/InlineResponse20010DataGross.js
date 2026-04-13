@@ -47,9 +47,10 @@ class InlineResponse20010DataGross {
         if (data) {
             obj = obj || new InlineResponse20010DataGross();
 
-            if (data.hasOwnProperty('unadjustedValue')) {
+            if (data.hasOwnProperty('unadjustedValue') && obj['unadjustedValue'] === undefined) {
                 obj['unadjustedValue'] = ApiClient.convertToType(data['unadjustedValue'], 'Number');
             }
+            
         }
         return obj;
     }

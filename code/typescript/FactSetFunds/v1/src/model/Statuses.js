@@ -46,21 +46,22 @@ class Statuses {
         if (data) {
             obj = obj || new Statuses();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('activeFlag')) {
+            if (data.hasOwnProperty('activeFlag') && obj['activeFlag'] === undefined) {
                 obj['activeFlag'] = ApiClient.convertToType(data['activeFlag'], 'Number');
             }
-            if (data.hasOwnProperty('shrClassActiveFlag')) {
+            if (data.hasOwnProperty('shrClassActiveFlag') && obj['shrClassActiveFlag'] === undefined) {
                 obj['shrClassActiveFlag'] = ApiClient.convertToType(data['shrClassActiveFlag'], 'Number');
             }
-            if (data.hasOwnProperty('isonFFD')) {
+            if (data.hasOwnProperty('isonFFD') && obj['isonFFD'] === undefined) {
                 obj['isonFFD'] = ApiClient.convertToType(data['isonFFD'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

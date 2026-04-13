@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataRsiWilder {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRsiWilder();
 
-            if (data.hasOwnProperty('days14')) {
+            if (data.hasOwnProperty('days14') && obj['days14'] === undefined) {
                 obj['days14'] = PostStockNotationScreenerSearchRequestDataRsiWilderDays14.constructFromObject(data['days14']);
             }
+            
         }
         return obj;
     }

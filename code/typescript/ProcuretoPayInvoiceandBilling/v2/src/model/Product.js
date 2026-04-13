@@ -48,30 +48,31 @@ class Product {
         if (data) {
             obj = obj || new Product();
 
-            if (data.hasOwnProperty('productId')) {
+            if (data.hasOwnProperty('productId') && obj['productId'] === undefined) {
                 obj['productId'] = ApiClient.convertToType(data['productId'], 'Number');
             }
-            if (data.hasOwnProperty('productName')) {
+            if (data.hasOwnProperty('productName') && obj['productName'] === undefined) {
                 obj['productName'] = ApiClient.convertToType(data['productName'], 'String');
             }
-            if (data.hasOwnProperty('productSubGroup')) {
+            if (data.hasOwnProperty('productSubGroup') && obj['productSubGroup'] === undefined) {
                 obj['productSubGroup'] = ApiClient.convertToType(data['productSubGroup'], 'String');
             }
-            if (data.hasOwnProperty('quantity')) {
+            if (data.hasOwnProperty('quantity') && obj['quantity'] === undefined) {
                 obj['quantity'] = ApiClient.convertToType(data['quantity'], 'String');
             }
-            if (data.hasOwnProperty('priceTotal')) {
+            if (data.hasOwnProperty('priceTotal') && obj['priceTotal'] === undefined) {
                 obj['priceTotal'] = ApiClient.convertToType(data['priceTotal'], 'String');
             }
-            if (data.hasOwnProperty('discountTotal')) {
+            if (data.hasOwnProperty('discountTotal') && obj['discountTotal'] === undefined) {
                 obj['discountTotal'] = ApiClient.convertToType(data['discountTotal'], 'String');
             }
-            if (data.hasOwnProperty('recurring')) {
+            if (data.hasOwnProperty('recurring') && obj['recurring'] === undefined) {
                 obj['recurring'] = ApiClient.convertToType(data['recurring'], 'Boolean');
             }
-            if (data.hasOwnProperty('products')) {
+            if (data.hasOwnProperty('products') && obj['products'] === undefined) {
                 obj['products'] = ApiClient.convertToType(data['products'], [ProductDetail]);
             }
+            
         }
         return obj;
     }

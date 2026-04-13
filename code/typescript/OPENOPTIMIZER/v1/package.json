@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-openoptimizer",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "OPEN:OPTIMIZER client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

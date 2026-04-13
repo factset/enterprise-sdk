@@ -48,24 +48,25 @@ class UnlinkedPATemplateCategoryAndTypeDetails {
         if (data) {
             obj = obj || new UnlinkedPATemplateCategoryAndTypeDetails();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], [UnlinkedPATemplateColumnDetails]);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [UnlinkedPATemplateGroupDetails]);
             }
-            if (data.hasOwnProperty('snapshot')) {
+            if (data.hasOwnProperty('snapshot') && obj['snapshot'] === undefined) {
                 obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'Boolean');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            
         }
         return obj;
     }

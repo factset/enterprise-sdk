@@ -51,12 +51,13 @@ class PostSecuritizedDerivativeIssuerSearchRequest {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostSecuritizedDerivativeIssuerSearchRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostSecuritizedDerivativeIssuerSearchRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

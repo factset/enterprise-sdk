@@ -55,36 +55,37 @@ class VectorDataRequestData {
         if (data) {
             obj = obj || new VectorDataRequestData();
 
-            if (data.hasOwnProperty('query')) {
+            if (data.hasOwnProperty('query') && obj['query'] === undefined) {
                 obj['query'] = ApiClient.convertToType(data['query'], 'String');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('esgTheme')) {
+            if (data.hasOwnProperty('esgTheme') && obj['esgTheme'] === undefined) {
                 obj['esgTheme'] = ApiClient.convertToType(data['esgTheme'], ['String']);
             }
-            if (data.hasOwnProperty('searchConcept')) {
+            if (data.hasOwnProperty('searchConcept') && obj['searchConcept'] === undefined) {
                 obj['searchConcept'] = ApiClient.convertToType(data['searchConcept'], ['String']);
             }
-            if (data.hasOwnProperty('sentiment')) {
+            if (data.hasOwnProperty('sentiment') && obj['sentiment'] === undefined) {
                 obj['sentiment'] = ApiClient.convertToType(data['sentiment'], ['String']);
             }
-            if (data.hasOwnProperty('documentTypes')) {
+            if (data.hasOwnProperty('documentTypes') && obj['documentTypes'] === undefined) {
                 obj['documentTypes'] = ApiClient.convertToType(data['documentTypes'], ['String']);
             }
-            if (data.hasOwnProperty('sources')) {
+            if (data.hasOwnProperty('sources') && obj['sources'] === undefined) {
                 obj['sources'] = ApiClient.convertToType(data['sources'], ['String']);
             }
-            if (data.hasOwnProperty('trimmed')) {
+            if (data.hasOwnProperty('trimmed') && obj['trimmed'] === undefined) {
                 obj['trimmed'] = ApiClient.convertToType(data['trimmed'], 'Boolean');
             }
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
+            
         }
         return obj;
     }

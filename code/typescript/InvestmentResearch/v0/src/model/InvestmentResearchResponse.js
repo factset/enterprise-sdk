@@ -49,12 +49,13 @@ class InvestmentResearchResponse {
         if (data) {
             obj = obj || new InvestmentResearchResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [InvestmentResearchResponseItems]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = InvestmentResearchResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

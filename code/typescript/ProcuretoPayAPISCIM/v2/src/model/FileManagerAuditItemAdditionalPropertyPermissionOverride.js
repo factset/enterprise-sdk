@@ -52,15 +52,16 @@ class FileManagerAuditItemAdditionalPropertyPermissionOverride {
         if (data) {
             obj = obj || new FileManagerAuditItemAdditionalPropertyPermissionOverride();
 
-            if (data.hasOwnProperty('read')) {
+            if (data.hasOwnProperty('read') && obj['read'] === undefined) {
                 obj['read'] = ApiClient.convertToType(data['read'], 'Boolean');
             }
-            if (data.hasOwnProperty('write')) {
+            if (data.hasOwnProperty('write') && obj['write'] === undefined) {
                 obj['write'] = ApiClient.convertToType(data['write'], 'Boolean');
             }
-            if (data.hasOwnProperty('maintain')) {
+            if (data.hasOwnProperty('maintain') && obj['maintain'] === undefined) {
                 obj['maintain'] = ApiClient.convertToType(data['maintain'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class OptimizerInputsPortfolio {
         if (data) {
             obj = obj || new OptimizerInputsPortfolio();
 
-            if (data.hasOwnProperty('holdings')) {
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
                 obj['holdings'] = ApiClient.convertToType(data['holdings'], [OptimizerInputsPortfolioItem]);
             }
+            
         }
         return obj;
     }

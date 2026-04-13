@@ -47,12 +47,13 @@ class VARDistributionStatus {
         if (data) {
             obj = obj || new VARDistributionStatus();
 
-            if (data.hasOwnProperty('indicator')) {
+            if (data.hasOwnProperty('indicator') && obj['indicator'] === undefined) {
                 obj['indicator'] = VARStatusIndicator.constructFromObject(data['indicator']);
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
+            
         }
         return obj;
     }

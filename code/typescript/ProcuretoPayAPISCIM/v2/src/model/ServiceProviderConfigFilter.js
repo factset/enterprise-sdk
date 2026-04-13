@@ -51,12 +51,13 @@ class ServiceProviderConfigFilter {
         if (data) {
             obj = obj || new ServiceProviderConfigFilter();
 
-            if (data.hasOwnProperty('supported')) {
+            if (data.hasOwnProperty('supported') && obj['supported'] === undefined) {
                 obj['supported'] = ApiClient.convertToType(data['supported'], 'Boolean');
             }
-            if (data.hasOwnProperty('maxResults')) {
+            if (data.hasOwnProperty('maxResults') && obj['maxResults'] === undefined) {
                 obj['maxResults'] = ApiClient.convertToType(data['maxResults'], 'Number');
             }
+            
         }
         return obj;
     }

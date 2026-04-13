@@ -47,15 +47,16 @@ class GrowthOf10K {
         if (data) {
             obj = obj || new GrowthOf10K();
 
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('percent')) {
+            if (data.hasOwnProperty('percent') && obj['percent'] === undefined) {
                 obj['percent'] = ApiClient.convertToType(data['percent'], 'Number');
             }
+            
         }
         return obj;
     }

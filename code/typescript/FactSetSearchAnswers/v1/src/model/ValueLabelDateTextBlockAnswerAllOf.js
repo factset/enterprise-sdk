@@ -49,9 +49,10 @@ class ValueLabelDateTextBlockAnswerAllOf {
         if (data) {
             obj = obj || new ValueLabelDateTextBlockAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = ValueLabelDateTextBlockTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

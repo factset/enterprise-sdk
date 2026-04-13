@@ -57,66 +57,67 @@ class InlineResponse200Data {
         if (data) {
             obj = obj || new InlineResponse200Data();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('holdingsDate')) {
+            if (data.hasOwnProperty('holdingsDate') && obj['holdingsDate'] === undefined) {
                 obj['holdingsDate'] = ApiClient.convertToType(data['holdingsDate'], 'Date');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('exchange')) {
+            if (data.hasOwnProperty('exchange') && obj['exchange'] === undefined) {
                 obj['exchange'] = InlineResponse200DataExchange.constructFromObject(data['exchange']);
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('issuer')) {
+            if (data.hasOwnProperty('issuer') && obj['issuer'] === undefined) {
                 obj['issuer'] = InlineResponse200DataIssuer.constructFromObject(data['issuer']);
             }
-            if (data.hasOwnProperty('brand')) {
+            if (data.hasOwnProperty('brand') && obj['brand'] === undefined) {
                 obj['brand'] = InlineResponse200DataBrand.constructFromObject(data['brand']);
             }
-            if (data.hasOwnProperty('launchDate')) {
+            if (data.hasOwnProperty('launchDate') && obj['launchDate'] === undefined) {
                 obj['launchDate'] = ApiClient.convertToType(data['launchDate'], 'Date');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('website')) {
+            if (data.hasOwnProperty('website') && obj['website'] === undefined) {
                 obj['website'] = ApiClient.convertToType(data['website'], 'String');
             }
-            if (data.hasOwnProperty('domicile')) {
+            if (data.hasOwnProperty('domicile') && obj['domicile'] === undefined) {
                 obj['domicile'] = ApiClient.convertToType(data['domicile'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse200DataCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('index')) {
+            if (data.hasOwnProperty('index') && obj['index'] === undefined) {
                 obj['index'] = InlineResponse200DataIndex.constructFromObject(data['index']);
             }
-            if (data.hasOwnProperty('financialReport')) {
+            if (data.hasOwnProperty('financialReport') && obj['financialReport'] === undefined) {
                 obj['financialReport'] = InlineResponse200DataFinancialReport.constructFromObject(data['financialReport']);
             }
-            if (data.hasOwnProperty('createRedeem')) {
+            if (data.hasOwnProperty('createRedeem') && obj['createRedeem'] === undefined) {
                 obj['createRedeem'] = InlineResponse200DataCreateRedeem.constructFromObject(data['createRedeem']);
             }
-            if (data.hasOwnProperty('aum')) {
+            if (data.hasOwnProperty('aum') && obj['aum'] === undefined) {
                 obj['aum'] = ApiClient.convertToType(data['aum'], 'Number');
             }
-            if (data.hasOwnProperty('trading')) {
+            if (data.hasOwnProperty('trading') && obj['trading'] === undefined) {
                 obj['trading'] = InlineResponse200DataTrading.constructFromObject(data['trading']);
             }
-            if (data.hasOwnProperty('documentation')) {
+            if (data.hasOwnProperty('documentation') && obj['documentation'] === undefined) {
                 obj['documentation'] = InlineResponse200DataDocumentation.constructFromObject(data['documentation']);
             }
-            if (data.hasOwnProperty('insight')) {
+            if (data.hasOwnProperty('insight') && obj['insight'] === undefined) {
                 obj['insight'] = InlineResponse200DataInsight.constructFromObject(data['insight']);
             }
+            
         }
         return obj;
     }

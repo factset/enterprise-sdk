@@ -49,18 +49,19 @@ class InlineResponse20015Data {
         if (data) {
             obj = obj || new InlineResponse20015Data();
 
-            if (data.hasOwnProperty('asset')) {
+            if (data.hasOwnProperty('asset') && obj['asset'] === undefined) {
                 obj['asset'] = ApiClient.convertToType(data['asset'], 'String');
             }
-            if (data.hasOwnProperty('economicDevelopment')) {
+            if (data.hasOwnProperty('economicDevelopment') && obj['economicDevelopment'] === undefined) {
                 obj['economicDevelopment'] = ApiClient.convertToType(data['economicDevelopment'], 'String');
             }
-            if (data.hasOwnProperty('geography')) {
+            if (data.hasOwnProperty('geography') && obj['geography'] === undefined) {
                 obj['geography'] = InlineResponse20015DataGeography.constructFromObject(data['geography']);
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = InlineResponse20015DataCategory.constructFromObject(data['category']);
             }
+            
         }
         return obj;
     }

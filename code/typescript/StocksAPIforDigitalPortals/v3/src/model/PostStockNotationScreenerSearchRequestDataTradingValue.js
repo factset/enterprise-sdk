@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataTradingValue {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataTradingValue();
 
-            if (data.hasOwnProperty('average')) {
+            if (data.hasOwnProperty('average') && obj['average'] === undefined) {
                 obj['average'] = PostStockNotationScreenerSearchRequestDataTradingValueAverage.constructFromObject(data['average']);
             }
+            
         }
         return obj;
     }

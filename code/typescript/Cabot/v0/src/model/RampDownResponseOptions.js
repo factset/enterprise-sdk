@@ -48,21 +48,22 @@ class RampDownResponseOptions {
         if (data) {
             obj = obj || new RampDownResponseOptions();
 
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = ApiClient.convertToType(data['attribute'], 'String');
             }
-            if (data.hasOwnProperty('highRampDownValues')) {
+            if (data.hasOwnProperty('highRampDownValues') && obj['highRampDownValues'] === undefined) {
                 obj['highRampDownValues'] = ApiClient.convertToType(data['highRampDownValues'], [RampDownModelAnalytics]);
             }
-            if (data.hasOwnProperty('holdingsData')) {
+            if (data.hasOwnProperty('holdingsData') && obj['holdingsData'] === undefined) {
                 obj['holdingsData'] = HoldingsResponseOptions.constructFromObject(data['holdingsData']);
             }
-            if (data.hasOwnProperty('lowRampDownValues')) {
+            if (data.hasOwnProperty('lowRampDownValues') && obj['lowRampDownValues'] === undefined) {
                 obj['lowRampDownValues'] = ApiClient.convertToType(data['lowRampDownValues'], [RampDownModelAnalytics]);
             }
-            if (data.hasOwnProperty('rampDownValues')) {
+            if (data.hasOwnProperty('rampDownValues') && obj['rampDownValues'] === undefined) {
                 obj['rampDownValues'] = ApiClient.convertToType(data['rampDownValues'], [RampDownModelAnalytics]);
             }
+            
         }
         return obj;
     }

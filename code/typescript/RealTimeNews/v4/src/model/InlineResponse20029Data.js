@@ -48,18 +48,19 @@ class InlineResponse20029Data {
         if (data) {
             obj = obj || new InlineResponse20029Data();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = ApiClient.convertToType(data['factor'], 'Number');
             }
-            if (data.hasOwnProperty('mainCurrency')) {
+            if (data.hasOwnProperty('mainCurrency') && obj['mainCurrency'] === undefined) {
                 obj['mainCurrency'] = InlineResponse20029DataMainCurrency.constructFromObject(data['mainCurrency']);
             }
+            
         }
         return obj;
     }

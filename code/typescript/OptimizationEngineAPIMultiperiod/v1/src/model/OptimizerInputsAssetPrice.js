@@ -47,12 +47,13 @@ class OptimizerInputsAssetPrice {
         if (data) {
             obj = obj || new OptimizerInputsAssetPrice();
 
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = OptimizerInputsAssetPriceEPriceSource.constructFromObject(data['source']);
             }
-            if (data.hasOwnProperty('price_override')) {
+            if (data.hasOwnProperty('price_override') && obj['price_override'] === undefined) {
                 obj['price_override'] = ApiClient.convertToType(data['price_override'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -48,12 +48,13 @@ class InlineResponse200DataNominal {
         if (data) {
             obj = obj || new InlineResponse200DataNominal();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse200DataNominalCurrency.constructFromObject(data['currency']);
             }
+            
         }
         return obj;
     }

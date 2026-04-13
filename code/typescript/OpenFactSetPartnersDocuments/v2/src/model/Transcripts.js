@@ -47,36 +47,37 @@ class Transcripts {
         if (data) {
             obj = obj || new Transcripts();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('languageType')) {
+            if (data.hasOwnProperty('languageType') && obj['languageType'] === undefined) {
                 obj['languageType'] = ApiClient.convertToType(data['languageType'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('trackingId')) {
+            if (data.hasOwnProperty('trackingId') && obj['trackingId'] === undefined) {
                 obj['trackingId'] = ApiClient.convertToType(data['trackingId'], 'String');
             }
-            if (data.hasOwnProperty('eventType')) {
+            if (data.hasOwnProperty('eventType') && obj['eventType'] === undefined) {
                 obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('language')) {
+            if (data.hasOwnProperty('language') && obj['language'] === undefined) {
                 obj['language'] = ApiClient.convertToType(data['language'], 'String');
             }
-            if (data.hasOwnProperty('saId')) {
+            if (data.hasOwnProperty('saId') && obj['saId'] === undefined) {
                 obj['saId'] = ApiClient.convertToType(data['saId'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

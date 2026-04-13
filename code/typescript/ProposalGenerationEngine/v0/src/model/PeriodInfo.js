@@ -46,18 +46,19 @@ class PeriodInfo {
         if (data) {
             obj = obj || new PeriodInfo();
 
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('numberOfDays')) {
+            if (data.hasOwnProperty('numberOfDays') && obj['numberOfDays'] === undefined) {
                 obj['numberOfDays'] = ApiClient.convertToType(data['numberOfDays'], 'Number');
             }
-            if (data.hasOwnProperty('basedOnTimeWindow')) {
+            if (data.hasOwnProperty('basedOnTimeWindow') && obj['basedOnTimeWindow'] === undefined) {
                 obj['basedOnTimeWindow'] = ApiClient.convertToType(data['basedOnTimeWindow'], 'String');
             }
+            
         }
         return obj;
     }

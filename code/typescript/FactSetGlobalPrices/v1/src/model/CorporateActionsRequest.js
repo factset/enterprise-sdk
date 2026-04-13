@@ -52,30 +52,31 @@ class CorporateActionsRequest {
         if (data) {
             obj = obj || new CorporateActionsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('eventCategory')) {
+            if (data.hasOwnProperty('eventCategory') && obj['eventCategory'] === undefined) {
                 obj['eventCategory'] = EventCategory.constructFromObject(data['eventCategory']);
             }
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('cancelledDividend')) {
+            if (data.hasOwnProperty('cancelledDividend') && obj['cancelledDividend'] === undefined) {
                 obj['cancelledDividend'] = CancelledDividend.constructFromObject(data['cancelledDividend']);
             }
-            if (data.hasOwnProperty('batch')) {
+            if (data.hasOwnProperty('batch') && obj['batch'] === undefined) {
                 obj['batch'] = Batch.constructFromObject(data['batch']);
             }
+            
         }
         return obj;
     }

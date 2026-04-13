@@ -47,12 +47,13 @@ class InlineResponse200DataDocumentation {
         if (data) {
             obj = obj || new InlineResponse200DataDocumentation();
 
-            if (data.hasOwnProperty('isProspectusPosted')) {
+            if (data.hasOwnProperty('isProspectusPosted') && obj['isProspectusPosted'] === undefined) {
                 obj['isProspectusPosted'] = ApiClient.convertToType(data['isProspectusPosted'], 'Boolean');
             }
-            if (data.hasOwnProperty('isSaiPosted')) {
+            if (data.hasOwnProperty('isSaiPosted') && obj['isSaiPosted'] === undefined) {
                 obj['isSaiPosted'] = ApiClient.convertToType(data['isSaiPosted'], 'Boolean');
             }
+            
         }
         return obj;
     }

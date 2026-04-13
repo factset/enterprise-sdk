@@ -47,48 +47,49 @@ class OrbitFiles {
         if (data) {
             obj = obj || new OrbitFiles();
 
-            if (data.hasOwnProperty('stockCode')) {
+            if (data.hasOwnProperty('stockCode') && obj['stockCode'] === undefined) {
                 obj['stockCode'] = ApiClient.convertToType(data['stockCode'], 'String');
             }
-            if (data.hasOwnProperty('eventStartDateTime')) {
+            if (data.hasOwnProperty('eventStartDateTime') && obj['eventStartDateTime'] === undefined) {
                 obj['eventStartDateTime'] = ApiClient.convertToType(data['eventStartDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('eventEndDateTime')) {
+            if (data.hasOwnProperty('eventEndDateTime') && obj['eventEndDateTime'] === undefined) {
                 obj['eventEndDateTime'] = ApiClient.convertToType(data['eventEndDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('typesOfInvestorRelationsActivities')) {
+            if (data.hasOwnProperty('typesOfInvestorRelationsActivities') && obj['typesOfInvestorRelationsActivities'] === undefined) {
                 obj['typesOfInvestorRelationsActivities'] = ApiClient.convertToType(data['typesOfInvestorRelationsActivities'], 'String');
             }
-            if (data.hasOwnProperty('transcriptUniqueId')) {
+            if (data.hasOwnProperty('transcriptUniqueId') && obj['transcriptUniqueId'] === undefined) {
                 obj['transcriptUniqueId'] = ApiClient.convertToType(data['transcriptUniqueId'], 'String');
             }
-            if (data.hasOwnProperty('uploadTime')) {
+            if (data.hasOwnProperty('uploadTime') && obj['uploadTime'] === undefined) {
                 obj['uploadTime'] = ApiClient.convertToType(data['uploadTime'], 'Date');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('exchangeCode')) {
+            if (data.hasOwnProperty('exchangeCode') && obj['exchangeCode'] === undefined) {
                 obj['exchangeCode'] = ApiClient.convertToType(data['exchangeCode'], 'String');
             }
-            if (data.hasOwnProperty('versionId')) {
+            if (data.hasOwnProperty('versionId') && obj['versionId'] === undefined) {
                 obj['versionId'] = ApiClient.convertToType(data['versionId'], 'Number');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('fileTimestamp')) {
+            if (data.hasOwnProperty('fileTimestamp') && obj['fileTimestamp'] === undefined) {
                 obj['fileTimestamp'] = ApiClient.convertToType(data['fileTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('updateTimestamp')) {
+            if (data.hasOwnProperty('updateTimestamp') && obj['updateTimestamp'] === undefined) {
                 obj['updateTimestamp'] = ApiClient.convertToType(data['updateTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('fileSize')) {
+            if (data.hasOwnProperty('fileSize') && obj['fileSize'] === undefined) {
                 obj['fileSize'] = ApiClient.convertToType(data['fileSize'], 'Number');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

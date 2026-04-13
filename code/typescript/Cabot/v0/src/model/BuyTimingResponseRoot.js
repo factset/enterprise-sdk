@@ -47,9 +47,10 @@ class BuyTimingResponseRoot {
         if (data) {
             obj = obj || new BuyTimingResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BuyTimingResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

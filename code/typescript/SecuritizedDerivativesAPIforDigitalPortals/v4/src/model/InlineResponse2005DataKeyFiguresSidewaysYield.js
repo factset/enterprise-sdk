@@ -50,15 +50,16 @@ class InlineResponse2005DataKeyFiguresSidewaysYield {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresSidewaysYield();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = InlineResponse2005DataKeyFiguresSidewaysYieldAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = InlineResponse2005DataKeyFiguresSidewaysYieldRelative.constructFromObject(data['relative']);
             }
-            if (data.hasOwnProperty('annualized')) {
+            if (data.hasOwnProperty('annualized') && obj['annualized'] === undefined) {
                 obj['annualized'] = InlineResponse2005DataKeyFiguresSidewaysYieldAnnualized.constructFromObject(data['annualized']);
             }
+            
         }
         return obj;
     }

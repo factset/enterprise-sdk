@@ -47,9 +47,10 @@ class FactSetProtobufStachV3Sort {
         if (data) {
             obj = obj || new FactSetProtobufStachV3Sort();
 
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], [FactSetProtobufStachV3SortColumn]);
             }
+            
         }
         return obj;
     }

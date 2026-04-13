@@ -49,12 +49,13 @@ class InlineResponse2005DataExercise {
         if (data) {
             obj = obj || new InlineResponse2005DataExercise();
 
-            if (data.hasOwnProperty('right')) {
+            if (data.hasOwnProperty('right') && obj['right'] === undefined) {
                 obj['right'] = ApiClient.convertToType(data['right'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataExerciseRightItems]);
             }
-            if (data.hasOwnProperty('style')) {
+            if (data.hasOwnProperty('style') && obj['style'] === undefined) {
                 obj['style'] = ApiClient.convertToType(data['style'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataExerciseStyleItems]);
             }
+            
         }
         return obj;
     }

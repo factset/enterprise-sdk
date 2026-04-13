@@ -49,12 +49,13 @@ class InlineResponse200DataReferenceDebtor {
         if (data) {
             obj = obj || new InlineResponse200DataReferenceDebtor();
 
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = InlineResponse200DataReferenceDebtorInstrument.constructFromObject(data['instrument']);
             }
-            if (data.hasOwnProperty('legalEntity')) {
+            if (data.hasOwnProperty('legalEntity') && obj['legalEntity'] === undefined) {
                 obj['legalEntity'] = InlineResponse200DataReferenceDebtorLegalEntity.constructFromObject(data['legalEntity']);
             }
+            
         }
         return obj;
     }

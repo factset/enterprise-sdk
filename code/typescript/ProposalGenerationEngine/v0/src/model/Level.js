@@ -46,9 +46,10 @@ class Level {
         if (data) {
             obj = obj || new Level();
 
-            if (data.hasOwnProperty('levels')) {
+            if (data.hasOwnProperty('levels') && obj['levels'] === undefined) {
                 obj['levels'] = ApiClient.convertToType(data['levels'], ['String']);
             }
+            
         }
         return obj;
     }

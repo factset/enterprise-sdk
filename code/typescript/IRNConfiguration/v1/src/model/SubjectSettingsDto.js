@@ -46,9 +46,10 @@ class SubjectSettingsDto {
         if (data) {
             obj = obj || new SubjectSettingsDto();
 
-            if (data.hasOwnProperty('defaultId')) {
+            if (data.hasOwnProperty('defaultId') && obj['defaultId'] === undefined) {
                 obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
             }
+            
         }
         return obj;
     }

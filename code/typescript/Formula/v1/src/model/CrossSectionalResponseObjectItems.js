@@ -61,42 +61,47 @@ class CrossSectionalResponseObjectItems {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new CrossSectionalResponseObjectItems();
-            CrossSectionalResultObjectNonflattened.constructFromObject(data, obj);
-            UnifiedResultObjectFlattened.constructFromObject(data, obj);
+            try {
+              obj = CrossSectionalResultObjectNonflattened.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = UnifiedResultObjectFlattened.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('universe')) {
+            if (data.hasOwnProperty('universe') && obj['universe'] === undefined) {
                 obj['universe'] = ApiClient.convertToType(data['universe'], 'String');
             }
-            if (data.hasOwnProperty('dataItemName')) {
+            if (data.hasOwnProperty('dataItemName') && obj['dataItemName'] === undefined) {
                 obj['dataItemName'] = ApiClient.convertToType(data['dataItemName'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('result')) {
+            if (data.hasOwnProperty('result') && obj['result'] === undefined) {
                 obj['result'] = ApiClient.convertToType(data['result'], [CrossSectionalResultObjectNonflattenedResultAttribute]);
             }
-            if (data.hasOwnProperty('dataType')) {
+            if (data.hasOwnProperty('dataType') && obj['dataType'] === undefined) {
                 obj['dataType'] = ApiClient.convertToType(data['dataType'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'Number');
             }
-            if (data.hasOwnProperty('errorMessage')) {
+            if (data.hasOwnProperty('errorMessage') && obj['errorMessage'] === undefined) {
                 obj['errorMessage'] = ApiClient.convertToType(data['errorMessage'], 'String');
             }
-            if (data.hasOwnProperty('warnings')) {
+            if (data.hasOwnProperty('warnings') && obj['warnings'] === undefined) {
                 obj['warnings'] = ApiClient.convertToType(data['warnings'], [WarningsObject]);
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

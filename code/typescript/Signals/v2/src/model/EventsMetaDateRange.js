@@ -47,12 +47,13 @@ class EventsMetaDateRange {
         if (data) {
             obj = obj || new EventsMetaDateRange();
 
-            if (data.hasOwnProperty('created')) {
+            if (data.hasOwnProperty('created') && obj['created'] === undefined) {
                 obj['created'] = DateTimeInterval.constructFromObject(data['created']);
             }
-            if (data.hasOwnProperty('updated')) {
+            if (data.hasOwnProperty('updated') && obj['updated'] === undefined) {
                 obj['updated'] = DateTimeInterval.constructFromObject(data['updated']);
             }
+            
         }
         return obj;
     }

@@ -56,36 +56,37 @@ class PostNewsArticleSearchByTextDataCriteriaItems {
         if (data) {
             obj = obj || new PostNewsArticleSearchByTextDataCriteriaItems();
 
-            if (data.hasOwnProperty('selectionType')) {
+            if (data.hasOwnProperty('selectionType') && obj['selectionType'] === undefined) {
                 obj['selectionType'] = ApiClient.convertToType(data['selectionType'], 'String');
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = PostNewsArticleListByInstrumentRequestDataFilterRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('indices')) {
+            if (data.hasOwnProperty('indices') && obj['indices'] === undefined) {
                 obj['indices'] = PostNewsArticleSearchByTextDataCriteriaItemsIndices.constructFromObject(data['indices']);
             }
-            if (data.hasOwnProperty('instruments')) {
+            if (data.hasOwnProperty('instruments') && obj['instruments'] === undefined) {
                 obj['instruments'] = PostNewsArticleSearchByTextDataCriteriaItemsInstruments.constructFromObject(data['instruments']);
             }
-            if (data.hasOwnProperty('types')) {
+            if (data.hasOwnProperty('types') && obj['types'] === undefined) {
                 obj['types'] = PostNewsArticleSearchByTextDataCriteriaItemsTypes.constructFromObject(data['types']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = PostNewsArticleSearchByTextDataCriteriaItemsCategories.constructFromObject(data['categories']);
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = PostNewsArticleSearchByTextDataCriteriaItemsRegions.constructFromObject(data['regions']);
             }
-            if (data.hasOwnProperty('distributor')) {
+            if (data.hasOwnProperty('distributor') && obj['distributor'] === undefined) {
                 obj['distributor'] = PostNewsArticleSearchByTextDataCriteriaItemsDistributor.constructFromObject(data['distributor']);
             }
-            if (data.hasOwnProperty('publisher')) {
+            if (data.hasOwnProperty('publisher') && obj['publisher'] === undefined) {
                 obj['publisher'] = PostNewsArticleSearchByTextDataCriteriaItemsPublisher.constructFromObject(data['publisher']);
             }
-            if (data.hasOwnProperty('language')) {
+            if (data.hasOwnProperty('language') && obj['language'] === undefined) {
                 obj['language'] = PostNewsArticleSearchByTextDataCriteriaItemsLanguage.constructFromObject(data['language']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class InlineResponse20015DataEstimatesFirstFiscalYearRatiosDividendYield {
         if (data) {
             obj = obj || new InlineResponse20015DataEstimatesFirstFiscalYearRatiosDividendYield();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = InlineResponse20015DataEstimatesFirstFiscalYearRatiosDividendYieldMean.constructFromObject(data['mean']);
             }
+            
         }
         return obj;
     }

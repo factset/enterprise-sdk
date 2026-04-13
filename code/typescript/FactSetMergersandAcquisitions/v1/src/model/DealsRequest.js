@@ -50,9 +50,10 @@ class DealsRequest {
         if (data) {
             obj = obj || new DealsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DealsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

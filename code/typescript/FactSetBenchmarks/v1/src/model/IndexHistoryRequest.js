@@ -52,33 +52,34 @@ class IndexHistoryRequest {
         if (data) {
             obj = obj || new IndexHistoryRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = Frequency.constructFromObject(data['frequency']);
             }
-            if (data.hasOwnProperty('returnType')) {
+            if (data.hasOwnProperty('returnType') && obj['returnType'] === undefined) {
                 obj['returnType'] = ReturnType.constructFromObject(data['returnType']);
             }
-            if (data.hasOwnProperty('hedgeType')) {
+            if (data.hasOwnProperty('hedgeType') && obj['hedgeType'] === undefined) {
                 obj['hedgeType'] = HedgeType.constructFromObject(data['hedgeType']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = ApiClient.convertToType(data['calendar'], 'String');
             }
-            if (data.hasOwnProperty('impliedDate')) {
+            if (data.hasOwnProperty('impliedDate') && obj['impliedDate'] === undefined) {
                 obj['impliedDate'] = ImpliedDate.constructFromObject(data['impliedDate']);
             }
+            
         }
         return obj;
     }

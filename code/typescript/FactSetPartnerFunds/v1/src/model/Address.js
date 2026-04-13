@@ -47,21 +47,22 @@ class Address {
         if (data) {
             obj = obj || new Address();
 
-            if (data.hasOwnProperty('address')) {
+            if (data.hasOwnProperty('address') && obj['address'] === undefined) {
                 obj['address'] = ApiClient.convertToType(data['address'], 'String');
             }
-            if (data.hasOwnProperty('phone')) {
+            if (data.hasOwnProperty('phone') && obj['phone'] === undefined) {
                 obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
             }
-            if (data.hasOwnProperty('fax')) {
+            if (data.hasOwnProperty('fax') && obj['fax'] === undefined) {
                 obj['fax'] = ApiClient.convertToType(data['fax'], 'String');
             }
-            if (data.hasOwnProperty('tollFreeNumber')) {
+            if (data.hasOwnProperty('tollFreeNumber') && obj['tollFreeNumber'] === undefined) {
                 obj['tollFreeNumber'] = ApiClient.convertToType(data['tollFreeNumber'], 'String');
             }
-            if (data.hasOwnProperty('website')) {
+            if (data.hasOwnProperty('website') && obj['website'] === undefined) {
                 obj['website'] = ApiClient.convertToType(data['website'], 'String');
             }
+            
         }
         return obj;
     }

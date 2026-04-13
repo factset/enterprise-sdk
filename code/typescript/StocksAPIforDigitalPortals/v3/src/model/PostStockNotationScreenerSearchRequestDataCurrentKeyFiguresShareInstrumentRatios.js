@@ -53,24 +53,25 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatios();
 
-            if (data.hasOwnProperty('priceEarnings')) {
+            if (data.hasOwnProperty('priceEarnings') && obj['priceEarnings'] === undefined) {
                 obj['priceEarnings'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceEarnings.constructFromObject(data['priceEarnings']);
             }
-            if (data.hasOwnProperty('priceBookValue')) {
+            if (data.hasOwnProperty('priceBookValue') && obj['priceBookValue'] === undefined) {
                 obj['priceBookValue'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceBookValue.constructFromObject(data['priceBookValue']);
             }
-            if (data.hasOwnProperty('priceCashFlow')) {
+            if (data.hasOwnProperty('priceCashFlow') && obj['priceCashFlow'] === undefined) {
                 obj['priceCashFlow'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceCashFlow.constructFromObject(data['priceCashFlow']);
             }
-            if (data.hasOwnProperty('priceSales')) {
+            if (data.hasOwnProperty('priceSales') && obj['priceSales'] === undefined) {
                 obj['priceSales'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosPriceSales.constructFromObject(data['priceSales']);
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosDividendYield.constructFromObject(data['dividendYield']);
             }
-            if (data.hasOwnProperty('earningsYield')) {
+            if (data.hasOwnProperty('earningsYield') && obj['earningsYield'] === undefined) {
                 obj['earningsYield'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentRatiosEarningsYield.constructFromObject(data['earningsYield']);
             }
+            
         }
         return obj;
     }

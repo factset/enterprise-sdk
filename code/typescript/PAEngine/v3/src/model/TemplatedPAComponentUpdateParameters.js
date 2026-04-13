@@ -47,15 +47,16 @@ class TemplatedPAComponentUpdateParameters {
         if (data) {
             obj = obj || new TemplatedPAComponentUpdateParameters();
 
-            if (data.hasOwnProperty('parentTemplateId')) {
+            if (data.hasOwnProperty('parentTemplateId') && obj['parentTemplateId'] === undefined) {
                 obj['parentTemplateId'] = ApiClient.convertToType(data['parentTemplateId'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('componentData')) {
+            if (data.hasOwnProperty('componentData') && obj['componentData'] === undefined) {
                 obj['componentData'] = PAComponentData.constructFromObject(data['componentData']);
             }
+            
         }
         return obj;
     }

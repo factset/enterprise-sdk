@@ -58,36 +58,37 @@ class PostStockNotationScreenerSearchRequestDataReportedKeyFigures {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataReportedKeyFigures();
 
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = PostStockNotationScreenerSearchRequestDataFiscalYear.constructFromObject(data['fiscalYear']);
             }
-            if (data.hasOwnProperty('currencyDependentKeyFigures')) {
+            if (data.hasOwnProperty('currencyDependentKeyFigures') && obj['currencyDependentKeyFigures'] === undefined) {
                 obj['currencyDependentKeyFigures'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFigures.constructFromObject(data['currencyDependentKeyFigures']);
             }
-            if (data.hasOwnProperty('ebitMargin')) {
+            if (data.hasOwnProperty('ebitMargin') && obj['ebitMargin'] === undefined) {
                 obj['ebitMargin'] = PostStockNotationScreenerSearchRequestDataEbitMargin.constructFromObject(data['ebitMargin']);
             }
-            if (data.hasOwnProperty('ebitdaMargin')) {
+            if (data.hasOwnProperty('ebitdaMargin') && obj['ebitdaMargin'] === undefined) {
                 obj['ebitdaMargin'] = PostStockNotationScreenerSearchRequestDataEbitdaMargin.constructFromObject(data['ebitdaMargin']);
             }
-            if (data.hasOwnProperty('netIncomeMargin')) {
+            if (data.hasOwnProperty('netIncomeMargin') && obj['netIncomeMargin'] === undefined) {
                 obj['netIncomeMargin'] = PostStockNotationScreenerSearchRequestDataNetIncomeMargin.constructFromObject(data['netIncomeMargin']);
             }
-            if (data.hasOwnProperty('grossIncomeMargin')) {
+            if (data.hasOwnProperty('grossIncomeMargin') && obj['grossIncomeMargin'] === undefined) {
                 obj['grossIncomeMargin'] = PostStockNotationScreenerSearchRequestDataGrossIncomeMargin.constructFromObject(data['grossIncomeMargin']);
             }
-            if (data.hasOwnProperty('operatingMargin')) {
+            if (data.hasOwnProperty('operatingMargin') && obj['operatingMargin'] === undefined) {
                 obj['operatingMargin'] = PostStockNotationScreenerSearchRequestDataOperatingMargin.constructFromObject(data['operatingMargin']);
             }
-            if (data.hasOwnProperty('returnOnAssets')) {
+            if (data.hasOwnProperty('returnOnAssets') && obj['returnOnAssets'] === undefined) {
                 obj['returnOnAssets'] = PostStockNotationScreenerSearchRequestDataReturnOnAssets.constructFromObject(data['returnOnAssets']);
             }
-            if (data.hasOwnProperty('returnOnEquity')) {
+            if (data.hasOwnProperty('returnOnEquity') && obj['returnOnEquity'] === undefined) {
                 obj['returnOnEquity'] = PostStockNotationScreenerSearchRequestDataReturnOnEquity.constructFromObject(data['returnOnEquity']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = PostStockNotationScreenerSearchRequestDataRatios.constructFromObject(data['ratios']);
             }
+            
         }
         return obj;
     }

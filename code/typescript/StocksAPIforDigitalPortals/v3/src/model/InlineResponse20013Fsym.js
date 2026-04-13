@@ -49,12 +49,13 @@ class InlineResponse20013Fsym {
         if (data) {
             obj = obj || new InlineResponse20013Fsym();
 
-            if (data.hasOwnProperty('listing')) {
+            if (data.hasOwnProperty('listing') && obj['listing'] === undefined) {
                 obj['listing'] = InlineResponse20013FsymListing.constructFromObject(data['listing']);
             }
-            if (data.hasOwnProperty('regional')) {
+            if (data.hasOwnProperty('regional') && obj['regional'] === undefined) {
                 obj['regional'] = InlineResponse20013FsymRegional.constructFromObject(data['regional']);
             }
+            
         }
         return obj;
     }

@@ -52,12 +52,13 @@ class QueryResponseData {
         if (data) {
             obj = obj || new QueryResponseData();
 
-            if (data.hasOwnProperty('responseId')) {
+            if (data.hasOwnProperty('responseId') && obj['responseId'] === undefined) {
                 obj['responseId'] = ApiClient.convertToType(data['responseId'], 'String');
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FederationData]);
             }
+            
         }
         return obj;
     }

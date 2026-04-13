@@ -47,9 +47,10 @@ class ContentWithDate {
         if (data) {
             obj = obj || new ContentWithDate();
 
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [DateAndFields]);
             }
+            
         }
         return obj;
     }

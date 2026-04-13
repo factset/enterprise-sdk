@@ -47,9 +47,10 @@ class ExPostStatsCorrelationsResponseMeta {
         if (data) {
             obj = obj || new ExPostStatsCorrelationsResponseMeta();
 
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = ExPostStatsCorrelationsSettings.constructFromObject(data['settings']);
             }
+            
         }
         return obj;
     }

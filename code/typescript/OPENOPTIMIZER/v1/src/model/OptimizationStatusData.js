@@ -51,18 +51,19 @@ class OptimizationStatusData {
         if (data) {
             obj = obj || new OptimizationStatusData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('detailedStatus')) {
+            if (data.hasOwnProperty('detailedStatus') && obj['detailedStatus'] === undefined) {
                 obj['detailedStatus'] = ApiClient.convertToType(data['detailedStatus'], 'String');
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [Error]);
             }
+            
         }
         return obj;
     }

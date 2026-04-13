@@ -47,9 +47,10 @@ class InlineResponse403 {
         if (data) {
             obj = obj || new InlineResponse403();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorObject]);
             }
+            
         }
         return obj;
     }

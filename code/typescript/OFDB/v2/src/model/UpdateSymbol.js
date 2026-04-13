@@ -48,9 +48,10 @@ class UpdateSymbol {
         if (data) {
             obj = obj || new UpdateSymbol();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ContentWithDate]);
             }
+            
         }
         return obj;
     }

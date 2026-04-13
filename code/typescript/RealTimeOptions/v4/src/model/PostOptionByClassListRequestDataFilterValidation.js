@@ -48,12 +48,13 @@ class PostOptionByClassListRequestDataFilterValidation {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataFilterValidation();
 
-            if (data.hasOwnProperty('onlyActive')) {
+            if (data.hasOwnProperty('onlyActive') && obj['onlyActive'] === undefined) {
                 obj['onlyActive'] = ApiClient.convertToType(data['onlyActive'], 'Boolean');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = PostOptionByClassListRequestDataFilterValidationPrice.constructFromObject(data['price']);
             }
+            
         }
         return obj;
     }

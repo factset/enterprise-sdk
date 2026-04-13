@@ -48,12 +48,13 @@ class PeerListResponse {
         if (data) {
             obj = obj || new PeerListResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PeerListDataObject.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

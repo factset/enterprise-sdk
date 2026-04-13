@@ -47,21 +47,22 @@ class SpeakerInfo {
         if (data) {
             obj = obj || new SpeakerInfo();
 
-            if (data.hasOwnProperty('speakerName')) {
+            if (data.hasOwnProperty('speakerName') && obj['speakerName'] === undefined) {
                 obj['speakerName'] = ApiClient.convertToType(data['speakerName'], 'String');
             }
-            if (data.hasOwnProperty('speakerTitle')) {
+            if (data.hasOwnProperty('speakerTitle') && obj['speakerTitle'] === undefined) {
                 obj['speakerTitle'] = ApiClient.convertToType(data['speakerTitle'], 'String');
             }
-            if (data.hasOwnProperty('speakerId')) {
+            if (data.hasOwnProperty('speakerId') && obj['speakerId'] === undefined) {
                 obj['speakerId'] = ApiClient.convertToType(data['speakerId'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('companyId')) {
+            if (data.hasOwnProperty('companyId') && obj['companyId'] === undefined) {
                 obj['companyId'] = ApiClient.convertToType(data['companyId'], 'String');
             }
+            
         }
         return obj;
     }

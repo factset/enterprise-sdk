@@ -47,12 +47,13 @@ class ResearchContributorResponseObject {
         if (data) {
             obj = obj || new ResearchContributorResponseObject();
 
-            if (data.hasOwnProperty('contributorName')) {
+            if (data.hasOwnProperty('contributorName') && obj['contributorName'] === undefined) {
                 obj['contributorName'] = ApiClient.convertToType(data['contributorName'], 'String');
             }
-            if (data.hasOwnProperty('contributorId')) {
+            if (data.hasOwnProperty('contributorId') && obj['contributorId'] === undefined) {
                 obj['contributorId'] = ApiClient.convertToType(data['contributorId'], 'Number');
             }
+            
         }
         return obj;
     }

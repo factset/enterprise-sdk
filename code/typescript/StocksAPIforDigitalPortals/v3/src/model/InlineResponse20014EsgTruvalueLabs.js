@@ -49,12 +49,13 @@ class InlineResponse20014EsgTruvalueLabs {
         if (data) {
             obj = obj || new InlineResponse20014EsgTruvalueLabs();
 
-            if (data.hasOwnProperty('sasb')) {
+            if (data.hasOwnProperty('sasb') && obj['sasb'] === undefined) {
                 obj['sasb'] = InlineResponse20014EsgTruvalueLabsSasb.constructFromObject(data['sasb']);
             }
-            if (data.hasOwnProperty('sdg')) {
+            if (data.hasOwnProperty('sdg') && obj['sdg'] === undefined) {
                 obj['sdg'] = InlineResponse20014EsgTruvalueLabsSdg.constructFromObject(data['sdg']);
             }
+            
         }
         return obj;
     }

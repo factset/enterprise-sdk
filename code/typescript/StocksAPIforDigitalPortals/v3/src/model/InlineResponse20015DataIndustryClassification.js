@@ -48,12 +48,13 @@ class InlineResponse20015DataIndustryClassification {
         if (data) {
             obj = obj || new InlineResponse20015DataIndustryClassification();
 
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = InlineResponse20015DataLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [InlineResponse20015DataCategories]);
             }
+            
         }
         return obj;
     }

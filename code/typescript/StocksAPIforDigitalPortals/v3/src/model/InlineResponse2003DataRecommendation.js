@@ -48,15 +48,16 @@ class InlineResponse2003DataRecommendation {
         if (data) {
             obj = obj || new InlineResponse2003DataRecommendation();
 
-            if (data.hasOwnProperty('latestUpdate')) {
+            if (data.hasOwnProperty('latestUpdate') && obj['latestUpdate'] === undefined) {
                 obj['latestUpdate'] = ApiClient.convertToType(data['latestUpdate'], 'Date');
             }
-            if (data.hasOwnProperty('counts')) {
+            if (data.hasOwnProperty('counts') && obj['counts'] === undefined) {
                 obj['counts'] = InlineResponse2003DataRecommendationCounts.constructFromObject(data['counts']);
             }
-            if (data.hasOwnProperty('consensus')) {
+            if (data.hasOwnProperty('consensus') && obj['consensus'] === undefined) {
                 obj['consensus'] = ApiClient.convertToType(data['consensus'], 'Number');
             }
+            
         }
         return obj;
     }

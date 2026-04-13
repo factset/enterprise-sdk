@@ -47,15 +47,16 @@ class EnableBookDownload {
         if (data) {
             obj = obj || new EnableBookDownload();
 
-            if (data.hasOwnProperty('Message')) {
+            if (data.hasOwnProperty('Message') && obj['Message'] === undefined) {
                 obj['Message'] = ApiClient.convertToType(data['Message'], 'String');
             }
-            if (data.hasOwnProperty('Url')) {
+            if (data.hasOwnProperty('Url') && obj['Url'] === undefined) {
                 obj['Url'] = ApiClient.convertToType(data['Url'], 'String');
             }
-            if (data.hasOwnProperty('Status')) {
+            if (data.hasOwnProperty('Status') && obj['Status'] === undefined) {
                 obj['Status'] = ApiClient.convertToType(data['Status'], 'String');
             }
+            
         }
         return obj;
     }

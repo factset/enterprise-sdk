@@ -46,30 +46,31 @@ class InstrumentDto {
         if (data) {
             obj = obj || new InstrumentDto();
 
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('tickerRegion')) {
+            if (data.hasOwnProperty('tickerRegion') && obj['tickerRegion'] === undefined) {
                 obj['tickerRegion'] = ApiClient.convertToType(data['tickerRegion'], 'String');
             }
-            if (data.hasOwnProperty('tickerExchange')) {
+            if (data.hasOwnProperty('tickerExchange') && obj['tickerExchange'] === undefined) {
                 obj['tickerExchange'] = ApiClient.convertToType(data['tickerExchange'], 'String');
             }
-            if (data.hasOwnProperty('sedol')) {
+            if (data.hasOwnProperty('sedol') && obj['sedol'] === undefined) {
                 obj['sedol'] = ApiClient.convertToType(data['sedol'], 'String');
             }
-            if (data.hasOwnProperty('cusip')) {
+            if (data.hasOwnProperty('cusip') && obj['cusip'] === undefined) {
                 obj['cusip'] = ApiClient.convertToType(data['cusip'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('instrumentName')) {
+            if (data.hasOwnProperty('instrumentName') && obj['instrumentName'] === undefined) {
                 obj['instrumentName'] = ApiClient.convertToType(data['instrumentName'], 'String');
             }
-            if (data.hasOwnProperty('identifiers')) {
+            if (data.hasOwnProperty('identifiers') && obj['identifiers'] === undefined) {
                 obj['identifiers'] = ApiClient.convertToType(data['identifiers'], ['String']);
             }
+            
         }
         return obj;
     }

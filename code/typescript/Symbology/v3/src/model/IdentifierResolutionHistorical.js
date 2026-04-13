@@ -47,33 +47,34 @@ class IdentifierResolutionHistorical {
         if (data) {
             obj = obj || new IdentifierResolutionHistorical();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('inputSymbolType')) {
+            if (data.hasOwnProperty('inputSymbolType') && obj['inputSymbolType'] === undefined) {
                 obj['inputSymbolType'] = ApiClient.convertToType(data['inputSymbolType'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('frefListingExchange')) {
+            if (data.hasOwnProperty('frefListingExchange') && obj['frefListingExchange'] === undefined) {
                 obj['frefListingExchange'] = ApiClient.convertToType(data['frefListingExchange'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('outputType')) {
+            if (data.hasOwnProperty('outputType') && obj['outputType'] === undefined) {
                 obj['outputType'] = ApiClient.convertToType(data['outputType'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
+            
         }
         return obj;
     }

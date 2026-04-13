@@ -46,21 +46,22 @@ class HoldingAnalytics {
         if (data) {
             obj = obj || new HoldingAnalytics();
 
-            if (data.hasOwnProperty('incrementalBenefit')) {
+            if (data.hasOwnProperty('incrementalBenefit') && obj['incrementalBenefit'] === undefined) {
                 obj['incrementalBenefit'] = ApiClient.convertToType(data['incrementalBenefit'], Object);
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('region')) {
+            if (data.hasOwnProperty('region') && obj['region'] === undefined) {
                 obj['region'] = ApiClient.convertToType(data['region'], 'String');
             }
-            if (data.hasOwnProperty('sector')) {
+            if (data.hasOwnProperty('sector') && obj['sector'] === undefined) {
                 obj['sector'] = ApiClient.convertToType(data['sector'], 'String');
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
+            
         }
         return obj;
     }

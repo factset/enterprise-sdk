@@ -47,18 +47,19 @@ class FundCounts {
         if (data) {
             obj = obj || new FundCounts();
 
-            if (data.hasOwnProperty('countOneMonth')) {
+            if (data.hasOwnProperty('countOneMonth') && obj['countOneMonth'] === undefined) {
                 obj['countOneMonth'] = ApiClient.convertToType(data['countOneMonth'], 'Number');
             }
-            if (data.hasOwnProperty('countThreeMonths')) {
+            if (data.hasOwnProperty('countThreeMonths') && obj['countThreeMonths'] === undefined) {
                 obj['countThreeMonths'] = ApiClient.convertToType(data['countThreeMonths'], 'Number');
             }
-            if (data.hasOwnProperty('countSixMonths')) {
+            if (data.hasOwnProperty('countSixMonths') && obj['countSixMonths'] === undefined) {
                 obj['countSixMonths'] = ApiClient.convertToType(data['countSixMonths'], 'Number');
             }
-            if (data.hasOwnProperty('countYearToDate')) {
+            if (data.hasOwnProperty('countYearToDate') && obj['countYearToDate'] === undefined) {
                 obj['countYearToDate'] = ApiClient.convertToType(data['countYearToDate'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class InlineResponse2005DataCategorization {
         if (data) {
             obj = obj || new InlineResponse2005DataCategorization();
 
-            if (data.hasOwnProperty('ddv')) {
+            if (data.hasOwnProperty('ddv') && obj['ddv'] === undefined) {
                 obj['ddv'] = ApiClient.convertToType(data['ddv'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationDdvItems]);
             }
-            if (data.hasOwnProperty('eusipa')) {
+            if (data.hasOwnProperty('eusipa') && obj['eusipa'] === undefined) {
                 obj['eusipa'] = ApiClient.convertToType(data['eusipa'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationEusipaItems]);
             }
+            
         }
         return obj;
     }

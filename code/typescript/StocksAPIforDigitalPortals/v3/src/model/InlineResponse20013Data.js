@@ -52,36 +52,37 @@ class InlineResponse20013Data {
         if (data) {
             obj = obj || new InlineResponse20013Data();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = InlineResponse20013Market.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse20013Currency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('isAlternative')) {
+            if (data.hasOwnProperty('isAlternative') && obj['isAlternative'] === undefined) {
                 obj['isAlternative'] = ApiClient.convertToType(data['isAlternative'], 'Boolean');
             }
-            if (data.hasOwnProperty('trade')) {
+            if (data.hasOwnProperty('trade') && obj['trade'] === undefined) {
                 obj['trade'] = InlineResponse20013Trade.constructFromObject(data['trade']);
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('accumulated')) {
+            if (data.hasOwnProperty('accumulated') && obj['accumulated'] === undefined) {
                 obj['accumulated'] = InlineResponse20013Accumulated.constructFromObject(data['accumulated']);
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = InlineResponse20013Fsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = InlineResponse20013Instrument.constructFromObject(data['instrument']);
             }
+            
         }
         return obj;
     }

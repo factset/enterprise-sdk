@@ -48,9 +48,10 @@ class CalculationStatusMeta {
         if (data) {
             obj = obj || new CalculationStatusMeta();
 
-            if (data.hasOwnProperty('units')) {
+            if (data.hasOwnProperty('units') && obj['units'] === undefined) {
                 obj['units'] = ApiClient.convertToType(data['units'], {'String': CalculationUnitStatusMeta});
             }
+            
         }
         return obj;
     }

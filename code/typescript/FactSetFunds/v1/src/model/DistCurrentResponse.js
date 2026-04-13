@@ -47,9 +47,10 @@ class DistCurrentResponse {
         if (data) {
             obj = obj || new DistCurrentResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [DistCurrent]);
             }
+            
         }
         return obj;
     }

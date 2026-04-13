@@ -46,9 +46,10 @@ class NRTSnippetsMetaPartial {
         if (data) {
             obj = obj || new NRTSnippetsMetaPartial();
 
-            if (data.hasOwnProperty('isPartial')) {
+            if (data.hasOwnProperty('isPartial') && obj['isPartial'] === undefined) {
                 obj['isPartial'] = ApiClient.convertToType(data['isPartial'], 'Boolean');
             }
+            
         }
         return obj;
     }

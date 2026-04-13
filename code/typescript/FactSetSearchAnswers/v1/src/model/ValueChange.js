@@ -47,15 +47,16 @@ class ValueChange {
         if (data) {
             obj = obj || new ValueChange();
 
-            if (data.hasOwnProperty('absoluteChange')) {
+            if (data.hasOwnProperty('absoluteChange') && obj['absoluteChange'] === undefined) {
                 obj['absoluteChange'] = ApiClient.convertToType(data['absoluteChange'], 'String');
             }
-            if (data.hasOwnProperty('percentageChange')) {
+            if (data.hasOwnProperty('percentageChange') && obj['percentageChange'] === undefined) {
                 obj['percentageChange'] = ApiClient.convertToType(data['percentageChange'], 'String');
             }
-            if (data.hasOwnProperty('color')) {
+            if (data.hasOwnProperty('color') && obj['color'] === undefined) {
                 obj['color'] = ChangeColor.constructFromObject(data['color']);
             }
+            
         }
         return obj;
     }

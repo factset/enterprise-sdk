@@ -52,24 +52,25 @@ class ScreenExportParametersData {
         if (data) {
             obj = obj || new ScreenExportParametersData();
 
-            if (data.hasOwnProperty('screenName')) {
+            if (data.hasOwnProperty('screenName') && obj['screenName'] === undefined) {
                 obj['screenName'] = ApiClient.convertToType(data['screenName'], 'String');
             }
-            if (data.hasOwnProperty('file')) {
+            if (data.hasOwnProperty('file') && obj['file'] === undefined) {
                 obj['file'] = ApiClient.convertToType(data['file'], Object);
             }
-            if (data.hasOwnProperty('backtestDate')) {
+            if (data.hasOwnProperty('backtestDate') && obj['backtestDate'] === undefined) {
                 obj['backtestDate'] = ApiClient.convertToType(data['backtestDate'], 'String');
             }
-            if (data.hasOwnProperty('globalVariablesMap')) {
+            if (data.hasOwnProperty('globalVariablesMap') && obj['globalVariablesMap'] === undefined) {
                 obj['globalVariablesMap'] = ApiClient.convertToType(data['globalVariablesMap'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('legacyUniverseType')) {
+            if (data.hasOwnProperty('legacyUniverseType') && obj['legacyUniverseType'] === undefined) {
                 obj['legacyUniverseType'] = ApiClient.convertToType(data['legacyUniverseType'], 'String');
             }
-            if (data.hasOwnProperty('groupingInfo')) {
+            if (data.hasOwnProperty('groupingInfo') && obj['groupingInfo'] === undefined) {
                 obj['groupingInfo'] = GroupingInfo.constructFromObject(data['groupingInfo']);
             }
+            
         }
         return obj;
     }

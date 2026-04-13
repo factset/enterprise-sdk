@@ -49,12 +49,13 @@ class AccountDirectoriesRoot {
         if (data) {
             obj = obj || new AccountDirectoriesRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AccountDirectories.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], Object);
             }
+            
         }
         return obj;
     }

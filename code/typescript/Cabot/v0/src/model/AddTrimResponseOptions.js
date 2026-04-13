@@ -48,21 +48,22 @@ class AddTrimResponseOptions {
         if (data) {
             obj = obj || new AddTrimResponseOptions();
 
-            if (data.hasOwnProperty('addTrimValues')) {
+            if (data.hasOwnProperty('addTrimValues') && obj['addTrimValues'] === undefined) {
                 obj['addTrimValues'] = AddTrimModelAnalytics.constructFromObject(data['addTrimValues']);
             }
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = ApiClient.convertToType(data['attribute'], 'String');
             }
-            if (data.hasOwnProperty('highAddTrimValues')) {
+            if (data.hasOwnProperty('highAddTrimValues') && obj['highAddTrimValues'] === undefined) {
                 obj['highAddTrimValues'] = AddTrimModelAnalytics.constructFromObject(data['highAddTrimValues']);
             }
-            if (data.hasOwnProperty('holdingsData')) {
+            if (data.hasOwnProperty('holdingsData') && obj['holdingsData'] === undefined) {
                 obj['holdingsData'] = HoldingsResponseOptions.constructFromObject(data['holdingsData']);
             }
-            if (data.hasOwnProperty('lowAddTrimValues')) {
+            if (data.hasOwnProperty('lowAddTrimValues') && obj['lowAddTrimValues'] === undefined) {
                 obj['lowAddTrimValues'] = AddTrimModelAnalytics.constructFromObject(data['lowAddTrimValues']);
             }
+            
         }
         return obj;
     }

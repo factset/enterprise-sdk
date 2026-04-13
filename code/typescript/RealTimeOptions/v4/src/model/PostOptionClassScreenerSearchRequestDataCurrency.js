@@ -49,12 +49,13 @@ class PostOptionClassScreenerSearchRequestDataCurrency {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchRequestDataCurrency();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostOptionClassScreenerSearchRequestDataCurrencyRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostOptionClassScreenerSearchRequestDataCurrencyExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

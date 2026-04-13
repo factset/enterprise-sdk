@@ -48,15 +48,16 @@ class InlineResponse2001DataCompany {
         if (data) {
             obj = obj || new InlineResponse2001DataCompany();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = InlineResponse200DataCompanyCountry.constructFromObject(data['country']);
             }
+            
         }
         return obj;
     }

@@ -53,27 +53,28 @@ class SegmentActualsRequest {
         if (data) {
             obj = obj || new SegmentActualsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('metrics')) {
+            if (data.hasOwnProperty('metrics') && obj['metrics'] === undefined) {
                 obj['metrics'] = ApiClient.convertToType(data['metrics'], ['String']);
             }
-            if (data.hasOwnProperty('segmentType')) {
+            if (data.hasOwnProperty('segmentType') && obj['segmentType'] === undefined) {
                 obj['segmentType'] = SegmentType.constructFromObject(data['segmentType']);
             }
-            if (data.hasOwnProperty('relativeFiscalStart')) {
+            if (data.hasOwnProperty('relativeFiscalStart') && obj['relativeFiscalStart'] === undefined) {
                 obj['relativeFiscalStart'] = ApiClient.convertToType(data['relativeFiscalStart'], 'Number');
             }
-            if (data.hasOwnProperty('relativeFiscalEnd')) {
+            if (data.hasOwnProperty('relativeFiscalEnd') && obj['relativeFiscalEnd'] === undefined) {
                 obj['relativeFiscalEnd'] = ApiClient.convertToType(data['relativeFiscalEnd'], 'Number');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = Periodicity.constructFromObject(data['periodicity']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
+            
         }
         return obj;
     }

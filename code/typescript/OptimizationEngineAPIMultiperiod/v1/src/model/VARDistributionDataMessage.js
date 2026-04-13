@@ -49,15 +49,16 @@ class VARDistributionDataMessage {
         if (data) {
             obj = obj || new VARDistributionDataMessage();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = VARDistributionDescription.constructFromObject(data['description']);
             }
-            if (data.hasOwnProperty('securitySimulations')) {
+            if (data.hasOwnProperty('securitySimulations') && obj['securitySimulations'] === undefined) {
                 obj['securitySimulations'] = ApiClient.convertToType(data['securitySimulations'], [VARSimulatedReturns]);
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = VARDistributionStatus.constructFromObject(data['status']);
             }
+            
         }
         return obj;
     }

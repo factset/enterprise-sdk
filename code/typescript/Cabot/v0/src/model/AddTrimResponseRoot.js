@@ -47,9 +47,10 @@ class AddTrimResponseRoot {
         if (data) {
             obj = obj || new AddTrimResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AddTrimResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

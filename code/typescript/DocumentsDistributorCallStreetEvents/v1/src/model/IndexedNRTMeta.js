@@ -48,12 +48,13 @@ class IndexedNRTMeta {
         if (data) {
             obj = obj || new IndexedNRTMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = IndexedNRTMetaPagination.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('partial')) {
+            if (data.hasOwnProperty('partial') && obj['partial'] === undefined) {
                 obj['partial'] = NRTSnippetsMetaPartial.constructFromObject(data['partial']);
             }
+            
         }
         return obj;
     }

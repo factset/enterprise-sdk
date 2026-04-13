@@ -48,12 +48,13 @@ class PostStockNotationRankingIntradayListRequestDataMarket {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestDataMarket();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
-            if (data.hasOwnProperty('priority')) {
+            if (data.hasOwnProperty('priority') && obj['priority'] === undefined) {
                 obj['priority'] = PostStockNotationRankingIntradayListRequestDataMarketPriority.constructFromObject(data['priority']);
             }
+            
         }
         return obj;
     }

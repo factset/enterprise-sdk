@@ -47,15 +47,16 @@ class RelationshipSymbolSummaryDto {
         if (data) {
             obj = obj || new RelationshipSymbolSummaryDto();
 
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = SymbolType.constructFromObject(data['type']);
             }
+            
         }
         return obj;
     }

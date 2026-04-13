@@ -50,12 +50,13 @@ class EntityMappingDeleteRequest {
         if (data) {
             obj = obj || new EntityMappingDeleteRequest();
 
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
-            if (data.hasOwnProperty('clientId')) {
+            if (data.hasOwnProperty('clientId') && obj['clientId'] === undefined) {
                 obj['clientId'] = ApiClient.convertToType(data['clientId'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -50,18 +50,19 @@ class InlineResponse200DataLifeCycle {
         if (data) {
             obj = obj || new InlineResponse200DataLifeCycle();
 
-            if (data.hasOwnProperty('maturity')) {
+            if (data.hasOwnProperty('maturity') && obj['maturity'] === undefined) {
                 obj['maturity'] = InlineResponse200DataLifeCycleMaturity.constructFromObject(data['maturity']);
             }
-            if (data.hasOwnProperty('expiration')) {
+            if (data.hasOwnProperty('expiration') && obj['expiration'] === undefined) {
                 obj['expiration'] = InlineResponse200DataLifeCycleExpiration.constructFromObject(data['expiration']);
             }
-            if (data.hasOwnProperty('endTradingPeriod')) {
+            if (data.hasOwnProperty('endTradingPeriod') && obj['endTradingPeriod'] === undefined) {
                 obj['endTradingPeriod'] = ApiClient.convertToType(data['endTradingPeriod'], 'Date');
             }
-            if (data.hasOwnProperty('delivery')) {
+            if (data.hasOwnProperty('delivery') && obj['delivery'] === undefined) {
                 obj['delivery'] = InlineResponse200DataLifeCycleDelivery.constructFromObject(data['delivery']);
             }
+            
         }
         return obj;
     }

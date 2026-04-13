@@ -49,12 +49,13 @@ class InlineResponse2005DataKeyFiguresThetaOneWeek {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresThetaOneWeek();
 
-            if (data.hasOwnProperty('effective')) {
+            if (data.hasOwnProperty('effective') && obj['effective'] === undefined) {
                 obj['effective'] = InlineResponse2005DataKeyFiguresThetaOneWeekEffective.constructFromObject(data['effective']);
             }
-            if (data.hasOwnProperty('unadjusted')) {
+            if (data.hasOwnProperty('unadjusted') && obj['unadjusted'] === undefined) {
                 obj['unadjusted'] = InlineResponse2005DataKeyFiguresThetaOneWeekUnadjusted.constructFromObject(data['unadjusted']);
             }
+            
         }
         return obj;
     }

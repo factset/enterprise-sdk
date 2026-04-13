@@ -48,33 +48,34 @@ class CostImpact {
         if (data) {
             obj = obj || new CostImpact();
 
-            if (data.hasOwnProperty('costPerShare')) {
+            if (data.hasOwnProperty('costPerShare') && obj['costPerShare'] === undefined) {
                 obj['costPerShare'] = ApiClient.convertToType(data['costPerShare'], 'Number');
             }
-            if (data.hasOwnProperty('costPerShareBps')) {
+            if (data.hasOwnProperty('costPerShareBps') && obj['costPerShareBps'] === undefined) {
                 obj['costPerShareBps'] = ApiClient.convertToType(data['costPerShareBps'], 'Number');
             }
-            if (data.hasOwnProperty('marketImpact')) {
+            if (data.hasOwnProperty('marketImpact') && obj['marketImpact'] === undefined) {
                 obj['marketImpact'] = ApiClient.convertToType(data['marketImpact'], 'Number');
             }
-            if (data.hasOwnProperty('confidenceInterval')) {
+            if (data.hasOwnProperty('confidenceInterval') && obj['confidenceInterval'] === undefined) {
                 obj['confidenceInterval'] = ApiClient.convertToType(data['confidenceInterval'], 'Number');
             }
-            if (data.hasOwnProperty('liquidityCostPerShare')) {
+            if (data.hasOwnProperty('liquidityCostPerShare') && obj['liquidityCostPerShare'] === undefined) {
                 obj['liquidityCostPerShare'] = ApiClient.convertToType(data['liquidityCostPerShare'], 'Number');
             }
-            if (data.hasOwnProperty('liquidityCostPerShareBps')) {
+            if (data.hasOwnProperty('liquidityCostPerShareBps') && obj['liquidityCostPerShareBps'] === undefined) {
                 obj['liquidityCostPerShareBps'] = ApiClient.convertToType(data['liquidityCostPerShareBps'], 'Number');
             }
-            if (data.hasOwnProperty('spreadCostPerShare')) {
+            if (data.hasOwnProperty('spreadCostPerShare') && obj['spreadCostPerShare'] === undefined) {
                 obj['spreadCostPerShare'] = ApiClient.convertToType(data['spreadCostPerShare'], 'Number');
             }
-            if (data.hasOwnProperty('spreadCostPerShareBps')) {
+            if (data.hasOwnProperty('spreadCostPerShareBps') && obj['spreadCostPerShareBps'] === undefined) {
                 obj['spreadCostPerShareBps'] = ApiClient.convertToType(data['spreadCostPerShareBps'], 'Number');
             }
-            if (data.hasOwnProperty('outputStrategyBinDataDtoList')) {
+            if (data.hasOwnProperty('outputStrategyBinDataDtoList') && obj['outputStrategyBinDataDtoList'] === undefined) {
                 obj['outputStrategyBinDataDtoList'] = ApiClient.convertToType(data['outputStrategyBinDataDtoList'], [OutputStrategyBinData]);
             }
+            
         }
         return obj;
     }

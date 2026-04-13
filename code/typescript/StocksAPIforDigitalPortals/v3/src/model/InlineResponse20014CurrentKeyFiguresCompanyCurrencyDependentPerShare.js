@@ -47,18 +47,19 @@ class InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShare {
         if (data) {
             obj = obj || new InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependentPerShare();
 
-            if (data.hasOwnProperty('earnings')) {
+            if (data.hasOwnProperty('earnings') && obj['earnings'] === undefined) {
                 obj['earnings'] = ApiClient.convertToType(data['earnings'], 'Number');
             }
-            if (data.hasOwnProperty('bookValue')) {
+            if (data.hasOwnProperty('bookValue') && obj['bookValue'] === undefined) {
                 obj['bookValue'] = ApiClient.convertToType(data['bookValue'], 'Number');
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = ApiClient.convertToType(data['cashFlow'], 'Number');
             }
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = ApiClient.convertToType(data['sales'], 'Number');
             }
+            
         }
         return obj;
     }

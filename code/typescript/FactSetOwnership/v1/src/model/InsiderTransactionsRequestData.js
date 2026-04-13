@@ -56,27 +56,28 @@ class InsiderTransactionsRequestData {
         if (data) {
             obj = obj || new InsiderTransactionsRequestData();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('transactionType')) {
+            if (data.hasOwnProperty('transactionType') && obj['transactionType'] === undefined) {
                 obj['transactionType'] = TransactionType.constructFromObject(data['transactionType']);
             }
-            if (data.hasOwnProperty('rowExclusion')) {
+            if (data.hasOwnProperty('rowExclusion') && obj['rowExclusion'] === undefined) {
                 obj['rowExclusion'] = RowExclusion.constructFromObject(data['rowExclusion']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('batch')) {
+            if (data.hasOwnProperty('batch') && obj['batch'] === undefined) {
                 obj['batch'] = Batch.constructFromObject(data['batch']);
             }
+            
         }
         return obj;
     }

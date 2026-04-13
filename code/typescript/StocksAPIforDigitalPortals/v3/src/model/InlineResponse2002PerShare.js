@@ -52,21 +52,22 @@ class InlineResponse2002PerShare {
         if (data) {
             obj = obj || new InlineResponse2002PerShare();
 
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = InlineResponse2002PerShareDividends.constructFromObject(data['dividends']);
             }
-            if (data.hasOwnProperty('earnings')) {
+            if (data.hasOwnProperty('earnings') && obj['earnings'] === undefined) {
                 obj['earnings'] = InlineResponse2002PerShareEarnings.constructFromObject(data['earnings']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2002PerShareCashFlow.constructFromObject(data['cashFlow']);
             }
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = InlineResponse2002PerShareSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('netAssetValue')) {
+            if (data.hasOwnProperty('netAssetValue') && obj['netAssetValue'] === undefined) {
                 obj['netAssetValue'] = InlineResponse2002PerShareNetAssetValue.constructFromObject(data['netAssetValue']);
             }
+            
         }
         return obj;
     }

@@ -50,18 +50,19 @@ class FactSetProtobufStachV3TableTypesErrorTypesSource {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesErrorTypesSource();
 
-            if (data.hasOwnProperty('column')) {
+            if (data.hasOwnProperty('column') && obj['column'] === undefined) {
                 obj['column'] = FactSetProtobufStachV3TableTypesErrorTypesSourceTypesColumn.constructFromObject(data['column']);
             }
-            if (data.hasOwnProperty('row')) {
+            if (data.hasOwnProperty('row') && obj['row'] === undefined) {
                 obj['row'] = FactSetProtobufStachV3TableTypesErrorTypesSourceTypesRow.constructFromObject(data['row']);
             }
-            if (data.hasOwnProperty('cell')) {
+            if (data.hasOwnProperty('cell') && obj['cell'] === undefined) {
                 obj['cell'] = FactSetProtobufStachV3TableTypesErrorTypesSourceTypesCell.constructFromObject(data['cell']);
             }
-            if (data.hasOwnProperty('typeCase')) {
+            if (data.hasOwnProperty('typeCase') && obj['typeCase'] === undefined) {
                 obj['typeCase'] = FactSetProtobufStachV3TableTypesErrorTypesSourceTypeOneofCase.constructFromObject(data['typeCase']);
             }
+            
         }
         return obj;
     }

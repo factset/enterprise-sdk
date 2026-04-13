@@ -46,21 +46,22 @@ class TargetPrice {
         if (data) {
             obj = obj || new TargetPrice();
 
-            if (data.hasOwnProperty('high')) {
+            if (data.hasOwnProperty('high') && obj['high'] === undefined) {
                 obj['high'] = ApiClient.convertToType(data['high'], 'Number');
             }
-            if (data.hasOwnProperty('low')) {
+            if (data.hasOwnProperty('low') && obj['low'] === undefined) {
                 obj['low'] = ApiClient.convertToType(data['low'], 'Number');
             }
-            if (data.hasOwnProperty('analystsCount')) {
+            if (data.hasOwnProperty('analystsCount') && obj['analystsCount'] === undefined) {
                 obj['analystsCount'] = ApiClient.convertToType(data['analystsCount'], 'Number');
             }
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
+            
         }
         return obj;
     }

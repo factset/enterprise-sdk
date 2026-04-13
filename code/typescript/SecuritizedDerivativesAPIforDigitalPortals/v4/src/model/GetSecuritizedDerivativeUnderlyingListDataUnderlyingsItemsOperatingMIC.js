@@ -47,15 +47,16 @@ class GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsOperatingMIC {
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsOperatingMIC();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('isoCode')) {
+            if (data.hasOwnProperty('isoCode') && obj['isoCode'] === undefined) {
                 obj['isoCode'] = ApiClient.convertToType(data['isoCode'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            
         }
         return obj;
     }

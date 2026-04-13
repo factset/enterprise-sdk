@@ -51,18 +51,19 @@ class LinkedPATemplateParameters {
         if (data) {
             obj = obj || new LinkedPATemplateParameters();
 
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], 'String');
             }
-            if (data.hasOwnProperty('parentComponentId')) {
+            if (data.hasOwnProperty('parentComponentId') && obj['parentComponentId'] === undefined) {
                 obj['parentComponentId'] = ApiClient.convertToType(data['parentComponentId'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = TemplateContentTypes.constructFromObject(data['content']);
             }
+            
         }
         return obj;
     }

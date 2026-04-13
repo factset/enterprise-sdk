@@ -50,15 +50,16 @@ class InlineResponse2005DataUnderlying {
         if (data) {
             obj = obj || new InlineResponse2005DataUnderlying();
 
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = ApiClient.convertToType(data['instrument'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlyingInstrumentItems]);
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = ApiClient.convertToType(data['notation'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataUnderlyingNotationItems]);
             }
-            if (data.hasOwnProperty('effectiveUnderlying')) {
+            if (data.hasOwnProperty('effectiveUnderlying') && obj['effectiveUnderlying'] === undefined) {
                 obj['effectiveUnderlying'] = InlineResponse2005DataUnderlyingEffectiveUnderlying.constructFromObject(data['effectiveUnderlying']);
             }
+            
         }
         return obj;
     }

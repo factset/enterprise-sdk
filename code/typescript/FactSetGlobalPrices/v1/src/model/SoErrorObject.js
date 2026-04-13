@@ -47,18 +47,19 @@ class SoErrorObject {
         if (data) {
             obj = obj || new SoErrorObject();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('links')) {
+            if (data.hasOwnProperty('links') && obj['links'] === undefined) {
                 obj['links'] = SoErrorObjectLinks.constructFromObject(data['links']);
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

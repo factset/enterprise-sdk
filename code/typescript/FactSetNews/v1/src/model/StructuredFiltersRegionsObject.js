@@ -55,18 +55,19 @@ class StructuredFiltersRegionsObject {
         if (data) {
             obj = obj || new StructuredFiltersRegionsObject();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('topLevel')) {
+            if (data.hasOwnProperty('topLevel') && obj['topLevel'] === undefined) {
                 obj['topLevel'] = ApiClient.convertToType(data['topLevel'], 'Boolean');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['String']);
             }
-            if (data.hasOwnProperty('children')) {
+            if (data.hasOwnProperty('children') && obj['children'] === undefined) {
                 obj['children'] = ApiClient.convertToType(data['children'], [RegionObject]);
             }
+            
         }
         return obj;
     }

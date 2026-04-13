@@ -49,9 +49,10 @@ class ExPostStatsCorrelations {
         if (data) {
             obj = obj || new ExPostStatsCorrelations();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExPostStatsCorrelationsData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

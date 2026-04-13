@@ -46,24 +46,25 @@ class ParticipantNrt {
         if (data) {
             obj = obj || new ParticipantNrt();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('affiliation')) {
+            if (data.hasOwnProperty('affiliation') && obj['affiliation'] === undefined) {
                 obj['affiliation'] = ApiClient.convertToType(data['affiliation'], 'String');
             }
-            if (data.hasOwnProperty('affiliationEntity')) {
+            if (data.hasOwnProperty('affiliationEntity') && obj['affiliationEntity'] === undefined) {
                 obj['affiliationEntity'] = ApiClient.convertToType(data['affiliationEntity'], 'String');
             }
-            if (data.hasOwnProperty('entity')) {
+            if (data.hasOwnProperty('entity') && obj['entity'] === undefined) {
                 obj['entity'] = ApiClient.convertToType(data['entity'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

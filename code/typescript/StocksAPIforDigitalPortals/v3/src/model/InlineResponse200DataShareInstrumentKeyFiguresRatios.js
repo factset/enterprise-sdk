@@ -53,24 +53,25 @@ class InlineResponse200DataShareInstrumentKeyFiguresRatios {
         if (data) {
             obj = obj || new InlineResponse200DataShareInstrumentKeyFiguresRatios();
 
-            if (data.hasOwnProperty('priceEarnings')) {
+            if (data.hasOwnProperty('priceEarnings') && obj['priceEarnings'] === undefined) {
                 obj['priceEarnings'] = InlineResponse200DataShareInstrumentKeyFiguresRatiosPriceEarnings.constructFromObject(data['priceEarnings']);
             }
-            if (data.hasOwnProperty('priceBookValue')) {
+            if (data.hasOwnProperty('priceBookValue') && obj['priceBookValue'] === undefined) {
                 obj['priceBookValue'] = InlineResponse200DataShareInstrumentKeyFiguresRatiosPriceBookValue.constructFromObject(data['priceBookValue']);
             }
-            if (data.hasOwnProperty('priceCashFlow')) {
+            if (data.hasOwnProperty('priceCashFlow') && obj['priceCashFlow'] === undefined) {
                 obj['priceCashFlow'] = InlineResponse200DataShareInstrumentKeyFiguresRatiosPriceCashFlow.constructFromObject(data['priceCashFlow']);
             }
-            if (data.hasOwnProperty('priceSales')) {
+            if (data.hasOwnProperty('priceSales') && obj['priceSales'] === undefined) {
                 obj['priceSales'] = InlineResponse200DataShareInstrumentKeyFiguresRatiosPriceSales.constructFromObject(data['priceSales']);
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = InlineResponse200DataShareInstrumentKeyFiguresRatiosDividendYield.constructFromObject(data['dividendYield']);
             }
-            if (data.hasOwnProperty('earningsYield')) {
+            if (data.hasOwnProperty('earningsYield') && obj['earningsYield'] === undefined) {
                 obj['earningsYield'] = InlineResponse200DataShareInstrumentKeyFiguresRatiosEarningsYield.constructFromObject(data['earningsYield']);
             }
+            
         }
         return obj;
     }

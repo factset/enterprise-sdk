@@ -50,12 +50,13 @@ class MarketValueRequestBody {
         if (data) {
             obj = obj || new MarketValueRequestBody();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('batch')) {
+            if (data.hasOwnProperty('batch') && obj['batch'] === undefined) {
                 obj['batch'] = Batch.constructFromObject(data['batch']);
             }
+            
         }
         return obj;
     }

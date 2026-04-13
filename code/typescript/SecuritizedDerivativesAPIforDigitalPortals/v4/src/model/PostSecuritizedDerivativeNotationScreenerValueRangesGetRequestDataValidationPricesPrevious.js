@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidati
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationPricesPrevious();
 
-            if (data.hasOwnProperty('availableOnly')) {
+            if (data.hasOwnProperty('availableOnly') && obj['availableOnly'] === undefined) {
                 obj['availableOnly'] = ApiClient.convertToType(data['availableOnly'], 'Boolean');
             }
-            if (data.hasOwnProperty('minimumDate')) {
+            if (data.hasOwnProperty('minimumDate') && obj['minimumDate'] === undefined) {
                 obj['minimumDate'] = ApiClient.convertToType(data['minimumDate'], 'Date');
             }
+            
         }
         return obj;
     }

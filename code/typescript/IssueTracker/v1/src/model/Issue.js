@@ -48,9 +48,10 @@ class Issue {
         if (data) {
             obj = obj || new Issue();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = IssueData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

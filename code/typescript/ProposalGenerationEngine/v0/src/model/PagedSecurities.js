@@ -52,12 +52,13 @@ class PagedSecurities {
         if (data) {
             obj = obj || new PagedSecurities();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Investment]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PagedSecuritiesMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class InlineResponse20015DataPerformance {
         if (data) {
             obj = obj || new InlineResponse20015DataPerformance();
 
-            if (data.hasOwnProperty('intraday')) {
+            if (data.hasOwnProperty('intraday') && obj['intraday'] === undefined) {
                 obj['intraday'] = InlineResponse20015DataPerformanceIntraday.constructFromObject(data['intraday']);
             }
-            if (data.hasOwnProperty('endOfDay')) {
+            if (data.hasOwnProperty('endOfDay') && obj['endOfDay'] === undefined) {
                 obj['endOfDay'] = InlineResponse20015DataPerformanceEndOfDay.constructFromObject(data['endOfDay']);
             }
+            
         }
         return obj;
     }

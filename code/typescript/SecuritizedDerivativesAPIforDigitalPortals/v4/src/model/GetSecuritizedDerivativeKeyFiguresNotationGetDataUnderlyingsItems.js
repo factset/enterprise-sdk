@@ -50,18 +50,19 @@ class GetSecuritizedDerivativeKeyFiguresNotationGetDataUnderlyingsItems {
         if (data) {
             obj = obj || new GetSecuritizedDerivativeKeyFiguresNotationGetDataUnderlyingsItems();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = GetSecuritizedDerivativeKeyFiguresNotationGetDataUnderlyingsItemsNotation.constructFromObject(data['notation']);
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = GetSecuritizedDerivativeKeyFiguresNotationGetDataUnderlyingsItemsLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = GetSecuritizedDerivativeKeyFiguresNotationGetDataUnderlyingsItemsValueUnit.constructFromObject(data['valueUnit']);
             }
+            
         }
         return obj;
     }

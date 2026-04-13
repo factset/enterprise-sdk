@@ -47,9 +47,10 @@ class HitRateResponseOptions {
         if (data) {
             obj = obj || new HitRateResponseOptions();
 
-            if (data.hasOwnProperty('hitRateValues')) {
+            if (data.hasOwnProperty('hitRateValues') && obj['hitRateValues'] === undefined) {
                 obj['hitRateValues'] = HitRateModelAnalytics.constructFromObject(data['hitRateValues']);
             }
+            
         }
         return obj;
     }

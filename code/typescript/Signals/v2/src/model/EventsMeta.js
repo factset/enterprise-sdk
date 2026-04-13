@@ -55,21 +55,22 @@ class EventsMeta {
         if (data) {
             obj = obj || new EventsMeta();
 
-            if (data.hasOwnProperty('signalRequestId')) {
+            if (data.hasOwnProperty('signalRequestId') && obj['signalRequestId'] === undefined) {
                 obj['signalRequestId'] = ApiClient.convertToType(data['signalRequestId'], 'String');
             }
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], ['String']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = EventsMetaPagination.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('idResolutions')) {
+            if (data.hasOwnProperty('idResolutions') && obj['idResolutions'] === undefined) {
                 obj['idResolutions'] = IdResolutionsMeta.constructFromObject(data['idResolutions']);
             }
-            if (data.hasOwnProperty('dateRange')) {
+            if (data.hasOwnProperty('dateRange') && obj['dateRange'] === undefined) {
                 obj['dateRange'] = EventsMetaDateRange.constructFromObject(data['dateRange']);
             }
+            
         }
         return obj;
     }

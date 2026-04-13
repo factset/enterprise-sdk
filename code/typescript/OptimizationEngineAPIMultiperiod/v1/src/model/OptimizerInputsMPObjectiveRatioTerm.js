@@ -51,21 +51,22 @@ class OptimizerInputsMPObjectiveRatioTerm {
         if (data) {
             obj = obj || new OptimizerInputsMPObjectiveRatioTerm();
 
-            if (data.hasOwnProperty('sharpe_ratio')) {
+            if (data.hasOwnProperty('sharpe_ratio') && obj['sharpe_ratio'] === undefined) {
                 obj['sharpe_ratio'] = OptimizerInputsSharpeRatioTerm.constructFromObject(data['sharpe_ratio']);
             }
-            if (data.hasOwnProperty('starr')) {
+            if (data.hasOwnProperty('starr') && obj['starr'] === undefined) {
                 obj['starr'] = OptimizerInputsSTARRTerm.constructFromObject(data['starr']);
             }
-            if (data.hasOwnProperty('diversification_ratio')) {
+            if (data.hasOwnProperty('diversification_ratio') && obj['diversification_ratio'] === undefined) {
                 obj['diversification_ratio'] = OptimizerInputsDiversificationRatioTerm.constructFromObject(data['diversification_ratio']);
             }
-            if (data.hasOwnProperty('on_periods')) {
+            if (data.hasOwnProperty('on_periods') && obj['on_periods'] === undefined) {
                 obj['on_periods'] = OptimizerInputsOnPeriods.constructFromObject(data['on_periods']);
             }
-            if (data.hasOwnProperty('across_periods')) {
+            if (data.hasOwnProperty('across_periods') && obj['across_periods'] === undefined) {
                 obj['across_periods'] = OptimizerInputsAcrossPeriods.constructFromObject(data['across_periods']);
             }
+            
         }
         return obj;
     }

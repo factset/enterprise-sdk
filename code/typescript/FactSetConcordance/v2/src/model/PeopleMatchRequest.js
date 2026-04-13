@@ -48,15 +48,16 @@ class PeopleMatchRequest {
         if (data) {
             obj = obj || new PeopleMatchRequest();
 
-            if (data.hasOwnProperty('input')) {
+            if (data.hasOwnProperty('input') && obj['input'] === undefined) {
                 obj['input'] = ApiClient.convertToType(data['input'], [PeopleMatchRequestInput]);
             }
-            if (data.hasOwnProperty('candidatesCount')) {
+            if (data.hasOwnProperty('candidatesCount') && obj['candidatesCount'] === undefined) {
                 obj['candidatesCount'] = ApiClient.convertToType(data['candidatesCount'], 'Number');
             }
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
+            
         }
         return obj;
     }

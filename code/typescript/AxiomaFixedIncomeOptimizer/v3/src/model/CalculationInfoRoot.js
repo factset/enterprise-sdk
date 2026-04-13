@@ -49,12 +49,13 @@ class CalculationInfoRoot {
         if (data) {
             obj = obj || new CalculationInfoRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CalculationInfo.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], Object);
             }
+            
         }
         return obj;
     }

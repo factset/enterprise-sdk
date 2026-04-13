@@ -46,21 +46,22 @@ class OptimalPortfolio {
         if (data) {
             obj = obj || new OptimalPortfolio();
 
-            if (data.hasOwnProperty('acctname')) {
+            if (data.hasOwnProperty('acctname') && obj['acctname'] === undefined) {
                 obj['acctname'] = ApiClient.convertToType(data['acctname'], 'String');
             }
-            if (data.hasOwnProperty('excludezero')) {
+            if (data.hasOwnProperty('excludezero') && obj['excludezero'] === undefined) {
                 obj['excludezero'] = ApiClient.convertToType(data['excludezero'], 'Boolean');
             }
-            if (data.hasOwnProperty('archivedate')) {
+            if (data.hasOwnProperty('archivedate') && obj['archivedate'] === undefined) {
                 obj['archivedate'] = ApiClient.convertToType(data['archivedate'], 'String');
             }
-            if (data.hasOwnProperty('ifacctexists')) {
+            if (data.hasOwnProperty('ifacctexists') && obj['ifacctexists'] === undefined) {
                 obj['ifacctexists'] = ApiClient.convertToType(data['ifacctexists'], 'String');
             }
-            if (data.hasOwnProperty('ifofdbdateexists')) {
+            if (data.hasOwnProperty('ifofdbdateexists') && obj['ifofdbdateexists'] === undefined) {
                 obj['ifofdbdateexists'] = ApiClient.convertToType(data['ifofdbdateexists'], 'String');
             }
+            
         }
         return obj;
     }

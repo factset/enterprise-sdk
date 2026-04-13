@@ -47,9 +47,10 @@ class LeadUnderwritersResponse {
         if (data) {
             obj = obj || new LeadUnderwritersResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [LeadUnderwriter]);
             }
+            
         }
         return obj;
     }

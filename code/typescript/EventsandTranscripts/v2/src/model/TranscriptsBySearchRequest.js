@@ -47,9 +47,10 @@ class TranscriptsBySearchRequest {
         if (data) {
             obj = obj || new TranscriptsBySearchRequest();
 
-            if (data.hasOwnProperty('searchText')) {
+            if (data.hasOwnProperty('searchText') && obj['searchText'] === undefined) {
                 obj['searchText'] = ApiClient.convertToType(data['searchText'], 'String');
             }
+            
         }
         return obj;
     }

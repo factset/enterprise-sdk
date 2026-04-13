@@ -46,18 +46,19 @@ class SellTimingModelAnalytics {
         if (data) {
             obj = obj || new SellTimingModelAnalytics();
 
-            if (data.hasOwnProperty('olderLoser')) {
+            if (data.hasOwnProperty('olderLoser') && obj['olderLoser'] === undefined) {
                 obj['olderLoser'] = ApiClient.convertToType(data['olderLoser'], 'Number');
             }
-            if (data.hasOwnProperty('olderWinner')) {
+            if (data.hasOwnProperty('olderWinner') && obj['olderWinner'] === undefined) {
                 obj['olderWinner'] = ApiClient.convertToType(data['olderWinner'], 'Number');
             }
-            if (data.hasOwnProperty('youngerLoser')) {
+            if (data.hasOwnProperty('youngerLoser') && obj['youngerLoser'] === undefined) {
                 obj['youngerLoser'] = ApiClient.convertToType(data['youngerLoser'], 'Number');
             }
-            if (data.hasOwnProperty('youngerWinner')) {
+            if (data.hasOwnProperty('youngerWinner') && obj['youngerWinner'] === undefined) {
                 obj['youngerWinner'] = ApiClient.convertToType(data['youngerWinner'], 'Number');
             }
+            
         }
         return obj;
     }

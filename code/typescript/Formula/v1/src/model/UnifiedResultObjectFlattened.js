@@ -51,18 +51,18 @@ class UnifiedResultObjectFlattened {
         if (data) {
             obj = obj || new UnifiedResultObjectFlattened();
 
-            ApiClient.constructFromObject(data, obj, 'UnifiedResultObjectFlattenedAddl');
-            
-
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
+            ApiClient.constructFromObject(data, obj, UnifiedResultObjectFlattenedAddl);
+            
         }
         return obj;
     }

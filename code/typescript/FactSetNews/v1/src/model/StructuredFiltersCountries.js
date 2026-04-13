@@ -48,9 +48,10 @@ class StructuredFiltersCountries {
         if (data) {
             obj = obj || new StructuredFiltersCountries();
 
-            if (data.hasOwnProperty('countries')) {
+            if (data.hasOwnProperty('countries') && obj['countries'] === undefined) {
                 obj['countries'] = ApiClient.convertToType(data['countries'], [StructuredFiltersCountriesObject]);
             }
+            
         }
         return obj;
     }

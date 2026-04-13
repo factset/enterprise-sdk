@@ -46,9 +46,10 @@ class CreateBatchJobRoot {
         if (data) {
             obj = obj || new CreateBatchJobRoot();
 
-            if (data.hasOwnProperty('documentName')) {
+            if (data.hasOwnProperty('documentName') && obj['documentName'] === undefined) {
                 obj['documentName'] = ApiClient.convertToType(data['documentName'], 'String');
             }
+            
         }
         return obj;
     }

@@ -48,12 +48,13 @@ class PostOptionClassScreenerSearchDataItemsUnderlying {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchDataItemsUnderlying();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = PostOptionClassScreenerSearchDataItemsUnderlyingNotation.constructFromObject(data['notation']);
             }
+            
         }
         return obj;
     }

@@ -78,108 +78,109 @@ class Execution {
         if (data) {
             obj = obj || new Execution();
 
-            if (data.hasOwnProperty('tradeDate')) {
+            if (data.hasOwnProperty('tradeDate') && obj['tradeDate'] === undefined) {
                 obj['tradeDate'] = ApiClient.convertToType(data['tradeDate'], 'String');
             }
-            if (data.hasOwnProperty('transactionId')) {
+            if (data.hasOwnProperty('transactionId') && obj['transactionId'] === undefined) {
                 obj['transactionId'] = ApiClient.convertToType(data['transactionId'], 'String');
             }
-            if (data.hasOwnProperty('parentId')) {
+            if (data.hasOwnProperty('parentId') && obj['parentId'] === undefined) {
                 obj['parentId'] = ApiClient.convertToType(data['parentId'], 'String');
             }
-            if (data.hasOwnProperty('orderId')) {
+            if (data.hasOwnProperty('orderId') && obj['orderId'] === undefined) {
                 obj['orderId'] = ApiClient.convertToType(data['orderId'], 'String');
             }
-            if (data.hasOwnProperty('transactionStatus')) {
+            if (data.hasOwnProperty('transactionStatus') && obj['transactionStatus'] === undefined) {
                 obj['transactionStatus'] = ApiClient.convertToType(data['transactionStatus'], 'String');
             }
-            if (data.hasOwnProperty('net')) {
+            if (data.hasOwnProperty('net') && obj['net'] === undefined) {
                 obj['net'] = ApiClient.convertToType(data['net'], 'Number');
             }
-            if (data.hasOwnProperty('settlementDate')) {
+            if (data.hasOwnProperty('settlementDate') && obj['settlementDate'] === undefined) {
                 obj['settlementDate'] = ApiClient.convertToType(data['settlementDate'], 'String');
             }
-            if (data.hasOwnProperty('settlementCurrency')) {
+            if (data.hasOwnProperty('settlementCurrency') && obj['settlementCurrency'] === undefined) {
                 obj['settlementCurrency'] = ApiClient.convertToType(data['settlementCurrency'], 'String');
             }
-            if (data.hasOwnProperty('settlementValue')) {
+            if (data.hasOwnProperty('settlementValue') && obj['settlementValue'] === undefined) {
                 obj['settlementValue'] = ApiClient.convertToType(data['settlementValue'], 'Number');
             }
-            if (data.hasOwnProperty('foreignExchangeRate')) {
+            if (data.hasOwnProperty('foreignExchangeRate') && obj['foreignExchangeRate'] === undefined) {
                 obj['foreignExchangeRate'] = ApiClient.convertToType(data['foreignExchangeRate'], 'Number');
             }
-            if (data.hasOwnProperty('broker')) {
+            if (data.hasOwnProperty('broker') && obj['broker'] === undefined) {
                 obj['broker'] = ApiClient.convertToType(data['broker'], 'String');
             }
-            if (data.hasOwnProperty('custodian')) {
+            if (data.hasOwnProperty('custodian') && obj['custodian'] === undefined) {
                 obj['custodian'] = ApiClient.convertToType(data['custodian'], 'String');
             }
-            if (data.hasOwnProperty('accruedInterest')) {
+            if (data.hasOwnProperty('accruedInterest') && obj['accruedInterest'] === undefined) {
                 obj['accruedInterest'] = ApiClient.convertToType(data['accruedInterest'], 'Number');
             }
-            if (data.hasOwnProperty('commission')) {
+            if (data.hasOwnProperty('commission') && obj['commission'] === undefined) {
                 obj['commission'] = ApiClient.convertToType(data['commission'], 'Number');
             }
-            if (data.hasOwnProperty('clearingCommission')) {
+            if (data.hasOwnProperty('clearingCommission') && obj['clearingCommission'] === undefined) {
                 obj['clearingCommission'] = ApiClient.convertToType(data['clearingCommission'], 'Number');
             }
-            if (data.hasOwnProperty('localTax')) {
+            if (data.hasOwnProperty('localTax') && obj['localTax'] === undefined) {
                 obj['localTax'] = ApiClient.convertToType(data['localTax'], 'Number');
             }
-            if (data.hasOwnProperty('localFee')) {
+            if (data.hasOwnProperty('localFee') && obj['localFee'] === undefined) {
                 obj['localFee'] = ApiClient.convertToType(data['localFee'], 'Number');
             }
-            if (data.hasOwnProperty('brokerFee')) {
+            if (data.hasOwnProperty('brokerFee') && obj['brokerFee'] === undefined) {
                 obj['brokerFee'] = ApiClient.convertToType(data['brokerFee'], 'Number');
             }
-            if (data.hasOwnProperty('exchangeFee')) {
+            if (data.hasOwnProperty('exchangeFee') && obj['exchangeFee'] === undefined) {
                 obj['exchangeFee'] = ApiClient.convertToType(data['exchangeFee'], 'Number');
             }
-            if (data.hasOwnProperty('miscellaneousFee')) {
+            if (data.hasOwnProperty('miscellaneousFee') && obj['miscellaneousFee'] === undefined) {
                 obj['miscellaneousFee'] = ApiClient.convertToType(data['miscellaneousFee'], 'Number');
             }
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = ApiClient.convertToType(data['account'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('instrumentName')) {
+            if (data.hasOwnProperty('instrumentName') && obj['instrumentName'] === undefined) {
                 obj['instrumentName'] = ApiClient.convertToType(data['instrumentName'], 'String');
             }
-            if (data.hasOwnProperty('side')) {
+            if (data.hasOwnProperty('side') && obj['side'] === undefined) {
                 obj['side'] = ApiClient.convertToType(data['side'], 'String');
             }
-            if (data.hasOwnProperty('unitType')) {
+            if (data.hasOwnProperty('unitType') && obj['unitType'] === undefined) {
                 obj['unitType'] = ApiClient.convertToType(data['unitType'], 'String');
             }
-            if (data.hasOwnProperty('transactionLeaves')) {
+            if (data.hasOwnProperty('transactionLeaves') && obj['transactionLeaves'] === undefined) {
                 obj['transactionLeaves'] = ApiClient.convertToType(data['transactionLeaves'], 'Number');
             }
-            if (data.hasOwnProperty('quantity')) {
+            if (data.hasOwnProperty('quantity') && obj['quantity'] === undefined) {
                 obj['quantity'] = ApiClient.convertToType(data['quantity'], 'Number');
             }
-            if (data.hasOwnProperty('gross')) {
+            if (data.hasOwnProperty('gross') && obj['gross'] === undefined) {
                 obj['gross'] = ApiClient.convertToType(data['gross'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('complianceStatus')) {
+            if (data.hasOwnProperty('complianceStatus') && obj['complianceStatus'] === undefined) {
                 obj['complianceStatus'] = ApiClient.convertToType(data['complianceStatus'], 'String');
             }
-            if (data.hasOwnProperty('addedDateTime')) {
+            if (data.hasOwnProperty('addedDateTime') && obj['addedDateTime'] === undefined) {
                 obj['addedDateTime'] = ApiClient.convertToType(data['addedDateTime'], 'String');
             }
-            if (data.hasOwnProperty('updatedDateTime')) {
+            if (data.hasOwnProperty('updatedDateTime') && obj['updatedDateTime'] === undefined) {
                 obj['updatedDateTime'] = ApiClient.convertToType(data['updatedDateTime'], 'String');
             }
-            if (data.hasOwnProperty('additionalFields')) {
+            if (data.hasOwnProperty('additionalFields') && obj['additionalFields'] === undefined) {
                 obj['additionalFields'] = ApiClient.convertToType(data['additionalFields'], [AdditionalField]);
             }
+            
         }
         return obj;
     }

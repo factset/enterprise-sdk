@@ -46,15 +46,16 @@ class FIServicerAdvancesForSecurities {
         if (data) {
             obj = obj || new FIServicerAdvancesForSecurities();
 
-            if (data.hasOwnProperty('principal')) {
+            if (data.hasOwnProperty('principal') && obj['principal'] === undefined) {
                 obj['principal'] = ApiClient.convertToType(data['principal'], 'Number');
             }
-            if (data.hasOwnProperty('interest')) {
+            if (data.hasOwnProperty('interest') && obj['interest'] === undefined) {
                 obj['interest'] = ApiClient.convertToType(data['interest'], 'Number');
             }
-            if (data.hasOwnProperty('advanceType')) {
+            if (data.hasOwnProperty('advanceType') && obj['advanceType'] === undefined) {
                 obj['advanceType'] = ApiClient.convertToType(data['advanceType'], 'String');
             }
+            
         }
         return obj;
     }

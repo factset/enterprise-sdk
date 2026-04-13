@@ -49,9 +49,10 @@ class DetailsRequestBody {
         if (data) {
             obj = obj || new DetailsRequestBody();
 
-            if (data.hasOwnProperty('dealIds')) {
+            if (data.hasOwnProperty('dealIds') && obj['dealIds'] === undefined) {
                 obj['dealIds'] = ApiClient.convertToType(data['dealIds'], ['String']);
             }
+            
         }
         return obj;
     }

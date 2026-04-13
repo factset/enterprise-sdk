@@ -50,9 +50,10 @@ class IndexETFResponseRoot {
         if (data) {
             obj = obj || new IndexETFResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = IndexETFResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

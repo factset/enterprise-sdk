@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersI
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsObservation();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

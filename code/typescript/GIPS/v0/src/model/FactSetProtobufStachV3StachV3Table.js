@@ -50,27 +50,28 @@ class FactSetProtobufStachV3StachV3Table {
         if (data) {
             obj = obj || new FactSetProtobufStachV3StachV3Table();
 
-            if (data.hasOwnProperty('version')) {
+            if (data.hasOwnProperty('version') && obj['version'] === undefined) {
                 obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], [FactSetProtobufStachV3StachV3TableTypesColumn]);
             }
-            if (data.hasOwnProperty('table')) {
+            if (data.hasOwnProperty('table') && obj['table'] === undefined) {
                 obj['table'] = FactSetProtobufStachV3Table.constructFromObject(data['table']);
             }
-            if (data.hasOwnProperty('multiLevelHeadersTable')) {
+            if (data.hasOwnProperty('multiLevelHeadersTable') && obj['multiLevelHeadersTable'] === undefined) {
                 obj['multiLevelHeadersTable'] = FactSetProtobufStachV3StachV3Table.constructFromObject(data['multiLevelHeadersTable']);
             }
-            if (data.hasOwnProperty('views')) {
+            if (data.hasOwnProperty('views') && obj['views'] === undefined) {
                 obj['views'] = ApiClient.convertToType(data['views'], [FactSetProtobufStachV3ViewsTypesView]);
             }
-            if (data.hasOwnProperty('rows')) {
+            if (data.hasOwnProperty('rows') && obj['rows'] === undefined) {
                 obj['rows'] = ApiClient.convertToType(data['rows'], [GoogleProtobufWellKnownTypesStruct]);
             }
+            
         }
         return obj;
     }

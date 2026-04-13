@@ -47,9 +47,10 @@ class CovenantDetailsResponse {
         if (data) {
             obj = obj || new CovenantDetailsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CovenantDetail]);
             }
+            
         }
         return obj;
     }

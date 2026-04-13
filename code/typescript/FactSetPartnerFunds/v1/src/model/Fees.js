@@ -48,57 +48,58 @@ class Fees {
         if (data) {
             obj = obj || new Fees();
 
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('isPreAuthorizedInvestmentPlan')) {
+            if (data.hasOwnProperty('isPreAuthorizedInvestmentPlan') && obj['isPreAuthorizedInvestmentPlan'] === undefined) {
                 obj['isPreAuthorizedInvestmentPlan'] = ApiClient.convertToType(data['isPreAuthorizedInvestmentPlan'], 'Boolean');
             }
-            if (data.hasOwnProperty('isSystematicWithdrawlPlan')) {
+            if (data.hasOwnProperty('isSystematicWithdrawlPlan') && obj['isSystematicWithdrawlPlan'] === undefined) {
                 obj['isSystematicWithdrawlPlan'] = ApiClient.convertToType(data['isSystematicWithdrawlPlan'], 'Boolean');
             }
-            if (data.hasOwnProperty('backendFees')) {
+            if (data.hasOwnProperty('backendFees') && obj['backendFees'] === undefined) {
                 obj['backendFees'] = ApiClient.convertToType(data['backendFees'], 'String');
             }
-            if (data.hasOwnProperty('rrspAnnualAdminFee')) {
+            if (data.hasOwnProperty('rrspAnnualAdminFee') && obj['rrspAnnualAdminFee'] === undefined) {
                 obj['rrspAnnualAdminFee'] = ApiClient.convertToType(data['rrspAnnualAdminFee'], 'Number');
             }
-            if (data.hasOwnProperty('rrifAnnualAdminFee')) {
+            if (data.hasOwnProperty('rrifAnnualAdminFee') && obj['rrifAnnualAdminFee'] === undefined) {
                 obj['rrifAnnualAdminFee'] = ApiClient.convertToType(data['rrifAnnualAdminFee'], 'Number');
             }
-            if (data.hasOwnProperty('switchFees')) {
+            if (data.hasOwnProperty('switchFees') && obj['switchFees'] === undefined) {
                 obj['switchFees'] = ApiClient.convertToType(data['switchFees'], 'String');
             }
-            if (data.hasOwnProperty('rrspWithdrawalFee')) {
+            if (data.hasOwnProperty('rrspWithdrawalFee') && obj['rrspWithdrawalFee'] === undefined) {
                 obj['rrspWithdrawalFee'] = ApiClient.convertToType(data['rrspWithdrawalFee'], 'Number');
             }
-            if (data.hasOwnProperty('rrifWithdrawalFee')) {
+            if (data.hasOwnProperty('rrifWithdrawalFee') && obj['rrifWithdrawalFee'] === undefined) {
                 obj['rrifWithdrawalFee'] = ApiClient.convertToType(data['rrifWithdrawalFee'], 'Number');
             }
-            if (data.hasOwnProperty('trailerFees')) {
+            if (data.hasOwnProperty('trailerFees') && obj['trailerFees'] === undefined) {
                 obj['trailerFees'] = ApiClient.convertToType(data['trailerFees'], 'String');
             }
-            if (data.hasOwnProperty('swpMinBalance')) {
+            if (data.hasOwnProperty('swpMinBalance') && obj['swpMinBalance'] === undefined) {
                 obj['swpMinBalance'] = ApiClient.convertToType(data['swpMinBalance'], 'Number');
             }
-            if (data.hasOwnProperty('load')) {
+            if (data.hasOwnProperty('load') && obj['load'] === undefined) {
                 obj['load'] = ApiClient.convertToType(data['load'], 'String');
             }
-            if (data.hasOwnProperty('isNoLoad')) {
+            if (data.hasOwnProperty('isNoLoad') && obj['isNoLoad'] === undefined) {
                 obj['isNoLoad'] = ApiClient.convertToType(data['isNoLoad'], 'Boolean');
             }
-            if (data.hasOwnProperty('maxFrontEndPercent')) {
+            if (data.hasOwnProperty('maxFrontEndPercent') && obj['maxFrontEndPercent'] === undefined) {
                 obj['maxFrontEndPercent'] = ApiClient.convertToType(data['maxFrontEndPercent'], 'Number');
             }
-            if (data.hasOwnProperty('maxBackEndPercent')) {
+            if (data.hasOwnProperty('maxBackEndPercent') && obj['maxBackEndPercent'] === undefined) {
                 obj['maxBackEndPercent'] = ApiClient.convertToType(data['maxBackEndPercent'], 'Number');
             }
-            if (data.hasOwnProperty('otherFees')) {
+            if (data.hasOwnProperty('otherFees') && obj['otherFees'] === undefined) {
                 obj['otherFees'] = ApiClient.convertToType(data['otherFees'], 'String');
             }
+            
         }
         return obj;
     }

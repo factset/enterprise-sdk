@@ -48,30 +48,31 @@ class ContactCustomFieldDto {
         if (data) {
             obj = obj || new ContactCustomFieldDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('isMandatory')) {
+            if (data.hasOwnProperty('isMandatory') && obj['isMandatory'] === undefined) {
                 obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('formulaConfig')) {
+            if (data.hasOwnProperty('formulaConfig') && obj['formulaConfig'] === undefined) {
                 obj['formulaConfig'] = FormulaConfigDto.constructFromObject(data['formulaConfig']);
             }
-            if (data.hasOwnProperty('contactCustomFieldOptions')) {
+            if (data.hasOwnProperty('contactCustomFieldOptions') && obj['contactCustomFieldOptions'] === undefined) {
                 obj['contactCustomFieldOptions'] = ApiClient.convertToType(data['contactCustomFieldOptions'], [ContactCustomFieldOptionDto]);
             }
+            
         }
         return obj;
     }

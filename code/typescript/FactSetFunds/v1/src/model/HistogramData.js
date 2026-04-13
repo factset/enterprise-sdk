@@ -47,15 +47,16 @@ class HistogramData {
         if (data) {
             obj = obj || new HistogramData();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = ApiClient.convertToType(data['minimum'], 'Number');
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = ApiClient.convertToType(data['maximum'], 'Number');
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
+            
         }
         return obj;
     }

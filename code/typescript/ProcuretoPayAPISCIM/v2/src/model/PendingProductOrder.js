@@ -57,21 +57,22 @@ class PendingProductOrder {
         if (data) {
             obj = obj || new PendingProductOrder();
 
-            if (data.hasOwnProperty('product')) {
+            if (data.hasOwnProperty('product') && obj['product'] === undefined) {
                 obj['product'] = ProductResourceReference.constructFromObject(data['product']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('transactionCode')) {
+            if (data.hasOwnProperty('transactionCode') && obj['transactionCode'] === undefined) {
                 obj['transactionCode'] = ApiClient.convertToType(data['transactionCode'], 'String');
             }
-            if (data.hasOwnProperty('requested')) {
+            if (data.hasOwnProperty('requested') && obj['requested'] === undefined) {
                 obj['requested'] = ApiClient.convertToType(data['requested'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -53,39 +53,40 @@ class ProductResource {
         if (data) {
             obj = obj || new ProductResource();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('groupDescription')) {
+            if (data.hasOwnProperty('groupDescription') && obj['groupDescription'] === undefined) {
                 obj['groupDescription'] = ApiClient.convertToType(data['groupDescription'], 'String');
             }
-            if (data.hasOwnProperty('workstation')) {
+            if (data.hasOwnProperty('workstation') && obj['workstation'] === undefined) {
                 obj['workstation'] = ApiClient.convertToType(data['workstation'], 'Boolean');
             }
-            if (data.hasOwnProperty('orderable')) {
+            if (data.hasOwnProperty('orderable') && obj['orderable'] === undefined) {
                 obj['orderable'] = ApiClient.convertToType(data['orderable'], 'Boolean');
             }
-            if (data.hasOwnProperty('requiresApproval')) {
+            if (data.hasOwnProperty('requiresApproval') && obj['requiresApproval'] === undefined) {
                 obj['requiresApproval'] = ApiClient.convertToType(data['requiresApproval'], 'String');
             }
-            if (data.hasOwnProperty('trialAvailable')) {
+            if (data.hasOwnProperty('trialAvailable') && obj['trialAvailable'] === undefined) {
                 obj['trialAvailable'] = ApiClient.convertToType(data['trialAvailable'], 'Boolean');
             }
-            if (data.hasOwnProperty('whitelist')) {
+            if (data.hasOwnProperty('whitelist') && obj['whitelist'] === undefined) {
                 obj['whitelist'] = ApiClient.convertToType(data['whitelist'], 'Boolean');
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ProductResourceMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

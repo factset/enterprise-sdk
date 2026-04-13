@@ -47,18 +47,19 @@ class FactSetProtobufStachV3StachV3TableTypesColumn {
         if (data) {
             obj = obj || new FactSetProtobufStachV3StachV3TableTypesColumn();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('forbidNulls')) {
+            if (data.hasOwnProperty('forbidNulls') && obj['forbidNulls'] === undefined) {
                 obj['forbidNulls'] = ApiClient.convertToType(data['forbidNulls'], 'Boolean');
             }
-            if (data.hasOwnProperty('contextualType')) {
+            if (data.hasOwnProperty('contextualType') && obj['contextualType'] === undefined) {
                 obj['contextualType'] = ApiClient.convertToType(data['contextualType'], 'String');
             }
-            if (data.hasOwnProperty('customMetadata')) {
+            if (data.hasOwnProperty('customMetadata') && obj['customMetadata'] === undefined) {
                 obj['customMetadata'] = ApiClient.convertToType(data['customMetadata'], {'String': FactSetProtobufStachV3MetadataItem});
             }
+            
         }
         return obj;
     }

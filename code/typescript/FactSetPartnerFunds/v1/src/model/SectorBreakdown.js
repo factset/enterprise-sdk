@@ -47,12 +47,13 @@ class SectorBreakdown {
         if (data) {
             obj = obj || new SectorBreakdown();
 
-            if (data.hasOwnProperty('sector')) {
+            if (data.hasOwnProperty('sector') && obj['sector'] === undefined) {
                 obj['sector'] = ApiClient.convertToType(data['sector'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

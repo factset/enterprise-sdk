@@ -47,9 +47,10 @@ class InlineResponse200DataReferenceDebtorInstrument {
         if (data) {
             obj = obj || new InlineResponse200DataReferenceDebtorInstrument();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            
         }
         return obj;
     }

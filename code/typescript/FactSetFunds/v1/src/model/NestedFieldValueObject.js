@@ -47,12 +47,13 @@ class NestedFieldValueObject {
         if (data) {
             obj = obj || new NestedFieldValueObject();
 
-            if (data.hasOwnProperty('fieldName')) {
+            if (data.hasOwnProperty('fieldName') && obj['fieldName'] === undefined) {
                 obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
+            
         }
         return obj;
     }

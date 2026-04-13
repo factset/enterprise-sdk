@@ -48,9 +48,10 @@ class ErrorLink {
         if (data) {
             obj = obj || new ErrorLink();
 
-            if (data.hasOwnProperty('about')) {
+            if (data.hasOwnProperty('about') && obj['about'] === undefined) {
                 obj['about'] = ApiClient.convertToType(data['about'], 'String');
             }
+            
         }
         return obj;
     }

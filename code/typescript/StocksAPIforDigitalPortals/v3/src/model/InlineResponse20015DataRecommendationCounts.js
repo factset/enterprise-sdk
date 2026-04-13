@@ -48,9 +48,10 @@ class InlineResponse20015DataRecommendationCounts {
         if (data) {
             obj = obj || new InlineResponse20015DataRecommendationCounts();
 
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = InlineResponse20015DataRecommendationCountsTotal.constructFromObject(data['total']);
             }
+            
         }
         return obj;
     }

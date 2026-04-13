@@ -52,36 +52,37 @@ class ResponseDetails {
         if (data) {
             obj = obj || new ResponseDetails();
 
-            if (data.hasOwnProperty('dataset')) {
+            if (data.hasOwnProperty('dataset') && obj['dataset'] === undefined) {
                 obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('idType')) {
+            if (data.hasOwnProperty('idType') && obj['idType'] === undefined) {
                 obj['idType'] = ApiClient.convertToType(data['idType'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('issuerName')) {
+            if (data.hasOwnProperty('issuerName') && obj['issuerName'] === undefined) {
                 obj['issuerName'] = ApiClient.convertToType(data['issuerName'], 'String');
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = ResponseDetailsUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('fsymRegionalId')) {
+            if (data.hasOwnProperty('fsymRegionalId') && obj['fsymRegionalId'] === undefined) {
                 obj['fsymRegionalId'] = ApiClient.convertToType(data['fsymRegionalId'], 'String');
             }
-            if (data.hasOwnProperty('fsymListingId')) {
+            if (data.hasOwnProperty('fsymListingId') && obj['fsymListingId'] === undefined) {
                 obj['fsymListingId'] = ApiClient.convertToType(data['fsymListingId'], 'String');
             }
-            if (data.hasOwnProperty('fsymUnderlyingId')) {
+            if (data.hasOwnProperty('fsymUnderlyingId') && obj['fsymUnderlyingId'] === undefined) {
                 obj['fsymUnderlyingId'] = ApiClient.convertToType(data['fsymUnderlyingId'], 'String');
             }
+            
         }
         return obj;
     }

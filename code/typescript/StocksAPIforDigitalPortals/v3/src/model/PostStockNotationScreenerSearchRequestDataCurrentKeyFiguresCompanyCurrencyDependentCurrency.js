@@ -49,9 +49,10 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrency
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentCurrency();
 
-            if (data.hasOwnProperty('isoCode')) {
+            if (data.hasOwnProperty('isoCode') && obj['isoCode'] === undefined) {
                 obj['isoCode'] = ApiClient.convertToType(data['isoCode'], 'String');
             }
+            
         }
         return obj;
     }

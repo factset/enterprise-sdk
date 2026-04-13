@@ -49,12 +49,13 @@ class TranscriptsTimes {
         if (data) {
             obj = obj || new TranscriptsTimes();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [TranscriptObjectTimes]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = TranscriptsMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

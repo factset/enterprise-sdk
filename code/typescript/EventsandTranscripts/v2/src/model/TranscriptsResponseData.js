@@ -58,6 +58,8 @@ class TranscriptsResponseData {
             case 'transcriptById':
               return TranscriptsByIdsResponse.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct TranscriptsResponseData due to no matching discriminator value: " + data['transcriptResponseType']);
         return obj;
     }
 

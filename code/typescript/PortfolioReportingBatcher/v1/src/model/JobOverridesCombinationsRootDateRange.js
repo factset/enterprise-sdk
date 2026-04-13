@@ -49,18 +49,19 @@ class JobOverridesCombinationsRootDateRange {
         if (data) {
             obj = obj || new JobOverridesCombinationsRootDateRange();
 
-            if (data.hasOwnProperty('end')) {
+            if (data.hasOwnProperty('end') && obj['end'] === undefined) {
                 obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('start')) {
+            if (data.hasOwnProperty('start') && obj['start'] === undefined) {
                 obj['start'] = ApiClient.convertToType(data['start'], 'Date');
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = Calendar.constructFromObject(data['calendar']);
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = Frequency.constructFromObject(data['frequency']);
             }
+            
         }
         return obj;
     }

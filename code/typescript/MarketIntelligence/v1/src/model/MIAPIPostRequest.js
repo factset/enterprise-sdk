@@ -48,21 +48,22 @@ class MIAPIPostRequest {
         if (data) {
             obj = obj || new MIAPIPostRequest();
 
-            if (data.hasOwnProperty('report_name')) {
+            if (data.hasOwnProperty('report_name') && obj['report_name'] === undefined) {
                 obj['report_name'] = ApiClient.convertToType(data['report_name'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('id_type')) {
+            if (data.hasOwnProperty('id_type') && obj['id_type'] === undefined) {
                 obj['id_type'] = ApiClient.convertToType(data['id_type'], 'String');
             }
-            if (data.hasOwnProperty('time_zone')) {
+            if (data.hasOwnProperty('time_zone') && obj['time_zone'] === undefined) {
                 obj['time_zone'] = ApiClient.convertToType(data['time_zone'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [PostRequestExample]);
             }
+            
         }
         return obj;
     }

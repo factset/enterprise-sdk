@@ -52,12 +52,13 @@ class LookupObject {
         if (data) {
             obj = obj || new LookupObject();
 
-            if (data.hasOwnProperty('searchText')) {
+            if (data.hasOwnProperty('searchText') && obj['searchText'] === undefined) {
                 obj['searchText'] = ApiClient.convertToType(data['searchText'], 'String');
             }
-            if (data.hasOwnProperty('datasets')) {
+            if (data.hasOwnProperty('datasets') && obj['datasets'] === undefined) {
                 obj['datasets'] = ApiClient.convertToType(data['datasets'], [FilterObjects]);
             }
+            
         }
         return obj;
     }

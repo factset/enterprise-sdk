@@ -46,12 +46,13 @@ class ErrorObjectWithSourceSource {
         if (data) {
             obj = obj || new ErrorObjectWithSourceSource();
 
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
             }
-            if (data.hasOwnProperty('param')) {
+            if (data.hasOwnProperty('param') && obj['param'] === undefined) {
                 obj['param'] = ApiClient.convertToType(data['param'], 'String');
             }
+            
         }
         return obj;
     }

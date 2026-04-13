@@ -48,9 +48,10 @@ class PostNewsArticleListByInstrumentDataArticlesInstrumentsItemsFsym {
         if (data) {
             obj = obj || new PostNewsArticleListByInstrumentDataArticlesInstrumentsItemsFsym();
 
-            if (data.hasOwnProperty('security')) {
+            if (data.hasOwnProperty('security') && obj['security'] === undefined) {
                 obj['security'] = PostNewsArticleListByInstrumentDataArticlesInstrumentsItemsFsymSecurity.constructFromObject(data['security']);
             }
+            
         }
         return obj;
     }

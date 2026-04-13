@@ -46,12 +46,13 @@ class TitledTextBlock {
         if (data) {
             obj = obj || new TitledTextBlock();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
+            
         }
         return obj;
     }

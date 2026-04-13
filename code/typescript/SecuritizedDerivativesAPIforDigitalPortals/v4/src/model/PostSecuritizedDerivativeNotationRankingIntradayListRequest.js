@@ -51,12 +51,13 @@ class PostSecuritizedDerivativeNotationRankingIntradayListRequest {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

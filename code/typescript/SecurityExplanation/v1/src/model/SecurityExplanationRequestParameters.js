@@ -54,45 +54,46 @@ class SecurityExplanationRequestParameters {
         if (data) {
             obj = obj || new SecurityExplanationRequestParameters();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('enableLinks')) {
+            if (data.hasOwnProperty('enableLinks') && obj['enableLinks'] === undefined) {
                 obj['enableLinks'] = ApiClient.convertToType(data['enableLinks'], 'Boolean');
             }
-            if (data.hasOwnProperty('explanationStyle')) {
+            if (data.hasOwnProperty('explanationStyle') && obj['explanationStyle'] === undefined) {
                 obj['explanationStyle'] = ApiClient.convertToType(data['explanationStyle'], 'String');
             }
-            if (data.hasOwnProperty('includePerformance')) {
+            if (data.hasOwnProperty('includePerformance') && obj['includePerformance'] === undefined) {
                 obj['includePerformance'] = ApiClient.convertToType(data['includePerformance'], 'Boolean');
             }
-            if (data.hasOwnProperty('internalInvestmentRationale')) {
+            if (data.hasOwnProperty('internalInvestmentRationale') && obj['internalInvestmentRationale'] === undefined) {
                 obj['internalInvestmentRationale'] = ApiClient.convertToType(data['internalInvestmentRationale'], 'String');
             }
-            if (data.hasOwnProperty('includeCompanyDescription')) {
+            if (data.hasOwnProperty('includeCompanyDescription') && obj['includeCompanyDescription'] === undefined) {
                 obj['includeCompanyDescription'] = ApiClient.convertToType(data['includeCompanyDescription'], 'Boolean');
             }
-            if (data.hasOwnProperty('includeMarketSummary')) {
+            if (data.hasOwnProperty('includeMarketSummary') && obj['includeMarketSummary'] === undefined) {
                 obj['includeMarketSummary'] = ApiClient.convertToType(data['includeMarketSummary'], 'Boolean');
             }
-            if (data.hasOwnProperty('includeInternalInvestmentRationaleRecommendation')) {
+            if (data.hasOwnProperty('includeInternalInvestmentRationaleRecommendation') && obj['includeInternalInvestmentRationaleRecommendation'] === undefined) {
                 obj['includeInternalInvestmentRationaleRecommendation'] = ApiClient.convertToType(data['includeInternalInvestmentRationaleRecommendation'], 'Boolean');
             }
-            if (data.hasOwnProperty('includeInternalInvestmentRationalePriceTarget')) {
+            if (data.hasOwnProperty('includeInternalInvestmentRationalePriceTarget') && obj['includeInternalInvestmentRationalePriceTarget'] === undefined) {
                 obj['includeInternalInvestmentRationalePriceTarget'] = ApiClient.convertToType(data['includeInternalInvestmentRationalePriceTarget'], 'Boolean');
             }
-            if (data.hasOwnProperty('includeSecuritySummary')) {
+            if (data.hasOwnProperty('includeSecuritySummary') && obj['includeSecuritySummary'] === undefined) {
                 obj['includeSecuritySummary'] = ApiClient.convertToType(data['includeSecuritySummary'], 'Boolean');
             }
-            if (data.hasOwnProperty('brokerResearchSummary')) {
+            if (data.hasOwnProperty('brokerResearchSummary') && obj['brokerResearchSummary'] === undefined) {
                 obj['brokerResearchSummary'] = BrokerResearchSummary.constructFromObject(data['brokerResearchSummary']);
             }
+            
         }
         return obj;
     }

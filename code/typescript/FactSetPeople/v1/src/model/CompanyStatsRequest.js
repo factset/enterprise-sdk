@@ -49,12 +49,13 @@ class CompanyStatsRequest {
         if (data) {
             obj = obj || new CompanyStatsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('mbType')) {
+            if (data.hasOwnProperty('mbType') && obj['mbType'] === undefined) {
                 obj['mbType'] = MbType.constructFromObject(data['mbType']);
             }
+            
         }
         return obj;
     }

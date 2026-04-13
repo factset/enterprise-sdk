@@ -54,21 +54,22 @@ class Schema {
         if (data) {
             obj = obj || new Schema();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('attributes')) {
+            if (data.hasOwnProperty('attributes') && obj['attributes'] === undefined) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], [SchemaAttribute]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = SchemaMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

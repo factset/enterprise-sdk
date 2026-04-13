@@ -47,30 +47,31 @@ class BloombergTranslation {
         if (data) {
             obj = obj || new BloombergTranslation();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('bbgSecurityId')) {
+            if (data.hasOwnProperty('bbgSecurityId') && obj['bbgSecurityId'] === undefined) {
                 obj['bbgSecurityId'] = ApiClient.convertToType(data['bbgSecurityId'], 'String');
             }
-            if (data.hasOwnProperty('bbgCompositeId')) {
+            if (data.hasOwnProperty('bbgCompositeId') && obj['bbgCompositeId'] === undefined) {
                 obj['bbgCompositeId'] = ApiClient.convertToType(data['bbgCompositeId'], 'String');
             }
-            if (data.hasOwnProperty('bbgListingId')) {
+            if (data.hasOwnProperty('bbgListingId') && obj['bbgListingId'] === undefined) {
                 obj['bbgListingId'] = ApiClient.convertToType(data['bbgListingId'], 'String');
             }
-            if (data.hasOwnProperty('bbgTickerListing')) {
+            if (data.hasOwnProperty('bbgTickerListing') && obj['bbgTickerListing'] === undefined) {
                 obj['bbgTickerListing'] = ApiClient.convertToType(data['bbgTickerListing'], 'String');
             }
-            if (data.hasOwnProperty('bbgTickerComposite')) {
+            if (data.hasOwnProperty('bbgTickerComposite') && obj['bbgTickerComposite'] === undefined) {
                 obj['bbgTickerComposite'] = ApiClient.convertToType(data['bbgTickerComposite'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

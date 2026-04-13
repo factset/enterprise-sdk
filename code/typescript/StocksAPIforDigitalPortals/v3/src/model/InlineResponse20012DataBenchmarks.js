@@ -48,21 +48,22 @@ class InlineResponse20012DataBenchmarks {
         if (data) {
             obj = obj || new InlineResponse20012DataBenchmarks();
 
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = InlineResponse20012DataNotation.constructFromObject(data['notation']);
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = ApiClient.convertToType(data['beta'], 'Number');
             }
-            if (data.hasOwnProperty('correlation')) {
+            if (data.hasOwnProperty('correlation') && obj['correlation'] === undefined) {
                 obj['correlation'] = ApiClient.convertToType(data['correlation'], 'Number');
             }
-            if (data.hasOwnProperty('outperformance')) {
+            if (data.hasOwnProperty('outperformance') && obj['outperformance'] === undefined) {
                 obj['outperformance'] = ApiClient.convertToType(data['outperformance'], 'Number');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = InlineResponse20012DataStatus.constructFromObject(data['status']);
             }
+            
         }
         return obj;
     }

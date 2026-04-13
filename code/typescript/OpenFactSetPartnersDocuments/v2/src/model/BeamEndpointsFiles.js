@@ -47,21 +47,22 @@ class BeamEndpointsFiles {
         if (data) {
             obj = obj || new BeamEndpointsFiles();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('fullForm')) {
+            if (data.hasOwnProperty('fullForm') && obj['fullForm'] === undefined) {
                 obj['fullForm'] = ApiClient.convertToType(data['fullForm'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

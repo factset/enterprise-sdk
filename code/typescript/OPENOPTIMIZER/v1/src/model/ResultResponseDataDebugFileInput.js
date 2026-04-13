@@ -46,24 +46,25 @@ class ResultResponseDataDebugFileInput {
         if (data) {
             obj = obj || new ResultResponseDataDebugFileInput();
 
-            if (data.hasOwnProperty('benchmarks')) {
+            if (data.hasOwnProperty('benchmarks') && obj['benchmarks'] === undefined) {
                 obj['benchmarks'] = ApiClient.convertToType(data['benchmarks'], Object);
             }
-            if (data.hasOwnProperty('buylist')) {
+            if (data.hasOwnProperty('buylist') && obj['buylist'] === undefined) {
                 obj['buylist'] = ApiClient.convertToType(data['buylist'], Object);
             }
-            if (data.hasOwnProperty('cashPortfolio')) {
+            if (data.hasOwnProperty('cashPortfolio') && obj['cashPortfolio'] === undefined) {
                 obj['cashPortfolio'] = ApiClient.convertToType(data['cashPortfolio'], Object);
             }
-            if (data.hasOwnProperty('initialPortfolio')) {
+            if (data.hasOwnProperty('initialPortfolio') && obj['initialPortfolio'] === undefined) {
                 obj['initialPortfolio'] = ApiClient.convertToType(data['initialPortfolio'], Object);
             }
-            if (data.hasOwnProperty('strategy')) {
+            if (data.hasOwnProperty('strategy') && obj['strategy'] === undefined) {
                 obj['strategy'] = ApiClient.convertToType(data['strategy'], Object);
             }
-            if (data.hasOwnProperty('universe')) {
+            if (data.hasOwnProperty('universe') && obj['universe'] === undefined) {
                 obj['universe'] = ApiClient.convertToType(data['universe'], Object);
             }
+            
         }
         return obj;
     }

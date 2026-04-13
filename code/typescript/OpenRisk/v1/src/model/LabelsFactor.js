@@ -51,12 +51,13 @@ class LabelsFactor {
         if (data) {
             obj = obj || new LabelsFactor();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('names')) {
+            if (data.hasOwnProperty('names') && obj['names'] === undefined) {
                 obj['names'] = ApiClient.convertToType(data['names'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -49,15 +49,16 @@ class AvailableComponentsResponseData {
         if (data) {
             obj = obj || new AvailableComponentsResponseData();
 
-            if (data.hasOwnProperty('constraints')) {
+            if (data.hasOwnProperty('constraints') && obj['constraints'] === undefined) {
                 obj['constraints'] = ApiClient.convertToType(data['constraints'], {'String': AvailableConstraintsResultObject});
             }
-            if (data.hasOwnProperty('transactionCosts')) {
+            if (data.hasOwnProperty('transactionCosts') && obj['transactionCosts'] === undefined) {
                 obj['transactionCosts'] = ApiClient.convertToType(data['transactionCosts'], {'String': AvailableTranscostsResultObject});
             }
-            if (data.hasOwnProperty('objectives')) {
+            if (data.hasOwnProperty('objectives') && obj['objectives'] === undefined) {
                 obj['objectives'] = ApiClient.convertToType(data['objectives'], {'String': AvailableObjectivesObject});
             }
+            
         }
         return obj;
     }

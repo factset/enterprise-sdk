@@ -47,12 +47,13 @@ class NrtCallsRequestByIds {
         if (data) {
             obj = obj || new NrtCallsRequestByIds();
 
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], 'Number');
             }
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'Number');
             }
+            
         }
         return obj;
     }

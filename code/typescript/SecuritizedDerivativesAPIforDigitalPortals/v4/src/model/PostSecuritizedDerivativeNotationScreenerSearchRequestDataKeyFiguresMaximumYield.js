@@ -50,15 +50,16 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresMaximu
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresMaximumYield();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresMaximumYieldAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresMaximumYieldRelative.constructFromObject(data['relative']);
             }
-            if (data.hasOwnProperty('annualized')) {
+            if (data.hasOwnProperty('annualized') && obj['annualized'] === undefined) {
                 obj['annualized'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresMaximumYieldAnnualized.constructFromObject(data['annualized']);
             }
+            
         }
         return obj;
     }

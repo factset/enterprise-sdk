@@ -51,21 +51,22 @@ class ResultsModelAnalytics {
         if (data) {
             obj = obj || new ResultsModelAnalytics();
 
-            if (data.hasOwnProperty('captures')) {
+            if (data.hasOwnProperty('captures') && obj['captures'] === undefined) {
                 obj['captures'] = ResultsModelAnalyticsCaptures.constructFromObject(data['captures']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = ResultsModelAnalyticsRatios.constructFromObject(data['ratios']);
             }
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = ResultsModelAnalyticsReturns.constructFromObject(data['returns']);
             }
-            if (data.hasOwnProperty('risk')) {
+            if (data.hasOwnProperty('risk') && obj['risk'] === undefined) {
                 obj['risk'] = ResultsModelAnalyticsRisk.constructFromObject(data['risk']);
             }
-            if (data.hasOwnProperty('statistics')) {
+            if (data.hasOwnProperty('statistics') && obj['statistics'] === undefined) {
                 obj['statistics'] = ResultsModelAnalyticsStatistics.constructFromObject(data['statistics']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class QuoteInsideSizeResponseRoot {
         if (data) {
             obj = obj || new QuoteInsideSizeResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = QuoteInsideSizeResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

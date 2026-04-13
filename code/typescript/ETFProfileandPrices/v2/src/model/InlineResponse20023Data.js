@@ -46,15 +46,16 @@ class InlineResponse20023Data {
         if (data) {
             obj = obj || new InlineResponse20023Data();
 
-            if (data.hasOwnProperty('navDate')) {
+            if (data.hasOwnProperty('navDate') && obj['navDate'] === undefined) {
                 obj['navDate'] = ApiClient.convertToType(data['navDate'], 'Date');
             }
-            if (data.hasOwnProperty('tenkValue')) {
+            if (data.hasOwnProperty('tenkValue') && obj['tenkValue'] === undefined) {
                 obj['tenkValue'] = ApiClient.convertToType(data['tenkValue'], 'Number');
             }
-            if (data.hasOwnProperty('tenkPercentChange')) {
+            if (data.hasOwnProperty('tenkPercentChange') && obj['tenkPercentChange'] === undefined) {
                 obj['tenkPercentChange'] = ApiClient.convertToType(data['tenkPercentChange'], 'Number');
             }
+            
         }
         return obj;
     }

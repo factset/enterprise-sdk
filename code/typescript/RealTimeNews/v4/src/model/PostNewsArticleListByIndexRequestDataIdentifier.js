@@ -51,12 +51,13 @@ class PostNewsArticleListByIndexRequestDataIdentifier {
         if (data) {
             obj = obj || new PostNewsArticleListByIndexRequestDataIdentifier();
 
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], ['String']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

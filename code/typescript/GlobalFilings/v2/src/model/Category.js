@@ -46,15 +46,16 @@ class Category {
         if (data) {
             obj = obj || new Category();
 
-            if (data.hasOwnProperty('subject')) {
+            if (data.hasOwnProperty('subject') && obj['subject'] === undefined) {
                 obj['subject'] = ApiClient.convertToType(data['subject'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

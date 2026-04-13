@@ -47,9 +47,10 @@ class BatchErrorObjectLinks {
         if (data) {
             obj = obj || new BatchErrorObjectLinks();
 
-            if (data.hasOwnProperty('about')) {
+            if (data.hasOwnProperty('about') && obj['about'] === undefined) {
                 obj['about'] = ApiClient.convertToType(data['about'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,24 +47,25 @@ class Metadata {
         if (data) {
             obj = obj || new Metadata();
 
-            if (data.hasOwnProperty('tileName')) {
+            if (data.hasOwnProperty('tileName') && obj['tileName'] === undefined) {
                 obj['tileName'] = ApiClient.convertToType(data['tileName'], 'String');
             }
-            if (data.hasOwnProperty('portfolioDescription')) {
+            if (data.hasOwnProperty('portfolioDescription') && obj['portfolioDescription'] === undefined) {
                 obj['portfolioDescription'] = ApiClient.convertToType(data['portfolioDescription'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkDescription')) {
+            if (data.hasOwnProperty('benchmarkDescription') && obj['benchmarkDescription'] === undefined) {
                 obj['benchmarkDescription'] = ApiClient.convertToType(data['benchmarkDescription'], 'String');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = PACommentaryDate.constructFromObject(data['startDate']);
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = PACommentaryDate.constructFromObject(data['endDate']);
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
             }
+            
         }
         return obj;
     }

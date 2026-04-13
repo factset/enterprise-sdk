@@ -47,9 +47,10 @@ class PricesFixedIncomeResponse {
         if (data) {
             obj = obj || new PricesFixedIncomeResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FixedIncomePrice]);
             }
+            
         }
         return obj;
     }

@@ -49,15 +49,16 @@ class LaggingDates {
         if (data) {
             obj = obj || new LaggingDates();
 
-            if (data.hasOwnProperty('exposureDate')) {
+            if (data.hasOwnProperty('exposureDate') && obj['exposureDate'] === undefined) {
                 obj['exposureDate'] = ExposureDateFormatConvention.constructFromObject(data['exposureDate']);
             }
-            if (data.hasOwnProperty('covarianceDate')) {
+            if (data.hasOwnProperty('covarianceDate') && obj['covarianceDate'] === undefined) {
                 obj['covarianceDate'] = CovarianceDateFormatConvention.constructFromObject(data['covarianceDate']);
             }
-            if (data.hasOwnProperty('ssrDateIs')) {
+            if (data.hasOwnProperty('ssrDateIs') && obj['ssrDateIs'] === undefined) {
                 obj['ssrDateIs'] = ApiClient.convertToType(data['ssrDateIs'], 'String');
             }
+            
         }
         return obj;
     }

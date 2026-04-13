@@ -48,9 +48,10 @@ class SecurityHoldersResponse {
         if (data) {
             obj = obj || new SecurityHoldersResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SecurityHolders]);
             }
+            
         }
         return obj;
     }

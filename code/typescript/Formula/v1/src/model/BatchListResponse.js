@@ -48,12 +48,13 @@ class BatchListResponse {
         if (data) {
             obj = obj || new BatchListResponse();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = BatchListResponseMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [BatchList]);
             }
+            
         }
         return obj;
     }

@@ -48,12 +48,13 @@ class KeyStatsDataObjectEntityMeta {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityMeta();
 
-            if (data.hasOwnProperty('sector')) {
+            if (data.hasOwnProperty('sector') && obj['sector'] === undefined) {
                 obj['sector'] = KeyStatsDataObjectEntityMetaSector.constructFromObject(data['sector']);
             }
-            if (data.hasOwnProperty('sources')) {
+            if (data.hasOwnProperty('sources') && obj['sources'] === undefined) {
                 obj['sources'] = KeyStatsDataObjectEntityMetaSources.constructFromObject(data['sources']);
             }
+            
         }
         return obj;
     }

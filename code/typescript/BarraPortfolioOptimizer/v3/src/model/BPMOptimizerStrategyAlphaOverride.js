@@ -46,15 +46,16 @@ class BPMOptimizerStrategyAlphaOverride {
         if (data) {
             obj = obj || new BPMOptimizerStrategyAlphaOverride();
 
-            if (data.hasOwnProperty('formula')) {
+            if (data.hasOwnProperty('formula') && obj['formula'] === undefined) {
                 obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('returnType')) {
+            if (data.hasOwnProperty('returnType') && obj['returnType'] === undefined) {
                 obj['returnType'] = ApiClient.convertToType(data['returnType'], 'String');
             }
-            if (data.hasOwnProperty('returnMultiplier')) {
+            if (data.hasOwnProperty('returnMultiplier') && obj['returnMultiplier'] === undefined) {
                 obj['returnMultiplier'] = ApiClient.convertToType(data['returnMultiplier'], 'String');
             }
+            
         }
         return obj;
     }

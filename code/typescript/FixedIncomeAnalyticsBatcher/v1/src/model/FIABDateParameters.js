@@ -51,12 +51,13 @@ class FIABDateParameters {
         if (data) {
             obj = obj || new FIABDateParameters();
 
-            if (data.hasOwnProperty('startdate')) {
+            if (data.hasOwnProperty('startdate') && obj['startdate'] === undefined) {
                 obj['startdate'] = ApiClient.convertToType(data['startdate'], 'String');
             }
-            if (data.hasOwnProperty('enddate')) {
+            if (data.hasOwnProperty('enddate') && obj['enddate'] === undefined) {
                 obj['enddate'] = ApiClient.convertToType(data['enddate'], 'String');
             }
+            
         }
         return obj;
     }

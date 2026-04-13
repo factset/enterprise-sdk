@@ -49,9 +49,10 @@ class DataAnswerSuccessResponse {
         if (data) {
             obj = obj || new DataAnswerSuccessResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DataAnswerData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

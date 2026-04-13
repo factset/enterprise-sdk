@@ -49,12 +49,13 @@ class ShortInterestRequestData {
         if (data) {
             obj = obj || new ShortInterestRequestData();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('years')) {
+            if (data.hasOwnProperty('years') && obj['years'] === undefined) {
                 obj['years'] = ApiClient.convertToType(data['years'], 'Number');
             }
+            
         }
         return obj;
     }

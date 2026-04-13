@@ -47,9 +47,10 @@ class InlineResponse20014CurrentKeyFiguresShareInstrumentCurrencyDependentPerSha
         if (data) {
             obj = obj || new InlineResponse20014CurrentKeyFiguresShareInstrumentCurrencyDependentPerShare();
 
-            if (data.hasOwnProperty('dividend')) {
+            if (data.hasOwnProperty('dividend') && obj['dividend'] === undefined) {
                 obj['dividend'] = ApiClient.convertToType(data['dividend'], 'Number');
             }
+            
         }
         return obj;
     }

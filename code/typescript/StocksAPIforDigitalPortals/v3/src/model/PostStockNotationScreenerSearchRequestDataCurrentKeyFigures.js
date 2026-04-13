@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFigures {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFigures();
 
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompany.constructFromObject(data['company']);
             }
-            if (data.hasOwnProperty('shareInstrument')) {
+            if (data.hasOwnProperty('shareInstrument') && obj['shareInstrument'] === undefined) {
                 obj['shareInstrument'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument.constructFromObject(data['shareInstrument']);
             }
+            
         }
         return obj;
     }

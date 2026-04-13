@@ -49,12 +49,13 @@ class OptimizerInputsLabels {
         if (data) {
             obj = obj || new OptimizerInputsLabels();
 
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = OptimizerInputsFactor.constructFromObject(data['factor']);
             }
-            if (data.hasOwnProperty('security')) {
+            if (data.hasOwnProperty('security') && obj['security'] === undefined) {
                 obj['security'] = OptimizerInputsSecurity.constructFromObject(data['security']);
             }
+            
         }
         return obj;
     }

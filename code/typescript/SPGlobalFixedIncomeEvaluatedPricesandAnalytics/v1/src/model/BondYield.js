@@ -46,51 +46,52 @@ class BondYield {
         if (data) {
             obj = obj || new BondYield();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('bidYieldToMaturity')) {
+            if (data.hasOwnProperty('bidYieldToMaturity') && obj['bidYieldToMaturity'] === undefined) {
                 obj['bidYieldToMaturity'] = ApiClient.convertToType(data['bidYieldToMaturity'], 'Number');
             }
-            if (data.hasOwnProperty('midYieldToMaturity')) {
+            if (data.hasOwnProperty('midYieldToMaturity') && obj['midYieldToMaturity'] === undefined) {
                 obj['midYieldToMaturity'] = ApiClient.convertToType(data['midYieldToMaturity'], 'Number');
             }
-            if (data.hasOwnProperty('askYieldToMaturity')) {
+            if (data.hasOwnProperty('askYieldToMaturity') && obj['askYieldToMaturity'] === undefined) {
                 obj['askYieldToMaturity'] = ApiClient.convertToType(data['askYieldToMaturity'], 'Number');
             }
-            if (data.hasOwnProperty('bidYieldToWorst')) {
+            if (data.hasOwnProperty('bidYieldToWorst') && obj['bidYieldToWorst'] === undefined) {
                 obj['bidYieldToWorst'] = ApiClient.convertToType(data['bidYieldToWorst'], 'Number');
             }
-            if (data.hasOwnProperty('midYieldToWorst')) {
+            if (data.hasOwnProperty('midYieldToWorst') && obj['midYieldToWorst'] === undefined) {
                 obj['midYieldToWorst'] = ApiClient.convertToType(data['midYieldToWorst'], 'Number');
             }
-            if (data.hasOwnProperty('askYieldToWorst')) {
+            if (data.hasOwnProperty('askYieldToWorst') && obj['askYieldToWorst'] === undefined) {
                 obj['askYieldToWorst'] = ApiClient.convertToType(data['askYieldToWorst'], 'Number');
             }
-            if (data.hasOwnProperty('benchmarkBidYieldToMaturity')) {
+            if (data.hasOwnProperty('benchmarkBidYieldToMaturity') && obj['benchmarkBidYieldToMaturity'] === undefined) {
                 obj['benchmarkBidYieldToMaturity'] = ApiClient.convertToType(data['benchmarkBidYieldToMaturity'], 'Number');
             }
-            if (data.hasOwnProperty('benchmarkMidYieldToMaturity')) {
+            if (data.hasOwnProperty('benchmarkMidYieldToMaturity') && obj['benchmarkMidYieldToMaturity'] === undefined) {
                 obj['benchmarkMidYieldToMaturity'] = ApiClient.convertToType(data['benchmarkMidYieldToMaturity'], 'Number');
             }
-            if (data.hasOwnProperty('benchmarkAskYieldToMaturity')) {
+            if (data.hasOwnProperty('benchmarkAskYieldToMaturity') && obj['benchmarkAskYieldToMaturity'] === undefined) {
                 obj['benchmarkAskYieldToMaturity'] = ApiClient.convertToType(data['benchmarkAskYieldToMaturity'], 'Number');
             }
-            if (data.hasOwnProperty('bidYieldToCall')) {
+            if (data.hasOwnProperty('bidYieldToCall') && obj['bidYieldToCall'] === undefined) {
                 obj['bidYieldToCall'] = ApiClient.convertToType(data['bidYieldToCall'], 'Number');
             }
-            if (data.hasOwnProperty('midYieldToCall')) {
+            if (data.hasOwnProperty('midYieldToCall') && obj['midYieldToCall'] === undefined) {
                 obj['midYieldToCall'] = ApiClient.convertToType(data['midYieldToCall'], 'Number');
             }
-            if (data.hasOwnProperty('yieldTWDate')) {
+            if (data.hasOwnProperty('yieldTWDate') && obj['yieldTWDate'] === undefined) {
                 obj['yieldTWDate'] = ApiClient.convertToType(data['yieldTWDate'], 'Date');
             }
+            
         }
         return obj;
     }

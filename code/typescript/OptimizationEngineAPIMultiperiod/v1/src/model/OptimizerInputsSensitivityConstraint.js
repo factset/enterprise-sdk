@@ -52,39 +52,40 @@ class OptimizerInputsSensitivityConstraint {
         if (data) {
             obj = obj || new OptimizerInputsSensitivityConstraint();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('min')) {
+            if (data.hasOwnProperty('min') && obj['min'] === undefined) {
                 obj['min'] = OptimizerInputsValue.constructFromObject(data['min']);
             }
-            if (data.hasOwnProperty('max')) {
+            if (data.hasOwnProperty('max') && obj['max'] === undefined) {
                 obj['max'] = OptimizerInputsValue.constructFromObject(data['max']);
             }
-            if (data.hasOwnProperty('sensitivity_attribute')) {
+            if (data.hasOwnProperty('sensitivity_attribute') && obj['sensitivity_attribute'] === undefined) {
                 obj['sensitivity_attribute'] = OptimizerInputsValue.constructFromObject(data['sensitivity_attribute']);
             }
-            if (data.hasOwnProperty('penalty')) {
+            if (data.hasOwnProperty('penalty') && obj['penalty'] === undefined) {
                 obj['penalty'] = OptimizerInputsPenalty.constructFromObject(data['penalty']);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [OptimizerInputsConstraintGroup]);
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = OptimizerInputsEConstraintLevelEnum.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('rel_to_benchmark')) {
+            if (data.hasOwnProperty('rel_to_benchmark') && obj['rel_to_benchmark'] === undefined) {
                 obj['rel_to_benchmark'] = ApiClient.convertToType(data['rel_to_benchmark'], 'Boolean');
             }
-            if (data.hasOwnProperty('benchmark_index')) {
+            if (data.hasOwnProperty('benchmark_index') && obj['benchmark_index'] === undefined) {
                 obj['benchmark_index'] = ApiClient.convertToType(data['benchmark_index'], 'Number');
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], 'Number');
             }
-            if (data.hasOwnProperty('unit')) {
+            if (data.hasOwnProperty('unit') && obj['unit'] === undefined) {
                 obj['unit'] = OptimizerInputsEConstraintUnitTypeEnum.constructFromObject(data['unit']);
             }
+            
         }
         return obj;
     }

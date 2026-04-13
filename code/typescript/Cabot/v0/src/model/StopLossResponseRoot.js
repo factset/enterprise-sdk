@@ -47,9 +47,10 @@ class StopLossResponseRoot {
         if (data) {
             obj = obj || new StopLossResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = StopLossResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

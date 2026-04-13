@@ -48,18 +48,19 @@ class ConstructionModelAnalytics {
         if (data) {
             obj = obj || new ConstructionModelAnalytics();
 
-            if (data.hasOwnProperty('activeShare')) {
+            if (data.hasOwnProperty('activeShare') && obj['activeShare'] === undefined) {
                 obj['activeShare'] = ApiClient.convertToType(data['activeShare'], 'Number');
             }
-            if (data.hasOwnProperty('activeWeights')) {
+            if (data.hasOwnProperty('activeWeights') && obj['activeWeights'] === undefined) {
                 obj['activeWeights'] = ConstructionModelAnalyticsActiveWeights.constructFromObject(data['activeWeights']);
             }
-            if (data.hasOwnProperty('positionCount')) {
+            if (data.hasOwnProperty('positionCount') && obj['positionCount'] === undefined) {
                 obj['positionCount'] = ConstructionModelAnalyticsPositionCount.constructFromObject(data['positionCount']);
             }
-            if (data.hasOwnProperty('turnover')) {
+            if (data.hasOwnProperty('turnover') && obj['turnover'] === undefined) {
                 obj['turnover'] = ApiClient.convertToType(data['turnover'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -47,15 +47,16 @@ class CreateDatabaseRootData {
         if (data) {
             obj = obj || new CreateDatabaseRootData();
 
-            if (data.hasOwnProperty('databasePath')) {
+            if (data.hasOwnProperty('databasePath') && obj['databasePath'] === undefined) {
                 obj['databasePath'] = ApiClient.convertToType(data['databasePath'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [FieldObject]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class OrderFillCountResponse {
         if (data) {
             obj = obj || new OrderFillCountResponse();
 
-            if (data.hasOwnProperty('fills')) {
+            if (data.hasOwnProperty('fills') && obj['fills'] === undefined) {
                 obj['fills'] = ApiClient.convertToType(data['fills'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,18 +49,19 @@ class InlineResponse20021Data {
         if (data) {
             obj = obj || new InlineResponse20021Data();
 
-            if (data.hasOwnProperty('dividend')) {
+            if (data.hasOwnProperty('dividend') && obj['dividend'] === undefined) {
                 obj['dividend'] = InlineResponse20021DataDividend.constructFromObject(data['dividend']);
             }
-            if (data.hasOwnProperty('capitalGains')) {
+            if (data.hasOwnProperty('capitalGains') && obj['capitalGains'] === undefined) {
                 obj['capitalGains'] = InlineResponse20021DataCapitalGains.constructFromObject(data['capitalGains']);
             }
-            if (data.hasOwnProperty('totalDistribution')) {
+            if (data.hasOwnProperty('totalDistribution') && obj['totalDistribution'] === undefined) {
                 obj['totalDistribution'] = ApiClient.convertToType(data['totalDistribution'], 'Number');
             }
-            if (data.hasOwnProperty('distributionYield')) {
+            if (data.hasOwnProperty('distributionYield') && obj['distributionYield'] === undefined) {
                 obj['distributionYield'] = ApiClient.convertToType(data['distributionYield'], 'Number');
             }
+            
         }
         return obj;
     }

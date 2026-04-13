@@ -51,18 +51,19 @@ class InlineResponse20014Benchmark {
         if (data) {
             obj = obj || new InlineResponse20014Benchmark();
 
-            if (data.hasOwnProperty('index')) {
+            if (data.hasOwnProperty('index') && obj['index'] === undefined) {
                 obj['index'] = InlineResponse20014BenchmarkIndex.constructFromObject(data['index']);
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = InlineResponse20014BenchmarkBeta.constructFromObject(data['beta']);
             }
-            if (data.hasOwnProperty('correlation')) {
+            if (data.hasOwnProperty('correlation') && obj['correlation'] === undefined) {
                 obj['correlation'] = InlineResponse20014BenchmarkCorrelation.constructFromObject(data['correlation']);
             }
-            if (data.hasOwnProperty('outperformance')) {
+            if (data.hasOwnProperty('outperformance') && obj['outperformance'] === undefined) {
                 obj['outperformance'] = InlineResponse20014BenchmarkOutperformance.constructFromObject(data['outperformance']);
             }
+            
         }
         return obj;
     }

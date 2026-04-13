@@ -47,15 +47,16 @@ class NonPeriodicValue {
         if (data) {
             obj = obj || new NonPeriodicValue();
 
-            if (data.hasOwnProperty('stringValue')) {
+            if (data.hasOwnProperty('stringValue') && obj['stringValue'] === undefined) {
                 obj['stringValue'] = ApiClient.convertToType(data['stringValue'], 'String');
             }
-            if (data.hasOwnProperty('numberValue')) {
+            if (data.hasOwnProperty('numberValue') && obj['numberValue'] === undefined) {
                 obj['numberValue'] = ApiClient.convertToType(data['numberValue'], 'Number');
             }
-            if (data.hasOwnProperty('valueType')) {
+            if (data.hasOwnProperty('valueType') && obj['valueType'] === undefined) {
                 obj['valueType'] = ApiClient.convertToType(data['valueType'], 'String');
             }
+            
         }
         return obj;
     }

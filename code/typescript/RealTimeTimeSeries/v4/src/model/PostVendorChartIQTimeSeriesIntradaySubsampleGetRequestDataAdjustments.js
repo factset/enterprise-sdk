@@ -47,9 +47,10 @@ class PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustments {
         if (data) {
             obj = obj || new PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustments();
 
-            if (data.hasOwnProperty('split')) {
+            if (data.hasOwnProperty('split') && obj['split'] === undefined) {
                 obj['split'] = ApiClient.convertToType(data['split'], 'Boolean');
             }
+            
         }
         return obj;
     }

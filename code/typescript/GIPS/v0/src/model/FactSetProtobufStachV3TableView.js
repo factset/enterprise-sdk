@@ -52,33 +52,34 @@ class FactSetProtobufStachV3TableView {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableView();
 
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], ['String']);
             }
-            if (data.hasOwnProperty('headers')) {
+            if (data.hasOwnProperty('headers') && obj['headers'] === undefined) {
                 obj['headers'] = ApiClient.convertToType(data['headers'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = FactSetProtobufStachV3TableViewTypesGroup.constructFromObject(data['group']);
             }
-            if (data.hasOwnProperty('split')) {
+            if (data.hasOwnProperty('split') && obj['split'] === undefined) {
                 obj['split'] = FactSetProtobufStachV3TableViewTypesSplit.constructFromObject(data['split']);
             }
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], [FactSetProtobufStachV3SortColumn]);
             }
-            if (data.hasOwnProperty('halign')) {
+            if (data.hasOwnProperty('halign') && obj['halign'] === undefined) {
                 obj['halign'] = FactSetProtobufStachV3TableViewTypesHorizontalAlignment.constructFromObject(data['halign']);
             }
-            if (data.hasOwnProperty('format')) {
+            if (data.hasOwnProperty('format') && obj['format'] === undefined) {
                 obj['format'] = FactSetProtobufStachV3TableViewTypesFormat.constructFromObject(data['format']);
             }
-            if (data.hasOwnProperty('customMetadata')) {
+            if (data.hasOwnProperty('customMetadata') && obj['customMetadata'] === undefined) {
                 obj['customMetadata'] = ApiClient.convertToType(data['customMetadata'], {'String': FactSetProtobufStachV3MetadataItem});
             }
+            
         }
         return obj;
     }

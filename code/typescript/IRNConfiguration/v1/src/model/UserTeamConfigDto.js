@@ -48,12 +48,13 @@ class UserTeamConfigDto {
         if (data) {
             obj = obj || new UserTeamConfigDto();
 
-            if (data.hasOwnProperty('userTeamLookupFilterType')) {
+            if (data.hasOwnProperty('userTeamLookupFilterType') && obj['userTeamLookupFilterType'] === undefined) {
                 obj['userTeamLookupFilterType'] = CustomFieldUserTeamLookupFilterType.constructFromObject(data['userTeamLookupFilterType']);
             }
-            if (data.hasOwnProperty('customFieldTeams')) {
+            if (data.hasOwnProperty('customFieldTeams') && obj['customFieldTeams'] === undefined) {
                 obj['customFieldTeams'] = ApiClient.convertToType(data['customFieldTeams'], [CustomFieldTeamConfigDto]);
             }
+            
         }
         return obj;
     }

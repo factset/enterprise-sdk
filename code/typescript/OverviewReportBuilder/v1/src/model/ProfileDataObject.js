@@ -59,21 +59,22 @@ class ProfileDataObject {
         if (data) {
             obj = obj || new ProfileDataObject();
 
-            if (data.hasOwnProperty('business')) {
+            if (data.hasOwnProperty('business') && obj['business'] === undefined) {
                 obj['business'] = ProfileDataObjectBusiness.constructFromObject(data['business']);
             }
-            if (data.hasOwnProperty('contact')) {
+            if (data.hasOwnProperty('contact') && obj['contact'] === undefined) {
                 obj['contact'] = ProfileDataObjectContact.constructFromObject(data['contact']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PeerListDataObjectMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('size')) {
+            if (data.hasOwnProperty('size') && obj['size'] === undefined) {
                 obj['size'] = ProfileDataObjectSize.constructFromObject(data['size']);
             }
-            if (data.hasOwnProperty('stage')) {
+            if (data.hasOwnProperty('stage') && obj['stage'] === undefined) {
                 obj['stage'] = ProfileDataObjectStage.constructFromObject(data['stage']);
             }
+            
         }
         return obj;
     }

@@ -48,12 +48,13 @@ class FICalculationParametersRoot {
         if (data) {
             obj = obj || new FICalculationParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FICalculationParameters.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = CalculationMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

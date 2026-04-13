@@ -47,9 +47,10 @@ class EntityReferenceChiResponse {
         if (data) {
             obj = obj || new EntityReferenceChiResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [EntityReferenceChi]);
             }
+            
         }
         return obj;
     }

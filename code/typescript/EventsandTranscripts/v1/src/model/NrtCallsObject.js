@@ -46,36 +46,37 @@ class NrtCallsObject {
         if (data) {
             obj = obj || new NrtCallsObject();
 
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'Number');
             }
-            if (data.hasOwnProperty('sourceCode')) {
+            if (data.hasOwnProperty('sourceCode') && obj['sourceCode'] === undefined) {
                 obj['sourceCode'] = ApiClient.convertToType(data['sourceCode'], 'String');
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], 'Number');
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('eventType')) {
+            if (data.hasOwnProperty('eventType') && obj['eventType'] === undefined) {
                 obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
-            if (data.hasOwnProperty('eventTitle')) {
+            if (data.hasOwnProperty('eventTitle') && obj['eventTitle'] === undefined) {
                 obj['eventTitle'] = ApiClient.convertToType(data['eventTitle'], 'String');
             }
-            if (data.hasOwnProperty('callStatus')) {
+            if (data.hasOwnProperty('callStatus') && obj['callStatus'] === undefined) {
                 obj['callStatus'] = ApiClient.convertToType(data['callStatus'], 'String');
             }
-            if (data.hasOwnProperty('recordingStartTime')) {
+            if (data.hasOwnProperty('recordingStartTime') && obj['recordingStartTime'] === undefined) {
                 obj['recordingStartTime'] = ApiClient.convertToType(data['recordingStartTime'], 'Date');
             }
-            if (data.hasOwnProperty('eventDatetimeUtc')) {
+            if (data.hasOwnProperty('eventDatetimeUtc') && obj['eventDatetimeUtc'] === undefined) {
                 obj['eventDatetimeUtc'] = ApiClient.convertToType(data['eventDatetimeUtc'], 'Date');
             }
+            
         }
         return obj;
     }

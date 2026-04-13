@@ -48,9 +48,10 @@ class GrowthOfTenKResponse {
         if (data) {
             obj = obj || new GrowthOfTenKResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [GrowthOf10Ks]);
             }
+            
         }
         return obj;
     }

@@ -46,12 +46,13 @@ class ApprovalLevelConfigDto {
         if (data) {
             obj = obj || new ApprovalLevelConfigDto();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('approverIds')) {
+            if (data.hasOwnProperty('approverIds') && obj['approverIds'] === undefined) {
                 obj['approverIds'] = ApiClient.convertToType(data['approverIds'], ['String']);
             }
+            
         }
         return obj;
     }

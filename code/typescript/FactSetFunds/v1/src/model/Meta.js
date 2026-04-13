@@ -48,12 +48,13 @@ class Meta {
         if (data) {
             obj = obj || new Meta();
 
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], ['String']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = MetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

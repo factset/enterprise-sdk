@@ -46,12 +46,13 @@ class ResultsModelAnalyticsCaptures {
         if (data) {
             obj = obj || new ResultsModelAnalyticsCaptures();
 
-            if (data.hasOwnProperty('downside')) {
+            if (data.hasOwnProperty('downside') && obj['downside'] === undefined) {
                 obj['downside'] = ApiClient.convertToType(data['downside'], 'Number');
             }
-            if (data.hasOwnProperty('upside')) {
+            if (data.hasOwnProperty('upside') && obj['upside'] === undefined) {
                 obj['upside'] = ApiClient.convertToType(data['upside'], 'Number');
             }
+            
         }
         return obj;
     }

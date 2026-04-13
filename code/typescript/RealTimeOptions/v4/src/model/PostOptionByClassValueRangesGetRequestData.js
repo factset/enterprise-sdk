@@ -54,27 +54,28 @@ class PostOptionByClassValueRangesGetRequestData {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestData();
 
-            if (data.hasOwnProperty('class')) {
+            if (data.hasOwnProperty('class') && obj['class'] === undefined) {
                 obj['class'] = PostOptionByClassValueRangesGetRequestDataClass.constructFromObject(data['class']);
             }
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostOptionByClassValueRangesGetRequestDataFilter.constructFromObject(data['filter']);
             }
-            if (data.hasOwnProperty('contract')) {
+            if (data.hasOwnProperty('contract') && obj['contract'] === undefined) {
                 obj['contract'] = PostOptionByClassValueRangesGetRequestDataContract.constructFromObject(data['contract']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = PostOptionByClassValueRangesGetRequestDataLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('contractSize')) {
+            if (data.hasOwnProperty('contractSize') && obj['contractSize'] === undefined) {
                 obj['contractSize'] = PostOptionByClassValueRangesGetRequestDataContractSize.constructFromObject(data['contractSize']);
             }
-            if (data.hasOwnProperty('openInterest')) {
+            if (data.hasOwnProperty('openInterest') && obj['openInterest'] === undefined) {
                 obj['openInterest'] = PostOptionByClassValueRangesGetRequestDataOpenInterest.constructFromObject(data['openInterest']);
             }
-            if (data.hasOwnProperty('keyFigures')) {
+            if (data.hasOwnProperty('keyFigures') && obj['keyFigures'] === undefined) {
                 obj['keyFigures'] = PostOptionByClassValueRangesGetRequestDataKeyFigures.constructFromObject(data['keyFigures']);
             }
+            
         }
         return obj;
     }

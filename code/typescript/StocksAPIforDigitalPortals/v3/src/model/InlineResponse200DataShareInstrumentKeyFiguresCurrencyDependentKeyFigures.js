@@ -49,12 +49,13 @@ class InlineResponse200DataShareInstrumentKeyFiguresCurrencyDependentKeyFigures 
         if (data) {
             obj = obj || new InlineResponse200DataShareInstrumentKeyFiguresCurrencyDependentKeyFigures();
 
-            if (data.hasOwnProperty('marketCapitalizationSharesOutstanding')) {
+            if (data.hasOwnProperty('marketCapitalizationSharesOutstanding') && obj['marketCapitalizationSharesOutstanding'] === undefined) {
                 obj['marketCapitalizationSharesOutstanding'] = InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresMarketCapitalizationSharesOutstanding.constructFromObject(data['marketCapitalizationSharesOutstanding']);
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = InlineResponse200DataShareInstrumentKeyFiguresCurrencyDependentKeyFiguresPerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

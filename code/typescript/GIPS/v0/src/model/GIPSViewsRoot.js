@@ -50,9 +50,10 @@ class GIPSViewsRoot {
         if (data) {
             obj = obj || new GIPSViewsRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': GIPSViews});
             }
+            
         }
         return obj;
     }

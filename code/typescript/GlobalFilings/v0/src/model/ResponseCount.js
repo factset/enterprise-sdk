@@ -48,9 +48,10 @@ class ResponseCount {
         if (data) {
             obj = obj || new ResponseCount();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ResponseCountObject]);
             }
+            
         }
         return obj;
     }

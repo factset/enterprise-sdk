@@ -46,15 +46,16 @@ class EventSummary {
         if (data) {
             obj = obj || new EventSummary();
 
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('submissiondatetime')) {
+            if (data.hasOwnProperty('submissiondatetime') && obj['submissiondatetime'] === undefined) {
                 obj['submissiondatetime'] = ApiClient.convertToType(data['submissiondatetime'], 'Date');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

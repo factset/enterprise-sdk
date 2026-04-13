@@ -47,15 +47,16 @@ class InlineResponse20014DataCounterParty {
         if (data) {
             obj = obj || new InlineResponse20014DataCounterParty();
 
-            if (data.hasOwnProperty('credit')) {
+            if (data.hasOwnProperty('credit') && obj['credit'] === undefined) {
                 obj['credit'] = ApiClient.convertToType(data['credit'], 'String');
             }
-            if (data.hasOwnProperty('swap')) {
+            if (data.hasOwnProperty('swap') && obj['swap'] === undefined) {
                 obj['swap'] = ApiClient.convertToType(data['swap'], 'String');
             }
-            if (data.hasOwnProperty('holdsDerivatives')) {
+            if (data.hasOwnProperty('holdsDerivatives') && obj['holdsDerivatives'] === undefined) {
                 obj['holdsDerivatives'] = ApiClient.convertToType(data['holdsDerivatives'], 'Boolean');
             }
+            
         }
         return obj;
     }

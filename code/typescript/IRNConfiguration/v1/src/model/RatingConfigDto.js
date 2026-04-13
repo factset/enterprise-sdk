@@ -46,21 +46,22 @@ class RatingConfigDto {
         if (data) {
             obj = obj || new RatingConfigDto();
 
-            if (data.hasOwnProperty('ratingsVisibleToAuthor')) {
+            if (data.hasOwnProperty('ratingsVisibleToAuthor') && obj['ratingsVisibleToAuthor'] === undefined) {
                 obj['ratingsVisibleToAuthor'] = ApiClient.convertToType(data['ratingsVisibleToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('ratingsVisibleToViewers')) {
+            if (data.hasOwnProperty('ratingsVisibleToViewers') && obj['ratingsVisibleToViewers'] === undefined) {
                 obj['ratingsVisibleToViewers'] = ApiClient.convertToType(data['ratingsVisibleToViewers'], 'Boolean');
             }
-            if (data.hasOwnProperty('ratingsVisibleToAll')) {
+            if (data.hasOwnProperty('ratingsVisibleToAll') && obj['ratingsVisibleToAll'] === undefined) {
                 obj['ratingsVisibleToAll'] = ApiClient.convertToType(data['ratingsVisibleToAll'], 'Boolean');
             }
-            if (data.hasOwnProperty('viewerIds')) {
+            if (data.hasOwnProperty('viewerIds') && obj['viewerIds'] === undefined) {
                 obj['viewerIds'] = ApiClient.convertToType(data['viewerIds'], ['String']);
             }
-            if (data.hasOwnProperty('optionValues')) {
+            if (data.hasOwnProperty('optionValues') && obj['optionValues'] === undefined) {
                 obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['Number']);
             }
+            
         }
         return obj;
     }

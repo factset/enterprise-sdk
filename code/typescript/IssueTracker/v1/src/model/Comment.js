@@ -47,18 +47,19 @@ class Comment {
         if (data) {
             obj = obj || new Comment();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
+            if (data.hasOwnProperty('createdAt') && obj['createdAt'] === undefined) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Date');
             }
-            if (data.hasOwnProperty('author')) {
+            if (data.hasOwnProperty('author') && obj['author'] === undefined) {
                 obj['author'] = ApiClient.convertToType(data['author'], 'String');
             }
+            
         }
         return obj;
     }

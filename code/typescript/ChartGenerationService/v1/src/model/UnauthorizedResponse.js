@@ -47,12 +47,13 @@ class UnauthorizedResponse {
         if (data) {
             obj = obj || new UnauthorizedResponse();
 
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ChartErrorResponseObject]);
             }
+            
         }
         return obj;
     }

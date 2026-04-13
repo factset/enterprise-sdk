@@ -48,9 +48,10 @@ class QuoteInsideSizeResponse {
         if (data) {
             obj = obj || new QuoteInsideSizeResponse();
 
-            if (data.hasOwnProperty('analytics')) {
+            if (data.hasOwnProperty('analytics') && obj['analytics'] === undefined) {
                 obj['analytics'] = ApiClient.convertToType(data['analytics'], [QuoteInsideSize]);
             }
+            
         }
         return obj;
     }

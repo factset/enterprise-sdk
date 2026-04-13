@@ -49,9 +49,10 @@ class ContractPropertyItems {
         if (data) {
             obj = obj || new ContractPropertyItems();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

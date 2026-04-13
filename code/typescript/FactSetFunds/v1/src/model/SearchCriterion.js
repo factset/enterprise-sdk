@@ -56,18 +56,19 @@ class SearchCriterion {
         if (data) {
             obj = obj || new SearchCriterion();
 
-            if (data.hasOwnProperty('contentSet')) {
+            if (data.hasOwnProperty('contentSet') && obj['contentSet'] === undefined) {
                 obj['contentSet'] = ApiClient.convertToType(data['contentSet'], 'String');
             }
-            if (data.hasOwnProperty('fieldName')) {
+            if (data.hasOwnProperty('fieldName') && obj['fieldName'] === undefined) {
                 obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
-            if (data.hasOwnProperty('operator')) {
+            if (data.hasOwnProperty('operator') && obj['operator'] === undefined) {
                 obj['operator'] = Operator.constructFromObject(data['operator']);
             }
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], ['String']);
             }
+            
         }
         return obj;
     }

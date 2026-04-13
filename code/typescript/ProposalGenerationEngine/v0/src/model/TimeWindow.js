@@ -46,9 +46,10 @@ class TimeWindow {
         if (data) {
             obj = obj || new TimeWindow();
 
-            if (data.hasOwnProperty('timeWindows')) {
+            if (data.hasOwnProperty('timeWindows') && obj['timeWindows'] === undefined) {
                 obj['timeWindows'] = ApiClient.convertToType(data['timeWindows'], ['String']);
             }
+            
         }
         return obj;
     }

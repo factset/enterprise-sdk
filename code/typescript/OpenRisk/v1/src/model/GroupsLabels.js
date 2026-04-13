@@ -47,15 +47,16 @@ class GroupsLabels {
         if (data) {
             obj = obj || new GroupsLabels();
 
-            if (data.hasOwnProperty('index')) {
+            if (data.hasOwnProperty('index') && obj['index'] === undefined) {
                 obj['index'] = ApiClient.convertToType(data['index'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [GroupsLabels]);
             }
+            
         }
         return obj;
     }

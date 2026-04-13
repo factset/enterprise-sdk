@@ -48,18 +48,19 @@ class InlineResponse20038Data {
         if (data) {
             obj = obj || new InlineResponse20038Data();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('number')) {
+            if (data.hasOwnProperty('number') && obj['number'] === undefined) {
                 obj['number'] = ApiClient.convertToType(data['number'], 'Number');
             }
-            if (data.hasOwnProperty('hasLeafCategories')) {
+            if (data.hasOwnProperty('hasLeafCategories') && obj['hasLeafCategories'] === undefined) {
                 obj['hasLeafCategories'] = ApiClient.convertToType(data['hasLeafCategories'], 'Boolean');
             }
-            if (data.hasOwnProperty('system')) {
+            if (data.hasOwnProperty('system') && obj['system'] === undefined) {
                 obj['system'] = InlineResponse20038DataSystem.constructFromObject(data['system']);
             }
+            
         }
         return obj;
     }

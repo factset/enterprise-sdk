@@ -46,12 +46,13 @@ class DataresponseitemsRelatedBundles {
         if (data) {
             obj = obj || new DataresponseitemsRelatedBundles();
 
-            if (data.hasOwnProperty('bundle')) {
+            if (data.hasOwnProperty('bundle') && obj['bundle'] === undefined) {
                 obj['bundle'] = ApiClient.convertToType(data['bundle'], 'String');
             }
-            if (data.hasOwnProperty('sequence')) {
+            if (data.hasOwnProperty('sequence') && obj['sequence'] === undefined) {
                 obj['sequence'] = ApiClient.convertToType(data['sequence'], 'String');
             }
+            
         }
         return obj;
     }

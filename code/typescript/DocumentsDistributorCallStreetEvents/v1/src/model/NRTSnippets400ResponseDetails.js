@@ -47,9 +47,10 @@ class NRTSnippets400ResponseDetails {
         if (data) {
             obj = obj || new NRTSnippets400ResponseDetails();
 
-            if (data.hasOwnProperty('validParameters')) {
+            if (data.hasOwnProperty('validParameters') && obj['validParameters'] === undefined) {
                 obj['validParameters'] = NRTSnippets400ResponseDetailsValidParameters.constructFromObject(data['validParameters']);
             }
+            
         }
         return obj;
     }

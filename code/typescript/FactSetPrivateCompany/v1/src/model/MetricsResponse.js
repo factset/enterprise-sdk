@@ -48,9 +48,10 @@ class MetricsResponse {
         if (data) {
             obj = obj || new MetricsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Metric]);
             }
+            
         }
         return obj;
     }

@@ -46,12 +46,13 @@ class PostStockNotationScreenerSearchRequestDataComplianceFranceAnd {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataComplianceFranceAnd();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('negate')) {
+            if (data.hasOwnProperty('negate') && obj['negate'] === undefined) {
                 obj['negate'] = ApiClient.convertToType(data['negate'], 'Boolean');
             }
+            
         }
         return obj;
     }

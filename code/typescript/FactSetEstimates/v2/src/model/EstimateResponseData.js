@@ -47,21 +47,22 @@ class EstimateResponseData {
         if (data) {
             obj = obj || new EstimateResponseData();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = ApiClient.convertToType(data['periodicity'], 'String');
             }
-            if (data.hasOwnProperty('estimateType')) {
+            if (data.hasOwnProperty('estimateType') && obj['estimateType'] === undefined) {
                 obj['estimateType'] = ApiClient.convertToType(data['estimateType'], 'String');
             }
-            if (data.hasOwnProperty('estimates')) {
+            if (data.hasOwnProperty('estimates') && obj['estimates'] === undefined) {
                 obj['estimates'] = ApiClient.convertToType(data['estimates'], [Estimate]);
             }
+            
         }
         return obj;
     }

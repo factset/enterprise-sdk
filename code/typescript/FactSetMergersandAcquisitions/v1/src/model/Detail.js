@@ -50,114 +50,115 @@ class Detail {
         if (data) {
             obj = obj || new Detail();
 
-            if (data.hasOwnProperty('dealId')) {
+            if (data.hasOwnProperty('dealId') && obj['dealId'] === undefined) {
                 obj['dealId'] = ApiClient.convertToType(data['dealId'], 'String');
             }
-            if (data.hasOwnProperty('target')) {
+            if (data.hasOwnProperty('target') && obj['target'] === undefined) {
                 obj['target'] = Target.constructFromObject(data['target']);
             }
-            if (data.hasOwnProperty('buyers')) {
+            if (data.hasOwnProperty('buyers') && obj['buyers'] === undefined) {
                 obj['buyers'] = ApiClient.convertToType(data['buyers'], [Participant]);
             }
-            if (data.hasOwnProperty('sellers')) {
+            if (data.hasOwnProperty('sellers') && obj['sellers'] === undefined) {
                 obj['sellers'] = ApiClient.convertToType(data['sellers'], [Participant]);
             }
-            if (data.hasOwnProperty('advisorsInfo')) {
+            if (data.hasOwnProperty('advisorsInfo') && obj['advisorsInfo'] === undefined) {
                 obj['advisorsInfo'] = Advisors.constructFromObject(data['advisorsInfo']);
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('rumorDate')) {
+            if (data.hasOwnProperty('rumorDate') && obj['rumorDate'] === undefined) {
                 obj['rumorDate'] = ApiClient.convertToType(data['rumorDate'], 'Date');
             }
-            if (data.hasOwnProperty('announceDate')) {
+            if (data.hasOwnProperty('announceDate') && obj['announceDate'] === undefined) {
                 obj['announceDate'] = ApiClient.convertToType(data['announceDate'], 'Date');
             }
-            if (data.hasOwnProperty('referenceDate')) {
+            if (data.hasOwnProperty('referenceDate') && obj['referenceDate'] === undefined) {
                 obj['referenceDate'] = ApiClient.convertToType(data['referenceDate'], 'Date');
             }
-            if (data.hasOwnProperty('expectedCloseDate')) {
+            if (data.hasOwnProperty('expectedCloseDate') && obj['expectedCloseDate'] === undefined) {
                 obj['expectedCloseDate'] = ApiClient.convertToType(data['expectedCloseDate'], 'Date');
             }
-            if (data.hasOwnProperty('closeDate')) {
+            if (data.hasOwnProperty('closeDate') && obj['closeDate'] === undefined) {
                 obj['closeDate'] = ApiClient.convertToType(data['closeDate'], 'Date');
             }
-            if (data.hasOwnProperty('cancelDate')) {
+            if (data.hasOwnProperty('cancelDate') && obj['cancelDate'] === undefined) {
                 obj['cancelDate'] = ApiClient.convertToType(data['cancelDate'], 'Date');
             }
-            if (data.hasOwnProperty('dealType')) {
+            if (data.hasOwnProperty('dealType') && obj['dealType'] === undefined) {
                 obj['dealType'] = ApiClient.convertToType(data['dealType'], 'String');
             }
-            if (data.hasOwnProperty('sourceFunds')) {
+            if (data.hasOwnProperty('sourceFunds') && obj['sourceFunds'] === undefined) {
                 obj['sourceFunds'] = ApiClient.convertToType(data['sourceFunds'], ['String']);
             }
-            if (data.hasOwnProperty('dealValue')) {
+            if (data.hasOwnProperty('dealValue') && obj['dealValue'] === undefined) {
                 obj['dealValue'] = DealValue.constructFromObject(data['dealValue']);
             }
-            if (data.hasOwnProperty('purpose')) {
+            if (data.hasOwnProperty('purpose') && obj['purpose'] === undefined) {
                 obj['purpose'] = ApiClient.convertToType(data['purpose'], 'String');
             }
-            if (data.hasOwnProperty('evSales')) {
+            if (data.hasOwnProperty('evSales') && obj['evSales'] === undefined) {
                 obj['evSales'] = ApiClient.convertToType(data['evSales'], 'Number');
             }
-            if (data.hasOwnProperty('evEBIT')) {
+            if (data.hasOwnProperty('evEBIT') && obj['evEBIT'] === undefined) {
                 obj['evEBIT'] = ApiClient.convertToType(data['evEBIT'], 'Number');
             }
-            if (data.hasOwnProperty('evEBITDA')) {
+            if (data.hasOwnProperty('evEBITDA') && obj['evEBITDA'] === undefined) {
                 obj['evEBITDA'] = ApiClient.convertToType(data['evEBITDA'], 'Number');
             }
-            if (data.hasOwnProperty('bepBV')) {
+            if (data.hasOwnProperty('bepBV') && obj['bepBV'] === undefined) {
                 obj['bepBV'] = ApiClient.convertToType(data['bepBV'], 'Number');
             }
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = ApiClient.convertToType(data['sales'], 'Number');
             }
-            if (data.hasOwnProperty('ebit')) {
+            if (data.hasOwnProperty('ebit') && obj['ebit'] === undefined) {
                 obj['ebit'] = ApiClient.convertToType(data['ebit'], 'Number');
             }
-            if (data.hasOwnProperty('ebitda')) {
+            if (data.hasOwnProperty('ebitda') && obj['ebitda'] === undefined) {
                 obj['ebitda'] = ApiClient.convertToType(data['ebitda'], 'Number');
             }
-            if (data.hasOwnProperty('netIncome')) {
+            if (data.hasOwnProperty('netIncome') && obj['netIncome'] === undefined) {
                 obj['netIncome'] = ApiClient.convertToType(data['netIncome'], 'Number');
             }
-            if (data.hasOwnProperty('cash')) {
+            if (data.hasOwnProperty('cash') && obj['cash'] === undefined) {
                 obj['cash'] = ApiClient.convertToType(data['cash'], 'Number');
             }
-            if (data.hasOwnProperty('intBearingDebt')) {
+            if (data.hasOwnProperty('intBearingDebt') && obj['intBearingDebt'] === undefined) {
                 obj['intBearingDebt'] = ApiClient.convertToType(data['intBearingDebt'], 'Number');
             }
-            if (data.hasOwnProperty('prefStockValue')) {
+            if (data.hasOwnProperty('prefStockValue') && obj['prefStockValue'] === undefined) {
                 obj['prefStockValue'] = ApiClient.convertToType(data['prefStockValue'], 'Number');
             }
-            if (data.hasOwnProperty('totalAssets')) {
+            if (data.hasOwnProperty('totalAssets') && obj['totalAssets'] === undefined) {
                 obj['totalAssets'] = ApiClient.convertToType(data['totalAssets'], 'Number');
             }
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = ApiClient.convertToType(data['sharesOutstanding'], 'Number');
             }
-            if (data.hasOwnProperty('eps')) {
+            if (data.hasOwnProperty('eps') && obj['eps'] === undefined) {
                 obj['eps'] = ApiClient.convertToType(data['eps'], 'Number');
             }
-            if (data.hasOwnProperty('bookValueShare')) {
+            if (data.hasOwnProperty('bookValueShare') && obj['bookValueShare'] === undefined) {
                 obj['bookValueShare'] = ApiClient.convertToType(data['bookValueShare'], 'Number');
             }
-            if (data.hasOwnProperty('targetPostMergerOwn')) {
+            if (data.hasOwnProperty('targetPostMergerOwn') && obj['targetPostMergerOwn'] === undefined) {
                 obj['targetPostMergerOwn'] = ApiClient.convertToType(data['targetPostMergerOwn'], 'Number');
             }
-            if (data.hasOwnProperty('buyerPostMergerOwn')) {
+            if (data.hasOwnProperty('buyerPostMergerOwn') && obj['buyerPostMergerOwn'] === undefined) {
                 obj['buyerPostMergerOwn'] = ApiClient.convertToType(data['buyerPostMergerOwn'], 'Number');
             }
-            if (data.hasOwnProperty('attitude')) {
+            if (data.hasOwnProperty('attitude') && obj['attitude'] === undefined) {
                 obj['attitude'] = ApiClient.convertToType(data['attitude'], 'String');
             }
-            if (data.hasOwnProperty('dealSummary')) {
+            if (data.hasOwnProperty('dealSummary') && obj['dealSummary'] === undefined) {
                 obj['dealSummary'] = ApiClient.convertToType(data['dealSummary'], 'String');
             }
-            if (data.hasOwnProperty('dealCharacteristics')) {
+            if (data.hasOwnProperty('dealCharacteristics') && obj['dealCharacteristics'] === undefined) {
                 obj['dealCharacteristics'] = ApiClient.convertToType(data['dealCharacteristics'], ['String']);
             }
+            
         }
         return obj;
     }

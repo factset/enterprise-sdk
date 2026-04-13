@@ -64,57 +64,58 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFigures {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFigures();
 
-            if (data.hasOwnProperty('bonusYield')) {
+            if (data.hasOwnProperty('bonusYield') && obj['bonusYield'] === undefined) {
                 obj['bonusYield'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresBonusYield.constructFromObject(data['bonusYield']);
             }
-            if (data.hasOwnProperty('sidewaysYield')) {
+            if (data.hasOwnProperty('sidewaysYield') && obj['sidewaysYield'] === undefined) {
                 obj['sidewaysYield'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresSidewaysYield.constructFromObject(data['sidewaysYield']);
             }
-            if (data.hasOwnProperty('maximumYield')) {
+            if (data.hasOwnProperty('maximumYield') && obj['maximumYield'] === undefined) {
                 obj['maximumYield'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresMaximumYield.constructFromObject(data['maximumYield']);
             }
-            if (data.hasOwnProperty('agio')) {
+            if (data.hasOwnProperty('agio') && obj['agio'] === undefined) {
                 obj['agio'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresAgio.constructFromObject(data['agio']);
             }
-            if (data.hasOwnProperty('discount')) {
+            if (data.hasOwnProperty('discount') && obj['discount'] === undefined) {
                 obj['discount'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresDiscount.constructFromObject(data['discount']);
             }
-            if (data.hasOwnProperty('breakEven')) {
+            if (data.hasOwnProperty('breakEven') && obj['breakEven'] === undefined) {
                 obj['breakEven'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresBreakEven.constructFromObject(data['breakEven']);
             }
-            if (data.hasOwnProperty('spread')) {
+            if (data.hasOwnProperty('spread') && obj['spread'] === undefined) {
                 obj['spread'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresSpread.constructFromObject(data['spread']);
             }
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresDelta.constructFromObject(data['delta']);
             }
-            if (data.hasOwnProperty('thetaOneWeek')) {
+            if (data.hasOwnProperty('thetaOneWeek') && obj['thetaOneWeek'] === undefined) {
                 obj['thetaOneWeek'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresThetaOneWeek.constructFromObject(data['thetaOneWeek']);
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresVega.constructFromObject(data['vega']);
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresLeverage.constructFromObject(data['leverage']);
             }
-            if (data.hasOwnProperty('omega')) {
+            if (data.hasOwnProperty('omega') && obj['omega'] === undefined) {
                 obj['omega'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresOmega.constructFromObject(data['omega']);
             }
-            if (data.hasOwnProperty('impliedVolatility')) {
+            if (data.hasOwnProperty('impliedVolatility') && obj['impliedVolatility'] === undefined) {
                 obj['impliedVolatility'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresImpliedVolatility.constructFromObject(data['impliedVolatility']);
             }
-            if (data.hasOwnProperty('intrinsicValue')) {
+            if (data.hasOwnProperty('intrinsicValue') && obj['intrinsicValue'] === undefined) {
                 obj['intrinsicValue'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresIntrinsicValue.constructFromObject(data['intrinsicValue']);
             }
-            if (data.hasOwnProperty('timeValue')) {
+            if (data.hasOwnProperty('timeValue') && obj['timeValue'] === undefined) {
                 obj['timeValue'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresTimeValue.constructFromObject(data['timeValue']);
             }
-            if (data.hasOwnProperty('outperformancePoint')) {
+            if (data.hasOwnProperty('outperformancePoint') && obj['outperformancePoint'] === undefined) {
                 obj['outperformancePoint'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresOutperformancePoint.constructFromObject(data['outperformancePoint']);
             }
-            if (data.hasOwnProperty('parity')) {
+            if (data.hasOwnProperty('parity') && obj['parity'] === undefined) {
                 obj['parity'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresParity.constructFromObject(data['parity']);
             }
+            
         }
         return obj;
     }

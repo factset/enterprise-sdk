@@ -47,30 +47,31 @@ class ExcelOptions {
         if (data) {
             obj = obj || new ExcelOptions();
 
-            if (data.hasOwnProperty('isSummary')) {
+            if (data.hasOwnProperty('isSummary') && obj['isSummary'] === undefined) {
                 obj['isSummary'] = ApiClient.convertToType(data['isSummary'], 'Boolean');
             }
-            if (data.hasOwnProperty('applySavedNAFormatting')) {
+            if (data.hasOwnProperty('applySavedNAFormatting') && obj['applySavedNAFormatting'] === undefined) {
                 obj['applySavedNAFormatting'] = ApiClient.convertToType(data['applySavedNAFormatting'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyFilters')) {
+            if (data.hasOwnProperty('applyFilters') && obj['applyFilters'] === undefined) {
                 obj['applyFilters'] = ApiClient.convertToType(data['applyFilters'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyAlternateRowShading')) {
+            if (data.hasOwnProperty('applyAlternateRowShading') && obj['applyAlternateRowShading'] === undefined) {
                 obj['applyAlternateRowShading'] = ApiClient.convertToType(data['applyAlternateRowShading'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyExcelOutlining')) {
+            if (data.hasOwnProperty('applyExcelOutlining') && obj['applyExcelOutlining'] === undefined) {
                 obj['applyExcelOutlining'] = ApiClient.convertToType(data['applyExcelOutlining'], 'Boolean');
             }
-            if (data.hasOwnProperty('condenseTabsToOneSheet')) {
+            if (data.hasOwnProperty('condenseTabsToOneSheet') && obj['condenseTabsToOneSheet'] === undefined) {
                 obj['condenseTabsToOneSheet'] = ApiClient.convertToType(data['condenseTabsToOneSheet'], 'Boolean');
             }
-            if (data.hasOwnProperty('customTitle')) {
+            if (data.hasOwnProperty('customTitle') && obj['customTitle'] === undefined) {
                 obj['customTitle'] = ApiClient.convertToType(data['customTitle'], 'String');
             }
-            if (data.hasOwnProperty('customSubtitle')) {
+            if (data.hasOwnProperty('customSubtitle') && obj['customSubtitle'] === undefined) {
                 obj['customSubtitle'] = ApiClient.convertToType(data['customSubtitle'], 'String');
             }
+            
         }
         return obj;
     }

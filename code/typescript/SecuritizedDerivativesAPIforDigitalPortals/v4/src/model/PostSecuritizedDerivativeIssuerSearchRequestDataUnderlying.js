@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeIssuerSearchRequestDataUnderlying {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequestDataUnderlying();
 
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = PostSecuritizedDerivativeIssuerSearchRequestDataUnderlyingInstrument.constructFromObject(data['instrument']);
             }
+            
         }
         return obj;
     }

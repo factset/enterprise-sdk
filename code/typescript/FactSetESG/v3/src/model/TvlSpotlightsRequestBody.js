@@ -49,27 +49,28 @@ class TvlSpotlightsRequestBody {
         if (data) {
             obj = obj || new TvlSpotlightsRequestBody();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('primaryOnly')) {
+            if (data.hasOwnProperty('primaryOnly') && obj['primaryOnly'] === undefined) {
                 obj['primaryOnly'] = ApiClient.convertToType(data['primaryOnly'], 'Boolean');
             }
-            if (data.hasOwnProperty('isRemoved')) {
+            if (data.hasOwnProperty('isRemoved') && obj['isRemoved'] === undefined) {
                 obj['isRemoved'] = ApiClient.convertToType(data['isRemoved'], 'Boolean');
             }
+            
         }
         return obj;
     }

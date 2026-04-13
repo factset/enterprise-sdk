@@ -46,12 +46,13 @@ class ListSchemaObject {
         if (data) {
             obj = obj || new ListSchemaObject();
 
-            if (data.hasOwnProperty('schemaName')) {
+            if (data.hasOwnProperty('schemaName') && obj['schemaName'] === undefined) {
                 obj['schemaName'] = ApiClient.convertToType(data['schemaName'], 'String');
             }
-            if (data.hasOwnProperty('schemaVersion')) {
+            if (data.hasOwnProperty('schemaVersion') && obj['schemaVersion'] === undefined) {
                 obj['schemaVersion'] = ApiClient.convertToType(data['schemaVersion'], ['String']);
             }
+            
         }
         return obj;
     }

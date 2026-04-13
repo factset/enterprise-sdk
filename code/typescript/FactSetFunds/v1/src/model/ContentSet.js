@@ -47,15 +47,16 @@ class ContentSet {
         if (data) {
             obj = obj || new ContentSet();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('custom')) {
+            if (data.hasOwnProperty('custom') && obj['custom'] === undefined) {
                 obj['custom'] = ApiClient.convertToType(data['custom'], 'Boolean');
             }
+            
         }
         return obj;
     }

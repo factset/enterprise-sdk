@@ -48,12 +48,13 @@ class ExPostSeriesResponse {
         if (data) {
             obj = obj || new ExPostSeriesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExPostSeriesResponseData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ExPostSeriesResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

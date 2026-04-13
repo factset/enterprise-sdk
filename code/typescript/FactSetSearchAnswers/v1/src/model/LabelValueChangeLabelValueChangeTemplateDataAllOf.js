@@ -47,21 +47,22 @@ class LabelValueChangeLabelValueChangeTemplateDataAllOf {
         if (data) {
             obj = obj || new LabelValueChangeLabelValueChangeTemplateDataAllOf();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
-            if (data.hasOwnProperty('valueChange')) {
+            if (data.hasOwnProperty('valueChange') && obj['valueChange'] === undefined) {
                 obj['valueChange'] = ValueChange.constructFromObject(data['valueChange']);
             }
-            if (data.hasOwnProperty('value2')) {
+            if (data.hasOwnProperty('value2') && obj['value2'] === undefined) {
                 obj['value2'] = ApiClient.convertToType(data['value2'], 'String');
             }
-            if (data.hasOwnProperty('label2')) {
+            if (data.hasOwnProperty('label2') && obj['label2'] === undefined) {
                 obj['label2'] = ApiClient.convertToType(data['label2'], 'String');
             }
+            
         }
         return obj;
     }

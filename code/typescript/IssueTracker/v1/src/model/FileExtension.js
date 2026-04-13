@@ -47,9 +47,10 @@ class FileExtension {
         if (data) {
             obj = obj || new FileExtension();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], ['String']);
             }
+            
         }
         return obj;
     }

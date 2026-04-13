@@ -48,9 +48,10 @@ class SfdrPaiResponse {
         if (data) {
             obj = obj || new SfdrPaiResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SfdrPai]);
             }
+            
         }
         return obj;
     }

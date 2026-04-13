@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategori
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorization();
 
-            if (data.hasOwnProperty('ddv')) {
+            if (data.hasOwnProperty('ddv') && obj['ddv'] === undefined) {
                 obj['ddv'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorizationDdv.constructFromObject(data['ddv']);
             }
-            if (data.hasOwnProperty('eusipa')) {
+            if (data.hasOwnProperty('eusipa') && obj['eusipa'] === undefined) {
                 obj['eusipa'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorizationEusipa.constructFromObject(data['eusipa']);
             }
+            
         }
         return obj;
     }

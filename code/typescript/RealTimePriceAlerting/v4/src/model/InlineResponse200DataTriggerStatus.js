@@ -47,15 +47,16 @@ class InlineResponse200DataTriggerStatus {
         if (data) {
             obj = obj || new InlineResponse200DataTriggerStatus();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = ApiClient.convertToType(data['details'], 'String');
             }
-            if (data.hasOwnProperty('encryptedDetails')) {
+            if (data.hasOwnProperty('encryptedDetails') && obj['encryptedDetails'] === undefined) {
                 obj['encryptedDetails'] = ApiClient.convertToType(data['encryptedDetails'], 'String');
             }
+            
         }
         return obj;
     }

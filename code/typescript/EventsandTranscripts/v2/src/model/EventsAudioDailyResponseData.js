@@ -46,57 +46,58 @@ class EventsAudioDailyResponseData {
         if (data) {
             obj = obj || new EventsAudioDailyResponseData();
 
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'Number');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('fileSize')) {
+            if (data.hasOwnProperty('fileSize') && obj['fileSize'] === undefined) {
                 obj['fileSize'] = ApiClient.convertToType(data['fileSize'], 'Number');
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], 'Number');
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('audioSource')) {
+            if (data.hasOwnProperty('audioSource') && obj['audioSource'] === undefined) {
                 obj['audioSource'] = ApiClient.convertToType(data['audioSource'], 'String');
             }
-            if (data.hasOwnProperty('trimmed')) {
+            if (data.hasOwnProperty('trimmed') && obj['trimmed'] === undefined) {
                 obj['trimmed'] = ApiClient.convertToType(data['trimmed'], 'Boolean');
             }
-            if (data.hasOwnProperty('durationSecs')) {
+            if (data.hasOwnProperty('durationSecs') && obj['durationSecs'] === undefined) {
                 obj['durationSecs'] = ApiClient.convertToType(data['durationSecs'], 'Number');
             }
-            if (data.hasOwnProperty('startOffsetSeconds')) {
+            if (data.hasOwnProperty('startOffsetSeconds') && obj['startOffsetSeconds'] === undefined) {
                 obj['startOffsetSeconds'] = ApiClient.convertToType(data['startOffsetSeconds'], 'Number');
             }
-            if (data.hasOwnProperty('endOffsetSeconds')) {
+            if (data.hasOwnProperty('endOffsetSeconds') && obj['endOffsetSeconds'] === undefined) {
                 obj['endOffsetSeconds'] = ApiClient.convertToType(data['endOffsetSeconds'], 'Number');
             }
-            if (data.hasOwnProperty('startTime')) {
+            if (data.hasOwnProperty('startTime') && obj['startTime'] === undefined) {
                 obj['startTime'] = ApiClient.convertToType(data['startTime'], 'Date');
             }
-            if (data.hasOwnProperty('endTime')) {
+            if (data.hasOwnProperty('endTime') && obj['endTime'] === undefined) {
                 obj['endTime'] = ApiClient.convertToType(data['endTime'], 'Date');
             }
-            if (data.hasOwnProperty('uploadTime')) {
+            if (data.hasOwnProperty('uploadTime') && obj['uploadTime'] === undefined) {
                 obj['uploadTime'] = ApiClient.convertToType(data['uploadTime'], 'Date');
             }
-            if (data.hasOwnProperty('sampleRate')) {
+            if (data.hasOwnProperty('sampleRate') && obj['sampleRate'] === undefined) {
                 obj['sampleRate'] = ApiClient.convertToType(data['sampleRate'], 'Number');
             }
-            if (data.hasOwnProperty('bitrate')) {
+            if (data.hasOwnProperty('bitrate') && obj['bitrate'] === undefined) {
                 obj['bitrate'] = ApiClient.convertToType(data['bitrate'], 'Number');
             }
+            
         }
         return obj;
     }

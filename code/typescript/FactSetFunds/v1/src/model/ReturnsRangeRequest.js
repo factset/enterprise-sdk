@@ -50,18 +50,19 @@ class ReturnsRangeRequest {
         if (data) {
             obj = obj || new ReturnsRangeRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('dividendAdjust')) {
+            if (data.hasOwnProperty('dividendAdjust') && obj['dividendAdjust'] === undefined) {
                 obj['dividendAdjust'] = DividendAdjust.constructFromObject(data['dividendAdjust']);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class AddFieldsRoot {
         if (data) {
             obj = obj || new AddFieldsRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AddFieldsRootData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

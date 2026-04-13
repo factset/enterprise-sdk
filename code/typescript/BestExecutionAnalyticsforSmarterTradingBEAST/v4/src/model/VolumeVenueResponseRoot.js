@@ -50,9 +50,10 @@ class VolumeVenueResponseRoot {
         if (data) {
             obj = obj || new VolumeVenueResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = VolumeVenueResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

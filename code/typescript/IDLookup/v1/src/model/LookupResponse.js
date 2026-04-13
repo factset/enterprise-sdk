@@ -48,9 +48,10 @@ class LookupResponse {
         if (data) {
             obj = obj || new LookupResponse();
 
-            if (data.hasOwnProperty('typeahead')) {
+            if (data.hasOwnProperty('typeahead') && obj['typeahead'] === undefined) {
                 obj['typeahead'] = LookupCount.constructFromObject(data['typeahead']);
             }
+            
         }
         return obj;
     }

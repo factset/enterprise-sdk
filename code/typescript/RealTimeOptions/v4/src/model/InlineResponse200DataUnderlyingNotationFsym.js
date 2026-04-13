@@ -49,12 +49,13 @@ class InlineResponse200DataUnderlyingNotationFsym {
         if (data) {
             obj = obj || new InlineResponse200DataUnderlyingNotationFsym();
 
-            if (data.hasOwnProperty('listing')) {
+            if (data.hasOwnProperty('listing') && obj['listing'] === undefined) {
                 obj['listing'] = InlineResponse200DataUnderlyingNotationFsymListing.constructFromObject(data['listing']);
             }
-            if (data.hasOwnProperty('regional')) {
+            if (data.hasOwnProperty('regional') && obj['regional'] === undefined) {
                 obj['regional'] = InlineResponse200DataUnderlyingNotationFsymRegional.constructFromObject(data['regional']);
             }
+            
         }
         return obj;
     }

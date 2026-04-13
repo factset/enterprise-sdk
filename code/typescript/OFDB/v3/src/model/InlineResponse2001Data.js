@@ -46,21 +46,22 @@ class InlineResponse2001Data {
         if (data) {
             obj = obj || new InlineResponse2001Data();
 
-            if (data.hasOwnProperty('symbols')) {
+            if (data.hasOwnProperty('symbols') && obj['symbols'] === undefined) {
                 obj['symbols'] = ApiClient.convertToType(data['symbols'], 'Number');
             }
-            if (data.hasOwnProperty('iteratedFields')) {
+            if (data.hasOwnProperty('iteratedFields') && obj['iteratedFields'] === undefined) {
                 obj['iteratedFields'] = ApiClient.convertToType(data['iteratedFields'], 'Number');
             }
-            if (data.hasOwnProperty('nonIteratedFields')) {
+            if (data.hasOwnProperty('nonIteratedFields') && obj['nonIteratedFields'] === undefined) {
                 obj['nonIteratedFields'] = ApiClient.convertToType(data['nonIteratedFields'], 'Number');
             }
-            if (data.hasOwnProperty('totalFields')) {
+            if (data.hasOwnProperty('totalFields') && obj['totalFields'] === undefined) {
                 obj['totalFields'] = ApiClient.convertToType(data['totalFields'], 'Number');
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = ApiClient.convertToType(data['dates'], 'Number');
             }
+            
         }
         return obj;
     }

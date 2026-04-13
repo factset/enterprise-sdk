@@ -51,12 +51,13 @@ class ScreenExportParameters {
         if (data) {
             obj = obj || new ScreenExportParameters();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = CalculateMetadata.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ScreenExportParametersData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

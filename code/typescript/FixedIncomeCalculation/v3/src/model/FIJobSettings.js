@@ -53,36 +53,37 @@ class FIJobSettings {
         if (data) {
             obj = obj || new FIJobSettings();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
             }
-            if (data.hasOwnProperty('partialDurationMonths')) {
+            if (data.hasOwnProperty('partialDurationMonths') && obj['partialDurationMonths'] === undefined) {
                 obj['partialDurationMonths'] = ApiClient.convertToType(data['partialDurationMonths'], ['Number']);
             }
-            if (data.hasOwnProperty('callMethod')) {
+            if (data.hasOwnProperty('callMethod') && obj['callMethod'] === undefined) {
                 obj['callMethod'] = ApiClient.convertToType(data['callMethod'], 'String');
             }
-            if (data.hasOwnProperty('settlement')) {
+            if (data.hasOwnProperty('settlement') && obj['settlement'] === undefined) {
                 obj['settlement'] = ApiClient.convertToType(data['settlement'], 'String');
             }
-            if (data.hasOwnProperty('calcFromMethod')) {
+            if (data.hasOwnProperty('calcFromMethod') && obj['calcFromMethod'] === undefined) {
                 obj['calcFromMethod'] = ApiClient.convertToType(data['calcFromMethod'], 'String');
             }
-            if (data.hasOwnProperty('bankLoans')) {
+            if (data.hasOwnProperty('bankLoans') && obj['bankLoans'] === undefined) {
                 obj['bankLoans'] = FIBankLoans.constructFromObject(data['bankLoans']);
             }
-            if (data.hasOwnProperty('municipalBonds')) {
+            if (data.hasOwnProperty('municipalBonds') && obj['municipalBonds'] === undefined) {
                 obj['municipalBonds'] = FIMunicipalBondsForJobSettings.constructFromObject(data['municipalBonds']);
             }
-            if (data.hasOwnProperty('marketEnvironment')) {
+            if (data.hasOwnProperty('marketEnvironment') && obj['marketEnvironment'] === undefined) {
                 obj['marketEnvironment'] = FIMarketEnvironment.constructFromObject(data['marketEnvironment']);
             }
-            if (data.hasOwnProperty('structuredProducts')) {
+            if (data.hasOwnProperty('structuredProducts') && obj['structuredProducts'] === undefined) {
                 obj['structuredProducts'] = FIStructuredProductsForJobSettings.constructFromObject(data['structuredProducts']);
             }
-            if (data.hasOwnProperty('attribution')) {
+            if (data.hasOwnProperty('attribution') && obj['attribution'] === undefined) {
                 obj['attribution'] = FIAttributionForJobSettings.constructFromObject(data['attribution']);
             }
+            
         }
         return obj;
     }

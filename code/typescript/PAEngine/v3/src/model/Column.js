@@ -46,18 +46,19 @@ class Column {
         if (data) {
             obj = obj || new Column();
 
-            if (data.hasOwnProperty('defaultstatisticsids')) {
+            if (data.hasOwnProperty('defaultstatisticsids') && obj['defaultstatisticsids'] === undefined) {
                 obj['defaultstatisticsids'] = ApiClient.convertToType(data['defaultstatisticsids'], ['String']);
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
+            
         }
         return obj;
     }

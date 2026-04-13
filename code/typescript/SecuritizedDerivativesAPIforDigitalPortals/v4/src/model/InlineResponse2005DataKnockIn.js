@@ -52,21 +52,22 @@ class InlineResponse2005DataKnockIn {
         if (data) {
             obj = obj || new InlineResponse2005DataKnockIn();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = ApiClient.convertToType(data['observation'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataKnockInObservationItems]);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataKnockInValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = InlineResponse2005DataKnockInDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('breached')) {
+            if (data.hasOwnProperty('breached') && obj['breached'] === undefined) {
                 obj['breached'] = ApiClient.convertToType(data['breached'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataKnockInBreachedItems]);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = InlineResponse2005DataKnockInCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

@@ -50,12 +50,13 @@ class CommentRequestData {
         if (data) {
             obj = obj || new CommentRequestData();
 
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
-            if (data.hasOwnProperty('attachments')) {
+            if (data.hasOwnProperty('attachments') && obj['attachments'] === undefined) {
                 obj['attachments'] = ApiClient.convertToType(data['attachments'], [Attachment]);
             }
+            
         }
         return obj;
     }

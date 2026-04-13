@@ -54,30 +54,35 @@ class ColoredValueLabelDateTemplateData {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ColoredValueLabelDateTemplateData();
-            TemplateWithLinks.constructFromObject(data, obj);
-            ColoredValueLabelDateTemplateDataAllOf.constructFromObject(data, obj);
+            try {
+              obj = TemplateWithLinks.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ColoredValueLabelDateTemplateDataAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
             }
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
-            if (data.hasOwnProperty('applicationLinks')) {
+            if (data.hasOwnProperty('applicationLinks') && obj['applicationLinks'] === undefined) {
                 obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ColoredValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
+            
         }
         return obj;
     }

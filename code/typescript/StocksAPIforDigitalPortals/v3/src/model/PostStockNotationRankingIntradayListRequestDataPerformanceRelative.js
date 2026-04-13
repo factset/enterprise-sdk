@@ -49,12 +49,13 @@ class PostStockNotationRankingIntradayListRequestDataPerformanceRelative {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestDataPerformanceRelative();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = PostStockNotationRankingIntradayListRequestDataPerformanceRelativeMinimum.constructFromObject(data['minimum']);
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = PostStockNotationRankingIntradayListRequestDataPerformanceRelativeMaximum.constructFromObject(data['maximum']);
             }
+            
         }
         return obj;
     }

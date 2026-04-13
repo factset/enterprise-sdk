@@ -48,12 +48,13 @@ class InlineResponse2005Data {
         if (data) {
             obj = obj || new InlineResponse2005Data();
 
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('exchanges')) {
+            if (data.hasOwnProperty('exchanges') && obj['exchanges'] === undefined) {
                 obj['exchanges'] = ApiClient.convertToType(data['exchanges'], [InlineResponse2005DataExchanges]);
             }
+            
         }
         return obj;
     }

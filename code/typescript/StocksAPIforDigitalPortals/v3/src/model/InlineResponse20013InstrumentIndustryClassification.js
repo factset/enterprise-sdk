@@ -48,9 +48,10 @@ class InlineResponse20013InstrumentIndustryClassification {
         if (data) {
             obj = obj || new InlineResponse20013InstrumentIndustryClassification();
 
-            if (data.hasOwnProperty('rbics')) {
+            if (data.hasOwnProperty('rbics') && obj['rbics'] === undefined) {
                 obj['rbics'] = ApiClient.convertToType(data['rbics'], [InlineResponse20013InstrumentIndustryClassificationRbics]);
             }
+            
         }
         return obj;
     }

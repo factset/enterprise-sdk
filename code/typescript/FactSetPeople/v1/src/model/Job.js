@@ -47,36 +47,37 @@ class Job {
         if (data) {
             obj = obj || new Job();
 
-            if (data.hasOwnProperty('companyCity')) {
+            if (data.hasOwnProperty('companyCity') && obj['companyCity'] === undefined) {
                 obj['companyCity'] = ApiClient.convertToType(data['companyCity'], 'String');
             }
-            if (data.hasOwnProperty('companyId')) {
+            if (data.hasOwnProperty('companyId') && obj['companyId'] === undefined) {
                 obj['companyId'] = ApiClient.convertToType(data['companyId'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('jobEndDate')) {
+            if (data.hasOwnProperty('jobEndDate') && obj['jobEndDate'] === undefined) {
                 obj['jobEndDate'] = ApiClient.convertToType(data['jobEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('jobFunctionCode')) {
+            if (data.hasOwnProperty('jobFunctionCode') && obj['jobFunctionCode'] === undefined) {
                 obj['jobFunctionCode'] = ApiClient.convertToType(data['jobFunctionCode'], 'String');
             }
-            if (data.hasOwnProperty('jobFunctionName')) {
+            if (data.hasOwnProperty('jobFunctionName') && obj['jobFunctionName'] === undefined) {
                 obj['jobFunctionName'] = ApiClient.convertToType(data['jobFunctionName'], 'String');
             }
-            if (data.hasOwnProperty('jobStartDate')) {
+            if (data.hasOwnProperty('jobStartDate') && obj['jobStartDate'] === undefined) {
                 obj['jobStartDate'] = ApiClient.convertToType(data['jobStartDate'], 'Date');
             }
-            if (data.hasOwnProperty('jobTitle')) {
+            if (data.hasOwnProperty('jobTitle') && obj['jobTitle'] === undefined) {
                 obj['jobTitle'] = ApiClient.convertToType(data['jobTitle'], 'String');
             }
-            if (data.hasOwnProperty('personId')) {
+            if (data.hasOwnProperty('personId') && obj['personId'] === undefined) {
                 obj['personId'] = ApiClient.convertToType(data['personId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

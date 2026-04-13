@@ -49,24 +49,25 @@ class EventsEntitiesPost {
         if (data) {
             obj = obj || new EventsEntitiesPost();
 
-            if (data.hasOwnProperty('created')) {
+            if (data.hasOwnProperty('created') && obj['created'] === undefined) {
                 obj['created'] = ApiClient.convertToType(data['created'], DateTimeInterval);
             }
-            if (data.hasOwnProperty('updated')) {
+            if (data.hasOwnProperty('updated') && obj['updated'] === undefined) {
                 obj['updated'] = ApiClient.convertToType(data['updated'], DateTimeInterval);
             }
-            if (data.hasOwnProperty('signalIds')) {
+            if (data.hasOwnProperty('signalIds') && obj['signalIds'] === undefined) {
                 obj['signalIds'] = ApiClient.convertToType(data['signalIds'], 'String');
             }
-            if (data.hasOwnProperty('themes')) {
+            if (data.hasOwnProperty('themes') && obj['themes'] === undefined) {
                 obj['themes'] = ApiClient.convertToType(data['themes'], 'String');
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], 'String');
             }
-            if (data.hasOwnProperty('userRelevanceScore')) {
+            if (data.hasOwnProperty('userRelevanceScore') && obj['userRelevanceScore'] === undefined) {
                 obj['userRelevanceScore'] = ApiClient.convertToType(data['userRelevanceScore'], RelevanceScoreRange);
             }
+            
         }
         return obj;
     }

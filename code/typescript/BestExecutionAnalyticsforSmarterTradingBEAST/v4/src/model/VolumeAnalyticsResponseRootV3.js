@@ -50,9 +50,10 @@ class VolumeAnalyticsResponseRootV3 {
         if (data) {
             obj = obj || new VolumeAnalyticsResponseRootV3();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [VolumeAnalyticsResponseV3]);
             }
+            
         }
         return obj;
     }

@@ -48,12 +48,13 @@ class UpdateResponseData {
         if (data) {
             obj = obj || new UpdateResponseData();
 
-            if (data.hasOwnProperty('eventData')) {
+            if (data.hasOwnProperty('eventData') && obj['eventData'] === undefined) {
                 obj['eventData'] = UpdateResponseDataEventData.constructFromObject(data['eventData']);
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = UpdateResponseDataMessage.constructFromObject(data['message']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class OpenUrlUrl {
         if (data) {
             obj = obj || new OpenUrlUrl();
 
-            if (data.hasOwnProperty('fdsup')) {
+            if (data.hasOwnProperty('fdsup') && obj['fdsup'] === undefined) {
                 obj['fdsup'] = ApiClient.convertToType(data['fdsup'], 'String');
             }
-            if (data.hasOwnProperty('http')) {
+            if (data.hasOwnProperty('http') && obj['http'] === undefined) {
                 obj['http'] = ApiClient.convertToType(data['http'], 'String');
             }
+            
         }
         return obj;
     }

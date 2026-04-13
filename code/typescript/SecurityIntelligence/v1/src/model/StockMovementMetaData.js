@@ -51,12 +51,13 @@ class StockMovementMetaData {
         if (data) {
             obj = obj || new StockMovementMetaData();
 
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('outputType')) {
+            if (data.hasOwnProperty('outputType') && obj['outputType'] === undefined) {
                 obj['outputType'] = ApiClient.convertToType(data['outputType'], 'String');
             }
+            
         }
         return obj;
     }

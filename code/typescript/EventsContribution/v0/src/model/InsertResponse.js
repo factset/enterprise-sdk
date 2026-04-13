@@ -48,9 +48,10 @@ class InsertResponse {
         if (data) {
             obj = obj || new InsertResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InsertResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

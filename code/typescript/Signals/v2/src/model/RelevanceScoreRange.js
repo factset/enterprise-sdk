@@ -47,18 +47,19 @@ class RelevanceScoreRange {
         if (data) {
             obj = obj || new RelevanceScoreRange();
 
-            if (data.hasOwnProperty('gt')) {
+            if (data.hasOwnProperty('gt') && obj['gt'] === undefined) {
                 obj['gt'] = ApiClient.convertToType(data['gt'], 'Number');
             }
-            if (data.hasOwnProperty('gte')) {
+            if (data.hasOwnProperty('gte') && obj['gte'] === undefined) {
                 obj['gte'] = ApiClient.convertToType(data['gte'], 'Number');
             }
-            if (data.hasOwnProperty('lt')) {
+            if (data.hasOwnProperty('lt') && obj['lt'] === undefined) {
                 obj['lt'] = ApiClient.convertToType(data['lt'], 'Number');
             }
-            if (data.hasOwnProperty('lte')) {
+            if (data.hasOwnProperty('lte') && obj['lte'] === undefined) {
                 obj['lte'] = ApiClient.convertToType(data['lte'], 'Number');
             }
+            
         }
         return obj;
     }

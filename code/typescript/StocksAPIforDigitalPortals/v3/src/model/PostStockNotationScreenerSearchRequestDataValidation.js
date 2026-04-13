@@ -52,27 +52,28 @@ class PostStockNotationScreenerSearchRequestDataValidation {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataValidation();
 
-            if (data.hasOwnProperty('onlyActive')) {
+            if (data.hasOwnProperty('onlyActive') && obj['onlyActive'] === undefined) {
                 obj['onlyActive'] = ApiClient.convertToType(data['onlyActive'], 'Boolean');
             }
-            if (data.hasOwnProperty('onlyNotSuspended')) {
+            if (data.hasOwnProperty('onlyNotSuspended') && obj['onlyNotSuspended'] === undefined) {
                 obj['onlyNotSuspended'] = ApiClient.convertToType(data['onlyNotSuspended'], 'Boolean');
             }
-            if (data.hasOwnProperty('prices')) {
+            if (data.hasOwnProperty('prices') && obj['prices'] === undefined) {
                 obj['prices'] = PostStockNotationScreenerSearchRequestDataValidationPrices.constructFromObject(data['prices']);
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = PostStockNotationScreenerSearchRequestDataValidationValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostStockNotationScreenerSearchRequestDataValidationMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('instrumentSelectionList')) {
+            if (data.hasOwnProperty('instrumentSelectionList') && obj['instrumentSelectionList'] === undefined) {
                 obj['instrumentSelectionList'] = PostStockNotationScreenerSearchRequestDataValidationInstrumentSelectionList.constructFromObject(data['instrumentSelectionList']);
             }
-            if (data.hasOwnProperty('notationSelectionList')) {
+            if (data.hasOwnProperty('notationSelectionList') && obj['notationSelectionList'] === undefined) {
                 obj['notationSelectionList'] = PostStockNotationScreenerSearchRequestDataValidationNotationSelectionList.constructFromObject(data['notationSelectionList']);
             }
+            
         }
         return obj;
     }

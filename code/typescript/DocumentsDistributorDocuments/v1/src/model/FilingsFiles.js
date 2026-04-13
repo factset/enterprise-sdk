@@ -46,12 +46,13 @@ class FilingsFiles {
         if (data) {
             obj = obj || new FilingsFiles();
 
-            if (data.hasOwnProperty('filePath')) {
+            if (data.hasOwnProperty('filePath') && obj['filePath'] === undefined) {
                 obj['filePath'] = ApiClient.convertToType(data['filePath'], 'String');
             }
-            if (data.hasOwnProperty('fileUrl')) {
+            if (data.hasOwnProperty('fileUrl') && obj['fileUrl'] === undefined) {
                 obj['fileUrl'] = ApiClient.convertToType(data['fileUrl'], 'String');
             }
+            
         }
         return obj;
     }

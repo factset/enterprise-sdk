@@ -48,15 +48,16 @@ class CreateUniverseRequest {
         if (data) {
             obj = obj || new CreateUniverseRequest();
 
-            if (data.hasOwnProperty('universeName')) {
+            if (data.hasOwnProperty('universeName') && obj['universeName'] === undefined) {
                 obj['universeName'] = ApiClient.convertToType(data['universeName'], 'String');
             }
-            if (data.hasOwnProperty('universeDescription')) {
+            if (data.hasOwnProperty('universeDescription') && obj['universeDescription'] === undefined) {
                 obj['universeDescription'] = ApiClient.convertToType(data['universeDescription'], 'String');
             }
-            if (data.hasOwnProperty('universeType')) {
+            if (data.hasOwnProperty('universeType') && obj['universeType'] === undefined) {
                 obj['universeType'] = ApiClient.convertToType(data['universeType'], 'String');
             }
+            
         }
         return obj;
     }

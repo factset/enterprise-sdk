@@ -58,57 +58,58 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItems {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsFsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('trade')) {
+            if (data.hasOwnProperty('trade') && obj['trade'] === undefined) {
                 obj['trade'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsTrade.constructFromObject(data['trade']);
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('accumulated')) {
+            if (data.hasOwnProperty('accumulated') && obj['accumulated'] === undefined) {
                 obj['accumulated'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsAccumulated.constructFromObject(data['accumulated']);
             }
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsInstrument.constructFromObject(data['instrument']);
             }
-            if (data.hasOwnProperty('categorization')) {
+            if (data.hasOwnProperty('categorization') && obj['categorization'] === undefined) {
                 obj['categorization'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsCategorization.constructFromObject(data['categorization']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('issuer')) {
+            if (data.hasOwnProperty('issuer') && obj['issuer'] === undefined) {
                 obj['issuer'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsIssuer.constructFromObject(data['issuer']);
             }
-            if (data.hasOwnProperty('exercise')) {
+            if (data.hasOwnProperty('exercise') && obj['exercise'] === undefined) {
                 obj['exercise'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsExercise.constructFromObject(data['exercise']);
             }
-            if (data.hasOwnProperty('participation')) {
+            if (data.hasOwnProperty('participation') && obj['participation'] === undefined) {
                 obj['participation'] = ApiClient.convertToType(data['participation'], 'String');
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('knockedOut')) {
+            if (data.hasOwnProperty('knockedOut') && obj['knockedOut'] === undefined) {
                 obj['knockedOut'] = ApiClient.convertToType(data['knockedOut'], 'Boolean');
             }
-            if (data.hasOwnProperty('knockedIn')) {
+            if (data.hasOwnProperty('knockedIn') && obj['knockedIn'] === undefined) {
                 obj['knockedIn'] = ApiClient.convertToType(data['knockedIn'], 'Boolean');
             }
+            
         }
         return obj;
     }

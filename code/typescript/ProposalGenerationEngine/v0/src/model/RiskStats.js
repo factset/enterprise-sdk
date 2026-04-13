@@ -47,30 +47,31 @@ class RiskStats {
         if (data) {
             obj = obj || new RiskStats();
 
-            if (data.hasOwnProperty('annStDev')) {
+            if (data.hasOwnProperty('annStDev') && obj['annStDev'] === undefined) {
                 obj['annStDev'] = ApiClient.convertToType(data['annStDev'], 'Number');
             }
-            if (data.hasOwnProperty('annLossStDev')) {
+            if (data.hasOwnProperty('annLossStDev') && obj['annLossStDev'] === undefined) {
                 obj['annLossStDev'] = ApiClient.convertToType(data['annLossStDev'], 'Number');
             }
-            if (data.hasOwnProperty('etl')) {
+            if (data.hasOwnProperty('etl') && obj['etl'] === undefined) {
                 obj['etl'] = ApiClient.convertToType(data['etl'], {'String': 'Number'});
             }
-            if (data.hasOwnProperty('stDev')) {
+            if (data.hasOwnProperty('stDev') && obj['stDev'] === undefined) {
                 obj['stDev'] = ApiClient.convertToType(data['stDev'], 'Number');
             }
-            if (data.hasOwnProperty('skewness')) {
+            if (data.hasOwnProperty('skewness') && obj['skewness'] === undefined) {
                 obj['skewness'] = ApiClient.convertToType(data['skewness'], 'Number');
             }
-            if (data.hasOwnProperty('excessKurtosis')) {
+            if (data.hasOwnProperty('excessKurtosis') && obj['excessKurtosis'] === undefined) {
                 obj['excessKurtosis'] = ApiClient.convertToType(data['excessKurtosis'], 'Number');
             }
-            if (data.hasOwnProperty('var')) {
+            if (data.hasOwnProperty('var') && obj['var'] === undefined) {
                 obj['var'] = ApiClient.convertToType(data['var'], {'String': 'Number'});
             }
-            if (data.hasOwnProperty('positiveReturnsRatio')) {
+            if (data.hasOwnProperty('positiveReturnsRatio') && obj['positiveReturnsRatio'] === undefined) {
                 obj['positiveReturnsRatio'] = ApiClient.convertToType(data['positiveReturnsRatio'], 'Number');
             }
+            
         }
         return obj;
     }

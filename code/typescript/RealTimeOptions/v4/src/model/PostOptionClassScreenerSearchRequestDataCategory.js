@@ -49,12 +49,13 @@ class PostOptionClassScreenerSearchRequestDataCategory {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchRequestDataCategory();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostOptionClassScreenerSearchRequestDataCategoryRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostOptionClassScreenerSearchRequestDataCategoryExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

@@ -50,39 +50,40 @@ class CreateCustomFieldValueDto {
         if (data) {
             obj = obj || new CreateCustomFieldValueDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('integerValue')) {
+            if (data.hasOwnProperty('integerValue') && obj['integerValue'] === undefined) {
                 obj['integerValue'] = ApiClient.convertToType(data['integerValue'], 'Number');
             }
-            if (data.hasOwnProperty('textValue')) {
+            if (data.hasOwnProperty('textValue') && obj['textValue'] === undefined) {
                 obj['textValue'] = ApiClient.convertToType(data['textValue'], 'String');
             }
-            if (data.hasOwnProperty('filePathValue')) {
+            if (data.hasOwnProperty('filePathValue') && obj['filePathValue'] === undefined) {
                 obj['filePathValue'] = ApiClient.convertToType(data['filePathValue'], 'String');
             }
-            if (data.hasOwnProperty('numericValue')) {
+            if (data.hasOwnProperty('numericValue') && obj['numericValue'] === undefined) {
                 obj['numericValue'] = ApiClient.convertToType(data['numericValue'], 'Number');
             }
-            if (data.hasOwnProperty('dateValue')) {
+            if (data.hasOwnProperty('dateValue') && obj['dateValue'] === undefined) {
                 obj['dateValue'] = ApiClient.convertToType(data['dateValue'], 'String');
             }
-            if (data.hasOwnProperty('extendedTextValue')) {
+            if (data.hasOwnProperty('extendedTextValue') && obj['extendedTextValue'] === undefined) {
                 obj['extendedTextValue'] = ApiClient.convertToType(data['extendedTextValue'], 'String');
             }
-            if (data.hasOwnProperty('contactLookupValues')) {
+            if (data.hasOwnProperty('contactLookupValues') && obj['contactLookupValues'] === undefined) {
                 obj['contactLookupValues'] = ApiClient.convertToType(data['contactLookupValues'], ['String']);
             }
-            if (data.hasOwnProperty('optionValue')) {
+            if (data.hasOwnProperty('optionValue') && obj['optionValue'] === undefined) {
                 obj['optionValue'] = ApiClient.convertToType(data['optionValue'], 'String');
             }
-            if (data.hasOwnProperty('optionValues')) {
+            if (data.hasOwnProperty('optionValues') && obj['optionValues'] === undefined) {
                 obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['String']);
             }
-            if (data.hasOwnProperty('userTeamLookupValues')) {
+            if (data.hasOwnProperty('userTeamLookupValues') && obj['userTeamLookupValues'] === undefined) {
                 obj['userTeamLookupValues'] = UserTeamLookupDto.constructFromObject(data['userTeamLookupValues']);
             }
+            
         }
         return obj;
     }

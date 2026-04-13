@@ -46,12 +46,13 @@ class FIMunicipalBonds {
         if (data) {
             obj = obj || new FIMunicipalBonds();
 
-            if (data.hasOwnProperty('ignoreSinkingFund')) {
+            if (data.hasOwnProperty('ignoreSinkingFund') && obj['ignoreSinkingFund'] === undefined) {
                 obj['ignoreSinkingFund'] = ApiClient.convertToType(data['ignoreSinkingFund'], 'Boolean');
             }
-            if (data.hasOwnProperty('useAnticipatedSinkSchedule')) {
+            if (data.hasOwnProperty('useAnticipatedSinkSchedule') && obj['useAnticipatedSinkSchedule'] === undefined) {
                 obj['useAnticipatedSinkSchedule'] = ApiClient.convertToType(data['useAnticipatedSinkSchedule'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -47,21 +47,22 @@ class LinkupFiles {
         if (data) {
             obj = obj || new LinkupFiles();
 
-            if (data.hasOwnProperty('filename')) {
+            if (data.hasOwnProperty('filename') && obj['filename'] === undefined) {
                 obj['filename'] = ApiClient.convertToType(data['filename'], 'String');
             }
-            if (data.hasOwnProperty('fileTimestamp')) {
+            if (data.hasOwnProperty('fileTimestamp') && obj['fileTimestamp'] === undefined) {
                 obj['fileTimestamp'] = ApiClient.convertToType(data['fileTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('updateTimestamp')) {
+            if (data.hasOwnProperty('updateTimestamp') && obj['updateTimestamp'] === undefined) {
                 obj['updateTimestamp'] = ApiClient.convertToType(data['updateTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

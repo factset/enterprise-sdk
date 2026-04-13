@@ -47,21 +47,22 @@ class EntityMatch {
         if (data) {
             obj = obj || new EntityMatch();
 
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('entityName')) {
+            if (data.hasOwnProperty('entityName') && obj['entityName'] === undefined) {
                 obj['entityName'] = ApiClient.convertToType(data['entityName'], 'String');
             }
-            if (data.hasOwnProperty('countryCode')) {
+            if (data.hasOwnProperty('countryCode') && obj['countryCode'] === undefined) {
                 obj['countryCode'] = ApiClient.convertToType(data['countryCode'], 'String');
             }
-            if (data.hasOwnProperty('entityTypeCode')) {
+            if (data.hasOwnProperty('entityTypeCode') && obj['entityTypeCode'] === undefined) {
                 obj['entityTypeCode'] = ApiClient.convertToType(data['entityTypeCode'], 'String');
             }
-            if (data.hasOwnProperty('matchFlag')) {
+            if (data.hasOwnProperty('matchFlag') && obj['matchFlag'] === undefined) {
                 obj['matchFlag'] = ApiClient.convertToType(data['matchFlag'], 'Boolean');
             }
+            
         }
         return obj;
     }

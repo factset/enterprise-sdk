@@ -47,33 +47,34 @@ class CompanyPositions {
         if (data) {
             obj = obj || new CompanyPositions();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('personId')) {
+            if (data.hasOwnProperty('personId') && obj['personId'] === undefined) {
                 obj['personId'] = ApiClient.convertToType(data['personId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('yearsAtFirm')) {
+            if (data.hasOwnProperty('yearsAtFirm') && obj['yearsAtFirm'] === undefined) {
                 obj['yearsAtFirm'] = ApiClient.convertToType(data['yearsAtFirm'], 'Number');
             }
-            if (data.hasOwnProperty('age')) {
+            if (data.hasOwnProperty('age') && obj['age'] === undefined) {
                 obj['age'] = ApiClient.convertToType(data['age'], 'Number');
             }
-            if (data.hasOwnProperty('gender')) {
+            if (data.hasOwnProperty('gender') && obj['gender'] === undefined) {
                 obj['gender'] = ApiClient.convertToType(data['gender'], 'String');
             }
-            if (data.hasOwnProperty('requestPosition')) {
+            if (data.hasOwnProperty('requestPosition') && obj['requestPosition'] === undefined) {
                 obj['requestPosition'] = ApiClient.convertToType(data['requestPosition'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

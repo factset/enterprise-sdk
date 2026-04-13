@@ -47,9 +47,10 @@ class UpdateResponseDataEventData {
         if (data) {
             obj = obj || new UpdateResponseDataEventData();
 
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
+            
         }
         return obj;
     }

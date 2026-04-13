@@ -47,15 +47,16 @@ class InlineResponse20014EsgTruvalueLabsSasbAllCategories {
         if (data) {
             obj = obj || new InlineResponse20014EsgTruvalueLabsSasbAllCategories();
 
-            if (data.hasOwnProperty('insight')) {
+            if (data.hasOwnProperty('insight') && obj['insight'] === undefined) {
                 obj['insight'] = ApiClient.convertToType(data['insight'], 'Number');
             }
-            if (data.hasOwnProperty('momentum')) {
+            if (data.hasOwnProperty('momentum') && obj['momentum'] === undefined) {
                 obj['momentum'] = ApiClient.convertToType(data['momentum'], 'Number');
             }
-            if (data.hasOwnProperty('ranking')) {
+            if (data.hasOwnProperty('ranking') && obj['ranking'] === undefined) {
                 obj['ranking'] = ApiClient.convertToType(data['ranking'], 'String');
             }
+            
         }
         return obj;
     }

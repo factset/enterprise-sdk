@@ -48,9 +48,10 @@ class PostAlertingPricesBasicTriggerListDataItemsNotification {
         if (data) {
             obj = obj || new PostAlertingPricesBasicTriggerListDataItemsNotification();
 
-            if (data.hasOwnProperty('channel')) {
+            if (data.hasOwnProperty('channel') && obj['channel'] === undefined) {
                 obj['channel'] = ApiClient.convertToType(data['channel'], [PostAlertingPricesBasicTriggerListDataNotificationChannelItems]);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentKnockInB
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentKnockInBreach();
 
-            if (data.hasOwnProperty('breached')) {
+            if (data.hasOwnProperty('breached') && obj['breached'] === undefined) {
                 obj['breached'] = ApiClient.convertToType(data['breached'], 'Boolean');
             }
-            if (data.hasOwnProperty('datetime')) {
+            if (data.hasOwnProperty('datetime') && obj['datetime'] === undefined) {
                 obj['datetime'] = ApiClient.convertToType(data['datetime'], 'Date');
             }
+            
         }
         return obj;
     }

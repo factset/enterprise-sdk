@@ -49,21 +49,22 @@ class InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFi
         if (data) {
             obj = obj || new InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures();
 
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('marketCapitalization')) {
+            if (data.hasOwnProperty('marketCapitalization') && obj['marketCapitalization'] === undefined) {
                 obj['marketCapitalization'] = ApiClient.convertToType(data['marketCapitalization'], 'Number');
             }
-            if (data.hasOwnProperty('ebit')) {
+            if (data.hasOwnProperty('ebit') && obj['ebit'] === undefined) {
                 obj['ebit'] = ApiClient.convertToType(data['ebit'], 'Number');
             }
-            if (data.hasOwnProperty('ebitda')) {
+            if (data.hasOwnProperty('ebitda') && obj['ebitda'] === undefined) {
                 obj['ebitda'] = ApiClient.convertToType(data['ebitda'], 'Number');
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

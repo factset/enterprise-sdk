@@ -47,9 +47,10 @@ class UniversesResponse {
         if (data) {
             obj = obj || new UniversesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [UniverseMeta]);
             }
+            
         }
         return obj;
     }

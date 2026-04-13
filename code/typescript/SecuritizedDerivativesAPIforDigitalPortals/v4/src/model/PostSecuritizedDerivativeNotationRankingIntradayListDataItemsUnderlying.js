@@ -49,15 +49,16 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlying {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlying();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlyingNotation.constructFromObject(data['notation']);
             }
-            if (data.hasOwnProperty('effectiveUnderlying')) {
+            if (data.hasOwnProperty('effectiveUnderlying') && obj['effectiveUnderlying'] === undefined) {
                 obj['effectiveUnderlying'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlyingEffectiveUnderlying.constructFromObject(data['effectiveUnderlying']);
             }
+            
         }
         return obj;
     }

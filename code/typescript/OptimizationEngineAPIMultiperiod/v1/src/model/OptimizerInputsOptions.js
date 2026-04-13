@@ -47,24 +47,25 @@ class OptimizerInputsOptions {
         if (data) {
             obj = obj || new OptimizerInputsOptions();
 
-            if (data.hasOwnProperty('maxRunTime')) {
+            if (data.hasOwnProperty('maxRunTime') && obj['maxRunTime'] === undefined) {
                 obj['maxRunTime'] = ApiClient.convertToType(data['maxRunTime'], 'Number');
             }
-            if (data.hasOwnProperty('ConvergenceTolerance')) {
+            if (data.hasOwnProperty('ConvergenceTolerance') && obj['ConvergenceTolerance'] === undefined) {
                 obj['ConvergenceTolerance'] = ApiClient.convertToType(data['ConvergenceTolerance'], 'Number');
             }
-            if (data.hasOwnProperty('cash_flow_formula')) {
+            if (data.hasOwnProperty('cash_flow_formula') && obj['cash_flow_formula'] === undefined) {
                 obj['cash_flow_formula'] = OptimizerInputsValue.constructFromObject(data['cash_flow_formula']);
             }
-            if (data.hasOwnProperty('convert_weights_to_cash_for_ip')) {
+            if (data.hasOwnProperty('convert_weights_to_cash_for_ip') && obj['convert_weights_to_cash_for_ip'] === undefined) {
                 obj['convert_weights_to_cash_for_ip'] = ApiClient.convertToType(data['convert_weights_to_cash_for_ip'], 'Boolean');
             }
-            if (data.hasOwnProperty('convert_weights_to_cash_for_bmk')) {
+            if (data.hasOwnProperty('convert_weights_to_cash_for_bmk') && obj['convert_weights_to_cash_for_bmk'] === undefined) {
                 obj['convert_weights_to_cash_for_bmk'] = ApiClient.convertToType(data['convert_weights_to_cash_for_bmk'], 'Boolean');
             }
-            if (data.hasOwnProperty('composite_asset_lookthrough_level')) {
+            if (data.hasOwnProperty('composite_asset_lookthrough_level') && obj['composite_asset_lookthrough_level'] === undefined) {
                 obj['composite_asset_lookthrough_level'] = ApiClient.convertToType(data['composite_asset_lookthrough_level'], 'Number');
             }
+            
         }
         return obj;
     }

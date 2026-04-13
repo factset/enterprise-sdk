@@ -49,15 +49,16 @@ class OptimizerInputsTotalUniverse {
         if (data) {
             obj = obj || new OptimizerInputsTotalUniverse();
 
-            if (data.hasOwnProperty('assets')) {
+            if (data.hasOwnProperty('assets') && obj['assets'] === undefined) {
                 obj['assets'] = ApiClient.convertToType(data['assets'], [OptimizerInputsAsset]);
             }
-            if (data.hasOwnProperty('composite_assets')) {
+            if (data.hasOwnProperty('composite_assets') && obj['composite_assets'] === undefined) {
                 obj['composite_assets'] = OptimizerInputsCompositeAsset.constructFromObject(data['composite_assets']);
             }
-            if (data.hasOwnProperty('derivatives')) {
+            if (data.hasOwnProperty('derivatives') && obj['derivatives'] === undefined) {
                 obj['derivatives'] = OptimizerInputsDerivative.constructFromObject(data['derivatives']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class ShortInterestRequest {
         if (data) {
             obj = obj || new ShortInterestRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ShortInterestRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

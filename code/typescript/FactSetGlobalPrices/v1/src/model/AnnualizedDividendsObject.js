@@ -46,24 +46,25 @@ class AnnualizedDividendsObject {
         if (data) {
             obj = obj || new AnnualizedDividendsObject();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('effectiveDate')) {
+            if (data.hasOwnProperty('effectiveDate') && obj['effectiveDate'] === undefined) {
                 obj['effectiveDate'] = ApiClient.convertToType(data['effectiveDate'], 'String');
             }
-            if (data.hasOwnProperty('iadDefTradingAdj')) {
+            if (data.hasOwnProperty('iadDefTradingAdj') && obj['iadDefTradingAdj'] === undefined) {
                 obj['iadDefTradingAdj'] = ApiClient.convertToType(data['iadDefTradingAdj'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

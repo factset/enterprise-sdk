@@ -46,12 +46,13 @@ class ListFiles400Response {
         if (data) {
             obj = obj || new ListFiles400Response();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('error_message')) {
+            if (data.hasOwnProperty('error_message') && obj['error_message'] === undefined) {
                 obj['error_message'] = ApiClient.convertToType(data['error_message'], 'String');
             }
+            
         }
         return obj;
     }

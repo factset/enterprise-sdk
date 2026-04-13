@@ -47,9 +47,10 @@ class SkillsRequestBodyRoot {
         if (data) {
             obj = obj || new SkillsRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SkillsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

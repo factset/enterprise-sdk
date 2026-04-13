@@ -47,9 +47,10 @@ class CompanyEventResponse {
         if (data) {
             obj = obj || new CompanyEventResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CompanyEventResponseData]);
             }
+            
         }
         return obj;
     }

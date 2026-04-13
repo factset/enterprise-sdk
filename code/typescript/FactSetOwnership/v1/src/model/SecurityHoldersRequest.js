@@ -51,24 +51,25 @@ class SecurityHoldersRequest {
         if (data) {
             obj = obj || new SecurityHoldersRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('holderType')) {
+            if (data.hasOwnProperty('holderType') && obj['holderType'] === undefined) {
                 obj['holderType'] = HolderType.constructFromObject(data['holderType']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('topn')) {
+            if (data.hasOwnProperty('topn') && obj['topn'] === undefined) {
                 obj['topn'] = ApiClient.convertToType(data['topn'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('batch')) {
+            if (data.hasOwnProperty('batch') && obj['batch'] === undefined) {
                 obj['batch'] = Batch.constructFromObject(data['batch']);
             }
+            
         }
         return obj;
     }

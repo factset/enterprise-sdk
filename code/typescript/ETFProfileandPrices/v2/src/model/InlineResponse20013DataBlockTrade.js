@@ -47,18 +47,19 @@ class InlineResponse20013DataBlockTrade {
         if (data) {
             obj = obj || new InlineResponse20013DataBlockTrade();
 
-            if (data.hasOwnProperty('overlapHours')) {
+            if (data.hasOwnProperty('overlapHours') && obj['overlapHours'] === undefined) {
                 obj['overlapHours'] = ApiClient.convertToType(data['overlapHours'], 'Number');
             }
-            if (data.hasOwnProperty('underlyingVolumePerUnit')) {
+            if (data.hasOwnProperty('underlyingVolumePerUnit') && obj['underlyingVolumePerUnit'] === undefined) {
                 obj['underlyingVolumePerUnit'] = ApiClient.convertToType(data['underlyingVolumePerUnit'], 'Number');
             }
-            if (data.hasOwnProperty('liquidity')) {
+            if (data.hasOwnProperty('liquidity') && obj['liquidity'] === undefined) {
                 obj['liquidity'] = ApiClient.convertToType(data['liquidity'], 'Number');
             }
-            if (data.hasOwnProperty('creationUnitPerDay')) {
+            if (data.hasOwnProperty('creationUnitPerDay') && obj['creationUnitPerDay'] === undefined) {
                 obj['creationUnitPerDay'] = ApiClient.convertToType(data['creationUnitPerDay'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -48,18 +48,19 @@ class OptimizerInputsPenalty {
         if (data) {
             obj = obj || new OptimizerInputsPenalty();
 
-            if (data.hasOwnProperty('enabled')) {
+            if (data.hasOwnProperty('enabled') && obj['enabled'] === undefined) {
                 obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('penalty_type')) {
+            if (data.hasOwnProperty('penalty_type') && obj['penalty_type'] === undefined) {
                 obj['penalty_type'] = OptimizerInputsEConstraintPenaltyTypeEnum.constructFromObject(data['penalty_type']);
             }
-            if (data.hasOwnProperty('penalty_value')) {
+            if (data.hasOwnProperty('penalty_value') && obj['penalty_value'] === undefined) {
                 obj['penalty_value'] = OptimizerInputsValue.constructFromObject(data['penalty_value']);
             }
-            if (data.hasOwnProperty('max_violation')) {
+            if (data.hasOwnProperty('max_violation') && obj['max_violation'] === undefined) {
                 obj['max_violation'] = OptimizerInputsValue.constructFromObject(data['max_violation']);
             }
+            
         }
         return obj;
     }

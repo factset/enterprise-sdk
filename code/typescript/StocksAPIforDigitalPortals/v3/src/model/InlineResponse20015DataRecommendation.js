@@ -49,12 +49,13 @@ class InlineResponse20015DataRecommendation {
         if (data) {
             obj = obj || new InlineResponse20015DataRecommendation();
 
-            if (data.hasOwnProperty('counts')) {
+            if (data.hasOwnProperty('counts') && obj['counts'] === undefined) {
                 obj['counts'] = InlineResponse20015DataRecommendationCounts.constructFromObject(data['counts']);
             }
-            if (data.hasOwnProperty('consensus')) {
+            if (data.hasOwnProperty('consensus') && obj['consensus'] === undefined) {
                 obj['consensus'] = InlineResponse20015DataRecommendationConsensus.constructFromObject(data['consensus']);
             }
+            
         }
         return obj;
     }

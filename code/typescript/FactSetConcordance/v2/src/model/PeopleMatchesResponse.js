@@ -48,9 +48,10 @@ class PeopleMatchesResponse {
         if (data) {
             obj = obj || new PeopleMatchesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [PeopleMatch]);
             }
+            
         }
         return obj;
     }

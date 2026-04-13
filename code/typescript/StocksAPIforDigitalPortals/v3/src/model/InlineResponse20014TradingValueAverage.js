@@ -47,12 +47,13 @@ class InlineResponse20014TradingValueAverage {
         if (data) {
             obj = obj || new InlineResponse20014TradingValueAverage();
 
-            if (data.hasOwnProperty('days5')) {
+            if (data.hasOwnProperty('days5') && obj['days5'] === undefined) {
                 obj['days5'] = ApiClient.convertToType(data['days5'], 'Number');
             }
-            if (data.hasOwnProperty('days30')) {
+            if (data.hasOwnProperty('days30') && obj['days30'] === undefined) {
                 obj['days30'] = ApiClient.convertToType(data['days30'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostOptionByClassListRequestDataLifeCycle {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataLifeCycle();
 
-            if (data.hasOwnProperty('maturity')) {
+            if (data.hasOwnProperty('maturity') && obj['maturity'] === undefined) {
                 obj['maturity'] = PostOptionByClassListRequestDataLifeCycleMaturity.constructFromObject(data['maturity']);
             }
-            if (data.hasOwnProperty('expiration')) {
+            if (data.hasOwnProperty('expiration') && obj['expiration'] === undefined) {
                 obj['expiration'] = PostOptionByClassListRequestDataLifeCycleExpiration.constructFromObject(data['expiration']);
             }
+            
         }
         return obj;
     }

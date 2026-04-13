@@ -47,15 +47,16 @@ class LeadUnderwriter {
         if (data) {
             obj = obj || new LeadUnderwriter();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('factsetLeadUwritrEntityId')) {
+            if (data.hasOwnProperty('factsetLeadUwritrEntityId') && obj['factsetLeadUwritrEntityId'] === undefined) {
                 obj['factsetLeadUwritrEntityId'] = ApiClient.convertToType(data['factsetLeadUwritrEntityId'], 'String');
             }
+            
         }
         return obj;
     }

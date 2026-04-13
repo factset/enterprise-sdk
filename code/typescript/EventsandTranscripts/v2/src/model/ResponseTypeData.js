@@ -46,30 +46,31 @@ class ResponseTypeData {
         if (data) {
             obj = obj || new ResponseTypeData();
 
-            if (data.hasOwnProperty('versionId')) {
+            if (data.hasOwnProperty('versionId') && obj['versionId'] === undefined) {
                 obj['versionId'] = ApiClient.convertToType(data['versionId'], 'String');
             }
-            if (data.hasOwnProperty('primaryIds')) {
+            if (data.hasOwnProperty('primaryIds') && obj['primaryIds'] === undefined) {
                 obj['primaryIds'] = ApiClient.convertToType(data['primaryIds'], ['String']);
             }
-            if (data.hasOwnProperty('allIds')) {
+            if (data.hasOwnProperty('allIds') && obj['allIds'] === undefined) {
                 obj['allIds'] = ApiClient.convertToType(data['allIds'], ['String']);
             }
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'String');
             }
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('storyDateTime')) {
+            if (data.hasOwnProperty('storyDateTime') && obj['storyDateTime'] === undefined) {
                 obj['storyDateTime'] = ApiClient.convertToType(data['storyDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('transcriptsUrl')) {
+            if (data.hasOwnProperty('transcriptsUrl') && obj['transcriptsUrl'] === undefined) {
                 obj['transcriptsUrl'] = ApiClient.convertToType(data['transcriptsUrl'], 'String');
             }
+            
         }
         return obj;
     }

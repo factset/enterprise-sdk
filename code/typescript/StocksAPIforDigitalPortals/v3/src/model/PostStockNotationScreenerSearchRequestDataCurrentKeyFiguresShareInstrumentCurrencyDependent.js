@@ -52,15 +52,16 @@ class PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrument
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependent();
 
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('marketCapitalizationSharesOutstanding')) {
+            if (data.hasOwnProperty('marketCapitalizationSharesOutstanding') && obj['marketCapitalizationSharesOutstanding'] === undefined) {
                 obj['marketCapitalizationSharesOutstanding'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresCompanyCurrencyDependentMarketCapitalizationSharesOutstanding.constructFromObject(data['marketCapitalizationSharesOutstanding']);
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = PostStockNotationScreenerSearchRequestDataCurrentKeyFiguresShareInstrumentCurrencyDependentPerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

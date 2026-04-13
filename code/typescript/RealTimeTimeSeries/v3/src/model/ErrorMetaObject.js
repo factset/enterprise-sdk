@@ -48,9 +48,10 @@ class ErrorMetaObject {
         if (data) {
             obj = obj || new ErrorMetaObject();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = StatusObject.constructFromObject(data['status']);
             }
+            
         }
         return obj;
     }

@@ -46,12 +46,13 @@ class PACalculationGroup {
         if (data) {
             obj = obj || new PACalculationGroup();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
             }
+            
         }
         return obj;
     }

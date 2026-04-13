@@ -47,9 +47,10 @@ class LibraryResponse {
         if (data) {
             obj = obj || new LibraryResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Library]);
             }
+            
         }
         return obj;
     }

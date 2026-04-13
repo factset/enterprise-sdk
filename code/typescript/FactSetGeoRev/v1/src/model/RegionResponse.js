@@ -48,9 +48,10 @@ class RegionResponse {
         if (data) {
             obj = obj || new RegionResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Region]);
             }
+            
         }
         return obj;
     }

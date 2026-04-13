@@ -48,9 +48,10 @@ class AnswerWithTitleAllOf {
         if (data) {
             obj = obj || new AnswerWithTitleAllOf();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

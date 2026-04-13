@@ -48,12 +48,13 @@ class TimeWindowStats {
         if (data) {
             obj = obj || new TimeWindowStats();
 
-            if (data.hasOwnProperty('timeWindow')) {
+            if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': EntityStats});
             }
-            if (data.hasOwnProperty('generic')) {
+            if (data.hasOwnProperty('generic') && obj['generic'] === undefined) {
                 obj['generic'] = TimeWindowStatsGeneric.constructFromObject(data['generic']);
             }
+            
         }
         return obj;
     }

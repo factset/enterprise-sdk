@@ -46,39 +46,40 @@ class InstrumentID {
         if (data) {
             obj = obj || new InstrumentID();
 
-            if (data.hasOwnProperty('BBG')) {
+            if (data.hasOwnProperty('BBG') && obj['BBG'] === undefined) {
                 obj['BBG'] = ApiClient.convertToType(data['BBG'], 'String');
             }
-            if (data.hasOwnProperty('CUSIP')) {
+            if (data.hasOwnProperty('CUSIP') && obj['CUSIP'] === undefined) {
                 obj['CUSIP'] = ApiClient.convertToType(data['CUSIP'], 'String');
             }
-            if (data.hasOwnProperty('FDS_ID')) {
+            if (data.hasOwnProperty('FDS_ID') && obj['FDS_ID'] === undefined) {
                 obj['FDS_ID'] = ApiClient.convertToType(data['FDS_ID'], 'String');
             }
-            if (data.hasOwnProperty('FDS_TICKER_REGION')) {
+            if (data.hasOwnProperty('FDS_TICKER_REGION') && obj['FDS_TICKER_REGION'] === undefined) {
                 obj['FDS_TICKER_REGION'] = ApiClient.convertToType(data['FDS_TICKER_REGION'], 'String');
             }
-            if (data.hasOwnProperty('FDS_TICKER_EXCHANGE')) {
+            if (data.hasOwnProperty('FDS_TICKER_EXCHANGE') && obj['FDS_TICKER_EXCHANGE'] === undefined) {
                 obj['FDS_TICKER_EXCHANGE'] = ApiClient.convertToType(data['FDS_TICKER_EXCHANGE'], 'String');
             }
-            if (data.hasOwnProperty('FIGI')) {
+            if (data.hasOwnProperty('FIGI') && obj['FIGI'] === undefined) {
                 obj['FIGI'] = ApiClient.convertToType(data['FIGI'], 'String');
             }
-            if (data.hasOwnProperty('ISIN')) {
+            if (data.hasOwnProperty('ISIN') && obj['ISIN'] === undefined) {
                 obj['ISIN'] = ApiClient.convertToType(data['ISIN'], 'String');
             }
-            if (data.hasOwnProperty('PERMID')) {
+            if (data.hasOwnProperty('PERMID') && obj['PERMID'] === undefined) {
                 obj['PERMID'] = ApiClient.convertToType(data['PERMID'], 'String');
             }
-            if (data.hasOwnProperty('RIC')) {
+            if (data.hasOwnProperty('RIC') && obj['RIC'] === undefined) {
                 obj['RIC'] = ApiClient.convertToType(data['RIC'], 'String');
             }
-            if (data.hasOwnProperty('SEDOL')) {
+            if (data.hasOwnProperty('SEDOL') && obj['SEDOL'] === undefined) {
                 obj['SEDOL'] = ApiClient.convertToType(data['SEDOL'], 'String');
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
+            
         }
         return obj;
     }

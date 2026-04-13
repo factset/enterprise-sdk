@@ -47,24 +47,25 @@ class OptionsVolume {
         if (data) {
             obj = obj || new OptionsVolume();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('exchange')) {
+            if (data.hasOwnProperty('exchange') && obj['exchange'] === undefined) {
                 obj['exchange'] = ApiClient.convertToType(data['exchange'], 'String');
             }
-            if (data.hasOwnProperty('openInterest')) {
+            if (data.hasOwnProperty('openInterest') && obj['openInterest'] === undefined) {
                 obj['openInterest'] = ApiClient.convertToType(data['openInterest'], 'Number');
             }
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

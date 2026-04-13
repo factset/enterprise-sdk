@@ -46,21 +46,22 @@ class ArchivePortfolioOutputType {
         if (data) {
             obj = obj || new ArchivePortfolioOutputType();
 
-            if (data.hasOwnProperty('accountName')) {
+            if (data.hasOwnProperty('accountName') && obj['accountName'] === undefined) {
                 obj['accountName'] = ApiClient.convertToType(data['accountName'], 'String');
             }
-            if (data.hasOwnProperty('excludeZeroShares')) {
+            if (data.hasOwnProperty('excludeZeroShares') && obj['excludeZeroShares'] === undefined) {
                 obj['excludeZeroShares'] = ApiClient.convertToType(data['excludeZeroShares'], 'Boolean');
             }
-            if (data.hasOwnProperty('archiveDate')) {
+            if (data.hasOwnProperty('archiveDate') && obj['archiveDate'] === undefined) {
                 obj['archiveDate'] = ApiClient.convertToType(data['archiveDate'], 'String');
             }
-            if (data.hasOwnProperty('ifAccountExists')) {
+            if (data.hasOwnProperty('ifAccountExists') && obj['ifAccountExists'] === undefined) {
                 obj['ifAccountExists'] = ApiClient.convertToType(data['ifAccountExists'], 'String');
             }
-            if (data.hasOwnProperty('ifOFDBDateExists')) {
+            if (data.hasOwnProperty('ifOFDBDateExists') && obj['ifOFDBDateExists'] === undefined) {
                 obj['ifOFDBDateExists'] = ApiClient.convertToType(data['ifOFDBDateExists'], 'String');
             }
+            
         }
         return obj;
     }

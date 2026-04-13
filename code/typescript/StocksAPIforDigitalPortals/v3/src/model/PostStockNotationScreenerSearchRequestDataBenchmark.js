@@ -52,18 +52,19 @@ class PostStockNotationScreenerSearchRequestDataBenchmark {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataBenchmark();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = PostStockNotationScreenerSearchRequestDataBenchmarkBeta.constructFromObject(data['beta']);
             }
-            if (data.hasOwnProperty('correlation')) {
+            if (data.hasOwnProperty('correlation') && obj['correlation'] === undefined) {
                 obj['correlation'] = PostStockNotationScreenerSearchRequestDataBenchmarkCorrelation.constructFromObject(data['correlation']);
             }
-            if (data.hasOwnProperty('outperformance')) {
+            if (data.hasOwnProperty('outperformance') && obj['outperformance'] === undefined) {
                 obj['outperformance'] = PostStockNotationScreenerSearchRequestDataBenchmarkOutperformance.constructFromObject(data['outperformance']);
             }
+            
         }
         return obj;
     }

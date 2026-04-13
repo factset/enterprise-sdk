@@ -49,12 +49,13 @@ class OrdersResponse {
         if (data) {
             obj = obj || new OrdersResponse();
 
-            if (data.hasOwnProperty('orders')) {
+            if (data.hasOwnProperty('orders') && obj['orders'] === undefined) {
                 obj['orders'] = ApiClient.convertToType(data['orders'], [OrderSearch]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = OrdersResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class OptimizerInputsBuyListItem {
         if (data) {
             obj = obj || new OptimizerInputsBuyListItem();
 
-            if (data.hasOwnProperty('univ_index')) {
+            if (data.hasOwnProperty('univ_index') && obj['univ_index'] === undefined) {
                 obj['univ_index'] = ApiClient.convertToType(data['univ_index'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = OptimizerInputsAssetPrice.constructFromObject(data['price']);
             }
+            
         }
         return obj;
     }

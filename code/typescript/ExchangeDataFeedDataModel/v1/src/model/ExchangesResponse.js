@@ -49,9 +49,10 @@ class ExchangesResponse {
         if (data) {
             obj = obj || new ExchangesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExchangesResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class ResponseSources {
         if (data) {
             obj = obj || new ResponseSources();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ResponseSourcesObject]);
             }
+            
         }
         return obj;
     }

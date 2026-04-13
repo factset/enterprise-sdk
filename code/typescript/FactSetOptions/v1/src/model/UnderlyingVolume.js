@@ -47,39 +47,40 @@ class UnderlyingVolume {
         if (data) {
             obj = obj || new UnderlyingVolume();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('exchange')) {
+            if (data.hasOwnProperty('exchange') && obj['exchange'] === undefined) {
                 obj['exchange'] = ApiClient.convertToType(data['exchange'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('putCallRatio')) {
+            if (data.hasOwnProperty('putCallRatio') && obj['putCallRatio'] === undefined) {
                 obj['putCallRatio'] = ApiClient.convertToType(data['putCallRatio'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('totalCallOpenInterest')) {
+            if (data.hasOwnProperty('totalCallOpenInterest') && obj['totalCallOpenInterest'] === undefined) {
                 obj['totalCallOpenInterest'] = ApiClient.convertToType(data['totalCallOpenInterest'], 'Number');
             }
-            if (data.hasOwnProperty('totalCallVolume')) {
+            if (data.hasOwnProperty('totalCallVolume') && obj['totalCallVolume'] === undefined) {
                 obj['totalCallVolume'] = ApiClient.convertToType(data['totalCallVolume'], 'Number');
             }
-            if (data.hasOwnProperty('totalPutCallOpenInterest')) {
+            if (data.hasOwnProperty('totalPutCallOpenInterest') && obj['totalPutCallOpenInterest'] === undefined) {
                 obj['totalPutCallOpenInterest'] = ApiClient.convertToType(data['totalPutCallOpenInterest'], 'Number');
             }
-            if (data.hasOwnProperty('totalPutCallVolume')) {
+            if (data.hasOwnProperty('totalPutCallVolume') && obj['totalPutCallVolume'] === undefined) {
                 obj['totalPutCallVolume'] = ApiClient.convertToType(data['totalPutCallVolume'], 'Number');
             }
-            if (data.hasOwnProperty('totalPutOpenInterest')) {
+            if (data.hasOwnProperty('totalPutOpenInterest') && obj['totalPutOpenInterest'] === undefined) {
                 obj['totalPutOpenInterest'] = ApiClient.convertToType(data['totalPutOpenInterest'], 'Number');
             }
-            if (data.hasOwnProperty('totalPutVolume')) {
+            if (data.hasOwnProperty('totalPutVolume') && obj['totalPutVolume'] === undefined) {
                 obj['totalPutVolume'] = ApiClient.convertToType(data['totalPutVolume'], 'Number');
             }
+            
         }
         return obj;
     }

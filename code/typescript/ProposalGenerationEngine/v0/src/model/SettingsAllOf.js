@@ -46,12 +46,13 @@ class SettingsAllOf {
         if (data) {
             obj = obj || new SettingsAllOf();
 
-            if (data.hasOwnProperty('confidenceLevels')) {
+            if (data.hasOwnProperty('confidenceLevels') && obj['confidenceLevels'] === undefined) {
                 obj['confidenceLevels'] = ApiClient.convertToType(data['confidenceLevels'], ['Number']);
             }
-            if (data.hasOwnProperty('reportingFrequency')) {
+            if (data.hasOwnProperty('reportingFrequency') && obj['reportingFrequency'] === undefined) {
                 obj['reportingFrequency'] = ApiClient.convertToType(data['reportingFrequency'], 'Number');
             }
+            
         }
         return obj;
     }

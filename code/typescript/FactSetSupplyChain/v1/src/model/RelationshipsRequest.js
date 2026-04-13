@@ -50,9 +50,10 @@ class RelationshipsRequest {
         if (data) {
             obj = obj || new RelationshipsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = RelationshipsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

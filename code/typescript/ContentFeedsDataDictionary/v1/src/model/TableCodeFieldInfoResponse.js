@@ -52,15 +52,16 @@ class TableCodeFieldInfoResponse {
         if (data) {
             obj = obj || new TableCodeFieldInfoResponse();
 
-            if (data.hasOwnProperty('codeInfo')) {
+            if (data.hasOwnProperty('codeInfo') && obj['codeInfo'] === undefined) {
                 obj['codeInfo'] = TableCodeInfo.constructFromObject(data['codeInfo']);
             }
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ApiClient.convertToType(data['fields'], [TableField]);
             }
-            if (data.hasOwnProperty('entitled')) {
+            if (data.hasOwnProperty('entitled') && obj['entitled'] === undefined) {
                 obj['entitled'] = ApiClient.convertToType(data['entitled'], 'Boolean');
             }
+            
         }
         return obj;
     }

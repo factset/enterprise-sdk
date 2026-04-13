@@ -50,18 +50,19 @@ class GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsI
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItemsCashFlow();
 
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItemsCashFlowCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('paymentDate')) {
+            if (data.hasOwnProperty('paymentDate') && obj['paymentDate'] === undefined) {
                 obj['paymentDate'] = ApiClient.convertToType(data['paymentDate'], 'Date');
             }
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItemsCashFlowAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItemsCashFlowRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

@@ -50,15 +50,16 @@ class DsotmParameters {
         if (data) {
             obj = obj || new DsotmParameters();
 
-            if (data.hasOwnProperty('orders')) {
+            if (data.hasOwnProperty('orders') && obj['orders'] === undefined) {
                 obj['orders'] = ApiClient.convertToType(data['orders'], [Order]);
             }
-            if (data.hasOwnProperty('placements')) {
+            if (data.hasOwnProperty('placements') && obj['placements'] === undefined) {
                 obj['placements'] = ApiClient.convertToType(data['placements'], [Placement]);
             }
-            if (data.hasOwnProperty('executions')) {
+            if (data.hasOwnProperty('executions') && obj['executions'] === undefined) {
                 obj['executions'] = ApiClient.convertToType(data['executions'], [Execution]);
             }
+            
         }
         return obj;
     }

@@ -52,18 +52,19 @@ class ContractProperty {
         if (data) {
             obj = obj || new ContractProperty();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('optional')) {
+            if (data.hasOwnProperty('optional') && obj['optional'] === undefined) {
                 obj['optional'] = ApiClient.convertToType(data['optional'], 'Boolean');
             }
-            if (data.hasOwnProperty('items')) {
+            if (data.hasOwnProperty('items') && obj['items'] === undefined) {
                 obj['items'] = ContractPropertyItems.constructFromObject(data['items']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class IndexETFResponse {
         if (data) {
             obj = obj || new IndexETFResponse();
 
-            if (data.hasOwnProperty('indexETF')) {
+            if (data.hasOwnProperty('indexETF') && obj['indexETF'] === undefined) {
                 obj['indexETF'] = ApiClient.convertToType(data['indexETF'], [IndexETF]);
             }
+            
         }
         return obj;
     }

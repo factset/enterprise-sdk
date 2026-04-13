@@ -48,12 +48,13 @@ class PostPricesTimeSeriesIntradayListRequestMeta {
         if (data) {
             obj = obj || new PostPricesTimeSeriesIntradayListRequestMeta();
 
-            if (data.hasOwnProperty('attributes')) {
+            if (data.hasOwnProperty('attributes') && obj['attributes'] === undefined) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], ['String']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = PostPricesTimeSeriesIntradayListRequestMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

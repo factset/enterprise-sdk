@@ -49,9 +49,10 @@ class ResultResponse {
         if (data) {
             obj = obj || new ResultResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ResultResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

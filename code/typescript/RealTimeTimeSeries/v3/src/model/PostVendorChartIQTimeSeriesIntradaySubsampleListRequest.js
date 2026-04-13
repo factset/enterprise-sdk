@@ -51,12 +51,13 @@ class PostVendorChartIQTimeSeriesIntradaySubsampleListRequest {
         if (data) {
             obj = obj || new PostVendorChartIQTimeSeriesIntradaySubsampleListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostVendorChartIQTimeSeriesIntradaySubsampleListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostVendorChartIQTimeSeriesEodListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

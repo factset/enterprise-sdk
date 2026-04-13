@@ -46,9 +46,10 @@ class FIBankLoans {
         if (data) {
             obj = obj || new FIBankLoans();
 
-            if (data.hasOwnProperty('ignoreSinkingFund')) {
+            if (data.hasOwnProperty('ignoreSinkingFund') && obj['ignoreSinkingFund'] === undefined) {
                 obj['ignoreSinkingFund'] = ApiClient.convertToType(data['ignoreSinkingFund'], 'Boolean');
             }
+            
         }
         return obj;
     }

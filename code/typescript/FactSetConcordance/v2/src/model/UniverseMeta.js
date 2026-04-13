@@ -47,36 +47,37 @@ class UniverseMeta {
         if (data) {
             obj = obj || new UniverseMeta();
 
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
-            if (data.hasOwnProperty('universeName')) {
+            if (data.hasOwnProperty('universeName') && obj['universeName'] === undefined) {
                 obj['universeName'] = ApiClient.convertToType(data['universeName'], 'String');
             }
-            if (data.hasOwnProperty('universeDescription')) {
+            if (data.hasOwnProperty('universeDescription') && obj['universeDescription'] === undefined) {
                 obj['universeDescription'] = ApiClient.convertToType(data['universeDescription'], 'String');
             }
-            if (data.hasOwnProperty('universeType')) {
+            if (data.hasOwnProperty('universeType') && obj['universeType'] === undefined) {
                 obj['universeType'] = ApiClient.convertToType(data['universeType'], 'String');
             }
-            if (data.hasOwnProperty('selfManaged')) {
+            if (data.hasOwnProperty('selfManaged') && obj['selfManaged'] === undefined) {
                 obj['selfManaged'] = ApiClient.convertToType(data['selfManaged'], 'Boolean');
             }
-            if (data.hasOwnProperty('createdBy')) {
+            if (data.hasOwnProperty('createdBy') && obj['createdBy'] === undefined) {
                 obj['createdBy'] = ApiClient.convertToType(data['createdBy'], 'String');
             }
-            if (data.hasOwnProperty('createdOn')) {
+            if (data.hasOwnProperty('createdOn') && obj['createdOn'] === undefined) {
                 obj['createdOn'] = ApiClient.convertToType(data['createdOn'], 'Date');
             }
-            if (data.hasOwnProperty('updatedBy')) {
+            if (data.hasOwnProperty('updatedBy') && obj['updatedBy'] === undefined) {
                 obj['updatedBy'] = ApiClient.convertToType(data['updatedBy'], 'String');
             }
-            if (data.hasOwnProperty('updatedOn')) {
+            if (data.hasOwnProperty('updatedOn') && obj['updatedOn'] === undefined) {
                 obj['updatedOn'] = ApiClient.convertToType(data['updatedOn'], 'Date');
             }
-            if (data.hasOwnProperty('autoRemap')) {
+            if (data.hasOwnProperty('autoRemap') && obj['autoRemap'] === undefined) {
                 obj['autoRemap'] = ApiClient.convertToType(data['autoRemap'], 'Boolean');
             }
+            
         }
         return obj;
     }

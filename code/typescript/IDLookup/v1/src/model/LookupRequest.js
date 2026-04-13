@@ -49,12 +49,13 @@ class LookupRequest {
         if (data) {
             obj = obj || new LookupRequest();
 
-            if (data.hasOwnProperty('query')) {
+            if (data.hasOwnProperty('query') && obj['query'] === undefined) {
                 obj['query'] = LookupObject.constructFromObject(data['query']);
             }
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = LookupLimit.constructFromObject(data['settings']);
             }
+            
         }
         return obj;
     }

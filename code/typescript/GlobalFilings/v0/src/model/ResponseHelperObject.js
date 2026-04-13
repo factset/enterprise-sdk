@@ -50,18 +50,19 @@ class ResponseHelperObject {
         if (data) {
             obj = obj || new ResponseHelperObject();
 
-            if (data.hasOwnProperty('sourcesObject')) {
+            if (data.hasOwnProperty('sourcesObject') && obj['sourcesObject'] === undefined) {
                 obj['sourcesObject'] = ResponseHelperObjectSourcesObject.constructFromObject(data['sourcesObject']);
             }
-            if (data.hasOwnProperty('formtypesObject')) {
+            if (data.hasOwnProperty('formtypesObject') && obj['formtypesObject'] === undefined) {
                 obj['formtypesObject'] = ResponseHelperObjectFormtypesObject.constructFromObject(data['formtypesObject']);
             }
-            if (data.hasOwnProperty('timeZonesObject')) {
+            if (data.hasOwnProperty('timeZonesObject') && obj['timeZonesObject'] === undefined) {
                 obj['timeZonesObject'] = ResponseHelperObjectTimeZonesObject.constructFromObject(data['timeZonesObject']);
             }
-            if (data.hasOwnProperty('categoriesObject')) {
+            if (data.hasOwnProperty('categoriesObject') && obj['categoriesObject'] === undefined) {
                 obj['categoriesObject'] = ResponseHelperObjectCategoriesObject.constructFromObject(data['categoriesObject']);
             }
+            
         }
         return obj;
     }

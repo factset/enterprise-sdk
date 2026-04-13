@@ -50,9 +50,10 @@ class OptimizationStatus {
         if (data) {
             obj = obj || new OptimizationStatus();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = OptimizationStatusData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

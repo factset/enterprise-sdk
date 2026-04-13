@@ -47,9 +47,10 @@ class InlineResponse20014RsiWilder {
         if (data) {
             obj = obj || new InlineResponse20014RsiWilder();
 
-            if (data.hasOwnProperty('days14')) {
+            if (data.hasOwnProperty('days14') && obj['days14'] === undefined) {
                 obj['days14'] = ApiClient.convertToType(data['days14'], 'Number');
             }
+            
         }
         return obj;
     }

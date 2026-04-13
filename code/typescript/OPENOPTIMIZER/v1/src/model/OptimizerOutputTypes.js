@@ -50,21 +50,22 @@ class OptimizerOutputTypes {
         if (data) {
             obj = obj || new OptimizerOutputTypes();
 
-            if (data.hasOwnProperty('trades')) {
+            if (data.hasOwnProperty('trades') && obj['trades'] === undefined) {
                 obj['trades'] = TradesListOutputType.constructFromObject(data['trades']);
             }
-            if (data.hasOwnProperty('optimal')) {
+            if (data.hasOwnProperty('optimal') && obj['optimal'] === undefined) {
                 obj['optimal'] = OptimalHoldingsOutputType.constructFromObject(data['optimal']);
             }
-            if (data.hasOwnProperty('archive')) {
+            if (data.hasOwnProperty('archive') && obj['archive'] === undefined) {
                 obj['archive'] = ArchivePortfolioOutputType.constructFromObject(data['archive']);
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], 'Boolean');
             }
-            if (data.hasOwnProperty('reports')) {
+            if (data.hasOwnProperty('reports') && obj['reports'] === undefined) {
                 obj['reports'] = OptimizerReportsOutputType.constructFromObject(data['reports']);
             }
+            
         }
         return obj;
     }

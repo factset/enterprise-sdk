@@ -46,15 +46,16 @@ class Rebalancing {
         if (data) {
             obj = obj || new Rebalancing();
 
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'Number');
             }
-            if (data.hasOwnProperty('frequencyAlignment')) {
+            if (data.hasOwnProperty('frequencyAlignment') && obj['frequencyAlignment'] === undefined) {
                 obj['frequencyAlignment'] = ApiClient.convertToType(data['frequencyAlignment'], 'String');
             }
-            if (data.hasOwnProperty('rebalanceAtStart')) {
+            if (data.hasOwnProperty('rebalanceAtStart') && obj['rebalanceAtStart'] === undefined) {
                 obj['rebalanceAtStart'] = ApiClient.convertToType(data['rebalanceAtStart'], 'Boolean');
             }
+            
         }
         return obj;
     }

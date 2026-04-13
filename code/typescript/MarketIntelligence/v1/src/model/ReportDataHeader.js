@@ -47,12 +47,13 @@ class ReportDataHeader {
         if (data) {
             obj = obj || new ReportDataHeader();
 
-            if (data.hasOwnProperty('subject_category')) {
+            if (data.hasOwnProperty('subject_category') && obj['subject_category'] === undefined) {
                 obj['subject_category'] = ApiClient.convertToType(data['subject_category'], 'String');
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ReportContent]);
             }
+            
         }
         return obj;
     }

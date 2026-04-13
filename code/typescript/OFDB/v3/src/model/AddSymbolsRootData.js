@@ -47,12 +47,13 @@ class AddSymbolsRootData {
         if (data) {
             obj = obj || new AddSymbolsRootData();
 
-            if (data.hasOwnProperty('databasePath')) {
+            if (data.hasOwnProperty('databasePath') && obj['databasePath'] === undefined) {
                 obj['databasePath'] = ApiClient.convertToType(data['databasePath'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [SymbolAndContentObject]);
             }
+            
         }
         return obj;
     }

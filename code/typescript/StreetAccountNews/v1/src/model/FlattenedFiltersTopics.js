@@ -48,9 +48,10 @@ class FlattenedFiltersTopics {
         if (data) {
             obj = obj || new FlattenedFiltersTopics();
 
-            if (data.hasOwnProperty('topics')) {
+            if (data.hasOwnProperty('topics') && obj['topics'] === undefined) {
                 obj['topics'] = ApiClient.convertToType(data['topics'], [FlattenedFiltersTopicsObject]);
             }
+            
         }
         return obj;
     }

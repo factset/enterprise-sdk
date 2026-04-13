@@ -47,9 +47,10 @@ class ExPostPeriodStatsAllOf {
         if (data) {
             obj = obj || new ExPostPeriodStatsAllOf();
 
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = EntityStats.constructFromObject(data['stats']);
             }
+            
         }
         return obj;
     }

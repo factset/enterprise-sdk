@@ -50,9 +50,10 @@ class QueryChatResponse {
         if (data) {
             obj = obj || new QueryChatResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = QueryChatResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

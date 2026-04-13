@@ -47,12 +47,13 @@ class FPOObjectiveInput {
         if (data) {
             obj = obj || new FPOObjectiveInput();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('terms')) {
+            if (data.hasOwnProperty('terms') && obj['terms'] === undefined) {
                 obj['terms'] = ApiClient.convertToType(data['terms'], {'String': EnabledEnum});
             }
+            
         }
         return obj;
     }

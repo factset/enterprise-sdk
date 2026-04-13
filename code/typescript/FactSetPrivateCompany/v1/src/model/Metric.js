@@ -47,21 +47,22 @@ class Metric {
         if (data) {
             obj = obj || new Metric();
 
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = ApiClient.convertToType(data['factor'], 'Number');
             }
-            if (data.hasOwnProperty('sdfName')) {
+            if (data.hasOwnProperty('sdfName') && obj['sdfName'] === undefined) {
                 obj['sdfName'] = ApiClient.convertToType(data['sdfName'], 'String');
             }
+            
         }
         return obj;
     }

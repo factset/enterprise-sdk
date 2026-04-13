@@ -48,15 +48,16 @@ class FactSetProtobufStachV3TableViewTypesFormatTypesFormatString {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesFormatTypesFormatString();
 
-            if (data.hasOwnProperty('singleValue')) {
+            if (data.hasOwnProperty('singleValue') && obj['singleValue'] === undefined) {
                 obj['singleValue'] = FactSetProtobufStachV3TableViewTypesFormatTypesSingleValueFormatString.constructFromObject(data['singleValue']);
             }
-            if (data.hasOwnProperty('nameBasedComposite')) {
+            if (data.hasOwnProperty('nameBasedComposite') && obj['nameBasedComposite'] === undefined) {
                 obj['nameBasedComposite'] = ApiClient.convertToType(data['nameBasedComposite'], Object);
             }
-            if (data.hasOwnProperty('typeCase')) {
+            if (data.hasOwnProperty('typeCase') && obj['typeCase'] === undefined) {
                 obj['typeCase'] = FactSetProtobufStachV3TableViewTypesFormatTypesFormatStringTypeOneofCase.constructFromObject(data['typeCase']);
             }
+            
         }
         return obj;
     }

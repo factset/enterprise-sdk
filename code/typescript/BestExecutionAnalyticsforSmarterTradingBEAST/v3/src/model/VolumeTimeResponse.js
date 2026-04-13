@@ -48,9 +48,10 @@ class VolumeTimeResponse {
         if (data) {
             obj = obj || new VolumeTimeResponse();
 
-            if (data.hasOwnProperty('volumeTime')) {
+            if (data.hasOwnProperty('volumeTime') && obj['volumeTime'] === undefined) {
                 obj['volumeTime'] = ApiClient.convertToType(data['volumeTime'], [VolumeTime]);
             }
+            
         }
         return obj;
     }

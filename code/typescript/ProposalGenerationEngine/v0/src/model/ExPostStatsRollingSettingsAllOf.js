@@ -46,9 +46,10 @@ class ExPostStatsRollingSettingsAllOf {
         if (data) {
             obj = obj || new ExPostStatsRollingSettingsAllOf();
 
-            if (data.hasOwnProperty('aggregationFunctions')) {
+            if (data.hasOwnProperty('aggregationFunctions') && obj['aggregationFunctions'] === undefined) {
                 obj['aggregationFunctions'] = ApiClient.convertToType(data['aggregationFunctions'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class TvlScoresRequest {
         if (data) {
             obj = obj || new TvlScoresRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TvlScoresRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

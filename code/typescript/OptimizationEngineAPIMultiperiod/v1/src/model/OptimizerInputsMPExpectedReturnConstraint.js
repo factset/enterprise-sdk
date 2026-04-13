@@ -50,21 +50,22 @@ class OptimizerInputsMPExpectedReturnConstraint {
         if (data) {
             obj = obj || new OptimizerInputsMPExpectedReturnConstraint();
 
-            if (data.hasOwnProperty('constraint')) {
+            if (data.hasOwnProperty('constraint') && obj['constraint'] === undefined) {
                 obj['constraint'] = OptimizerInputsExpectedReturnConstraint.constructFromObject(data['constraint']);
             }
-            if (data.hasOwnProperty('constraint_on')) {
+            if (data.hasOwnProperty('constraint_on') && obj['constraint_on'] === undefined) {
                 obj['constraint_on'] = OptimizerInputsBoundSourceEnum.constructFromObject(data['constraint_on']);
             }
-            if (data.hasOwnProperty('annualization_factor')) {
+            if (data.hasOwnProperty('annualization_factor') && obj['annualization_factor'] === undefined) {
                 obj['annualization_factor'] = ApiClient.convertToType(data['annualization_factor'], 'Number');
             }
-            if (data.hasOwnProperty('on_periods')) {
+            if (data.hasOwnProperty('on_periods') && obj['on_periods'] === undefined) {
                 obj['on_periods'] = OptimizerInputsOnPeriods.constructFromObject(data['on_periods']);
             }
-            if (data.hasOwnProperty('across_periods')) {
+            if (data.hasOwnProperty('across_periods') && obj['across_periods'] === undefined) {
                 obj['across_periods'] = OptimizerInputsAcrossPeriods.constructFromObject(data['across_periods']);
             }
+            
         }
         return obj;
     }

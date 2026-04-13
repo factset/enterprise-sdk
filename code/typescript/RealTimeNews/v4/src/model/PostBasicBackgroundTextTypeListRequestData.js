@@ -48,9 +48,10 @@ class PostBasicBackgroundTextTypeListRequestData {
         if (data) {
             obj = obj || new PostBasicBackgroundTextTypeListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicBackgroundTextTypeListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

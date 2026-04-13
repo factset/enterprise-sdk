@@ -46,12 +46,13 @@ class VARSimulatedReturns {
         if (data) {
             obj = obj || new VARSimulatedReturns();
 
-            if (data.hasOwnProperty('entity')) {
+            if (data.hasOwnProperty('entity') && obj['entity'] === undefined) {
                 obj['entity'] = ApiClient.convertToType(data['entity'], 'String');
             }
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = ApiClient.convertToType(data['returns'], ['Number']);
             }
+            
         }
         return obj;
     }

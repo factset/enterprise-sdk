@@ -46,15 +46,16 @@ class ResultsModelAnalyticsReturns {
         if (data) {
             obj = obj || new ResultsModelAnalyticsReturns();
 
-            if (data.hasOwnProperty('portfolio')) {
+            if (data.hasOwnProperty('portfolio') && obj['portfolio'] === undefined) {
                 obj['portfolio'] = ApiClient.convertToType(data['portfolio'], 'Number');
             }
-            if (data.hasOwnProperty('reference')) {
+            if (data.hasOwnProperty('reference') && obj['reference'] === undefined) {
                 obj['reference'] = ApiClient.convertToType(data['reference'], 'Number');
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = ApiClient.convertToType(data['relative'], 'Number');
             }
+            
         }
         return obj;
     }

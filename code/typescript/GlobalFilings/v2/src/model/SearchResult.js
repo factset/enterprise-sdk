@@ -49,15 +49,16 @@ class SearchResult {
         if (data) {
             obj = obj || new SearchResult();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('documents')) {
+            if (data.hasOwnProperty('documents') && obj['documents'] === undefined) {
                 obj['documents'] = ApiClient.convertToType(data['documents'], [Document]);
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class InternalServerError {
         if (data) {
             obj = obj || new InternalServerError();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [InternalServerErrorObject]);
             }
+            
         }
         return obj;
     }

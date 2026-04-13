@@ -48,9 +48,10 @@ class VolumeVenueResponse {
         if (data) {
             obj = obj || new VolumeVenueResponse();
 
-            if (data.hasOwnProperty('volumeVenue')) {
+            if (data.hasOwnProperty('volumeVenue') && obj['volumeVenue'] === undefined) {
                 obj['volumeVenue'] = ApiClient.convertToType(data['volumeVenue'], [VolumeVenue]);
             }
+            
         }
         return obj;
     }

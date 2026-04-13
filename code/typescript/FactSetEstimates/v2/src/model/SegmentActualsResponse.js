@@ -47,9 +47,10 @@ class SegmentActualsResponse {
         if (data) {
             obj = obj || new SegmentActualsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SegmentActuals]);
             }
+            
         }
         return obj;
     }

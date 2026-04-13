@@ -47,18 +47,19 @@ class PaginationResponse {
         if (data) {
             obj = obj || new PaginationResponse();
 
-            if (data.hasOwnProperty('isEstimatedTotal')) {
+            if (data.hasOwnProperty('isEstimatedTotal') && obj['isEstimatedTotal'] === undefined) {
                 obj['isEstimatedTotal'] = ApiClient.convertToType(data['isEstimatedTotal'], 'Boolean');
             }
-            if (data.hasOwnProperty('next')) {
+            if (data.hasOwnProperty('next') && obj['next'] === undefined) {
                 obj['next'] = ApiClient.convertToType(data['next'], 'String');
             }
-            if (data.hasOwnProperty('previous')) {
+            if (data.hasOwnProperty('previous') && obj['previous'] === undefined) {
                 obj['previous'] = ApiClient.convertToType(data['previous'], 'String');
             }
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = ApiClient.convertToType(data['total'], 'Number');
             }
+            
         }
         return obj;
     }

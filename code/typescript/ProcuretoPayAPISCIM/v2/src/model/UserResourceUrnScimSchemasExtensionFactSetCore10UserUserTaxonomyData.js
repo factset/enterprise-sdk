@@ -53,12 +53,13 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData {
         if (data) {
             obj = obj || new UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData();
 
-            if (data.hasOwnProperty('userClass')) {
+            if (data.hasOwnProperty('userClass') && obj['userClass'] === undefined) {
                 obj['userClass'] = UserClassResourceReference.constructFromObject(data['userClass']);
             }
-            if (data.hasOwnProperty('userPosition')) {
+            if (data.hasOwnProperty('userPosition') && obj['userPosition'] === undefined) {
                 obj['userPosition'] = UserPositionResourceReference.constructFromObject(data['userPosition']);
             }
+            
         }
         return obj;
     }

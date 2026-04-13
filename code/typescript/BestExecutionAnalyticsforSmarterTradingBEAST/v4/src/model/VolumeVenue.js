@@ -47,21 +47,22 @@ class VolumeVenue {
         if (data) {
             obj = obj || new VolumeVenue();
 
-            if (data.hasOwnProperty('venue')) {
+            if (data.hasOwnProperty('venue') && obj['venue'] === undefined) {
                 obj['venue'] = ApiClient.convertToType(data['venue'], 'String');
             }
-            if (data.hasOwnProperty('orderVolume')) {
+            if (data.hasOwnProperty('orderVolume') && obj['orderVolume'] === undefined) {
                 obj['orderVolume'] = ApiClient.convertToType(data['orderVolume'], 'Number');
             }
-            if (data.hasOwnProperty('fillsVolumePct')) {
+            if (data.hasOwnProperty('fillsVolumePct') && obj['fillsVolumePct'] === undefined) {
                 obj['fillsVolumePct'] = ApiClient.convertToType(data['fillsVolumePct'], 'Number');
             }
-            if (data.hasOwnProperty('marketVolume')) {
+            if (data.hasOwnProperty('marketVolume') && obj['marketVolume'] === undefined) {
                 obj['marketVolume'] = ApiClient.convertToType(data['marketVolume'], 'Number');
             }
-            if (data.hasOwnProperty('tradesVolumePct')) {
+            if (data.hasOwnProperty('tradesVolumePct') && obj['tradesVolumePct'] === undefined) {
                 obj['tradesVolumePct'] = ApiClient.convertToType(data['tradesVolumePct'], 'Number');
             }
+            
         }
         return obj;
     }

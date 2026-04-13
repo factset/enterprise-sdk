@@ -53,15 +53,16 @@ class RelatedProducts {
         if (data) {
             obj = obj || new RelatedProducts();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('productPageUrl')) {
+            if (data.hasOwnProperty('productPageUrl') && obj['productPageUrl'] === undefined) {
                 obj['productPageUrl'] = ApiClient.convertToType(data['productPageUrl'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

@@ -46,27 +46,28 @@ class InvestmentAllOf {
         if (data) {
             obj = obj || new InvestmentAllOf();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('proxyCode')) {
+            if (data.hasOwnProperty('proxyCode') && obj['proxyCode'] === undefined) {
                 obj['proxyCode'] = ApiClient.convertToType(data['proxyCode'], 'String');
             }
-            if (data.hasOwnProperty('cusip')) {
+            if (data.hasOwnProperty('cusip') && obj['cusip'] === undefined) {
                 obj['cusip'] = ApiClient.convertToType(data['cusip'], 'String');
             }
-            if (data.hasOwnProperty('tradingSymbol')) {
+            if (data.hasOwnProperty('tradingSymbol') && obj['tradingSymbol'] === undefined) {
                 obj['tradingSymbol'] = ApiClient.convertToType(data['tradingSymbol'], 'String');
             }
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
-            if (data.hasOwnProperty('className')) {
+            if (data.hasOwnProperty('className') && obj['className'] === undefined) {
                 obj['className'] = ApiClient.convertToType(data['className'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
+            
         }
         return obj;
     }

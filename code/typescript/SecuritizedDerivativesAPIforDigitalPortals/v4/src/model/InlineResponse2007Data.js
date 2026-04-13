@@ -49,18 +49,19 @@ class InlineResponse2007Data {
         if (data) {
             obj = obj || new InlineResponse2007Data();
 
-            if (data.hasOwnProperty('idInstrument')) {
+            if (data.hasOwnProperty('idInstrument') && obj['idInstrument'] === undefined) {
                 obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('underlyings')) {
+            if (data.hasOwnProperty('underlyings') && obj['underlyings'] === undefined) {
                 obj['underlyings'] = ApiClient.convertToType(data['underlyings'], [GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItems]);
             }
-            if (data.hasOwnProperty('barrierTypeConditions')) {
+            if (data.hasOwnProperty('barrierTypeConditions') && obj['barrierTypeConditions'] === undefined) {
                 obj['barrierTypeConditions'] = ApiClient.convertToType(data['barrierTypeConditions'], [GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsItems]);
             }
+            
         }
         return obj;
     }

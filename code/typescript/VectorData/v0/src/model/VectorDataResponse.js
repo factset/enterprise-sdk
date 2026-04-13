@@ -49,12 +49,13 @@ class VectorDataResponse {
         if (data) {
             obj = obj || new VectorDataResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [VectorDataResult]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = VectorDataResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

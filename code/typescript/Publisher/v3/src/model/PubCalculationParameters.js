@@ -54,15 +54,16 @@ class PubCalculationParameters {
         if (data) {
             obj = obj || new PubCalculationParameters();
 
-            if (data.hasOwnProperty('document')) {
+            if (data.hasOwnProperty('document') && obj['document'] === undefined) {
                 obj['document'] = ApiClient.convertToType(data['document'], 'String');
             }
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = PubIdentifier.constructFromObject(data['account']);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = PubDateParameters.constructFromObject(data['dates']);
             }
+            
         }
         return obj;
     }

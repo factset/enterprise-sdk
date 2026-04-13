@@ -47,12 +47,13 @@ class InlineResponse20032DataExpenseRatio {
         if (data) {
             obj = obj || new InlineResponse20032DataExpenseRatio();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('potential')) {
+            if (data.hasOwnProperty('potential') && obj['potential'] === undefined) {
                 obj['potential'] = ApiClient.convertToType(data['potential'], 'Number');
             }
+            
         }
         return obj;
     }

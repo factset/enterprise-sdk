@@ -53,24 +53,25 @@ class InlineResponse20014InstrumentIndustryClassificationRbics {
         if (data) {
             obj = obj || new InlineResponse20014InstrumentIndustryClassificationRbics();
 
-            if (data.hasOwnProperty('level1')) {
+            if (data.hasOwnProperty('level1') && obj['level1'] === undefined) {
                 obj['level1'] = InlineResponse20014InstrumentIndustryClassificationRbicsLevel1.constructFromObject(data['level1']);
             }
-            if (data.hasOwnProperty('level2')) {
+            if (data.hasOwnProperty('level2') && obj['level2'] === undefined) {
                 obj['level2'] = InlineResponse20014InstrumentIndustryClassificationRbicsLevel2.constructFromObject(data['level2']);
             }
-            if (data.hasOwnProperty('level3')) {
+            if (data.hasOwnProperty('level3') && obj['level3'] === undefined) {
                 obj['level3'] = InlineResponse20014InstrumentIndustryClassificationRbicsLevel3.constructFromObject(data['level3']);
             }
-            if (data.hasOwnProperty('level4')) {
+            if (data.hasOwnProperty('level4') && obj['level4'] === undefined) {
                 obj['level4'] = InlineResponse20014InstrumentIndustryClassificationRbicsLevel4.constructFromObject(data['level4']);
             }
-            if (data.hasOwnProperty('level5')) {
+            if (data.hasOwnProperty('level5') && obj['level5'] === undefined) {
                 obj['level5'] = InlineResponse20014InstrumentIndustryClassificationRbicsLevel5.constructFromObject(data['level5']);
             }
-            if (data.hasOwnProperty('level6')) {
+            if (data.hasOwnProperty('level6') && obj['level6'] === undefined) {
                 obj['level6'] = InlineResponse20014InstrumentIndustryClassificationRbicsLevel6.constructFromObject(data['level6']);
             }
+            
         }
         return obj;
     }

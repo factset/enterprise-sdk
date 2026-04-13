@@ -48,9 +48,10 @@ class ActiveJobsData {
         if (data) {
             obj = obj || new ActiveJobsData();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ActiveJobIDs.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

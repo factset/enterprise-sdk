@@ -46,27 +46,28 @@ class RelativeRiskStats {
         if (data) {
             obj = obj || new RelativeRiskStats();
 
-            if (data.hasOwnProperty('alpha')) {
+            if (data.hasOwnProperty('alpha') && obj['alpha'] === undefined) {
                 obj['alpha'] = ApiClient.convertToType(data['alpha'], 'Number');
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = ApiClient.convertToType(data['beta'], 'Number');
             }
-            if (data.hasOwnProperty('rsquare')) {
+            if (data.hasOwnProperty('rsquare') && obj['rsquare'] === undefined) {
                 obj['rsquare'] = ApiClient.convertToType(data['rsquare'], 'Number');
             }
-            if (data.hasOwnProperty('upCapture')) {
+            if (data.hasOwnProperty('upCapture') && obj['upCapture'] === undefined) {
                 obj['upCapture'] = ApiClient.convertToType(data['upCapture'], 'Number');
             }
-            if (data.hasOwnProperty('upCaptureMStar')) {
+            if (data.hasOwnProperty('upCaptureMStar') && obj['upCaptureMStar'] === undefined) {
                 obj['upCaptureMStar'] = ApiClient.convertToType(data['upCaptureMStar'], 'Number');
             }
-            if (data.hasOwnProperty('downCapture')) {
+            if (data.hasOwnProperty('downCapture') && obj['downCapture'] === undefined) {
                 obj['downCapture'] = ApiClient.convertToType(data['downCapture'], 'Number');
             }
-            if (data.hasOwnProperty('downCaptureMStar')) {
+            if (data.hasOwnProperty('downCaptureMStar') && obj['downCaptureMStar'] === undefined) {
                 obj['downCaptureMStar'] = ApiClient.convertToType(data['downCaptureMStar'], 'Number');
             }
+            
         }
         return obj;
     }

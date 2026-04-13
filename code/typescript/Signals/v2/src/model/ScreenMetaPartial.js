@@ -50,12 +50,13 @@ class ScreenMetaPartial {
         if (data) {
             obj = obj || new ScreenMetaPartial();
 
-            if (data.hasOwnProperty('isPartial')) {
+            if (data.hasOwnProperty('isPartial') && obj['isPartial'] === undefined) {
                 obj['isPartial'] = ApiClient.convertToType(data['isPartial'], 'Boolean');
             }
-            if (data.hasOwnProperty('reason')) {
+            if (data.hasOwnProperty('reason') && obj['reason'] === undefined) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
             }
+            
         }
         return obj;
     }

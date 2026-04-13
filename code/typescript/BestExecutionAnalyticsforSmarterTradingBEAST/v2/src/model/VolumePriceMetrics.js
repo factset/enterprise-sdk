@@ -47,15 +47,16 @@ class VolumePriceMetrics {
         if (data) {
             obj = obj || new VolumePriceMetrics();
 
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
             }
-            if (data.hasOwnProperty('vwap')) {
+            if (data.hasOwnProperty('vwap') && obj['vwap'] === undefined) {
                 obj['vwap'] = ApiClient.convertToType(data['vwap'], 'Number');
             }
-            if (data.hasOwnProperty('binSize')) {
+            if (data.hasOwnProperty('binSize') && obj['binSize'] === undefined) {
                 obj['binSize'] = ApiClient.convertToType(data['binSize'], 'Number');
             }
+            
         }
         return obj;
     }

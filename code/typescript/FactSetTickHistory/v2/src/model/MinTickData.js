@@ -48,15 +48,16 @@ class MinTickData {
         if (data) {
             obj = obj || new MinTickData();
 
-            if (data.hasOwnProperty('requestTimestamp')) {
+            if (data.hasOwnProperty('requestTimestamp') && obj['requestTimestamp'] === undefined) {
                 obj['requestTimestamp'] = ApiClient.convertToType(data['requestTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('updateTimestamp')) {
+            if (data.hasOwnProperty('updateTimestamp') && obj['updateTimestamp'] === undefined) {
                 obj['updateTimestamp'] = ApiClient.convertToType(data['updateTimestamp'], 'Date');
             }
-            if (data.hasOwnProperty('listOfFiles')) {
+            if (data.hasOwnProperty('listOfFiles') && obj['listOfFiles'] === undefined) {
                 obj['listOfFiles'] = ApiClient.convertToType(data['listOfFiles'], [FilesOne]);
             }
+            
         }
         return obj;
     }

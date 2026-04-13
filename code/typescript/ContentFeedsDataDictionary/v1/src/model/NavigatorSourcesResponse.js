@@ -51,15 +51,16 @@ class NavigatorSourcesResponse {
         if (data) {
             obj = obj || new NavigatorSourcesResponse();
 
-            if (data.hasOwnProperty('sdf')) {
+            if (data.hasOwnProperty('sdf') && obj['sdf'] === undefined) {
                 obj['sdf'] = ApiClient.convertToType(data['sdf'], [Table]);
             }
-            if (data.hasOwnProperty('contentApi')) {
+            if (data.hasOwnProperty('contentApi') && obj['contentApi'] === undefined) {
                 obj['contentApi'] = ApiClient.convertToType(data['contentApi'], [ApiEndpoint]);
             }
-            if (data.hasOwnProperty('reference')) {
+            if (data.hasOwnProperty('reference') && obj['reference'] === undefined) {
                 obj['reference'] = ApiClient.convertToType(data['reference'], [ReferenceGroup]);
             }
+            
         }
         return obj;
     }

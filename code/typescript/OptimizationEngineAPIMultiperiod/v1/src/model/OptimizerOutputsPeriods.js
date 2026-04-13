@@ -46,9 +46,10 @@ class OptimizerOutputsPeriods {
         if (data) {
             obj = obj || new OptimizerOutputsPeriods();
 
-            if (data.hasOwnProperty('weights')) {
+            if (data.hasOwnProperty('weights') && obj['weights'] === undefined) {
                 obj['weights'] = ApiClient.convertToType(data['weights'], 'Number');
             }
+            
         }
         return obj;
     }

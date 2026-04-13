@@ -48,9 +48,10 @@ class InvestmentResearchResponseMeta {
         if (data) {
             obj = obj || new InvestmentResearchResponseMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = InvestmentResearchResponseMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

@@ -49,15 +49,16 @@ class OptimizerOutputTypes {
         if (data) {
             obj = obj || new OptimizerOutputTypes();
 
-            if (data.hasOwnProperty('trades')) {
+            if (data.hasOwnProperty('trades') && obj['trades'] === undefined) {
                 obj['trades'] = OptimizerTradesList.constructFromObject(data['trades']);
             }
-            if (data.hasOwnProperty('optimal')) {
+            if (data.hasOwnProperty('optimal') && obj['optimal'] === undefined) {
                 obj['optimal'] = OptimizerOptimalHoldings.constructFromObject(data['optimal']);
             }
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = OptimalPortfolio.constructFromObject(data['account']);
             }
+            
         }
         return obj;
     }

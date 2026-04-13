@@ -52,21 +52,22 @@ class FIABCalculationParameters {
         if (data) {
             obj = obj || new FIABCalculationParameters();
 
-            if (data.hasOwnProperty('fiabdocument')) {
+            if (data.hasOwnProperty('fiabdocument') && obj['fiabdocument'] === undefined) {
                 obj['fiabdocument'] = ApiClient.convertToType(data['fiabdocument'], 'String');
             }
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = FIABIdentifier.constructFromObject(data['account']);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = FIABDateParameters.constructFromObject(data['dates']);
             }
-            if (data.hasOwnProperty('msl')) {
+            if (data.hasOwnProperty('msl') && obj['msl'] === undefined) {
                 obj['msl'] = ApiClient.convertToType(data['msl'], 'String');
             }
-            if (data.hasOwnProperty('fisettingsdocument')) {
+            if (data.hasOwnProperty('fisettingsdocument') && obj['fisettingsdocument'] === undefined) {
                 obj['fisettingsdocument'] = ApiClient.convertToType(data['fisettingsdocument'], 'String');
             }
+            
         }
         return obj;
     }

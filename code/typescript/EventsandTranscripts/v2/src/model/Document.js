@@ -47,30 +47,31 @@ class Document {
         if (data) {
             obj = obj || new Document();
 
-            if (data.hasOwnProperty('primaryIds')) {
+            if (data.hasOwnProperty('primaryIds') && obj['primaryIds'] === undefined) {
                 obj['primaryIds'] = ApiClient.convertToType(data['primaryIds'], ['String']);
             }
-            if (data.hasOwnProperty('allIds')) {
+            if (data.hasOwnProperty('allIds') && obj['allIds'] === undefined) {
                 obj['allIds'] = ApiClient.convertToType(data['allIds'], ['String']);
             }
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('storyDateTime')) {
+            if (data.hasOwnProperty('storyDateTime') && obj['storyDateTime'] === undefined) {
                 obj['storyDateTime'] = ApiClient.convertToType(data['storyDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('transcriptIntelligenceUrl')) {
+            if (data.hasOwnProperty('transcriptIntelligenceUrl') && obj['transcriptIntelligenceUrl'] === undefined) {
                 obj['transcriptIntelligenceUrl'] = ApiClient.convertToType(data['transcriptIntelligenceUrl'], 'String');
             }
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'String');
             }
-            if (data.hasOwnProperty('uploadDateTime')) {
+            if (data.hasOwnProperty('uploadDateTime') && obj['uploadDateTime'] === undefined) {
                 obj['uploadDateTime'] = ApiClient.convertToType(data['uploadDateTime'], 'Date');
             }
+            
         }
         return obj;
     }

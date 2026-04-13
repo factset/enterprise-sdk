@@ -48,24 +48,24 @@ class IdentifierResolution {
         if (data) {
             obj = obj || new IdentifierResolution();
 
-            ApiClient.constructFromObject(data, obj, 'String');
-            
-
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('inputSymbolType')) {
+            if (data.hasOwnProperty('inputSymbolType') && obj['inputSymbolType'] === undefined) {
                 obj['inputSymbolType'] = ApiClient.convertToType(data['inputSymbolType'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('frefListingExchange')) {
+            if (data.hasOwnProperty('frefListingExchange') && obj['frefListingExchange'] === undefined) {
                 obj['frefListingExchange'] = ApiClient.convertToType(data['frefListingExchange'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
+            
+            ApiClient.constructFromObject(data, obj, String);
+            
         }
         return obj;
     }

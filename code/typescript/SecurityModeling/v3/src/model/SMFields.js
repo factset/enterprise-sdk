@@ -48,9 +48,10 @@ class SMFields {
         if (data) {
             obj = obj || new SMFields();
 
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
+            
         }
         return obj;
     }

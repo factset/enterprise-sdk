@@ -47,9 +47,10 @@ class UniverseMetaResponse {
         if (data) {
             obj = obj || new UniverseMetaResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = Universe.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

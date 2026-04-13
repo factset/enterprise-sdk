@@ -47,9 +47,10 @@ class DatabaseSchema {
         if (data) {
             obj = obj || new DatabaseSchema();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DatabaseSchemaData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

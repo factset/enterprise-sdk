@@ -47,57 +47,58 @@ class StockDistribution {
         if (data) {
             obj = obj || new StockDistribution();
 
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('exchangeCode')) {
+            if (data.hasOwnProperty('exchangeCode') && obj['exchangeCode'] === undefined) {
                 obj['exchangeCode'] = ApiClient.convertToType(data['exchangeCode'], 'String');
             }
-            if (data.hasOwnProperty('exchangeName')) {
+            if (data.hasOwnProperty('exchangeName') && obj['exchangeName'] === undefined) {
                 obj['exchangeName'] = ApiClient.convertToType(data['exchangeName'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('eventType')) {
+            if (data.hasOwnProperty('eventType') && obj['eventType'] === undefined) {
                 obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
-            if (data.hasOwnProperty('announcementDate')) {
+            if (data.hasOwnProperty('announcementDate') && obj['announcementDate'] === undefined) {
                 obj['announcementDate'] = ApiClient.convertToType(data['announcementDate'], 'Date');
             }
-            if (data.hasOwnProperty('recordDate')) {
+            if (data.hasOwnProperty('recordDate') && obj['recordDate'] === undefined) {
                 obj['recordDate'] = ApiClient.convertToType(data['recordDate'], 'Date');
             }
-            if (data.hasOwnProperty('payDate')) {
+            if (data.hasOwnProperty('payDate') && obj['payDate'] === undefined) {
                 obj['payDate'] = ApiClient.convertToType(data['payDate'], 'Date');
             }
-            if (data.hasOwnProperty('effectiveDate')) {
+            if (data.hasOwnProperty('effectiveDate') && obj['effectiveDate'] === undefined) {
                 obj['effectiveDate'] = ApiClient.convertToType(data['effectiveDate'], 'Date');
             }
-            if (data.hasOwnProperty('priceAdjFactor')) {
+            if (data.hasOwnProperty('priceAdjFactor') && obj['priceAdjFactor'] === undefined) {
                 obj['priceAdjFactor'] = ApiClient.convertToType(data['priceAdjFactor'], 'Number');
             }
-            if (data.hasOwnProperty('eventDescription')) {
+            if (data.hasOwnProperty('eventDescription') && obj['eventDescription'] === undefined) {
                 obj['eventDescription'] = ApiClient.convertToType(data['eventDescription'], 'String');
             }
-            if (data.hasOwnProperty('distIdentifier')) {
+            if (data.hasOwnProperty('distIdentifier') && obj['distIdentifier'] === undefined) {
                 obj['distIdentifier'] = ApiClient.convertToType(data['distIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ErrorObjectResponse.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

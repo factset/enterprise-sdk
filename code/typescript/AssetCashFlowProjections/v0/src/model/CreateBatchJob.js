@@ -47,9 +47,10 @@ class CreateBatchJob {
         if (data) {
             obj = obj || new CreateBatchJob();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CreateBatchJobRoot.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

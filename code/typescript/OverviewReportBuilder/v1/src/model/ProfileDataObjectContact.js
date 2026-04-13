@@ -64,36 +64,37 @@ class ProfileDataObjectContact {
         if (data) {
             obj = obj || new ProfileDataObjectContact();
 
-            if (data.hasOwnProperty('address')) {
+            if (data.hasOwnProperty('address') && obj['address'] === undefined) {
                 obj['address'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['address']);
             }
-            if (data.hasOwnProperty('city')) {
+            if (data.hasOwnProperty('city') && obj['city'] === undefined) {
                 obj['city'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['city']);
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['country']);
             }
-            if (data.hasOwnProperty('email')) {
+            if (data.hasOwnProperty('email') && obj['email'] === undefined) {
                 obj['email'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['email']);
             }
-            if (data.hasOwnProperty('people')) {
+            if (data.hasOwnProperty('people') && obj['people'] === undefined) {
                 obj['people'] = ApiClient.convertToType(data['people'], [ProfileDataItemPerson]);
             }
-            if (data.hasOwnProperty('phone')) {
+            if (data.hasOwnProperty('phone') && obj['phone'] === undefined) {
                 obj['phone'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['phone']);
             }
-            if (data.hasOwnProperty('stateProvince')) {
+            if (data.hasOwnProperty('stateProvince') && obj['stateProvince'] === undefined) {
                 obj['stateProvince'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['stateProvince']);
             }
-            if (data.hasOwnProperty('website')) {
+            if (data.hasOwnProperty('website') && obj['website'] === undefined) {
                 obj['website'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['website']);
             }
-            if (data.hasOwnProperty('websiteHome')) {
+            if (data.hasOwnProperty('websiteHome') && obj['websiteHome'] === undefined) {
                 obj['websiteHome'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['websiteHome']);
             }
-            if (data.hasOwnProperty('zip')) {
+            if (data.hasOwnProperty('zip') && obj['zip'] === undefined) {
                 obj['zip'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['zip']);
             }
+            
         }
         return obj;
     }

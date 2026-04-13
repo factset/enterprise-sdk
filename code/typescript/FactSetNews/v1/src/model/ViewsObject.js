@@ -47,36 +47,37 @@ class ViewsObject {
         if (data) {
             obj = obj || new ViewsObject();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('tickers')) {
+            if (data.hasOwnProperty('tickers') && obj['tickers'] === undefined) {
                 obj['tickers'] = ApiClient.convertToType(data['tickers'], [CreateOrEditViewTickers]);
             }
-            if (data.hasOwnProperty('isPrimary')) {
+            if (data.hasOwnProperty('isPrimary') && obj['isPrimary'] === undefined) {
                 obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('topics')) {
+            if (data.hasOwnProperty('topics') && obj['topics'] === undefined) {
                 obj['topics'] = ApiClient.convertToType(data['topics'], ['String']);
             }
-            if (data.hasOwnProperty('sources')) {
+            if (data.hasOwnProperty('sources') && obj['sources'] === undefined) {
                 obj['sources'] = ApiClient.convertToType(data['sources'], ['String']);
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = ApiClient.convertToType(data['regions'], ['String']);
             }
-            if (data.hasOwnProperty('countries')) {
+            if (data.hasOwnProperty('countries') && obj['countries'] === undefined) {
                 obj['countries'] = ApiClient.convertToType(data['countries'], ['String']);
             }
-            if (data.hasOwnProperty('quickAlert')) {
+            if (data.hasOwnProperty('quickAlert') && obj['quickAlert'] === undefined) {
                 obj['quickAlert'] = ApiClient.convertToType(data['quickAlert'], 'Boolean');
             }
-            if (data.hasOwnProperty('searchText')) {
+            if (data.hasOwnProperty('searchText') && obj['searchText'] === undefined) {
                 obj['searchText'] = ApiClient.convertToType(data['searchText'], 'String');
             }
+            
         }
         return obj;
     }

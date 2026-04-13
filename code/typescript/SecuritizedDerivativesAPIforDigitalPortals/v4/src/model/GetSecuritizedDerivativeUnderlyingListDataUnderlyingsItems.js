@@ -51,30 +51,31 @@ class GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItems {
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItems();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('operatingMIC')) {
+            if (data.hasOwnProperty('operatingMIC') && obj['operatingMIC'] === undefined) {
                 obj['operatingMIC'] = GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsOperatingMIC.constructFromObject(data['operatingMIC']);
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotation.constructFromObject(data['notation']);
             }
-            if (data.hasOwnProperty('coverRatio')) {
+            if (data.hasOwnProperty('coverRatio') && obj['coverRatio'] === undefined) {
                 obj['coverRatio'] = ApiClient.convertToType(data['coverRatio'], 'Number');
             }
-            if (data.hasOwnProperty('referenceLevel')) {
+            if (data.hasOwnProperty('referenceLevel') && obj['referenceLevel'] === undefined) {
                 obj['referenceLevel'] = ApiClient.convertToType(data['referenceLevel'], 'Number');
             }
-            if (data.hasOwnProperty('constantLeverage')) {
+            if (data.hasOwnProperty('constantLeverage') && obj['constantLeverage'] === undefined) {
                 obj['constantLeverage'] = ApiClient.convertToType(data['constantLeverage'], 'Number');
             }
-            if (data.hasOwnProperty('calculationLevel')) {
+            if (data.hasOwnProperty('calculationLevel') && obj['calculationLevel'] === undefined) {
                 obj['calculationLevel'] = GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsCalculationLevel.constructFromObject(data['calculationLevel']);
             }
+            
         }
         return obj;
     }

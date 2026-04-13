@@ -54,27 +54,32 @@ class TextBlockFootingTemplateData {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new TextBlockFootingTemplateData();
-            TemplateWithLinks.constructFromObject(data, obj);
-            TextBlockFootingTemplateDataAllOf.constructFromObject(data, obj);
+            try {
+              obj = TemplateWithLinks.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = TextBlockFootingTemplateDataAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
             }
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
-            if (data.hasOwnProperty('applicationLinks')) {
+            if (data.hasOwnProperty('applicationLinks') && obj['applicationLinks'] === undefined) {
                 obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
             }
-            if (data.hasOwnProperty('body')) {
+            if (data.hasOwnProperty('body') && obj['body'] === undefined) {
                 obj['body'] = ApiClient.convertToType(data['body'], 'String');
             }
-            if (data.hasOwnProperty('footing')) {
+            if (data.hasOwnProperty('footing') && obj['footing'] === undefined) {
                 obj['footing'] = TitledTextBlock.constructFromObject(data['footing']);
             }
+            
         }
         return obj;
     }

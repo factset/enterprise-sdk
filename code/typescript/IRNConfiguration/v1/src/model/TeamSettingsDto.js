@@ -46,9 +46,10 @@ class TeamSettingsDto {
         if (data) {
             obj = obj || new TeamSettingsDto();
 
-            if (data.hasOwnProperty('defaultId')) {
+            if (data.hasOwnProperty('defaultId') && obj['defaultId'] === undefined) {
                 obj['defaultId'] = ApiClient.convertToType(data['defaultId'], 'String');
             }
+            
         }
         return obj;
     }

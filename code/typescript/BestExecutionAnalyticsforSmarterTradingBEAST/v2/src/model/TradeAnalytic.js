@@ -47,18 +47,19 @@ class TradeAnalytic {
         if (data) {
             obj = obj || new TradeAnalytic();
 
-            if (data.hasOwnProperty('timeZoneName')) {
+            if (data.hasOwnProperty('timeZoneName') && obj['timeZoneName'] === undefined) {
                 obj['timeZoneName'] = ApiClient.convertToType(data['timeZoneName'], 'String');
             }
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('binTime')) {
+            if (data.hasOwnProperty('binTime') && obj['binTime'] === undefined) {
                 obj['binTime'] = ApiClient.convertToType(data['binTime'], 'String');
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -50,12 +50,13 @@ class FactorGroup {
         if (data) {
             obj = obj || new FactorGroup();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('nodes')) {
+            if (data.hasOwnProperty('nodes') && obj['nodes'] === undefined) {
                 obj['nodes'] = ApiClient.convertToType(data['nodes'], [FactorGroupNodes]);
             }
+            
         }
         return obj;
     }

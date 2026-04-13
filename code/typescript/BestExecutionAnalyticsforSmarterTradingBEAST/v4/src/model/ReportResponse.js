@@ -48,9 +48,10 @@ class ReportResponse {
         if (data) {
             obj = obj || new ReportResponse();
 
-            if (data.hasOwnProperty('analysis')) {
+            if (data.hasOwnProperty('analysis') && obj['analysis'] === undefined) {
                 obj['analysis'] = ApiClient.convertToType(data['analysis'], [ReportRecord]);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class DataAnswer {
         if (data) {
             obj = obj || new DataAnswer();
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
+            
         }
         return obj;
     }

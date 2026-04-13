@@ -48,30 +48,31 @@ class Dataresponseitems {
         if (data) {
             obj = obj || new Dataresponseitems();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('bundle')) {
+            if (data.hasOwnProperty('bundle') && obj['bundle'] === undefined) {
                 obj['bundle'] = ApiClient.convertToType(data['bundle'], 'String');
             }
-            if (data.hasOwnProperty('schema')) {
+            if (data.hasOwnProperty('schema') && obj['schema'] === undefined) {
                 obj['schema'] = ApiClient.convertToType(data['schema'], 'String');
             }
-            if (data.hasOwnProperty('sequence')) {
+            if (data.hasOwnProperty('sequence') && obj['sequence'] === undefined) {
                 obj['sequence'] = ApiClient.convertToType(data['sequence'], 'String');
             }
-            if (data.hasOwnProperty('related_bundles')) {
+            if (data.hasOwnProperty('related_bundles') && obj['related_bundles'] === undefined) {
                 obj['related_bundles'] = ApiClient.convertToType(data['related_bundles'], [DataresponseitemsRelatedBundles]);
             }
-            if (data.hasOwnProperty('timestamp')) {
+            if (data.hasOwnProperty('timestamp') && obj['timestamp'] === undefined) {
                 obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('fileSize')) {
+            if (data.hasOwnProperty('fileSize') && obj['fileSize'] === undefined) {
                 obj['fileSize'] = ApiClient.convertToType(data['fileSize'], 'String');
             }
+            
         }
         return obj;
     }

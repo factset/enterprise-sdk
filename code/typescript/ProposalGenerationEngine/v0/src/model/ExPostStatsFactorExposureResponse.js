@@ -50,12 +50,13 @@ class ExPostStatsFactorExposureResponse {
         if (data) {
             obj = obj || new ExPostStatsFactorExposureResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DatedNodeStats.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ExPostStatsFactorExposureResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

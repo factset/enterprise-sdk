@@ -46,9 +46,10 @@ class RollingStatsPerTimeWindowRolling {
         if (data) {
             obj = obj || new RollingStatsPerTimeWindowRolling();
 
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = ApiClient.convertToType(data['maximum'], Object);
             }
+            
         }
         return obj;
     }

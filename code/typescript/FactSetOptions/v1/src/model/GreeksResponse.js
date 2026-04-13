@@ -48,9 +48,10 @@ class GreeksResponse {
         if (data) {
             obj = obj || new GreeksResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Greeks]);
             }
+            
         }
         return obj;
     }

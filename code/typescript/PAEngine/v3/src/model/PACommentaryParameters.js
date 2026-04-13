@@ -46,9 +46,10 @@ class PACommentaryParameters {
         if (data) {
             obj = obj || new PACommentaryParameters();
 
-            if (data.hasOwnProperty('configurationid')) {
+            if (data.hasOwnProperty('configurationid') && obj['configurationid'] === undefined) {
                 obj['configurationid'] = ApiClient.convertToType(data['configurationid'], 'String');
             }
+            
         }
         return obj;
     }

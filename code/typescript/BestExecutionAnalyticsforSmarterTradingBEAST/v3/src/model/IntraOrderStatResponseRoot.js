@@ -50,9 +50,10 @@ class IntraOrderStatResponseRoot {
         if (data) {
             obj = obj || new IntraOrderStatResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = IntraOrderStatResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

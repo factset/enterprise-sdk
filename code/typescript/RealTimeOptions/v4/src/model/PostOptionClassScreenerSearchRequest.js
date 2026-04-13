@@ -51,12 +51,13 @@ class PostOptionClassScreenerSearchRequest {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostOptionClassScreenerSearchRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostOptionClassScreenerSearchRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

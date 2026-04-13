@@ -47,9 +47,10 @@ class SPARComponentRoot {
         if (data) {
             obj = obj || new SPARComponentRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SPARComponent.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

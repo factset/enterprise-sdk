@@ -46,60 +46,61 @@ class Surprise {
         if (data) {
             obj = obj || new Surprise();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('estimateCurrency')) {
+            if (data.hasOwnProperty('estimateCurrency') && obj['estimateCurrency'] === undefined) {
                 obj['estimateCurrency'] = ApiClient.convertToType(data['estimateCurrency'], 'String');
             }
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('statistic')) {
+            if (data.hasOwnProperty('statistic') && obj['statistic'] === undefined) {
                 obj['statistic'] = ApiClient.convertToType(data['statistic'], 'String');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = ApiClient.convertToType(data['periodicity'], 'String');
             }
-            if (data.hasOwnProperty('fiscalEndDate')) {
+            if (data.hasOwnProperty('fiscalEndDate') && obj['fiscalEndDate'] === undefined) {
                 obj['fiscalEndDate'] = ApiClient.convertToType(data['fiscalEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalPeriod')) {
+            if (data.hasOwnProperty('fiscalPeriod') && obj['fiscalPeriod'] === undefined) {
                 obj['fiscalPeriod'] = ApiClient.convertToType(data['fiscalPeriod'], 'Number');
             }
-            if (data.hasOwnProperty('surpriseDate')) {
+            if (data.hasOwnProperty('surpriseDate') && obj['surpriseDate'] === undefined) {
                 obj['surpriseDate'] = ApiClient.convertToType(data['surpriseDate'], 'Date');
             }
-            if (data.hasOwnProperty('surpriseAmount')) {
+            if (data.hasOwnProperty('surpriseAmount') && obj['surpriseAmount'] === undefined) {
                 obj['surpriseAmount'] = ApiClient.convertToType(data['surpriseAmount'], 'Number');
             }
-            if (data.hasOwnProperty('surprisePercent')) {
+            if (data.hasOwnProperty('surprisePercent') && obj['surprisePercent'] === undefined) {
                 obj['surprisePercent'] = ApiClient.convertToType(data['surprisePercent'], 'Number');
             }
-            if (data.hasOwnProperty('surpriseBefore')) {
+            if (data.hasOwnProperty('surpriseBefore') && obj['surpriseBefore'] === undefined) {
                 obj['surpriseBefore'] = ApiClient.convertToType(data['surpriseBefore'], 'Number');
             }
-            if (data.hasOwnProperty('surpriseAfter')) {
+            if (data.hasOwnProperty('surpriseAfter') && obj['surpriseAfter'] === undefined) {
                 obj['surpriseAfter'] = ApiClient.convertToType(data['surpriseAfter'], 'Number');
             }
-            if (data.hasOwnProperty('eventDescription')) {
+            if (data.hasOwnProperty('eventDescription') && obj['eventDescription'] === undefined) {
                 obj['eventDescription'] = ApiClient.convertToType(data['eventDescription'], 'String');
             }
-            if (data.hasOwnProperty('eventFlag')) {
+            if (data.hasOwnProperty('eventFlag') && obj['eventFlag'] === undefined) {
                 obj['eventFlag'] = ApiClient.convertToType(data['eventFlag'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

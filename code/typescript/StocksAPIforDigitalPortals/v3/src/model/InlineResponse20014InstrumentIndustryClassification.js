@@ -48,9 +48,10 @@ class InlineResponse20014InstrumentIndustryClassification {
         if (data) {
             obj = obj || new InlineResponse20014InstrumentIndustryClassification();
 
-            if (data.hasOwnProperty('rbics')) {
+            if (data.hasOwnProperty('rbics') && obj['rbics'] === undefined) {
                 obj['rbics'] = InlineResponse20014InstrumentIndustryClassificationRbics.constructFromObject(data['rbics']);
             }
+            
         }
         return obj;
     }

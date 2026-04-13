@@ -49,12 +49,13 @@ class PostOptionByClassValueRangesGetRequestDataLifeCycle {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataLifeCycle();
 
-            if (data.hasOwnProperty('maturity')) {
+            if (data.hasOwnProperty('maturity') && obj['maturity'] === undefined) {
                 obj['maturity'] = PostOptionByClassValueRangesGetRequestDataLifeCycleMaturity.constructFromObject(data['maturity']);
             }
-            if (data.hasOwnProperty('expiration')) {
+            if (data.hasOwnProperty('expiration') && obj['expiration'] === undefined) {
                 obj['expiration'] = PostOptionByClassValueRangesGetRequestDataLifeCycleExpiration.constructFromObject(data['expiration']);
             }
+            
         }
         return obj;
     }

@@ -54,24 +54,25 @@ class FactorsRequest {
         if (data) {
             obj = obj || new FactorsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], ['String']);
             }
-            if (data.hasOwnProperty('factorGroups')) {
+            if (data.hasOwnProperty('factorGroups') && obj['factorGroups'] === undefined) {
                 obj['factorGroups'] = ApiClient.convertToType(data['factorGroups'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = Frequency.constructFromObject(data['frequency']);
             }
+            
         }
         return obj;
     }

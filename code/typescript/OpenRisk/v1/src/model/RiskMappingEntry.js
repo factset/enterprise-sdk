@@ -59,21 +59,26 @@ class RiskMappingEntry {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new RiskMappingEntry();
-            MappedSecurityInfo.constructFromObject(data, obj);
-            RiskExclusionInfo.constructFromObject(data, obj);
+            try {
+              obj = MappedSecurityInfo.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = RiskExclusionInfo.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('covered')) {
+            if (data.hasOwnProperty('covered') && obj['covered'] === undefined) {
                 obj['covered'] = ApiClient.convertToType(data['covered'], 'Boolean');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('modelClass')) {
+            if (data.hasOwnProperty('modelClass') && obj['modelClass'] === undefined) {
                 obj['modelClass'] = ApiClient.convertToType(data['modelClass'], 'String');
             }
-            if (data.hasOwnProperty('exclusionInfo')) {
+            if (data.hasOwnProperty('exclusionInfo') && obj['exclusionInfo'] === undefined) {
                 obj['exclusionInfo'] = RiskExclusionInfoExclusionInfo.constructFromObject(data['exclusionInfo']);
             }
+            
         }
         return obj;
     }

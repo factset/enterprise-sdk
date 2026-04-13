@@ -47,9 +47,10 @@ class PostStockNotationScreenerSearchRequestDataIndustryClassificationExclude {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataIndustryClassificationExclude();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
+            
         }
         return obj;
     }

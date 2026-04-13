@@ -47,18 +47,19 @@ class CustomSymbolCustomFieldValueDto {
         if (data) {
             obj = obj || new CustomSymbolCustomFieldValueDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('optionValues')) {
+            if (data.hasOwnProperty('optionValues') && obj['optionValues'] === undefined) {
                 obj['optionValues'] = ApiClient.convertToType(data['optionValues'], ['String']);
             }
-            if (data.hasOwnProperty('contacts')) {
+            if (data.hasOwnProperty('contacts') && obj['contacts'] === undefined) {
                 obj['contacts'] = ApiClient.convertToType(data['contacts'], [CustomSymbolContact]);
             }
+            
         }
         return obj;
     }

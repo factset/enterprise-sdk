@@ -47,27 +47,28 @@ class BiomarkersFiles {
         if (data) {
             obj = obj || new BiomarkersFiles();
 
-            if (data.hasOwnProperty('organ')) {
+            if (data.hasOwnProperty('organ') && obj['organ'] === undefined) {
                 obj['organ'] = ApiClient.convertToType(data['organ'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('biomarkerName')) {
+            if (data.hasOwnProperty('biomarkerName') && obj['biomarkerName'] === undefined) {
                 obj['biomarkerName'] = ApiClient.convertToType(data['biomarkerName'], 'String');
             }
-            if (data.hasOwnProperty('biomarkerFullName')) {
+            if (data.hasOwnProperty('biomarkerFullName') && obj['biomarkerFullName'] === undefined) {
                 obj['biomarkerFullName'] = ApiClient.convertToType(data['biomarkerFullName'], 'String');
             }
-            if (data.hasOwnProperty('biomarkerType')) {
+            if (data.hasOwnProperty('biomarkerType') && obj['biomarkerType'] === undefined) {
                 obj['biomarkerType'] = ApiClient.convertToType(data['biomarkerType'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class ExPostPortfolioInvestmentAllOf {
         if (data) {
             obj = obj || new ExPostPortfolioInvestmentAllOf();
 
-            if (data.hasOwnProperty('salesCharge')) {
+            if (data.hasOwnProperty('salesCharge') && obj['salesCharge'] === undefined) {
                 obj['salesCharge'] = ApiClient.convertToType(data['salesCharge'], 'Number');
             }
-            if (data.hasOwnProperty('transactionRules')) {
+            if (data.hasOwnProperty('transactionRules') && obj['transactionRules'] === undefined) {
                 obj['transactionRules'] = ApiClient.convertToType(data['transactionRules'], [TransactionRule]);
             }
+            
         }
         return obj;
     }

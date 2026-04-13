@@ -47,15 +47,16 @@ class OptimizerInputsDerivative {
         if (data) {
             obj = obj || new OptimizerInputsDerivative();
 
-            if (data.hasOwnProperty('offset_index')) {
+            if (data.hasOwnProperty('offset_index') && obj['offset_index'] === undefined) {
                 obj['offset_index'] = ApiClient.convertToType(data['offset_index'], 'Number');
             }
-            if (data.hasOwnProperty('future')) {
+            if (data.hasOwnProperty('future') && obj['future'] === undefined) {
                 obj['future'] = OptimizerInputsDerivativeFuture.constructFromObject(data['future']);
             }
-            if (data.hasOwnProperty('forward')) {
+            if (data.hasOwnProperty('forward') && obj['forward'] === undefined) {
                 obj['forward'] = ApiClient.convertToType(data['forward'], 'Boolean');
             }
+            
         }
         return obj;
     }

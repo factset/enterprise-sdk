@@ -47,9 +47,10 @@ class MarkdownTableMetadata {
         if (data) {
             obj = obj || new MarkdownTableMetadata();
 
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
+            
         }
         return obj;
     }

@@ -46,21 +46,22 @@ class ReturnsRange {
         if (data) {
             obj = obj || new ReturnsRange();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('return')) {
+            if (data.hasOwnProperty('return') && obj['return'] === undefined) {
                 obj['return'] = ApiClient.convertToType(data['return'], 'Number');
             }
-            if (data.hasOwnProperty('returnStartDate')) {
+            if (data.hasOwnProperty('returnStartDate') && obj['returnStartDate'] === undefined) {
                 obj['returnStartDate'] = ApiClient.convertToType(data['returnStartDate'], 'Date');
             }
-            if (data.hasOwnProperty('returnEndDate')) {
+            if (data.hasOwnProperty('returnEndDate') && obj['returnEndDate'] === undefined) {
                 obj['returnEndDate'] = ApiClient.convertToType(data['returnEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

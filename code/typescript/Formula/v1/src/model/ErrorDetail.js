@@ -48,12 +48,13 @@ class ErrorDetail {
         if (data) {
             obj = obj || new ErrorDetail();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], Object);
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorObject]);
             }
+            
         }
         return obj;
     }

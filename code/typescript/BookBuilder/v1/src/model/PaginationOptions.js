@@ -47,21 +47,22 @@ class PaginationOptions {
         if (data) {
             obj = obj || new PaginationOptions();
 
-            if (data.hasOwnProperty('cover')) {
+            if (data.hasOwnProperty('cover') && obj['cover'] === undefined) {
                 obj['cover'] = ApiClient.convertToType(data['cover'], 'Boolean');
             }
-            if (data.hasOwnProperty('divider')) {
+            if (data.hasOwnProperty('divider') && obj['divider'] === undefined) {
                 obj['divider'] = ApiClient.convertToType(data['divider'], 'Boolean');
             }
-            if (data.hasOwnProperty('toc')) {
+            if (data.hasOwnProperty('toc') && obj['toc'] === undefined) {
                 obj['toc'] = ApiClient.convertToType(data['toc'], 'Boolean');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'Boolean');
             }
-            if (data.hasOwnProperty('timestamp')) {
+            if (data.hasOwnProperty('timestamp') && obj['timestamp'] === undefined) {
                 obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Boolean');
             }
+            
         }
         return obj;
     }

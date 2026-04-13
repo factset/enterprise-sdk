@@ -51,18 +51,19 @@ class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerSha
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShare();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('earnings')) {
+            if (data.hasOwnProperty('earnings') && obj['earnings'] === undefined) {
                 obj['earnings'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareEarnings.constructFromObject(data['earnings']);
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareDividends.constructFromObject(data['dividends']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesPerShareCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

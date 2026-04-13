@@ -44,10 +44,11 @@ class CriteriaDetail {
      */
     static constructFromObject(data, obj) {
         // openApiType:array format:
-        if (Array.isArray(data)) return ApiClient.setValue(obj || new CriteriaDetail(), data);
+        if (Array.isArray(data)) return data;
         // openApiType:array format:
-        if (Array.isArray(data)) return ApiClient.setValue(obj || new CriteriaDetail(), data);
-        if (typeof data === 'string') return ApiClient.setValue(obj || new CriteriaDetail(), data);
+        if (Array.isArray(data)) return data;
+        if (typeof data === 'string') return data;
+        throw new Error("Failed to construct CriteriaDetail due to oneOf-schemas not matching the data: " + data);
     }
 
 

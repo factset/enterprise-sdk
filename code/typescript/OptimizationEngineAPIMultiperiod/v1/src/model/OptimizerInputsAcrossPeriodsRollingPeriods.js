@@ -47,12 +47,13 @@ class OptimizerInputsAcrossPeriodsRollingPeriods {
         if (data) {
             obj = obj || new OptimizerInputsAcrossPeriodsRollingPeriods();
 
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'Number');
             }
-            if (data.hasOwnProperty('method')) {
+            if (data.hasOwnProperty('method') && obj['method'] === undefined) {
                 obj['method'] = OptimizerInputsRollingMethodEnum.constructFromObject(data['method']);
             }
+            
         }
         return obj;
     }

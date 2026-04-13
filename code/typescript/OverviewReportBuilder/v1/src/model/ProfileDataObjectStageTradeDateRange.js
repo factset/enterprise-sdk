@@ -47,12 +47,13 @@ class ProfileDataObjectStageTradeDateRange {
         if (data) {
             obj = obj || new ProfileDataObjectStageTradeDateRange();
 
-            if (data.hasOwnProperty('end')) {
+            if (data.hasOwnProperty('end') && obj['end'] === undefined) {
                 obj['end'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['end']);
             }
-            if (data.hasOwnProperty('start')) {
+            if (data.hasOwnProperty('start') && obj['start'] === undefined) {
                 obj['start'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['start']);
             }
+            
         }
         return obj;
     }

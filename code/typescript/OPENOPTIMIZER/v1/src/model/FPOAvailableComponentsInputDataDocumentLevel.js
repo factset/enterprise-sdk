@@ -46,12 +46,13 @@ class FPOAvailableComponentsInputDataDocumentLevel {
         if (data) {
             obj = obj || new FPOAvailableComponentsInputDataDocumentLevel();
 
-            if (data.hasOwnProperty('strategy')) {
+            if (data.hasOwnProperty('strategy') && obj['strategy'] === undefined) {
                 obj['strategy'] = ApiClient.convertToType(data['strategy'], 'String');
             }
-            if (data.hasOwnProperty('documentLevelOnly')) {
+            if (data.hasOwnProperty('documentLevelOnly') && obj['documentLevelOnly'] === undefined) {
                 obj['documentLevelOnly'] = ApiClient.convertToType(data['documentLevelOnly'], 'Boolean');
             }
+            
         }
         return obj;
     }

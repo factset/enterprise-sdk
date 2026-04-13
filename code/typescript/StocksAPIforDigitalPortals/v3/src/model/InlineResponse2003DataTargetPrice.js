@@ -48,15 +48,16 @@ class InlineResponse2003DataTargetPrice {
         if (data) {
             obj = obj || new InlineResponse2003DataTargetPrice();
 
-            if (data.hasOwnProperty('latestUpdate')) {
+            if (data.hasOwnProperty('latestUpdate') && obj['latestUpdate'] === undefined) {
                 obj['latestUpdate'] = ApiClient.convertToType(data['latestUpdate'], 'Date');
             }
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse2003DataTargetPriceCurrency.constructFromObject(data['currency']);
             }
+            
         }
         return obj;
     }

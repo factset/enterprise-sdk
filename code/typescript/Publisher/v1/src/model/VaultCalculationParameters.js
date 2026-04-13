@@ -54,21 +54,22 @@ class VaultCalculationParameters {
         if (data) {
             obj = obj || new VaultCalculationParameters();
 
-            if (data.hasOwnProperty('componentid')) {
+            if (data.hasOwnProperty('componentid') && obj['componentid'] === undefined) {
                 obj['componentid'] = ApiClient.convertToType(data['componentid'], 'String');
             }
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = VaultIdentifier.constructFromObject(data['account']);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = VaultDateParameters.constructFromObject(data['dates']);
             }
-            if (data.hasOwnProperty('configid')) {
+            if (data.hasOwnProperty('configid') && obj['configid'] === undefined) {
                 obj['configid'] = ApiClient.convertToType(data['configid'], 'String');
             }
-            if (data.hasOwnProperty('componentdetail')) {
+            if (data.hasOwnProperty('componentdetail') && obj['componentdetail'] === undefined) {
                 obj['componentdetail'] = ApiClient.convertToType(data['componentdetail'], 'String');
             }
+            
         }
         return obj;
     }

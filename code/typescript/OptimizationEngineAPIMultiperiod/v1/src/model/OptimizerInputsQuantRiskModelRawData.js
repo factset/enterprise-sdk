@@ -49,21 +49,22 @@ class OptimizerInputsQuantRiskModelRawData {
         if (data) {
             obj = obj || new OptimizerInputsQuantRiskModelRawData();
 
-            if (data.hasOwnProperty('labels')) {
+            if (data.hasOwnProperty('labels') && obj['labels'] === undefined) {
                 obj['labels'] = OptimizerInputsLabels.constructFromObject(data['labels']);
             }
-            if (data.hasOwnProperty('RawAssetCovarianceMatrix')) {
+            if (data.hasOwnProperty('RawAssetCovarianceMatrix') && obj['RawAssetCovarianceMatrix'] === undefined) {
                 obj['RawAssetCovarianceMatrix'] = OptimizerInputsSparseMatrix.constructFromObject(data['RawAssetCovarianceMatrix']);
             }
-            if (data.hasOwnProperty('RawFactorExposure')) {
+            if (data.hasOwnProperty('RawFactorExposure') && obj['RawFactorExposure'] === undefined) {
                 obj['RawFactorExposure'] = OptimizerInputsSparseMatrix.constructFromObject(data['RawFactorExposure']);
             }
-            if (data.hasOwnProperty('RawFactorCovarianceMatrix')) {
+            if (data.hasOwnProperty('RawFactorCovarianceMatrix') && obj['RawFactorCovarianceMatrix'] === undefined) {
                 obj['RawFactorCovarianceMatrix'] = OptimizerInputsDenseMatrix.constructFromObject(data['RawFactorCovarianceMatrix']);
             }
-            if (data.hasOwnProperty('RiskModelCoverageFlag')) {
+            if (data.hasOwnProperty('RiskModelCoverageFlag') && obj['RiskModelCoverageFlag'] === undefined) {
                 obj['RiskModelCoverageFlag'] = ApiClient.convertToType(data['RiskModelCoverageFlag'], ['Number']);
             }
+            
         }
         return obj;
     }

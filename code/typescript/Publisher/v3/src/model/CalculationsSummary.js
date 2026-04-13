@@ -46,18 +46,19 @@ class CalculationsSummary {
         if (data) {
             obj = obj || new CalculationsSummary();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('units')) {
+            if (data.hasOwnProperty('units') && obj['units'] === undefined) {
                 obj['units'] = ApiClient.convertToType(data['units'], 'Number');
             }
-            if (data.hasOwnProperty('requestTime')) {
+            if (data.hasOwnProperty('requestTime') && obj['requestTime'] === undefined) {
                 obj['requestTime'] = ApiClient.convertToType(data['requestTime'], 'Date');
             }
-            if (data.hasOwnProperty('lastPollTime')) {
+            if (data.hasOwnProperty('lastPollTime') && obj['lastPollTime'] === undefined) {
                 obj['lastPollTime'] = ApiClient.convertToType(data['lastPollTime'], 'Date');
             }
+            
         }
         return obj;
     }

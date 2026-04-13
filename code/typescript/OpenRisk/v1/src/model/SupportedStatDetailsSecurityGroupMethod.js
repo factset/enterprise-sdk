@@ -51,18 +51,19 @@ class SupportedStatDetailsSecurityGroupMethod {
         if (data) {
             obj = obj || new SupportedStatDetailsSecurityGroupMethod();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('weights')) {
+            if (data.hasOwnProperty('weights') && obj['weights'] === undefined) {
                 obj['weights'] = ApiClient.convertToType(data['weights'], 'String');
             }
-            if (data.hasOwnProperty('weighting')) {
+            if (data.hasOwnProperty('weighting') && obj['weighting'] === undefined) {
                 obj['weighting'] = ApiClient.convertToType(data['weighting'], 'String');
             }
-            if (data.hasOwnProperty('sqrt')) {
+            if (data.hasOwnProperty('sqrt') && obj['sqrt'] === undefined) {
                 obj['sqrt'] = ApiClient.convertToType(data['sqrt'], 'Boolean');
             }
+            
         }
         return obj;
     }

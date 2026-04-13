@@ -47,15 +47,16 @@ class InlineResponse2001DataIncomeStatementClaimLossExpense {
         if (data) {
             obj = obj || new InlineResponse2001DataIncomeStatementClaimLossExpense();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('lossRatio')) {
+            if (data.hasOwnProperty('lossRatio') && obj['lossRatio'] === undefined) {
                 obj['lossRatio'] = ApiClient.convertToType(data['lossRatio'], 'Number');
             }
+            
         }
         return obj;
     }

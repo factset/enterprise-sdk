@@ -46,63 +46,64 @@ class CostsFees {
         if (data) {
             obj = obj || new CostsFees();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('managementExpenses')) {
+            if (data.hasOwnProperty('managementExpenses') && obj['managementExpenses'] === undefined) {
                 obj['managementExpenses'] = ApiClient.convertToType(data['managementExpenses'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('entryExpenses')) {
+            if (data.hasOwnProperty('entryExpenses') && obj['entryExpenses'] === undefined) {
                 obj['entryExpenses'] = ApiClient.convertToType(data['entryExpenses'], 'Number');
             }
-            if (data.hasOwnProperty('exitExpenses')) {
+            if (data.hasOwnProperty('exitExpenses') && obj['exitExpenses'] === undefined) {
                 obj['exitExpenses'] = ApiClient.convertToType(data['exitExpenses'], 'Number');
             }
-            if (data.hasOwnProperty('frontExpensesMax')) {
+            if (data.hasOwnProperty('frontExpensesMax') && obj['frontExpensesMax'] === undefined) {
                 obj['frontExpensesMax'] = ApiClient.convertToType(data['frontExpensesMax'], 'Number');
             }
-            if (data.hasOwnProperty('backExpensesMax')) {
+            if (data.hasOwnProperty('backExpensesMax') && obj['backExpensesMax'] === undefined) {
                 obj['backExpensesMax'] = ApiClient.convertToType(data['backExpensesMax'], 'Number');
             }
-            if (data.hasOwnProperty('expenseRatio')) {
+            if (data.hasOwnProperty('expenseRatio') && obj['expenseRatio'] === undefined) {
                 obj['expenseRatio'] = ApiClient.convertToType(data['expenseRatio'], 'Number');
             }
-            if (data.hasOwnProperty('expenseRatioProspectus')) {
+            if (data.hasOwnProperty('expenseRatioProspectus') && obj['expenseRatioProspectus'] === undefined) {
                 obj['expenseRatioProspectus'] = ApiClient.convertToType(data['expenseRatioProspectus'], 'Number');
             }
-            if (data.hasOwnProperty('initInvestmentMin')) {
+            if (data.hasOwnProperty('initInvestmentMin') && obj['initInvestmentMin'] === undefined) {
                 obj['initInvestmentMin'] = ApiClient.convertToType(data['initInvestmentMin'], 'Number');
             }
-            if (data.hasOwnProperty('initInvestmentIra')) {
+            if (data.hasOwnProperty('initInvestmentIra') && obj['initInvestmentIra'] === undefined) {
                 obj['initInvestmentIra'] = ApiClient.convertToType(data['initInvestmentIra'], 'Number');
             }
-            if (data.hasOwnProperty('swingPrice')) {
+            if (data.hasOwnProperty('swingPrice') && obj['swingPrice'] === undefined) {
                 obj['swingPrice'] = ApiClient.convertToType(data['swingPrice'], 'Number');
             }
-            if (data.hasOwnProperty('swingPriceDate')) {
+            if (data.hasOwnProperty('swingPriceDate') && obj['swingPriceDate'] === undefined) {
                 obj['swingPriceDate'] = ApiClient.convertToType(data['swingPriceDate'], 'Date');
             }
-            if (data.hasOwnProperty('sriPriips')) {
+            if (data.hasOwnProperty('sriPriips') && obj['sriPriips'] === undefined) {
                 obj['sriPriips'] = ApiClient.convertToType(data['sriPriips'], 'Number');
             }
-            if (data.hasOwnProperty('srriUcits')) {
+            if (data.hasOwnProperty('srriUcits') && obj['srriUcits'] === undefined) {
                 obj['srriUcits'] = ApiClient.convertToType(data['srriUcits'], 'Number');
             }
-            if (data.hasOwnProperty('performanceFee')) {
+            if (data.hasOwnProperty('performanceFee') && obj['performanceFee'] === undefined) {
                 obj['performanceFee'] = ApiClient.convertToType(data['performanceFee'], 'Number');
             }
-            if (data.hasOwnProperty('tradingExpenseRatio')) {
+            if (data.hasOwnProperty('tradingExpenseRatio') && obj['tradingExpenseRatio'] === undefined) {
                 obj['tradingExpenseRatio'] = ApiClient.convertToType(data['tradingExpenseRatio'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

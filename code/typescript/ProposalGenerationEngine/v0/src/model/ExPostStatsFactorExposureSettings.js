@@ -51,28 +51,35 @@ class ExPostStatsFactorExposureSettings {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExPostStatsFactorExposureSettings();
-            BaseSettings.constructFromObject(data, obj);
-            TimeWindow.constructFromObject(data, obj);
-            ExPostStatsFactorExposureSettingsAllOf.constructFromObject(data, obj);
+            try {
+              obj = BaseSettings.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = TimeWindow.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ExPostStatsFactorExposureSettingsAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
             }
-            if (data.hasOwnProperty('returnsPreferences')) {
+            if (data.hasOwnProperty('returnsPreferences') && obj['returnsPreferences'] === undefined) {
                 obj['returnsPreferences'] = ApiClient.convertToType(data['returnsPreferences'], 'String');
             }
-            if (data.hasOwnProperty('validatePortfolio')) {
+            if (data.hasOwnProperty('validatePortfolio') && obj['validatePortfolio'] === undefined) {
                 obj['validatePortfolio'] = ApiClient.convertToType(data['validatePortfolio'], 'Boolean');
             }
-            if (data.hasOwnProperty('timeWindows')) {
+            if (data.hasOwnProperty('timeWindows') && obj['timeWindows'] === undefined) {
                 obj['timeWindows'] = ApiClient.convertToType(data['timeWindows'], ['String']);
             }
-            if (data.hasOwnProperty('displayFormat')) {
+            if (data.hasOwnProperty('displayFormat') && obj['displayFormat'] === undefined) {
                 obj['displayFormat'] = ApiClient.convertToType(data['displayFormat'], 'Number');
             }
-            if (data.hasOwnProperty('riskTreeLevel')) {
+            if (data.hasOwnProperty('riskTreeLevel') && obj['riskTreeLevel'] === undefined) {
                 obj['riskTreeLevel'] = ApiClient.convertToType(data['riskTreeLevel'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -57,18 +57,19 @@ class StartJobRunResponseData {
         if (data) {
             obj = obj || new StartJobRunResponseData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('jobName')) {
+            if (data.hasOwnProperty('jobName') && obj['jobName'] === undefined) {
                 obj['jobName'] = ApiClient.convertToType(data['jobName'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = Status.constructFromObject(data['status']);
             }
-            if (data.hasOwnProperty('jobType')) {
+            if (data.hasOwnProperty('jobType') && obj['jobType'] === undefined) {
                 obj['jobType'] = JobTypes.constructFromObject(data['jobType']);
             }
+            
         }
         return obj;
     }

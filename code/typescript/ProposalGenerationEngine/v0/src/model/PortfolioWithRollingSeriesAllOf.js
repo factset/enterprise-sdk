@@ -47,9 +47,10 @@ class PortfolioWithRollingSeriesAllOf {
         if (data) {
             obj = obj || new PortfolioWithRollingSeriesAllOf();
 
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = RollingSeries.constructFromObject(data['stats']);
             }
+            
         }
         return obj;
     }

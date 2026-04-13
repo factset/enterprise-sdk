@@ -46,15 +46,16 @@ class DocumentRequestData {
         if (data) {
             obj = obj || new DocumentRequestData();
 
-            if (data.hasOwnProperty('path')) {
+            if (data.hasOwnProperty('path') && obj['path'] === undefined) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
-            if (data.hasOwnProperty('productType')) {
+            if (data.hasOwnProperty('productType') && obj['productType'] === undefined) {
                 obj['productType'] = ApiClient.convertToType(data['productType'], 'String');
             }
-            if (data.hasOwnProperty('tags')) {
+            if (data.hasOwnProperty('tags') && obj['tags'] === undefined) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

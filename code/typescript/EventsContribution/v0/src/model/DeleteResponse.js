@@ -48,9 +48,10 @@ class DeleteResponse {
         if (data) {
             obj = obj || new DeleteResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DeleteResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

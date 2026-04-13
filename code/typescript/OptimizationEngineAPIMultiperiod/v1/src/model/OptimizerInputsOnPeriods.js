@@ -46,9 +46,10 @@ class OptimizerInputsOnPeriods {
         if (data) {
             obj = obj || new OptimizerInputsOnPeriods();
 
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ApiClient.convertToType(data['periods'], ['Number']);
             }
+            
         }
         return obj;
     }

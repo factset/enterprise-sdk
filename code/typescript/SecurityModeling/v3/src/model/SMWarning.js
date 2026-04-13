@@ -46,9 +46,10 @@ class SMWarning {
         if (data) {
             obj = obj || new SMWarning();
 
-            if (data.hasOwnProperty('detail')) {
+            if (data.hasOwnProperty('detail') && obj['detail'] === undefined) {
                 obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
             }
+            
         }
         return obj;
     }

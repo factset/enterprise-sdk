@@ -51,39 +51,40 @@ class ScreenArchiveOFDBParametersDataArchiveOptions {
         if (data) {
             obj = obj || new ScreenArchiveOFDBParametersDataArchiveOptions();
 
-            if (data.hasOwnProperty('archiveDate')) {
+            if (data.hasOwnProperty('archiveDate') && obj['archiveDate'] === undefined) {
                 obj['archiveDate'] = ApiClient.convertToType(data['archiveDate'], 'String');
             }
-            if (data.hasOwnProperty('archiveType')) {
+            if (data.hasOwnProperty('archiveType') && obj['archiveType'] === undefined) {
                 obj['archiveType'] = ApiClient.convertToType(data['archiveType'], 'String');
             }
-            if (data.hasOwnProperty('autoSymbolUpdates')) {
+            if (data.hasOwnProperty('autoSymbolUpdates') && obj['autoSymbolUpdates'] === undefined) {
                 obj['autoSymbolUpdates'] = ApiClient.convertToType(data['autoSymbolUpdates'], 'Boolean');
             }
-            if (data.hasOwnProperty('existed')) {
+            if (data.hasOwnProperty('existed') && obj['existed'] === undefined) {
                 obj['existed'] = ApiClient.convertToType(data['existed'], 'Boolean');
             }
-            if (data.hasOwnProperty('filename')) {
+            if (data.hasOwnProperty('filename') && obj['filename'] === undefined) {
                 obj['filename'] = ApiClient.convertToType(data['filename'], 'String');
             }
-            if (data.hasOwnProperty('overwriteData')) {
+            if (data.hasOwnProperty('overwriteData') && obj['overwriteData'] === undefined) {
                 obj['overwriteData'] = ApiClient.convertToType(data['overwriteData'], 'Boolean');
             }
-            if (data.hasOwnProperty('quickColumns')) {
+            if (data.hasOwnProperty('quickColumns') && obj['quickColumns'] === undefined) {
                 obj['quickColumns'] = ApiClient.convertToType(data['quickColumns'], 'String');
             }
-            if (data.hasOwnProperty('symbolType')) {
+            if (data.hasOwnProperty('symbolType') && obj['symbolType'] === undefined) {
                 obj['symbolType'] = ApiClient.convertToType(data['symbolType'], 'String');
             }
-            if (data.hasOwnProperty('timeSeries')) {
+            if (data.hasOwnProperty('timeSeries') && obj['timeSeries'] === undefined) {
                 obj['timeSeries'] = ApiClient.convertToType(data['timeSeries'], 'Boolean');
             }
-            if (data.hasOwnProperty('unsplitHistory')) {
+            if (data.hasOwnProperty('unsplitHistory') && obj['unsplitHistory'] === undefined) {
                 obj['unsplitHistory'] = ApiClient.convertToType(data['unsplitHistory'], 'Boolean');
             }
-            if (data.hasOwnProperty('useReportOrder')) {
+            if (data.hasOwnProperty('useReportOrder') && obj['useReportOrder'] === undefined) {
                 obj['useReportOrder'] = ApiClient.convertToType(data['useReportOrder'], 'Boolean');
             }
+            
         }
         return obj;
     }

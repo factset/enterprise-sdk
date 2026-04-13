@@ -51,12 +51,13 @@ class EventMeta {
         if (data) {
             obj = obj || new EventMeta();
 
-            if (data.hasOwnProperty('signalRequestId')) {
+            if (data.hasOwnProperty('signalRequestId') && obj['signalRequestId'] === undefined) {
                 obj['signalRequestId'] = ApiClient.convertToType(data['signalRequestId'], 'String');
             }
-            if (data.hasOwnProperty('idResolutions')) {
+            if (data.hasOwnProperty('idResolutions') && obj['idResolutions'] === undefined) {
                 obj['idResolutions'] = IdResolutionsMeta.constructFromObject(data['idResolutions']);
             }
+            
         }
         return obj;
     }

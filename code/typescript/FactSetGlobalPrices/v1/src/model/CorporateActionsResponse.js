@@ -47,9 +47,10 @@ class CorporateActionsResponse {
         if (data) {
             obj = obj || new CorporateActionsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CorporateAction]);
             }
+            
         }
         return obj;
     }

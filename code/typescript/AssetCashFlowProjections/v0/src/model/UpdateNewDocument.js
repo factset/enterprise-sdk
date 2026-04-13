@@ -47,9 +47,10 @@ class UpdateNewDocument {
         if (data) {
             obj = obj || new UpdateNewDocument();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = UpdateNewDocumentRoot.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

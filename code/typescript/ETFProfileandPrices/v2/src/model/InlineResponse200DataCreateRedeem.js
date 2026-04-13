@@ -47,12 +47,13 @@ class InlineResponse200DataCreateRedeem {
         if (data) {
             obj = obj || new InlineResponse200DataCreateRedeem();
 
-            if (data.hasOwnProperty('unitCost')) {
+            if (data.hasOwnProperty('unitCost') && obj['unitCost'] === undefined) {
                 obj['unitCost'] = ApiClient.convertToType(data['unitCost'], 'Number');
             }
-            if (data.hasOwnProperty('unitSize')) {
+            if (data.hasOwnProperty('unitSize') && obj['unitSize'] === undefined) {
                 obj['unitSize'] = ApiClient.convertToType(data['unitSize'], 'Number');
             }
+            
         }
         return obj;
     }

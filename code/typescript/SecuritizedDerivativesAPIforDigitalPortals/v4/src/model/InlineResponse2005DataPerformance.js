@@ -50,15 +50,16 @@ class InlineResponse2005DataPerformance {
         if (data) {
             obj = obj || new InlineResponse2005DataPerformance();
 
-            if (data.hasOwnProperty('intraday')) {
+            if (data.hasOwnProperty('intraday') && obj['intraday'] === undefined) {
                 obj['intraday'] = InlineResponse2005DataPerformanceIntraday.constructFromObject(data['intraday']);
             }
-            if (data.hasOwnProperty('sinceIssue')) {
+            if (data.hasOwnProperty('sinceIssue') && obj['sinceIssue'] === undefined) {
                 obj['sinceIssue'] = InlineResponse2005DataPerformanceSinceIssue.constructFromObject(data['sinceIssue']);
             }
-            if (data.hasOwnProperty('endOfDay')) {
+            if (data.hasOwnProperty('endOfDay') && obj['endOfDay'] === undefined) {
                 obj['endOfDay'] = InlineResponse2005DataPerformanceEndOfDay.constructFromObject(data['endOfDay']);
             }
+            
         }
         return obj;
     }

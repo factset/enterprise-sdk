@@ -46,42 +46,43 @@ class EventsAudio400ResponseDetailsValidParameters {
         if (data) {
             obj = obj || new EventsAudio400ResponseDetailsValidParameters();
 
-            if (data.hasOwnProperty('_sort')) {
+            if (data.hasOwnProperty('_sort') && obj['_sort'] === undefined) {
                 obj['_sort'] = ApiClient.convertToType(data['_sort'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationLimit')) {
+            if (data.hasOwnProperty('_paginationLimit') && obj['_paginationLimit'] === undefined) {
                 obj['_paginationLimit'] = ApiClient.convertToType(data['_paginationLimit'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationOffset')) {
+            if (data.hasOwnProperty('_paginationOffset') && obj['_paginationOffset'] === undefined) {
                 obj['_paginationOffset'] = ApiClient.convertToType(data['_paginationOffset'], ['String']);
             }
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], ['String']);
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], ['String']);
             }
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('sourceCode')) {
+            if (data.hasOwnProperty('sourceCode') && obj['sourceCode'] === undefined) {
                 obj['sourceCode'] = ApiClient.convertToType(data['sourceCode'], ['String']);
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], ['String']);
             }
-            if (data.hasOwnProperty('trimmed')) {
+            if (data.hasOwnProperty('trimmed') && obj['trimmed'] === undefined) {
                 obj['trimmed'] = ApiClient.convertToType(data['trimmed'], ['String']);
             }
-            if (data.hasOwnProperty('uploadTime')) {
+            if (data.hasOwnProperty('uploadTime') && obj['uploadTime'] === undefined) {
                 obj['uploadTime'] = ApiClient.convertToType(data['uploadTime'], ['String']);
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], ['String']);
             }
+            
         }
         return obj;
     }

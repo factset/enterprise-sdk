@@ -48,21 +48,22 @@ class OptimizerInputsTargetProbabilityTerm {
         if (data) {
             obj = obj || new OptimizerInputsTargetProbabilityTerm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('multiplier')) {
+            if (data.hasOwnProperty('multiplier') && obj['multiplier'] === undefined) {
                 obj['multiplier'] = OptimizerInputsValue.constructFromObject(data['multiplier']);
             }
-            if (data.hasOwnProperty('direction')) {
+            if (data.hasOwnProperty('direction') && obj['direction'] === undefined) {
                 obj['direction'] = OptimizerInputsEObjectiveTermDirectionEnum.constructFromObject(data['direction']);
             }
-            if (data.hasOwnProperty('threshold_min')) {
+            if (data.hasOwnProperty('threshold_min') && obj['threshold_min'] === undefined) {
                 obj['threshold_min'] = OptimizerInputsValue.constructFromObject(data['threshold_min']);
             }
-            if (data.hasOwnProperty('threshold_max')) {
+            if (data.hasOwnProperty('threshold_max') && obj['threshold_max'] === undefined) {
                 obj['threshold_max'] = OptimizerInputsValue.constructFromObject(data['threshold_max']);
             }
+            
         }
         return obj;
     }

@@ -47,18 +47,19 @@ class Field {
         if (data) {
             obj = obj || new Field();
 
-            if (data.hasOwnProperty('fieldName')) {
+            if (data.hasOwnProperty('fieldName') && obj['fieldName'] === undefined) {
                 obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

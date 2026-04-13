@@ -46,15 +46,16 @@ class BackfillData {
         if (data) {
             obj = obj || new BackfillData();
 
-            if (data.hasOwnProperty('backfilled')) {
+            if (data.hasOwnProperty('backfilled') && obj['backfilled'] === undefined) {
                 obj['backfilled'] = ApiClient.convertToType(data['backfilled'], 'Boolean');
             }
-            if (data.hasOwnProperty('realData')) {
+            if (data.hasOwnProperty('realData') && obj['realData'] === undefined) {
                 obj['realData'] = ApiClient.convertToType(data['realData'], 'Number');
             }
-            if (data.hasOwnProperty('backfilledData')) {
+            if (data.hasOwnProperty('backfilledData') && obj['backfilledData'] === undefined) {
                 obj['backfilledData'] = ApiClient.convertToType(data['backfilledData'], 'Number');
             }
+            
         }
         return obj;
     }

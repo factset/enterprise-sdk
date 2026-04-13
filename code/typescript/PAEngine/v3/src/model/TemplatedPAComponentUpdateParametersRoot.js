@@ -49,12 +49,13 @@ class TemplatedPAComponentUpdateParametersRoot {
         if (data) {
             obj = obj || new TemplatedPAComponentUpdateParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TemplatedPAComponentUpdateParameters.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = ApiClient.convertToType(data['meta'], Object);
             }
+            
         }
         return obj;
     }

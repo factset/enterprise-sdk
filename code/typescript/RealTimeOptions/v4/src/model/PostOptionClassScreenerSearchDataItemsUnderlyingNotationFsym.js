@@ -49,12 +49,13 @@ class PostOptionClassScreenerSearchDataItemsUnderlyingNotationFsym {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchDataItemsUnderlyingNotationFsym();
 
-            if (data.hasOwnProperty('listing')) {
+            if (data.hasOwnProperty('listing') && obj['listing'] === undefined) {
                 obj['listing'] = PostOptionClassScreenerSearchDataItemsUnderlyingNotationFsymListing.constructFromObject(data['listing']);
             }
-            if (data.hasOwnProperty('regional')) {
+            if (data.hasOwnProperty('regional') && obj['regional'] === undefined) {
                 obj['regional'] = PostOptionClassScreenerSearchDataItemsUnderlyingNotationFsymRegional.constructFromObject(data['regional']);
             }
+            
         }
         return obj;
     }

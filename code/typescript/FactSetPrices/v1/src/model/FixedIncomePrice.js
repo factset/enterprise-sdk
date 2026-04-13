@@ -46,33 +46,34 @@ class FixedIncomePrice {
         if (data) {
             obj = obj || new FixedIncomePrice();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
-            if (data.hasOwnProperty('issuerEntityId')) {
+            if (data.hasOwnProperty('issuerEntityId') && obj['issuerEntityId'] === undefined) {
                 obj['issuerEntityId'] = ApiClient.convertToType(data['issuerEntityId'], 'String');
             }
-            if (data.hasOwnProperty('issuerType')) {
+            if (data.hasOwnProperty('issuerType') && obj['issuerType'] === undefined) {
                 obj['issuerType'] = ApiClient.convertToType(data['issuerType'], 'String');
             }
-            if (data.hasOwnProperty('priceBid')) {
+            if (data.hasOwnProperty('priceBid') && obj['priceBid'] === undefined) {
                 obj['priceBid'] = ApiClient.convertToType(data['priceBid'], 'Number');
             }
-            if (data.hasOwnProperty('priceMid')) {
+            if (data.hasOwnProperty('priceMid') && obj['priceMid'] === undefined) {
                 obj['priceMid'] = ApiClient.convertToType(data['priceMid'], 'Number');
             }
-            if (data.hasOwnProperty('priceAsk')) {
+            if (data.hasOwnProperty('priceAsk') && obj['priceAsk'] === undefined) {
                 obj['priceAsk'] = ApiClient.convertToType(data['priceAsk'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

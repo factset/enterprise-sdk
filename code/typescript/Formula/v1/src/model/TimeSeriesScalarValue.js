@@ -45,10 +45,11 @@ class TimeSeriesScalarValue {
      */
     static constructFromObject(data, obj) {
         // openApiType:number format:double
-        if (typeof data === 'number') return ApiClient.setValue(obj || new TimeSeriesScalarValue(), data);
+        if (typeof data === 'number') return data;
         // openApiType:integer format:
-        if (typeof data === 'number') return ApiClient.setValue(obj || new TimeSeriesScalarValue(), data);
-        if (typeof data === 'string') return ApiClient.setValue(obj || new TimeSeriesScalarValue(), data);
+        if (typeof data === 'number') return data;
+        if (typeof data === 'string') return data;
+        throw new Error("Failed to construct TimeSeriesScalarValue due to oneOf-schemas not matching the data: " + data);
     }
 
 

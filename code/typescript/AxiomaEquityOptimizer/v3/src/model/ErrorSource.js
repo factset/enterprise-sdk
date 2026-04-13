@@ -46,12 +46,13 @@ class ErrorSource {
         if (data) {
             obj = obj || new ErrorSource();
 
-            if (data.hasOwnProperty('pointer')) {
+            if (data.hasOwnProperty('pointer') && obj['pointer'] === undefined) {
                 obj['pointer'] = ApiClient.convertToType(data['pointer'], 'String');
             }
-            if (data.hasOwnProperty('parameter')) {
+            if (data.hasOwnProperty('parameter') && obj['parameter'] === undefined) {
                 obj['parameter'] = ApiClient.convertToType(data['parameter'], 'String');
             }
+            
         }
         return obj;
     }

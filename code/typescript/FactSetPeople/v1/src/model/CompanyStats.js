@@ -47,54 +47,55 @@ class CompanyStats {
         if (data) {
             obj = obj || new CompanyStats();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('averageMgmtCompensation')) {
+            if (data.hasOwnProperty('averageMgmtCompensation') && obj['averageMgmtCompensation'] === undefined) {
                 obj['averageMgmtCompensation'] = ApiClient.convertToType(data['averageMgmtCompensation'], 'Number');
             }
-            if (data.hasOwnProperty('averageTenure')) {
+            if (data.hasOwnProperty('averageTenure') && obj['averageTenure'] === undefined) {
                 obj['averageTenure'] = ApiClient.convertToType(data['averageTenure'], 'Number');
             }
-            if (data.hasOwnProperty('medianTenure')) {
+            if (data.hasOwnProperty('medianTenure') && obj['medianTenure'] === undefined) {
                 obj['medianTenure'] = ApiClient.convertToType(data['medianTenure'], 'Number');
             }
-            if (data.hasOwnProperty('averageAge')) {
+            if (data.hasOwnProperty('averageAge') && obj['averageAge'] === undefined) {
                 obj['averageAge'] = ApiClient.convertToType(data['averageAge'], 'Number');
             }
-            if (data.hasOwnProperty('maxAge')) {
+            if (data.hasOwnProperty('maxAge') && obj['maxAge'] === undefined) {
                 obj['maxAge'] = ApiClient.convertToType(data['maxAge'], 'Number');
             }
-            if (data.hasOwnProperty('minimumAge')) {
+            if (data.hasOwnProperty('minimumAge') && obj['minimumAge'] === undefined) {
                 obj['minimumAge'] = ApiClient.convertToType(data['minimumAge'], 'Number');
             }
-            if (data.hasOwnProperty('medianAge')) {
+            if (data.hasOwnProperty('medianAge') && obj['medianAge'] === undefined) {
                 obj['medianAge'] = ApiClient.convertToType(data['medianAge'], 'Number');
             }
-            if (data.hasOwnProperty('boardIndependentDirectors')) {
+            if (data.hasOwnProperty('boardIndependentDirectors') && obj['boardIndependentDirectors'] === undefined) {
                 obj['boardIndependentDirectors'] = ApiClient.convertToType(data['boardIndependentDirectors'], 'Number');
             }
-            if (data.hasOwnProperty('femaleBoardMembers')) {
+            if (data.hasOwnProperty('femaleBoardMembers') && obj['femaleBoardMembers'] === undefined) {
                 obj['femaleBoardMembers'] = ApiClient.convertToType(data['femaleBoardMembers'], 'Number');
             }
-            if (data.hasOwnProperty('femaleBoardMembersPercent')) {
+            if (data.hasOwnProperty('femaleBoardMembersPercent') && obj['femaleBoardMembersPercent'] === undefined) {
                 obj['femaleBoardMembersPercent'] = ApiClient.convertToType(data['femaleBoardMembersPercent'], 'Number');
             }
-            if (data.hasOwnProperty('numberOfMembers')) {
+            if (data.hasOwnProperty('numberOfMembers') && obj['numberOfMembers'] === undefined) {
                 obj['numberOfMembers'] = ApiClient.convertToType(data['numberOfMembers'], 'Number');
             }
-            if (data.hasOwnProperty('onOtherBoardsAll')) {
+            if (data.hasOwnProperty('onOtherBoardsAll') && obj['onOtherBoardsAll'] === undefined) {
                 obj['onOtherBoardsAll'] = ApiClient.convertToType(data['onOtherBoardsAll'], 'Number');
             }
-            if (data.hasOwnProperty('onOtherBoardsCorporate')) {
+            if (data.hasOwnProperty('onOtherBoardsCorporate') && obj['onOtherBoardsCorporate'] === undefined) {
                 obj['onOtherBoardsCorporate'] = ApiClient.convertToType(data['onOtherBoardsCorporate'], 'Number');
             }
-            if (data.hasOwnProperty('mbType')) {
+            if (data.hasOwnProperty('mbType') && obj['mbType'] === undefined) {
                 obj['mbType'] = ApiClient.convertToType(data['mbType'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

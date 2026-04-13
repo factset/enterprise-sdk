@@ -48,9 +48,10 @@ class GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group {
         if (data) {
             obj = obj || new GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group();
 
-            if (data.hasOwnProperty('domainCode')) {
+            if (data.hasOwnProperty('domainCode') && obj['domainCode'] === undefined) {
                 obj['domainCode'] = ApiClient.convertToType(data['domainCode'], 'String');
             }
+            
         }
         return obj;
     }

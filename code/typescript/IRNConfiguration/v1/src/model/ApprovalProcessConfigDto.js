@@ -47,42 +47,43 @@ class ApprovalProcessConfigDto {
         if (data) {
             obj = obj || new ApprovalProcessConfigDto();
 
-            if (data.hasOwnProperty('approvalLevels')) {
+            if (data.hasOwnProperty('approvalLevels') && obj['approvalLevels'] === undefined) {
                 obj['approvalLevels'] = ApiClient.convertToType(data['approvalLevels'], [ApprovalLevelConfigDto]);
             }
-            if (data.hasOwnProperty('viewerIds')) {
+            if (data.hasOwnProperty('viewerIds') && obj['viewerIds'] === undefined) {
                 obj['viewerIds'] = ApiClient.convertToType(data['viewerIds'], ['String']);
             }
-            if (data.hasOwnProperty('pendingNotesVisible')) {
+            if (data.hasOwnProperty('pendingNotesVisible') && obj['pendingNotesVisible'] === undefined) {
                 obj['pendingNotesVisible'] = ApiClient.convertToType(data['pendingNotesVisible'], 'String');
             }
-            if (data.hasOwnProperty('deniedNotesVisible')) {
+            if (data.hasOwnProperty('deniedNotesVisible') && obj['deniedNotesVisible'] === undefined) {
                 obj['deniedNotesVisible'] = ApiClient.convertToType(data['deniedNotesVisible'], 'String');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsWhenSubmittedForApproval')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsWhenSubmittedForApproval') && obj['shouldSendEmailAlertsWhenSubmittedForApproval'] === undefined) {
                 obj['shouldSendEmailAlertsWhenSubmittedForApproval'] = ApiClient.convertToType(data['shouldSendEmailAlertsWhenSubmittedForApproval'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsWhenApproved')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsWhenApproved') && obj['shouldSendEmailAlertsWhenApproved'] === undefined) {
                 obj['shouldSendEmailAlertsWhenApproved'] = ApiClient.convertToType(data['shouldSendEmailAlertsWhenApproved'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsWhenDenied')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsWhenDenied') && obj['shouldSendEmailAlertsWhenDenied'] === undefined) {
                 obj['shouldSendEmailAlertsWhenDenied'] = ApiClient.convertToType(data['shouldSendEmailAlertsWhenDenied'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsToAuthor')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsToAuthor') && obj['shouldSendEmailAlertsToAuthor'] === undefined) {
                 obj['shouldSendEmailAlertsToAuthor'] = ApiClient.convertToType(data['shouldSendEmailAlertsToAuthor'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsToApprovers')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsToApprovers') && obj['shouldSendEmailAlertsToApprovers'] === undefined) {
                 obj['shouldSendEmailAlertsToApprovers'] = ApiClient.convertToType(data['shouldSendEmailAlertsToApprovers'], 'Boolean');
             }
-            if (data.hasOwnProperty('shouldSendEmailAlertsToViewers')) {
+            if (data.hasOwnProperty('shouldSendEmailAlertsToViewers') && obj['shouldSendEmailAlertsToViewers'] === undefined) {
                 obj['shouldSendEmailAlertsToViewers'] = ApiClient.convertToType(data['shouldSendEmailAlertsToViewers'], 'Boolean');
             }
-            if (data.hasOwnProperty('canAuthorSelfApprove')) {
+            if (data.hasOwnProperty('canAuthorSelfApprove') && obj['canAuthorSelfApprove'] === undefined) {
                 obj['canAuthorSelfApprove'] = ApiClient.convertToType(data['canAuthorSelfApprove'], 'Boolean');
             }
-            if (data.hasOwnProperty('canAuthorEditPending')) {
+            if (data.hasOwnProperty('canAuthorEditPending') && obj['canAuthorEditPending'] === undefined) {
                 obj['canAuthorEditPending'] = ApiClient.convertToType(data['canAuthorEditPending'], 'Boolean');
             }
+            
         }
         return obj;
     }

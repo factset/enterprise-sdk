@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycl
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycleMaturityRestriction();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycleMaturityRestrictionDate.constructFromObject(data['date']);
             }
-            if (data.hasOwnProperty('remainingTermDays')) {
+            if (data.hasOwnProperty('remainingTermDays') && obj['remainingTermDays'] === undefined) {
                 obj['remainingTermDays'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycleMaturityRestrictionRemainingTermDays.constructFromObject(data['remainingTermDays']);
             }
+            
         }
         return obj;
     }

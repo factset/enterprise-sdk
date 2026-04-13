@@ -47,21 +47,22 @@ class StatementItem {
         if (data) {
             obj = obj || new StatementItem();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('metricName')) {
+            if (data.hasOwnProperty('metricName') && obj['metricName'] === undefined) {
                 obj['metricName'] = ApiClient.convertToType(data['metricName'], 'String');
             }
-            if (data.hasOwnProperty('displayLevel')) {
+            if (data.hasOwnProperty('displayLevel') && obj['displayLevel'] === undefined) {
                 obj['displayLevel'] = ApiClient.convertToType(data['displayLevel'], 'String');
             }
-            if (data.hasOwnProperty('displayOrder')) {
+            if (data.hasOwnProperty('displayOrder') && obj['displayOrder'] === undefined) {
                 obj['displayOrder'] = ApiClient.convertToType(data['displayOrder'], 'Number');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['Number']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class QueryResponse {
         if (data) {
             obj = obj || new QueryResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = QueryResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

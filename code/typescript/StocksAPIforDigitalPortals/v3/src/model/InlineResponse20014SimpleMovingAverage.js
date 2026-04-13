@@ -48,18 +48,19 @@ class InlineResponse20014SimpleMovingAverage {
         if (data) {
             obj = obj || new InlineResponse20014SimpleMovingAverage();
 
-            if (data.hasOwnProperty('days20')) {
+            if (data.hasOwnProperty('days20') && obj['days20'] === undefined) {
                 obj['days20'] = ApiClient.convertToType(data['days20'], 'Number');
             }
-            if (data.hasOwnProperty('days50')) {
+            if (data.hasOwnProperty('days50') && obj['days50'] === undefined) {
                 obj['days50'] = ApiClient.convertToType(data['days50'], 'Number');
             }
-            if (data.hasOwnProperty('days200')) {
+            if (data.hasOwnProperty('days200') && obj['days200'] === undefined) {
                 obj['days200'] = ApiClient.convertToType(data['days200'], 'Number');
             }
-            if (data.hasOwnProperty('tradingDaysSinceCrossover')) {
+            if (data.hasOwnProperty('tradingDaysSinceCrossover') && obj['tradingDaysSinceCrossover'] === undefined) {
                 obj['tradingDaysSinceCrossover'] = InlineResponse20014SimpleMovingAverageTradingDaysSinceCrossover.constructFromObject(data['tradingDaysSinceCrossover']);
             }
+            
         }
         return obj;
     }

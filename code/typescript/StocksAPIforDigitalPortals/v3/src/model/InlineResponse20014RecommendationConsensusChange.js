@@ -47,21 +47,22 @@ class InlineResponse20014RecommendationConsensusChange {
         if (data) {
             obj = obj || new InlineResponse20014RecommendationConsensusChange();
 
-            if (data.hasOwnProperty('week1')) {
+            if (data.hasOwnProperty('week1') && obj['week1'] === undefined) {
                 obj['week1'] = ApiClient.convertToType(data['week1'], 'Number');
             }
-            if (data.hasOwnProperty('month1')) {
+            if (data.hasOwnProperty('month1') && obj['month1'] === undefined) {
                 obj['month1'] = ApiClient.convertToType(data['month1'], 'Number');
             }
-            if (data.hasOwnProperty('months3')) {
+            if (data.hasOwnProperty('months3') && obj['months3'] === undefined) {
                 obj['months3'] = ApiClient.convertToType(data['months3'], 'Number');
             }
-            if (data.hasOwnProperty('months6')) {
+            if (data.hasOwnProperty('months6') && obj['months6'] === undefined) {
                 obj['months6'] = ApiClient.convertToType(data['months6'], 'Number');
             }
-            if (data.hasOwnProperty('year1')) {
+            if (data.hasOwnProperty('year1') && obj['year1'] === undefined) {
                 obj['year1'] = ApiClient.convertToType(data['year1'], 'Number');
             }
+            
         }
         return obj;
     }

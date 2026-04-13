@@ -49,9 +49,10 @@ class ExPostStats {
         if (data) {
             obj = obj || new ExPostStats();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExPostStatsData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

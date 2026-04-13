@@ -50,12 +50,13 @@ class PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSi
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50();
 
-            if (data.hasOwnProperty('numberDays')) {
+            if (data.hasOwnProperty('numberDays') && obj['numberDays'] === undefined) {
                 obj['numberDays'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverageTradingDaysSinceCrossoverSma20vs50NumberDays.constructFromObject(data['numberDays']);
             }
-            if (data.hasOwnProperty('direction')) {
+            if (data.hasOwnProperty('direction') && obj['direction'] === undefined) {
                 obj['direction'] = ApiClient.convertToType(data['direction'], 'String');
             }
+            
         }
         return obj;
     }

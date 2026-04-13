@@ -48,9 +48,10 @@ class UpdateSymbolsRoot {
         if (data) {
             obj = obj || new UpdateSymbolsRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AddSymbolsRootData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

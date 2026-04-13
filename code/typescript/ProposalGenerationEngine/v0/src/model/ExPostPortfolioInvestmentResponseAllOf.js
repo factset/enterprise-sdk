@@ -51,21 +51,22 @@ class ExPostPortfolioInvestmentResponseAllOf {
         if (data) {
             obj = obj || new ExPostPortfolioInvestmentResponseAllOf();
 
-            if (data.hasOwnProperty('securityDetails')) {
+            if (data.hasOwnProperty('securityDetails') && obj['securityDetails'] === undefined) {
                 obj['securityDetails'] = Investment.constructFromObject(data['securityDetails']);
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = TimeWindowStats.constructFromObject(data['stats']);
             }
-            if (data.hasOwnProperty('udfs')) {
+            if (data.hasOwnProperty('udfs') && obj['udfs'] === undefined) {
                 obj['udfs'] = ApiClient.convertToType(data['udfs'], Object);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ExPostPeriodStats.constructFromObject(data['periods']);
             }
-            if (data.hasOwnProperty('backfillData')) {
+            if (data.hasOwnProperty('backfillData') && obj['backfillData'] === undefined) {
                 obj['backfillData'] = ApiClient.convertToType(data['backfillData'], {'String': BackfillData});
             }
+            
         }
         return obj;
     }

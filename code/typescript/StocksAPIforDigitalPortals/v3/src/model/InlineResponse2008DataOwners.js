@@ -48,18 +48,19 @@ class InlineResponse2008DataOwners {
         if (data) {
             obj = obj || new InlineResponse2008DataOwners();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = InlineResponse2008DataType.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('ownership')) {
+            if (data.hasOwnProperty('ownership') && obj['ownership'] === undefined) {
                 obj['ownership'] = InlineResponse2008DataOwnership.constructFromObject(data['ownership']);
             }
+            
         }
         return obj;
     }

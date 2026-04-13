@@ -46,9 +46,10 @@ class DatabasePathRootData {
         if (data) {
             obj = obj || new DatabasePathRootData();
 
-            if (data.hasOwnProperty('databasePath')) {
+            if (data.hasOwnProperty('databasePath') && obj['databasePath'] === undefined) {
                 obj['databasePath'] = ApiClient.convertToType(data['databasePath'], 'String');
             }
+            
         }
         return obj;
     }

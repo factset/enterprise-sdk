@@ -46,39 +46,40 @@ class Gics {
         if (data) {
             obj = obj || new Gics();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('gicsSectorName')) {
+            if (data.hasOwnProperty('gicsSectorName') && obj['gicsSectorName'] === undefined) {
                 obj['gicsSectorName'] = ApiClient.convertToType(data['gicsSectorName'], 'String');
             }
-            if (data.hasOwnProperty('gicsSectorNumber')) {
+            if (data.hasOwnProperty('gicsSectorNumber') && obj['gicsSectorNumber'] === undefined) {
                 obj['gicsSectorNumber'] = ApiClient.convertToType(data['gicsSectorNumber'], 'String');
             }
-            if (data.hasOwnProperty('gicsIndustryGroupName')) {
+            if (data.hasOwnProperty('gicsIndustryGroupName') && obj['gicsIndustryGroupName'] === undefined) {
                 obj['gicsIndustryGroupName'] = ApiClient.convertToType(data['gicsIndustryGroupName'], 'String');
             }
-            if (data.hasOwnProperty('gicsIndustryGroupNumber')) {
+            if (data.hasOwnProperty('gicsIndustryGroupNumber') && obj['gicsIndustryGroupNumber'] === undefined) {
                 obj['gicsIndustryGroupNumber'] = ApiClient.convertToType(data['gicsIndustryGroupNumber'], 'String');
             }
-            if (data.hasOwnProperty('gicsIndustryName')) {
+            if (data.hasOwnProperty('gicsIndustryName') && obj['gicsIndustryName'] === undefined) {
                 obj['gicsIndustryName'] = ApiClient.convertToType(data['gicsIndustryName'], 'String');
             }
-            if (data.hasOwnProperty('gicsIndustryNumber')) {
+            if (data.hasOwnProperty('gicsIndustryNumber') && obj['gicsIndustryNumber'] === undefined) {
                 obj['gicsIndustryNumber'] = ApiClient.convertToType(data['gicsIndustryNumber'], 'String');
             }
-            if (data.hasOwnProperty('gicsSubIndustryName')) {
+            if (data.hasOwnProperty('gicsSubIndustryName') && obj['gicsSubIndustryName'] === undefined) {
                 obj['gicsSubIndustryName'] = ApiClient.convertToType(data['gicsSubIndustryName'], 'String');
             }
-            if (data.hasOwnProperty('gicsSubIndustryNumber')) {
+            if (data.hasOwnProperty('gicsSubIndustryNumber') && obj['gicsSubIndustryNumber'] === undefined) {
                 obj['gicsSubIndustryNumber'] = ApiClient.convertToType(data['gicsSubIndustryNumber'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

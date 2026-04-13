@@ -51,12 +51,13 @@ class FactorsVisible {
         if (data) {
             obj = obj || new FactorsVisible();
 
-            if (data.hasOwnProperty('list')) {
+            if (data.hasOwnProperty('list') && obj['list'] === undefined) {
                 obj['list'] = ApiClient.convertToType(data['list'], ['String']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

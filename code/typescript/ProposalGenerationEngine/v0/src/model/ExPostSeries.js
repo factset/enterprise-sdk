@@ -49,9 +49,10 @@ class ExPostSeries {
         if (data) {
             obj = obj || new ExPostSeries();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExPostSeriesData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

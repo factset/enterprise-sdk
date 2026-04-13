@@ -48,15 +48,16 @@ class OptimizerInputsRange {
         if (data) {
             obj = obj || new OptimizerInputsRange();
 
-            if (data.hasOwnProperty('points')) {
+            if (data.hasOwnProperty('points') && obj['points'] === undefined) {
                 obj['points'] = ApiClient.convertToType(data['points'], 'Number');
             }
-            if (data.hasOwnProperty('start_to_end')) {
+            if (data.hasOwnProperty('start_to_end') && obj['start_to_end'] === undefined) {
                 obj['start_to_end'] = OptimizerInputsStartEndRange.constructFromObject(data['start_to_end']);
             }
-            if (data.hasOwnProperty('specific_points')) {
+            if (data.hasOwnProperty('specific_points') && obj['specific_points'] === undefined) {
                 obj['specific_points'] = OptimizerInputsSpecificPoints.constructFromObject(data['specific_points']);
             }
+            
         }
         return obj;
     }

@@ -51,18 +51,19 @@ class InlineResponse200DataShareInstrumentKeyFigures {
         if (data) {
             obj = obj || new InlineResponse200DataShareInstrumentKeyFigures();
 
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = InlineResponse200DataCompanyKeyFiguresSharesOutstanding.constructFromObject(data['sharesOutstanding']);
             }
-            if (data.hasOwnProperty('freeFloat')) {
+            if (data.hasOwnProperty('freeFloat') && obj['freeFloat'] === undefined) {
                 obj['freeFloat'] = InlineResponse200DataCompanyKeyFiguresFreeFloat.constructFromObject(data['freeFloat']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = InlineResponse200DataShareInstrumentKeyFiguresRatios.constructFromObject(data['ratios']);
             }
-            if (data.hasOwnProperty('currencyDependentKeyFigures')) {
+            if (data.hasOwnProperty('currencyDependentKeyFigures') && obj['currencyDependentKeyFigures'] === undefined) {
                 obj['currencyDependentKeyFigures'] = InlineResponse200DataShareInstrumentKeyFiguresCurrencyDependentKeyFigures.constructFromObject(data['currencyDependentKeyFigures']);
             }
+            
         }
         return obj;
     }

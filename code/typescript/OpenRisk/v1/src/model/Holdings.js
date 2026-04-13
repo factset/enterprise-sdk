@@ -50,15 +50,16 @@ class Holdings {
         if (data) {
             obj = obj || new Holdings();
 
-            if (data.hasOwnProperty('portfolio')) {
+            if (data.hasOwnProperty('portfolio') && obj['portfolio'] === undefined) {
                 obj['portfolio'] = Holding.constructFromObject(data['portfolio']);
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = Holding.constructFromObject(data['benchmark']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = Holding.constructFromObject(data['market']);
             }
+            
         }
         return obj;
     }

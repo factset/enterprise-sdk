@@ -50,15 +50,16 @@ class AXPAvailableComponentsInputDataFilters {
         if (data) {
             obj = obj || new AXPAvailableComponentsInputDataFilters();
 
-            if (data.hasOwnProperty('constraints')) {
+            if (data.hasOwnProperty('constraints') && obj['constraints'] === undefined) {
                 obj['constraints'] = AXPAvailableComponentsInputDataFiltersConstraints.constructFromObject(data['constraints']);
             }
-            if (data.hasOwnProperty('objectives')) {
+            if (data.hasOwnProperty('objectives') && obj['objectives'] === undefined) {
                 obj['objectives'] = AXPAvailableComponentsInputDataFiltersObjectives.constructFromObject(data['objectives']);
             }
-            if (data.hasOwnProperty('transactionCosts')) {
+            if (data.hasOwnProperty('transactionCosts') && obj['transactionCosts'] === undefined) {
                 obj['transactionCosts'] = FPOAvailableComponentsInputDataFiltersTransactionCosts.constructFromObject(data['transactionCosts']);
             }
+            
         }
         return obj;
     }

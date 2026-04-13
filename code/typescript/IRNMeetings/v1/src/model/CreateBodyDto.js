@@ -46,9 +46,10 @@ class CreateBodyDto {
         if (data) {
             obj = obj || new CreateBodyDto();
 
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
+            
         }
         return obj;
     }

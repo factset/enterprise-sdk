@@ -46,45 +46,46 @@ class Intervals {
         if (data) {
             obj = obj || new Intervals();
 
-            if (data.hasOwnProperty('0')) {
+            if (data.hasOwnProperty('0') && obj['0'] === undefined) {
                 obj['0'] = ApiClient.convertToType(data['0'], 'String');
             }
-            if (data.hasOwnProperty('1S')) {
+            if (data.hasOwnProperty('1S') && obj['1S'] === undefined) {
                 obj['1S'] = ApiClient.convertToType(data['1S'], 'String');
             }
-            if (data.hasOwnProperty('5S')) {
+            if (data.hasOwnProperty('5S') && obj['5S'] === undefined) {
                 obj['5S'] = ApiClient.convertToType(data['5S'], 'String');
             }
-            if (data.hasOwnProperty('10S')) {
+            if (data.hasOwnProperty('10S') && obj['10S'] === undefined) {
                 obj['10S'] = ApiClient.convertToType(data['10S'], 'String');
             }
-            if (data.hasOwnProperty('15S')) {
+            if (data.hasOwnProperty('15S') && obj['15S'] === undefined) {
                 obj['15S'] = ApiClient.convertToType(data['15S'], 'String');
             }
-            if (data.hasOwnProperty('30S')) {
+            if (data.hasOwnProperty('30S') && obj['30S'] === undefined) {
                 obj['30S'] = ApiClient.convertToType(data['30S'], 'String');
             }
-            if (data.hasOwnProperty('1M')) {
+            if (data.hasOwnProperty('1M') && obj['1M'] === undefined) {
                 obj['1M'] = ApiClient.convertToType(data['1M'], 'String');
             }
-            if (data.hasOwnProperty('2M')) {
+            if (data.hasOwnProperty('2M') && obj['2M'] === undefined) {
                 obj['2M'] = ApiClient.convertToType(data['2M'], 'String');
             }
-            if (data.hasOwnProperty('5M')) {
+            if (data.hasOwnProperty('5M') && obj['5M'] === undefined) {
                 obj['5M'] = ApiClient.convertToType(data['5M'], 'String');
             }
-            if (data.hasOwnProperty('10M')) {
+            if (data.hasOwnProperty('10M') && obj['10M'] === undefined) {
                 obj['10M'] = ApiClient.convertToType(data['10M'], 'String');
             }
-            if (data.hasOwnProperty('15M')) {
+            if (data.hasOwnProperty('15M') && obj['15M'] === undefined) {
                 obj['15M'] = ApiClient.convertToType(data['15M'], 'String');
             }
-            if (data.hasOwnProperty('30M')) {
+            if (data.hasOwnProperty('30M') && obj['30M'] === undefined) {
                 obj['30M'] = ApiClient.convertToType(data['30M'], 'String');
             }
-            if (data.hasOwnProperty('1H')) {
+            if (data.hasOwnProperty('1H') && obj['1H'] === undefined) {
                 obj['1H'] = ApiClient.convertToType(data['1H'], 'String');
             }
+            
         }
         return obj;
     }

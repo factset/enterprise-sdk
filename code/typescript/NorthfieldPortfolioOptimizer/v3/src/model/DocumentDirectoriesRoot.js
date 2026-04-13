@@ -49,9 +49,10 @@ class DocumentDirectoriesRoot {
         if (data) {
             obj = obj || new DocumentDirectoriesRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DocumentDirectories.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

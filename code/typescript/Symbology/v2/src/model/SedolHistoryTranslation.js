@@ -47,27 +47,28 @@ class SedolHistoryTranslation {
         if (data) {
             obj = obj || new SedolHistoryTranslation();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('sedol')) {
+            if (data.hasOwnProperty('sedol') && obj['sedol'] === undefined) {
                 obj['sedol'] = ApiClient.convertToType(data['sedol'], 'String');
             }
-            if (data.hasOwnProperty('sedolEffectiveStartDate')) {
+            if (data.hasOwnProperty('sedolEffectiveStartDate') && obj['sedolEffectiveStartDate'] === undefined) {
                 obj['sedolEffectiveStartDate'] = ApiClient.convertToType(data['sedolEffectiveStartDate'], 'Date');
             }
-            if (data.hasOwnProperty('sedolEffectiveEndDate')) {
+            if (data.hasOwnProperty('sedolEffectiveEndDate') && obj['sedolEffectiveEndDate'] === undefined) {
                 obj['sedolEffectiveEndDate'] = ApiClient.convertToType(data['sedolEffectiveEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

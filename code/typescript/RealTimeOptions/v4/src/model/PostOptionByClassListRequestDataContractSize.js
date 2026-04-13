@@ -49,12 +49,13 @@ class PostOptionByClassListRequestDataContractSize {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataContractSize();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostOptionByClassListRequestDataContractSizeRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostOptionByClassListRequestDataContractSizeExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

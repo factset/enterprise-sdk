@@ -48,12 +48,13 @@ class InvalidAvailableReportRequest {
         if (data) {
             obj = obj || new InvalidAvailableReportRequest();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorItem]);
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'Number');
             }
+            
         }
         return obj;
     }

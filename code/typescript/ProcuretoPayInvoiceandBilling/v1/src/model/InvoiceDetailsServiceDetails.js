@@ -47,12 +47,13 @@ class InvoiceDetailsServiceDetails {
         if (data) {
             obj = obj || new InvoiceDetailsServiceDetails();
 
-            if (data.hasOwnProperty('Exchange Fees')) {
+            if (data.hasOwnProperty('Exchange Fees') && obj['Exchange Fees'] === undefined) {
                 obj['Exchange Fees'] = ApiClient.convertToType(data['Exchange Fees'], [InvoiceDetailsServiceDetailsExchangeFees]);
             }
-            if (data.hasOwnProperty('workstations')) {
+            if (data.hasOwnProperty('workstations') && obj['workstations'] === undefined) {
                 obj['workstations'] = ApiClient.convertToType(data['workstations'], [InvoiceDetailsServiceDetailsExchangeFees]);
             }
+            
         }
         return obj;
     }

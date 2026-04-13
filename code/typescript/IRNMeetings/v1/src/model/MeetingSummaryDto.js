@@ -49,48 +49,49 @@ class MeetingSummaryDto {
         if (data) {
             obj = obj || new MeetingSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('start')) {
+            if (data.hasOwnProperty('start') && obj['start'] === undefined) {
                 obj['start'] = ApiClient.convertToType(data['start'], 'String');
             }
-            if (data.hasOwnProperty('end')) {
+            if (data.hasOwnProperty('end') && obj['end'] === undefined) {
                 obj['end'] = ApiClient.convertToType(data['end'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
+            if (data.hasOwnProperty('createdAt') && obj['createdAt'] === undefined) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
-            if (data.hasOwnProperty('authorId')) {
+            if (data.hasOwnProperty('authorId') && obj['authorId'] === undefined) {
                 obj['authorId'] = ApiClient.convertToType(data['authorId'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('organizer')) {
+            if (data.hasOwnProperty('organizer') && obj['organizer'] === undefined) {
                 obj['organizer'] = ApiClient.convertToType(data['organizer'], 'String');
             }
-            if (data.hasOwnProperty('organizerId')) {
+            if (data.hasOwnProperty('organizerId') && obj['organizerId'] === undefined) {
                 obj['organizerId'] = ApiClient.convertToType(data['organizerId'], 'String');
             }
-            if (data.hasOwnProperty('attachmentIds')) {
+            if (data.hasOwnProperty('attachmentIds') && obj['attachmentIds'] === undefined) {
                 obj['attachmentIds'] = ApiClient.convertToType(data['attachmentIds'], ['String']);
             }
-            if (data.hasOwnProperty('relatedSymbols')) {
+            if (data.hasOwnProperty('relatedSymbols') && obj['relatedSymbols'] === undefined) {
                 obj['relatedSymbols'] = ApiClient.convertToType(data['relatedSymbols'], ['String']);
             }
-            if (data.hasOwnProperty('locations')) {
+            if (data.hasOwnProperty('locations') && obj['locations'] === undefined) {
                 obj['locations'] = ApiClient.convertToType(data['locations'], [LocationDto]);
             }
-            if (data.hasOwnProperty('attendees')) {
+            if (data.hasOwnProperty('attendees') && obj['attendees'] === undefined) {
                 obj['attendees'] = ApiClient.convertToType(data['attendees'], [AttendeeDto]);
             }
-            if (data.hasOwnProperty('customFieldValues')) {
+            if (data.hasOwnProperty('customFieldValues') && obj['customFieldValues'] === undefined) {
                 obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [CustomFieldValueDto]);
             }
+            
         }
         return obj;
     }

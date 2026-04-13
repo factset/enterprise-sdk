@@ -47,9 +47,10 @@ class BenchmarkIdListResponse {
         if (data) {
             obj = obj || new BenchmarkIdListResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [BenchmarkIdList]);
             }
+            
         }
         return obj;
     }

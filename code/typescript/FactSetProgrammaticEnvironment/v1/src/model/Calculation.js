@@ -46,15 +46,16 @@ class Calculation {
         if (data) {
             obj = obj || new Calculation();
 
-            if (data.hasOwnProperty('script')) {
+            if (data.hasOwnProperty('script') && obj['script'] === undefined) {
                 obj['script'] = ApiClient.convertToType(data['script'], 'String');
             }
-            if (data.hasOwnProperty('notebook')) {
+            if (data.hasOwnProperty('notebook') && obj['notebook'] === undefined) {
                 obj['notebook'] = ApiClient.convertToType(data['notebook'], 'String');
             }
-            if (data.hasOwnProperty('kernel')) {
+            if (data.hasOwnProperty('kernel') && obj['kernel'] === undefined) {
                 obj['kernel'] = ApiClient.convertToType(data['kernel'], 'String');
             }
+            
         }
         return obj;
     }

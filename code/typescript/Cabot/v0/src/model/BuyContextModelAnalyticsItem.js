@@ -47,18 +47,19 @@ class BuyContextModelAnalyticsItem {
         if (data) {
             obj = obj || new BuyContextModelAnalyticsItem();
 
-            if (data.hasOwnProperty('medianLoser')) {
+            if (data.hasOwnProperty('medianLoser') && obj['medianLoser'] === undefined) {
                 obj['medianLoser'] = ApiClient.convertToType(data['medianLoser'], 'Number');
             }
-            if (data.hasOwnProperty('medianWinner')) {
+            if (data.hasOwnProperty('medianWinner') && obj['medianWinner'] === undefined) {
                 obj['medianWinner'] = ApiClient.convertToType(data['medianWinner'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = BuyContextModelAnalyticsItemRange.constructFromObject(data['range']);
             }
+            
         }
         return obj;
     }

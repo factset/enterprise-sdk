@@ -48,12 +48,13 @@ class OptimizerInputsLookupTables {
         if (data) {
             obj = obj || new OptimizerInputsLookupTables();
 
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [OptimizerInputsGroupDefinition]);
             }
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], [OptimizerInputsValueReference]);
             }
+            
         }
         return obj;
     }

@@ -50,21 +50,22 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentUnderlyi
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentUnderlying();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentUnderlyingValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('coverRatio')) {
+            if (data.hasOwnProperty('coverRatio') && obj['coverRatio'] === undefined) {
                 obj['coverRatio'] = ApiClient.convertToType(data['coverRatio'], 'Number');
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentUnderlyingNotation.constructFromObject(data['notation']);
             }
-            if (data.hasOwnProperty('effectiveUnderlying')) {
+            if (data.hasOwnProperty('effectiveUnderlying') && obj['effectiveUnderlying'] === undefined) {
                 obj['effectiveUnderlying'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsUnderlyingEffectiveUnderlying.constructFromObject(data['effectiveUnderlying']);
             }
+            
         }
         return obj;
     }

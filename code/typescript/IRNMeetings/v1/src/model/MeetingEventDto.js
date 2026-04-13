@@ -47,18 +47,19 @@ class MeetingEventDto {
         if (data) {
             obj = obj || new MeetingEventDto();
 
-            if (data.hasOwnProperty('createdAt')) {
+            if (data.hasOwnProperty('createdAt') && obj['createdAt'] === undefined) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('user')) {
+            if (data.hasOwnProperty('user') && obj['user'] === undefined) {
                 obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
-            if (data.hasOwnProperty('changeList')) {
+            if (data.hasOwnProperty('changeList') && obj['changeList'] === undefined) {
                 obj['changeList'] = ApiClient.convertToType(data['changeList'], [RecordChangeDto]);
             }
+            
         }
         return obj;
     }

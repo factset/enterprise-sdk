@@ -48,9 +48,10 @@ class FlattenedFiltersRegions {
         if (data) {
             obj = obj || new FlattenedFiltersRegions();
 
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = ApiClient.convertToType(data['regions'], [FlattenedFiltersRegionsObject]);
             }
+            
         }
         return obj;
     }

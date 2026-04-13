@@ -48,9 +48,10 @@ class CoverageResponse {
         if (data) {
             obj = obj || new CoverageResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CoverageTickHistory]);
             }
+            
         }
         return obj;
     }

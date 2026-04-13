@@ -46,12 +46,13 @@ class BuyTimingModelAnalytics {
         if (data) {
             obj = obj || new BuyTimingModelAnalytics();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

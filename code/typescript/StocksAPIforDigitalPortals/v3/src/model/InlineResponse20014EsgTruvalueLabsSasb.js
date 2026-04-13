@@ -49,12 +49,13 @@ class InlineResponse20014EsgTruvalueLabsSasb {
         if (data) {
             obj = obj || new InlineResponse20014EsgTruvalueLabsSasb();
 
-            if (data.hasOwnProperty('allCategories')) {
+            if (data.hasOwnProperty('allCategories') && obj['allCategories'] === undefined) {
                 obj['allCategories'] = InlineResponse20014EsgTruvalueLabsSasbAllCategories.constructFromObject(data['allCategories']);
             }
-            if (data.hasOwnProperty('materiality')) {
+            if (data.hasOwnProperty('materiality') && obj['materiality'] === undefined) {
                 obj['materiality'] = InlineResponse20014EsgTruvalueLabsSasbMateriality.constructFromObject(data['materiality']);
             }
+            
         }
         return obj;
     }

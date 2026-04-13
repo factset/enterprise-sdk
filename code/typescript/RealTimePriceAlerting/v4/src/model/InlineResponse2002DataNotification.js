@@ -48,9 +48,10 @@ class InlineResponse2002DataNotification {
         if (data) {
             obj = obj || new InlineResponse2002DataNotification();
 
-            if (data.hasOwnProperty('channel')) {
+            if (data.hasOwnProperty('channel') && obj['channel'] === undefined) {
                 obj['channel'] = ApiClient.convertToType(data['channel'], [GetAlertingPricesBasicTriggerGetDataNotificationChannelItems]);
             }
+            
         }
         return obj;
     }

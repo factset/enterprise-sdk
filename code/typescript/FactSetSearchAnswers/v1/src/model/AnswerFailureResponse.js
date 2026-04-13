@@ -49,9 +49,10 @@ class AnswerFailureResponse {
         if (data) {
             obj = obj || new AnswerFailureResponse();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [Error]);
             }
+            
         }
         return obj;
     }

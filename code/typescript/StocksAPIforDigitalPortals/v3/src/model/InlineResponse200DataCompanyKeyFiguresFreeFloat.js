@@ -47,12 +47,13 @@ class InlineResponse200DataCompanyKeyFiguresFreeFloat {
         if (data) {
             obj = obj || new InlineResponse200DataCompanyKeyFiguresFreeFloat();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

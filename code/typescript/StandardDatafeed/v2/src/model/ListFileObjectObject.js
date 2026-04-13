@@ -46,12 +46,13 @@ class ListFileObjectObject {
         if (data) {
             obj = obj || new ListFileObjectObject();
 
-            if (data.hasOwnProperty('bundle')) {
+            if (data.hasOwnProperty('bundle') && obj['bundle'] === undefined) {
                 obj['bundle'] = ApiClient.convertToType(data['bundle'], 'String');
             }
-            if (data.hasOwnProperty('version')) {
+            if (data.hasOwnProperty('version') && obj['version'] === undefined) {
                 obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
+            
         }
         return obj;
     }

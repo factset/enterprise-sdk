@@ -58,33 +58,38 @@ class ExPostPortfolioInvestmentSeriesResponse {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExPostPortfolioInvestmentSeriesResponse();
-            ExPostPortfolioInvestment.constructFromObject(data, obj);
-            ExPostPortfolioInvestmentSeriesResponseAllOf.constructFromObject(data, obj);
+            try {
+              obj = ExPostPortfolioInvestment.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ExPostPortfolioInvestmentSeriesResponseAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
-            if (data.hasOwnProperty('salesCharge')) {
+            if (data.hasOwnProperty('salesCharge') && obj['salesCharge'] === undefined) {
                 obj['salesCharge'] = ApiClient.convertToType(data['salesCharge'], 'Number');
             }
-            if (data.hasOwnProperty('transactionRules')) {
+            if (data.hasOwnProperty('transactionRules') && obj['transactionRules'] === undefined) {
                 obj['transactionRules'] = ApiClient.convertToType(data['transactionRules'], [TransactionRule]);
             }
-            if (data.hasOwnProperty('securityDetails')) {
+            if (data.hasOwnProperty('securityDetails') && obj['securityDetails'] === undefined) {
                 obj['securityDetails'] = Investment.constructFromObject(data['securityDetails']);
             }
-            if (data.hasOwnProperty('series')) {
+            if (data.hasOwnProperty('series') && obj['series'] === undefined) {
                 obj['series'] = TimeWindowSeries.constructFromObject(data['series']);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = PeriodSeries.constructFromObject(data['periods']);
             }
-            if (data.hasOwnProperty('backfillData')) {
+            if (data.hasOwnProperty('backfillData') && obj['backfillData'] === undefined) {
                 obj['backfillData'] = ApiClient.convertToType(data['backfillData'], {'String': BackfillData});
             }
+            
         }
         return obj;
     }

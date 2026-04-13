@@ -50,9 +50,10 @@ class PriceTimeFillResponseRoot {
         if (data) {
             obj = obj || new PriceTimeFillResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PriceTimeFillResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

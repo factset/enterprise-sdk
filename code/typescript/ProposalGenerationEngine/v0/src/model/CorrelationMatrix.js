@@ -46,12 +46,13 @@ class CorrelationMatrix {
         if (data) {
             obj = obj || new CorrelationMatrix();
 
-            if (data.hasOwnProperty('assets')) {
+            if (data.hasOwnProperty('assets') && obj['assets'] === undefined) {
                 obj['assets'] = ApiClient.convertToType(data['assets'], ['String']);
             }
-            if (data.hasOwnProperty('matrix')) {
+            if (data.hasOwnProperty('matrix') && obj['matrix'] === undefined) {
                 obj['matrix'] = ApiClient.convertToType(data['matrix'], [['Number']]);
             }
+            
         }
         return obj;
     }

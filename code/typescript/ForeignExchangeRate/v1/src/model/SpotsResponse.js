@@ -47,9 +47,10 @@ class SpotsResponse {
         if (data) {
             obj = obj || new SpotsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Spot]);
             }
+            
         }
         return obj;
     }

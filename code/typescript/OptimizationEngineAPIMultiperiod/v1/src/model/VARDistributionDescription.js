@@ -47,30 +47,31 @@ class VARDistributionDescription {
         if (data) {
             obj = obj || new VARDistributionDescription();
 
-            if (data.hasOwnProperty('riskModel')) {
+            if (data.hasOwnProperty('riskModel') && obj['riskModel'] === undefined) {
                 obj['riskModel'] = ApiClient.convertToType(data['riskModel'], 'String');
             }
-            if (data.hasOwnProperty('factorGroup')) {
+            if (data.hasOwnProperty('factorGroup') && obj['factorGroup'] === undefined) {
                 obj['factorGroup'] = ApiClient.convertToType(data['factorGroup'], 'String');
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], ['String']);
             }
-            if (data.hasOwnProperty('distributionType')) {
+            if (data.hasOwnProperty('distributionType') && obj['distributionType'] === undefined) {
                 obj['distributionType'] = VARDistributionType.constructFromObject(data['distributionType']);
             }
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Number');
             }
-            if (data.hasOwnProperty('reportCurrency')) {
+            if (data.hasOwnProperty('reportCurrency') && obj['reportCurrency'] === undefined) {
                 obj['reportCurrency'] = ApiClient.convertToType(data['reportCurrency'], 'String');
             }
-            if (data.hasOwnProperty('horizonInTradingDays')) {
+            if (data.hasOwnProperty('horizonInTradingDays') && obj['horizonInTradingDays'] === undefined) {
                 obj['horizonInTradingDays'] = ApiClient.convertToType(data['horizonInTradingDays'], 'Number');
             }
-            if (data.hasOwnProperty('returnDates')) {
+            if (data.hasOwnProperty('returnDates') && obj['returnDates'] === undefined) {
                 obj['returnDates'] = ApiClient.convertToType(data['returnDates'], ['Number']);
             }
+            
         }
         return obj;
     }

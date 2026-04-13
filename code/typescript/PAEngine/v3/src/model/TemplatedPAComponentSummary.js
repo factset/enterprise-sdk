@@ -46,18 +46,19 @@ class TemplatedPAComponentSummary {
         if (data) {
             obj = obj || new TemplatedPAComponentSummary();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('parentTemplateId')) {
+            if (data.hasOwnProperty('parentTemplateId') && obj['parentTemplateId'] === undefined) {
                 obj['parentTemplateId'] = ApiClient.convertToType(data['parentTemplateId'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

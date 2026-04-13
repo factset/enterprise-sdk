@@ -50,15 +50,16 @@ class ApplicationLink {
         if (data) {
             obj = obj || new ApplicationLink();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('workstationLink')) {
+            if (data.hasOwnProperty('workstationLink') && obj['workstationLink'] === undefined) {
                 obj['workstationLink'] = ApiClient.convertToType(data['workstationLink'], 'String');
             }
-            if (data.hasOwnProperty('webLink')) {
+            if (data.hasOwnProperty('webLink') && obj['webLink'] === undefined) {
                 obj['webLink'] = ApiClient.convertToType(data['webLink'], 'String');
             }
+            
         }
         return obj;
     }

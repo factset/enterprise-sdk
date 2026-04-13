@@ -47,9 +47,10 @@ class SegmentsResponse {
         if (data) {
             obj = obj || new SegmentsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SegmentsEstimate]);
             }
+            
         }
         return obj;
     }

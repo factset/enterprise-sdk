@@ -47,57 +47,58 @@ class SplitCalendar {
         if (data) {
             obj = obj || new SplitCalendar();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('eventTypeCode')) {
+            if (data.hasOwnProperty('eventTypeCode') && obj['eventTypeCode'] === undefined) {
                 obj['eventTypeCode'] = ApiClient.convertToType(data['eventTypeCode'], 'String');
             }
-            if (data.hasOwnProperty('eventTypeDesc')) {
+            if (data.hasOwnProperty('eventTypeDesc') && obj['eventTypeDesc'] === undefined) {
                 obj['eventTypeDesc'] = ApiClient.convertToType(data['eventTypeDesc'], 'String');
             }
-            if (data.hasOwnProperty('announcementDate')) {
+            if (data.hasOwnProperty('announcementDate') && obj['announcementDate'] === undefined) {
                 obj['announcementDate'] = ApiClient.convertToType(data['announcementDate'], 'String');
             }
-            if (data.hasOwnProperty('recordDate')) {
+            if (data.hasOwnProperty('recordDate') && obj['recordDate'] === undefined) {
                 obj['recordDate'] = ApiClient.convertToType(data['recordDate'], 'String');
             }
-            if (data.hasOwnProperty('payDate')) {
+            if (data.hasOwnProperty('payDate') && obj['payDate'] === undefined) {
                 obj['payDate'] = ApiClient.convertToType(data['payDate'], 'String');
             }
-            if (data.hasOwnProperty('effectiveDate')) {
+            if (data.hasOwnProperty('effectiveDate') && obj['effectiveDate'] === undefined) {
                 obj['effectiveDate'] = ApiClient.convertToType(data['effectiveDate'], 'String');
             }
-            if (data.hasOwnProperty('adjFactor')) {
+            if (data.hasOwnProperty('adjFactor') && obj['adjFactor'] === undefined) {
                 obj['adjFactor'] = ApiClient.convertToType(data['adjFactor'], 'Number');
             }
-            if (data.hasOwnProperty('adjFactorCombined')) {
+            if (data.hasOwnProperty('adjFactorCombined') && obj['adjFactorCombined'] === undefined) {
                 obj['adjFactorCombined'] = ApiClient.convertToType(data['adjFactorCombined'], 'Number');
             }
-            if (data.hasOwnProperty('distOldTerm')) {
+            if (data.hasOwnProperty('distOldTerm') && obj['distOldTerm'] === undefined) {
                 obj['distOldTerm'] = ApiClient.convertToType(data['distOldTerm'], 'Number');
             }
-            if (data.hasOwnProperty('distNewTerm')) {
+            if (data.hasOwnProperty('distNewTerm') && obj['distNewTerm'] === undefined) {
                 obj['distNewTerm'] = ApiClient.convertToType(data['distNewTerm'], 'Number');
             }
-            if (data.hasOwnProperty('distInstFsymId')) {
+            if (data.hasOwnProperty('distInstFsymId') && obj['distInstFsymId'] === undefined) {
                 obj['distInstFsymId'] = ApiClient.convertToType(data['distInstFsymId'], 'String');
             }
-            if (data.hasOwnProperty('shortDesc')) {
+            if (data.hasOwnProperty('shortDesc') && obj['shortDesc'] === undefined) {
                 obj['shortDesc'] = ApiClient.convertToType(data['shortDesc'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ErrorObjectResponse.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class PostBasicTimezoneListRequestData {
         if (data) {
             obj = obj || new PostBasicTimezoneListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicTimezoneListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

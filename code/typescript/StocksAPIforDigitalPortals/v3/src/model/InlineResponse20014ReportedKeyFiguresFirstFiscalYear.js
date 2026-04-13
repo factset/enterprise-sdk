@@ -50,36 +50,37 @@ class InlineResponse20014ReportedKeyFiguresFirstFiscalYear {
         if (data) {
             obj = obj || new InlineResponse20014ReportedKeyFiguresFirstFiscalYear();
 
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = InlineResponse20014ReportedKeyFiguresFirstFiscalYearFiscalYear.constructFromObject(data['fiscalYear']);
             }
-            if (data.hasOwnProperty('currencyDependentKeyFigures')) {
+            if (data.hasOwnProperty('currencyDependentKeyFigures') && obj['currencyDependentKeyFigures'] === undefined) {
                 obj['currencyDependentKeyFigures'] = InlineResponse20014ReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures.constructFromObject(data['currencyDependentKeyFigures']);
             }
-            if (data.hasOwnProperty('ebitMargin')) {
+            if (data.hasOwnProperty('ebitMargin') && obj['ebitMargin'] === undefined) {
                 obj['ebitMargin'] = ApiClient.convertToType(data['ebitMargin'], 'Number');
             }
-            if (data.hasOwnProperty('ebitdaMargin')) {
+            if (data.hasOwnProperty('ebitdaMargin') && obj['ebitdaMargin'] === undefined) {
                 obj['ebitdaMargin'] = ApiClient.convertToType(data['ebitdaMargin'], 'Number');
             }
-            if (data.hasOwnProperty('netIncomeMargin')) {
+            if (data.hasOwnProperty('netIncomeMargin') && obj['netIncomeMargin'] === undefined) {
                 obj['netIncomeMargin'] = ApiClient.convertToType(data['netIncomeMargin'], 'Number');
             }
-            if (data.hasOwnProperty('grossIncomeMargin')) {
+            if (data.hasOwnProperty('grossIncomeMargin') && obj['grossIncomeMargin'] === undefined) {
                 obj['grossIncomeMargin'] = ApiClient.convertToType(data['grossIncomeMargin'], 'Number');
             }
-            if (data.hasOwnProperty('operatingMargin')) {
+            if (data.hasOwnProperty('operatingMargin') && obj['operatingMargin'] === undefined) {
                 obj['operatingMargin'] = ApiClient.convertToType(data['operatingMargin'], 'Number');
             }
-            if (data.hasOwnProperty('returnOnAssets')) {
+            if (data.hasOwnProperty('returnOnAssets') && obj['returnOnAssets'] === undefined) {
                 obj['returnOnAssets'] = ApiClient.convertToType(data['returnOnAssets'], 'Number');
             }
-            if (data.hasOwnProperty('returnOnEquity')) {
+            if (data.hasOwnProperty('returnOnEquity') && obj['returnOnEquity'] === undefined) {
                 obj['returnOnEquity'] = ApiClient.convertToType(data['returnOnEquity'], 'Number');
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = InlineResponse20014ReportedKeyFiguresFirstFiscalYearRatios.constructFromObject(data['ratios']);
             }
+            
         }
         return obj;
     }

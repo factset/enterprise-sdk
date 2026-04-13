@@ -50,9 +50,10 @@ class DsotmParametersRoot {
         if (data) {
             obj = obj || new DsotmParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DsotmParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

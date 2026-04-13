@@ -47,9 +47,10 @@ class InlineResponse200DataBrand {
         if (data) {
             obj = obj || new InlineResponse200DataBrand();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            
         }
         return obj;
     }

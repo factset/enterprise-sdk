@@ -47,9 +47,10 @@ class PostOptionByClassListRequestDataContractSizeRestrict {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataContractSizeRestrict();
 
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], ['Number']);
             }
+            
         }
         return obj;
     }

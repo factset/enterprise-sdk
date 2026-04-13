@@ -47,12 +47,13 @@ class BrokerResearchSummary {
         if (data) {
             obj = obj || new BrokerResearchSummary();
 
-            if (data.hasOwnProperty('style')) {
+            if (data.hasOwnProperty('style') && obj['style'] === undefined) {
                 obj['style'] = ApiClient.convertToType(data['style'], 'String');
             }
-            if (data.hasOwnProperty('brokerIds')) {
+            if (data.hasOwnProperty('brokerIds') && obj['brokerIds'] === undefined) {
                 obj['brokerIds'] = ApiClient.convertToType(data['brokerIds'], ['Number']);
             }
+            
         }
         return obj;
     }

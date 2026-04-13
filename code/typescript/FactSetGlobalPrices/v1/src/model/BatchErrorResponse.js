@@ -48,9 +48,10 @@ class BatchErrorResponse {
         if (data) {
             obj = obj || new BatchErrorResponse();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [BatchErrorObject]);
             }
+            
         }
         return obj;
     }

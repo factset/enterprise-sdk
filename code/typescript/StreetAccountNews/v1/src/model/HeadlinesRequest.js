@@ -49,12 +49,13 @@ class HeadlinesRequest {
         if (data) {
             obj = obj || new HeadlinesRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = HeadlinesRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = HeadlinesRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

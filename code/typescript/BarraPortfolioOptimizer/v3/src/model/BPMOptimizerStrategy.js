@@ -49,12 +49,13 @@ class BPMOptimizerStrategy {
         if (data) {
             obj = obj || new BPMOptimizerStrategy();
 
-            if (data.hasOwnProperty('overrides')) {
+            if (data.hasOwnProperty('overrides') && obj['overrides'] === undefined) {
                 obj['overrides'] = BPMOptimizerStrategyOverrides.constructFromObject(data['overrides']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            
         }
         return obj;
     }

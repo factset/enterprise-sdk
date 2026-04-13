@@ -47,18 +47,19 @@ class GetCategorySystemGetDataLevelsItems {
         if (data) {
             obj = obj || new GetCategorySystemGetDataLevelsItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('number')) {
+            if (data.hasOwnProperty('number') && obj['number'] === undefined) {
                 obj['number'] = ApiClient.convertToType(data['number'], 'Number');
             }
-            if (data.hasOwnProperty('hasLeafCategories')) {
+            if (data.hasOwnProperty('hasLeafCategories') && obj['hasLeafCategories'] === undefined) {
                 obj['hasLeafCategories'] = ApiClient.convertToType(data['hasLeafCategories'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class GIPSViews {
         if (data) {
             obj = obj || new GIPSViews();
 
-            if (data.hasOwnProperty('isDefault')) {
+            if (data.hasOwnProperty('isDefault') && obj['isDefault'] === undefined) {
                 obj['isDefault'] = ApiClient.convertToType(data['isDefault'], 'Boolean');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

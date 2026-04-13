@@ -46,12 +46,13 @@ class BuyContextModelAnalyticsItemRange {
         if (data) {
             obj = obj || new BuyContextModelAnalyticsItemRange();
 
-            if (data.hasOwnProperty('from')) {
+            if (data.hasOwnProperty('from') && obj['from'] === undefined) {
                 obj['from'] = ApiClient.convertToType(data['from'], 'Number');
             }
-            if (data.hasOwnProperty('to')) {
+            if (data.hasOwnProperty('to') && obj['to'] === undefined) {
                 obj['to'] = ApiClient.convertToType(data['to'], 'Number');
             }
+            
         }
         return obj;
     }

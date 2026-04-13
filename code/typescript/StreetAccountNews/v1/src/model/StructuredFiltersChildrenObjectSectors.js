@@ -47,12 +47,13 @@ class StructuredFiltersChildrenObjectSectors {
         if (data) {
             obj = obj || new StructuredFiltersChildrenObjectSectors();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['Number']);
             }
+            
         }
         return obj;
     }

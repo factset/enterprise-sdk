@@ -45,8 +45,9 @@ class ExposureDateFormatConvention {
      */
     static constructFromObject(data, obj) {
         // openApiType:string format:date
-        if (typeof data === 'string' && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(data)) return ApiClient.setValue(obj || new ExposureDateFormatConvention(), ApiClient.convertToType(data, 'Date'));
-        if (typeof data === 'string') return ApiClient.setValue(obj || new ExposureDateFormatConvention(), data);
+        if (typeof data === 'string' && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(data)) return ApiClient.convertToType(data, 'Date');
+        if (typeof data === 'string') return data;
+        throw new Error("Failed to construct ExposureDateFormatConvention due to oneOf-schemas not matching the data: " + data);
     }
 
 

@@ -47,9 +47,10 @@ class PostNewsArticleSearchByTextDataCriteriaItemsDistributor {
         if (data) {
             obj = obj || new PostNewsArticleSearchByTextDataCriteriaItemsDistributor();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
+            
         }
         return obj;
     }

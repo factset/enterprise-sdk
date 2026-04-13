@@ -47,24 +47,24 @@ class ProblemDetails {
         if (data) {
             obj = obj || new ProblemDetails();
 
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
-
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'Number');
             }
-            if (data.hasOwnProperty('detail')) {
+            if (data.hasOwnProperty('detail') && obj['detail'] === undefined) {
                 obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
             }
-            if (data.hasOwnProperty('instance')) {
+            if (data.hasOwnProperty('instance') && obj['instance'] === undefined) {
                 obj['instance'] = ApiClient.convertToType(data['instance'], 'String');
             }
+            
+            ApiClient.constructFromObject(data, obj, Object);
+            
         }
         return obj;
     }

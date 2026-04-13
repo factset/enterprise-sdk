@@ -46,12 +46,13 @@ class TranscriptsRequestMetaPagination {
         if (data) {
             obj = obj || new TranscriptsRequestMetaPagination();
 
-            if (data.hasOwnProperty('limit')) {
+            if (data.hasOwnProperty('limit') && obj['limit'] === undefined) {
                 obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
-            if (data.hasOwnProperty('offset')) {
+            if (data.hasOwnProperty('offset') && obj['offset'] === undefined) {
                 obj['offset'] = ApiClient.convertToType(data['offset'], 'Number');
             }
+            
         }
         return obj;
     }

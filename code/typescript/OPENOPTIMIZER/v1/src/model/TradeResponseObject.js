@@ -46,21 +46,22 @@ class TradeResponseObject {
         if (data) {
             obj = obj || new TradeResponseObject();
 
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('tradeAction')) {
+            if (data.hasOwnProperty('tradeAction') && obj['tradeAction'] === undefined) {
                 obj['tradeAction'] = ApiClient.convertToType(data['tradeAction'], 'String');
             }
-            if (data.hasOwnProperty('tradeType')) {
+            if (data.hasOwnProperty('tradeType') && obj['tradeType'] === undefined) {
                 obj['tradeType'] = ApiClient.convertToType(data['tradeType'], 'String');
             }
-            if (data.hasOwnProperty('traded')) {
+            if (data.hasOwnProperty('traded') && obj['traded'] === undefined) {
                 obj['traded'] = ApiClient.convertToType(data['traded'], 'Number');
             }
-            if (data.hasOwnProperty('transactionCost')) {
+            if (data.hasOwnProperty('transactionCost') && obj['transactionCost'] === undefined) {
                 obj['transactionCost'] = ApiClient.convertToType(data['transactionCost'], 'Number');
             }
+            
         }
         return obj;
     }

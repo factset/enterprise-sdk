@@ -47,9 +47,10 @@ class PeriodSeriesAllOf {
         if (data) {
             obj = obj || new PeriodSeriesAllOf();
 
-            if (data.hasOwnProperty('series')) {
+            if (data.hasOwnProperty('series') && obj['series'] === undefined) {
                 obj['series'] = SerieStats.constructFromObject(data['series']);
             }
+            
         }
         return obj;
     }

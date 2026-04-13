@@ -47,12 +47,13 @@ class CreateBookFromTemplatePostRequest {
         if (data) {
             obj = obj || new CreateBookFromTemplatePostRequest();
 
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('template_id')) {
+            if (data.hasOwnProperty('template_id') && obj['template_id'] === undefined) {
                 obj['template_id'] = ApiClient.convertToType(data['template_id'], 'String');
             }
+            
         }
         return obj;
     }

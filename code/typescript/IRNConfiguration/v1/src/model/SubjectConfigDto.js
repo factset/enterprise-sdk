@@ -50,51 +50,52 @@ class SubjectConfigDto {
         if (data) {
             obj = obj || new SubjectConfigDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('identifierType')) {
+            if (data.hasOwnProperty('identifierType') && obj['identifierType'] === undefined) {
                 obj['identifierType'] = ApiClient.convertToType(data['identifierType'], 'String');
             }
-            if (data.hasOwnProperty('identifierTypes')) {
+            if (data.hasOwnProperty('identifierTypes') && obj['identifierTypes'] === undefined) {
                 obj['identifierTypes'] = ApiClient.convertToType(data['identifierTypes'], ['String']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('customFieldIds')) {
+            if (data.hasOwnProperty('customFieldIds') && obj['customFieldIds'] === undefined) {
                 obj['customFieldIds'] = ApiClient.convertToType(data['customFieldIds'], ['String']);
             }
-            if (data.hasOwnProperty('approvalProcessConfig')) {
+            if (data.hasOwnProperty('approvalProcessConfig') && obj['approvalProcessConfig'] === undefined) {
                 obj['approvalProcessConfig'] = ApprovalProcessConfigDto.constructFromObject(data['approvalProcessConfig']);
             }
-            if (data.hasOwnProperty('commentaryConfig')) {
+            if (data.hasOwnProperty('commentaryConfig') && obj['commentaryConfig'] === undefined) {
                 obj['commentaryConfig'] = CommentaryConfigDto.constructFromObject(data['commentaryConfig']);
             }
-            if (data.hasOwnProperty('newsHeadlineFormat')) {
+            if (data.hasOwnProperty('newsHeadlineFormat') && obj['newsHeadlineFormat'] === undefined) {
                 obj['newsHeadlineFormat'] = ApiClient.convertToType(data['newsHeadlineFormat'], [HeadlineFormatConfigDto]);
             }
-            if (data.hasOwnProperty('emailHeadlineFormat')) {
+            if (data.hasOwnProperty('emailHeadlineFormat') && obj['emailHeadlineFormat'] === undefined) {
                 obj['emailHeadlineFormat'] = ApiClient.convertToType(data['emailHeadlineFormat'], [HeadlineFormatConfigDto]);
             }
-            if (data.hasOwnProperty('ratingConfig')) {
+            if (data.hasOwnProperty('ratingConfig') && obj['ratingConfig'] === undefined) {
                 obj['ratingConfig'] = RatingConfigDto.constructFromObject(data['ratingConfig']);
             }
-            if (data.hasOwnProperty('noteLengthLimit')) {
+            if (data.hasOwnProperty('noteLengthLimit') && obj['noteLengthLimit'] === undefined) {
                 obj['noteLengthLimit'] = ApiClient.convertToType(data['noteLengthLimit'], 'Number');
             }
-            if (data.hasOwnProperty('layoutId')) {
+            if (data.hasOwnProperty('layoutId') && obj['layoutId'] === undefined) {
                 obj['layoutId'] = ApiClient.convertToType(data['layoutId'], 'String');
             }
+            
         }
         return obj;
     }

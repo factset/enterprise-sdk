@@ -46,21 +46,22 @@ class Field {
         if (data) {
             obj = obj || new Field();
 
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = ApiClient.convertToType(data['factor'], 'Number');
             }
-            if (data.hasOwnProperty('sdfName')) {
+            if (data.hasOwnProperty('sdfName') && obj['sdfName'] === undefined) {
                 obj['sdfName'] = ApiClient.convertToType(data['sdfName'], 'String');
             }
+            
         }
         return obj;
     }

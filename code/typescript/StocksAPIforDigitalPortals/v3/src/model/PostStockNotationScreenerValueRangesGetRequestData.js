@@ -60,48 +60,49 @@ class PostStockNotationScreenerValueRangesGetRequestData {
         if (data) {
             obj = obj || new PostStockNotationScreenerValueRangesGetRequestData();
 
-            if (data.hasOwnProperty('validation')) {
+            if (data.hasOwnProperty('validation') && obj['validation'] === undefined) {
                 obj['validation'] = PostStockNotationScreenerSearchRequestDataValidation.constructFromObject(data['validation']);
             }
-            if (data.hasOwnProperty('stockType')) {
+            if (data.hasOwnProperty('stockType') && obj['stockType'] === undefined) {
                 obj['stockType'] = ApiClient.convertToType(data['stockType'], ['String']);
             }
-            if (data.hasOwnProperty('industryClassification')) {
+            if (data.hasOwnProperty('industryClassification') && obj['industryClassification'] === undefined) {
                 obj['industryClassification'] = PostStockNotationScreenerSearchRequestDataIndustryClassification.constructFromObject(data['industryClassification']);
             }
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = PostStockNotationScreenerSearchRequestDataCompany.constructFromObject(data['company']);
             }
-            if (data.hasOwnProperty('indexMembership')) {
+            if (data.hasOwnProperty('indexMembership') && obj['indexMembership'] === undefined) {
                 obj['indexMembership'] = PostStockNotationScreenerSearchRequestDataIndexMembership.constructFromObject(data['indexMembership']);
             }
-            if (data.hasOwnProperty('compliance')) {
+            if (data.hasOwnProperty('compliance') && obj['compliance'] === undefined) {
                 obj['compliance'] = PostStockNotationScreenerSearchRequestDataCompliance.constructFromObject(data['compliance']);
             }
-            if (data.hasOwnProperty('reportedKeyFigures')) {
+            if (data.hasOwnProperty('reportedKeyFigures') && obj['reportedKeyFigures'] === undefined) {
                 obj['reportedKeyFigures'] = ApiClient.convertToType(data['reportedKeyFigures'], [PostStockNotationScreenerSearchRequestDataReportedKeyFigures]);
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = PostStockNotationScreenerSearchRequestDataPerformance.constructFromObject(data['performance']);
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = PostStockNotationScreenerSearchRequestDataVolatility.constructFromObject(data['volatility']);
             }
-            if (data.hasOwnProperty('tradingValue')) {
+            if (data.hasOwnProperty('tradingValue') && obj['tradingValue'] === undefined) {
                 obj['tradingValue'] = PostStockNotationScreenerSearchRequestDataTradingValue.constructFromObject(data['tradingValue']);
             }
-            if (data.hasOwnProperty('simpleMovingAverage')) {
+            if (data.hasOwnProperty('simpleMovingAverage') && obj['simpleMovingAverage'] === undefined) {
                 obj['simpleMovingAverage'] = PostStockNotationScreenerSearchRequestDataSimpleMovingAverage.constructFromObject(data['simpleMovingAverage']);
             }
-            if (data.hasOwnProperty('rsiWilder')) {
+            if (data.hasOwnProperty('rsiWilder') && obj['rsiWilder'] === undefined) {
                 obj['rsiWilder'] = PostStockNotationScreenerSearchRequestDataRsiWilder.constructFromObject(data['rsiWilder']);
             }
-            if (data.hasOwnProperty('recommendation')) {
+            if (data.hasOwnProperty('recommendation') && obj['recommendation'] === undefined) {
                 obj['recommendation'] = PostStockNotationScreenerValueRangesGetRequestDataRecommendation.constructFromObject(data['recommendation']);
             }
-            if (data.hasOwnProperty('estimates')) {
+            if (data.hasOwnProperty('estimates') && obj['estimates'] === undefined) {
                 obj['estimates'] = ApiClient.convertToType(data['estimates'], [PostStockNotationScreenerSearchRequestDataEstimates]);
             }
+            
         }
         return obj;
     }

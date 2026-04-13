@@ -52,27 +52,28 @@ class ResultResponseData {
         if (data) {
             obj = obj || new ResultResponseData();
 
-            if (data.hasOwnProperty('holdings')) {
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
                 obj['holdings'] = ApiClient.convertToType(data['holdings'], [HoldingsResponseObject]);
             }
-            if (data.hasOwnProperty('globalVariables')) {
+            if (data.hasOwnProperty('globalVariables') && obj['globalVariables'] === undefined) {
                 obj['globalVariables'] = ApiClient.convertToType(data['globalVariables'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('archive')) {
+            if (data.hasOwnProperty('archive') && obj['archive'] === undefined) {
                 obj['archive'] = ResultResponseDataArchive.constructFromObject(data['archive']);
             }
-            if (data.hasOwnProperty('debugFile')) {
+            if (data.hasOwnProperty('debugFile') && obj['debugFile'] === undefined) {
                 obj['debugFile'] = ResultResponseDataDebugFile.constructFromObject(data['debugFile']);
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ResultResponseDataStats.constructFromObject(data['stats']);
             }
-            if (data.hasOwnProperty('trades')) {
+            if (data.hasOwnProperty('trades') && obj['trades'] === undefined) {
                 obj['trades'] = ApiClient.convertToType(data['trades'], [TradeResponseObject]);
             }
-            if (data.hasOwnProperty('reports')) {
+            if (data.hasOwnProperty('reports') && obj['reports'] === undefined) {
                 obj['reports'] = ResultResponseDataReports.constructFromObject(data['reports']);
             }
+            
         }
         return obj;
     }

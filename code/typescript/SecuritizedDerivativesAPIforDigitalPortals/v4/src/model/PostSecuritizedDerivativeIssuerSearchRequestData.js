@@ -55,30 +55,31 @@ class PostSecuritizedDerivativeIssuerSearchRequestData {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequestData();
 
-            if (data.hasOwnProperty('role')) {
+            if (data.hasOwnProperty('role') && obj['role'] === undefined) {
                 obj['role'] = ApiClient.convertToType(data['role'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = PostSecuritizedDerivativeIssuerSearchRequestDataName.constructFromObject(data['name']);
             }
-            if (data.hasOwnProperty('withPriceEntitlement')) {
+            if (data.hasOwnProperty('withPriceEntitlement') && obj['withPriceEntitlement'] === undefined) {
                 obj['withPriceEntitlement'] = ApiClient.convertToType(data['withPriceEntitlement'], 'Boolean');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = PostSecuritizedDerivativeIssuerSearchRequestDataCategory.constructFromObject(data['category']);
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = PostSecuritizedDerivativeIssuerSearchRequestDataUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('factorCertificates')) {
+            if (data.hasOwnProperty('factorCertificates') && obj['factorCertificates'] === undefined) {
                 obj['factorCertificates'] = PostSecuritizedDerivativeIssuerSearchRequestDataFactorCertificates.constructFromObject(data['factorCertificates']);
             }
-            if (data.hasOwnProperty('registrationCountry')) {
+            if (data.hasOwnProperty('registrationCountry') && obj['registrationCountry'] === undefined) {
                 obj['registrationCountry'] = PostSecuritizedDerivativeIssuerSearchRequestDataRegistrationCountry.constructFromObject(data['registrationCountry']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostSecuritizedDerivativeIssuerSearchRequestDataMarket.constructFromObject(data['market']);
             }
+            
         }
         return obj;
     }

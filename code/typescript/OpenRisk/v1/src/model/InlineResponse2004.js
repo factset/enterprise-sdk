@@ -52,12 +52,13 @@ class InlineResponse2004 {
         if (data) {
             obj = obj || new InlineResponse2004();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = SecurityOnlySuccessResponseMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [RiskMappingEntry]);
             }
+            
         }
         return obj;
     }

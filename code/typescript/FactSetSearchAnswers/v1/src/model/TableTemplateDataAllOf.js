@@ -47,9 +47,10 @@ class TableTemplateDataAllOf {
         if (data) {
             obj = obj || new TableTemplateDataAllOf();
 
-            if (data.hasOwnProperty('table')) {
+            if (data.hasOwnProperty('table') && obj['table'] === undefined) {
                 obj['table'] = Table.constructFromObject(data['table']);
             }
+            
         }
         return obj;
     }

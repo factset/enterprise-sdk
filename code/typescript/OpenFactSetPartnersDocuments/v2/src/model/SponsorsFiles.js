@@ -47,27 +47,28 @@ class SponsorsFiles {
         if (data) {
             obj = obj || new SponsorsFiles();
 
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('beamSponsorsId')) {
+            if (data.hasOwnProperty('beamSponsorsId') && obj['beamSponsorsId'] === undefined) {
                 obj['beamSponsorsId'] = ApiClient.convertToType(data['beamSponsorsId'], 'Number');
             }
-            if (data.hasOwnProperty('beamSponsorsName')) {
+            if (data.hasOwnProperty('beamSponsorsName') && obj['beamSponsorsName'] === undefined) {
                 obj['beamSponsorsName'] = ApiClient.convertToType(data['beamSponsorsName'], 'String');
             }
-            if (data.hasOwnProperty('beamSponsorsType')) {
+            if (data.hasOwnProperty('beamSponsorsType') && obj['beamSponsorsType'] === undefined) {
                 obj['beamSponsorsType'] = ApiClient.convertToType(data['beamSponsorsType'], 'String');
             }
-            if (data.hasOwnProperty('beamSponsorsTicker')) {
+            if (data.hasOwnProperty('beamSponsorsTicker') && obj['beamSponsorsTicker'] === undefined) {
                 obj['beamSponsorsTicker'] = ApiClient.convertToType(data['beamSponsorsTicker'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

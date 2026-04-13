@@ -59,27 +59,28 @@ class ContactCustomFieldSaveDto {
         if (data) {
             obj = obj || new ContactCustomFieldSaveDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ContactCustomFieldType.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('isMandatory')) {
+            if (data.hasOwnProperty('isMandatory') && obj['isMandatory'] === undefined) {
                 obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('fieldFormula')) {
+            if (data.hasOwnProperty('fieldFormula') && obj['fieldFormula'] === undefined) {
                 obj['fieldFormula'] = ContactCustomFieldFormulaDto.constructFromObject(data['fieldFormula']);
             }
-            if (data.hasOwnProperty('contactCustomFieldOptions')) {
+            if (data.hasOwnProperty('contactCustomFieldOptions') && obj['contactCustomFieldOptions'] === undefined) {
                 obj['contactCustomFieldOptions'] = ApiClient.convertToType(data['contactCustomFieldOptions'], [ContactCustomFieldOptionSaveDto]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class AssetResponse {
         if (data) {
             obj = obj || new AssetResponse();
 
-            if (data.hasOwnProperty('assetTypes')) {
+            if (data.hasOwnProperty('assetTypes') && obj['assetTypes'] === undefined) {
                 obj['assetTypes'] = ApiClient.convertToType(data['assetTypes'], ['String']);
             }
+            
         }
         return obj;
     }

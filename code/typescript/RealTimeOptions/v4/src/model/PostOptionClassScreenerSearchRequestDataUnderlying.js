@@ -49,12 +49,13 @@ class PostOptionClassScreenerSearchRequestDataUnderlying {
         if (data) {
             obj = obj || new PostOptionClassScreenerSearchRequestDataUnderlying();
 
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = PostOptionClassScreenerSearchRequestDataUnderlyingInstrument.constructFromObject(data['instrument']);
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = PostOptionClassScreenerSearchRequestDataUnderlyingNotation.constructFromObject(data['notation']);
             }
+            
         }
         return obj;
     }

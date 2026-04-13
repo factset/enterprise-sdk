@@ -50,9 +50,10 @@ class FeedbackRequest {
         if (data) {
             obj = obj || new FeedbackRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FeedbackRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

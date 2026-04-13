@@ -47,9 +47,10 @@ class BPMNPOAvailableComponentsInput {
         if (data) {
             obj = obj || new BPMNPOAvailableComponentsInput();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BPMNPOAvailableComponentsInputData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

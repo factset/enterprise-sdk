@@ -46,9 +46,10 @@ class ErrorItemSource {
         if (data) {
             obj = obj || new ErrorItemSource();
 
-            if (data.hasOwnProperty('parameter')) {
+            if (data.hasOwnProperty('parameter') && obj['parameter'] === undefined) {
                 obj['parameter'] = ApiClient.convertToType(data['parameter'], 'String');
             }
+            
         }
         return obj;
     }

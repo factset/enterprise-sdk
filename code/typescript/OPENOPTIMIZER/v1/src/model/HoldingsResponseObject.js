@@ -46,30 +46,31 @@ class HoldingsResponseObject {
         if (data) {
             obj = obj || new HoldingsResponseObject();
 
-            if (data.hasOwnProperty('initial')) {
+            if (data.hasOwnProperty('initial') && obj['initial'] === undefined) {
                 obj['initial'] = ApiClient.convertToType(data['initial'], 'Number');
             }
-            if (data.hasOwnProperty('optimal')) {
+            if (data.hasOwnProperty('optimal') && obj['optimal'] === undefined) {
                 obj['optimal'] = ApiClient.convertToType(data['optimal'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('priceISO')) {
+            if (data.hasOwnProperty('priceISO') && obj['priceISO'] === undefined) {
                 obj['priceISO'] = ApiClient.convertToType(data['priceISO'], 'String');
             }
-            if (data.hasOwnProperty('priceLocal')) {
+            if (data.hasOwnProperty('priceLocal') && obj['priceLocal'] === undefined) {
                 obj['priceLocal'] = ApiClient.convertToType(data['priceLocal'], 'Number');
             }
-            if (data.hasOwnProperty('priceLocalISO')) {
+            if (data.hasOwnProperty('priceLocalISO') && obj['priceLocalISO'] === undefined) {
                 obj['priceLocalISO'] = ApiClient.convertToType(data['priceLocalISO'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('traded')) {
+            if (data.hasOwnProperty('traded') && obj['traded'] === undefined) {
                 obj['traded'] = ApiClient.convertToType(data['traded'], 'Number');
             }
+            
         }
         return obj;
     }

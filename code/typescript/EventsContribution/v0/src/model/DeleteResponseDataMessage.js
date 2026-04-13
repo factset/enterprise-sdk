@@ -47,9 +47,10 @@ class DeleteResponseDataMessage {
         if (data) {
             obj = obj || new DeleteResponseDataMessage();
 
-            if (data.hasOwnProperty('event')) {
+            if (data.hasOwnProperty('event') && obj['event'] === undefined) {
                 obj['event'] = ApiClient.convertToType(data['event'], 'String');
             }
+            
         }
         return obj;
     }

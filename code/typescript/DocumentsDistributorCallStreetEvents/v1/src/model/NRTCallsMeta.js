@@ -48,15 +48,16 @@ class NRTCallsMeta {
         if (data) {
             obj = obj || new NRTCallsMeta();
 
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], ['String']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = NRTSnippetsMetaPagination.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('partial')) {
+            if (data.hasOwnProperty('partial') && obj['partial'] === undefined) {
                 obj['partial'] = NRTSnippetsMetaPartial.constructFromObject(data['partial']);
             }
+            
         }
         return obj;
     }

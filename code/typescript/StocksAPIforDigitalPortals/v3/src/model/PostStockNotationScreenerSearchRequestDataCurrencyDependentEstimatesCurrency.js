@@ -49,9 +49,10 @@ class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesCurren
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesCurrency();
 
-            if (data.hasOwnProperty('isoCode')) {
+            if (data.hasOwnProperty('isoCode') && obj['isoCode'] === undefined) {
                 obj['isoCode'] = ApiClient.convertToType(data['isoCode'], 'String');
             }
+            
         }
         return obj;
     }

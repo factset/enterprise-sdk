@@ -54,15 +54,16 @@ class ContractFields {
         if (data) {
             obj = obj || new ContractFields();
 
-            if (data.hasOwnProperty('summary')) {
+            if (data.hasOwnProperty('summary') && obj['summary'] === undefined) {
                 obj['summary'] = ContractFieldsSummary.constructFromObject(data['summary']);
             }
-            if (data.hasOwnProperty('eventDate')) {
+            if (data.hasOwnProperty('eventDate') && obj['eventDate'] === undefined) {
                 obj['eventDate'] = ContractFieldsEventDate.constructFromObject(data['eventDate']);
             }
-            if (data.hasOwnProperty('additionalProperties')) {
+            if (data.hasOwnProperty('additionalProperties') && obj['additionalProperties'] === undefined) {
                 obj['additionalProperties'] = ContractProperty.constructFromObject(data['additionalProperties']);
             }
+            
         }
         return obj;
     }

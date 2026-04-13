@@ -46,30 +46,31 @@ class InlineResponse20033Data {
         if (data) {
             obj = obj || new InlineResponse20033Data();
 
-            if (data.hasOwnProperty('navDate')) {
+            if (data.hasOwnProperty('navDate') && obj['navDate'] === undefined) {
                 obj['navDate'] = ApiClient.convertToType(data['navDate'], 'Date');
             }
-            if (data.hasOwnProperty('nav')) {
+            if (data.hasOwnProperty('nav') && obj['nav'] === undefined) {
                 obj['nav'] = ApiClient.convertToType(data['nav'], 'Number');
             }
-            if (data.hasOwnProperty('navChange')) {
+            if (data.hasOwnProperty('navChange') && obj['navChange'] === undefined) {
                 obj['navChange'] = ApiClient.convertToType(data['navChange'], 'Number');
             }
-            if (data.hasOwnProperty('navChangePercent')) {
+            if (data.hasOwnProperty('navChangePercent') && obj['navChangePercent'] === undefined) {
                 obj['navChangePercent'] = ApiClient.convertToType(data['navChangePercent'], 'Number');
             }
-            if (data.hasOwnProperty('premiumDiscount')) {
+            if (data.hasOwnProperty('premiumDiscount') && obj['premiumDiscount'] === undefined) {
                 obj['premiumDiscount'] = ApiClient.convertToType(data['premiumDiscount'], 'Number');
             }
-            if (data.hasOwnProperty('fundFlows')) {
+            if (data.hasOwnProperty('fundFlows') && obj['fundFlows'] === undefined) {
                 obj['fundFlows'] = ApiClient.convertToType(data['fundFlows'], 'Number');
             }
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = ApiClient.convertToType(data['sharesOutstanding'], 'Number');
             }
-            if (data.hasOwnProperty('aum')) {
+            if (data.hasOwnProperty('aum') && obj['aum'] === undefined) {
                 obj['aum'] = ApiClient.convertToType(data['aum'], 'Number');
             }
+            
         }
         return obj;
     }

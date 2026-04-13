@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeIssuerSearchRequestDataRegistrationCountry {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequestDataRegistrationCountry();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostSecuritizedDerivativeIssuerSearchRequestDataRegistrationCountryRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostSecuritizedDerivativeIssuerSearchRequestDataRegistrationCountryExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

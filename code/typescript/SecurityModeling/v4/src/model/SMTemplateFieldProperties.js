@@ -46,18 +46,19 @@ class SMTemplateFieldProperties {
         if (data) {
             obj = obj || new SMTemplateFieldProperties();
 
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], ['String']);
             }
-            if (data.hasOwnProperty('mandatory')) {
+            if (data.hasOwnProperty('mandatory') && obj['mandatory'] === undefined) {
                 obj['mandatory'] = ApiClient.convertToType(data['mandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('whenField')) {
+            if (data.hasOwnProperty('whenField') && obj['whenField'] === undefined) {
                 obj['whenField'] = ApiClient.convertToType(data['whenField'], [Object]);
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

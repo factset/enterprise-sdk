@@ -54,27 +54,28 @@ class PostOptionByClassListRequestData {
         if (data) {
             obj = obj || new PostOptionByClassListRequestData();
 
-            if (data.hasOwnProperty('class')) {
+            if (data.hasOwnProperty('class') && obj['class'] === undefined) {
                 obj['class'] = PostOptionByClassListRequestDataClass.constructFromObject(data['class']);
             }
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostOptionByClassListRequestDataFilter.constructFromObject(data['filter']);
             }
-            if (data.hasOwnProperty('contract')) {
+            if (data.hasOwnProperty('contract') && obj['contract'] === undefined) {
                 obj['contract'] = PostOptionByClassListRequestDataContract.constructFromObject(data['contract']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = PostOptionByClassListRequestDataLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('contractSize')) {
+            if (data.hasOwnProperty('contractSize') && obj['contractSize'] === undefined) {
                 obj['contractSize'] = PostOptionByClassListRequestDataContractSize.constructFromObject(data['contractSize']);
             }
-            if (data.hasOwnProperty('openInterest')) {
+            if (data.hasOwnProperty('openInterest') && obj['openInterest'] === undefined) {
                 obj['openInterest'] = PostOptionByClassListRequestDataOpenInterest.constructFromObject(data['openInterest']);
             }
-            if (data.hasOwnProperty('keyFigures')) {
+            if (data.hasOwnProperty('keyFigures') && obj['keyFigures'] === undefined) {
                 obj['keyFigures'] = PostOptionByClassListRequestDataKeyFigures.constructFromObject(data['keyFigures']);
             }
+            
         }
         return obj;
     }

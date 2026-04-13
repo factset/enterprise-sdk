@@ -47,12 +47,13 @@ class InlineResponse200DataCurrency {
         if (data) {
             obj = obj || new InlineResponse200DataCurrency();
 
-            if (data.hasOwnProperty('listing')) {
+            if (data.hasOwnProperty('listing') && obj['listing'] === undefined) {
                 obj['listing'] = ApiClient.convertToType(data['listing'], 'String');
             }
-            if (data.hasOwnProperty('fund')) {
+            if (data.hasOwnProperty('fund') && obj['fund'] === undefined) {
                 obj['fund'] = ApiClient.convertToType(data['fund'], 'String');
             }
+            
         }
         return obj;
     }

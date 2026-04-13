@@ -47,15 +47,16 @@ class InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLossProvisi
         if (data) {
             obj = obj || new InlineResponse2001DataIncomeStatementNetInterestIncomeAfterLoanLossProvision();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('netInterestMargin')) {
+            if (data.hasOwnProperty('netInterestMargin') && obj['netInterestMargin'] === undefined) {
                 obj['netInterestMargin'] = ApiClient.convertToType(data['netInterestMargin'], 'Number');
             }
+            
         }
         return obj;
     }

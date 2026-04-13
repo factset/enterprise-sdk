@@ -47,12 +47,13 @@ class IdResolutionsMeta {
         if (data) {
             obj = obj || new IdResolutionsMeta();
 
-            if (data.hasOwnProperty('tickerRegion')) {
+            if (data.hasOwnProperty('tickerRegion') && obj['tickerRegion'] === undefined) {
                 obj['tickerRegion'] = ApiClient.convertToType(data['tickerRegion'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('regionalPermId')) {
+            if (data.hasOwnProperty('regionalPermId') && obj['regionalPermId'] === undefined) {
                 obj['regionalPermId'] = ApiClient.convertToType(data['regionalPermId'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

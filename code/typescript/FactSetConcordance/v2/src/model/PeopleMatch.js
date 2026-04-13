@@ -47,93 +47,94 @@ class PeopleMatch {
         if (data) {
             obj = obj || new PeopleMatch();
 
-            if (data.hasOwnProperty('taskId')) {
+            if (data.hasOwnProperty('taskId') && obj['taskId'] === undefined) {
                 obj['taskId'] = ApiClient.convertToType(data['taskId'], 'Number');
             }
-            if (data.hasOwnProperty('activeRole')) {
+            if (data.hasOwnProperty('activeRole') && obj['activeRole'] === undefined) {
                 obj['activeRole'] = ApiClient.convertToType(data['activeRole'], 'String');
             }
-            if (data.hasOwnProperty('clientEntity')) {
+            if (data.hasOwnProperty('clientEntity') && obj['clientEntity'] === undefined) {
                 obj['clientEntity'] = ApiClient.convertToType(data['clientEntity'], 'String');
             }
-            if (data.hasOwnProperty('clientFirstName')) {
+            if (data.hasOwnProperty('clientFirstName') && obj['clientFirstName'] === undefined) {
                 obj['clientFirstName'] = ApiClient.convertToType(data['clientFirstName'], 'String');
             }
-            if (data.hasOwnProperty('clientLastName')) {
+            if (data.hasOwnProperty('clientLastName') && obj['clientLastName'] === undefined) {
                 obj['clientLastName'] = ApiClient.convertToType(data['clientLastName'], 'String');
             }
-            if (data.hasOwnProperty('clientMiddleName')) {
+            if (data.hasOwnProperty('clientMiddleName') && obj['clientMiddleName'] === undefined) {
                 obj['clientMiddleName'] = ApiClient.convertToType(data['clientMiddleName'], 'String');
             }
-            if (data.hasOwnProperty('clientSalutation')) {
+            if (data.hasOwnProperty('clientSalutation') && obj['clientSalutation'] === undefined) {
                 obj['clientSalutation'] = ApiClient.convertToType(data['clientSalutation'], 'String');
             }
-            if (data.hasOwnProperty('clientSuffix')) {
+            if (data.hasOwnProperty('clientSuffix') && obj['clientSuffix'] === undefined) {
                 obj['clientSuffix'] = ApiClient.convertToType(data['clientSuffix'], 'String');
             }
-            if (data.hasOwnProperty('clientPriority')) {
+            if (data.hasOwnProperty('clientPriority') && obj['clientPriority'] === undefined) {
                 obj['clientPriority'] = ApiClient.convertToType(data['clientPriority'], 'String');
             }
-            if (data.hasOwnProperty('clientPersonName')) {
+            if (data.hasOwnProperty('clientPersonName') && obj['clientPersonName'] === undefined) {
                 obj['clientPersonName'] = ApiClient.convertToType(data['clientPersonName'], 'String');
             }
-            if (data.hasOwnProperty('clientAdditionalContext')) {
+            if (data.hasOwnProperty('clientAdditionalContext') && obj['clientAdditionalContext'] === undefined) {
                 obj['clientAdditionalContext'] = ApiClient.convertToType(data['clientAdditionalContext'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('firstName')) {
+            if (data.hasOwnProperty('firstName') && obj['firstName'] === undefined) {
                 obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
             }
-            if (data.hasOwnProperty('personId')) {
+            if (data.hasOwnProperty('personId') && obj['personId'] === undefined) {
                 obj['personId'] = ApiClient.convertToType(data['personId'], 'String');
             }
-            if (data.hasOwnProperty('lastName')) {
+            if (data.hasOwnProperty('lastName') && obj['lastName'] === undefined) {
                 obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
             }
-            if (data.hasOwnProperty('middleName')) {
+            if (data.hasOwnProperty('middleName') && obj['middleName'] === undefined) {
                 obj['middleName'] = ApiClient.convertToType(data['middleName'], 'String');
             }
-            if (data.hasOwnProperty('suffix')) {
+            if (data.hasOwnProperty('suffix') && obj['suffix'] === undefined) {
                 obj['suffix'] = ApiClient.convertToType(data['suffix'], 'String');
             }
-            if (data.hasOwnProperty('salutation')) {
+            if (data.hasOwnProperty('salutation') && obj['salutation'] === undefined) {
                 obj['salutation'] = ApiClient.convertToType(data['salutation'], 'String');
             }
-            if (data.hasOwnProperty('personName')) {
+            if (data.hasOwnProperty('personName') && obj['personName'] === undefined) {
                 obj['personName'] = ApiClient.convertToType(data['personName'], 'String');
             }
-            if (data.hasOwnProperty('email')) {
+            if (data.hasOwnProperty('email') && obj['email'] === undefined) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
-            if (data.hasOwnProperty('clientId')) {
+            if (data.hasOwnProperty('clientId') && obj['clientId'] === undefined) {
                 obj['clientId'] = ApiClient.convertToType(data['clientId'], 'String');
             }
-            if (data.hasOwnProperty('entity')) {
+            if (data.hasOwnProperty('entity') && obj['entity'] === undefined) {
                 obj['entity'] = ApiClient.convertToType(data['entity'], 'String');
             }
-            if (data.hasOwnProperty('mapStatus')) {
+            if (data.hasOwnProperty('mapStatus') && obj['mapStatus'] === undefined) {
                 obj['mapStatus'] = ApiClient.convertToType(data['mapStatus'], 'String');
             }
-            if (data.hasOwnProperty('matchFlag')) {
+            if (data.hasOwnProperty('matchFlag') && obj['matchFlag'] === undefined) {
                 obj['matchFlag'] = ApiClient.convertToType(data['matchFlag'], 'String');
             }
-            if (data.hasOwnProperty('nameMatchSource')) {
+            if (data.hasOwnProperty('nameMatchSource') && obj['nameMatchSource'] === undefined) {
                 obj['nameMatchSource'] = ApiClient.convertToType(data['nameMatchSource'], 'String');
             }
-            if (data.hasOwnProperty('nameMatchString')) {
+            if (data.hasOwnProperty('nameMatchString') && obj['nameMatchString'] === undefined) {
                 obj['nameMatchString'] = ApiClient.convertToType(data['nameMatchString'], 'String');
             }
-            if (data.hasOwnProperty('rowIndex')) {
+            if (data.hasOwnProperty('rowIndex') && obj['rowIndex'] === undefined) {
                 obj['rowIndex'] = ApiClient.convertToType(data['rowIndex'], 'Number');
             }
-            if (data.hasOwnProperty('similarityScore')) {
+            if (data.hasOwnProperty('similarityScore') && obj['similarityScore'] === undefined) {
                 obj['similarityScore'] = ApiClient.convertToType(data['similarityScore'], 'Number');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
+            
         }
         return obj;
     }

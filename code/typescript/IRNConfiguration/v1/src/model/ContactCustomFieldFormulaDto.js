@@ -46,15 +46,16 @@ class ContactCustomFieldFormulaDto {
         if (data) {
             obj = obj || new ContactCustomFieldFormulaDto();
 
-            if (data.hasOwnProperty('formula')) {
+            if (data.hasOwnProperty('formula') && obj['formula'] === undefined) {
                 obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('isScreening')) {
+            if (data.hasOwnProperty('isScreening') && obj['isScreening'] === undefined) {
                 obj['isScreening'] = ApiClient.convertToType(data['isScreening'], 'Boolean');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
+            
         }
         return obj;
     }

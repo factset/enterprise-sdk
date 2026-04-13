@@ -55,21 +55,26 @@ class Holding {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new Holding();
-            IDsAndMarketValues.constructFromObject(data, obj);
-            HoldingAllOf.constructFromObject(data, obj);
+            try {
+              obj = IDsAndMarketValues.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = HoldingAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('marketValues')) {
+            if (data.hasOwnProperty('marketValues') && obj['marketValues'] === undefined) {
                 obj['marketValues'] = ApiClient.convertToType(data['marketValues'], ['Number']);
             }
-            if (data.hasOwnProperty('grouping')) {
+            if (data.hasOwnProperty('grouping') && obj['grouping'] === undefined) {
                 obj['grouping'] = SecurityGroup.constructFromObject(data['grouping']);
             }
-            if (data.hasOwnProperty('uncoveredAssets')) {
+            if (data.hasOwnProperty('uncoveredAssets') && obj['uncoveredAssets'] === undefined) {
                 obj['uncoveredAssets'] = ApiClient.convertToType(data['uncoveredAssets'], 'String');
             }
+            
         }
         return obj;
     }

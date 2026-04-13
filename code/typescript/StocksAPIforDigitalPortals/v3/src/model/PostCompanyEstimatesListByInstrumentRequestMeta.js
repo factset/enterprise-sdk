@@ -47,9 +47,10 @@ class PostCompanyEstimatesListByInstrumentRequestMeta {
         if (data) {
             obj = obj || new PostCompanyEstimatesListByInstrumentRequestMeta();
 
-            if (data.hasOwnProperty('attributes')) {
+            if (data.hasOwnProperty('attributes') && obj['attributes'] === undefined) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -46,33 +46,34 @@ class Product {
         if (data) {
             obj = obj || new Product();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('ofmLink')) {
+            if (data.hasOwnProperty('ofmLink') && obj['ofmLink'] === undefined) {
                 obj['ofmLink'] = ApiClient.convertToType(data['ofmLink'], 'String');
             }
-            if (data.hasOwnProperty('ofmProductId')) {
+            if (data.hasOwnProperty('ofmProductId') && obj['ofmProductId'] === undefined) {
                 obj['ofmProductId'] = ApiClient.convertToType(data['ofmProductId'], 'String');
             }
-            if (data.hasOwnProperty('entitled')) {
+            if (data.hasOwnProperty('entitled') && obj['entitled'] === undefined) {
                 obj['entitled'] = ApiClient.convertToType(data['entitled'], 'Boolean');
             }
-            if (data.hasOwnProperty('providerName')) {
+            if (data.hasOwnProperty('providerName') && obj['providerName'] === undefined) {
                 obj['providerName'] = ApiClient.convertToType(data['providerName'], 'String');
             }
-            if (data.hasOwnProperty('dataFeed')) {
+            if (data.hasOwnProperty('dataFeed') && obj['dataFeed'] === undefined) {
                 obj['dataFeed'] = ApiClient.convertToType(data['dataFeed'], 'Boolean');
             }
-            if (data.hasOwnProperty('api')) {
+            if (data.hasOwnProperty('api') && obj['api'] === undefined) {
                 obj['api'] = ApiClient.convertToType(data['api'], 'Boolean');
             }
-            if (data.hasOwnProperty('referenceDataFeed')) {
+            if (data.hasOwnProperty('referenceDataFeed') && obj['referenceDataFeed'] === undefined) {
                 obj['referenceDataFeed'] = ApiClient.convertToType(data['referenceDataFeed'], 'Boolean');
             }
+            
         }
         return obj;
     }

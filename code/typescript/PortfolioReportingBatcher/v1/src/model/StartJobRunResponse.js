@@ -50,9 +50,10 @@ class StartJobRunResponse {
         if (data) {
             obj = obj || new StartJobRunResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = StartJobRunResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

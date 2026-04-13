@@ -47,30 +47,31 @@ class TemplatedPAComponent {
         if (data) {
             obj = obj || new TemplatedPAComponent();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], 'String');
             }
-            if (data.hasOwnProperty('snapshot')) {
+            if (data.hasOwnProperty('snapshot') && obj['snapshot'] === undefined) {
                 obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'Boolean');
             }
-            if (data.hasOwnProperty('componentData')) {
+            if (data.hasOwnProperty('componentData') && obj['componentData'] === undefined) {
                 obj['componentData'] = PAComponentData.constructFromObject(data['componentData']);
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('parentTemplateId')) {
+            if (data.hasOwnProperty('parentTemplateId') && obj['parentTemplateId'] === undefined) {
                 obj['parentTemplateId'] = ApiClient.convertToType(data['parentTemplateId'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

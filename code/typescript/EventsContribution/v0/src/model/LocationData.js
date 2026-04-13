@@ -47,15 +47,16 @@ class LocationData {
         if (data) {
             obj = obj || new LocationData();
 
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('state')) {
+            if (data.hasOwnProperty('state') && obj['state'] === undefined) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
-            if (data.hasOwnProperty('city')) {
+            if (data.hasOwnProperty('city') && obj['city'] === undefined) {
                 obj['city'] = ApiClient.convertToType(data['city'], 'String');
             }
+            
         }
         return obj;
     }

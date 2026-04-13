@@ -48,9 +48,10 @@ class KeyStatsDataObjectEntityEmployeesAsOfDate {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityEmployeesAsOfDate();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

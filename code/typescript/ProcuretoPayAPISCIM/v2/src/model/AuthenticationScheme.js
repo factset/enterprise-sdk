@@ -46,21 +46,22 @@ class AuthenticationScheme {
         if (data) {
             obj = obj || new AuthenticationScheme();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('specUri')) {
+            if (data.hasOwnProperty('specUri') && obj['specUri'] === undefined) {
                 obj['specUri'] = ApiClient.convertToType(data['specUri'], 'String');
             }
-            if (data.hasOwnProperty('documentationUri')) {
+            if (data.hasOwnProperty('documentationUri') && obj['documentationUri'] === undefined) {
                 obj['documentationUri'] = ApiClient.convertToType(data['documentationUri'], 'String');
             }
+            
         }
         return obj;
     }

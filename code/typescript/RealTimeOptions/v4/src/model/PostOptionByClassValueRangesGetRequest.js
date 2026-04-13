@@ -51,12 +51,13 @@ class PostOptionByClassValueRangesGetRequest {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostOptionByClassValueRangesGetRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostOptionByClassValueRangesGetRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

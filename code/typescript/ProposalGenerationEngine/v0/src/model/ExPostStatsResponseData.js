@@ -48,15 +48,16 @@ class ExPostStatsResponseData {
         if (data) {
             obj = obj || new ExPostStatsResponseData();
 
-            if (data.hasOwnProperty('portfolio')) {
+            if (data.hasOwnProperty('portfolio') && obj['portfolio'] === undefined) {
                 obj['portfolio'] = PortfolioWithExPostStats.constructFromObject(data['portfolio']);
             }
-            if (data.hasOwnProperty('holdings')) {
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
                 obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestmentResponse]);
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], ['String']);
             }
+            
         }
         return obj;
     }

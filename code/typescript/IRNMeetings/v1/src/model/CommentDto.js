@@ -48,27 +48,28 @@ class CommentDto {
         if (data) {
             obj = obj || new CommentDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('authorId')) {
+            if (data.hasOwnProperty('authorId') && obj['authorId'] === undefined) {
                 obj['authorId'] = ApiClient.convertToType(data['authorId'], 'String');
             }
-            if (data.hasOwnProperty('parentCommentId')) {
+            if (data.hasOwnProperty('parentCommentId') && obj['parentCommentId'] === undefined) {
                 obj['parentCommentId'] = ApiClient.convertToType(data['parentCommentId'], 'String');
             }
-            if (data.hasOwnProperty('body')) {
+            if (data.hasOwnProperty('body') && obj['body'] === undefined) {
                 obj['body'] = ApiClient.convertToType(data['body'], 'String');
             }
-            if (data.hasOwnProperty('createdAt')) {
+            if (data.hasOwnProperty('createdAt') && obj['createdAt'] === undefined) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
             }
-            if (data.hasOwnProperty('attachments')) {
+            if (data.hasOwnProperty('attachments') && obj['attachments'] === undefined) {
                 obj['attachments'] = ApiClient.convertToType(data['attachments'], [AttachmentSummaryDto]);
             }
-            if (data.hasOwnProperty('subcomments')) {
+            if (data.hasOwnProperty('subcomments') && obj['subcomments'] === undefined) {
                 obj['subcomments'] = ApiClient.convertToType(data['subcomments'], [SubcommentSummaryDto]);
             }
+            
         }
         return obj;
     }

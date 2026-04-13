@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFigur
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSpread();
 
-            if (data.hasOwnProperty('harmonized')) {
+            if (data.hasOwnProperty('harmonized') && obj['harmonized'] === undefined) {
                 obj['harmonized'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSpreadHarmonized.constructFromObject(data['harmonized']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSpreadRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

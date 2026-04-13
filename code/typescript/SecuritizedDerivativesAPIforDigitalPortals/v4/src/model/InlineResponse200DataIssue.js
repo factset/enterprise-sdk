@@ -48,18 +48,19 @@ class InlineResponse200DataIssue {
         if (data) {
             obj = obj || new InlineResponse200DataIssue();
 
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('admittedVolume')) {
+            if (data.hasOwnProperty('admittedVolume') && obj['admittedVolume'] === undefined) {
                 obj['admittedVolume'] = ApiClient.convertToType(data['admittedVolume'], 'Number');
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = InlineResponse200DataIssueValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('surcharge')) {
+            if (data.hasOwnProperty('surcharge') && obj['surcharge'] === undefined) {
                 obj['surcharge'] = ApiClient.convertToType(data['surcharge'], 'Number');
             }
+            
         }
         return obj;
     }

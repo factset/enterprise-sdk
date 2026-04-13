@@ -47,9 +47,10 @@ class CompanyPeopleResponse {
         if (data) {
             obj = obj || new CompanyPeopleResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CompanyPeople]);
             }
+            
         }
         return obj;
     }

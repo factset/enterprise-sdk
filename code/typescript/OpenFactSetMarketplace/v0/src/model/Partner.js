@@ -65,42 +65,43 @@ class Partner {
         if (data) {
             obj = obj || new Partner();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('partnerPageUrl')) {
+            if (data.hasOwnProperty('partnerPageUrl') && obj['partnerPageUrl'] === undefined) {
                 obj['partnerPageUrl'] = ApiClient.convertToType(data['partnerPageUrl'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('logo')) {
+            if (data.hasOwnProperty('logo') && obj['logo'] === undefined) {
                 obj['logo'] = ApiClient.convertToType(data['logo'], 'String');
             }
-            if (data.hasOwnProperty('shortDescription')) {
+            if (data.hasOwnProperty('shortDescription') && obj['shortDescription'] === undefined) {
                 obj['shortDescription'] = ApiClient.convertToType(data['shortDescription'], 'String');
             }
-            if (data.hasOwnProperty('fullDescription')) {
+            if (data.hasOwnProperty('fullDescription') && obj['fullDescription'] === undefined) {
                 obj['fullDescription'] = ApiClient.convertToType(data['fullDescription'], 'String');
             }
-            if (data.hasOwnProperty('workflow')) {
+            if (data.hasOwnProperty('workflow') && obj['workflow'] === undefined) {
                 obj['workflow'] = ApiClient.convertToType(data['workflow'], ['String']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('videoUrl')) {
+            if (data.hasOwnProperty('videoUrl') && obj['videoUrl'] === undefined) {
                 obj['videoUrl'] = ApiClient.convertToType(data['videoUrl'], 'String');
             }
-            if (data.hasOwnProperty('socialMedia')) {
+            if (data.hasOwnProperty('socialMedia') && obj['socialMedia'] === undefined) {
                 obj['socialMedia'] = PartnerSocialMedia.constructFromObject(data['socialMedia']);
             }
-            if (data.hasOwnProperty('companyUrl')) {
+            if (data.hasOwnProperty('companyUrl') && obj['companyUrl'] === undefined) {
                 obj['companyUrl'] = ApiClient.convertToType(data['companyUrl'], 'String');
             }
-            if (data.hasOwnProperty('address')) {
+            if (data.hasOwnProperty('address') && obj['address'] === undefined) {
                 obj['address'] = PartnerAddress.constructFromObject(data['address']);
             }
+            
         }
         return obj;
     }

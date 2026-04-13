@@ -48,9 +48,10 @@ class PostAlertingPricesBasicTriggerListRequestDataFilter {
         if (data) {
             obj = obj || new PostAlertingPricesBasicTriggerListRequestDataFilter();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = PostAlertingPricesBasicTriggerListRequestDataFilterStatus.constructFromObject(data['status']);
             }
+            
         }
         return obj;
     }

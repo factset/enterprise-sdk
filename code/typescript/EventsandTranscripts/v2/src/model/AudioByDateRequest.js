@@ -47,27 +47,28 @@ class AudioByDateRequest {
         if (data) {
             obj = obj || new AudioByDateRequest();
 
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('startDateRelative')) {
+            if (data.hasOwnProperty('startDateRelative') && obj['startDateRelative'] === undefined) {
                 obj['startDateRelative'] = ApiClient.convertToType(data['startDateRelative'], 'Number');
             }
-            if (data.hasOwnProperty('endDateRelative')) {
+            if (data.hasOwnProperty('endDateRelative') && obj['endDateRelative'] === undefined) {
                 obj['endDateRelative'] = ApiClient.convertToType(data['endDateRelative'], 'Number');
             }
-            if (data.hasOwnProperty('audioSource')) {
+            if (data.hasOwnProperty('audioSource') && obj['audioSource'] === undefined) {
                 obj['audioSource'] = ApiClient.convertToType(data['audioSource'], 'String');
             }
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('trimmed')) {
+            if (data.hasOwnProperty('trimmed') && obj['trimmed'] === undefined) {
                 obj['trimmed'] = ApiClient.convertToType(data['trimmed'], 'Boolean');
             }
+            
         }
         return obj;
     }

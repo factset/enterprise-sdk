@@ -47,9 +47,10 @@ class AFIOptimizationParametersRequest {
         if (data) {
             obj = obj || new AFIOptimizationParametersRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AFIOptimizationParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -49,9 +49,10 @@ class ChatPollingRequestData {
         if (data) {
             obj = obj || new ChatPollingRequestData();
 
-            if (data.hasOwnProperty('jobId')) {
+            if (data.hasOwnProperty('jobId') && obj['jobId'] === undefined) {
                 obj['jobId'] = ApiClient.convertToType(data['jobId'], 'String');
             }
+            
         }
         return obj;
     }

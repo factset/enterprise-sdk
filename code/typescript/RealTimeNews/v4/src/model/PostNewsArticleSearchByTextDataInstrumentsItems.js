@@ -48,12 +48,13 @@ class PostNewsArticleSearchByTextDataInstrumentsItems {
         if (data) {
             obj = obj || new PostNewsArticleSearchByTextDataInstrumentsItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = PostNewsArticleListByInstrumentDataArticlesInstrumentsItemsFsym.constructFromObject(data['fsym']);
             }
+            
         }
         return obj;
     }

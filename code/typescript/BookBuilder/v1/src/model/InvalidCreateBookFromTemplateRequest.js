@@ -47,12 +47,13 @@ class InvalidCreateBookFromTemplateRequest {
         if (data) {
             obj = obj || new InvalidCreateBookFromTemplateRequest();
 
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -52,12 +52,13 @@ class InlineResponse2003 {
         if (data) {
             obj = obj || new InlineResponse2003();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = SuccessResponseMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [StatResult]);
             }
+            
         }
         return obj;
     }

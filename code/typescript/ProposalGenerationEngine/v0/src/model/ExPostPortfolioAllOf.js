@@ -48,12 +48,13 @@ class ExPostPortfolioAllOf {
         if (data) {
             obj = obj || new ExPostPortfolioAllOf();
 
-            if (data.hasOwnProperty('holdings')) {
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
                 obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestment]);
             }
-            if (data.hasOwnProperty('transactionRules')) {
+            if (data.hasOwnProperty('transactionRules') && obj['transactionRules'] === undefined) {
                 obj['transactionRules'] = ApiClient.convertToType(data['transactionRules'], [TransactionRule]);
             }
+            
         }
         return obj;
     }

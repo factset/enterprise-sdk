@@ -47,15 +47,16 @@ class VolumeTime {
         if (data) {
             obj = obj || new VolumeTime();
 
-            if (data.hasOwnProperty('binTime')) {
+            if (data.hasOwnProperty('binTime') && obj['binTime'] === undefined) {
                 obj['binTime'] = ApiClient.convertToType(data['binTime'], 'Number');
             }
-            if (data.hasOwnProperty('fillsVolumePct')) {
+            if (data.hasOwnProperty('fillsVolumePct') && obj['fillsVolumePct'] === undefined) {
                 obj['fillsVolumePct'] = ApiClient.convertToType(data['fillsVolumePct'], 'Number');
             }
-            if (data.hasOwnProperty('tradesVolumePct')) {
+            if (data.hasOwnProperty('tradesVolumePct') && obj['tradesVolumePct'] === undefined) {
                 obj['tradesVolumePct'] = ApiClient.convertToType(data['tradesVolumePct'], 'Number');
             }
+            
         }
         return obj;
     }

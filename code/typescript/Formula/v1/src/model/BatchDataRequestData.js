@@ -46,9 +46,10 @@ class BatchDataRequestData {
         if (data) {
             obj = obj || new BatchDataRequestData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            
         }
         return obj;
     }

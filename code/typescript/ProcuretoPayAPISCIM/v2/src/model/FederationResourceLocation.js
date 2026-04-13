@@ -49,17 +49,20 @@ class FederationResourceLocation {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new FederationResourceLocation();
-            LocationResourceReference.constructFromObject(data, obj);
+            try {
+              obj = LocationResourceReference.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('$ref')) {
+            if (data.hasOwnProperty('$ref') && obj['$ref'] === undefined) {
                 obj['$ref'] = ApiClient.convertToType(data['$ref'], 'String');
             }
-            if (data.hasOwnProperty('display')) {
+            if (data.hasOwnProperty('display') && obj['display'] === undefined) {
                 obj['display'] = ApiClient.convertToType(data['display'], 'String');
             }
+            
         }
         return obj;
     }

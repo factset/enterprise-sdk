@@ -50,21 +50,22 @@ class IdStatusData {
         if (data) {
             obj = obj || new IdStatusData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('inputs')) {
+            if (data.hasOwnProperty('inputs') && obj['inputs'] === undefined) {
                 obj['inputs'] = StartJob.constructFromObject(data['inputs']);
             }
-            if (data.hasOwnProperty('prbStatus')) {
+            if (data.hasOwnProperty('prbStatus') && obj['prbStatus'] === undefined) {
                 obj['prbStatus'] = PrbStatus.constructFromObject(data['prbStatus']);
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = Status.constructFromObject(data['status']);
             }
-            if (data.hasOwnProperty('statusDescription')) {
+            if (data.hasOwnProperty('statusDescription') && obj['statusDescription'] === undefined) {
                 obj['statusDescription'] = ApiClient.convertToType(data['statusDescription'], 'String');
             }
+            
         }
         return obj;
     }

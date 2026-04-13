@@ -48,12 +48,13 @@ class SeriesStats {
         if (data) {
             obj = obj || new SeriesStats();
 
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = ApiClient.convertToType(data['returns'], [KeyValuePair]);
             }
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], [KeyValuePair]);
             }
+            
         }
         return obj;
     }

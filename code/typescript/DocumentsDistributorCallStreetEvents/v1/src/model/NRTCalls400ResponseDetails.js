@@ -47,9 +47,10 @@ class NRTCalls400ResponseDetails {
         if (data) {
             obj = obj || new NRTCalls400ResponseDetails();
 
-            if (data.hasOwnProperty('validParameters')) {
+            if (data.hasOwnProperty('validParameters') && obj['validParameters'] === undefined) {
                 obj['validParameters'] = NRTCalls400ResponseDetailsValidParameters.constructFromObject(data['validParameters']);
             }
+            
         }
         return obj;
     }

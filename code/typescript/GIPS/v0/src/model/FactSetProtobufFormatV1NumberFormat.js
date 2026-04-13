@@ -52,69 +52,70 @@ class FactSetProtobufFormatV1NumberFormat {
         if (data) {
             obj = obj || new FactSetProtobufFormatV1NumberFormat();
 
-            if (data.hasOwnProperty('currencySpecifier')) {
+            if (data.hasOwnProperty('currencySpecifier') && obj['currencySpecifier'] === undefined) {
                 obj['currencySpecifier'] = FactSetProtobufFormatV1NumberFormatTypesCurrencyStandardSpecifier.constructFromObject(data['currencySpecifier']);
             }
-            if (data.hasOwnProperty('exponentialSpecifier')) {
+            if (data.hasOwnProperty('exponentialSpecifier') && obj['exponentialSpecifier'] === undefined) {
                 obj['exponentialSpecifier'] = FactSetProtobufFormatV1NumberFormatTypesExponentialStandardSpecifier.constructFromObject(data['exponentialSpecifier']);
             }
-            if (data.hasOwnProperty('numericSpecifier')) {
+            if (data.hasOwnProperty('numericSpecifier') && obj['numericSpecifier'] === undefined) {
                 obj['numericSpecifier'] = FactSetProtobufFormatV1NumberFormatTypesNumericStandardSpecifier.constructFromObject(data['numericSpecifier']);
             }
-            if (data.hasOwnProperty('percentSpecifier')) {
+            if (data.hasOwnProperty('percentSpecifier') && obj['percentSpecifier'] === undefined) {
                 obj['percentSpecifier'] = FactSetProtobufFormatV1NumberFormatTypesPercentStandardSpecifier.constructFromObject(data['percentSpecifier']);
             }
-            if (data.hasOwnProperty('currencyCode')) {
+            if (data.hasOwnProperty('currencyCode') && obj['currencyCode'] === undefined) {
                 obj['currencyCode'] = ApiClient.convertToType(data['currencyCode'], 'String');
             }
-            if (data.hasOwnProperty('currencySymbol')) {
+            if (data.hasOwnProperty('currencySymbol') && obj['currencySymbol'] === undefined) {
                 obj['currencySymbol'] = ApiClient.convertToType(data['currencySymbol'], 'String');
             }
-            if (data.hasOwnProperty('zeroValue')) {
+            if (data.hasOwnProperty('zeroValue') && obj['zeroValue'] === undefined) {
                 obj['zeroValue'] = ApiClient.convertToType(data['zeroValue'], 'String');
             }
-            if (data.hasOwnProperty('digits')) {
+            if (data.hasOwnProperty('digits') && obj['digits'] === undefined) {
                 obj['digits'] = ApiClient.convertToType(data['digits'], ['String']);
             }
-            if (data.hasOwnProperty('negativeSign')) {
+            if (data.hasOwnProperty('negativeSign') && obj['negativeSign'] === undefined) {
                 obj['negativeSign'] = ApiClient.convertToType(data['negativeSign'], 'String');
             }
-            if (data.hasOwnProperty('positiveSign')) {
+            if (data.hasOwnProperty('positiveSign') && obj['positiveSign'] === undefined) {
                 obj['positiveSign'] = ApiClient.convertToType(data['positiveSign'], 'String');
             }
-            if (data.hasOwnProperty('decimalDigits')) {
+            if (data.hasOwnProperty('decimalDigits') && obj['decimalDigits'] === undefined) {
                 obj['decimalDigits'] = ApiClient.convertToType(data['decimalDigits'], 'Number');
             }
-            if (data.hasOwnProperty('decimalSeparator')) {
+            if (data.hasOwnProperty('decimalSeparator') && obj['decimalSeparator'] === undefined) {
                 obj['decimalSeparator'] = ApiClient.convertToType(data['decimalSeparator'], 'String');
             }
-            if (data.hasOwnProperty('groupSeparator')) {
+            if (data.hasOwnProperty('groupSeparator') && obj['groupSeparator'] === undefined) {
                 obj['groupSeparator'] = ApiClient.convertToType(data['groupSeparator'], 'String');
             }
-            if (data.hasOwnProperty('groupSizes')) {
+            if (data.hasOwnProperty('groupSizes') && obj['groupSizes'] === undefined) {
                 obj['groupSizes'] = ApiClient.convertToType(data['groupSizes'], ['Number']);
             }
-            if (data.hasOwnProperty('negativeInfinitySymbol')) {
+            if (data.hasOwnProperty('negativeInfinitySymbol') && obj['negativeInfinitySymbol'] === undefined) {
                 obj['negativeInfinitySymbol'] = ApiClient.convertToType(data['negativeInfinitySymbol'], 'String');
             }
-            if (data.hasOwnProperty('positiveInfinitySymbol')) {
+            if (data.hasOwnProperty('positiveInfinitySymbol') && obj['positiveInfinitySymbol'] === undefined) {
                 obj['positiveInfinitySymbol'] = ApiClient.convertToType(data['positiveInfinitySymbol'], 'String');
             }
-            if (data.hasOwnProperty('nanSymbol')) {
+            if (data.hasOwnProperty('nanSymbol') && obj['nanSymbol'] === undefined) {
                 obj['nanSymbol'] = ApiClient.convertToType(data['nanSymbol'], 'String');
             }
-            if (data.hasOwnProperty('percentSymbol')) {
+            if (data.hasOwnProperty('percentSymbol') && obj['percentSymbol'] === undefined) {
                 obj['percentSymbol'] = ApiClient.convertToType(data['percentSymbol'], 'String');
             }
-            if (data.hasOwnProperty('perMilleSymbol')) {
+            if (data.hasOwnProperty('perMilleSymbol') && obj['perMilleSymbol'] === undefined) {
                 obj['perMilleSymbol'] = ApiClient.convertToType(data['perMilleSymbol'], 'String');
             }
-            if (data.hasOwnProperty('digitSubstitution')) {
+            if (data.hasOwnProperty('digitSubstitution') && obj['digitSubstitution'] === undefined) {
                 obj['digitSubstitution'] = FactSetProtobufFormatV1NumberFormatTypesDigits.constructFromObject(data['digitSubstitution']);
             }
-            if (data.hasOwnProperty('rounding')) {
+            if (data.hasOwnProperty('rounding') && obj['rounding'] === undefined) {
                 obj['rounding'] = FactSetProtobufFormatV1NumberFormatTypesRounding.constructFromObject(data['rounding']);
             }
+            
         }
         return obj;
     }

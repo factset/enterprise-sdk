@@ -46,12 +46,13 @@ class DocumentDirectories {
         if (data) {
             obj = obj || new DocumentDirectories();
 
-            if (data.hasOwnProperty('documents')) {
+            if (data.hasOwnProperty('documents') && obj['documents'] === undefined) {
                 obj['documents'] = ApiClient.convertToType(data['documents'], ['String']);
             }
-            if (data.hasOwnProperty('directories')) {
+            if (data.hasOwnProperty('directories') && obj['directories'] === undefined) {
                 obj['directories'] = ApiClient.convertToType(data['directories'], ['String']);
             }
+            
         }
         return obj;
     }

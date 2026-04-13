@@ -50,9 +50,10 @@ class VolumePriceResponseRoot {
         if (data) {
             obj = obj || new VolumePriceResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = VolumePriceResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

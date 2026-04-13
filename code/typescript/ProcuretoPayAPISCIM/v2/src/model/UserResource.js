@@ -56,39 +56,40 @@ class UserResource {
         if (data) {
             obj = obj || new UserResource();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('externalId')) {
+            if (data.hasOwnProperty('externalId') && obj['externalId'] === undefined) {
                 obj['externalId'] = ApiClient.convertToType(data['externalId'], 'String');
             }
-            if (data.hasOwnProperty('userName')) {
+            if (data.hasOwnProperty('userName') && obj['userName'] === undefined) {
                 obj['userName'] = ApiClient.convertToType(data['userName'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = UserResourceName.constructFromObject(data['name']);
             }
-            if (data.hasOwnProperty('email')) {
+            if (data.hasOwnProperty('email') && obj['email'] === undefined) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
-            if (data.hasOwnProperty('phoneNumbers')) {
+            if (data.hasOwnProperty('phoneNumbers') && obj['phoneNumbers'] === undefined) {
                 obj['phoneNumbers'] = ApiClient.convertToType(data['phoneNumbers'], [UserResourcePhoneNumber]);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [UserResourceGroup]);
             }
-            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:Core:1.0:User')) {
+            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:Core:1.0:User') && obj['urn:scim:schemas:extension:FactSet:Core:1.0:User'] === undefined) {
                 obj['urn:scim:schemas:extension:FactSet:Core:1.0:User'] = UserResourceUrnScimSchemasExtensionFactSetCore10User.constructFromObject(data['urn:scim:schemas:extension:FactSet:Core:1.0:User']);
             }
-            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:VRS:1.0:User')) {
+            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:VRS:1.0:User') && obj['urn:scim:schemas:extension:FactSet:VRS:1.0:User'] === undefined) {
                 obj['urn:scim:schemas:extension:FactSet:VRS:1.0:User'] = UserResourceUrnScimSchemasExtensionFactSetVRS10User.constructFromObject(data['urn:scim:schemas:extension:FactSet:VRS:1.0:User']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = UserResourceMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

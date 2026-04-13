@@ -46,18 +46,19 @@ class UserResourcePhoneNumber {
         if (data) {
             obj = obj || new UserResourcePhoneNumber();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('display')) {
+            if (data.hasOwnProperty('display') && obj['display'] === undefined) {
                 obj['display'] = ApiClient.convertToType(data['display'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('primary')) {
+            if (data.hasOwnProperty('primary') && obj['primary'] === undefined) {
                 obj['primary'] = ApiClient.convertToType(data['primary'], 'Boolean');
             }
+            
         }
         return obj;
     }

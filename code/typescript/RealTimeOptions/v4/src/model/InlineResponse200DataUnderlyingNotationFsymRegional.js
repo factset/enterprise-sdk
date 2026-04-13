@@ -47,15 +47,16 @@ class InlineResponse200DataUnderlyingNotationFsymRegional {
         if (data) {
             obj = obj || new InlineResponse200DataUnderlyingNotationFsymRegional();
 
-            if (data.hasOwnProperty('permanentIdentifier')) {
+            if (data.hasOwnProperty('permanentIdentifier') && obj['permanentIdentifier'] === undefined) {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('tickerRegion')) {
+            if (data.hasOwnProperty('tickerRegion') && obj['tickerRegion'] === undefined) {
                 obj['tickerRegion'] = ApiClient.convertToType(data['tickerRegion'], 'String');
             }
-            if (data.hasOwnProperty('isPrimary')) {
+            if (data.hasOwnProperty('isPrimary') && obj['isPrimary'] === undefined) {
                 obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
             }
+            
         }
         return obj;
     }

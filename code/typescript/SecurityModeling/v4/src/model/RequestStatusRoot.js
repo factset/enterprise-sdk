@@ -50,9 +50,10 @@ class RequestStatusRoot {
         if (data) {
             obj = obj || new RequestStatusRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = RequestStatus.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

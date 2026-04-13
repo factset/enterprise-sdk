@@ -54,18 +54,23 @@ class FactorGroupNodes {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new FactorGroupNodes();
-            FactorGroup.constructFromObject(data, obj);
-            RiskModelFactor.constructFromObject(data, obj);
+            try {
+              obj = FactorGroup.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = RiskModelFactor.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('nodes')) {
+            if (data.hasOwnProperty('nodes') && obj['nodes'] === undefined) {
                 obj['nodes'] = ApiClient.convertToType(data['nodes'], [FactorGroupNodes]);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            
         }
         return obj;
     }

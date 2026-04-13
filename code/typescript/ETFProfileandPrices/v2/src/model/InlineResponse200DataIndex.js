@@ -47,24 +47,25 @@ class InlineResponse200DataIndex {
         if (data) {
             obj = obj || new InlineResponse200DataIndex();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('family')) {
+            if (data.hasOwnProperty('family') && obj['family'] === undefined) {
                 obj['family'] = ApiClient.convertToType(data['family'], 'String');
             }
-            if (data.hasOwnProperty('website')) {
+            if (data.hasOwnProperty('website') && obj['website'] === undefined) {
                 obj['website'] = ApiClient.convertToType(data['website'], 'String');
             }
-            if (data.hasOwnProperty('distributionTreatment')) {
+            if (data.hasOwnProperty('distributionTreatment') && obj['distributionTreatment'] === undefined) {
                 obj['distributionTreatment'] = ApiClient.convertToType(data['distributionTreatment'], 'String');
             }
-            if (data.hasOwnProperty('rebalancingFrequency')) {
+            if (data.hasOwnProperty('rebalancingFrequency') && obj['rebalancingFrequency'] === undefined) {
                 obj['rebalancingFrequency'] = ApiClient.convertToType(data['rebalancingFrequency'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
+            
         }
         return obj;
     }

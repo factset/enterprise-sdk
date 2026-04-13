@@ -47,9 +47,10 @@ class InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesPerSh
         if (data) {
             obj = obj || new InlineResponse20014EstimatesFirstFiscalYearCurrencyDependentEstimatesPerShareSales();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
+            
         }
         return obj;
     }

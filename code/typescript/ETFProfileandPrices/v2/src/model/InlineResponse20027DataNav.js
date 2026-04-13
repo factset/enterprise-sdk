@@ -48,21 +48,22 @@ class InlineResponse20027DataNav {
         if (data) {
             obj = obj || new InlineResponse20027DataNav();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('last')) {
+            if (data.hasOwnProperty('last') && obj['last'] === undefined) {
                 obj['last'] = InlineResponse20027DataNavLast.constructFromObject(data['last']);
             }
-            if (data.hasOwnProperty('totalReturn')) {
+            if (data.hasOwnProperty('totalReturn') && obj['totalReturn'] === undefined) {
                 obj['totalReturn'] = ApiClient.convertToType(data['totalReturn'], 'Number');
             }
+            
         }
         return obj;
     }

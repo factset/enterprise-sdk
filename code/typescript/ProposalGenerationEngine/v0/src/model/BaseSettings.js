@@ -46,15 +46,16 @@ class BaseSettings {
         if (data) {
             obj = obj || new BaseSettings();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
             }
-            if (data.hasOwnProperty('returnsPreferences')) {
+            if (data.hasOwnProperty('returnsPreferences') && obj['returnsPreferences'] === undefined) {
                 obj['returnsPreferences'] = ApiClient.convertToType(data['returnsPreferences'], 'String');
             }
-            if (data.hasOwnProperty('validatePortfolio')) {
+            if (data.hasOwnProperty('validatePortfolio') && obj['validatePortfolio'] === undefined) {
                 obj['validatePortfolio'] = ApiClient.convertToType(data['validatePortfolio'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -46,18 +46,19 @@ class AddTrimModelAnalytics {
         if (data) {
             obj = obj || new AddTrimModelAnalytics();
 
-            if (data.hasOwnProperty('addDown')) {
+            if (data.hasOwnProperty('addDown') && obj['addDown'] === undefined) {
                 obj['addDown'] = ApiClient.convertToType(data['addDown'], 'Number');
             }
-            if (data.hasOwnProperty('addUp')) {
+            if (data.hasOwnProperty('addUp') && obj['addUp'] === undefined) {
                 obj['addUp'] = ApiClient.convertToType(data['addUp'], 'Number');
             }
-            if (data.hasOwnProperty('trimDown')) {
+            if (data.hasOwnProperty('trimDown') && obj['trimDown'] === undefined) {
                 obj['trimDown'] = ApiClient.convertToType(data['trimDown'], 'Number');
             }
-            if (data.hasOwnProperty('trimUp')) {
+            if (data.hasOwnProperty('trimUp') && obj['trimUp'] === undefined) {
                 obj['trimUp'] = ApiClient.convertToType(data['trimUp'], 'Number');
             }
+            
         }
         return obj;
     }

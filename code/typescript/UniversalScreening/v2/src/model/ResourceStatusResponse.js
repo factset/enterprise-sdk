@@ -48,9 +48,10 @@ class ResourceStatusResponse {
         if (data) {
             obj = obj || new ResourceStatusResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ResourceStatusResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

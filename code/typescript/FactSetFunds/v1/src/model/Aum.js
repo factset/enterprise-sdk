@@ -46,27 +46,28 @@ class Aum {
         if (data) {
             obj = obj || new Aum();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('fundLevelAUM')) {
+            if (data.hasOwnProperty('fundLevelAUM') && obj['fundLevelAUM'] === undefined) {
                 obj['fundLevelAUM'] = ApiClient.convertToType(data['fundLevelAUM'], 'Number');
             }
-            if (data.hasOwnProperty('shrClassAUMRpt')) {
+            if (data.hasOwnProperty('shrClassAUMRpt') && obj['shrClassAUMRpt'] === undefined) {
                 obj['shrClassAUMRpt'] = ApiClient.convertToType(data['shrClassAUMRpt'], 'Number');
             }
-            if (data.hasOwnProperty('shrClassAUMAct')) {
+            if (data.hasOwnProperty('shrClassAUMAct') && obj['shrClassAUMAct'] === undefined) {
                 obj['shrClassAUMAct'] = ApiClient.convertToType(data['shrClassAUMAct'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

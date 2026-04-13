@@ -50,9 +50,10 @@ class MinRequest {
         if (data) {
             obj = obj || new MinRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = MinutesbarRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

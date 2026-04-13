@@ -47,12 +47,13 @@ class Section {
         if (data) {
             obj = obj || new Section();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('speaker')) {
+            if (data.hasOwnProperty('speaker') && obj['speaker'] === undefined) {
                 obj['speaker'] = ApiClient.convertToType(data['speaker'], [Speaker]);
             }
+            
         }
         return obj;
     }

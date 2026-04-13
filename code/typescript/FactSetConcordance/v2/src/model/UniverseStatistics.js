@@ -47,21 +47,22 @@ class UniverseStatistics {
         if (data) {
             obj = obj || new UniverseStatistics();
 
-            if (data.hasOwnProperty('totalCount')) {
+            if (data.hasOwnProperty('totalCount') && obj['totalCount'] === undefined) {
                 obj['totalCount'] = ApiClient.convertToType(data['totalCount'], 'Number');
             }
-            if (data.hasOwnProperty('mappedCount')) {
+            if (data.hasOwnProperty('mappedCount') && obj['mappedCount'] === undefined) {
                 obj['mappedCount'] = ApiClient.convertToType(data['mappedCount'], 'Number');
             }
-            if (data.hasOwnProperty('unmappedCount')) {
+            if (data.hasOwnProperty('unmappedCount') && obj['unmappedCount'] === undefined) {
                 obj['unmappedCount'] = ApiClient.convertToType(data['unmappedCount'], 'Number');
             }
-            if (data.hasOwnProperty('indeterminateCount')) {
+            if (data.hasOwnProperty('indeterminateCount') && obj['indeterminateCount'] === undefined) {
                 obj['indeterminateCount'] = ApiClient.convertToType(data['indeterminateCount'], 'Number');
             }
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
+            
         }
         return obj;
     }

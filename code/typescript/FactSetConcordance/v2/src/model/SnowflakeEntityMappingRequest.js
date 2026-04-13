@@ -48,9 +48,10 @@ class SnowflakeEntityMappingRequest {
         if (data) {
             obj = obj || new SnowflakeEntityMappingRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [[Object]]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class EntityMappingDeleteResponse {
         if (data) {
             obj = obj || new EntityMappingDeleteResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [EntityMapping]);
             }
+            
         }
         return obj;
     }

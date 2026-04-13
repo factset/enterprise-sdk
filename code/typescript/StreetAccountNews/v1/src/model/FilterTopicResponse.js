@@ -48,9 +48,10 @@ class FilterTopicResponse {
         if (data) {
             obj = obj || new FilterTopicResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FilterTopicResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

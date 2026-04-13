@@ -48,9 +48,10 @@ class OptionsDatesRequest {
         if (data) {
             obj = obj || new OptionsDatesRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
+            
         }
         return obj;
     }

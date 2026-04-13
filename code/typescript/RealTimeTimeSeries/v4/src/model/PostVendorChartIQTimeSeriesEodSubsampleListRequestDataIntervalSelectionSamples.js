@@ -51,15 +51,16 @@ class PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelectionSam
         if (data) {
             obj = obj || new PostVendorChartIQTimeSeriesEodSubsampleListRequestDataIntervalSelectionSamples();
 
-            if (data.hasOwnProperty('end')) {
+            if (data.hasOwnProperty('end') && obj['end'] === undefined) {
                 obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('number')) {
+            if (data.hasOwnProperty('number') && obj['number'] === undefined) {
                 obj['number'] = ApiClient.convertToType(data['number'], 'Number');
             }
-            if (data.hasOwnProperty('granularity')) {
+            if (data.hasOwnProperty('granularity') && obj['granularity'] === undefined) {
                 obj['granularity'] = ApiClient.convertToType(data['granularity'], 'String');
             }
+            
         }
         return obj;
     }

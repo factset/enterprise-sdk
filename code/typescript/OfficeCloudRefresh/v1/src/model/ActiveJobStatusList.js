@@ -48,9 +48,10 @@ class ActiveJobStatusList {
         if (data) {
             obj = obj || new ActiveJobStatusList();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ActiveJobStatus]);
             }
+            
         }
         return obj;
     }

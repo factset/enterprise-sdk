@@ -53,15 +53,16 @@ class Schemas {
         if (data) {
             obj = obj || new Schemas();
 
-            if (data.hasOwnProperty('property')) {
+            if (data.hasOwnProperty('property') && obj['property'] === undefined) {
                 obj['property'] = ApiClient.convertToType(data['property'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
+            
         }
         return obj;
     }

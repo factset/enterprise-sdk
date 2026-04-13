@@ -52,15 +52,16 @@ class EventAdaptiveDataItem {
         if (data) {
             obj = obj || new EventAdaptiveDataItem();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('signalId')) {
+            if (data.hasOwnProperty('signalId') && obj['signalId'] === undefined) {
                 obj['signalId'] = ApiClient.convertToType(data['signalId'], 'String');
             }
-            if (data.hasOwnProperty('adaptiveCard')) {
+            if (data.hasOwnProperty('adaptiveCard') && obj['adaptiveCard'] === undefined) {
                 obj['adaptiveCard'] = ApiClient.convertToType(data['adaptiveCard'], {'String': Object});
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb();
 
-            if (data.hasOwnProperty('allCategories')) {
+            if (data.hasOwnProperty('allCategories') && obj['allCategories'] === undefined) {
                 obj['allCategories'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategories.constructFromObject(data['allCategories']);
             }
-            if (data.hasOwnProperty('materiality')) {
+            if (data.hasOwnProperty('materiality') && obj['materiality'] === undefined) {
                 obj['materiality'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbMateriality.constructFromObject(data['materiality']);
             }
+            
         }
         return obj;
     }

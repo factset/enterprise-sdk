@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataFactorCe
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataFactorCertificatesEffectiveUnderlying();
 
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataFactorCertificatesEffectiveUnderlyingInstrument.constructFromObject(data['instrument']);
             }
+            
         }
         return obj;
     }

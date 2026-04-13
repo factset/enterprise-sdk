@@ -48,12 +48,13 @@ class FieldsObject {
         if (data) {
             obj = obj || new FieldsObject();
 
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], [ValuesObject]);
             }
+            
         }
         return obj;
     }

@@ -50,24 +50,25 @@ class InlineResponse20010Data {
         if (data) {
             obj = obj || new InlineResponse20010Data();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('securityLending')) {
+            if (data.hasOwnProperty('securityLending') && obj['securityLending'] === undefined) {
                 obj['securityLending'] = InlineResponse20010DataSecurityLending.constructFromObject(data['securityLending']);
             }
-            if (data.hasOwnProperty('risk')) {
+            if (data.hasOwnProperty('risk') && obj['risk'] === undefined) {
                 obj['risk'] = InlineResponse20010DataRisk.constructFromObject(data['risk']);
             }
-            if (data.hasOwnProperty('benchmarkName')) {
+            if (data.hasOwnProperty('benchmarkName') && obj['benchmarkName'] === undefined) {
                 obj['benchmarkName'] = ApiClient.convertToType(data['benchmarkName'], 'String');
             }
-            if (data.hasOwnProperty('indexChange')) {
+            if (data.hasOwnProperty('indexChange') && obj['indexChange'] === undefined) {
                 obj['indexChange'] = InlineResponse20010DataIndexChange.constructFromObject(data['indexChange']);
             }
-            if (data.hasOwnProperty('medianBidAskSpread')) {
+            if (data.hasOwnProperty('medianBidAskSpread') && obj['medianBidAskSpread'] === undefined) {
                 obj['medianBidAskSpread'] = ApiClient.convertToType(data['medianBidAskSpread'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -47,39 +47,40 @@ class AtmImpliedVolatility {
         if (data) {
             obj = obj || new AtmImpliedVolatility();
 
-            if (data.hasOwnProperty('aTMImplVol')) {
+            if (data.hasOwnProperty('aTMImplVol') && obj['aTMImplVol'] === undefined) {
                 obj['aTMImplVol'] = ApiClient.convertToType(data['aTMImplVol'], 'Number');
             }
-            if (data.hasOwnProperty('aTMImplVolMarket')) {
+            if (data.hasOwnProperty('aTMImplVolMarket') && obj['aTMImplVolMarket'] === undefined) {
                 obj['aTMImplVolMarket'] = ApiClient.convertToType(data['aTMImplVolMarket'], 'Number');
             }
-            if (data.hasOwnProperty('callATMImplVol')) {
+            if (data.hasOwnProperty('callATMImplVol') && obj['callATMImplVol'] === undefined) {
                 obj['callATMImplVol'] = ApiClient.convertToType(data['callATMImplVol'], 'Number');
             }
-            if (data.hasOwnProperty('callATMImplVolMarket')) {
+            if (data.hasOwnProperty('callATMImplVolMarket') && obj['callATMImplVolMarket'] === undefined) {
                 obj['callATMImplVolMarket'] = ApiClient.convertToType(data['callATMImplVolMarket'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('exchange')) {
+            if (data.hasOwnProperty('exchange') && obj['exchange'] === undefined) {
                 obj['exchange'] = ApiClient.convertToType(data['exchange'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('period')) {
+            if (data.hasOwnProperty('period') && obj['period'] === undefined) {
                 obj['period'] = ApiClient.convertToType(data['period'], 'String');
             }
-            if (data.hasOwnProperty('putATMImplVol')) {
+            if (data.hasOwnProperty('putATMImplVol') && obj['putATMImplVol'] === undefined) {
                 obj['putATMImplVol'] = ApiClient.convertToType(data['putATMImplVol'], 'Number');
             }
-            if (data.hasOwnProperty('putATMImplVolMarket')) {
+            if (data.hasOwnProperty('putATMImplVolMarket') && obj['putATMImplVolMarket'] === undefined) {
                 obj['putATMImplVolMarket'] = ApiClient.convertToType(data['putATMImplVolMarket'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

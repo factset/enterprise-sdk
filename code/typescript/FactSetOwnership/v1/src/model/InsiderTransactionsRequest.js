@@ -50,9 +50,10 @@ class InsiderTransactionsRequest {
         if (data) {
             obj = obj || new InsiderTransactionsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InsiderTransactionsRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

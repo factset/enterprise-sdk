@@ -46,18 +46,19 @@ class Error {
         if (data) {
             obj = obj || new Error();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('scimType')) {
+            if (data.hasOwnProperty('scimType') && obj['scimType'] === undefined) {
                 obj['scimType'] = ApiClient.convertToType(data['scimType'], 'String');
             }
-            if (data.hasOwnProperty('detail')) {
+            if (data.hasOwnProperty('detail') && obj['detail'] === undefined) {
                 obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            
         }
         return obj;
     }

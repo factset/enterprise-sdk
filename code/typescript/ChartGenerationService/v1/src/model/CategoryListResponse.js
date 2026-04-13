@@ -46,6 +46,7 @@ class CategoryListResponse extends Array {
      * @return {module:model/CategoryListResponse} The populated <code>CategoryListResponse</code> instance.
      */
     static constructFromObject(data, obj) {
+        throw new Error("Failed to construct CategoryListResponse due to oneOf-schemas not matching the data: " + data);
     }
 
 

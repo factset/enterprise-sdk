@@ -71,6 +71,8 @@ class TimeSeriesResultObjectNonflattened {
             case 'TIMESERIES':
               return TimeSeriesResultObjectNonflattenedTimeseriesObject.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct TimeSeriesResultObjectNonflattened due to no matching discriminator value: " + data['objectType']);
         return obj;
     }
 

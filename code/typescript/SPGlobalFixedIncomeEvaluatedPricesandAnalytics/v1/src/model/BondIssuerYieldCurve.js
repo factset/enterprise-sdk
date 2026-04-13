@@ -46,117 +46,118 @@ class BondIssuerYieldCurve {
         if (data) {
             obj = obj || new BondIssuerYieldCurve();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate3M')) {
+            if (data.hasOwnProperty('yieldCurveDate3M') && obj['yieldCurveDate3M'] === undefined) {
                 obj['yieldCurveDate3M'] = ApiClient.convertToType(data['yieldCurveDate3M'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate6M')) {
+            if (data.hasOwnProperty('yieldCurveDate6M') && obj['yieldCurveDate6M'] === undefined) {
                 obj['yieldCurveDate6M'] = ApiClient.convertToType(data['yieldCurveDate6M'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate1Y')) {
+            if (data.hasOwnProperty('yieldCurveDate1Y') && obj['yieldCurveDate1Y'] === undefined) {
                 obj['yieldCurveDate1Y'] = ApiClient.convertToType(data['yieldCurveDate1Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate2Y')) {
+            if (data.hasOwnProperty('yieldCurveDate2Y') && obj['yieldCurveDate2Y'] === undefined) {
                 obj['yieldCurveDate2Y'] = ApiClient.convertToType(data['yieldCurveDate2Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate3Y')) {
+            if (data.hasOwnProperty('yieldCurveDate3Y') && obj['yieldCurveDate3Y'] === undefined) {
                 obj['yieldCurveDate3Y'] = ApiClient.convertToType(data['yieldCurveDate3Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate4Y')) {
+            if (data.hasOwnProperty('yieldCurveDate4Y') && obj['yieldCurveDate4Y'] === undefined) {
                 obj['yieldCurveDate4Y'] = ApiClient.convertToType(data['yieldCurveDate4Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate5Y')) {
+            if (data.hasOwnProperty('yieldCurveDate5Y') && obj['yieldCurveDate5Y'] === undefined) {
                 obj['yieldCurveDate5Y'] = ApiClient.convertToType(data['yieldCurveDate5Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate6Y')) {
+            if (data.hasOwnProperty('yieldCurveDate6Y') && obj['yieldCurveDate6Y'] === undefined) {
                 obj['yieldCurveDate6Y'] = ApiClient.convertToType(data['yieldCurveDate6Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate7Y')) {
+            if (data.hasOwnProperty('yieldCurveDate7Y') && obj['yieldCurveDate7Y'] === undefined) {
                 obj['yieldCurveDate7Y'] = ApiClient.convertToType(data['yieldCurveDate7Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate8Y')) {
+            if (data.hasOwnProperty('yieldCurveDate8Y') && obj['yieldCurveDate8Y'] === undefined) {
                 obj['yieldCurveDate8Y'] = ApiClient.convertToType(data['yieldCurveDate8Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate9Y')) {
+            if (data.hasOwnProperty('yieldCurveDate9Y') && obj['yieldCurveDate9Y'] === undefined) {
                 obj['yieldCurveDate9Y'] = ApiClient.convertToType(data['yieldCurveDate9Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate10Y')) {
+            if (data.hasOwnProperty('yieldCurveDate10Y') && obj['yieldCurveDate10Y'] === undefined) {
                 obj['yieldCurveDate10Y'] = ApiClient.convertToType(data['yieldCurveDate10Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate15Y')) {
+            if (data.hasOwnProperty('yieldCurveDate15Y') && obj['yieldCurveDate15Y'] === undefined) {
                 obj['yieldCurveDate15Y'] = ApiClient.convertToType(data['yieldCurveDate15Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate20Y')) {
+            if (data.hasOwnProperty('yieldCurveDate20Y') && obj['yieldCurveDate20Y'] === undefined) {
                 obj['yieldCurveDate20Y'] = ApiClient.convertToType(data['yieldCurveDate20Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate25Y')) {
+            if (data.hasOwnProperty('yieldCurveDate25Y') && obj['yieldCurveDate25Y'] === undefined) {
                 obj['yieldCurveDate25Y'] = ApiClient.convertToType(data['yieldCurveDate25Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate30Y')) {
+            if (data.hasOwnProperty('yieldCurveDate30Y') && obj['yieldCurveDate30Y'] === undefined) {
                 obj['yieldCurveDate30Y'] = ApiClient.convertToType(data['yieldCurveDate30Y'], 'Date');
             }
-            if (data.hasOwnProperty('yieldCurveDate40Y')) {
+            if (data.hasOwnProperty('yieldCurveDate40Y') && obj['yieldCurveDate40Y'] === undefined) {
                 obj['yieldCurveDate40Y'] = ApiClient.convertToType(data['yieldCurveDate40Y'], 'Date');
             }
-            if (data.hasOwnProperty('ytmCurve3M')) {
+            if (data.hasOwnProperty('ytmCurve3M') && obj['ytmCurve3M'] === undefined) {
                 obj['ytmCurve3M'] = ApiClient.convertToType(data['ytmCurve3M'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve6M')) {
+            if (data.hasOwnProperty('ytmCurve6M') && obj['ytmCurve6M'] === undefined) {
                 obj['ytmCurve6M'] = ApiClient.convertToType(data['ytmCurve6M'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve1Y')) {
+            if (data.hasOwnProperty('ytmCurve1Y') && obj['ytmCurve1Y'] === undefined) {
                 obj['ytmCurve1Y'] = ApiClient.convertToType(data['ytmCurve1Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve2Y')) {
+            if (data.hasOwnProperty('ytmCurve2Y') && obj['ytmCurve2Y'] === undefined) {
                 obj['ytmCurve2Y'] = ApiClient.convertToType(data['ytmCurve2Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve3Y')) {
+            if (data.hasOwnProperty('ytmCurve3Y') && obj['ytmCurve3Y'] === undefined) {
                 obj['ytmCurve3Y'] = ApiClient.convertToType(data['ytmCurve3Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve4Y')) {
+            if (data.hasOwnProperty('ytmCurve4Y') && obj['ytmCurve4Y'] === undefined) {
                 obj['ytmCurve4Y'] = ApiClient.convertToType(data['ytmCurve4Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve5Y')) {
+            if (data.hasOwnProperty('ytmCurve5Y') && obj['ytmCurve5Y'] === undefined) {
                 obj['ytmCurve5Y'] = ApiClient.convertToType(data['ytmCurve5Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve6Y')) {
+            if (data.hasOwnProperty('ytmCurve6Y') && obj['ytmCurve6Y'] === undefined) {
                 obj['ytmCurve6Y'] = ApiClient.convertToType(data['ytmCurve6Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve7Y')) {
+            if (data.hasOwnProperty('ytmCurve7Y') && obj['ytmCurve7Y'] === undefined) {
                 obj['ytmCurve7Y'] = ApiClient.convertToType(data['ytmCurve7Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve8Y')) {
+            if (data.hasOwnProperty('ytmCurve8Y') && obj['ytmCurve8Y'] === undefined) {
                 obj['ytmCurve8Y'] = ApiClient.convertToType(data['ytmCurve8Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve9Y')) {
+            if (data.hasOwnProperty('ytmCurve9Y') && obj['ytmCurve9Y'] === undefined) {
                 obj['ytmCurve9Y'] = ApiClient.convertToType(data['ytmCurve9Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve10Y')) {
+            if (data.hasOwnProperty('ytmCurve10Y') && obj['ytmCurve10Y'] === undefined) {
                 obj['ytmCurve10Y'] = ApiClient.convertToType(data['ytmCurve10Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve15Y')) {
+            if (data.hasOwnProperty('ytmCurve15Y') && obj['ytmCurve15Y'] === undefined) {
                 obj['ytmCurve15Y'] = ApiClient.convertToType(data['ytmCurve15Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve20Y')) {
+            if (data.hasOwnProperty('ytmCurve20Y') && obj['ytmCurve20Y'] === undefined) {
                 obj['ytmCurve20Y'] = ApiClient.convertToType(data['ytmCurve20Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve25Y')) {
+            if (data.hasOwnProperty('ytmCurve25Y') && obj['ytmCurve25Y'] === undefined) {
                 obj['ytmCurve25Y'] = ApiClient.convertToType(data['ytmCurve25Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve30Y')) {
+            if (data.hasOwnProperty('ytmCurve30Y') && obj['ytmCurve30Y'] === undefined) {
                 obj['ytmCurve30Y'] = ApiClient.convertToType(data['ytmCurve30Y'], 'Number');
             }
-            if (data.hasOwnProperty('ytmCurve40Y')) {
+            if (data.hasOwnProperty('ytmCurve40Y') && obj['ytmCurve40Y'] === undefined) {
                 obj['ytmCurve40Y'] = ApiClient.convertToType(data['ytmCurve40Y'], 'Number');
             }
+            
         }
         return obj;
     }

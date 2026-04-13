@@ -47,9 +47,10 @@ class EventsAudioDailyFileName {
         if (data) {
             obj = obj || new EventsAudioDailyFileName();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [EventsAudioDailyObjectOne]);
             }
+            
         }
         return obj;
     }

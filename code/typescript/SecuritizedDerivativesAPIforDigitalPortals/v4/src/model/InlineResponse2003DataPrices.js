@@ -50,15 +50,16 @@ class InlineResponse2003DataPrices {
         if (data) {
             obj = obj || new InlineResponse2003DataPrices();
 
-            if (data.hasOwnProperty('ask')) {
+            if (data.hasOwnProperty('ask') && obj['ask'] === undefined) {
                 obj['ask'] = InlineResponse2003DataPricesAsk.constructFromObject(data['ask']);
             }
-            if (data.hasOwnProperty('bid')) {
+            if (data.hasOwnProperty('bid') && obj['bid'] === undefined) {
                 obj['bid'] = InlineResponse2003DataPricesBid.constructFromObject(data['bid']);
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = InlineResponse2003DataPricesValueUnit.constructFromObject(data['valueUnit']);
             }
+            
         }
         return obj;
     }

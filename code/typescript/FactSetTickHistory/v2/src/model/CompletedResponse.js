@@ -48,9 +48,10 @@ class CompletedResponse {
         if (data) {
             obj = obj || new CompletedResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CheckFiles.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

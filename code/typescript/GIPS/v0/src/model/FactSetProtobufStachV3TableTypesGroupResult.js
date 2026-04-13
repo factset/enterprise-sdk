@@ -49,27 +49,28 @@ class FactSetProtobufStachV3TableTypesGroupResult {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesGroupResult();
 
-            if (data.hasOwnProperty('by')) {
+            if (data.hasOwnProperty('by') && obj['by'] === undefined) {
                 obj['by'] = ApiClient.convertToType(data['by'], ['String']);
             }
-            if (data.hasOwnProperty('collapsedColumnResult')) {
+            if (data.hasOwnProperty('collapsedColumnResult') && obj['collapsedColumnResult'] === undefined) {
                 obj['collapsedColumnResult'] = FactSetProtobufStachV3TableTypesCollapsedColumnResult.constructFromObject(data['collapsedColumnResult']);
             }
-            if (data.hasOwnProperty('rowPath')) {
+            if (data.hasOwnProperty('rowPath') && obj['rowPath'] === undefined) {
                 obj['rowPath'] = ApiClient.convertToType(data['rowPath'], 'String');
             }
-            if (data.hasOwnProperty('aggregateRows')) {
+            if (data.hasOwnProperty('aggregateRows') && obj['aggregateRows'] === undefined) {
                 obj['aggregateRows'] = ApiClient.convertToType(data['aggregateRows'], 'String');
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = ApiClient.convertToType(data['level'], 'String');
             }
-            if (data.hasOwnProperty('aggregateValues')) {
+            if (data.hasOwnProperty('aggregateValues') && obj['aggregateValues'] === undefined) {
                 obj['aggregateValues'] = ApiClient.convertToType(data['aggregateValues'], {'String': FactSetProtobufStachV3TableTypesGroupResultTypesAggregateValue});
             }
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], {'String': FactSetProtobufStachV3Sort});
             }
+            
         }
         return obj;
     }

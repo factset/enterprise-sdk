@@ -47,9 +47,10 @@ class Plist {
         if (data) {
             obj = obj || new Plist();
 
-            if (data.hasOwnProperty('p')) {
+            if (data.hasOwnProperty('p') && obj['p'] === undefined) {
                 obj['p'] = ApiClient.convertToType(data['p'], ['String']);
             }
+            
         }
         return obj;
     }

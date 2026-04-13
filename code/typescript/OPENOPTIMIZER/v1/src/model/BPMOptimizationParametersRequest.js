@@ -47,9 +47,10 @@ class BPMOptimizationParametersRequest {
         if (data) {
             obj = obj || new BPMOptimizationParametersRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BPMOptimizationParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

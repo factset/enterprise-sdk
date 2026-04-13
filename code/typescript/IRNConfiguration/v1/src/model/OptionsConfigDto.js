@@ -46,15 +46,16 @@ class OptionsConfigDto {
         if (data) {
             obj = obj || new OptionsConfigDto();
 
-            if (data.hasOwnProperty('multiSelectEnabled')) {
+            if (data.hasOwnProperty('multiSelectEnabled') && obj['multiSelectEnabled'] === undefined) {
                 obj['multiSelectEnabled'] = ApiClient.convertToType(data['multiSelectEnabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('onTheFlyEnabled')) {
+            if (data.hasOwnProperty('onTheFlyEnabled') && obj['onTheFlyEnabled'] === undefined) {
                 obj['onTheFlyEnabled'] = ApiClient.convertToType(data['onTheFlyEnabled'], 'Boolean');
             }
-            if (data.hasOwnProperty('options')) {
+            if (data.hasOwnProperty('options') && obj['options'] === undefined) {
                 obj['options'] = ApiClient.convertToType(data['options'], ['String']);
             }
+            
         }
         return obj;
     }

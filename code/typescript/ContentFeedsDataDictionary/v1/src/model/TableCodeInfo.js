@@ -46,15 +46,16 @@ class TableCodeInfo {
         if (data) {
             obj = obj || new TableCodeInfo();
 
-            if (data.hasOwnProperty('dataItemIsCode')) {
+            if (data.hasOwnProperty('dataItemIsCode') && obj['dataItemIsCode'] === undefined) {
                 obj['dataItemIsCode'] = ApiClient.convertToType(data['dataItemIsCode'], 'Boolean');
             }
-            if (data.hasOwnProperty('codeFieldId')) {
+            if (data.hasOwnProperty('codeFieldId') && obj['codeFieldId'] === undefined) {
                 obj['codeFieldId'] = ApiClient.convertToType(data['codeFieldId'], 'String');
             }
-            if (data.hasOwnProperty('codeString')) {
+            if (data.hasOwnProperty('codeString') && obj['codeString'] === undefined) {
                 obj['codeString'] = ApiClient.convertToType(data['codeString'], 'String');
             }
+            
         }
         return obj;
     }

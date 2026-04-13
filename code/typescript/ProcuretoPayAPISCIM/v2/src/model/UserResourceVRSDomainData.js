@@ -53,18 +53,19 @@ class UserResourceVRSDomainData {
         if (data) {
             obj = obj || new UserResourceVRSDomainData();
 
-            if (data.hasOwnProperty('domainCode')) {
+            if (data.hasOwnProperty('domainCode') && obj['domainCode'] === undefined) {
                 obj['domainCode'] = ApiClient.convertToType(data['domainCode'], 'String');
             }
-            if (data.hasOwnProperty('tenancies')) {
+            if (data.hasOwnProperty('tenancies') && obj['tenancies'] === undefined) {
                 obj['tenancies'] = UserResourceVRSDomainDataTenancies.constructFromObject(data['tenancies']);
             }
-            if (data.hasOwnProperty('isAdministrator')) {
+            if (data.hasOwnProperty('isAdministrator') && obj['isAdministrator'] === undefined) {
                 obj['isAdministrator'] = ApiClient.convertToType(data['isAdministrator'], 'Boolean');
             }
-            if (data.hasOwnProperty('password')) {
+            if (data.hasOwnProperty('password') && obj['password'] === undefined) {
                 obj['password'] = ApiClient.convertToType(data['password'], 'String');
             }
+            
         }
         return obj;
     }

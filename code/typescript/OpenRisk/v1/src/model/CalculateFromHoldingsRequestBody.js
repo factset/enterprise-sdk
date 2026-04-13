@@ -50,9 +50,10 @@ class CalculateFromHoldingsRequestBody {
         if (data) {
             obj = obj || new CalculateFromHoldingsRequestBody();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CalculateFromHoldingsRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

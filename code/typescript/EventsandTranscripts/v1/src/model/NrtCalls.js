@@ -49,12 +49,13 @@ class NrtCalls {
         if (data) {
             obj = obj || new NrtCalls();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [NrtCallsObject]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = NrtCallsMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

@@ -49,42 +49,42 @@ class SfdrPai {
         if (data) {
             obj = obj || new SfdrPai();
 
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
-
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('subTopicCode')) {
+            if (data.hasOwnProperty('subTopicCode') && obj['subTopicCode'] === undefined) {
                 obj['subTopicCode'] = ApiClient.convertToType(data['subTopicCode'], 'String');
             }
-            if (data.hasOwnProperty('subTopicName')) {
+            if (data.hasOwnProperty('subTopicName') && obj['subTopicName'] === undefined) {
                 obj['subTopicName'] = ApiClient.convertToType(data['subTopicName'], 'String');
             }
-            if (data.hasOwnProperty('indicatorType')) {
+            if (data.hasOwnProperty('indicatorType') && obj['indicatorType'] === undefined) {
                 obj['indicatorType'] = ApiClient.convertToType(data['indicatorType'], 'String');
             }
-            if (data.hasOwnProperty('periodEndDate')) {
+            if (data.hasOwnProperty('periodEndDate') && obj['periodEndDate'] === undefined) {
                 obj['periodEndDate'] = ApiClient.convertToType(data['periodEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('reportingPeriod')) {
+            if (data.hasOwnProperty('reportingPeriod') && obj['reportingPeriod'] === undefined) {
                 obj['reportingPeriod'] = ApiClient.convertToType(data['reportingPeriod'], 'String');
             }
-            if (data.hasOwnProperty('standardizedUnit')) {
+            if (data.hasOwnProperty('standardizedUnit') && obj['standardizedUnit'] === undefined) {
                 obj['standardizedUnit'] = ApiClient.convertToType(data['standardizedUnit'], 'String');
             }
-            if (data.hasOwnProperty('standardizedValue')) {
+            if (data.hasOwnProperty('standardizedValue') && obj['standardizedValue'] === undefined) {
                 obj['standardizedValue'] = ApiClient.convertToType(data['standardizedValue'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
+            
+            ApiClient.constructFromObject(data, obj, Object);
+            
         }
         return obj;
     }

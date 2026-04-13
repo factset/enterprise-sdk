@@ -47,9 +47,10 @@ class InlineResponse400 {
         if (data) {
             obj = obj || new InlineResponse400();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorObjectWithSource]);
             }
+            
         }
         return obj;
     }

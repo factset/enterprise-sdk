@@ -47,9 +47,10 @@ class BuyContextResponseOptions {
         if (data) {
             obj = obj || new BuyContextResponseOptions();
 
-            if (data.hasOwnProperty('buyContextValues')) {
+            if (data.hasOwnProperty('buyContextValues') && obj['buyContextValues'] === undefined) {
                 obj['buyContextValues'] = BuyContextModelAnalytics.constructFromObject(data['buyContextValues']);
             }
+            
         }
         return obj;
     }

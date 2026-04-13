@@ -49,9 +49,10 @@ class KeyStatsAttributeValueString {
         if (data) {
             obj = obj || new KeyStatsAttributeValueString();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
+            
         }
         return obj;
     }

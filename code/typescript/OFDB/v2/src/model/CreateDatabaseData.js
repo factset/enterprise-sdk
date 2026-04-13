@@ -46,9 +46,10 @@ class CreateDatabaseData {
         if (data) {
             obj = obj || new CreateDatabaseData();
 
-            if (data.hasOwnProperty('path')) {
+            if (data.hasOwnProperty('path') && obj['path'] === undefined) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
+            
         }
         return obj;
     }

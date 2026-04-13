@@ -48,21 +48,22 @@ class JobOverridesCombinationsRoot {
         if (data) {
             obj = obj || new JobOverridesCombinationsRoot();
 
-            if (data.hasOwnProperty('accounts')) {
+            if (data.hasOwnProperty('accounts') && obj['accounts'] === undefined) {
                 obj['accounts'] = ApiClient.convertToType(data['accounts'], ['String']);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = ApiClient.convertToType(data['dates'], ['Date']);
             }
-            if (data.hasOwnProperty('dateRange')) {
+            if (data.hasOwnProperty('dateRange') && obj['dateRange'] === undefined) {
                 obj['dateRange'] = JobOverridesCombinationsRootDateRange.constructFromObject(data['dateRange']);
             }
-            if (data.hasOwnProperty('tasks')) {
+            if (data.hasOwnProperty('tasks') && obj['tasks'] === undefined) {
                 obj['tasks'] = ApiClient.convertToType(data['tasks'], ['String']);
             }
-            if (data.hasOwnProperty('allTasks')) {
+            if (data.hasOwnProperty('allTasks') && obj['allTasks'] === undefined) {
                 obj['allTasks'] = ApiClient.convertToType(data['allTasks'], 'Boolean');
             }
+            
         }
         return obj;
     }

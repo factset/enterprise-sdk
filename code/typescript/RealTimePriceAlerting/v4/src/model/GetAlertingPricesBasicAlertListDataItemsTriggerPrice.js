@@ -47,12 +47,13 @@ class GetAlertingPricesBasicAlertListDataItemsTriggerPrice {
         if (data) {
             obj = obj || new GetAlertingPricesBasicAlertListDataItemsTriggerPrice();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
+            
         }
         return obj;
     }

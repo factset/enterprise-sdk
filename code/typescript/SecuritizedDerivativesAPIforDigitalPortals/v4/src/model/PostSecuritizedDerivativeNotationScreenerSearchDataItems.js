@@ -54,33 +54,34 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItems {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsFsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('instrument')) {
+            if (data.hasOwnProperty('instrument') && obj['instrument'] === undefined) {
                 obj['instrument'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrument.constructFromObject(data['instrument']);
             }
-            if (data.hasOwnProperty('keyFigures')) {
+            if (data.hasOwnProperty('keyFigures') && obj['keyFigures'] === undefined) {
                 obj['keyFigures'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFigures.constructFromObject(data['keyFigures']);
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsPerformance.constructFromObject(data['performance']);
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsVolatility.constructFromObject(data['volatility']);
             }
+            
         }
         return obj;
     }

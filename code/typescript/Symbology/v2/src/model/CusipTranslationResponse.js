@@ -48,9 +48,10 @@ class CusipTranslationResponse {
         if (data) {
             obj = obj || new CusipTranslationResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CusipTranslation]);
             }
+            
         }
         return obj;
     }

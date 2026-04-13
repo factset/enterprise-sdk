@@ -48,9 +48,10 @@ class ClientUploadResponse {
         if (data) {
             obj = obj || new ClientUploadResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ClientUploadResponseParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

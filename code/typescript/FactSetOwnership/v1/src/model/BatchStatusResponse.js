@@ -48,9 +48,10 @@ class BatchStatusResponse {
         if (data) {
             obj = obj || new BatchStatusResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BatchStatus.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -51,12 +51,13 @@ class PostBasicDeliveryListRequest {
         if (data) {
             obj = obj || new PostBasicDeliveryListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostBasicDeliveryListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostBasicDeliveryListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

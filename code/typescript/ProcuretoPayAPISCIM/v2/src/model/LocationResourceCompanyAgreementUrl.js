@@ -48,9 +48,10 @@ class LocationResourceCompanyAgreementUrl {
         if (data) {
             obj = obj || new LocationResourceCompanyAgreementUrl();
 
-            if (data.hasOwnProperty('$ref')) {
+            if (data.hasOwnProperty('$ref') && obj['$ref'] === undefined) {
                 obj['$ref'] = ApiClient.convertToType(data['$ref'], 'String');
             }
+            
         }
         return obj;
     }

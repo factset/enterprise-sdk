@@ -48,12 +48,13 @@ class InlineResponse20047 {
         if (data) {
             obj = obj || new InlineResponse20047();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InlineResponse20047Data.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = InlineResponse20044Meta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

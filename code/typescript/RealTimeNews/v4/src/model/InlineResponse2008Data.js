@@ -51,27 +51,28 @@ class InlineResponse2008Data {
         if (data) {
             obj = obj || new InlineResponse2008Data();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
+            if (data.hasOwnProperty('shortName') && obj['shortName'] === undefined) {
                 obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('active')) {
+            if (data.hasOwnProperty('active') && obj['active'] === undefined) {
                 obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = InlineResponse2008DataCountry.constructFromObject(data['country']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = InlineResponse2008DataType.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = InlineResponse2008DataGroup.constructFromObject(data['group']);
             }
-            if (data.hasOwnProperty('timezone')) {
+            if (data.hasOwnProperty('timezone') && obj['timezone'] === undefined) {
                 obj['timezone'] = InlineResponse2008DataTimezone.constructFromObject(data['timezone']);
             }
+            
         }
         return obj;
     }

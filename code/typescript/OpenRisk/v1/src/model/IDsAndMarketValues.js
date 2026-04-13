@@ -51,12 +51,13 @@ class IDsAndMarketValues {
         if (data) {
             obj = obj || new IDsAndMarketValues();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('marketValues')) {
+            if (data.hasOwnProperty('marketValues') && obj['marketValues'] === undefined) {
                 obj['marketValues'] = ApiClient.convertToType(data['marketValues'], ['Number']);
             }
+            
         }
         return obj;
     }

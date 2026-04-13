@@ -46,78 +46,79 @@ class BondMeta {
         if (data) {
             obj = obj || new BondMeta();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('classification')) {
+            if (data.hasOwnProperty('classification') && obj['classification'] === undefined) {
                 obj['classification'] = ApiClient.convertToType(data['classification'], 'String');
             }
-            if (data.hasOwnProperty('maturityDate')) {
+            if (data.hasOwnProperty('maturityDate') && obj['maturityDate'] === undefined) {
                 obj['maturityDate'] = ApiClient.convertToType(data['maturityDate'], 'Date');
             }
-            if (data.hasOwnProperty('assumedMaturityDate')) {
+            if (data.hasOwnProperty('assumedMaturityDate') && obj['assumedMaturityDate'] === undefined) {
                 obj['assumedMaturityDate'] = ApiClient.convertToType(data['assumedMaturityDate'], 'Date');
             }
-            if (data.hasOwnProperty('defaulted')) {
+            if (data.hasOwnProperty('defaulted') && obj['defaulted'] === undefined) {
                 obj['defaulted'] = ApiClient.convertToType(data['defaulted'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('cusip')) {
+            if (data.hasOwnProperty('cusip') && obj['cusip'] === undefined) {
                 obj['cusip'] = ApiClient.convertToType(data['cusip'], 'String');
             }
-            if (data.hasOwnProperty('vendorId')) {
+            if (data.hasOwnProperty('vendorId') && obj['vendorId'] === undefined) {
                 obj['vendorId'] = ApiClient.convertToType(data['vendorId'], 'String');
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('setId')) {
+            if (data.hasOwnProperty('setId') && obj['setId'] === undefined) {
                 obj['setId'] = ApiClient.convertToType(data['setId'], 'Number');
             }
-            if (data.hasOwnProperty('benchmarkISIN')) {
+            if (data.hasOwnProperty('benchmarkISIN') && obj['benchmarkISIN'] === undefined) {
                 obj['benchmarkISIN'] = ApiClient.convertToType(data['benchmarkISIN'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkCUSIP')) {
+            if (data.hasOwnProperty('benchmarkCUSIP') && obj['benchmarkCUSIP'] === undefined) {
                 obj['benchmarkCUSIP'] = ApiClient.convertToType(data['benchmarkCUSIP'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('issuerName')) {
+            if (data.hasOwnProperty('issuerName') && obj['issuerName'] === undefined) {
                 obj['issuerName'] = ApiClient.convertToType(data['issuerName'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkName')) {
+            if (data.hasOwnProperty('benchmarkName') && obj['benchmarkName'] === undefined) {
                 obj['benchmarkName'] = ApiClient.convertToType(data['benchmarkName'], 'String');
             }
-            if (data.hasOwnProperty('perpetual')) {
+            if (data.hasOwnProperty('perpetual') && obj['perpetual'] === undefined) {
                 obj['perpetual'] = ApiClient.convertToType(data['perpetual'], 'String');
             }
-            if (data.hasOwnProperty('region')) {
+            if (data.hasOwnProperty('region') && obj['region'] === undefined) {
                 obj['region'] = ApiClient.convertToType(data['region'], 'String');
             }
-            if (data.hasOwnProperty('tier')) {
+            if (data.hasOwnProperty('tier') && obj['tier'] === undefined) {
                 obj['tier'] = ApiClient.convertToType(data['tier'], 'String');
             }
-            if (data.hasOwnProperty('issueName')) {
+            if (data.hasOwnProperty('issueName') && obj['issueName'] === undefined) {
                 obj['issueName'] = ApiClient.convertToType(data['issueName'], 'String');
             }
-            if (data.hasOwnProperty('bondTicker')) {
+            if (data.hasOwnProperty('bondTicker') && obj['bondTicker'] === undefined) {
                 obj['bondTicker'] = ApiClient.convertToType(data['bondTicker'], 'String');
             }
-            if (data.hasOwnProperty('indexTrancheName')) {
+            if (data.hasOwnProperty('indexTrancheName') && obj['indexTrancheName'] === undefined) {
                 obj['indexTrancheName'] = ApiClient.convertToType(data['indexTrancheName'], 'String');
             }
-            if (data.hasOwnProperty('redemption')) {
+            if (data.hasOwnProperty('redemption') && obj['redemption'] === undefined) {
                 obj['redemption'] = ApiClient.convertToType(data['redemption'], 'String');
             }
+            
         }
         return obj;
     }

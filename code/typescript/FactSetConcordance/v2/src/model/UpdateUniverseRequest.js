@@ -48,15 +48,16 @@ class UpdateUniverseRequest {
         if (data) {
             obj = obj || new UpdateUniverseRequest();
 
-            if (data.hasOwnProperty('universeName')) {
+            if (data.hasOwnProperty('universeName') && obj['universeName'] === undefined) {
                 obj['universeName'] = ApiClient.convertToType(data['universeName'], 'String');
             }
-            if (data.hasOwnProperty('universeDescription')) {
+            if (data.hasOwnProperty('universeDescription') && obj['universeDescription'] === undefined) {
                 obj['universeDescription'] = ApiClient.convertToType(data['universeDescription'], 'String');
             }
-            if (data.hasOwnProperty('universeId')) {
+            if (data.hasOwnProperty('universeId') && obj['universeId'] === undefined) {
                 obj['universeId'] = ApiClient.convertToType(data['universeId'], 'Number');
             }
+            
         }
         return obj;
     }

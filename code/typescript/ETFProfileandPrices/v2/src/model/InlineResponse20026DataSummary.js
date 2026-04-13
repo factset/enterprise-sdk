@@ -47,12 +47,13 @@ class InlineResponse20026DataSummary {
         if (data) {
             obj = obj || new InlineResponse20026DataSummary();
 
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = InlineResponse20026DataCount.constructFromObject(data['count']);
             }
+            
         }
         return obj;
     }

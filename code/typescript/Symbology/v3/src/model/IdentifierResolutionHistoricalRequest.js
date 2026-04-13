@@ -50,9 +50,10 @@ class IdentifierResolutionHistoricalRequest {
         if (data) {
             obj = obj || new IdentifierResolutionHistoricalRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = IdentifierResolutionHistoricalRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

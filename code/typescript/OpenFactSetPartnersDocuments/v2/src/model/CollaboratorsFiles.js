@@ -47,27 +47,28 @@ class CollaboratorsFiles {
         if (data) {
             obj = obj || new CollaboratorsFiles();
 
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('beamCollaboratorsId')) {
+            if (data.hasOwnProperty('beamCollaboratorsId') && obj['beamCollaboratorsId'] === undefined) {
                 obj['beamCollaboratorsId'] = ApiClient.convertToType(data['beamCollaboratorsId'], 'Number');
             }
-            if (data.hasOwnProperty('beamCollaboratorsName')) {
+            if (data.hasOwnProperty('beamCollaboratorsName') && obj['beamCollaboratorsName'] === undefined) {
                 obj['beamCollaboratorsName'] = ApiClient.convertToType(data['beamCollaboratorsName'], 'String');
             }
-            if (data.hasOwnProperty('beamCollaboratorsType')) {
+            if (data.hasOwnProperty('beamCollaboratorsType') && obj['beamCollaboratorsType'] === undefined) {
                 obj['beamCollaboratorsType'] = ApiClient.convertToType(data['beamCollaboratorsType'], 'String');
             }
-            if (data.hasOwnProperty('beamCollaboratorsTicker')) {
+            if (data.hasOwnProperty('beamCollaboratorsTicker') && obj['beamCollaboratorsTicker'] === undefined) {
                 obj['beamCollaboratorsTicker'] = ApiClient.convertToType(data['beamCollaboratorsTicker'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

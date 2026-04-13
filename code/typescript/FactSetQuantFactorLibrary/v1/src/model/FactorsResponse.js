@@ -47,9 +47,10 @@ class FactorsResponse {
         if (data) {
             obj = obj || new FactorsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Factors]);
             }
+            
         }
         return obj;
     }

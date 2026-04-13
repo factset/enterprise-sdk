@@ -47,24 +47,25 @@ class RelationshipCategoryDto {
         if (data) {
             obj = obj || new RelationshipCategoryDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('isStandard')) {
+            if (data.hasOwnProperty('isStandard') && obj['isStandard'] === undefined) {
                 obj['isStandard'] = ApiClient.convertToType(data['isStandard'], 'Boolean');
             }
-            if (data.hasOwnProperty('isContactToContact')) {
+            if (data.hasOwnProperty('isContactToContact') && obj['isContactToContact'] === undefined) {
                 obj['isContactToContact'] = ApiClient.convertToType(data['isContactToContact'], 'Boolean');
             }
-            if (data.hasOwnProperty('isContactToSymbol')) {
+            if (data.hasOwnProperty('isContactToSymbol') && obj['isContactToSymbol'] === undefined) {
                 obj['isContactToSymbol'] = ApiClient.convertToType(data['isContactToSymbol'], 'Boolean');
             }
-            if (data.hasOwnProperty('relationships')) {
+            if (data.hasOwnProperty('relationships') && obj['relationships'] === undefined) {
                 obj['relationships'] = ApiClient.convertToType(data['relationships'], [RelationshipDto]);
             }
+            
         }
         return obj;
     }

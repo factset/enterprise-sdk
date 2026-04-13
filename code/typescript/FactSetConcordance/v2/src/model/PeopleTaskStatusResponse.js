@@ -47,9 +47,10 @@ class PeopleTaskStatusResponse {
         if (data) {
             obj = obj || new PeopleTaskStatusResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [PeopleTaskStatus]);
             }
+            
         }
         return obj;
     }

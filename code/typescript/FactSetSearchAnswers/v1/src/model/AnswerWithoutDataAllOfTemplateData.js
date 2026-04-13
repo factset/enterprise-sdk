@@ -47,9 +47,10 @@ class AnswerWithoutDataAllOfTemplateData {
         if (data) {
             obj = obj || new AnswerWithoutDataAllOfTemplateData();
 
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
+            
         }
         return obj;
     }

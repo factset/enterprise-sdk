@@ -48,12 +48,13 @@ class FilterRegionsResponseData {
         if (data) {
             obj = obj || new FilterRegionsResponseData();
 
-            if (data.hasOwnProperty('structured')) {
+            if (data.hasOwnProperty('structured') && obj['structured'] === undefined) {
                 obj['structured'] = StructuredFiltersRegions.constructFromObject(data['structured']);
             }
-            if (data.hasOwnProperty('flattened')) {
+            if (data.hasOwnProperty('flattened') && obj['flattened'] === undefined) {
                 obj['flattened'] = FlattenedFiltersRegions.constructFromObject(data['flattened']);
             }
+            
         }
         return obj;
     }

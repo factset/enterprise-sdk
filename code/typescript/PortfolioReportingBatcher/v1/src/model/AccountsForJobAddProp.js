@@ -47,21 +47,22 @@ class AccountsForJobAddProp {
         if (data) {
             obj = obj || new AccountsForJobAddProp();
 
-            if (data.hasOwnProperty('includeParent')) {
+            if (data.hasOwnProperty('includeParent') && obj['includeParent'] === undefined) {
                 obj['includeParent'] = ApiClient.convertToType(data['includeParent'], 'Boolean');
             }
-            if (data.hasOwnProperty('isSplit')) {
+            if (data.hasOwnProperty('isSplit') && obj['isSplit'] === undefined) {
                 obj['isSplit'] = ApiClient.convertToType(data['isSplit'], 'Boolean');
             }
-            if (data.hasOwnProperty('latestComponentsOnly')) {
+            if (data.hasOwnProperty('latestComponentsOnly') && obj['latestComponentsOnly'] === undefined) {
                 obj['latestComponentsOnly'] = ApiClient.convertToType(data['latestComponentsOnly'], 'Boolean');
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = ApiClient.convertToType(data['level'], 'String');
             }
-            if (data.hasOwnProperty('portfolioId')) {
+            if (data.hasOwnProperty('portfolioId') && obj['portfolioId'] === undefined) {
                 obj['portfolioId'] = ApiClient.convertToType(data['portfolioId'], 'String');
             }
+            
         }
         return obj;
     }

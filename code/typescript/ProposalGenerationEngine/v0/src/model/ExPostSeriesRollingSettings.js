@@ -52,30 +52,35 @@ class ExPostSeriesRollingSettings {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExPostSeriesRollingSettings();
-            ExPostRollingSettings.constructFromObject(data, obj);
-            Periods.constructFromObject(data, obj);
+            try {
+              obj = ExPostRollingSettings.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = Periods.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
             }
-            if (data.hasOwnProperty('returnsPreferences')) {
+            if (data.hasOwnProperty('returnsPreferences') && obj['returnsPreferences'] === undefined) {
                 obj['returnsPreferences'] = ApiClient.convertToType(data['returnsPreferences'], 'String');
             }
-            if (data.hasOwnProperty('validatePortfolio')) {
+            if (data.hasOwnProperty('validatePortfolio') && obj['validatePortfolio'] === undefined) {
                 obj['validatePortfolio'] = ApiClient.convertToType(data['validatePortfolio'], 'Boolean');
             }
-            if (data.hasOwnProperty('timeWindows')) {
+            if (data.hasOwnProperty('timeWindows') && obj['timeWindows'] === undefined) {
                 obj['timeWindows'] = ApiClient.convertToType(data['timeWindows'], ['String']);
             }
-            if (data.hasOwnProperty('rollingTimeWindow')) {
+            if (data.hasOwnProperty('rollingTimeWindow') && obj['rollingTimeWindow'] === undefined) {
                 obj['rollingTimeWindow'] = ApiClient.convertToType(data['rollingTimeWindow'], 'Number');
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], ['String']);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ApiClient.convertToType(data['periods'], [Period]);
             }
+            
         }
         return obj;
     }

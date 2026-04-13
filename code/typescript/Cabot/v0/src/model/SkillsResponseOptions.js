@@ -48,21 +48,22 @@ class SkillsResponseOptions {
         if (data) {
             obj = obj || new SkillsResponseOptions();
 
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = ApiClient.convertToType(data['attribute'], 'String');
             }
-            if (data.hasOwnProperty('highSkillValues')) {
+            if (data.hasOwnProperty('highSkillValues') && obj['highSkillValues'] === undefined) {
                 obj['highSkillValues'] = SkillsModelAnalytics.constructFromObject(data['highSkillValues']);
             }
-            if (data.hasOwnProperty('holdingsData')) {
+            if (data.hasOwnProperty('holdingsData') && obj['holdingsData'] === undefined) {
                 obj['holdingsData'] = HoldingsResponseOptions.constructFromObject(data['holdingsData']);
             }
-            if (data.hasOwnProperty('lowSkillValues')) {
+            if (data.hasOwnProperty('lowSkillValues') && obj['lowSkillValues'] === undefined) {
                 obj['lowSkillValues'] = SkillsModelAnalytics.constructFromObject(data['lowSkillValues']);
             }
-            if (data.hasOwnProperty('skillValues')) {
+            if (data.hasOwnProperty('skillValues') && obj['skillValues'] === undefined) {
                 obj['skillValues'] = SkillsModelAnalytics.constructFromObject(data['skillValues']);
             }
+            
         }
         return obj;
     }

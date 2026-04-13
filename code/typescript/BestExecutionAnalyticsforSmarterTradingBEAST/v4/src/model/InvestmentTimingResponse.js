@@ -48,9 +48,10 @@ class InvestmentTimingResponse {
         if (data) {
             obj = obj || new InvestmentTimingResponse();
 
-            if (data.hasOwnProperty('investmentTiming')) {
+            if (data.hasOwnProperty('investmentTiming') && obj['investmentTiming'] === undefined) {
                 obj['investmentTiming'] = ApiClient.convertToType(data['investmentTiming'], [InvestmentTiming]);
             }
+            
         }
         return obj;
     }

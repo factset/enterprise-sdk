@@ -94,153 +94,154 @@ class KeyStatsDataObjectEntity {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntity();
 
-            if (data.hasOwnProperty('activeInvestors')) {
+            if (data.hasOwnProperty('activeInvestors') && obj['activeInvestors'] === undefined) {
                 obj['activeInvestors'] = KeyStatsDataObjectEntityActiveInvestors.constructFromObject(data['activeInvestors']);
             }
-            if (data.hasOwnProperty('annualDividend')) {
+            if (data.hasOwnProperty('annualDividend') && obj['annualDividend'] === undefined) {
                 obj['annualDividend'] = KeyStatsDataObjectEntityAnnualDividend.constructFromObject(data['annualDividend']);
             }
-            if (data.hasOwnProperty('averageDailyVol')) {
+            if (data.hasOwnProperty('averageDailyVol') && obj['averageDailyVol'] === undefined) {
                 obj['averageDailyVol'] = KeyStatsDataObjectEntityAverageDailyVol.constructFromObject(data['averageDailyVol']);
             }
-            if (data.hasOwnProperty('averageDailyVol30D')) {
+            if (data.hasOwnProperty('averageDailyVol30D') && obj['averageDailyVol30D'] === undefined) {
                 obj['averageDailyVol30D'] = KeyStatsDataObjectEntityAverageDailyVol30D.constructFromObject(data['averageDailyVol30D']);
             }
-            if (data.hasOwnProperty('averageRating')) {
+            if (data.hasOwnProperty('averageRating') && obj['averageRating'] === undefined) {
                 obj['averageRating'] = KeyStatsDataObjectEntityAverageRating.constructFromObject(data['averageRating']);
             }
-            if (data.hasOwnProperty('basicShares')) {
+            if (data.hasOwnProperty('basicShares') && obj['basicShares'] === undefined) {
                 obj['basicShares'] = KeyStatsDataObjectEntityBasicShares.constructFromObject(data['basicShares']);
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = KeyStatsDataObjectEntityBeta.constructFromObject(data['beta']);
             }
-            if (data.hasOwnProperty('branches')) {
+            if (data.hasOwnProperty('branches') && obj['branches'] === undefined) {
                 obj['branches'] = KeyStatsDataObjectEntityBranches.constructFromObject(data['branches']);
             }
-            if (data.hasOwnProperty('brokerContributors')) {
+            if (data.hasOwnProperty('brokerContributors') && obj['brokerContributors'] === undefined) {
                 obj['brokerContributors'] = KeyStatsDataObjectEntityBrokerContributors.constructFromObject(data['brokerContributors']);
             }
-            if (data.hasOwnProperty('circulatingSupply')) {
+            if (data.hasOwnProperty('circulatingSupply') && obj['circulatingSupply'] === undefined) {
                 obj['circulatingSupply'] = KeyStatsDataObjectEntityCirculatingSupply.constructFromObject(data['circulatingSupply']);
             }
-            if (data.hasOwnProperty('dilutedMarketCap')) {
+            if (data.hasOwnProperty('dilutedMarketCap') && obj['dilutedMarketCap'] === undefined) {
                 obj['dilutedMarketCap'] = KeyStatsDataObjectEntityDilutedMarketCap.constructFromObject(data['dilutedMarketCap']);
             }
-            if (data.hasOwnProperty('dilutedShares')) {
+            if (data.hasOwnProperty('dilutedShares') && obj['dilutedShares'] === undefined) {
                 obj['dilutedShares'] = KeyStatsDataObjectEntityDilutedShares.constructFromObject(data['dilutedShares']);
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = KeyStatsDataObjectEntityDividendYield.constructFromObject(data['dividendYield']);
             }
-            if (data.hasOwnProperty('employees')) {
+            if (data.hasOwnProperty('employees') && obj['employees'] === undefined) {
                 obj['employees'] = KeyStatsDataObjectEntityEmployees.constructFromObject(data['employees']);
             }
-            if (data.hasOwnProperty('enterpriseValue')) {
+            if (data.hasOwnProperty('enterpriseValue') && obj['enterpriseValue'] === undefined) {
                 obj['enterpriseValue'] = KeyStatsDataObjectEntityEnterpriseValue.constructFromObject(data['enterpriseValue']);
             }
-            if (data.hasOwnProperty('estimatedVcRaised')) {
+            if (data.hasOwnProperty('estimatedVcRaised') && obj['estimatedVcRaised'] === undefined) {
                 obj['estimatedVcRaised'] = KeyStatsDataObjectEntityEstimatedVcRaised.constructFromObject(data['estimatedVcRaised']);
             }
-            if (data.hasOwnProperty('exDividendDate')) {
+            if (data.hasOwnProperty('exDividendDate') && obj['exDividendDate'] === undefined) {
                 obj['exDividendDate'] = KeyStatsDataObjectEntityExDividendDate.constructFromObject(data['exDividendDate']);
             }
-            if (data.hasOwnProperty('firstDate')) {
+            if (data.hasOwnProperty('firstDate') && obj['firstDate'] === undefined) {
                 obj['firstDate'] = KeyStatsDataObjectEntityFirstDate.constructFromObject(data['firstDate']);
             }
-            if (data.hasOwnProperty('firstFunding')) {
+            if (data.hasOwnProperty('firstFunding') && obj['firstFunding'] === undefined) {
                 obj['firstFunding'] = KeyStatsDataObjectEntityFirstFunding.constructFromObject(data['firstFunding']);
             }
-            if (data.hasOwnProperty('float')) {
+            if (data.hasOwnProperty('float') && obj['float'] === undefined) {
                 obj['float'] = KeyStatsDataObjectEntityFloat.constructFromObject(data['float']);
             }
-            if (data.hasOwnProperty('fundingRounds')) {
+            if (data.hasOwnProperty('fundingRounds') && obj['fundingRounds'] === undefined) {
                 obj['fundingRounds'] = KeyStatsDataObjectEntityFundingRounds.constructFromObject(data['fundingRounds']);
             }
-            if (data.hasOwnProperty('grossAssets')) {
+            if (data.hasOwnProperty('grossAssets') && obj['grossAssets'] === undefined) {
                 obj['grossAssets'] = KeyStatsDataObjectEntityGrossAssets.constructFromObject(data['grossAssets']);
             }
-            if (data.hasOwnProperty('grossPremiums')) {
+            if (data.hasOwnProperty('grossPremiums') && obj['grossPremiums'] === undefined) {
                 obj['grossPremiums'] = KeyStatsDataObjectEntityGrossPremiums.constructFromObject(data['grossPremiums']);
             }
-            if (data.hasOwnProperty('institutional')) {
+            if (data.hasOwnProperty('institutional') && obj['institutional'] === undefined) {
                 obj['institutional'] = KeyStatsDataObjectEntityInstitutional.constructFromObject(data['institutional']);
             }
-            if (data.hasOwnProperty('lastFunding')) {
+            if (data.hasOwnProperty('lastFunding') && obj['lastFunding'] === undefined) {
                 obj['lastFunding'] = KeyStatsDataObjectEntityLastFunding.constructFromObject(data['lastFunding']);
             }
-            if (data.hasOwnProperty('lastFundingRound')) {
+            if (data.hasOwnProperty('lastFundingRound') && obj['lastFundingRound'] === undefined) {
                 obj['lastFundingRound'] = KeyStatsDataObjectEntityLastFundingRound.constructFromObject(data['lastFundingRound']);
             }
-            if (data.hasOwnProperty('latestPostMoneyValuation')) {
+            if (data.hasOwnProperty('latestPostMoneyValuation') && obj['latestPostMoneyValuation'] === undefined) {
                 obj['latestPostMoneyValuation'] = KeyStatsDataObjectEntityLatestPostMoneyValuation.constructFromObject(data['latestPostMoneyValuation']);
             }
-            if (data.hasOwnProperty('ltGrowthRate')) {
+            if (data.hasOwnProperty('ltGrowthRate') && obj['ltGrowthRate'] === undefined) {
                 obj['ltGrowthRate'] = KeyStatsDataObjectEntityLtGrowthRate.constructFromObject(data['ltGrowthRate']);
             }
-            if (data.hasOwnProperty('marketCap')) {
+            if (data.hasOwnProperty('marketCap') && obj['marketCap'] === undefined) {
                 obj['marketCap'] = KeyStatsDataObjectEntityMarketCap.constructFromObject(data['marketCap']);
             }
-            if (data.hasOwnProperty('marketCapFreeFloat')) {
+            if (data.hasOwnProperty('marketCapFreeFloat') && obj['marketCapFreeFloat'] === undefined) {
                 obj['marketCapFreeFloat'] = KeyStatsDataObjectEntityCirculatingSupply.constructFromObject(data['marketCapFreeFloat']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = KeyStatsDataObjectEntityMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('netInterestIncome')) {
+            if (data.hasOwnProperty('netInterestIncome') && obj['netInterestIncome'] === undefined) {
                 obj['netInterestIncome'] = KeyStatsDataObjectEntityNetInterestIncome.constructFromObject(data['netInterestIncome']);
             }
-            if (data.hasOwnProperty('nextEarnings')) {
+            if (data.hasOwnProperty('nextEarnings') && obj['nextEarnings'] === undefined) {
                 obj['nextEarnings'] = KeyStatsDataObjectEntityNextEarnings.constructFromObject(data['nextEarnings']);
             }
-            if (data.hasOwnProperty('open')) {
+            if (data.hasOwnProperty('open') && obj['open'] === undefined) {
                 obj['open'] = KeyStatsDataObjectEntityOpen.constructFromObject(data['open']);
             }
-            if (data.hasOwnProperty('premiums')) {
+            if (data.hasOwnProperty('premiums') && obj['premiums'] === undefined) {
                 obj['premiums'] = KeyStatsDataObjectEntityPremiums.constructFromObject(data['premiums']);
             }
-            if (data.hasOwnProperty('previousClose')) {
+            if (data.hasOwnProperty('previousClose') && obj['previousClose'] === undefined) {
                 obj['previousClose'] = KeyStatsDataObjectEntityPreviousClose.constructFromObject(data['previousClose']);
             }
-            if (data.hasOwnProperty('primaryId')) {
+            if (data.hasOwnProperty('primaryId') && obj['primaryId'] === undefined) {
                 obj['primaryId'] = KeyStatsDataObjectEntityPrimaryId.constructFromObject(data['primaryId']);
             }
-            if (data.hasOwnProperty('primaryTicker')) {
+            if (data.hasOwnProperty('primaryTicker') && obj['primaryTicker'] === undefined) {
                 obj['primaryTicker'] = KeyStatsDataObjectEntityPrimaryTicker.constructFromObject(data['primaryTicker']);
             }
-            if (data.hasOwnProperty('range52Week')) {
+            if (data.hasOwnProperty('range52Week') && obj['range52Week'] === undefined) {
                 obj['range52Week'] = KeyStatsDataObjectEntityRange52Week.constructFromObject(data['range52Week']);
             }
-            if (data.hasOwnProperty('revenue')) {
+            if (data.hasOwnProperty('revenue') && obj['revenue'] === undefined) {
                 obj['revenue'] = KeyStatsDataObjectEntityRevenue.constructFromObject(data['revenue']);
             }
-            if (data.hasOwnProperty('securityId')) {
+            if (data.hasOwnProperty('securityId') && obj['securityId'] === undefined) {
                 obj['securityId'] = KeyStatsDataObjectEntitySecurityId.constructFromObject(data['securityId']);
             }
-            if (data.hasOwnProperty('shortInterest')) {
+            if (data.hasOwnProperty('shortInterest') && obj['shortInterest'] === undefined) {
                 obj['shortInterest'] = KeyStatsDataObjectEntityShortInterest.constructFromObject(data['shortInterest']);
             }
-            if (data.hasOwnProperty('targetPrice')) {
+            if (data.hasOwnProperty('targetPrice') && obj['targetPrice'] === undefined) {
                 obj['targetPrice'] = KeyStatsDataObjectEntityTargetPrice.constructFromObject(data['targetPrice']);
             }
-            if (data.hasOwnProperty('top10InstitutionalHolders')) {
+            if (data.hasOwnProperty('top10InstitutionalHolders') && obj['top10InstitutionalHolders'] === undefined) {
                 obj['top10InstitutionalHolders'] = KeyStatsDataObjectEntityTop10InstitutionalHolders.constructFromObject(data['top10InstitutionalHolders']);
             }
-            if (data.hasOwnProperty('totalDeposits')) {
+            if (data.hasOwnProperty('totalDeposits') && obj['totalDeposits'] === undefined) {
                 obj['totalDeposits'] = KeyStatsDataObjectEntityTotalDeposits.constructFromObject(data['totalDeposits']);
             }
-            if (data.hasOwnProperty('totalInvestors')) {
+            if (data.hasOwnProperty('totalInvestors') && obj['totalInvestors'] === undefined) {
                 obj['totalInvestors'] = KeyStatsDataObjectEntityTotalInvestors.constructFromObject(data['totalInvestors']);
             }
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = KeyStatsDataObjectEntityVolume.constructFromObject(data['volume']);
             }
-            if (data.hasOwnProperty('volumePerMarketCap')) {
+            if (data.hasOwnProperty('volumePerMarketCap') && obj['volumePerMarketCap'] === undefined) {
                 obj['volumePerMarketCap'] = KeyStatsDataObjectEntityCirculatingSupply.constructFromObject(data['volumePerMarketCap']);
             }
-            if (data.hasOwnProperty('wacc')) {
+            if (data.hasOwnProperty('wacc') && obj['wacc'] === undefined) {
                 obj['wacc'] = KeyStatsDataObjectEntityWacc.constructFromObject(data['wacc']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class PortfolioEntity {
         if (data) {
             obj = obj || new PortfolioEntity();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = PortfolioEntityDetails.constructFromObject(data['details']);
             }
+            
         }
         return obj;
     }

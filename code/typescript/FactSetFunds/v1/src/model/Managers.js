@@ -46,27 +46,28 @@ class Managers {
         if (data) {
             obj = obj || new Managers();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('managerName')) {
+            if (data.hasOwnProperty('managerName') && obj['managerName'] === undefined) {
                 obj['managerName'] = ApiClient.convertToType(data['managerName'], 'String');
             }
-            if (data.hasOwnProperty('managerTitle')) {
+            if (data.hasOwnProperty('managerTitle') && obj['managerTitle'] === undefined) {
                 obj['managerTitle'] = ApiClient.convertToType(data['managerTitle'], 'String');
             }
-            if (data.hasOwnProperty('managerPhone')) {
+            if (data.hasOwnProperty('managerPhone') && obj['managerPhone'] === undefined) {
                 obj['managerPhone'] = ApiClient.convertToType(data['managerPhone'], 'String');
             }
-            if (data.hasOwnProperty('managerInceptionDate')) {
+            if (data.hasOwnProperty('managerInceptionDate') && obj['managerInceptionDate'] === undefined) {
                 obj['managerInceptionDate'] = ApiClient.convertToType(data['managerInceptionDate'], 'Date');
             }
-            if (data.hasOwnProperty('managerJobId')) {
+            if (data.hasOwnProperty('managerJobId') && obj['managerJobId'] === undefined) {
                 obj['managerJobId'] = ApiClient.convertToType(data['managerJobId'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

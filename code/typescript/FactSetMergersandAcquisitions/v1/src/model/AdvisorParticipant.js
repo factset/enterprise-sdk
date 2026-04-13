@@ -47,15 +47,16 @@ class AdvisorParticipant {
         if (data) {
             obj = obj || new AdvisorParticipant();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('fees')) {
+            if (data.hasOwnProperty('fees') && obj['fees'] === undefined) {
                 obj['fees'] = ApiClient.convertToType(data['fees'], 'Number');
             }
+            
         }
         return obj;
     }

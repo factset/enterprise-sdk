@@ -46,27 +46,28 @@ class FieldObject {
         if (data) {
             obj = obj || new FieldObject();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('iteration')) {
+            if (data.hasOwnProperty('iteration') && obj['iteration'] === undefined) {
                 obj['iteration'] = ApiClient.convertToType(data['iteration'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('size')) {
+            if (data.hasOwnProperty('size') && obj['size'] === undefined) {
                 obj['size'] = ApiClient.convertToType(data['size'], 'Number');
             }
-            if (data.hasOwnProperty('splitDirection')) {
+            if (data.hasOwnProperty('splitDirection') && obj['splitDirection'] === undefined) {
                 obj['splitDirection'] = ApiClient.convertToType(data['splitDirection'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('codePageFlag')) {
+            if (data.hasOwnProperty('codePageFlag') && obj['codePageFlag'] === undefined) {
                 obj['codePageFlag'] = ApiClient.convertToType(data['codePageFlag'], 'String');
             }
+            
         }
         return obj;
     }

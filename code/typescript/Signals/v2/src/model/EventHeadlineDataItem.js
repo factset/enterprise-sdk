@@ -65,39 +65,40 @@ class EventHeadlineDataItem {
         if (data) {
             obj = obj || new EventHeadlineDataItem();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('signalId')) {
+            if (data.hasOwnProperty('signalId') && obj['signalId'] === undefined) {
                 obj['signalId'] = ApiClient.convertToType(data['signalId'], 'String');
             }
-            if (data.hasOwnProperty('signalName')) {
+            if (data.hasOwnProperty('signalName') && obj['signalName'] === undefined) {
                 obj['signalName'] = ApiClient.convertToType(data['signalName'], 'String');
             }
-            if (data.hasOwnProperty('theme')) {
+            if (data.hasOwnProperty('theme') && obj['theme'] === undefined) {
                 obj['theme'] = ApiClient.convertToType(data['theme'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('eventDate')) {
+            if (data.hasOwnProperty('eventDate') && obj['eventDate'] === undefined) {
                 obj['eventDate'] = ApiClient.convertToType(data['eventDate'], 'Date');
             }
-            if (data.hasOwnProperty('summary')) {
+            if (data.hasOwnProperty('summary') && obj['summary'] === undefined) {
                 obj['summary'] = ApiClient.convertToType(data['summary'], 'String');
             }
-            if (data.hasOwnProperty('userRelevanceScore')) {
+            if (data.hasOwnProperty('userRelevanceScore') && obj['userRelevanceScore'] === undefined) {
                 obj['userRelevanceScore'] = ApiClient.convertToType(data['userRelevanceScore'], 'Number');
             }
-            if (data.hasOwnProperty('created')) {
+            if (data.hasOwnProperty('created') && obj['created'] === undefined) {
                 obj['created'] = ApiClient.convertToType(data['created'], 'Date');
             }
+            
         }
         return obj;
     }

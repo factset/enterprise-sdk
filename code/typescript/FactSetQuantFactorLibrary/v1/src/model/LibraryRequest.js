@@ -47,12 +47,13 @@ class LibraryRequest {
         if (data) {
             obj = obj || new LibraryRequest();
 
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], ['String']);
             }
-            if (data.hasOwnProperty('factorGroups')) {
+            if (data.hasOwnProperty('factorGroups') && obj['factorGroups'] === undefined) {
                 obj['factorGroups'] = ApiClient.convertToType(data['factorGroups'], ['String']);
             }
+            
         }
         return obj;
     }

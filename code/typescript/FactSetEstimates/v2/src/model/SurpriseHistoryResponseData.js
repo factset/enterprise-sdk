@@ -47,21 +47,22 @@ class SurpriseHistoryResponseData {
         if (data) {
             obj = obj || new SurpriseHistoryResponseData();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = ApiClient.convertToType(data['periodicity'], 'String');
             }
-            if (data.hasOwnProperty('estimateType')) {
+            if (data.hasOwnProperty('estimateType') && obj['estimateType'] === undefined) {
                 obj['estimateType'] = ApiClient.convertToType(data['estimateType'], 'String');
             }
-            if (data.hasOwnProperty('surpriseHistory')) {
+            if (data.hasOwnProperty('surpriseHistory') && obj['surpriseHistory'] === undefined) {
                 obj['surpriseHistory'] = ApiClient.convertToType(data['surpriseHistory'], [SurpriseHistory]);
             }
+            
         }
         return obj;
     }

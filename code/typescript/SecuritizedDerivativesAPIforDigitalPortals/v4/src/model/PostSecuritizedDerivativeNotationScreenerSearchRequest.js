@@ -51,12 +51,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequest {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostSecuritizedDerivativeNotationScreenerSearchRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostSecuritizedDerivativeNotationScreenerSearchRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

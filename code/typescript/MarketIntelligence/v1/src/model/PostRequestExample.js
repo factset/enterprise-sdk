@@ -46,12 +46,13 @@ class PostRequestExample {
         if (data) {
             obj = obj || new PostRequestExample();
 
-            if (data.hasOwnProperty('section_id')) {
+            if (data.hasOwnProperty('section_id') && obj['section_id'] === undefined) {
                 obj['section_id'] = ApiClient.convertToType(data['section_id'], 'String');
             }
-            if (data.hasOwnProperty('filters')) {
+            if (data.hasOwnProperty('filters') && obj['filters'] === undefined) {
                 obj['filters'] = ApiClient.convertToType(data['filters'], 'String');
             }
+            
         }
         return obj;
     }

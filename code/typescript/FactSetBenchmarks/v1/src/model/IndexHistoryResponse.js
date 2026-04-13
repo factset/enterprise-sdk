@@ -47,9 +47,10 @@ class IndexHistoryResponse {
         if (data) {
             obj = obj || new IndexHistoryResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [IndexHistory]);
             }
+            
         }
         return obj;
     }

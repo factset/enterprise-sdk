@@ -47,12 +47,13 @@ class ThirdPartyUrls {
         if (data) {
             obj = obj || new ThirdPartyUrls();
 
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
-            if (data.hasOwnProperty('link')) {
+            if (data.hasOwnProperty('link') && obj['link'] === undefined) {
                 obj['link'] = ApiClient.convertToType(data['link'], 'String');
             }
+            
         }
         return obj;
     }

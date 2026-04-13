@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataRecommendationCounts {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRecommendationCounts();
 
-            if (data.hasOwnProperty('total')) {
+            if (data.hasOwnProperty('total') && obj['total'] === undefined) {
                 obj['total'] = PostStockNotationScreenerSearchRequestDataRecommendationCountsTotal.constructFromObject(data['total']);
             }
+            
         }
         return obj;
     }

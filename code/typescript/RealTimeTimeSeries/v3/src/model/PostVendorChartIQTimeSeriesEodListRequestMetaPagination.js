@@ -47,12 +47,13 @@ class PostVendorChartIQTimeSeriesEodListRequestMetaPagination {
         if (data) {
             obj = obj || new PostVendorChartIQTimeSeriesEodListRequestMetaPagination();
 
-            if (data.hasOwnProperty('cursor')) {
+            if (data.hasOwnProperty('cursor') && obj['cursor'] === undefined) {
                 obj['cursor'] = ApiClient.convertToType(data['cursor'], 'String');
             }
-            if (data.hasOwnProperty('limit')) {
+            if (data.hasOwnProperty('limit') && obj['limit'] === undefined) {
                 obj['limit'] = ApiClient.convertToType(data['limit'], 'Number');
             }
+            
         }
         return obj;
     }

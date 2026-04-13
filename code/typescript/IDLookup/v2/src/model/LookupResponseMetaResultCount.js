@@ -47,90 +47,91 @@ class LookupResponseMetaResultCount {
         if (data) {
             obj = obj || new LookupResponseMetaResultCount();
 
-            if (data.hasOwnProperty('equities')) {
+            if (data.hasOwnProperty('equities') && obj['equities'] === undefined) {
                 obj['equities'] = ApiClient.convertToType(data['equities'], 'Number');
             }
-            if (data.hasOwnProperty('equitiesRealTime')) {
+            if (data.hasOwnProperty('equitiesRealTime') && obj['equitiesRealTime'] === undefined) {
                 obj['equitiesRealTime'] = ApiClient.convertToType(data['equitiesRealTime'], 'Number');
             }
-            if (data.hasOwnProperty('bankLoans')) {
+            if (data.hasOwnProperty('bankLoans') && obj['bankLoans'] === undefined) {
                 obj['bankLoans'] = ApiClient.convertToType(data['bankLoans'], 'Number');
             }
-            if (data.hasOwnProperty('commodities')) {
+            if (data.hasOwnProperty('commodities') && obj['commodities'] === undefined) {
                 obj['commodities'] = ApiClient.convertToType(data['commodities'], 'Number');
             }
-            if (data.hasOwnProperty('cepBonds')) {
+            if (data.hasOwnProperty('cepBonds') && obj['cepBonds'] === undefined) {
                 obj['cepBonds'] = ApiClient.convertToType(data['cepBonds'], 'Number');
             }
-            if (data.hasOwnProperty('countries')) {
+            if (data.hasOwnProperty('countries') && obj['countries'] === undefined) {
                 obj['countries'] = ApiClient.convertToType(data['countries'], 'Number');
             }
-            if (data.hasOwnProperty('deals')) {
+            if (data.hasOwnProperty('deals') && obj['deals'] === undefined) {
                 obj['deals'] = ApiClient.convertToType(data['deals'], 'Number');
             }
-            if (data.hasOwnProperty('economicReports')) {
+            if (data.hasOwnProperty('economicReports') && obj['economicReports'] === undefined) {
                 obj['economicReports'] = ApiClient.convertToType(data['economicReports'], 'Number');
             }
-            if (data.hasOwnProperty('economicSeries')) {
+            if (data.hasOwnProperty('economicSeries') && obj['economicSeries'] === undefined) {
                 obj['economicSeries'] = ApiClient.convertToType(data['economicSeries'], 'Number');
             }
-            if (data.hasOwnProperty('etfs')) {
+            if (data.hasOwnProperty('etfs') && obj['etfs'] === undefined) {
                 obj['etfs'] = ApiClient.convertToType(data['etfs'], 'Number');
             }
-            if (data.hasOwnProperty('etfsRealTime')) {
+            if (data.hasOwnProperty('etfsRealTime') && obj['etfsRealTime'] === undefined) {
                 obj['etfsRealTime'] = ApiClient.convertToType(data['etfsRealTime'], 'Number');
             }
-            if (data.hasOwnProperty('exchangeRatesRealTime')) {
+            if (data.hasOwnProperty('exchangeRatesRealTime') && obj['exchangeRatesRealTime'] === undefined) {
                 obj['exchangeRatesRealTime'] = ApiClient.convertToType(data['exchangeRatesRealTime'], 'Number');
             }
-            if (data.hasOwnProperty('bonds')) {
+            if (data.hasOwnProperty('bonds') && obj['bonds'] === undefined) {
                 obj['bonds'] = ApiClient.convertToType(data['bonds'], 'Number');
             }
-            if (data.hasOwnProperty('forex')) {
+            if (data.hasOwnProperty('forex') && obj['forex'] === undefined) {
                 obj['forex'] = ApiClient.convertToType(data['forex'], 'Number');
             }
-            if (data.hasOwnProperty('futures')) {
+            if (data.hasOwnProperty('futures') && obj['futures'] === undefined) {
                 obj['futures'] = ApiClient.convertToType(data['futures'], 'Number');
             }
-            if (data.hasOwnProperty('indices')) {
+            if (data.hasOwnProperty('indices') && obj['indices'] === undefined) {
                 obj['indices'] = ApiClient.convertToType(data['indices'], 'Number');
             }
-            if (data.hasOwnProperty('indicesRealTime')) {
+            if (data.hasOwnProperty('indicesRealTime') && obj['indicesRealTime'] === undefined) {
                 obj['indicesRealTime'] = ApiClient.convertToType(data['indicesRealTime'], 'Number');
             }
-            if (data.hasOwnProperty('industries')) {
+            if (data.hasOwnProperty('industries') && obj['industries'] === undefined) {
                 obj['industries'] = ApiClient.convertToType(data['industries'], 'Number');
             }
-            if (data.hasOwnProperty('markitLoans')) {
+            if (data.hasOwnProperty('markitLoans') && obj['markitLoans'] === undefined) {
                 obj['markitLoans'] = ApiClient.convertToType(data['markitLoans'], 'Number');
             }
-            if (data.hasOwnProperty('mutualFunds')) {
+            if (data.hasOwnProperty('mutualFunds') && obj['mutualFunds'] === undefined) {
                 obj['mutualFunds'] = ApiClient.convertToType(data['mutualFunds'], 'Number');
             }
-            if (data.hasOwnProperty('mutualFundsRealTime')) {
+            if (data.hasOwnProperty('mutualFundsRealTime') && obj['mutualFundsRealTime'] === undefined) {
                 obj['mutualFundsRealTime'] = ApiClient.convertToType(data['mutualFundsRealTime'], 'Number');
             }
-            if (data.hasOwnProperty('ownershipHolders')) {
+            if (data.hasOwnProperty('ownershipHolders') && obj['ownershipHolders'] === undefined) {
                 obj['ownershipHolders'] = ApiClient.convertToType(data['ownershipHolders'], 'Number');
             }
-            if (data.hasOwnProperty('people')) {
+            if (data.hasOwnProperty('people') && obj['people'] === undefined) {
                 obj['people'] = ApiClient.convertToType(data['people'], 'Number');
             }
-            if (data.hasOwnProperty('privateCompanies')) {
+            if (data.hasOwnProperty('privateCompanies') && obj['privateCompanies'] === undefined) {
                 obj['privateCompanies'] = ApiClient.convertToType(data['privateCompanies'], 'Number');
             }
-            if (data.hasOwnProperty('pevcFirms')) {
+            if (data.hasOwnProperty('pevcFirms') && obj['pevcFirms'] === undefined) {
                 obj['pevcFirms'] = ApiClient.convertToType(data['pevcFirms'], 'Number');
             }
-            if (data.hasOwnProperty('pevcFunds')) {
+            if (data.hasOwnProperty('pevcFunds') && obj['pevcFunds'] === undefined) {
                 obj['pevcFunds'] = ApiClient.convertToType(data['pevcFunds'], 'Number');
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = ApiClient.convertToType(data['regions'], 'Number');
             }
-            if (data.hasOwnProperty('yields')) {
+            if (data.hasOwnProperty('yields') && obj['yields'] === undefined) {
                 obj['yields'] = ApiClient.convertToType(data['yields'], 'Number');
             }
+            
         }
         return obj;
     }

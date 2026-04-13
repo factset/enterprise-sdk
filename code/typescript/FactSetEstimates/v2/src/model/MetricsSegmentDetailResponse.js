@@ -47,9 +47,10 @@ class MetricsSegmentDetailResponse {
         if (data) {
             obj = obj || new MetricsSegmentDetailResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [MetricSegmentDetail]);
             }
+            
         }
         return obj;
     }

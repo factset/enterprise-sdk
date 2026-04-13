@@ -47,18 +47,19 @@ class ProductItem {
         if (data) {
             obj = obj || new ProductItem();
 
-            if (data.hasOwnProperty('product_code')) {
+            if (data.hasOwnProperty('product_code') && obj['product_code'] === undefined) {
                 obj['product_code'] = ApiClient.convertToType(data['product_code'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('realtime_access')) {
+            if (data.hasOwnProperty('realtime_access') && obj['realtime_access'] === undefined) {
                 obj['realtime_access'] = ApiClient.convertToType(data['realtime_access'], 'Boolean');
             }
-            if (data.hasOwnProperty('delayed_access')) {
+            if (data.hasOwnProperty('delayed_access') && obj['delayed_access'] === undefined) {
                 obj['delayed_access'] = ApiClient.convertToType(data['delayed_access'], 'Boolean');
             }
+            
         }
         return obj;
     }

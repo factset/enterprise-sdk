@@ -52,21 +52,22 @@ class PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerSh
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShare();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('recurringDilutedEarnings')) {
+            if (data.hasOwnProperty('recurringDilutedEarnings') && obj['recurringDilutedEarnings'] === undefined) {
                 obj['recurringDilutedEarnings'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareRecurringDilutedEarnings.constructFromObject(data['recurringDilutedEarnings']);
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareDividends.constructFromObject(data['dividends']);
             }
-            if (data.hasOwnProperty('bookValue')) {
+            if (data.hasOwnProperty('bookValue') && obj['bookValue'] === undefined) {
                 obj['bookValue'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareBookValue.constructFromObject(data['bookValue']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentKeyFiguresPerShareCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

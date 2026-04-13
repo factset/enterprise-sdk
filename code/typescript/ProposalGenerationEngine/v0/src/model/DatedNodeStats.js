@@ -47,9 +47,10 @@ class DatedNodeStats {
         if (data) {
             obj = obj || new DatedNodeStats();
 
-            if (data.hasOwnProperty('timeWindow')) {
+            if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': [RiskNodeStats]});
             }
+            
         }
         return obj;
     }

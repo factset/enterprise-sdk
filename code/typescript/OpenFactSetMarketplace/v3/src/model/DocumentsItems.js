@@ -47,24 +47,25 @@ class DocumentsItems {
         if (data) {
             obj = obj || new DocumentsItems();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('section')) {
+            if (data.hasOwnProperty('section') && obj['section'] === undefined) {
                 obj['section'] = ApiClient.convertToType(data['section'], 'String');
             }
-            if (data.hasOwnProperty('isPublic')) {
+            if (data.hasOwnProperty('isPublic') && obj['isPublic'] === undefined) {
                 obj['isPublic'] = ApiClient.convertToType(data['isPublic'], 'Boolean');
             }
-            if (data.hasOwnProperty('isFile')) {
+            if (data.hasOwnProperty('isFile') && obj['isFile'] === undefined) {
                 obj['isFile'] = ApiClient.convertToType(data['isFile'], 'Boolean');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
+            
         }
         return obj;
     }

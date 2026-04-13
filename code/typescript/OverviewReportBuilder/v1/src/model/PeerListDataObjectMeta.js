@@ -47,9 +47,10 @@ class PeerListDataObjectMeta {
         if (data) {
             obj = obj || new PeerListDataObjectMeta();
 
-            if (data.hasOwnProperty('sources')) {
+            if (data.hasOwnProperty('sources') && obj['sources'] === undefined) {
                 obj['sources'] = KeyStatsDataObjectEntityMetaSources.constructFromObject(data['sources']);
             }
+            
         }
         return obj;
     }

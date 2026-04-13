@@ -47,15 +47,16 @@ class OrdersResponseMeta {
         if (data) {
             obj = obj || new OrdersResponseMeta();
 
-            if (data.hasOwnProperty('totalRecords')) {
+            if (data.hasOwnProperty('totalRecords') && obj['totalRecords'] === undefined) {
                 obj['totalRecords'] = ApiClient.convertToType(data['totalRecords'], 'String');
             }
-            if (data.hasOwnProperty('noOfPages')) {
+            if (data.hasOwnProperty('noOfPages') && obj['noOfPages'] === undefined) {
                 obj['noOfPages'] = ApiClient.convertToType(data['noOfPages'], 'String');
             }
-            if (data.hasOwnProperty('isEstimatedTotal')) {
+            if (data.hasOwnProperty('isEstimatedTotal') && obj['isEstimatedTotal'] === undefined) {
                 obj['isEstimatedTotal'] = ApiClient.convertToType(data['isEstimatedTotal'], 'Boolean');
             }
+            
         }
         return obj;
     }

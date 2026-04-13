@@ -49,9 +49,10 @@ class RankedTableAnswerAllOf {
         if (data) {
             obj = obj || new RankedTableAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = RankedTableTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

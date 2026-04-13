@@ -50,9 +50,10 @@ class OutlierResponseRoot {
         if (data) {
             obj = obj || new OutlierResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = OutlierResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

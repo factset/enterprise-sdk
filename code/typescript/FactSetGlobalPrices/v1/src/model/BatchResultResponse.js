@@ -49,9 +49,10 @@ class BatchResultResponse {
         if (data) {
             obj = obj || new BatchResultResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [BatchResult]);
             }
+            
         }
         return obj;
     }

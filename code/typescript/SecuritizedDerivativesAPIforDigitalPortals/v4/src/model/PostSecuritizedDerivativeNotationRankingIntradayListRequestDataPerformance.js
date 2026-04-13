@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeNotationRankingIntradayListRequestDataPerformance
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListRequestDataPerformance();
 
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataPerformanceRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

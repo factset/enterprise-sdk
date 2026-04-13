@@ -50,21 +50,22 @@ class GetAlertingPricesBasicAlertListDataItems {
         if (data) {
             obj = obj || new GetAlertingPricesBasicAlertListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('creation')) {
+            if (data.hasOwnProperty('creation') && obj['creation'] === undefined) {
                 obj['creation'] = ApiClient.convertToType(data['creation'], 'Date');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = InlineResponse200DataPrice.constructFromObject(data['price']);
             }
-            if (data.hasOwnProperty('notification')) {
+            if (data.hasOwnProperty('notification') && obj['notification'] === undefined) {
                 obj['notification'] = GetAlertingPricesBasicAlertListDataItemsNotification.constructFromObject(data['notification']);
             }
-            if (data.hasOwnProperty('trigger')) {
+            if (data.hasOwnProperty('trigger') && obj['trigger'] === undefined) {
                 obj['trigger'] = GetAlertingPricesBasicAlertListDataItemsTrigger.constructFromObject(data['trigger']);
             }
+            
         }
         return obj;
     }

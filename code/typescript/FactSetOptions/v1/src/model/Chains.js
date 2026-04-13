@@ -46,21 +46,22 @@ class Chains {
         if (data) {
             obj = obj || new Chains();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('optionId')) {
+            if (data.hasOwnProperty('optionId') && obj['optionId'] === undefined) {
                 obj['optionId'] = ApiClient.convertToType(data['optionId'], 'String');
             }
-            if (data.hasOwnProperty('idType')) {
+            if (data.hasOwnProperty('idType') && obj['idType'] === undefined) {
                 obj['idType'] = ApiClient.convertToType(data['idType'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

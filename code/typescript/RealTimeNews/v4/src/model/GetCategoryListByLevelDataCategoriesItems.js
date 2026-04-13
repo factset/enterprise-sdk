@@ -48,24 +48,25 @@ class GetCategoryListByLevelDataCategoriesItems {
         if (data) {
             obj = obj || new GetCategoryListByLevelDataCategoriesItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('active')) {
+            if (data.hasOwnProperty('active') && obj['active'] === undefined) {
                 obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
             }
-            if (data.hasOwnProperty('parent')) {
+            if (data.hasOwnProperty('parent') && obj['parent'] === undefined) {
                 obj['parent'] = GetCategoryListByLevelDataCategoriesItemsParent.constructFromObject(data['parent']);
             }
+            
         }
         return obj;
     }

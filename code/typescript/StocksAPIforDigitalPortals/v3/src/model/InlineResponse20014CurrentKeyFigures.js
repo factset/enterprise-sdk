@@ -49,12 +49,13 @@ class InlineResponse20014CurrentKeyFigures {
         if (data) {
             obj = obj || new InlineResponse20014CurrentKeyFigures();
 
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = InlineResponse20014CurrentKeyFiguresCompany.constructFromObject(data['company']);
             }
-            if (data.hasOwnProperty('shareInstrument')) {
+            if (data.hasOwnProperty('shareInstrument') && obj['shareInstrument'] === undefined) {
                 obj['shareInstrument'] = InlineResponse20014CurrentKeyFiguresShareInstrument.constructFromObject(data['shareInstrument']);
             }
+            
         }
         return obj;
     }

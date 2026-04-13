@@ -50,15 +50,16 @@ class InlineResponse2005DataKeyFiguresAgio {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresAgio();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = InlineResponse2005DataKeyFiguresAgioAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = InlineResponse2005DataKeyFiguresAgioRelative.constructFromObject(data['relative']);
             }
-            if (data.hasOwnProperty('annualized')) {
+            if (data.hasOwnProperty('annualized') && obj['annualized'] === undefined) {
                 obj['annualized'] = InlineResponse2005DataKeyFiguresAgioAnnualized.constructFromObject(data['annualized']);
             }
+            
         }
         return obj;
     }

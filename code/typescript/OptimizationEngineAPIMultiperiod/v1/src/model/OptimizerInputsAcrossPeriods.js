@@ -47,15 +47,16 @@ class OptimizerInputsAcrossPeriods {
         if (data) {
             obj = obj || new OptimizerInputsAcrossPeriods();
 
-            if (data.hasOwnProperty('start_period')) {
+            if (data.hasOwnProperty('start_period') && obj['start_period'] === undefined) {
                 obj['start_period'] = ApiClient.convertToType(data['start_period'], 'Number');
             }
-            if (data.hasOwnProperty('end_period')) {
+            if (data.hasOwnProperty('end_period') && obj['end_period'] === undefined) {
                 obj['end_period'] = ApiClient.convertToType(data['end_period'], 'Number');
             }
-            if (data.hasOwnProperty('rolling')) {
+            if (data.hasOwnProperty('rolling') && obj['rolling'] === undefined) {
                 obj['rolling'] = OptimizerInputsAcrossPeriodsRollingPeriods.constructFromObject(data['rolling']);
             }
+            
         }
         return obj;
     }

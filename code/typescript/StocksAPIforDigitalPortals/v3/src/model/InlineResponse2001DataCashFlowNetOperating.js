@@ -47,15 +47,16 @@ class InlineResponse2001DataCashFlowNetOperating {
         if (data) {
             obj = obj || new InlineResponse2001DataCashFlowNetOperating();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('returnOnInvestedCapital')) {
+            if (data.hasOwnProperty('returnOnInvestedCapital') && obj['returnOnInvestedCapital'] === undefined) {
                 obj['returnOnInvestedCapital'] = ApiClient.convertToType(data['returnOnInvestedCapital'], 'Number');
             }
+            
         }
         return obj;
     }

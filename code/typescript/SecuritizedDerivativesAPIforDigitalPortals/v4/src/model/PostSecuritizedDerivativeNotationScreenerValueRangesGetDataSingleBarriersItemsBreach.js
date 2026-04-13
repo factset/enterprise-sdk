@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersI
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsBreach();
 
-            if (data.hasOwnProperty('breached')) {
+            if (data.hasOwnProperty('breached') && obj['breached'] === undefined) {
                 obj['breached'] = ApiClient.convertToType(data['breached'], 'String');
             }
+            
         }
         return obj;
     }

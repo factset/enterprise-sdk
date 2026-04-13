@@ -47,15 +47,16 @@ class LookupObject {
         if (data) {
             obj = obj || new LookupObject();
 
-            if (data.hasOwnProperty('pattern')) {
+            if (data.hasOwnProperty('pattern') && obj['pattern'] === undefined) {
                 obj['pattern'] = ApiClient.convertToType(data['pattern'], 'String');
             }
-            if (data.hasOwnProperty('entities')) {
+            if (data.hasOwnProperty('entities') && obj['entities'] === undefined) {
                 obj['entities'] = ApiClient.convertToType(data['entities'], ['String']);
             }
-            if (data.hasOwnProperty('filters')) {
+            if (data.hasOwnProperty('filters') && obj['filters'] === undefined) {
                 obj['filters'] = FilterParams.constructFromObject(data['filters']);
             }
+            
         }
         return obj;
     }

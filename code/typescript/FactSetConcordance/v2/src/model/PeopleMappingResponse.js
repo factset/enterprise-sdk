@@ -47,9 +47,10 @@ class PeopleMappingResponse {
         if (data) {
             obj = obj || new PeopleMappingResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PeopleMapping.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

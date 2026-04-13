@@ -54,15 +54,16 @@ class EventAdaptiveCard {
         if (data) {
             obj = obj || new EventAdaptiveCard();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = EventAdaptiveDataItem.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = EventMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorItem]);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class EventsAudioDailyMeta {
         if (data) {
             obj = obj || new EventsAudioDailyMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = EventsAudioDailyMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

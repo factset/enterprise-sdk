@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataValidationNotationSelectionList 
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataValidationNotationSelectionList();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

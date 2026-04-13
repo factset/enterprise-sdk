@@ -47,57 +47,58 @@ class InsiderTransactions {
         if (data) {
             obj = obj || new InsiderTransactions();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('holderName')) {
+            if (data.hasOwnProperty('holderName') && obj['holderName'] === undefined) {
                 obj['holderName'] = ApiClient.convertToType(data['holderName'], 'String');
             }
-            if (data.hasOwnProperty('holderTitle')) {
+            if (data.hasOwnProperty('holderTitle') && obj['holderTitle'] === undefined) {
                 obj['holderTitle'] = ApiClient.convertToType(data['holderTitle'], 'String');
             }
-            if (data.hasOwnProperty('holderId')) {
+            if (data.hasOwnProperty('holderId') && obj['holderId'] === undefined) {
                 obj['holderId'] = ApiClient.convertToType(data['holderId'], 'String');
             }
-            if (data.hasOwnProperty('shares')) {
+            if (data.hasOwnProperty('shares') && obj['shares'] === undefined) {
                 obj['shares'] = ApiClient.convertToType(data['shares'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('netValueChange')) {
+            if (data.hasOwnProperty('netValueChange') && obj['netValueChange'] === undefined) {
                 obj['netValueChange'] = ApiClient.convertToType(data['netValueChange'], 'Number');
             }
-            if (data.hasOwnProperty('filingDate')) {
+            if (data.hasOwnProperty('filingDate') && obj['filingDate'] === undefined) {
                 obj['filingDate'] = ApiClient.convertToType(data['filingDate'], 'String');
             }
-            if (data.hasOwnProperty('isDerivative')) {
+            if (data.hasOwnProperty('isDerivative') && obj['isDerivative'] === undefined) {
                 obj['isDerivative'] = ApiClient.convertToType(data['isDerivative'], 'Boolean');
             }
-            if (data.hasOwnProperty('isDirect')) {
+            if (data.hasOwnProperty('isDirect') && obj['isDirect'] === undefined) {
                 obj['isDirect'] = ApiClient.convertToType(data['isDirect'], 'Boolean');
             }
-            if (data.hasOwnProperty('tradeType')) {
+            if (data.hasOwnProperty('tradeType') && obj['tradeType'] === undefined) {
                 obj['tradeType'] = ApiClient.convertToType(data['tradeType'], 'String');
             }
-            if (data.hasOwnProperty('formType')) {
+            if (data.hasOwnProperty('formType') && obj['formType'] === undefined) {
                 obj['formType'] = ApiClient.convertToType(data['formType'], 'String');
             }
-            if (data.hasOwnProperty('transactionDate')) {
+            if (data.hasOwnProperty('transactionDate') && obj['transactionDate'] === undefined) {
                 obj['transactionDate'] = ApiClient.convertToType(data['transactionDate'], 'String');
             }
-            if (data.hasOwnProperty('sharesOwned')) {
+            if (data.hasOwnProperty('sharesOwned') && obj['sharesOwned'] === undefined) {
                 obj['sharesOwned'] = ApiClient.convertToType(data['sharesOwned'], 'Number');
             }
-            if (data.hasOwnProperty('secRule10b51')) {
+            if (data.hasOwnProperty('secRule10b51') && obj['secRule10b51'] === undefined) {
                 obj['secRule10b51'] = ApiClient.convertToType(data['secRule10b51'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class LeveloneRequest {
         if (data) {
             obj = obj || new LeveloneRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = Level1RequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

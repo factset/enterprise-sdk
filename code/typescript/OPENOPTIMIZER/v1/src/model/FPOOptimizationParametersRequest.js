@@ -47,9 +47,10 @@ class FPOOptimizationParametersRequest {
         if (data) {
             obj = obj || new FPOOptimizationParametersRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FPOOptimizationParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

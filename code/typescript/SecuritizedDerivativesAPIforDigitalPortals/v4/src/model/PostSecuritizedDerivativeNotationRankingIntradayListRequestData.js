@@ -63,54 +63,55 @@ class PostSecuritizedDerivativeNotationRankingIntradayListRequestData {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListRequestData();
 
-            if (data.hasOwnProperty('prices')) {
+            if (data.hasOwnProperty('prices') && obj['prices'] === undefined) {
                 obj['prices'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataPrices.constructFromObject(data['prices']);
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataValueUnit.constructFromObject(data['valueUnit']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('instrumentRestrictionList')) {
+            if (data.hasOwnProperty('instrumentRestrictionList') && obj['instrumentRestrictionList'] === undefined) {
                 obj['instrumentRestrictionList'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataInstrumentRestrictionList.constructFromObject(data['instrumentRestrictionList']);
             }
-            if (data.hasOwnProperty('notationRestrictionList')) {
+            if (data.hasOwnProperty('notationRestrictionList') && obj['notationRestrictionList'] === undefined) {
                 obj['notationRestrictionList'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataNotationRestrictionList.constructFromObject(data['notationRestrictionList']);
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataCategory.constructFromObject(data['category']);
             }
-            if (data.hasOwnProperty('registrationCountry')) {
+            if (data.hasOwnProperty('registrationCountry') && obj['registrationCountry'] === undefined) {
                 obj['registrationCountry'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataRegistrationCountry.constructFromObject(data['registrationCountry']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('issuer')) {
+            if (data.hasOwnProperty('issuer') && obj['issuer'] === undefined) {
                 obj['issuer'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataIssuer.constructFromObject(data['issuer']);
             }
-            if (data.hasOwnProperty('exercise')) {
+            if (data.hasOwnProperty('exercise') && obj['exercise'] === undefined) {
                 obj['exercise'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataExercise.constructFromObject(data['exercise']);
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('factorCertificates')) {
+            if (data.hasOwnProperty('factorCertificates') && obj['factorCertificates'] === undefined) {
                 obj['factorCertificates'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataFactorCertificates.constructFromObject(data['factorCertificates']);
             }
-            if (data.hasOwnProperty('knockedOut')) {
+            if (data.hasOwnProperty('knockedOut') && obj['knockedOut'] === undefined) {
                 obj['knockedOut'] = ApiClient.convertToType(data['knockedOut'], 'String');
             }
-            if (data.hasOwnProperty('knockedIn')) {
+            if (data.hasOwnProperty('knockedIn') && obj['knockedIn'] === undefined) {
                 obj['knockedIn'] = ApiClient.convertToType(data['knockedIn'], 'String');
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataPerformance.constructFromObject(data['performance']);
             }
+            
         }
         return obj;
     }

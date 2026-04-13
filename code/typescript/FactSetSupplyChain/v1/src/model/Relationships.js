@@ -46,27 +46,28 @@ class Relationships {
         if (data) {
             obj = obj || new Relationships();
 
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('overlappingProductCount')) {
+            if (data.hasOwnProperty('overlappingProductCount') && obj['overlappingProductCount'] === undefined) {
                 obj['overlappingProductCount'] = ApiClient.convertToType(data['overlappingProductCount'], 'String');
             }
-            if (data.hasOwnProperty('overlapPercentage')) {
+            if (data.hasOwnProperty('overlapPercentage') && obj['overlapPercentage'] === undefined) {
                 obj['overlapPercentage'] = ApiClient.convertToType(data['overlapPercentage'], 'Number');
             }
-            if (data.hasOwnProperty('relationshipDirection')) {
+            if (data.hasOwnProperty('relationshipDirection') && obj['relationshipDirection'] === undefined) {
                 obj['relationshipDirection'] = ApiClient.convertToType(data['relationshipDirection'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('requestEntityId')) {
+            if (data.hasOwnProperty('requestEntityId') && obj['requestEntityId'] === undefined) {
                 obj['requestEntityId'] = ApiClient.convertToType(data['requestEntityId'], 'String');
             }
+            
         }
         return obj;
     }

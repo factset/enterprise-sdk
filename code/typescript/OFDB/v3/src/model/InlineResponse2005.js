@@ -46,9 +46,10 @@ class InlineResponse2005 {
         if (data) {
             obj = obj || new InlineResponse2005();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -49,18 +49,19 @@ class InlineResponse200DataUnderlyingNotationInstrument {
         if (data) {
             obj = obj || new InlineResponse200DataUnderlyingNotationInstrument();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
+            if (data.hasOwnProperty('nsin') && obj['nsin'] === undefined) {
                 obj['nsin'] = InlineResponse200DataUnderlyingNotationInstrumentNsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = InlineResponse200DataUnderlyingNotationInstrumentFsym.constructFromObject(data['fsym']);
             }
+            
         }
         return obj;
     }

@@ -49,15 +49,16 @@ class Target {
         if (data) {
             obj = obj || new Target();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('industry')) {
+            if (data.hasOwnProperty('industry') && obj['industry'] === undefined) {
                 obj['industry'] = ApiClient.convertToType(data['industry'], 'String');
             }
+            
         }
         return obj;
     }

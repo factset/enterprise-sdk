@@ -49,12 +49,13 @@ class InlineResponse2005DataKeyFiguresSpread {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresSpread();
 
-            if (data.hasOwnProperty('harmonized')) {
+            if (data.hasOwnProperty('harmonized') && obj['harmonized'] === undefined) {
                 obj['harmonized'] = InlineResponse2005DataKeyFiguresSpreadHarmonized.constructFromObject(data['harmonized']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = InlineResponse2005DataKeyFiguresSpreadRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

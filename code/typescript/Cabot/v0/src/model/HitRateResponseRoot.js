@@ -47,9 +47,10 @@ class HitRateResponseRoot {
         if (data) {
             obj = obj || new HitRateResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = HitRateResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

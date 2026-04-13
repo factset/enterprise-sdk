@@ -49,33 +49,34 @@ class StructuredFiltersTopicsObject {
         if (data) {
             obj = obj || new StructuredFiltersTopicsObject();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('parentConfig')) {
+            if (data.hasOwnProperty('parentConfig') && obj['parentConfig'] === undefined) {
                 obj['parentConfig'] = ApiClient.convertToType(data['parentConfig'], 'Boolean');
             }
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('operator')) {
+            if (data.hasOwnProperty('operator') && obj['operator'] === undefined) {
                 obj['operator'] = ApiClient.convertToType(data['operator'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], ['String']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('toplevel')) {
+            if (data.hasOwnProperty('toplevel') && obj['toplevel'] === undefined) {
                 obj['toplevel'] = ApiClient.convertToType(data['toplevel'], 'Boolean');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['String']);
             }
-            if (data.hasOwnProperty('children')) {
+            if (data.hasOwnProperty('children') && obj['children'] === undefined) {
                 obj['children'] = ApiClient.convertToType(data['children'], [StructuredFiltersChildrenObject]);
             }
+            
         }
         return obj;
     }

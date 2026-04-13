@@ -49,21 +49,22 @@ class GIPSCalculationParameters {
         if (data) {
             obj = obj || new GIPSCalculationParameters();
 
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = ApiClient.convertToType(data['account'], 'String');
             }
-            if (data.hasOwnProperty('enddate')) {
+            if (data.hasOwnProperty('enddate') && obj['enddate'] === undefined) {
                 obj['enddate'] = ApiClient.convertToType(data['enddate'], 'String');
             }
-            if (data.hasOwnProperty('report')) {
+            if (data.hasOwnProperty('report') && obj['report'] === undefined) {
                 obj['report'] = ApiClient.convertToType(data['report'], 'String');
             }
-            if (data.hasOwnProperty('viewid')) {
+            if (data.hasOwnProperty('viewid') && obj['viewid'] === undefined) {
                 obj['viewid'] = ApiClient.convertToType(data['viewid'], 'String');
             }
-            if (data.hasOwnProperty('currencyisocode')) {
+            if (data.hasOwnProperty('currencyisocode') && obj['currencyisocode'] === undefined) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
             }
+            
         }
         return obj;
     }

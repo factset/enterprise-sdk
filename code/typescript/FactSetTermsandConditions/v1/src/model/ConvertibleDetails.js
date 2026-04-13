@@ -47,60 +47,61 @@ class ConvertibleDetails {
         if (data) {
             obj = obj || new ConvertibleDetails();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('convCurr')) {
+            if (data.hasOwnProperty('convCurr') && obj['convCurr'] === undefined) {
                 obj['convCurr'] = ApiClient.convertToType(data['convCurr'], 'String');
             }
-            if (data.hasOwnProperty('convEffDate')) {
+            if (data.hasOwnProperty('convEffDate') && obj['convEffDate'] === undefined) {
                 obj['convEffDate'] = ApiClient.convertToType(data['convEffDate'], 'Date');
             }
-            if (data.hasOwnProperty('convEndDate')) {
+            if (data.hasOwnProperty('convEndDate') && obj['convEndDate'] === undefined) {
                 obj['convEndDate'] = ApiClient.convertToType(data['convEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('convFrequency')) {
+            if (data.hasOwnProperty('convFrequency') && obj['convFrequency'] === undefined) {
                 obj['convFrequency'] = ApiClient.convertToType(data['convFrequency'], 'String');
             }
-            if (data.hasOwnProperty('convId')) {
+            if (data.hasOwnProperty('convId') && obj['convId'] === undefined) {
                 obj['convId'] = ApiClient.convertToType(data['convId'], 'Number');
             }
-            if (data.hasOwnProperty('convIdentification')) {
+            if (data.hasOwnProperty('convIdentification') && obj['convIdentification'] === undefined) {
                 obj['convIdentification'] = ApiClient.convertToType(data['convIdentification'], 'String');
             }
-            if (data.hasOwnProperty('convNoticeDaysMax')) {
+            if (data.hasOwnProperty('convNoticeDaysMax') && obj['convNoticeDaysMax'] === undefined) {
                 obj['convNoticeDaysMax'] = ApiClient.convertToType(data['convNoticeDaysMax'], 'Number');
             }
-            if (data.hasOwnProperty('convNoticeDaysMin')) {
+            if (data.hasOwnProperty('convNoticeDaysMin') && obj['convNoticeDaysMin'] === undefined) {
                 obj['convNoticeDaysMin'] = ApiClient.convertToType(data['convNoticeDaysMin'], 'Number');
             }
-            if (data.hasOwnProperty('convPayForm')) {
+            if (data.hasOwnProperty('convPayForm') && obj['convPayForm'] === undefined) {
                 obj['convPayForm'] = ApiClient.convertToType(data['convPayForm'], 'String');
             }
-            if (data.hasOwnProperty('convPayFormDet')) {
+            if (data.hasOwnProperty('convPayFormDet') && obj['convPayFormDet'] === undefined) {
                 obj['convPayFormDet'] = ApiClient.convertToType(data['convPayFormDet'], 'String');
             }
-            if (data.hasOwnProperty('convPayFormElect')) {
+            if (data.hasOwnProperty('convPayFormElect') && obj['convPayFormElect'] === undefined) {
                 obj['convPayFormElect'] = ApiClient.convertToType(data['convPayFormElect'], 'String');
             }
-            if (data.hasOwnProperty('convPremChgControl')) {
+            if (data.hasOwnProperty('convPremChgControl') && obj['convPremChgControl'] === undefined) {
                 obj['convPremChgControl'] = ApiClient.convertToType(data['convPremChgControl'], 'Number');
             }
-            if (data.hasOwnProperty('convPriceMethod')) {
+            if (data.hasOwnProperty('convPriceMethod') && obj['convPriceMethod'] === undefined) {
                 obj['convPriceMethod'] = ApiClient.convertToType(data['convPriceMethod'], 'String');
             }
-            if (data.hasOwnProperty('convRatio')) {
+            if (data.hasOwnProperty('convRatio') && obj['convRatio'] === undefined) {
                 obj['convRatio'] = ApiClient.convertToType(data['convRatio'], 'Number');
             }
-            if (data.hasOwnProperty('convRatioDesc')) {
+            if (data.hasOwnProperty('convRatioDesc') && obj['convRatioDesc'] === undefined) {
                 obj['convRatioDesc'] = ApiClient.convertToType(data['convRatioDesc'], 'String');
             }
-            if (data.hasOwnProperty('convType')) {
+            if (data.hasOwnProperty('convType') && obj['convType'] === undefined) {
                 obj['convType'] = ApiClient.convertToType(data['convType'], 'String');
             }
+            
         }
         return obj;
     }

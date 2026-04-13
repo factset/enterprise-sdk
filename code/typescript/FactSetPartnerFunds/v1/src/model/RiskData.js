@@ -49,24 +49,25 @@ class RiskData {
         if (data) {
             obj = obj || new RiskData();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('riskRating')) {
+            if (data.hasOwnProperty('riskRating') && obj['riskRating'] === undefined) {
                 obj['riskRating'] = ApiClient.convertToType(data['riskRating'], 'String');
             }
-            if (data.hasOwnProperty('riskProspectus')) {
+            if (data.hasOwnProperty('riskProspectus') && obj['riskProspectus'] === undefined) {
                 obj['riskProspectus'] = ApiClient.convertToType(data['riskProspectus'], 'String');
             }
-            if (data.hasOwnProperty('riskResponseInfo')) {
+            if (data.hasOwnProperty('riskResponseInfo') && obj['riskResponseInfo'] === undefined) {
                 obj['riskResponseInfo'] = ApiClient.convertToType(data['riskResponseInfo'], [RiskResponseInfo]);
             }
+            
         }
         return obj;
     }

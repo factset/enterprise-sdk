@@ -50,9 +50,10 @@ class SecurityOnlyLabels {
         if (data) {
             obj = obj || new SecurityOnlyLabels();
 
-            if (data.hasOwnProperty('security')) {
+            if (data.hasOwnProperty('security') && obj['security'] === undefined) {
                 obj['security'] = SecurityOnlyLabelsSecurity.constructFromObject(data['security']);
             }
+            
         }
         return obj;
     }

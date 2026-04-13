@@ -46,15 +46,16 @@ class NEROrganization {
         if (data) {
             obj = obj || new NEROrganization();
 
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('lookupUrl')) {
+            if (data.hasOwnProperty('lookupUrl') && obj['lookupUrl'] === undefined) {
                 obj['lookupUrl'] = ApiClient.convertToType(data['lookupUrl'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            
         }
         return obj;
     }

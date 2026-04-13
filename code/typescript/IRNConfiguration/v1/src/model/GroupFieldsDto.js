@@ -60,48 +60,49 @@ class GroupFieldsDto {
         if (data) {
             obj = obj || new GroupFieldsDto();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = TitleSettingsDto.constructFromObject(data['title']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = DateSettingsDto.constructFromObject(data['date']);
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = IdentifierSettingsDto.constructFromObject(data['identifier']);
             }
-            if (data.hasOwnProperty('subject')) {
+            if (data.hasOwnProperty('subject') && obj['subject'] === undefined) {
                 obj['subject'] = SubjectSettingsDto.constructFromObject(data['subject']);
             }
-            if (data.hasOwnProperty('recommendation')) {
+            if (data.hasOwnProperty('recommendation') && obj['recommendation'] === undefined) {
                 obj['recommendation'] = RecommendationSettingsDto.constructFromObject(data['recommendation']);
             }
-            if (data.hasOwnProperty('sentiment')) {
+            if (data.hasOwnProperty('sentiment') && obj['sentiment'] === undefined) {
                 obj['sentiment'] = SentimentSettingsDto.constructFromObject(data['sentiment']);
             }
-            if (data.hasOwnProperty('link')) {
+            if (data.hasOwnProperty('link') && obj['link'] === undefined) {
                 obj['link'] = LinkSettingsDto.constructFromObject(data['link']);
             }
-            if (data.hasOwnProperty('note')) {
+            if (data.hasOwnProperty('note') && obj['note'] === undefined) {
                 obj['note'] = NoteSettingsDto.constructFromObject(data['note']);
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = SourceSettingsDto.constructFromObject(data['source']);
             }
-            if (data.hasOwnProperty('relatedSymbols')) {
+            if (data.hasOwnProperty('relatedSymbols') && obj['relatedSymbols'] === undefined) {
                 obj['relatedSymbols'] = RelatedSymbolsSettingsDto.constructFromObject(data['relatedSymbols']);
             }
-            if (data.hasOwnProperty('relatedResearch')) {
+            if (data.hasOwnProperty('relatedResearch') && obj['relatedResearch'] === undefined) {
                 obj['relatedResearch'] = RelatedResearchSettingsDto.constructFromObject(data['relatedResearch']);
             }
-            if (data.hasOwnProperty('relatedContacts')) {
+            if (data.hasOwnProperty('relatedContacts') && obj['relatedContacts'] === undefined) {
                 obj['relatedContacts'] = RelatedContactsSettingsDto.constructFromObject(data['relatedContacts']);
             }
-            if (data.hasOwnProperty('team')) {
+            if (data.hasOwnProperty('team') && obj['team'] === undefined) {
                 obj['team'] = TeamSettingsDto.constructFromObject(data['team']);
             }
-            if (data.hasOwnProperty('organizer')) {
+            if (data.hasOwnProperty('organizer') && obj['organizer'] === undefined) {
                 obj['organizer'] = OrganizerSettingsDto.constructFromObject(data['organizer']);
             }
+            
         }
         return obj;
     }

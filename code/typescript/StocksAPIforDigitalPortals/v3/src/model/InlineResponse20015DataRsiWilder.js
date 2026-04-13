@@ -48,9 +48,10 @@ class InlineResponse20015DataRsiWilder {
         if (data) {
             obj = obj || new InlineResponse20015DataRsiWilder();
 
-            if (data.hasOwnProperty('days14')) {
+            if (data.hasOwnProperty('days14') && obj['days14'] === undefined) {
                 obj['days14'] = InlineResponse20015DataRsiWilderDays14.constructFromObject(data['days14']);
             }
+            
         }
         return obj;
     }

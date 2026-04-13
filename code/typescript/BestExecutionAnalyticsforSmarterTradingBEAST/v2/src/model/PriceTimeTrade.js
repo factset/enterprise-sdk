@@ -47,27 +47,28 @@ class PriceTimeTrade {
         if (data) {
             obj = obj || new PriceTimeTrade();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('venue')) {
+            if (data.hasOwnProperty('venue') && obj['venue'] === undefined) {
                 obj['venue'] = ApiClient.convertToType(data['venue'], 'String');
             }
-            if (data.hasOwnProperty('volume')) {
+            if (data.hasOwnProperty('volume') && obj['volume'] === undefined) {
                 obj['volume'] = ApiClient.convertToType(data['volume'], 'Number');
             }
-            if (data.hasOwnProperty('conditionCodes')) {
+            if (data.hasOwnProperty('conditionCodes') && obj['conditionCodes'] === undefined) {
                 obj['conditionCodes'] = ApiClient.convertToType(data['conditionCodes'], 'String');
             }
-            if (data.hasOwnProperty('venueCode')) {
+            if (data.hasOwnProperty('venueCode') && obj['venueCode'] === undefined) {
                 obj['venueCode'] = ApiClient.convertToType(data['venueCode'], 'Number');
             }
-            if (data.hasOwnProperty('cumVwap')) {
+            if (data.hasOwnProperty('cumVwap') && obj['cumVwap'] === undefined) {
                 obj['cumVwap'] = ApiClient.convertToType(data['cumVwap'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -48,27 +48,28 @@ class CustomSymbolTypeDetailDto {
         if (data) {
             obj = obj || new CustomSymbolTypeDetailDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('hideAddressField')) {
+            if (data.hasOwnProperty('hideAddressField') && obj['hideAddressField'] === undefined) {
                 obj['hideAddressField'] = ApiClient.convertToType(data['hideAddressField'], 'Boolean');
             }
-            if (data.hasOwnProperty('hideSymbolSubType')) {
+            if (data.hasOwnProperty('hideSymbolSubType') && obj['hideSymbolSubType'] === undefined) {
                 obj['hideSymbolSubType'] = ApiClient.convertToType(data['hideSymbolSubType'], 'Boolean');
             }
-            if (data.hasOwnProperty('isDefault')) {
+            if (data.hasOwnProperty('isDefault') && obj['isDefault'] === undefined) {
                 obj['isDefault'] = ApiClient.convertToType(data['isDefault'], 'Boolean');
             }
-            if (data.hasOwnProperty('dueDiligenceSymbolEntityType')) {
+            if (data.hasOwnProperty('dueDiligenceSymbolEntityType') && obj['dueDiligenceSymbolEntityType'] === undefined) {
                 obj['dueDiligenceSymbolEntityType'] = EntityType.constructFromObject(data['dueDiligenceSymbolEntityType']);
             }
-            if (data.hasOwnProperty('subTypes')) {
+            if (data.hasOwnProperty('subTypes') && obj['subTypes'] === undefined) {
                 obj['subTypes'] = ApiClient.convertToType(data['subTypes'], [CustomSymbolSubTypeDto]);
             }
+            
         }
         return obj;
     }

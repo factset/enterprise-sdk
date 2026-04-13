@@ -46,9 +46,10 @@ class Stats {
         if (data) {
             obj = obj || new Stats();
 
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], ['String']);
             }
+            
         }
         return obj;
     }

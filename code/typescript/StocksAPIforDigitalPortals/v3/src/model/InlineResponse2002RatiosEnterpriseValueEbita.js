@@ -47,12 +47,13 @@ class InlineResponse2002RatiosEnterpriseValueEbita {
         if (data) {
             obj = obj || new InlineResponse2002RatiosEnterpriseValueEbita();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
+            
         }
         return obj;
     }

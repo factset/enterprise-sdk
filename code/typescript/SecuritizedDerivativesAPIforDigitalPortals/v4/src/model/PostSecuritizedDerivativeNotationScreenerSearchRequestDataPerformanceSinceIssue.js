@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceSince
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceSinceIssue();
 
-            if (data.hasOwnProperty('ask')) {
+            if (data.hasOwnProperty('ask') && obj['ask'] === undefined) {
                 obj['ask'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceSinceIssueAsk.constructFromObject(data['ask']);
             }
-            if (data.hasOwnProperty('bid')) {
+            if (data.hasOwnProperty('bid') && obj['bid'] === undefined) {
                 obj['bid'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataPerformanceSinceIssueBid.constructFromObject(data['bid']);
             }
+            
         }
         return obj;
     }

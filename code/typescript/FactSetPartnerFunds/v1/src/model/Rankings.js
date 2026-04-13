@@ -47,18 +47,19 @@ class Rankings {
         if (data) {
             obj = obj || new Rankings();
 
-            if (data.hasOwnProperty('rankOneMonth')) {
+            if (data.hasOwnProperty('rankOneMonth') && obj['rankOneMonth'] === undefined) {
                 obj['rankOneMonth'] = ApiClient.convertToType(data['rankOneMonth'], 'Number');
             }
-            if (data.hasOwnProperty('rankThreeMonths')) {
+            if (data.hasOwnProperty('rankThreeMonths') && obj['rankThreeMonths'] === undefined) {
                 obj['rankThreeMonths'] = ApiClient.convertToType(data['rankThreeMonths'], 'Number');
             }
-            if (data.hasOwnProperty('rankSixMonths')) {
+            if (data.hasOwnProperty('rankSixMonths') && obj['rankSixMonths'] === undefined) {
                 obj['rankSixMonths'] = ApiClient.convertToType(data['rankSixMonths'], 'Number');
             }
-            if (data.hasOwnProperty('rankYearToDate')) {
+            if (data.hasOwnProperty('rankYearToDate') && obj['rankYearToDate'] === undefined) {
                 obj['rankYearToDate'] = ApiClient.convertToType(data['rankYearToDate'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class NrtCallsMeta {
         if (data) {
             obj = obj || new NrtCallsMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = NrtCallsMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

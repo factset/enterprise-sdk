@@ -48,12 +48,13 @@ class PostSecuritizedDerivativeNotationRankingIntradayListRequestDataFactorCerti
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListRequestDataFactorCertificates();
 
-            if (data.hasOwnProperty('effectiveUnderlying')) {
+            if (data.hasOwnProperty('effectiveUnderlying') && obj['effectiveUnderlying'] === undefined) {
                 obj['effectiveUnderlying'] = PostSecuritizedDerivativeNotationRankingIntradayListRequestDataFactorCertificatesEffectiveUnderlying.constructFromObject(data['effectiveUnderlying']);
             }
-            if (data.hasOwnProperty('participation')) {
+            if (data.hasOwnProperty('participation') && obj['participation'] === undefined) {
                 obj['participation'] = ApiClient.convertToType(data['participation'], 'String');
             }
+            
         }
         return obj;
     }

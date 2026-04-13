@@ -48,30 +48,31 @@ class StatisticsResponseData {
         if (data) {
             obj = obj || new StatisticsResponseData();
 
-            if (data.hasOwnProperty('minimum')) {
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
                 obj['minimum'] = ApiClient.convertToType(data['minimum'], 'Number');
             }
-            if (data.hasOwnProperty('maximum')) {
+            if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = ApiClient.convertToType(data['maximum'], 'Number');
             }
-            if (data.hasOwnProperty('average')) {
+            if (data.hasOwnProperty('average') && obj['average'] === undefined) {
                 obj['average'] = ApiClient.convertToType(data['average'], 'Number');
             }
-            if (data.hasOwnProperty('sum')) {
+            if (data.hasOwnProperty('sum') && obj['sum'] === undefined) {
                 obj['sum'] = ApiClient.convertToType(data['sum'], 'Number');
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
-            if (data.hasOwnProperty('stdDev')) {
+            if (data.hasOwnProperty('stdDev') && obj['stdDev'] === undefined) {
                 obj['stdDev'] = ApiClient.convertToType(data['stdDev'], 'Number');
             }
-            if (data.hasOwnProperty('histogram')) {
+            if (data.hasOwnProperty('histogram') && obj['histogram'] === undefined) {
                 obj['histogram'] = ApiClient.convertToType(data['histogram'], [HistogramData]);
             }
+            
         }
         return obj;
     }

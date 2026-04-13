@@ -48,9 +48,10 @@ class OrderInfoResponse {
         if (data) {
             obj = obj || new OrderInfoResponse();
 
-            if (data.hasOwnProperty('order')) {
+            if (data.hasOwnProperty('order') && obj['order'] === undefined) {
                 obj['order'] = OrderDetail.constructFromObject(data['order']);
             }
+            
         }
         return obj;
     }

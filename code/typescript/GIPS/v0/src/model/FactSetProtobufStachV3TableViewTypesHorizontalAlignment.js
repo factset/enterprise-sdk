@@ -47,12 +47,13 @@ class FactSetProtobufStachV3TableViewTypesHorizontalAlignment {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesHorizontalAlignment();
 
-            if (data.hasOwnProperty('default')) {
+            if (data.hasOwnProperty('default') && obj['default'] === undefined) {
                 obj['default'] = FactSetProtobufStachV3TableViewTypesHorizontalAlignmentTypesAlignment.constructFromObject(data['default']);
             }
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], {'String': FactSetProtobufStachV3TableViewTypesHorizontalAlignmentTypesAlignment});
             }
+            
         }
         return obj;
     }

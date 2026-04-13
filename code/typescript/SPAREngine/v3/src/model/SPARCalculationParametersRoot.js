@@ -48,12 +48,13 @@ class SPARCalculationParametersRoot {
         if (data) {
             obj = obj || new SPARCalculationParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': SPARCalculationParameters});
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = CalculationMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

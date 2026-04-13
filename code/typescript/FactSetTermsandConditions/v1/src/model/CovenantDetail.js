@@ -47,18 +47,19 @@ class CovenantDetail {
         if (data) {
             obj = obj || new CovenantDetail();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('finCovType')) {
+            if (data.hasOwnProperty('finCovType') && obj['finCovType'] === undefined) {
                 obj['finCovType'] = ApiClient.convertToType(data['finCovType'], 'String');
             }
-            if (data.hasOwnProperty('finCovDesc')) {
+            if (data.hasOwnProperty('finCovDesc') && obj['finCovDesc'] === undefined) {
                 obj['finCovDesc'] = ApiClient.convertToType(data['finCovDesc'], 'String');
             }
+            
         }
         return obj;
     }

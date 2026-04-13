@@ -47,9 +47,10 @@ class AudioByFileNameRequest {
         if (data) {
             obj = obj || new AudioByFileNameRequest();
 
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
+            
         }
         return obj;
     }

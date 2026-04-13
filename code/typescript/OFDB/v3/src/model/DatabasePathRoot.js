@@ -47,9 +47,10 @@ class DatabasePathRoot {
         if (data) {
             obj = obj || new DatabasePathRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DatabasePathRootData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

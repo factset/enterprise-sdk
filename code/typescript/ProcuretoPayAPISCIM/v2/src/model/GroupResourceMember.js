@@ -46,15 +46,16 @@ class GroupResourceMember {
         if (data) {
             obj = obj || new GroupResourceMember();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('$ref')) {
+            if (data.hasOwnProperty('$ref') && obj['$ref'] === undefined) {
                 obj['$ref'] = ApiClient.convertToType(data['$ref'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

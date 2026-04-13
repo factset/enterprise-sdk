@@ -47,9 +47,10 @@ class LookupRequestMeta {
         if (data) {
             obj = obj || new LookupRequestMeta();
 
-            if (data.hasOwnProperty('limitPerDataset')) {
+            if (data.hasOwnProperty('limitPerDataset') && obj['limitPerDataset'] === undefined) {
                 obj['limitPerDataset'] = ApiClient.convertToType(data['limitPerDataset'], 'Number');
             }
+            
         }
         return obj;
     }

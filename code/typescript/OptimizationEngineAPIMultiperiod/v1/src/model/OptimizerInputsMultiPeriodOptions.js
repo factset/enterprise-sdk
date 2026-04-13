@@ -47,18 +47,19 @@ class OptimizerInputsMultiPeriodOptions {
         if (data) {
             obj = obj || new OptimizerInputsMultiPeriodOptions();
 
-            if (data.hasOwnProperty('options')) {
+            if (data.hasOwnProperty('options') && obj['options'] === undefined) {
                 obj['options'] = OptimizerInputsOptions.constructFromObject(data['options']);
             }
-            if (data.hasOwnProperty('weight_rebalance_periods')) {
+            if (data.hasOwnProperty('weight_rebalance_periods') && obj['weight_rebalance_periods'] === undefined) {
                 obj['weight_rebalance_periods'] = ApiClient.convertToType(data['weight_rebalance_periods'], ['Number']);
             }
-            if (data.hasOwnProperty('total_periods_count')) {
+            if (data.hasOwnProperty('total_periods_count') && obj['total_periods_count'] === undefined) {
                 obj['total_periods_count'] = ApiClient.convertToType(data['total_periods_count'], 'Number');
             }
-            if (data.hasOwnProperty('initial_point_randomization_count')) {
+            if (data.hasOwnProperty('initial_point_randomization_count') && obj['initial_point_randomization_count'] === undefined) {
                 obj['initial_point_randomization_count'] = ApiClient.convertToType(data['initial_point_randomization_count'], 'Number');
             }
+            
         }
         return obj;
     }

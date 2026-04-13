@@ -46,30 +46,31 @@ class InvoiceDetailsServiceDetailsExchangeFees {
         if (data) {
             obj = obj || new InvoiceDetailsServiceDetailsExchangeFees();
 
-            if (data.hasOwnProperty('accountId')) {
+            if (data.hasOwnProperty('accountId') && obj['accountId'] === undefined) {
                 obj['accountId'] = ApiClient.convertToType(data['accountId'], 'String');
             }
-            if (data.hasOwnProperty('invoiceId')) {
+            if (data.hasOwnProperty('invoiceId') && obj['invoiceId'] === undefined) {
                 obj['invoiceId'] = ApiClient.convertToType(data['invoiceId'], 'String');
             }
-            if (data.hasOwnProperty('productId')) {
+            if (data.hasOwnProperty('productId') && obj['productId'] === undefined) {
                 obj['productId'] = ApiClient.convertToType(data['productId'], 'Number');
             }
-            if (data.hasOwnProperty('quanitity')) {
+            if (data.hasOwnProperty('quanitity') && obj['quanitity'] === undefined) {
                 obj['quanitity'] = ApiClient.convertToType(data['quanitity'], 'Number');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('unitPrice')) {
+            if (data.hasOwnProperty('unitPrice') && obj['unitPrice'] === undefined) {
                 obj['unitPrice'] = ApiClient.convertToType(data['unitPrice'], 'Number');
             }
-            if (data.hasOwnProperty('discount')) {
+            if (data.hasOwnProperty('discount') && obj['discount'] === undefined) {
                 obj['discount'] = ApiClient.convertToType(data['discount'], 'Number');
             }
-            if (data.hasOwnProperty('lastMonthAdd')) {
+            if (data.hasOwnProperty('lastMonthAdd') && obj['lastMonthAdd'] === undefined) {
                 obj['lastMonthAdd'] = ApiClient.convertToType(data['lastMonthAdd'], 'Boolean');
             }
+            
         }
         return obj;
     }

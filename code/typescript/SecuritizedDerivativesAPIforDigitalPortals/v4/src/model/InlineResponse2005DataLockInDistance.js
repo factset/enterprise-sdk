@@ -49,12 +49,13 @@ class InlineResponse2005DataLockInDistance {
         if (data) {
             obj = obj || new InlineResponse2005DataLockInDistance();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = InlineResponse2005DataLockInDistanceAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = InlineResponse2005DataLockInDistanceRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

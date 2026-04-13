@@ -53,39 +53,40 @@ class UserResourceUrnScimSchemasExtensionFactSetCore10User {
         if (data) {
             obj = obj || new UserResourceUrnScimSchemasExtensionFactSetCore10User();
 
-            if (data.hasOwnProperty('username')) {
+            if (data.hasOwnProperty('username') && obj['username'] === undefined) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('serialNumber')) {
+            if (data.hasOwnProperty('serialNumber') && obj['serialNumber'] === undefined) {
                 obj['serialNumber'] = ApiClient.convertToType(data['serialNumber'], 'String');
             }
-            if (data.hasOwnProperty('uniqueId')) {
+            if (data.hasOwnProperty('uniqueId') && obj['uniqueId'] === undefined) {
                 obj['uniqueId'] = ApiClient.convertToType(data['uniqueId'], 'String');
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = LocationResourceReference.constructFromObject(data['location']);
             }
-            if (data.hasOwnProperty('userTaxonomyData')) {
+            if (data.hasOwnProperty('userTaxonomyData') && obj['userTaxonomyData'] === undefined) {
                 obj['userTaxonomyData'] = UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData.constructFromObject(data['userTaxonomyData']);
             }
-            if (data.hasOwnProperty('roleName')) {
+            if (data.hasOwnProperty('roleName') && obj['roleName'] === undefined) {
                 obj['roleName'] = ApiClient.convertToType(data['roleName'], 'String');
             }
-            if (data.hasOwnProperty('royaltyClass')) {
+            if (data.hasOwnProperty('royaltyClass') && obj['royaltyClass'] === undefined) {
                 obj['royaltyClass'] = ApiClient.convertToType(data['royaltyClass'], 'String');
             }
-            if (data.hasOwnProperty('products')) {
+            if (data.hasOwnProperty('products') && obj['products'] === undefined) {
                 obj['products'] = ApiClient.convertToType(data['products'], [ProductResourceReferenceWithRapidActivationInfo]);
             }
-            if (data.hasOwnProperty('pendingProductOrders')) {
+            if (data.hasOwnProperty('pendingProductOrders') && obj['pendingProductOrders'] === undefined) {
                 obj['pendingProductOrders'] = ApiClient.convertToType(data['pendingProductOrders'], [PendingProductOrder]);
             }
-            if (data.hasOwnProperty('federations')) {
+            if (data.hasOwnProperty('federations') && obj['federations'] === undefined) {
                 obj['federations'] = ApiClient.convertToType(data['federations'], [FederationResourceReference]);
             }
-            if (data.hasOwnProperty('invoiceId')) {
+            if (data.hasOwnProperty('invoiceId') && obj['invoiceId'] === undefined) {
                 obj['invoiceId'] = ApiClient.convertToType(data['invoiceId'], 'String');
             }
+            
         }
         return obj;
     }

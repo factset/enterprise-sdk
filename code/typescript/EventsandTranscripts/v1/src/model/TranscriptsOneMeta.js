@@ -48,9 +48,10 @@ class TranscriptsOneMeta {
         if (data) {
             obj = obj || new TranscriptsOneMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = TranscriptsOneMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

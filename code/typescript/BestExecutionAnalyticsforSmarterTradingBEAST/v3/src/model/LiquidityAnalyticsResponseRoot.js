@@ -50,9 +50,10 @@ class LiquidityAnalyticsResponseRoot {
         if (data) {
             obj = obj || new LiquidityAnalyticsResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [LiquidityAnalyticsResponse]);
             }
+            
         }
         return obj;
     }

@@ -49,9 +49,10 @@ class LabelValueChangeLabelValueChangeAnswerAllOf {
         if (data) {
             obj = obj || new LabelValueChangeLabelValueChangeAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = LabelValueChangeLabelValueChangeTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

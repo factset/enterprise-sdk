@@ -49,9 +49,10 @@ class ServiceProviderConfigEtag {
         if (data) {
             obj = obj || new ServiceProviderConfigEtag();
 
-            if (data.hasOwnProperty('supported')) {
+            if (data.hasOwnProperty('supported') && obj['supported'] === undefined) {
                 obj['supported'] = ApiClient.convertToType(data['supported'], 'Boolean');
             }
+            
         }
         return obj;
     }

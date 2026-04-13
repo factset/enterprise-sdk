@@ -48,12 +48,13 @@ class TranscriptsCollection {
         if (data) {
             obj = obj || new TranscriptsCollection();
 
-            if (data.hasOwnProperty('transcript')) {
+            if (data.hasOwnProperty('transcript') && obj['transcript'] === undefined) {
                 obj['transcript'] = ApiClient.convertToType(data['transcript'], [RawOrCorrected]);
             }
-            if (data.hasOwnProperty('nrt')) {
+            if (data.hasOwnProperty('nrt') && obj['nrt'] === undefined) {
                 obj['nrt'] = ApiClient.convertToType(data['nrt'], [NRT]);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class SharesOutstandingRequest {
         if (data) {
             obj = obj || new SharesOutstandingRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SharesOutstandingRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

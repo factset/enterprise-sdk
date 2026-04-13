@@ -48,9 +48,10 @@ class TickerTranslationResponse {
         if (data) {
             obj = obj || new TickerTranslationResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [TickerTranslation]);
             }
+            
         }
         return obj;
     }

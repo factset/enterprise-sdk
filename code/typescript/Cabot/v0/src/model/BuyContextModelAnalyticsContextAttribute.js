@@ -48,9 +48,10 @@ class BuyContextModelAnalyticsContextAttribute {
         if (data) {
             obj = obj || new BuyContextModelAnalyticsContextAttribute();
 
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = BuyContextModelAnalyticsItem.constructFromObject(data['values']);
             }
+            
         }
         return obj;
     }

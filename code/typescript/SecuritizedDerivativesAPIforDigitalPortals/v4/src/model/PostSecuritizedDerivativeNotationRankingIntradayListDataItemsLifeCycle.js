@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItemsLifeCycle {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItemsLifeCycle();
 
-            if (data.hasOwnProperty('maturity')) {
+            if (data.hasOwnProperty('maturity') && obj['maturity'] === undefined) {
                 obj['maturity'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsLifeCycleMaturity.constructFromObject(data['maturity']);
             }
+            
         }
         return obj;
     }

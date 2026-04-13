@@ -49,27 +49,28 @@ class FactSetProtobufStachV3TableViewTypesGroup {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesGroup();
 
-            if (data.hasOwnProperty('by')) {
+            if (data.hasOwnProperty('by') && obj['by'] === undefined) {
                 obj['by'] = ApiClient.convertToType(data['by'], ['String']);
             }
-            if (data.hasOwnProperty('collapsedColumn')) {
+            if (data.hasOwnProperty('collapsedColumn') && obj['collapsedColumn'] === undefined) {
                 obj['collapsedColumn'] = FactSetProtobufStachV3TableViewTypesCollapsedColumn.constructFromObject(data['collapsedColumn']);
             }
-            if (data.hasOwnProperty('aggregates')) {
+            if (data.hasOwnProperty('aggregates') && obj['aggregates'] === undefined) {
                 obj['aggregates'] = ApiClient.convertToType(data['aggregates'], {'String': FactSetProtobufStachV3TableViewTypesAggregate});
             }
-            if (data.hasOwnProperty('excludeTotalRows')) {
+            if (data.hasOwnProperty('excludeTotalRows') && obj['excludeTotalRows'] === undefined) {
                 obj['excludeTotalRows'] = ApiClient.convertToType(data['excludeTotalRows'], 'Boolean');
             }
-            if (data.hasOwnProperty('excludeGroupRows')) {
+            if (data.hasOwnProperty('excludeGroupRows') && obj['excludeGroupRows'] === undefined) {
                 obj['excludeGroupRows'] = ApiClient.convertToType(data['excludeGroupRows'], ['String']);
             }
-            if (data.hasOwnProperty('excludeDetailRows')) {
+            if (data.hasOwnProperty('excludeDetailRows') && obj['excludeDetailRows'] === undefined) {
                 obj['excludeDetailRows'] = ApiClient.convertToType(data['excludeDetailRows'], 'Boolean');
             }
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], {'String': FactSetProtobufStachV3Sort});
             }
+            
         }
         return obj;
     }

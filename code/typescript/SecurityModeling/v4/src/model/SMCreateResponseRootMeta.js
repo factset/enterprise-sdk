@@ -46,12 +46,13 @@ class SMCreateResponseRootMeta {
         if (data) {
             obj = obj || new SMCreateResponseRootMeta();
 
-            if (data.hasOwnProperty('operation')) {
+            if (data.hasOwnProperty('operation') && obj['operation'] === undefined) {
                 obj['operation'] = ApiClient.convertToType(data['operation'], 'String');
             }
-            if (data.hasOwnProperty('jobId')) {
+            if (data.hasOwnProperty('jobId') && obj['jobId'] === undefined) {
                 obj['jobId'] = ApiClient.convertToType(data['jobId'], 'String');
             }
+            
         }
         return obj;
     }

@@ -58,6 +58,8 @@ class Fdc3Context {
             case 'fdc3.instrument':
               return Fdc3Instrument.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct Fdc3Context due to no matching discriminator value: " + data['type']);
         return obj;
     }
 

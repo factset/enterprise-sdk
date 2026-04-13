@@ -47,9 +47,10 @@ class FetchReportPollID {
         if (data) {
             obj = obj || new FetchReportPollID();
 
-            if (data.hasOwnProperty('Pollurl')) {
+            if (data.hasOwnProperty('Pollurl') && obj['Pollurl'] === undefined) {
                 obj['Pollurl'] = ApiClient.convertToType(data['Pollurl'], Object);
             }
+            
         }
         return obj;
     }

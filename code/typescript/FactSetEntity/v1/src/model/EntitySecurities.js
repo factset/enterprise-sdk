@@ -46,39 +46,40 @@ class EntitySecurities {
         if (data) {
             obj = obj || new EntitySecurities();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('fsymSecurityId')) {
+            if (data.hasOwnProperty('fsymSecurityId') && obj['fsymSecurityId'] === undefined) {
                 obj['fsymSecurityId'] = ApiClient.convertToType(data['fsymSecurityId'], 'String');
             }
-            if (data.hasOwnProperty('fsymListingId')) {
+            if (data.hasOwnProperty('fsymListingId') && obj['fsymListingId'] === undefined) {
                 obj['fsymListingId'] = ApiClient.convertToType(data['fsymListingId'], 'String');
             }
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
-            if (data.hasOwnProperty('listingExchange')) {
+            if (data.hasOwnProperty('listingExchange') && obj['listingExchange'] === undefined) {
                 obj['listingExchange'] = ApiClient.convertToType(data['listingExchange'], 'String');
             }
-            if (data.hasOwnProperty('securityName')) {
+            if (data.hasOwnProperty('securityName') && obj['securityName'] === undefined) {
                 obj['securityName'] = ApiClient.convertToType(data['securityName'], 'String');
             }
-            if (data.hasOwnProperty('fsymEntityId')) {
+            if (data.hasOwnProperty('fsymEntityId') && obj['fsymEntityId'] === undefined) {
                 obj['fsymEntityId'] = ApiClient.convertToType(data['fsymEntityId'], 'String');
             }
-            if (data.hasOwnProperty('fsymTickerExchange')) {
+            if (data.hasOwnProperty('fsymTickerExchange') && obj['fsymTickerExchange'] === undefined) {
                 obj['fsymTickerExchange'] = ApiClient.convertToType(data['fsymTickerExchange'], 'String');
             }
-            if (data.hasOwnProperty('fsymTickerRegion')) {
+            if (data.hasOwnProperty('fsymTickerRegion') && obj['fsymTickerRegion'] === undefined) {
                 obj['fsymTickerRegion'] = ApiClient.convertToType(data['fsymTickerRegion'], 'String');
             }
-            if (data.hasOwnProperty('activeFlag')) {
+            if (data.hasOwnProperty('activeFlag') && obj['activeFlag'] === undefined) {
                 obj['activeFlag'] = ApiClient.convertToType(data['activeFlag'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

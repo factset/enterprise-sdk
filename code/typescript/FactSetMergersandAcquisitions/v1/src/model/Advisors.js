@@ -49,12 +49,13 @@ class Advisors {
         if (data) {
             obj = obj || new Advisors();
 
-            if (data.hasOwnProperty('buyers')) {
+            if (data.hasOwnProperty('buyers') && obj['buyers'] === undefined) {
                 obj['buyers'] = BuyersAdvisor.constructFromObject(data['buyers']);
             }
-            if (data.hasOwnProperty('sellers')) {
+            if (data.hasOwnProperty('sellers') && obj['sellers'] === undefined) {
                 obj['sellers'] = SellersAdvisor.constructFromObject(data['sellers']);
             }
+            
         }
         return obj;
     }

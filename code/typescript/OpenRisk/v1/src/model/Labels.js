@@ -50,18 +50,19 @@ class Labels {
         if (data) {
             obj = obj || new Labels();
 
-            if (data.hasOwnProperty('security')) {
+            if (data.hasOwnProperty('security') && obj['security'] === undefined) {
                 obj['security'] = LabelsSecurity.constructFromObject(data['security']);
             }
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = LabelsFactor.constructFromObject(data['factor']);
             }
-            if (data.hasOwnProperty('securityGroup')) {
+            if (data.hasOwnProperty('securityGroup') && obj['securityGroup'] === undefined) {
                 obj['securityGroup'] = GroupsLabels.constructFromObject(data['securityGroup']);
             }
-            if (data.hasOwnProperty('factorGroup')) {
+            if (data.hasOwnProperty('factorGroup') && obj['factorGroup'] === undefined) {
                 obj['factorGroup'] = GroupsLabels.constructFromObject(data['factorGroup']);
             }
+            
         }
         return obj;
     }

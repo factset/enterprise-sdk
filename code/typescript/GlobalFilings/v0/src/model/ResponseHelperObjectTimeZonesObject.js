@@ -46,9 +46,10 @@ class ResponseHelperObjectTimeZonesObject {
         if (data) {
             obj = obj || new ResponseHelperObjectTimeZonesObject();
 
-            if (data.hasOwnProperty('timezone')) {
+            if (data.hasOwnProperty('timezone') && obj['timezone'] === undefined) {
                 obj['timezone'] = ApiClient.convertToType(data['timezone'], 'String');
             }
+            
         }
         return obj;
     }

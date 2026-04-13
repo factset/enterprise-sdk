@@ -47,9 +47,10 @@ class PostNewsArticleListByInstrumentDataArticlesItemsChain {
         if (data) {
             obj = obj || new PostNewsArticleListByInstrumentDataArticlesItemsChain();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            
         }
         return obj;
     }

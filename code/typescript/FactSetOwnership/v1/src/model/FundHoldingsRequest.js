@@ -51,24 +51,25 @@ class FundHoldingsRequest {
         if (data) {
             obj = obj || new FundHoldingsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('topn')) {
+            if (data.hasOwnProperty('topn') && obj['topn'] === undefined) {
                 obj['topn'] = ApiClient.convertToType(data['topn'], 'String');
             }
-            if (data.hasOwnProperty('assetType')) {
+            if (data.hasOwnProperty('assetType') && obj['assetType'] === undefined) {
                 obj['assetType'] = AssetType.constructFromObject(data['assetType']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('batch')) {
+            if (data.hasOwnProperty('batch') && obj['batch'] === undefined) {
                 obj['batch'] = Batch.constructFromObject(data['batch']);
             }
+            
         }
         return obj;
     }

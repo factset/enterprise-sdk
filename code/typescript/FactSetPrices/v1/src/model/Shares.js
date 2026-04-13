@@ -46,27 +46,28 @@ class Shares {
         if (data) {
             obj = obj || new Shares();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('adjDate')) {
+            if (data.hasOwnProperty('adjDate') && obj['adjDate'] === undefined) {
                 obj['adjDate'] = ApiClient.convertToType(data['adjDate'], 'Date');
             }
-            if (data.hasOwnProperty('sharesSecurity')) {
+            if (data.hasOwnProperty('sharesSecurity') && obj['sharesSecurity'] === undefined) {
                 obj['sharesSecurity'] = ApiClient.convertToType(data['sharesSecurity'], 'Number');
             }
-            if (data.hasOwnProperty('sharesCompany')) {
+            if (data.hasOwnProperty('sharesCompany') && obj['sharesCompany'] === undefined) {
                 obj['sharesCompany'] = ApiClient.convertToType(data['sharesCompany'], 'Number');
             }
-            if (data.hasOwnProperty('sharesCompanyNontraded')) {
+            if (data.hasOwnProperty('sharesCompanyNontraded') && obj['sharesCompanyNontraded'] === undefined) {
                 obj['sharesCompanyNontraded'] = ApiClient.convertToType(data['sharesCompanyNontraded'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

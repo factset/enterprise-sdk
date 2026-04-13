@@ -47,9 +47,10 @@ class AddSymbols {
         if (data) {
             obj = obj || new AddSymbols();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SymbolAndContent]);
             }
+            
         }
         return obj;
     }

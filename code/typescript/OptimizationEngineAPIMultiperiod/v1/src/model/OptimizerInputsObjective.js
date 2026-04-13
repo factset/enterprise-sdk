@@ -59,45 +59,46 @@ class OptimizerInputsObjective {
         if (data) {
             obj = obj || new OptimizerInputsObjective();
 
-            if (data.hasOwnProperty('factor_exposure')) {
+            if (data.hasOwnProperty('factor_exposure') && obj['factor_exposure'] === undefined) {
                 obj['factor_exposure'] = ApiClient.convertToType(data['factor_exposure'], [OptimizerInputsFactorExposureTerm]);
             }
-            if (data.hasOwnProperty('expected_tail_loss')) {
+            if (data.hasOwnProperty('expected_tail_loss') && obj['expected_tail_loss'] === undefined) {
                 obj['expected_tail_loss'] = ApiClient.convertToType(data['expected_tail_loss'], [OptimizerInputsExpectedTailLossTerm]);
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = ApiClient.convertToType(data['volatility'], [OptimizerInputsVolatilityTerm]);
             }
-            if (data.hasOwnProperty('drawdown')) {
+            if (data.hasOwnProperty('drawdown') && obj['drawdown'] === undefined) {
                 obj['drawdown'] = ApiClient.convertToType(data['drawdown'], [OptimizerInputsDrawdownTerm]);
             }
-            if (data.hasOwnProperty('general_linear')) {
+            if (data.hasOwnProperty('general_linear') && obj['general_linear'] === undefined) {
                 obj['general_linear'] = ApiClient.convertToType(data['general_linear'], [OptimizerInputsGeneralLinearTerm]);
             }
-            if (data.hasOwnProperty('expected_return')) {
+            if (data.hasOwnProperty('expected_return') && obj['expected_return'] === undefined) {
                 obj['expected_return'] = ApiClient.convertToType(data['expected_return'], [OptimizerInputsExpectedReturnTerm]);
             }
-            if (data.hasOwnProperty('sensitivity')) {
+            if (data.hasOwnProperty('sensitivity') && obj['sensitivity'] === undefined) {
                 obj['sensitivity'] = ApiClient.convertToType(data['sensitivity'], [OptimizerInputsSensitivityTerm]);
             }
-            if (data.hasOwnProperty('sharpe_ratio')) {
+            if (data.hasOwnProperty('sharpe_ratio') && obj['sharpe_ratio'] === undefined) {
                 obj['sharpe_ratio'] = OptimizerInputsSharpeRatioTerm.constructFromObject(data['sharpe_ratio']);
             }
-            if (data.hasOwnProperty('starr')) {
+            if (data.hasOwnProperty('starr') && obj['starr'] === undefined) {
                 obj['starr'] = OptimizerInputsSTARRTerm.constructFromObject(data['starr']);
             }
-            if (data.hasOwnProperty('diversification_ratio')) {
+            if (data.hasOwnProperty('diversification_ratio') && obj['diversification_ratio'] === undefined) {
                 obj['diversification_ratio'] = OptimizerInputsDiversificationRatioTerm.constructFromObject(data['diversification_ratio']);
             }
-            if (data.hasOwnProperty('null_risk_parity')) {
+            if (data.hasOwnProperty('null_risk_parity') && obj['null_risk_parity'] === undefined) {
                 obj['null_risk_parity'] = ApiClient.convertToType(data['null_risk_parity'], 'Boolean');
             }
-            if (data.hasOwnProperty('risk_parity')) {
+            if (data.hasOwnProperty('risk_parity') && obj['risk_parity'] === undefined) {
                 obj['risk_parity'] = OptimizerInputsRiskParityTerm.constructFromObject(data['risk_parity']);
             }
-            if (data.hasOwnProperty('transaction_cost')) {
+            if (data.hasOwnProperty('transaction_cost') && obj['transaction_cost'] === undefined) {
                 obj['transaction_cost'] = ApiClient.convertToType(data['transaction_cost'], [OptimizerInputsTransactionCostTerm]);
             }
+            
         }
         return obj;
     }

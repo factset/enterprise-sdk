@@ -47,12 +47,13 @@ class Dividend {
         if (data) {
             obj = obj || new Dividend();
 
-            if (data.hasOwnProperty('annualYield')) {
+            if (data.hasOwnProperty('annualYield') && obj['annualYield'] === undefined) {
                 obj['annualYield'] = ApiClient.convertToType(data['annualYield'], 'Number');
             }
-            if (data.hasOwnProperty('distributionFrequency')) {
+            if (data.hasOwnProperty('distributionFrequency') && obj['distributionFrequency'] === undefined) {
                 obj['distributionFrequency'] = ApiClient.convertToType(data['distributionFrequency'], 'String');
             }
+            
         }
         return obj;
     }

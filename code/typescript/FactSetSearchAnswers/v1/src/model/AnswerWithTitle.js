@@ -53,15 +53,20 @@ class AnswerWithTitle {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new AnswerWithTitle();
-            DataAnswer.constructFromObject(data, obj);
-            AnswerWithTitleAllOf.constructFromObject(data, obj);
+            try {
+              obj = DataAnswer.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = AnswerWithTitleAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('template')) {
+            if (data.hasOwnProperty('template') && obj['template'] === undefined) {
                 obj['template'] = ApiClient.convertToType(data['template'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,24 +47,25 @@ class Distribution {
         if (data) {
             obj = obj || new Distribution();
 
-            if (data.hasOwnProperty('dividend')) {
+            if (data.hasOwnProperty('dividend') && obj['dividend'] === undefined) {
                 obj['dividend'] = ApiClient.convertToType(data['dividend'], 'Number');
             }
-            if (data.hasOwnProperty('foreignDividend')) {
+            if (data.hasOwnProperty('foreignDividend') && obj['foreignDividend'] === undefined) {
                 obj['foreignDividend'] = ApiClient.convertToType(data['foreignDividend'], 'Number');
             }
-            if (data.hasOwnProperty('interestIncome')) {
+            if (data.hasOwnProperty('interestIncome') && obj['interestIncome'] === undefined) {
                 obj['interestIncome'] = ApiClient.convertToType(data['interestIncome'], 'Number');
             }
-            if (data.hasOwnProperty('returnOnPrincipal')) {
+            if (data.hasOwnProperty('returnOnPrincipal') && obj['returnOnPrincipal'] === undefined) {
                 obj['returnOnPrincipal'] = ApiClient.convertToType(data['returnOnPrincipal'], 'Number');
             }
-            if (data.hasOwnProperty('capitalGains')) {
+            if (data.hasOwnProperty('capitalGains') && obj['capitalGains'] === undefined) {
                 obj['capitalGains'] = ApiClient.convertToType(data['capitalGains'], 'Number');
             }
-            if (data.hasOwnProperty('totalDistribution')) {
+            if (data.hasOwnProperty('totalDistribution') && obj['totalDistribution'] === undefined) {
                 obj['totalDistribution'] = ApiClient.convertToType(data['totalDistribution'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class ReturnsRangeResponse {
         if (data) {
             obj = obj || new ReturnsRangeResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ReturnsRange]);
             }
+            
         }
         return obj;
     }

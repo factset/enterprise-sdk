@@ -47,24 +47,25 @@ class PostBasicValueUnitCurrencyListDataItems {
         if (data) {
             obj = obj || new PostBasicValueUnitCurrencyListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('isoCode')) {
+            if (data.hasOwnProperty('isoCode') && obj['isoCode'] === undefined) {
                 obj['isoCode'] = ApiClient.convertToType(data['isoCode'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('active')) {
+            if (data.hasOwnProperty('active') && obj['active'] === undefined) {
                 obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
             }
+            
         }
         return obj;
     }

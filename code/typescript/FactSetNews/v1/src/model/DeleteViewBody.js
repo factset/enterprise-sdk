@@ -49,9 +49,10 @@ class DeleteViewBody {
         if (data) {
             obj = obj || new DeleteViewBody();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DeleteViewBodyData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

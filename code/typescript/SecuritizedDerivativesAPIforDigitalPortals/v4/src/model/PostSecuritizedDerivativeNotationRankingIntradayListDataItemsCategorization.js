@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItemsCategorizatio
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItemsCategorization();
 
-            if (data.hasOwnProperty('ddv')) {
+            if (data.hasOwnProperty('ddv') && obj['ddv'] === undefined) {
                 obj['ddv'] = ApiClient.convertToType(data['ddv'], [PostSecuritizedDerivativeNotationRankingIntradayListDataCategorizationDdvItems]);
             }
-            if (data.hasOwnProperty('eusipa')) {
+            if (data.hasOwnProperty('eusipa') && obj['eusipa'] === undefined) {
                 obj['eusipa'] = ApiClient.convertToType(data['eusipa'], [PostSecuritizedDerivativeNotationRankingIntradayListDataCategorizationEusipaItems]);
             }
+            
         }
         return obj;
     }

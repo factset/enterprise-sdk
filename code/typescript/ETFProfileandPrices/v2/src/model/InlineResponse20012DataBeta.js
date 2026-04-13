@@ -47,15 +47,16 @@ class InlineResponse20012DataBeta {
         if (data) {
             obj = obj || new InlineResponse20012DataBeta();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('up')) {
+            if (data.hasOwnProperty('up') && obj['up'] === undefined) {
                 obj['up'] = ApiClient.convertToType(data['up'], 'Number');
             }
-            if (data.hasOwnProperty('down')) {
+            if (data.hasOwnProperty('down') && obj['down'] === undefined) {
                 obj['down'] = ApiClient.convertToType(data['down'], 'Number');
             }
+            
         }
         return obj;
     }

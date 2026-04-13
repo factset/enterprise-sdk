@@ -46,18 +46,19 @@ class ExPostStatsCorrelationsSettingsAllOf {
         if (data) {
             obj = obj || new ExPostStatsCorrelationsSettingsAllOf();
 
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], ['String']);
             }
-            if (data.hasOwnProperty('holdingsLimit')) {
+            if (data.hasOwnProperty('holdingsLimit') && obj['holdingsLimit'] === undefined) {
                 obj['holdingsLimit'] = ApiClient.convertToType(data['holdingsLimit'], 'Number');
             }
-            if (data.hasOwnProperty('fundCorrelationsOnly')) {
+            if (data.hasOwnProperty('fundCorrelationsOnly') && obj['fundCorrelationsOnly'] === undefined) {
                 obj['fundCorrelationsOnly'] = ApiClient.convertToType(data['fundCorrelationsOnly'], 'Boolean');
             }
-            if (data.hasOwnProperty('showBenchmark')) {
+            if (data.hasOwnProperty('showBenchmark') && obj['showBenchmark'] === undefined) {
                 obj['showBenchmark'] = ApiClient.convertToType(data['showBenchmark'], 'Boolean');
             }
+            
         }
         return obj;
     }

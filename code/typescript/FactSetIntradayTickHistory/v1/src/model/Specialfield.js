@@ -46,12 +46,13 @@ class Specialfield {
         if (data) {
             obj = obj || new Specialfield();
 
-            if (data.hasOwnProperty('NF')) {
+            if (data.hasOwnProperty('NF') && obj['NF'] === undefined) {
                 obj['NF'] = ApiClient.convertToType(data['NF'], 'String');
             }
-            if (data.hasOwnProperty('NA')) {
+            if (data.hasOwnProperty('NA') && obj['NA'] === undefined) {
                 obj['NA'] = ApiClient.convertToType(data['NA'], Object);
             }
+            
         }
         return obj;
     }

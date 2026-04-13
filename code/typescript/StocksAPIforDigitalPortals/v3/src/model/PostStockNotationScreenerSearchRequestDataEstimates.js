@@ -53,21 +53,22 @@ class PostStockNotationScreenerSearchRequestDataEstimates {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEstimates();
 
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = PostStockNotationScreenerSearchRequestDataFiscalYear1.constructFromObject(data['fiscalYear']);
             }
-            if (data.hasOwnProperty('currencyDependentEstimates')) {
+            if (data.hasOwnProperty('currencyDependentEstimates') && obj['currencyDependentEstimates'] === undefined) {
                 obj['currencyDependentEstimates'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimates.constructFromObject(data['currencyDependentEstimates']);
             }
-            if (data.hasOwnProperty('returnOnAssets')) {
+            if (data.hasOwnProperty('returnOnAssets') && obj['returnOnAssets'] === undefined) {
                 obj['returnOnAssets'] = PostStockNotationScreenerSearchRequestDataReturnOnAssets1.constructFromObject(data['returnOnAssets']);
             }
-            if (data.hasOwnProperty('returnOnEquity')) {
+            if (data.hasOwnProperty('returnOnEquity') && obj['returnOnEquity'] === undefined) {
                 obj['returnOnEquity'] = PostStockNotationScreenerSearchRequestDataReturnOnEquity1.constructFromObject(data['returnOnEquity']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = PostStockNotationScreenerSearchRequestDataRatios1.constructFromObject(data['ratios']);
             }
+            
         }
         return obj;
     }

@@ -46,9 +46,10 @@ class ExPostSettingsAllOf {
         if (data) {
             obj = obj || new ExPostSettingsAllOf();
 
-            if (data.hasOwnProperty('reportingFrequencyAlignment')) {
+            if (data.hasOwnProperty('reportingFrequencyAlignment') && obj['reportingFrequencyAlignment'] === undefined) {
                 obj['reportingFrequencyAlignment'] = ApiClient.convertToType(data['reportingFrequencyAlignment'], 'String');
             }
+            
         }
         return obj;
     }

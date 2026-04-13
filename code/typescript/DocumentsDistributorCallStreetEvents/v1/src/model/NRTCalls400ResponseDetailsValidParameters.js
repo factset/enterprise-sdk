@@ -46,30 +46,31 @@ class NRTCalls400ResponseDetailsValidParameters {
         if (data) {
             obj = obj || new NRTCalls400ResponseDetailsValidParameters();
 
-            if (data.hasOwnProperty('_sort')) {
+            if (data.hasOwnProperty('_sort') && obj['_sort'] === undefined) {
                 obj['_sort'] = ApiClient.convertToType(data['_sort'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationLimit')) {
+            if (data.hasOwnProperty('_paginationLimit') && obj['_paginationLimit'] === undefined) {
                 obj['_paginationLimit'] = ApiClient.convertToType(data['_paginationLimit'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationOffset')) {
+            if (data.hasOwnProperty('_paginationOffset') && obj['_paginationOffset'] === undefined) {
                 obj['_paginationOffset'] = ApiClient.convertToType(data['_paginationOffset'], ['String']);
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], ['String']);
             }
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], ['String']);
             }
-            if (data.hasOwnProperty('callStatus')) {
+            if (data.hasOwnProperty('callStatus') && obj['callStatus'] === undefined) {
                 obj['callStatus'] = ApiClient.convertToType(data['callStatus'], ['String']);
             }
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], ['String']);
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], ['String']);
             }
+            
         }
         return obj;
     }

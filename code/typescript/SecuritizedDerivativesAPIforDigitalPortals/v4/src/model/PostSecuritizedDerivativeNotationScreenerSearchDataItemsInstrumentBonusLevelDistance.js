@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentBonusLev
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentBonusLevelDistance();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = ApiClient.convertToType(data['absolute'], 'Number');
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = ApiClient.convertToType(data['relative'], 'Number');
             }
+            
         }
         return obj;
     }

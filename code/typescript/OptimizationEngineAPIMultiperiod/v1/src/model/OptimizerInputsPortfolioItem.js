@@ -47,15 +47,16 @@ class OptimizerInputsPortfolioItem {
         if (data) {
             obj = obj || new OptimizerInputsPortfolioItem();
 
-            if (data.hasOwnProperty('univ_index')) {
+            if (data.hasOwnProperty('univ_index') && obj['univ_index'] === undefined) {
                 obj['univ_index'] = ApiClient.convertToType(data['univ_index'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = OptimizerInputsAssetPrice.constructFromObject(data['price']);
             }
-            if (data.hasOwnProperty('shares')) {
+            if (data.hasOwnProperty('shares') && obj['shares'] === undefined) {
                 obj['shares'] = ApiClient.convertToType(data['shares'], 'Number');
             }
+            
         }
         return obj;
     }

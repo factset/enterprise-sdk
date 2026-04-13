@@ -47,12 +47,13 @@ class InlineResponse20021DataCapitalGains {
         if (data) {
             obj = obj || new InlineResponse20021DataCapitalGains();
 
-            if (data.hasOwnProperty('shortTerm')) {
+            if (data.hasOwnProperty('shortTerm') && obj['shortTerm'] === undefined) {
                 obj['shortTerm'] = ApiClient.convertToType(data['shortTerm'], 'Number');
             }
-            if (data.hasOwnProperty('longTerm')) {
+            if (data.hasOwnProperty('longTerm') && obj['longTerm'] === undefined) {
                 obj['longTerm'] = ApiClient.convertToType(data['longTerm'], 'Number');
             }
+            
         }
         return obj;
     }

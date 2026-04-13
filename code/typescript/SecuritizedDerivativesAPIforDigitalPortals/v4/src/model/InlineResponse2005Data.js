@@ -74,90 +74,91 @@ class InlineResponse2005Data {
         if (data) {
             obj = obj || new InlineResponse2005Data();
 
-            if (data.hasOwnProperty('totalCount')) {
+            if (data.hasOwnProperty('totalCount') && obj['totalCount'] === undefined) {
                 obj['totalCount'] = ApiClient.convertToType(data['totalCount'], 'Number');
             }
-            if (data.hasOwnProperty('categorization')) {
+            if (data.hasOwnProperty('categorization') && obj['categorization'] === undefined) {
                 obj['categorization'] = InlineResponse2005DataCategorization.constructFromObject(data['categorization']);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = ApiClient.convertToType(data['market'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataMarketItems]);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = InlineResponse2005DataLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('issuer')) {
+            if (data.hasOwnProperty('issuer') && obj['issuer'] === undefined) {
                 obj['issuer'] = InlineResponse2005DataIssuer.constructFromObject(data['issuer']);
             }
-            if (data.hasOwnProperty('exercise')) {
+            if (data.hasOwnProperty('exercise') && obj['exercise'] === undefined) {
                 obj['exercise'] = InlineResponse2005DataExercise.constructFromObject(data['exercise']);
             }
-            if (data.hasOwnProperty('settlement')) {
+            if (data.hasOwnProperty('settlement') && obj['settlement'] === undefined) {
                 obj['settlement'] = ApiClient.convertToType(data['settlement'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSettlementItems]);
             }
-            if (data.hasOwnProperty('collateralized')) {
+            if (data.hasOwnProperty('collateralized') && obj['collateralized'] === undefined) {
                 obj['collateralized'] = ApiClient.convertToType(data['collateralized'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCollateralizedItems]);
             }
-            if (data.hasOwnProperty('quanto')) {
+            if (data.hasOwnProperty('quanto') && obj['quanto'] === undefined) {
                 obj['quanto'] = ApiClient.convertToType(data['quanto'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataQuantoItems]);
             }
-            if (data.hasOwnProperty('capitalProtection')) {
+            if (data.hasOwnProperty('capitalProtection') && obj['capitalProtection'] === undefined) {
                 obj['capitalProtection'] = InlineResponse2005DataCapitalProtection.constructFromObject(data['capitalProtection']);
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = InlineResponse2005DataUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('strike')) {
+            if (data.hasOwnProperty('strike') && obj['strike'] === undefined) {
                 obj['strike'] = InlineResponse2005DataStrike.constructFromObject(data['strike']);
             }
-            if (data.hasOwnProperty('bonusLevel')) {
+            if (data.hasOwnProperty('bonusLevel') && obj['bonusLevel'] === undefined) {
                 obj['bonusLevel'] = InlineResponse2005DataBonusLevel.constructFromObject(data['bonusLevel']);
             }
-            if (data.hasOwnProperty('cap')) {
+            if (data.hasOwnProperty('cap') && obj['cap'] === undefined) {
                 obj['cap'] = InlineResponse2005DataCap.constructFromObject(data['cap']);
             }
-            if (data.hasOwnProperty('knockOut')) {
+            if (data.hasOwnProperty('knockOut') && obj['knockOut'] === undefined) {
                 obj['knockOut'] = InlineResponse2005DataKnockOut.constructFromObject(data['knockOut']);
             }
-            if (data.hasOwnProperty('knockIn')) {
+            if (data.hasOwnProperty('knockIn') && obj['knockIn'] === undefined) {
                 obj['knockIn'] = InlineResponse2005DataKnockIn.constructFromObject(data['knockIn']);
             }
-            if (data.hasOwnProperty('lockOut')) {
+            if (data.hasOwnProperty('lockOut') && obj['lockOut'] === undefined) {
                 obj['lockOut'] = InlineResponse2005DataLockOut.constructFromObject(data['lockOut']);
             }
-            if (data.hasOwnProperty('lockIn')) {
+            if (data.hasOwnProperty('lockIn') && obj['lockIn'] === undefined) {
                 obj['lockIn'] = InlineResponse2005DataLockIn.constructFromObject(data['lockIn']);
             }
-            if (data.hasOwnProperty('capitalGuarantee')) {
+            if (data.hasOwnProperty('capitalGuarantee') && obj['capitalGuarantee'] === undefined) {
                 obj['capitalGuarantee'] = InlineResponse2005DataCapitalGuarantee.constructFromObject(data['capitalGuarantee']);
             }
-            if (data.hasOwnProperty('couponTriggerLevel')) {
+            if (data.hasOwnProperty('couponTriggerLevel') && obj['couponTriggerLevel'] === undefined) {
                 obj['couponTriggerLevel'] = InlineResponse2005DataCouponTriggerLevel.constructFromObject(data['couponTriggerLevel']);
             }
-            if (data.hasOwnProperty('rangeKnockOut')) {
+            if (data.hasOwnProperty('rangeKnockOut') && obj['rangeKnockOut'] === undefined) {
                 obj['rangeKnockOut'] = InlineResponse2005DataRangeKnockOut.constructFromObject(data['rangeKnockOut']);
             }
-            if (data.hasOwnProperty('participation')) {
+            if (data.hasOwnProperty('participation') && obj['participation'] === undefined) {
                 obj['participation'] = ApiClient.convertToType(data['participation'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataParticipationItems]);
             }
-            if (data.hasOwnProperty('constantLeverage')) {
+            if (data.hasOwnProperty('constantLeverage') && obj['constantLeverage'] === undefined) {
                 obj['constantLeverage'] = ApiClient.convertToType(data['constantLeverage'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataConstantLeverageItems]);
             }
-            if (data.hasOwnProperty('nominalCurrency')) {
+            if (data.hasOwnProperty('nominalCurrency') && obj['nominalCurrency'] === undefined) {
                 obj['nominalCurrency'] = ApiClient.convertToType(data['nominalCurrency'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataNominalCurrencyItems]);
             }
-            if (data.hasOwnProperty('currentInterestRate')) {
+            if (data.hasOwnProperty('currentInterestRate') && obj['currentInterestRate'] === undefined) {
                 obj['currentInterestRate'] = InlineResponse2005DataCurrentInterestRate.constructFromObject(data['currentInterestRate']);
             }
-            if (data.hasOwnProperty('keyFigures')) {
+            if (data.hasOwnProperty('keyFigures') && obj['keyFigures'] === undefined) {
                 obj['keyFigures'] = InlineResponse2005DataKeyFigures.constructFromObject(data['keyFigures']);
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = InlineResponse2005DataPerformance.constructFromObject(data['performance']);
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = InlineResponse2005DataVolatility.constructFromObject(data['volatility']);
             }
+            
         }
         return obj;
     }

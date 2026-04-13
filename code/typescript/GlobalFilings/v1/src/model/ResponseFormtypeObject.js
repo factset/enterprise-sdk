@@ -46,15 +46,16 @@ class ResponseFormtypeObject {
         if (data) {
             obj = obj || new ResponseFormtypeObject();
 
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('formType')) {
+            if (data.hasOwnProperty('formType') && obj['formType'] === undefined) {
                 obj['formType'] = ApiClient.convertToType(data['formType'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            
         }
         return obj;
     }

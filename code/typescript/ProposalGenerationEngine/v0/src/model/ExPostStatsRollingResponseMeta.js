@@ -47,9 +47,10 @@ class ExPostStatsRollingResponseMeta {
         if (data) {
             obj = obj || new ExPostStatsRollingResponseMeta();
 
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = ExPostStatsRollingSettings.constructFromObject(data['settings']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class TranscriptsIntelligenceResponse {
         if (data) {
             obj = obj || new TranscriptsIntelligenceResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [TranscriptsIntelligenceResponseData]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = MetaData.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

@@ -58,27 +58,28 @@ class ProfileDataObjectBusiness {
         if (data) {
             obj = obj || new ProfileDataObjectBusiness();
 
-            if (data.hasOwnProperty('crunchbaseCategories')) {
+            if (data.hasOwnProperty('crunchbaseCategories') && obj['crunchbaseCategories'] === undefined) {
                 obj['crunchbaseCategories'] = ProfileDataObjectBusinessCrunchbaseCategories.constructFromObject(data['crunchbaseCategories']);
             }
-            if (data.hasOwnProperty('crunchbaseUrl')) {
+            if (data.hasOwnProperty('crunchbaseUrl') && obj['crunchbaseUrl'] === undefined) {
                 obj['crunchbaseUrl'] = ProfileDataObjectBusinessCrunchbaseUrl.constructFromObject(data['crunchbaseUrl']);
             }
-            if (data.hasOwnProperty('dbaName')) {
+            if (data.hasOwnProperty('dbaName') && obj['dbaName'] === undefined) {
                 obj['dbaName'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['dbaName']);
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ProfileDataObjectBusinessDescription.constructFromObject(data['description']);
             }
-            if (data.hasOwnProperty('industry')) {
+            if (data.hasOwnProperty('industry') && obj['industry'] === undefined) {
                 obj['industry'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['industry']);
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['name']);
             }
-            if (data.hasOwnProperty('sector')) {
+            if (data.hasOwnProperty('sector') && obj['sector'] === undefined) {
                 obj['sector'] = KeyStatsAttributeMetaPeriodicity.constructFromObject(data['sector']);
             }
+            
         }
         return obj;
     }

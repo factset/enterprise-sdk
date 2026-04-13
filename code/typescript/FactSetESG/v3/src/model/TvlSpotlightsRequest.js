@@ -50,9 +50,10 @@ class TvlSpotlightsRequest {
         if (data) {
             obj = obj || new TvlSpotlightsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TvlSpotlightsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

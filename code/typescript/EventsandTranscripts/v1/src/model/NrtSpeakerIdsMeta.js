@@ -47,9 +47,10 @@ class NrtSpeakerIdsMeta {
         if (data) {
             obj = obj || new NrtSpeakerIdsMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = NrtSpeakerIdsMetaPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

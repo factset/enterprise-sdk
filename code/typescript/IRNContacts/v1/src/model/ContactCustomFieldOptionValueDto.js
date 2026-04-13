@@ -46,12 +46,13 @@ class ContactCustomFieldOptionValueDto {
         if (data) {
             obj = obj || new ContactCustomFieldOptionValueDto();
 
-            if (data.hasOwnProperty('optionId')) {
+            if (data.hasOwnProperty('optionId') && obj['optionId'] === undefined) {
                 obj['optionId'] = ApiClient.convertToType(data['optionId'], 'String');
             }
-            if (data.hasOwnProperty('optionName')) {
+            if (data.hasOwnProperty('optionName') && obj['optionName'] === undefined) {
                 obj['optionName'] = ApiClient.convertToType(data['optionName'], 'String');
             }
+            
         }
         return obj;
     }

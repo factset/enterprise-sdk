@@ -48,9 +48,10 @@ class FilterWatchlistsResponse {
         if (data) {
             obj = obj || new FilterWatchlistsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FilterWatchlistsResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

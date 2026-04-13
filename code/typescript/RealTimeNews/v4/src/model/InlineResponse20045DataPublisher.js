@@ -47,9 +47,10 @@ class InlineResponse20045DataPublisher {
         if (data) {
             obj = obj || new InlineResponse20045DataPublisher();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
+            
         }
         return obj;
     }

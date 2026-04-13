@@ -46,36 +46,37 @@ class ContactRelationshipTwoSidedSaveDto {
         if (data) {
             obj = obj || new ContactRelationshipTwoSidedSaveDto();
 
-            if (data.hasOwnProperty('relationshipId')) {
+            if (data.hasOwnProperty('relationshipId') && obj['relationshipId'] === undefined) {
                 obj['relationshipId'] = ApiClient.convertToType(data['relationshipId'], 'String');
             }
-            if (data.hasOwnProperty('leftContactId')) {
+            if (data.hasOwnProperty('leftContactId') && obj['leftContactId'] === undefined) {
                 obj['leftContactId'] = ApiClient.convertToType(data['leftContactId'], 'String');
             }
-            if (data.hasOwnProperty('rightContactId')) {
+            if (data.hasOwnProperty('rightContactId') && obj['rightContactId'] === undefined) {
                 obj['rightContactId'] = ApiClient.convertToType(data['rightContactId'], 'String');
             }
-            if (data.hasOwnProperty('start')) {
+            if (data.hasOwnProperty('start') && obj['start'] === undefined) {
                 obj['start'] = ApiClient.convertToType(data['start'], 'Date');
             }
-            if (data.hasOwnProperty('end')) {
+            if (data.hasOwnProperty('end') && obj['end'] === undefined) {
                 obj['end'] = ApiClient.convertToType(data['end'], 'Date');
             }
-            if (data.hasOwnProperty('comment')) {
+            if (data.hasOwnProperty('comment') && obj['comment'] === undefined) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
-            if (data.hasOwnProperty('isCurrent')) {
+            if (data.hasOwnProperty('isCurrent') && obj['isCurrent'] === undefined) {
                 obj['isCurrent'] = ApiClient.convertToType(data['isCurrent'], 'Boolean');
             }
-            if (data.hasOwnProperty('symbolId')) {
+            if (data.hasOwnProperty('symbolId') && obj['symbolId'] === undefined) {
                 obj['symbolId'] = ApiClient.convertToType(data['symbolId'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            
         }
         return obj;
     }

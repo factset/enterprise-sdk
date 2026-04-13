@@ -48,12 +48,13 @@ class JobOverrides {
         if (data) {
             obj = obj || new JobOverrides();
 
-            if (data.hasOwnProperty('combinations')) {
+            if (data.hasOwnProperty('combinations') && obj['combinations'] === undefined) {
                 obj['combinations'] = ApiClient.convertToType(data['combinations'], [JobOverridesCombinationsRoot]);
             }
-            if (data.hasOwnProperty('runAsSerialNumber')) {
+            if (data.hasOwnProperty('runAsSerialNumber') && obj['runAsSerialNumber'] === undefined) {
                 obj['runAsSerialNumber'] = ApiClient.convertToType(data['runAsSerialNumber'], 'String');
             }
+            
         }
         return obj;
     }

@@ -49,21 +49,22 @@ class GetCategoryDatasetListDataItems {
         if (data) {
             obj = obj || new GetCategoryDatasetListDataItems();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('depth')) {
+            if (data.hasOwnProperty('depth') && obj['depth'] === undefined) {
                 obj['depth'] = ApiClient.convertToType(data['depth'], 'Number');
             }
-            if (data.hasOwnProperty('system')) {
+            if (data.hasOwnProperty('system') && obj['system'] === undefined) {
                 obj['system'] = GetCategoryDatasetListDataItemsSystem.constructFromObject(data['system']);
             }
-            if (data.hasOwnProperty('delivery')) {
+            if (data.hasOwnProperty('delivery') && obj['delivery'] === undefined) {
                 obj['delivery'] = GetCategoryDatasetListDataItemsDelivery.constructFromObject(data['delivery']);
             }
+            
         }
         return obj;
     }

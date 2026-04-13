@@ -116,6 +116,8 @@ class DataAnswerData {
             case 'ValueLabelTemplate':
               return ValueLabelAnswer.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct DataAnswerData due to no matching discriminator value: " + data['template']);
         return obj;
     }
 

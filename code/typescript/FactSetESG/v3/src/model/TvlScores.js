@@ -49,123 +49,123 @@ class TvlScores {
         if (data) {
             obj = obj || new TvlScores();
 
-            ApiClient.constructFromObject(data, obj, 'Object');
-            
-
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('scoreType')) {
+            if (data.hasOwnProperty('scoreType') && obj['scoreType'] === undefined) {
                 obj['scoreType'] = ApiClient.convertToType(data['scoreType'], 'String');
             }
-            if (data.hasOwnProperty('allCategoriesPulse')) {
+            if (data.hasOwnProperty('allCategoriesPulse') && obj['allCategoriesPulse'] === undefined) {
                 obj['allCategoriesPulse'] = ApiClient.convertToType(data['allCategoriesPulse'], 'Number');
             }
-            if (data.hasOwnProperty('materialityPulse')) {
+            if (data.hasOwnProperty('materialityPulse') && obj['materialityPulse'] === undefined) {
                 obj['materialityPulse'] = ApiClient.convertToType(data['materialityPulse'], 'Number');
             }
-            if (data.hasOwnProperty('accessAffordPulse')) {
+            if (data.hasOwnProperty('accessAffordPulse') && obj['accessAffordPulse'] === undefined) {
                 obj['accessAffordPulse'] = ApiClient.convertToType(data['accessAffordPulse'], 'Number');
             }
-            if (data.hasOwnProperty('airQualityPulse')) {
+            if (data.hasOwnProperty('airQualityPulse') && obj['airQualityPulse'] === undefined) {
                 obj['airQualityPulse'] = ApiClient.convertToType(data['airQualityPulse'], 'Number');
             }
-            if (data.hasOwnProperty('businessEthicsPulse')) {
+            if (data.hasOwnProperty('businessEthicsPulse') && obj['businessEthicsPulse'] === undefined) {
                 obj['businessEthicsPulse'] = ApiClient.convertToType(data['businessEthicsPulse'], 'Number');
             }
-            if (data.hasOwnProperty('businessModelPulse')) {
+            if (data.hasOwnProperty('businessModelPulse') && obj['businessModelPulse'] === undefined) {
                 obj['businessModelPulse'] = ApiClient.convertToType(data['businessModelPulse'], 'Number');
             }
-            if (data.hasOwnProperty('competitivePulse')) {
+            if (data.hasOwnProperty('competitivePulse') && obj['competitivePulse'] === undefined) {
                 obj['competitivePulse'] = ApiClient.convertToType(data['competitivePulse'], 'Number');
             }
-            if (data.hasOwnProperty('criticalRiskPulse')) {
+            if (data.hasOwnProperty('criticalRiskPulse') && obj['criticalRiskPulse'] === undefined) {
                 obj['criticalRiskPulse'] = ApiClient.convertToType(data['criticalRiskPulse'], 'Number');
             }
-            if (data.hasOwnProperty('customerPrivPulse')) {
+            if (data.hasOwnProperty('customerPrivPulse') && obj['customerPrivPulse'] === undefined) {
                 obj['customerPrivPulse'] = ApiClient.convertToType(data['customerPrivPulse'], 'Number');
             }
-            if (data.hasOwnProperty('customePelfarePulse')) {
+            if (data.hasOwnProperty('customePelfarePulse') && obj['customePelfarePulse'] === undefined) {
                 obj['customePelfarePulse'] = ApiClient.convertToType(data['customePelfarePulse'], 'Number');
             }
-            if (data.hasOwnProperty('dataSecurityPulse')) {
+            if (data.hasOwnProperty('dataSecurityPulse') && obj['dataSecurityPulse'] === undefined) {
                 obj['dataSecurityPulse'] = ApiClient.convertToType(data['dataSecurityPulse'], 'Number');
             }
-            if (data.hasOwnProperty('ecologicalPulse')) {
+            if (data.hasOwnProperty('ecologicalPulse') && obj['ecologicalPulse'] === undefined) {
                 obj['ecologicalPulse'] = ApiClient.convertToType(data['ecologicalPulse'], 'Number');
             }
-            if (data.hasOwnProperty('employeeEngagementPulse')) {
+            if (data.hasOwnProperty('employeeEngagementPulse') && obj['employeeEngagementPulse'] === undefined) {
                 obj['employeeEngagementPulse'] = ApiClient.convertToType(data['employeeEngagementPulse'], 'Number');
             }
-            if (data.hasOwnProperty('employeeHealthPulse')) {
+            if (data.hasOwnProperty('employeeHealthPulse') && obj['employeeHealthPulse'] === undefined) {
                 obj['employeeHealthPulse'] = ApiClient.convertToType(data['employeeHealthPulse'], 'Number');
             }
-            if (data.hasOwnProperty('energyPulse')) {
+            if (data.hasOwnProperty('energyPulse') && obj['energyPulse'] === undefined) {
                 obj['energyPulse'] = ApiClient.convertToType(data['energyPulse'], 'Number');
             }
-            if (data.hasOwnProperty('ghgEmissionsPulse')) {
+            if (data.hasOwnProperty('ghgEmissionsPulse') && obj['ghgEmissionsPulse'] === undefined) {
                 obj['ghgEmissionsPulse'] = ApiClient.convertToType(data['ghgEmissionsPulse'], 'Number');
             }
-            if (data.hasOwnProperty('humanRightsPulse')) {
+            if (data.hasOwnProperty('humanRightsPulse') && obj['humanRightsPulse'] === undefined) {
                 obj['humanRightsPulse'] = ApiClient.convertToType(data['humanRightsPulse'], 'Number');
             }
-            if (data.hasOwnProperty('laborPracticesPulse')) {
+            if (data.hasOwnProperty('laborPracticesPulse') && obj['laborPracticesPulse'] === undefined) {
                 obj['laborPracticesPulse'] = ApiClient.convertToType(data['laborPracticesPulse'], 'Number');
             }
-            if (data.hasOwnProperty('legalRegulationsPulse')) {
+            if (data.hasOwnProperty('legalRegulationsPulse') && obj['legalRegulationsPulse'] === undefined) {
                 obj['legalRegulationsPulse'] = ApiClient.convertToType(data['legalRegulationsPulse'], 'Number');
             }
-            if (data.hasOwnProperty('materialSourcingPulse')) {
+            if (data.hasOwnProperty('materialSourcingPulse') && obj['materialSourcingPulse'] === undefined) {
                 obj['materialSourcingPulse'] = ApiClient.convertToType(data['materialSourcingPulse'], 'Number');
             }
-            if (data.hasOwnProperty('climateChangePulse')) {
+            if (data.hasOwnProperty('climateChangePulse') && obj['climateChangePulse'] === undefined) {
                 obj['climateChangePulse'] = ApiClient.convertToType(data['climateChangePulse'], 'Number');
             }
-            if (data.hasOwnProperty('productLifecyclePulse')) {
+            if (data.hasOwnProperty('productLifecyclePulse') && obj['productLifecyclePulse'] === undefined) {
                 obj['productLifecyclePulse'] = ApiClient.convertToType(data['productLifecyclePulse'], 'Number');
             }
-            if (data.hasOwnProperty('productQualityPulse')) {
+            if (data.hasOwnProperty('productQualityPulse') && obj['productQualityPulse'] === undefined) {
                 obj['productQualityPulse'] = ApiClient.convertToType(data['productQualityPulse'], 'Number');
             }
-            if (data.hasOwnProperty('sellingPracticesPulse')) {
+            if (data.hasOwnProperty('sellingPracticesPulse') && obj['sellingPracticesPulse'] === undefined) {
                 obj['sellingPracticesPulse'] = ApiClient.convertToType(data['sellingPracticesPulse'], 'Number');
             }
-            if (data.hasOwnProperty('supplyChainPulse')) {
+            if (data.hasOwnProperty('supplyChainPulse') && obj['supplyChainPulse'] === undefined) {
                 obj['supplyChainPulse'] = ApiClient.convertToType(data['supplyChainPulse'], 'Number');
             }
-            if (data.hasOwnProperty('systemicRiskPulse')) {
+            if (data.hasOwnProperty('systemicRiskPulse') && obj['systemicRiskPulse'] === undefined) {
                 obj['systemicRiskPulse'] = ApiClient.convertToType(data['systemicRiskPulse'], 'Number');
             }
-            if (data.hasOwnProperty('hazardousMaterialsPulse')) {
+            if (data.hasOwnProperty('hazardousMaterialsPulse') && obj['hazardousMaterialsPulse'] === undefined) {
                 obj['hazardousMaterialsPulse'] = ApiClient.convertToType(data['hazardousMaterialsPulse'], 'Number');
             }
-            if (data.hasOwnProperty('waterWasteWaterPulse')) {
+            if (data.hasOwnProperty('waterWasteWaterPulse') && obj['waterWasteWaterPulse'] === undefined) {
                 obj['waterWasteWaterPulse'] = ApiClient.convertToType(data['waterWasteWaterPulse'], 'Number');
             }
-            if (data.hasOwnProperty('dimBusinessCatvolDay')) {
+            if (data.hasOwnProperty('dimBusinessCatvolDay') && obj['dimBusinessCatvolDay'] === undefined) {
                 obj['dimBusinessCatvolDay'] = ApiClient.convertToType(data['dimBusinessCatvolDay'], 'Number');
             }
-            if (data.hasOwnProperty('dimEnvironmentCatvolDay')) {
+            if (data.hasOwnProperty('dimEnvironmentCatvolDay') && obj['dimEnvironmentCatvolDay'] === undefined) {
                 obj['dimEnvironmentCatvolDay'] = ApiClient.convertToType(data['dimEnvironmentCatvolDay'], 'Number');
             }
-            if (data.hasOwnProperty('dimHumancapCatvolDay')) {
+            if (data.hasOwnProperty('dimHumancapCatvolDay') && obj['dimHumancapCatvolDay'] === undefined) {
                 obj['dimHumancapCatvolDay'] = ApiClient.convertToType(data['dimHumancapCatvolDay'], 'Number');
             }
-            if (data.hasOwnProperty('dimLeadershipCatvolDay')) {
+            if (data.hasOwnProperty('dimLeadershipCatvolDay') && obj['dimLeadershipCatvolDay'] === undefined) {
                 obj['dimLeadershipCatvolDay'] = ApiClient.convertToType(data['dimLeadershipCatvolDay'], 'Number');
             }
-            if (data.hasOwnProperty('dimSocialcapCatvolDay')) {
+            if (data.hasOwnProperty('dimSocialcapCatvolDay') && obj['dimSocialcapCatvolDay'] === undefined) {
                 obj['dimSocialcapCatvolDay'] = ApiClient.convertToType(data['dimSocialcapCatvolDay'], 'Number');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
+            
+            ApiClient.constructFromObject(data, obj, Object);
+            
         }
         return obj;
     }

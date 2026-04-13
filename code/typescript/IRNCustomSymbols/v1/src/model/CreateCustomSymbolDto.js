@@ -47,42 +47,43 @@ class CreateCustomSymbolDto {
         if (data) {
             obj = obj || new CreateCustomSymbolDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('typeId')) {
+            if (data.hasOwnProperty('typeId') && obj['typeId'] === undefined) {
                 obj['typeId'] = ApiClient.convertToType(data['typeId'], 'String');
             }
-            if (data.hasOwnProperty('subTypeId')) {
+            if (data.hasOwnProperty('subTypeId') && obj['subTypeId'] === undefined) {
                 obj['subTypeId'] = ApiClient.convertToType(data['subTypeId'], 'String');
             }
-            if (data.hasOwnProperty('googleMapsPlaceId')) {
+            if (data.hasOwnProperty('googleMapsPlaceId') && obj['googleMapsPlaceId'] === undefined) {
                 obj['googleMapsPlaceId'] = ApiClient.convertToType(data['googleMapsPlaceId'], 'String');
             }
-            if (data.hasOwnProperty('formattedAddress')) {
+            if (data.hasOwnProperty('formattedAddress') && obj['formattedAddress'] === undefined) {
                 obj['formattedAddress'] = ApiClient.convertToType(data['formattedAddress'], 'String');
             }
-            if (data.hasOwnProperty('city')) {
+            if (data.hasOwnProperty('city') && obj['city'] === undefined) {
                 obj['city'] = ApiClient.convertToType(data['city'], 'String');
             }
-            if (data.hasOwnProperty('stateProvince')) {
+            if (data.hasOwnProperty('stateProvince') && obj['stateProvince'] === undefined) {
                 obj['stateProvince'] = ApiClient.convertToType(data['stateProvince'], 'String');
             }
-            if (data.hasOwnProperty('postalCode')) {
+            if (data.hasOwnProperty('postalCode') && obj['postalCode'] === undefined) {
                 obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('customFieldValues')) {
+            if (data.hasOwnProperty('customFieldValues') && obj['customFieldValues'] === undefined) {
                 obj['customFieldValues'] = ApiClient.convertToType(data['customFieldValues'], [CreateCustomSymbolCustomFieldValueDto]);
             }
+            
         }
         return obj;
     }

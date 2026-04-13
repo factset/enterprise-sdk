@@ -47,27 +47,28 @@ class SPARComponent {
         if (data) {
             obj = obj || new SPARComponent();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('accounts')) {
+            if (data.hasOwnProperty('accounts') && obj['accounts'] === undefined) {
                 obj['accounts'] = ApiClient.convertToType(data['accounts'], [SPARComponentIdentifier]);
             }
-            if (data.hasOwnProperty('benchmarks')) {
+            if (data.hasOwnProperty('benchmarks') && obj['benchmarks'] === undefined) {
                 obj['benchmarks'] = SPARComponentIdentifier.constructFromObject(data['benchmarks']);
             }
-            if (data.hasOwnProperty('currencyIsoCode')) {
+            if (data.hasOwnProperty('currencyIsoCode') && obj['currencyIsoCode'] === undefined) {
                 obj['currencyIsoCode'] = ApiClient.convertToType(data['currencyIsoCode'], 'String');
             }
-            if (data.hasOwnProperty('path')) {
+            if (data.hasOwnProperty('path') && obj['path'] === undefined) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
+            
         }
         return obj;
     }

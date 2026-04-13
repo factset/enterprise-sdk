@@ -48,9 +48,10 @@ class QuickAlertsBodyData {
         if (data) {
             obj = obj || new QuickAlertsBodyData();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            
         }
         return obj;
     }

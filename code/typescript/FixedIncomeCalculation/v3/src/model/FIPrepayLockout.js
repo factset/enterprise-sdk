@@ -46,12 +46,13 @@ class FIPrepayLockout {
         if (data) {
             obj = obj || new FIPrepayLockout();
 
-            if (data.hasOwnProperty('pointsAbove')) {
+            if (data.hasOwnProperty('pointsAbove') && obj['pointsAbove'] === undefined) {
                 obj['pointsAbove'] = ApiClient.convertToType(data['pointsAbove'], 'String');
             }
-            if (data.hasOwnProperty('ymAbove')) {
+            if (data.hasOwnProperty('ymAbove') && obj['ymAbove'] === undefined) {
                 obj['ymAbove'] = ApiClient.convertToType(data['ymAbove'], 'String');
             }
+            
         }
         return obj;
     }

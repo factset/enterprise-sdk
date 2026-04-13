@@ -55,18 +55,19 @@ class AdditionalCalculationInputsMarketExcess {
         if (data) {
             obj = obj || new AdditionalCalculationInputsMarketExcess();
 
-            if (data.hasOwnProperty('return')) {
+            if (data.hasOwnProperty('return') && obj['return'] === undefined) {
                 obj['return'] = ApiClient.convertToType(data['return'], 'Number');
             }
-            if (data.hasOwnProperty('riskFreeRate')) {
+            if (data.hasOwnProperty('riskFreeRate') && obj['riskFreeRate'] === undefined) {
                 obj['riskFreeRate'] = ApiClient.convertToType(data['riskFreeRate'], 'Number');
             }
-            if (data.hasOwnProperty('riskPremium')) {
+            if (data.hasOwnProperty('riskPremium') && obj['riskPremium'] === undefined) {
                 obj['riskPremium'] = ApiClient.convertToType(data['riskPremium'], 'Number');
             }
-            if (data.hasOwnProperty('riskPremiumPeriodsPerYear')) {
+            if (data.hasOwnProperty('riskPremiumPeriodsPerYear') && obj['riskPremiumPeriodsPerYear'] === undefined) {
                 obj['riskPremiumPeriodsPerYear'] = ApiClient.convertToType(data['riskPremiumPeriodsPerYear'], 'Number');
             }
+            
         }
         return obj;
     }

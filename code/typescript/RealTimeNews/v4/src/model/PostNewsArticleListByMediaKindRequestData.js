@@ -50,12 +50,13 @@ class PostNewsArticleListByMediaKindRequestData {
         if (data) {
             obj = obj || new PostNewsArticleListByMediaKindRequestData();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostNewsArticleListByMediaKindRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

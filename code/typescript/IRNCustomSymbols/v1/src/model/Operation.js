@@ -47,21 +47,22 @@ class Operation {
         if (data) {
             obj = obj || new Operation();
 
-            if (data.hasOwnProperty('operationType')) {
+            if (data.hasOwnProperty('operationType') && obj['operationType'] === undefined) {
                 obj['operationType'] = OperationType.constructFromObject(data['operationType']);
             }
-            if (data.hasOwnProperty('path')) {
+            if (data.hasOwnProperty('path') && obj['path'] === undefined) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
-            if (data.hasOwnProperty('op')) {
+            if (data.hasOwnProperty('op') && obj['op'] === undefined) {
                 obj['op'] = ApiClient.convertToType(data['op'], 'String');
             }
-            if (data.hasOwnProperty('from')) {
+            if (data.hasOwnProperty('from') && obj['from'] === undefined) {
                 obj['from'] = ApiClient.convertToType(data['from'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], Object);
             }
+            
         }
         return obj;
     }

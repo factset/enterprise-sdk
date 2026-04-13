@@ -48,9 +48,10 @@ class EstimateResponse {
         if (data) {
             obj = obj || new EstimateResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = EstimateResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class FileDownloadRequest {
         if (data) {
             obj = obj || new FileDownloadRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FileDownloadRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

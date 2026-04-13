@@ -49,21 +49,22 @@ class GrowthOf10Ks {
         if (data) {
             obj = obj || new GrowthOf10Ks();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('startAvailableHistoryDate')) {
+            if (data.hasOwnProperty('startAvailableHistoryDate') && obj['startAvailableHistoryDate'] === undefined) {
                 obj['startAvailableHistoryDate'] = ApiClient.convertToType(data['startAvailableHistoryDate'], 'Date');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('growthOf10K')) {
+            if (data.hasOwnProperty('growthOf10K') && obj['growthOf10K'] === undefined) {
                 obj['growthOf10K'] = ApiClient.convertToType(data['growthOf10K'], [GrowthOf10K]);
             }
+            
         }
         return obj;
     }

@@ -50,12 +50,13 @@ class FactsetTranslationAdvancedRequest {
         if (data) {
             obj = obj || new FactsetTranslationAdvancedRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('symbolType')) {
+            if (data.hasOwnProperty('symbolType') && obj['symbolType'] === undefined) {
                 obj['symbolType'] = GetSymbolType.constructFromObject(data['symbolType']);
             }
+            
         }
         return obj;
     }

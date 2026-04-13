@@ -51,12 +51,13 @@ class PostBasicValueUnitCurrencyMainListRequest {
         if (data) {
             obj = obj || new PostBasicValueUnitCurrencyMainListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostBasicValueUnitCurrencyMainListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostBasicValueUnitCurrencyListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

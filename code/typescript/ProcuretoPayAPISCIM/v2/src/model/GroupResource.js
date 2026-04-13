@@ -50,33 +50,34 @@ class GroupResource {
         if (data) {
             obj = obj || new GroupResource();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('externalId')) {
+            if (data.hasOwnProperty('externalId') && obj['externalId'] === undefined) {
                 obj['externalId'] = ApiClient.convertToType(data['externalId'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('members')) {
+            if (data.hasOwnProperty('members') && obj['members'] === undefined) {
                 obj['members'] = ApiClient.convertToType(data['members'], [GroupResourceMember]);
             }
-            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group')) {
+            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group') && obj['urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group'] === undefined) {
                 obj['urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group'] = GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.constructFromObject(data['urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group']);
             }
-            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:VRS:1.0:Group')) {
+            if (data.hasOwnProperty('urn:scim:schemas:extension:FactSet:VRS:1.0:Group') && obj['urn:scim:schemas:extension:FactSet:VRS:1.0:Group'] === undefined) {
                 obj['urn:scim:schemas:extension:FactSet:VRS:1.0:Group'] = GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.constructFromObject(data['urn:scim:schemas:extension:FactSet:VRS:1.0:Group']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = GroupResourceMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

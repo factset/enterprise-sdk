@@ -51,12 +51,13 @@ class UserResourceName {
         if (data) {
             obj = obj || new UserResourceName();
 
-            if (data.hasOwnProperty('familyName')) {
+            if (data.hasOwnProperty('familyName') && obj['familyName'] === undefined) {
                 obj['familyName'] = ApiClient.convertToType(data['familyName'], 'String');
             }
-            if (data.hasOwnProperty('givenName')) {
+            if (data.hasOwnProperty('givenName') && obj['givenName'] === undefined) {
                 obj['givenName'] = ApiClient.convertToType(data['givenName'], 'String');
             }
+            
         }
         return obj;
     }

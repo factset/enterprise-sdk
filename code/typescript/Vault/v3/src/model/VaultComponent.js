@@ -48,33 +48,34 @@ class VaultComponent {
         if (data) {
             obj = obj || new VaultComponent();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('account')) {
+            if (data.hasOwnProperty('account') && obj['account'] === undefined) {
                 obj['account'] = VaultIdentifier.constructFromObject(data['account']);
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = VaultIdentifier.constructFromObject(data['benchmark']);
             }
-            if (data.hasOwnProperty('currencyisocode')) {
+            if (data.hasOwnProperty('currencyisocode') && obj['currencyisocode'] === undefined) {
                 obj['currencyisocode'] = ApiClient.convertToType(data['currencyisocode'], 'String');
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = VaultDateParameters.constructFromObject(data['dates']);
             }
-            if (data.hasOwnProperty('snapshot')) {
+            if (data.hasOwnProperty('snapshot') && obj['snapshot'] === undefined) {
                 obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'Boolean');
             }
-            if (data.hasOwnProperty('path')) {
+            if (data.hasOwnProperty('path') && obj['path'] === undefined) {
                 obj['path'] = ApiClient.convertToType(data['path'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
+            
         }
         return obj;
     }

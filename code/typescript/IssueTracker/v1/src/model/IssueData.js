@@ -48,24 +48,25 @@ class IssueData {
         if (data) {
             obj = obj || new IssueData();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('subject')) {
+            if (data.hasOwnProperty('subject') && obj['subject'] === undefined) {
                 obj['subject'] = ApiClient.convertToType(data['subject'], 'String');
             }
-            if (data.hasOwnProperty('comments')) {
+            if (data.hasOwnProperty('comments') && obj['comments'] === undefined) {
                 obj['comments'] = ApiClient.convertToType(data['comments'], [Comment]);
             }
-            if (data.hasOwnProperty('severity')) {
+            if (data.hasOwnProperty('severity') && obj['severity'] === undefined) {
                 obj['severity'] = ApiClient.convertToType(data['severity'], 'String');
             }
-            if (data.hasOwnProperty('internalId')) {
+            if (data.hasOwnProperty('internalId') && obj['internalId'] === undefined) {
                 obj['internalId'] = ApiClient.convertToType(data['internalId'], 'Number');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            
         }
         return obj;
     }

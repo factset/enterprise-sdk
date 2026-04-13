@@ -46,27 +46,28 @@ class Checkstatus {
         if (data) {
             obj = obj || new Checkstatus();
 
-            if (data.hasOwnProperty('product')) {
+            if (data.hasOwnProperty('product') && obj['product'] === undefined) {
                 obj['product'] = ApiClient.convertToType(data['product'], 'String');
             }
-            if (data.hasOwnProperty('jobID')) {
+            if (data.hasOwnProperty('jobID') && obj['jobID'] === undefined) {
                 obj['jobID'] = ApiClient.convertToType(data['jobID'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('percentDone')) {
+            if (data.hasOwnProperty('percentDone') && obj['percentDone'] === undefined) {
                 obj['percentDone'] = ApiClient.convertToType(data['percentDone'], 'Number');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('part')) {
+            if (data.hasOwnProperty('part') && obj['part'] === undefined) {
                 obj['part'] = ApiClient.convertToType(data['part'], 'Number');
             }
+            
         }
         return obj;
     }

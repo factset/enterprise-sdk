@@ -51,12 +51,13 @@ class StatusPollResponseData {
         if (data) {
             obj = obj || new StatusPollResponseData();
 
-            if (data.hasOwnProperty('jobId')) {
+            if (data.hasOwnProperty('jobId') && obj['jobId'] === undefined) {
                 obj['jobId'] = ApiClient.convertToType(data['jobId'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            
         }
         return obj;
     }

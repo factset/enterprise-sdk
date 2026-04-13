@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidati
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationValueUnitSelection();
 
-            if (data.hasOwnProperty('restrict')) {
+            if (data.hasOwnProperty('restrict') && obj['restrict'] === undefined) {
                 obj['restrict'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationValueUnitSelectionRestrict.constructFromObject(data['restrict']);
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataValidationValueUnitSelectionExclude.constructFromObject(data['exclude']);
             }
+            
         }
         return obj;
     }

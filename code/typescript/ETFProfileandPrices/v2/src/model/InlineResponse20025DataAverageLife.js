@@ -47,36 +47,37 @@ class InlineResponse20025DataAverageLife {
         if (data) {
             obj = obj || new InlineResponse20025DataAverageLife();
 
-            if (data.hasOwnProperty('span')) {
+            if (data.hasOwnProperty('span') && obj['span'] === undefined) {
                 obj['span'] = ApiClient.convertToType(data['span'], 'Number');
             }
-            if (data.hasOwnProperty('span0To1')) {
+            if (data.hasOwnProperty('span0To1') && obj['span0To1'] === undefined) {
                 obj['span0To1'] = ApiClient.convertToType(data['span0To1'], 'Number');
             }
-            if (data.hasOwnProperty('span1To2')) {
+            if (data.hasOwnProperty('span1To2') && obj['span1To2'] === undefined) {
                 obj['span1To2'] = ApiClient.convertToType(data['span1To2'], 'Number');
             }
-            if (data.hasOwnProperty('span2To3')) {
+            if (data.hasOwnProperty('span2To3') && obj['span2To3'] === undefined) {
                 obj['span2To3'] = ApiClient.convertToType(data['span2To3'], 'Number');
             }
-            if (data.hasOwnProperty('span3To5')) {
+            if (data.hasOwnProperty('span3To5') && obj['span3To5'] === undefined) {
                 obj['span3To5'] = ApiClient.convertToType(data['span3To5'], 'Number');
             }
-            if (data.hasOwnProperty('span5To7')) {
+            if (data.hasOwnProperty('span5To7') && obj['span5To7'] === undefined) {
                 obj['span5To7'] = ApiClient.convertToType(data['span5To7'], 'Number');
             }
-            if (data.hasOwnProperty('span7To10')) {
+            if (data.hasOwnProperty('span7To10') && obj['span7To10'] === undefined) {
                 obj['span7To10'] = ApiClient.convertToType(data['span7To10'], 'Number');
             }
-            if (data.hasOwnProperty('span10To15')) {
+            if (data.hasOwnProperty('span10To15') && obj['span10To15'] === undefined) {
                 obj['span10To15'] = ApiClient.convertToType(data['span10To15'], 'Number');
             }
-            if (data.hasOwnProperty('span15To20')) {
+            if (data.hasOwnProperty('span15To20') && obj['span15To20'] === undefined) {
                 obj['span15To20'] = ApiClient.convertToType(data['span15To20'], 'Number');
             }
-            if (data.hasOwnProperty('span20Plus')) {
+            if (data.hasOwnProperty('span20Plus') && obj['span20Plus'] === undefined) {
                 obj['span20Plus'] = ApiClient.convertToType(data['span20Plus'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -53,42 +53,43 @@ class RollingDetailRequest {
         if (data) {
             obj = obj || new RollingDetailRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = Frequency.constructFromObject(data['frequency']);
             }
-            if (data.hasOwnProperty('includeAll')) {
+            if (data.hasOwnProperty('includeAll') && obj['includeAll'] === undefined) {
                 obj['includeAll'] = ApiClient.convertToType(data['includeAll'], 'Boolean');
             }
-            if (data.hasOwnProperty('relativeFiscalStart')) {
+            if (data.hasOwnProperty('relativeFiscalStart') && obj['relativeFiscalStart'] === undefined) {
                 obj['relativeFiscalStart'] = ApiClient.convertToType(data['relativeFiscalStart'], 'Number');
             }
-            if (data.hasOwnProperty('relativeFiscalEnd')) {
+            if (data.hasOwnProperty('relativeFiscalEnd') && obj['relativeFiscalEnd'] === undefined) {
                 obj['relativeFiscalEnd'] = ApiClient.convertToType(data['relativeFiscalEnd'], 'Number');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = PeriodicityDetail.constructFromObject(data['periodicity']);
             }
-            if (data.hasOwnProperty('metrics')) {
+            if (data.hasOwnProperty('metrics') && obj['metrics'] === undefined) {
                 obj['metrics'] = ApiClient.convertToType(data['metrics'], ['String']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('brokerNames')) {
+            if (data.hasOwnProperty('brokerNames') && obj['brokerNames'] === undefined) {
                 obj['brokerNames'] = ApiClient.convertToType(data['brokerNames'], ['String']);
             }
-            if (data.hasOwnProperty('updatesOnly')) {
+            if (data.hasOwnProperty('updatesOnly') && obj['updatesOnly'] === undefined) {
                 obj['updatesOnly'] = ApiClient.convertToType(data['updatesOnly'], 'Boolean');
             }
+            
         }
         return obj;
     }

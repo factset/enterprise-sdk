@@ -50,9 +50,10 @@ class GIPSCalculationParametersRoot {
         if (data) {
             obj = obj || new GIPSCalculationParametersRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': GIPSCalculationParameters});
             }
+            
         }
         return obj;
     }

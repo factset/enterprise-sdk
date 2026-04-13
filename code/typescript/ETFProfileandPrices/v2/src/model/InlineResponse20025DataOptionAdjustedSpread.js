@@ -47,42 +47,43 @@ class InlineResponse20025DataOptionAdjustedSpread {
         if (data) {
             obj = obj || new InlineResponse20025DataOptionAdjustedSpread();
 
-            if (data.hasOwnProperty('range0')) {
+            if (data.hasOwnProperty('range0') && obj['range0'] === undefined) {
                 obj['range0'] = ApiClient.convertToType(data['range0'], 'Number');
             }
-            if (data.hasOwnProperty('range0To100')) {
+            if (data.hasOwnProperty('range0To100') && obj['range0To100'] === undefined) {
                 obj['range0To100'] = ApiClient.convertToType(data['range0To100'], 'Number');
             }
-            if (data.hasOwnProperty('range100To200')) {
+            if (data.hasOwnProperty('range100To200') && obj['range100To200'] === undefined) {
                 obj['range100To200'] = ApiClient.convertToType(data['range100To200'], 'Number');
             }
-            if (data.hasOwnProperty('range200To300')) {
+            if (data.hasOwnProperty('range200To300') && obj['range200To300'] === undefined) {
                 obj['range200To300'] = ApiClient.convertToType(data['range200To300'], 'Number');
             }
-            if (data.hasOwnProperty('range300To400')) {
+            if (data.hasOwnProperty('range300To400') && obj['range300To400'] === undefined) {
                 obj['range300To400'] = ApiClient.convertToType(data['range300To400'], 'Number');
             }
-            if (data.hasOwnProperty('range400To500')) {
+            if (data.hasOwnProperty('range400To500') && obj['range400To500'] === undefined) {
                 obj['range400To500'] = ApiClient.convertToType(data['range400To500'], 'Number');
             }
-            if (data.hasOwnProperty('range500To600')) {
+            if (data.hasOwnProperty('range500To600') && obj['range500To600'] === undefined) {
                 obj['range500To600'] = ApiClient.convertToType(data['range500To600'], 'Number');
             }
-            if (data.hasOwnProperty('range600To700')) {
+            if (data.hasOwnProperty('range600To700') && obj['range600To700'] === undefined) {
                 obj['range600To700'] = ApiClient.convertToType(data['range600To700'], 'Number');
             }
-            if (data.hasOwnProperty('range700To800')) {
+            if (data.hasOwnProperty('range700To800') && obj['range700To800'] === undefined) {
                 obj['range700To800'] = ApiClient.convertToType(data['range700To800'], 'Number');
             }
-            if (data.hasOwnProperty('range800To900')) {
+            if (data.hasOwnProperty('range800To900') && obj['range800To900'] === undefined) {
                 obj['range800To900'] = ApiClient.convertToType(data['range800To900'], 'Number');
             }
-            if (data.hasOwnProperty('range900To1000')) {
+            if (data.hasOwnProperty('range900To1000') && obj['range900To1000'] === undefined) {
                 obj['range900To1000'] = ApiClient.convertToType(data['range900To1000'], 'Number');
             }
-            if (data.hasOwnProperty('range1000Plus')) {
+            if (data.hasOwnProperty('range1000Plus') && obj['range1000Plus'] === undefined) {
                 obj['range1000Plus'] = ApiClient.convertToType(data['range1000Plus'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdgImpact {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdgImpact();
 
-            if (data.hasOwnProperty('insight')) {
+            if (data.hasOwnProperty('insight') && obj['insight'] === undefined) {
                 obj['insight'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasbAllCategoriesInsight.constructFromObject(data['insight']);
             }
-            if (data.hasOwnProperty('momentum')) {
+            if (data.hasOwnProperty('momentum') && obj['momentum'] === undefined) {
                 obj['momentum'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdgImpactMomentum.constructFromObject(data['momentum']);
             }
+            
         }
         return obj;
     }

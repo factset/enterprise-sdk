@@ -48,9 +48,10 @@ class FlattenedFiltersCountries {
         if (data) {
             obj = obj || new FlattenedFiltersCountries();
 
-            if (data.hasOwnProperty('countries')) {
+            if (data.hasOwnProperty('countries') && obj['countries'] === undefined) {
                 obj['countries'] = ApiClient.convertToType(data['countries'], [FlattenedFiltersCountriesObject]);
             }
+            
         }
         return obj;
     }

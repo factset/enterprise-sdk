@@ -47,9 +47,10 @@ class AXPOptimizationParametersRequest {
         if (data) {
             obj = obj || new AXPOptimizationParametersRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AXPOptimizationParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

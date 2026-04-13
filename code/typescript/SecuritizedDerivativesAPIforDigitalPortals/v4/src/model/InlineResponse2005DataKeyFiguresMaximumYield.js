@@ -50,15 +50,16 @@ class InlineResponse2005DataKeyFiguresMaximumYield {
         if (data) {
             obj = obj || new InlineResponse2005DataKeyFiguresMaximumYield();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = InlineResponse2005DataKeyFiguresMaximumYieldAbsolute.constructFromObject(data['absolute']);
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = InlineResponse2005DataKeyFiguresMaximumYieldRelative.constructFromObject(data['relative']);
             }
-            if (data.hasOwnProperty('annualized')) {
+            if (data.hasOwnProperty('annualized') && obj['annualized'] === undefined) {
                 obj['annualized'] = InlineResponse2005DataKeyFiguresMaximumYieldAnnualized.constructFromObject(data['annualized']);
             }
+            
         }
         return obj;
     }

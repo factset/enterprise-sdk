@@ -50,18 +50,19 @@ class OptimizerInputsMPTargetProbabilityTerm {
         if (data) {
             obj = obj || new OptimizerInputsMPTargetProbabilityTerm();
 
-            if (data.hasOwnProperty('term')) {
+            if (data.hasOwnProperty('term') && obj['term'] === undefined) {
                 obj['term'] = OptimizerInputsTargetProbabilityTerm.constructFromObject(data['term']);
             }
-            if (data.hasOwnProperty('constrain_on')) {
+            if (data.hasOwnProperty('constrain_on') && obj['constrain_on'] === undefined) {
                 obj['constrain_on'] = OptimizerInputsBoundSourceEnum.constructFromObject(data['constrain_on']);
             }
-            if (data.hasOwnProperty('on_periods')) {
+            if (data.hasOwnProperty('on_periods') && obj['on_periods'] === undefined) {
                 obj['on_periods'] = OptimizerInputsOnPeriods.constructFromObject(data['on_periods']);
             }
-            if (data.hasOwnProperty('across_periods')) {
+            if (data.hasOwnProperty('across_periods') && obj['across_periods'] === undefined) {
                 obj['across_periods'] = OptimizerInputsAcrossPeriods.constructFromObject(data['across_periods']);
             }
+            
         }
         return obj;
     }

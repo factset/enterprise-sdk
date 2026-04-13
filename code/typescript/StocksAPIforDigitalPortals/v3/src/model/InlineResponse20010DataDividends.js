@@ -51,24 +51,25 @@ class InlineResponse20010DataDividends {
         if (data) {
             obj = obj || new InlineResponse20010DataDividends();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = InlineResponse20010DataType.constructFromObject(data['type']);
             }
-            if (data.hasOwnProperty('occurrence')) {
+            if (data.hasOwnProperty('occurrence') && obj['occurrence'] === undefined) {
                 obj['occurrence'] = InlineResponse20010DataOccurrence.constructFromObject(data['occurrence']);
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = InlineResponse20010DataDates.constructFromObject(data['dates']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse20010DataCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('gross')) {
+            if (data.hasOwnProperty('gross') && obj['gross'] === undefined) {
                 obj['gross'] = InlineResponse20010DataGross.constructFromObject(data['gross']);
             }
+            
         }
         return obj;
     }

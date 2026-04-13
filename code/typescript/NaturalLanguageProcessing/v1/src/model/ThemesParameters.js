@@ -51,12 +51,13 @@ class ThemesParameters {
         if (data) {
             obj = obj || new ThemesParameters();
 
-            if (data.hasOwnProperty('includeSentiments')) {
+            if (data.hasOwnProperty('includeSentiments') && obj['includeSentiments'] === undefined) {
                 obj['includeSentiments'] = ApiClient.convertToType(data['includeSentiments'], 'Boolean');
             }
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
+            
         }
         return obj;
     }

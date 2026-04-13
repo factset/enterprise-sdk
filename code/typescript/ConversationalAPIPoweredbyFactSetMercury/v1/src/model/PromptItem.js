@@ -50,12 +50,13 @@ class PromptItem {
         if (data) {
             obj = obj || new PromptItem();
 
-            if (data.hasOwnProperty('prompt')) {
+            if (data.hasOwnProperty('prompt') && obj['prompt'] === undefined) {
                 obj['prompt'] = ApiClient.convertToType(data['prompt'], 'String');
             }
-            if (data.hasOwnProperty('promptParameters')) {
+            if (data.hasOwnProperty('promptParameters') && obj['promptParameters'] === undefined) {
                 obj['promptParameters'] = PromptParameters.constructFromObject(data['promptParameters']);
             }
+            
         }
         return obj;
     }

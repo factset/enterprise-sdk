@@ -47,63 +47,64 @@ class Fields {
         if (data) {
             obj = obj || new Fields();
 
-            if (data.hasOwnProperty('BID_1')) {
+            if (data.hasOwnProperty('BID_1') && obj['BID_1'] === undefined) {
                 obj['BID_1'] = ApiClient.convertToType(data['BID_1'], 'Number');
             }
-            if (data.hasOwnProperty('BID_VOL_1')) {
+            if (data.hasOwnProperty('BID_VOL_1') && obj['BID_VOL_1'] === undefined) {
                 obj['BID_VOL_1'] = ApiClient.convertToType(data['BID_VOL_1'], 'Number');
             }
-            if (data.hasOwnProperty('BID_EXCH_1')) {
+            if (data.hasOwnProperty('BID_EXCH_1') && obj['BID_EXCH_1'] === undefined) {
                 obj['BID_EXCH_1'] = ApiClient.convertToType(data['BID_EXCH_1'], 'String');
             }
-            if (data.hasOwnProperty('ASK_1')) {
+            if (data.hasOwnProperty('ASK_1') && obj['ASK_1'] === undefined) {
                 obj['ASK_1'] = ApiClient.convertToType(data['ASK_1'], 'Number');
             }
-            if (data.hasOwnProperty('ASK_VOL_1')) {
+            if (data.hasOwnProperty('ASK_VOL_1') && obj['ASK_VOL_1'] === undefined) {
                 obj['ASK_VOL_1'] = ApiClient.convertToType(data['ASK_VOL_1'], 'Number');
             }
-            if (data.hasOwnProperty('ASK_EXCH_1')) {
+            if (data.hasOwnProperty('ASK_EXCH_1') && obj['ASK_EXCH_1'] === undefined) {
                 obj['ASK_EXCH_1'] = ApiClient.convertToType(data['ASK_EXCH_1'], 'String');
             }
-            if (data.hasOwnProperty('LAST_1')) {
+            if (data.hasOwnProperty('LAST_1') && obj['LAST_1'] === undefined) {
                 obj['LAST_1'] = ApiClient.convertToType(data['LAST_1'], 'Number');
             }
-            if (data.hasOwnProperty('LAST_DATE_1')) {
+            if (data.hasOwnProperty('LAST_DATE_1') && obj['LAST_DATE_1'] === undefined) {
                 obj['LAST_DATE_1'] = ApiClient.convertToType(data['LAST_DATE_1'], 'String');
             }
-            if (data.hasOwnProperty('LAST_TIME_1')) {
+            if (data.hasOwnProperty('LAST_TIME_1') && obj['LAST_TIME_1'] === undefined) {
                 obj['LAST_TIME_1'] = ApiClient.convertToType(data['LAST_TIME_1'], 'String');
             }
-            if (data.hasOwnProperty('LAST_VOL_1')) {
+            if (data.hasOwnProperty('LAST_VOL_1') && obj['LAST_VOL_1'] === undefined) {
                 obj['LAST_VOL_1'] = ApiClient.convertToType(data['LAST_VOL_1'], 'Number');
             }
-            if (data.hasOwnProperty('LAST_EXCH_1')) {
+            if (data.hasOwnProperty('LAST_EXCH_1') && obj['LAST_EXCH_1'] === undefined) {
                 obj['LAST_EXCH_1'] = ApiClient.convertToType(data['LAST_EXCH_1'], 'String');
             }
-            if (data.hasOwnProperty('CUM_VOL')) {
+            if (data.hasOwnProperty('CUM_VOL') && obj['CUM_VOL'] === undefined) {
                 obj['CUM_VOL'] = ApiClient.convertToType(data['CUM_VOL'], 'Number');
             }
-            if (data.hasOwnProperty('VWAP')) {
+            if (data.hasOwnProperty('VWAP') && obj['VWAP'] === undefined) {
                 obj['VWAP'] = ApiClient.convertToType(data['VWAP'], 'Number');
             }
-            if (data.hasOwnProperty('OPEN_1')) {
+            if (data.hasOwnProperty('OPEN_1') && obj['OPEN_1'] === undefined) {
                 obj['OPEN_1'] = ApiClient.convertToType(data['OPEN_1'], 'Number');
             }
-            if (data.hasOwnProperty('HIGH_1')) {
+            if (data.hasOwnProperty('HIGH_1') && obj['HIGH_1'] === undefined) {
                 obj['HIGH_1'] = ApiClient.convertToType(data['HIGH_1'], 'Number');
             }
-            if (data.hasOwnProperty('LOW_1')) {
+            if (data.hasOwnProperty('LOW_1') && obj['LOW_1'] === undefined) {
                 obj['LOW_1'] = ApiClient.convertToType(data['LOW_1'], 'Number');
             }
-            if (data.hasOwnProperty('TRADE_CONDITION')) {
+            if (data.hasOwnProperty('TRADE_CONDITION') && obj['TRADE_CONDITION'] === undefined) {
                 obj['TRADE_CONDITION'] = ApiClient.convertToType(data['TRADE_CONDITION'], 'String');
             }
-            if (data.hasOwnProperty('GMT_OFFSET')) {
+            if (data.hasOwnProperty('GMT_OFFSET') && obj['GMT_OFFSET'] === undefined) {
                 obj['GMT_OFFSET'] = ApiClient.convertToType(data['GMT_OFFSET'], 'Number');
             }
-            if (data.hasOwnProperty('PRICE_CURRENCY')) {
+            if (data.hasOwnProperty('PRICE_CURRENCY') && obj['PRICE_CURRENCY'] === undefined) {
                 obj['PRICE_CURRENCY'] = ApiClient.convertToType(data['PRICE_CURRENCY'], 'String');
             }
+            
         }
         return obj;
     }

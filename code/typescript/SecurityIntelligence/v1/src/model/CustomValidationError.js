@@ -50,9 +50,10 @@ class CustomValidationError {
         if (data) {
             obj = obj || new CustomValidationError();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorItem]);
             }
+            
         }
         return obj;
     }

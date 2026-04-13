@@ -1,5 +1,27 @@
 # Breaking Changes
 
+## 2026-04-09 TypeScript SDKs: oneOf/anyOf Deserialization Fix
+
+This update improves support for composed schemas (`oneOf`/`anyOf`) in TypeScript SDKs. Previously, `constructFromObject` would unconditionally call every interface parser, causing `data.map is not a function` errors when a response didn't match a particular schema leg. The fix applies interface parsers conditionally and stops overwriting properties that were already successfully parsed.
+
+**Before:**
+
+```js
+const val = response.someField; // { value: 123.45 } — wrapped object
+console.log(val.value);         // 123.45 — required extra .value access
+```
+
+**After:**
+
+```js
+const val = response.someField; // 123.45 — direct primitive value
+console.log(val);               // 123.45
+```
+
+**Affected SDKs:**
+- Formula (TypeScript)
+- Quant Engine (TypeScript)
+
 ## 2025-09-03 Formula API SDK: Removal of GET Endpoint versions and Deserialization fix for BatchData
 
 ### Removal of GET Endpoint versions

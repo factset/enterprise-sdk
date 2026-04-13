@@ -49,9 +49,10 @@ class MetaData {
         if (data) {
             obj = obj || new MetaData();
 
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
+            
         }
         return obj;
     }

@@ -61,30 +61,31 @@ class SupportedStatDetails {
         if (data) {
             obj = obj || new SupportedStatDetails();
 
-            if (data.hasOwnProperty('correlatedSpecificRisk')) {
+            if (data.hasOwnProperty('correlatedSpecificRisk') && obj['correlatedSpecificRisk'] === undefined) {
                 obj['correlatedSpecificRisk'] = ApiClient.convertToType(data['correlatedSpecificRisk'], 'Boolean');
             }
-            if (data.hasOwnProperty('covarianceTimesTwo')) {
+            if (data.hasOwnProperty('covarianceTimesTwo') && obj['covarianceTimesTwo'] === undefined) {
                 obj['covarianceTimesTwo'] = ApiClient.convertToType(data['covarianceTimesTwo'], 'Boolean');
             }
-            if (data.hasOwnProperty('requiresCorrelatedSpecificRisk')) {
+            if (data.hasOwnProperty('requiresCorrelatedSpecificRisk') && obj['requiresCorrelatedSpecificRisk'] === undefined) {
                 obj['requiresCorrelatedSpecificRisk'] = ApiClient.convertToType(data['requiresCorrelatedSpecificRisk'], 'Boolean');
             }
-            if (data.hasOwnProperty('requiresCovarianceTimesTwo')) {
+            if (data.hasOwnProperty('requiresCovarianceTimesTwo') && obj['requiresCovarianceTimesTwo'] === undefined) {
                 obj['requiresCovarianceTimesTwo'] = ApiClient.convertToType(data['requiresCovarianceTimesTwo'], 'Boolean');
             }
-            if (data.hasOwnProperty('derived')) {
+            if (data.hasOwnProperty('derived') && obj['derived'] === undefined) {
                 obj['derived'] = ApiClient.convertToType(data['derived'], ['String']);
             }
-            if (data.hasOwnProperty('supportedLevels')) {
+            if (data.hasOwnProperty('supportedLevels') && obj['supportedLevels'] === undefined) {
                 obj['supportedLevels'] = ApiClient.convertToType(data['supportedLevels'], [StatCalculationLevel]);
             }
-            if (data.hasOwnProperty('securityGroupMethod')) {
+            if (data.hasOwnProperty('securityGroupMethod') && obj['securityGroupMethod'] === undefined) {
                 obj['securityGroupMethod'] = SupportedStatDetailsSecurityGroupMethod.constructFromObject(data['securityGroupMethod']);
             }
-            if (data.hasOwnProperty('securityLotAllocation')) {
+            if (data.hasOwnProperty('securityLotAllocation') && obj['securityLotAllocation'] === undefined) {
                 obj['securityLotAllocation'] = ApiClient.convertToType(data['securityLotAllocation'], 'String');
             }
+            
         }
         return obj;
     }

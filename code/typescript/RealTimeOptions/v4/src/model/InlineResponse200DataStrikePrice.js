@@ -48,12 +48,13 @@ class InlineResponse200DataStrikePrice {
         if (data) {
             obj = obj || new InlineResponse200DataStrikePrice();
 
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = ApiClient.convertToType(data['level'], 'Number');
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = InlineResponse200DataStrikePriceValueUnit.constructFromObject(data['valueUnit']);
             }
+            
         }
         return obj;
     }

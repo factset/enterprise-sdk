@@ -48,9 +48,10 @@ class SedolHistoryTranslationResponse {
         if (data) {
             obj = obj || new SedolHistoryTranslationResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SedolHistoryTranslation]);
             }
+            
         }
         return obj;
     }

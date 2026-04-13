@@ -53,15 +53,16 @@ class PromptParameter {
         if (data) {
             obj = obj || new PromptParameter();
 
-            if (data.hasOwnProperty('selectionType')) {
+            if (data.hasOwnProperty('selectionType') && obj['selectionType'] === undefined) {
                 obj['selectionType'] = ApiClient.convertToType(data['selectionType'], 'String');
             }
-            if (data.hasOwnProperty('placeHolder')) {
+            if (data.hasOwnProperty('placeHolder') && obj['placeHolder'] === undefined) {
                 obj['placeHolder'] = ApiClient.convertToType(data['placeHolder'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], ['String']);
             }
+            
         }
         return obj;
     }

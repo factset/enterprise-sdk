@@ -47,12 +47,13 @@ class InlineResponse2003DataPricesBid {
         if (data) {
             obj = obj || new InlineResponse2003DataPricesBid();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -48,12 +48,13 @@ class AggregateMarketImpact {
         if (data) {
             obj = obj || new AggregateMarketImpact();
 
-            if (data.hasOwnProperty('client')) {
+            if (data.hasOwnProperty('client') && obj['client'] === undefined) {
                 obj['client'] = ApiClient.convertToType(data['client'], [CostImpactV3]);
             }
-            if (data.hasOwnProperty('peer')) {
+            if (data.hasOwnProperty('peer') && obj['peer'] === undefined) {
                 obj['peer'] = ApiClient.convertToType(data['peer'], [CostImpactV3]);
             }
+            
         }
         return obj;
     }

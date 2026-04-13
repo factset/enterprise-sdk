@@ -46,39 +46,40 @@ class TransactionRule {
         if (data) {
             obj = obj || new TransactionRule();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('amount')) {
+            if (data.hasOwnProperty('amount') && obj['amount'] === undefined) {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
             }
-            if (data.hasOwnProperty('amountType')) {
+            if (data.hasOwnProperty('amountType') && obj['amountType'] === undefined) {
                 obj['amountType'] = ApiClient.convertToType(data['amountType'], 'String');
             }
-            if (data.hasOwnProperty('amountGrowth')) {
+            if (data.hasOwnProperty('amountGrowth') && obj['amountGrowth'] === undefined) {
                 obj['amountGrowth'] = ApiClient.convertToType(data['amountGrowth'], 'Number');
             }
-            if (data.hasOwnProperty('amountGrowthType')) {
+            if (data.hasOwnProperty('amountGrowthType') && obj['amountGrowthType'] === undefined) {
                 obj['amountGrowthType'] = ApiClient.convertToType(data['amountGrowthType'], 'String');
             }
-            if (data.hasOwnProperty('amountGrowthFrequency')) {
+            if (data.hasOwnProperty('amountGrowthFrequency') && obj['amountGrowthFrequency'] === undefined) {
                 obj['amountGrowthFrequency'] = ApiClient.convertToType(data['amountGrowthFrequency'], 'Number');
             }
-            if (data.hasOwnProperty('allowPartialAmount')) {
+            if (data.hasOwnProperty('allowPartialAmount') && obj['allowPartialAmount'] === undefined) {
                 obj['allowPartialAmount'] = ApiClient.convertToType(data['allowPartialAmount'], 'Boolean');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'Number');
             }
-            if (data.hasOwnProperty('frequencyAlignment')) {
+            if (data.hasOwnProperty('frequencyAlignment') && obj['frequencyAlignment'] === undefined) {
                 obj['frequencyAlignment'] = ApiClient.convertToType(data['frequencyAlignment'], 'Number');
             }
+            
         }
         return obj;
     }

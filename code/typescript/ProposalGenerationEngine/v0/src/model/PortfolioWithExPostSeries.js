@@ -52,21 +52,26 @@ class PortfolioWithExPostSeries {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new PortfolioWithExPostSeries();
-            PortfolioEntity.constructFromObject(data, obj);
-            PortfolioWithExPostSeriesAllOf.constructFromObject(data, obj);
+            try {
+              obj = PortfolioEntity.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = PortfolioWithExPostSeriesAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = PortfolioEntityDetails.constructFromObject(data['details']);
             }
-            if (data.hasOwnProperty('series')) {
+            if (data.hasOwnProperty('series') && obj['series'] === undefined) {
                 obj['series'] = TimeWindowSeries.constructFromObject(data['series']);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = PeriodSeries.constructFromObject(data['periods']);
             }
+            
         }
         return obj;
     }

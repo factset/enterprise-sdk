@@ -46,9 +46,10 @@ class ClassificationsResponseRoot {
         if (data) {
             obj = obj || new ClassificationsResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': ['String']});
             }
+            
         }
         return obj;
     }

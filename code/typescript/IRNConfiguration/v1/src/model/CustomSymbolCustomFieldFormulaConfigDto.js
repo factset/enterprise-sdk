@@ -50,12 +50,13 @@ class CustomSymbolCustomFieldFormulaConfigDto {
         if (data) {
             obj = obj || new CustomSymbolCustomFieldFormulaConfigDto();
 
-            if (data.hasOwnProperty('formula')) {
+            if (data.hasOwnProperty('formula') && obj['formula'] === undefined) {
                 obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('formulaType')) {
+            if (data.hasOwnProperty('formulaType') && obj['formulaType'] === undefined) {
                 obj['formulaType'] = ApiClient.convertToType(data['formulaType'], 'String');
             }
+            
         }
         return obj;
     }

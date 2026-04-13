@@ -49,12 +49,13 @@ class PostOptionByClassListRequestDataKeyFiguresGammaMinimum {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataKeyFiguresGammaMinimum();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('inclusive')) {
+            if (data.hasOwnProperty('inclusive') && obj['inclusive'] === undefined) {
                 obj['inclusive'] = ApiClient.convertToType(data['inclusive'], 'Boolean');
             }
+            
         }
         return obj;
     }

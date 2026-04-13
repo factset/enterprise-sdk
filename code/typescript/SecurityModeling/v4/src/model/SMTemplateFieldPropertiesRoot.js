@@ -49,9 +49,10 @@ class SMTemplateFieldPropertiesRoot {
         if (data) {
             obj = obj || new SMTemplateFieldPropertiesRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': SMTemplateFieldProperties});
             }
+            
         }
         return obj;
     }

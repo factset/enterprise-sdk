@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationE
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationEusipaItems();
 
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationEusipaItemsLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCategorizationEusipaCategoriesItems]);
             }
+            
         }
         return obj;
     }

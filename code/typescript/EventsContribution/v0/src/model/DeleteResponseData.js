@@ -48,12 +48,13 @@ class DeleteResponseData {
         if (data) {
             obj = obj || new DeleteResponseData();
 
-            if (data.hasOwnProperty('eventData')) {
+            if (data.hasOwnProperty('eventData') && obj['eventData'] === undefined) {
                 obj['eventData'] = DeleteResponseDataEventData.constructFromObject(data['eventData']);
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = DeleteResponseDataMessage.constructFromObject(data['message']);
             }
+            
         }
         return obj;
     }

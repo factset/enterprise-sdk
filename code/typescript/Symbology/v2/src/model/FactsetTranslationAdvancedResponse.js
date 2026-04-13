@@ -48,9 +48,10 @@ class FactsetTranslationAdvancedResponse {
         if (data) {
             obj = obj || new FactsetTranslationAdvancedResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FactsetTranslationAdvanced]);
             }
+            
         }
         return obj;
     }

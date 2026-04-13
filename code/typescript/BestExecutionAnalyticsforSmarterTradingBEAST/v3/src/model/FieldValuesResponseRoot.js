@@ -50,9 +50,10 @@ class FieldValuesResponseRoot {
         if (data) {
             obj = obj || new FieldValuesResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FieldValuesResponse]);
             }
+            
         }
         return obj;
     }

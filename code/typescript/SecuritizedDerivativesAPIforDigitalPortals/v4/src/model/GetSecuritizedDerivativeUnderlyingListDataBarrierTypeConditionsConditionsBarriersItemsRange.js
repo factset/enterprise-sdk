@@ -49,12 +49,13 @@ class GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsB
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRange();
 
-            if (data.hasOwnProperty('upper')) {
+            if (data.hasOwnProperty('upper') && obj['upper'] === undefined) {
                 obj['upper'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeUpper.constructFromObject(data['upper']);
             }
-            if (data.hasOwnProperty('lower')) {
+            if (data.hasOwnProperty('lower') && obj['lower'] === undefined) {
                 obj['lower'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeLower.constructFromObject(data['lower']);
             }
+            
         }
         return obj;
     }

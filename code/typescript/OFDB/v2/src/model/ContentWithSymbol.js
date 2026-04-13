@@ -47,9 +47,10 @@ class ContentWithSymbol {
         if (data) {
             obj = obj || new ContentWithSymbol();
 
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], [SymbolAndFields]);
             }
+            
         }
         return obj;
     }

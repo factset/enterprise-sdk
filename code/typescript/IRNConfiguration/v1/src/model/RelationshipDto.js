@@ -46,36 +46,37 @@ class RelationshipDto {
         if (data) {
             obj = obj || new RelationshipDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('relationshipCategoryId')) {
+            if (data.hasOwnProperty('relationshipCategoryId') && obj['relationshipCategoryId'] === undefined) {
                 obj['relationshipCategoryId'] = ApiClient.convertToType(data['relationshipCategoryId'], 'String');
             }
-            if (data.hasOwnProperty('relationshipCode')) {
+            if (data.hasOwnProperty('relationshipCode') && obj['relationshipCode'] === undefined) {
                 obj['relationshipCode'] = ApiClient.convertToType(data['relationshipCode'], 'String');
             }
-            if (data.hasOwnProperty('bidirectionalName')) {
+            if (data.hasOwnProperty('bidirectionalName') && obj['bidirectionalName'] === undefined) {
                 obj['bidirectionalName'] = ApiClient.convertToType(data['bidirectionalName'], 'String');
             }
-            if (data.hasOwnProperty('leftToRightName')) {
+            if (data.hasOwnProperty('leftToRightName') && obj['leftToRightName'] === undefined) {
                 obj['leftToRightName'] = ApiClient.convertToType(data['leftToRightName'], 'String');
             }
-            if (data.hasOwnProperty('rightToLeftName')) {
+            if (data.hasOwnProperty('rightToLeftName') && obj['rightToLeftName'] === undefined) {
                 obj['rightToLeftName'] = ApiClient.convertToType(data['rightToLeftName'], 'String');
             }
-            if (data.hasOwnProperty('hideDates')) {
+            if (data.hasOwnProperty('hideDates') && obj['hideDates'] === undefined) {
                 obj['hideDates'] = ApiClient.convertToType(data['hideDates'], 'Boolean');
             }
-            if (data.hasOwnProperty('hideComment')) {
+            if (data.hasOwnProperty('hideComment') && obj['hideComment'] === undefined) {
                 obj['hideComment'] = ApiClient.convertToType(data['hideComment'], 'Boolean');
             }
-            if (data.hasOwnProperty('hideCompany')) {
+            if (data.hasOwnProperty('hideCompany') && obj['hideCompany'] === undefined) {
                 obj['hideCompany'] = ApiClient.convertToType(data['hideCompany'], 'Boolean');
             }
-            if (data.hasOwnProperty('isCustomisable')) {
+            if (data.hasOwnProperty('isCustomisable') && obj['isCustomisable'] === undefined) {
                 obj['isCustomisable'] = ApiClient.convertToType(data['isCustomisable'], 'Boolean');
             }
+            
         }
         return obj;
     }

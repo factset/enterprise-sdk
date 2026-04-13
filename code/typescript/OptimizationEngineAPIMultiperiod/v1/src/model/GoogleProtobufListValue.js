@@ -47,9 +47,10 @@ class GoogleProtobufListValue {
         if (data) {
             obj = obj || new GoogleProtobufListValue();
 
-            if (data.hasOwnProperty('values')) {
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
                 obj['values'] = ApiClient.convertToType(data['values'], [OptimizerInputsValue]);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class InlineResponse20014Esg {
         if (data) {
             obj = obj || new InlineResponse20014Esg();
 
-            if (data.hasOwnProperty('truvalueLabs')) {
+            if (data.hasOwnProperty('truvalueLabs') && obj['truvalueLabs'] === undefined) {
                 obj['truvalueLabs'] = InlineResponse20014EsgTruvalueLabs.constructFromObject(data['truvalueLabs']);
             }
+            
         }
         return obj;
     }

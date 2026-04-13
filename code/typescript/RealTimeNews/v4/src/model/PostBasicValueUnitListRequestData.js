@@ -48,9 +48,10 @@ class PostBasicValueUnitListRequestData {
         if (data) {
             obj = obj || new PostBasicValueUnitListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicValueUnitListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

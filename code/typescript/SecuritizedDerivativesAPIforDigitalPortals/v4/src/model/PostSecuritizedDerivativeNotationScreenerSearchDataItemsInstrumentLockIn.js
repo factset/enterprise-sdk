@@ -49,18 +49,19 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLockIn {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLockIn();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLockInObservation.constructFromObject(data['observation']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLockInDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = ApiClient.convertToType(data['cashFlow'], 'Number');
             }
+            
         }
         return obj;
     }

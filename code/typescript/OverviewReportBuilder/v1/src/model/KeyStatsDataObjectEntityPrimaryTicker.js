@@ -53,12 +53,13 @@ class KeyStatsDataObjectEntityPrimaryTicker {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityPrimaryTicker();
 
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = KeyStatsAttributeLabel.constructFromObject(data['label']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = KeyStatsAttributeValueString.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

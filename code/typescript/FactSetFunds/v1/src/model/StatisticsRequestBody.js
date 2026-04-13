@@ -53,21 +53,22 @@ class StatisticsRequestBody {
         if (data) {
             obj = obj || new StatisticsRequestBody();
 
-            if (data.hasOwnProperty('contentSet')) {
+            if (data.hasOwnProperty('contentSet') && obj['contentSet'] === undefined) {
                 obj['contentSet'] = ApiClient.convertToType(data['contentSet'], 'String');
             }
-            if (data.hasOwnProperty('fieldName')) {
+            if (data.hasOwnProperty('fieldName') && obj['fieldName'] === undefined) {
                 obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
-            if (data.hasOwnProperty('histogram')) {
+            if (data.hasOwnProperty('histogram') && obj['histogram'] === undefined) {
                 obj['histogram'] = ApiClient.convertToType(data['histogram'], 'Boolean');
             }
-            if (data.hasOwnProperty('joinType')) {
+            if (data.hasOwnProperty('joinType') && obj['joinType'] === undefined) {
                 obj['joinType'] = JoinType.constructFromObject(data['joinType']);
             }
-            if (data.hasOwnProperty('filters')) {
+            if (data.hasOwnProperty('filters') && obj['filters'] === undefined) {
                 obj['filters'] = ApiClient.convertToType(data['filters'], [Filter]);
             }
+            
         }
         return obj;
     }

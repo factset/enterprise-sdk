@@ -53,12 +53,13 @@ class KeyStatsDataObjectEntityLtGrowthRate {
         if (data) {
             obj = obj || new KeyStatsDataObjectEntityLtGrowthRate();
 
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = KeyStatsAttributeLabel.constructFromObject(data['label']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = KeyStatsAttributeValueNumber.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

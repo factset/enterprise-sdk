@@ -47,30 +47,31 @@ class InlineResponse20029Data {
         if (data) {
             obj = obj || new InlineResponse20029Data();
 
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = ApiClient.convertToType(data['group'], 'String');
             }
-            if (data.hasOwnProperty('cluster')) {
+            if (data.hasOwnProperty('cluster') && obj['cluster'] === undefined) {
                 obj['cluster'] = ApiClient.convertToType(data['cluster'], 'String');
             }
-            if (data.hasOwnProperty('selectCriteria')) {
+            if (data.hasOwnProperty('selectCriteria') && obj['selectCriteria'] === undefined) {
                 obj['selectCriteria'] = ApiClient.convertToType(data['selectCriteria'], 'String');
             }
-            if (data.hasOwnProperty('weighting')) {
+            if (data.hasOwnProperty('weighting') && obj['weighting'] === undefined) {
                 obj['weighting'] = ApiClient.convertToType(data['weighting'], 'String');
             }
-            if (data.hasOwnProperty('segment')) {
+            if (data.hasOwnProperty('segment') && obj['segment'] === undefined) {
                 obj['segment'] = ApiClient.convertToType(data['segment'], 'String');
             }
-            if (data.hasOwnProperty('isTransparent')) {
+            if (data.hasOwnProperty('isTransparent') && obj['isTransparent'] === undefined) {
                 obj['isTransparent'] = ApiClient.convertToType(data['isTransparent'], 'Boolean');
             }
-            if (data.hasOwnProperty('fundOfFunds')) {
+            if (data.hasOwnProperty('fundOfFunds') && obj['fundOfFunds'] === undefined) {
                 obj['fundOfFunds'] = ApiClient.convertToType(data['fundOfFunds'], 'String');
             }
+            
         }
         return obj;
     }

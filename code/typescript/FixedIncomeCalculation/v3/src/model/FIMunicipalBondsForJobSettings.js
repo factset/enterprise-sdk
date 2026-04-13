@@ -46,15 +46,16 @@ class FIMunicipalBondsForJobSettings {
         if (data) {
             obj = obj || new FIMunicipalBondsForJobSettings();
 
-            if (data.hasOwnProperty('allowSinkForInstallmentPayment')) {
+            if (data.hasOwnProperty('allowSinkForInstallmentPayment') && obj['allowSinkForInstallmentPayment'] === undefined) {
                 obj['allowSinkForInstallmentPayment'] = ApiClient.convertToType(data['allowSinkForInstallmentPayment'], 'Boolean');
             }
-            if (data.hasOwnProperty('ignoreSinkingFund')) {
+            if (data.hasOwnProperty('ignoreSinkingFund') && obj['ignoreSinkingFund'] === undefined) {
                 obj['ignoreSinkingFund'] = ApiClient.convertToType(data['ignoreSinkingFund'], 'Boolean');
             }
-            if (data.hasOwnProperty('useAnticipatedSinkSchedule')) {
+            if (data.hasOwnProperty('useAnticipatedSinkSchedule') && obj['useAnticipatedSinkSchedule'] === undefined) {
                 obj['useAnticipatedSinkSchedule'] = ApiClient.convertToType(data['useAnticipatedSinkSchedule'], 'Boolean');
             }
+            
         }
         return obj;
     }

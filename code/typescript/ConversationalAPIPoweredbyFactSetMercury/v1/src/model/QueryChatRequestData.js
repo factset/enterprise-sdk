@@ -49,12 +49,13 @@ class QueryChatRequestData {
         if (data) {
             obj = obj || new QueryChatRequestData();
 
-            if (data.hasOwnProperty('query')) {
+            if (data.hasOwnProperty('query') && obj['query'] === undefined) {
                 obj['query'] = ApiClient.convertToType(data['query'], 'String');
             }
-            if (data.hasOwnProperty('chatId')) {
+            if (data.hasOwnProperty('chatId') && obj['chatId'] === undefined) {
                 obj['chatId'] = ApiClient.convertToType(data['chatId'], 'String');
             }
+            
         }
         return obj;
     }

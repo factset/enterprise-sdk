@@ -47,27 +47,28 @@ class OptimizerReportsOutputType {
         if (data) {
             obj = obj || new OptimizerReportsOutputType();
 
-            if (data.hasOwnProperty('workspace')) {
+            if (data.hasOwnProperty('workspace') && obj['workspace'] === undefined) {
                 obj['workspace'] = ReportOutputTypeObject.constructFromObject(data['workspace']);
             }
-            if (data.hasOwnProperty('tradeList')) {
+            if (data.hasOwnProperty('tradeList') && obj['tradeList'] === undefined) {
                 obj['tradeList'] = ReportOutputTypeObject.constructFromObject(data['tradeList']);
             }
-            if (data.hasOwnProperty('objectiveSummary')) {
+            if (data.hasOwnProperty('objectiveSummary') && obj['objectiveSummary'] === undefined) {
                 obj['objectiveSummary'] = ReportOutputTypeObject.constructFromObject(data['objectiveSummary']);
             }
-            if (data.hasOwnProperty('factorExposure')) {
+            if (data.hasOwnProperty('factorExposure') && obj['factorExposure'] === undefined) {
                 obj['factorExposure'] = ReportOutputTypeObject.constructFromObject(data['factorExposure']);
             }
-            if (data.hasOwnProperty('constraintSummary')) {
+            if (data.hasOwnProperty('constraintSummary') && obj['constraintSummary'] === undefined) {
                 obj['constraintSummary'] = ReportOutputTypeObject.constructFromObject(data['constraintSummary']);
             }
-            if (data.hasOwnProperty('excludedSecurities')) {
+            if (data.hasOwnProperty('excludedSecurities') && obj['excludedSecurities'] === undefined) {
                 obj['excludedSecurities'] = ReportOutputTypeObject.constructFromObject(data['excludedSecurities']);
             }
-            if (data.hasOwnProperty('optimizerLog')) {
+            if (data.hasOwnProperty('optimizerLog') && obj['optimizerLog'] === undefined) {
                 obj['optimizerLog'] = ApiClient.convertToType(data['optimizerLog'], 'Boolean');
             }
+            
         }
         return obj;
     }

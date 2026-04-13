@@ -49,12 +49,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresVega {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresVega();
 
-            if (data.hasOwnProperty('effective')) {
+            if (data.hasOwnProperty('effective') && obj['effective'] === undefined) {
                 obj['effective'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresVegaEffective.constructFromObject(data['effective']);
             }
-            if (data.hasOwnProperty('unadjusted')) {
+            if (data.hasOwnProperty('unadjusted') && obj['unadjusted'] === undefined) {
                 obj['unadjusted'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataKeyFiguresVegaUnadjusted.constructFromObject(data['unadjusted']);
             }
+            
         }
         return obj;
     }

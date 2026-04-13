@@ -46,60 +46,61 @@ class BondSensitivity {
         if (data) {
             obj = obj || new BondSensitivity();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('bidConvexity')) {
+            if (data.hasOwnProperty('bidConvexity') && obj['bidConvexity'] === undefined) {
                 obj['bidConvexity'] = ApiClient.convertToType(data['bidConvexity'], 'Number');
             }
-            if (data.hasOwnProperty('midConvexity')) {
+            if (data.hasOwnProperty('midConvexity') && obj['midConvexity'] === undefined) {
                 obj['midConvexity'] = ApiClient.convertToType(data['midConvexity'], 'Number');
             }
-            if (data.hasOwnProperty('askConvexity')) {
+            if (data.hasOwnProperty('askConvexity') && obj['askConvexity'] === undefined) {
                 obj['askConvexity'] = ApiClient.convertToType(data['askConvexity'], 'Number');
             }
-            if (data.hasOwnProperty('bidEffectiveConvexity')) {
+            if (data.hasOwnProperty('bidEffectiveConvexity') && obj['bidEffectiveConvexity'] === undefined) {
                 obj['bidEffectiveConvexity'] = ApiClient.convertToType(data['bidEffectiveConvexity'], 'Number');
             }
-            if (data.hasOwnProperty('midEffectiveConvexity')) {
+            if (data.hasOwnProperty('midEffectiveConvexity') && obj['midEffectiveConvexity'] === undefined) {
                 obj['midEffectiveConvexity'] = ApiClient.convertToType(data['midEffectiveConvexity'], 'Number');
             }
-            if (data.hasOwnProperty('askEffectiveConvexity')) {
+            if (data.hasOwnProperty('askEffectiveConvexity') && obj['askEffectiveConvexity'] === undefined) {
                 obj['askEffectiveConvexity'] = ApiClient.convertToType(data['askEffectiveConvexity'], 'Number');
             }
-            if (data.hasOwnProperty('bidEffectiveDuration')) {
+            if (data.hasOwnProperty('bidEffectiveDuration') && obj['bidEffectiveDuration'] === undefined) {
                 obj['bidEffectiveDuration'] = ApiClient.convertToType(data['bidEffectiveDuration'], 'Number');
             }
-            if (data.hasOwnProperty('midEffectiveDuration')) {
+            if (data.hasOwnProperty('midEffectiveDuration') && obj['midEffectiveDuration'] === undefined) {
                 obj['midEffectiveDuration'] = ApiClient.convertToType(data['midEffectiveDuration'], 'Number');
             }
-            if (data.hasOwnProperty('askEffectiveDuration')) {
+            if (data.hasOwnProperty('askEffectiveDuration') && obj['askEffectiveDuration'] === undefined) {
                 obj['askEffectiveDuration'] = ApiClient.convertToType(data['askEffectiveDuration'], 'Number');
             }
-            if (data.hasOwnProperty('bidMacaulayDuration')) {
+            if (data.hasOwnProperty('bidMacaulayDuration') && obj['bidMacaulayDuration'] === undefined) {
                 obj['bidMacaulayDuration'] = ApiClient.convertToType(data['bidMacaulayDuration'], 'Number');
             }
-            if (data.hasOwnProperty('midMacaulayDuration')) {
+            if (data.hasOwnProperty('midMacaulayDuration') && obj['midMacaulayDuration'] === undefined) {
                 obj['midMacaulayDuration'] = ApiClient.convertToType(data['midMacaulayDuration'], 'Number');
             }
-            if (data.hasOwnProperty('askMacaulayDuration')) {
+            if (data.hasOwnProperty('askMacaulayDuration') && obj['askMacaulayDuration'] === undefined) {
                 obj['askMacaulayDuration'] = ApiClient.convertToType(data['askMacaulayDuration'], 'Number');
             }
-            if (data.hasOwnProperty('bidModifiedDuration')) {
+            if (data.hasOwnProperty('bidModifiedDuration') && obj['bidModifiedDuration'] === undefined) {
                 obj['bidModifiedDuration'] = ApiClient.convertToType(data['bidModifiedDuration'], 'Number');
             }
-            if (data.hasOwnProperty('midModifiedDuration')) {
+            if (data.hasOwnProperty('midModifiedDuration') && obj['midModifiedDuration'] === undefined) {
                 obj['midModifiedDuration'] = ApiClient.convertToType(data['midModifiedDuration'], 'Number');
             }
-            if (data.hasOwnProperty('askModifiedDuration')) {
+            if (data.hasOwnProperty('askModifiedDuration') && obj['askModifiedDuration'] === undefined) {
                 obj['askModifiedDuration'] = ApiClient.convertToType(data['askModifiedDuration'], 'Number');
             }
+            
         }
         return obj;
     }

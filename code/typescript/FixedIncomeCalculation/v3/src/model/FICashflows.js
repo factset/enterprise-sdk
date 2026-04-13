@@ -46,15 +46,16 @@ class FICashflows {
         if (data) {
             obj = obj || new FICashflows();
 
-            if (data.hasOwnProperty('optionalRedemptionCallWhenUnits')) {
+            if (data.hasOwnProperty('optionalRedemptionCallWhenUnits') && obj['optionalRedemptionCallWhenUnits'] === undefined) {
                 obj['optionalRedemptionCallWhenUnits'] = ApiClient.convertToType(data['optionalRedemptionCallWhenUnits'], 'String');
             }
-            if (data.hasOwnProperty('optionalRedemptionCallWhen')) {
+            if (data.hasOwnProperty('optionalRedemptionCallWhen') && obj['optionalRedemptionCallWhen'] === undefined) {
                 obj['optionalRedemptionCallWhen'] = ApiClient.convertToType(data['optionalRedemptionCallWhen'], 'Number');
             }
-            if (data.hasOwnProperty('recoveryLag')) {
+            if (data.hasOwnProperty('recoveryLag') && obj['recoveryLag'] === undefined) {
                 obj['recoveryLag'] = ApiClient.convertToType(data['recoveryLag'], 'Number');
             }
+            
         }
         return obj;
     }

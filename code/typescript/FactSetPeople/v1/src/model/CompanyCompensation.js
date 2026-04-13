@@ -47,45 +47,46 @@ class CompanyCompensation {
         if (data) {
             obj = obj || new CompanyCompensation();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('personId')) {
+            if (data.hasOwnProperty('personId') && obj['personId'] === undefined) {
                 obj['personId'] = ApiClient.convertToType(data['personId'], 'String');
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('salary')) {
+            if (data.hasOwnProperty('salary') && obj['salary'] === undefined) {
                 obj['salary'] = ApiClient.convertToType(data['salary'], 'Number');
             }
-            if (data.hasOwnProperty('bonus')) {
+            if (data.hasOwnProperty('bonus') && obj['bonus'] === undefined) {
                 obj['bonus'] = ApiClient.convertToType(data['bonus'], 'Number');
             }
-            if (data.hasOwnProperty('stockAwards')) {
+            if (data.hasOwnProperty('stockAwards') && obj['stockAwards'] === undefined) {
                 obj['stockAwards'] = ApiClient.convertToType(data['stockAwards'], 'Number');
             }
-            if (data.hasOwnProperty('optionsAwards')) {
+            if (data.hasOwnProperty('optionsAwards') && obj['optionsAwards'] === undefined) {
                 obj['optionsAwards'] = ApiClient.convertToType(data['optionsAwards'], 'Number');
             }
-            if (data.hasOwnProperty('otherCompensation')) {
+            if (data.hasOwnProperty('otherCompensation') && obj['otherCompensation'] === undefined) {
                 obj['otherCompensation'] = ApiClient.convertToType(data['otherCompensation'], 'Number');
             }
-            if (data.hasOwnProperty('totalCompensation')) {
+            if (data.hasOwnProperty('totalCompensation') && obj['totalCompensation'] === undefined) {
                 obj['totalCompensation'] = ApiClient.convertToType(data['totalCompensation'], 'Number');
             }
-            if (data.hasOwnProperty('nonEquityIncentivePlanComp')) {
+            if (data.hasOwnProperty('nonEquityIncentivePlanComp') && obj['nonEquityIncentivePlanComp'] === undefined) {
                 obj['nonEquityIncentivePlanComp'] = ApiClient.convertToType(data['nonEquityIncentivePlanComp'], 'Number');
             }
-            if (data.hasOwnProperty('nonQualifiedCompEarnings')) {
+            if (data.hasOwnProperty('nonQualifiedCompEarnings') && obj['nonQualifiedCompEarnings'] === undefined) {
                 obj['nonQualifiedCompEarnings'] = ApiClient.convertToType(data['nonQualifiedCompEarnings'], 'Number');
             }
-            if (data.hasOwnProperty('compensationYear')) {
+            if (data.hasOwnProperty('compensationYear') && obj['compensationYear'] === undefined) {
                 obj['compensationYear'] = ApiClient.convertToType(data['compensationYear'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

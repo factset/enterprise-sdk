@@ -47,27 +47,28 @@ class Bonds {
         if (data) {
             obj = obj || new Bonds();
 
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('preissuancePubDate')) {
+            if (data.hasOwnProperty('preissuancePubDate') && obj['preissuancePubDate'] === undefined) {
                 obj['preissuancePubDate'] = ApiClient.convertToType(data['preissuancePubDate'], 'Date');
             }
-            if (data.hasOwnProperty('preissuanceExistence')) {
+            if (data.hasOwnProperty('preissuanceExistence') && obj['preissuanceExistence'] === undefined) {
                 obj['preissuanceExistence'] = ApiClient.convertToType(data['preissuanceExistence'], 'String');
             }
-            if (data.hasOwnProperty('postissuancePubDate')) {
+            if (data.hasOwnProperty('postissuancePubDate') && obj['postissuancePubDate'] === undefined) {
                 obj['postissuancePubDate'] = ApiClient.convertToType(data['postissuancePubDate'], 'Date');
             }
-            if (data.hasOwnProperty('postissuanceExistence')) {
+            if (data.hasOwnProperty('postissuanceExistence') && obj['postissuanceExistence'] === undefined) {
                 obj['postissuanceExistence'] = ApiClient.convertToType(data['postissuanceExistence'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

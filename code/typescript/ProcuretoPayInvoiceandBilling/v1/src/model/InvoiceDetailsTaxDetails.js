@@ -46,30 +46,31 @@ class InvoiceDetailsTaxDetails {
         if (data) {
             obj = obj || new InvoiceDetailsTaxDetails();
 
-            if (data.hasOwnProperty('services')) {
+            if (data.hasOwnProperty('services') && obj['services'] === undefined) {
                 obj['services'] = ApiClient.convertToType(data['services'], 'Number');
             }
-            if (data.hasOwnProperty('tax')) {
+            if (data.hasOwnProperty('tax') && obj['tax'] === undefined) {
                 obj['tax'] = ApiClient.convertToType(data['tax'], 'Number');
             }
-            if (data.hasOwnProperty('allocationPercent')) {
+            if (data.hasOwnProperty('allocationPercent') && obj['allocationPercent'] === undefined) {
                 obj['allocationPercent'] = ApiClient.convertToType(data['allocationPercent'], 'Number');
             }
-            if (data.hasOwnProperty('taxRate')) {
+            if (data.hasOwnProperty('taxRate') && obj['taxRate'] === undefined) {
                 obj['taxRate'] = ApiClient.convertToType(data['taxRate'], 'String');
             }
-            if (data.hasOwnProperty('taxZone')) {
+            if (data.hasOwnProperty('taxZone') && obj['taxZone'] === undefined) {
                 obj['taxZone'] = ApiClient.convertToType(data['taxZone'], 'String');
             }
-            if (data.hasOwnProperty('currencySymbol')) {
+            if (data.hasOwnProperty('currencySymbol') && obj['currencySymbol'] === undefined) {
                 obj['currencySymbol'] = ApiClient.convertToType(data['currencySymbol'], 'String');
             }
-            if (data.hasOwnProperty('conversionRatio')) {
+            if (data.hasOwnProperty('conversionRatio') && obj['conversionRatio'] === undefined) {
                 obj['conversionRatio'] = ApiClient.convertToType(data['conversionRatio'], 'Number');
             }
-            if (data.hasOwnProperty('ukExchangeRate')) {
+            if (data.hasOwnProperty('ukExchangeRate') && obj['ukExchangeRate'] === undefined) {
                 obj['ukExchangeRate'] = ApiClient.convertToType(data['ukExchangeRate'], 'Number');
             }
+            
         }
         return obj;
     }

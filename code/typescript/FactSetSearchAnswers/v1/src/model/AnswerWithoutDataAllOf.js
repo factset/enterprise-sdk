@@ -51,12 +51,13 @@ class AnswerWithoutDataAllOf {
         if (data) {
             obj = obj || new AnswerWithoutDataAllOf();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = AnswerWithoutDataAllOfTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

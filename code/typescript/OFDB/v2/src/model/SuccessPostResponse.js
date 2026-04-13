@@ -48,9 +48,10 @@ class SuccessPostResponse {
         if (data) {
             obj = obj || new SuccessPostResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SuccessPostResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

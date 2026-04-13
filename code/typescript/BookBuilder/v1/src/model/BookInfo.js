@@ -46,15 +46,16 @@ class BookInfo {
         if (data) {
             obj = obj || new BookInfo();
 
-            if (data.hasOwnProperty('book_id')) {
+            if (data.hasOwnProperty('book_id') && obj['book_id'] === undefined) {
                 obj['book_id'] = ApiClient.convertToType(data['book_id'], 'String');
             }
-            if (data.hasOwnProperty('book_name')) {
+            if (data.hasOwnProperty('book_name') && obj['book_name'] === undefined) {
                 obj['book_name'] = ApiClient.convertToType(data['book_name'], 'String');
             }
-            if (data.hasOwnProperty('created_on')) {
+            if (data.hasOwnProperty('created_on') && obj['created_on'] === undefined) {
                 obj['created_on'] = ApiClient.convertToType(data['created_on'], 'String');
             }
+            
         }
         return obj;
     }

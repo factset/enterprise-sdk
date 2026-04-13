@@ -56,33 +56,34 @@ class PostOptionByClassValueRangesGetRequestDataKeyFigures {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataKeyFigures();
 
-            if (data.hasOwnProperty('moneyness')) {
+            if (data.hasOwnProperty('moneyness') && obj['moneyness'] === undefined) {
                 obj['moneyness'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresMoneyness.constructFromObject(data['moneyness']);
             }
-            if (data.hasOwnProperty('impliedVolatility')) {
+            if (data.hasOwnProperty('impliedVolatility') && obj['impliedVolatility'] === undefined) {
                 obj['impliedVolatility'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresImpliedVolatility.constructFromObject(data['impliedVolatility']);
             }
-            if (data.hasOwnProperty('omega')) {
+            if (data.hasOwnProperty('omega') && obj['omega'] === undefined) {
                 obj['omega'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresOmega.constructFromObject(data['omega']);
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresLeverage.constructFromObject(data['leverage']);
             }
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresDelta.constructFromObject(data['delta']);
             }
-            if (data.hasOwnProperty('thetaOneWeek')) {
+            if (data.hasOwnProperty('thetaOneWeek') && obj['thetaOneWeek'] === undefined) {
                 obj['thetaOneWeek'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresThetaOneWeek.constructFromObject(data['thetaOneWeek']);
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresVega.constructFromObject(data['vega']);
             }
-            if (data.hasOwnProperty('gamma')) {
+            if (data.hasOwnProperty('gamma') && obj['gamma'] === undefined) {
                 obj['gamma'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresGamma.constructFromObject(data['gamma']);
             }
-            if (data.hasOwnProperty('rho')) {
+            if (data.hasOwnProperty('rho') && obj['rho'] === undefined) {
                 obj['rho'] = PostOptionByClassValueRangesGetRequestDataKeyFiguresRho.constructFromObject(data['rho']);
             }
+            
         }
         return obj;
     }

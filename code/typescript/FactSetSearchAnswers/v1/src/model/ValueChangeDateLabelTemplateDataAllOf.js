@@ -47,18 +47,19 @@ class ValueChangeDateLabelTemplateDataAllOf {
         if (data) {
             obj = obj || new ValueChangeDateLabelTemplateDataAllOf();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('valueChange')) {
+            if (data.hasOwnProperty('valueChange') && obj['valueChange'] === undefined) {
                 obj['valueChange'] = ValueChange.constructFromObject(data['valueChange']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
+            
         }
         return obj;
     }

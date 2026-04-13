@@ -51,24 +51,25 @@ class OptimizerInputsLeverageConstraint {
         if (data) {
             obj = obj || new OptimizerInputsLeverageConstraint();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = OptimizerInputsValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('value_type')) {
+            if (data.hasOwnProperty('value_type') && obj['value_type'] === undefined) {
                 obj['value_type'] = OptimizerInputsELeverageValueTypeEnum.constructFromObject(data['value_type']);
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], 'Number');
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [OptimizerInputsConstraintGroup]);
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = OptimizerInputsEConstraintLevelEnum.constructFromObject(data['level']);
             }
+            
         }
         return obj;
     }

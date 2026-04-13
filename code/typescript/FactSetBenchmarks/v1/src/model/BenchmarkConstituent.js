@@ -46,39 +46,40 @@ class BenchmarkConstituent {
         if (data) {
             obj = obj || new BenchmarkConstituent();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('fsymSecurityId')) {
+            if (data.hasOwnProperty('fsymSecurityId') && obj['fsymSecurityId'] === undefined) {
                 obj['fsymSecurityId'] = ApiClient.convertToType(data['fsymSecurityId'], 'String');
             }
-            if (data.hasOwnProperty('fsymRegionalId')) {
+            if (data.hasOwnProperty('fsymRegionalId') && obj['fsymRegionalId'] === undefined) {
                 obj['fsymRegionalId'] = ApiClient.convertToType(data['fsymRegionalId'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('weightClose')) {
+            if (data.hasOwnProperty('weightClose') && obj['weightClose'] === undefined) {
                 obj['weightClose'] = ApiClient.convertToType(data['weightClose'], 'Number');
             }
-            if (data.hasOwnProperty('adjHolding')) {
+            if (data.hasOwnProperty('adjHolding') && obj['adjHolding'] === undefined) {
                 obj['adjHolding'] = ApiClient.convertToType(data['adjHolding'], 'Number');
             }
-            if (data.hasOwnProperty('unadjHolding')) {
+            if (data.hasOwnProperty('unadjHolding') && obj['unadjHolding'] === undefined) {
                 obj['unadjHolding'] = ApiClient.convertToType(data['unadjHolding'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('adjMarketValue')) {
+            if (data.hasOwnProperty('adjMarketValue') && obj['adjMarketValue'] === undefined) {
                 obj['adjMarketValue'] = ApiClient.convertToType(data['adjMarketValue'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

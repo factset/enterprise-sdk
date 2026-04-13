@@ -66,6 +66,8 @@ class NextStepItem {
             case 'OpenUrl':
               return OpenUrl.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct NextStepItem due to no matching discriminator value: " + data['action']);
         return obj;
     }
 

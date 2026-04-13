@@ -47,12 +47,13 @@ class TranscriptsByEventsRequest {
         if (data) {
             obj = obj || new TranscriptsByEventsRequest();
 
-            if (data.hasOwnProperty('eventIds')) {
+            if (data.hasOwnProperty('eventIds') && obj['eventIds'] === undefined) {
                 obj['eventIds'] = ApiClient.convertToType(data['eventIds'], ['String']);
             }
-            if (data.hasOwnProperty('eventType')) {
+            if (data.hasOwnProperty('eventType') && obj['eventType'] === undefined) {
                 obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
+            
         }
         return obj;
     }

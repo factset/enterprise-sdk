@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataEsg {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEsg();
 
-            if (data.hasOwnProperty('truvalueLabs')) {
+            if (data.hasOwnProperty('truvalueLabs') && obj['truvalueLabs'] === undefined) {
                 obj['truvalueLabs'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabs.constructFromObject(data['truvalueLabs']);
             }
+            
         }
         return obj;
     }

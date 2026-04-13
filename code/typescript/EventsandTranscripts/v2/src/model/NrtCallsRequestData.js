@@ -53,6 +53,8 @@ class NrtCallsRequestData {
             case 'object2':
               return NrtCallsRequestByIds.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct NrtCallsRequestData due to no matching discriminator value: " + data['Nrt']);
         return obj;
     }
 

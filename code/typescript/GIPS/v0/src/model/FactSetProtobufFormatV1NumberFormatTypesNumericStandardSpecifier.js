@@ -46,12 +46,13 @@ class FactSetProtobufFormatV1NumberFormatTypesNumericStandardSpecifier {
         if (data) {
             obj = obj || new FactSetProtobufFormatV1NumberFormatTypesNumericStandardSpecifier();
 
-            if (data.hasOwnProperty('negativePattern')) {
+            if (data.hasOwnProperty('negativePattern') && obj['negativePattern'] === undefined) {
                 obj['negativePattern'] = ApiClient.convertToType(data['negativePattern'], 'String');
             }
-            if (data.hasOwnProperty('positivePattern')) {
+            if (data.hasOwnProperty('positivePattern') && obj['positivePattern'] === undefined) {
                 obj['positivePattern'] = ApiClient.convertToType(data['positivePattern'], 'String');
             }
+            
         }
         return obj;
     }

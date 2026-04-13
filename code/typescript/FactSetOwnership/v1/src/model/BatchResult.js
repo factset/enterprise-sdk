@@ -62,6 +62,8 @@ class BatchResult {
             case 'securityHolders':
               return SecurityHolders.constructFromObject(data, obj);
         }
+
+        throw new Error("Failed to construct BatchResult due to no matching discriminator value: " + data['type']);
         return obj;
     }
 

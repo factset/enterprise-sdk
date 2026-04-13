@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeIssuerSearchRequestDataFactorCertificates {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequestDataFactorCertificates();
 
-            if (data.hasOwnProperty('effectiveUnderlying')) {
+            if (data.hasOwnProperty('effectiveUnderlying') && obj['effectiveUnderlying'] === undefined) {
                 obj['effectiveUnderlying'] = PostSecuritizedDerivativeIssuerSearchRequestDataFactorCertificatesEffectiveUnderlying.constructFromObject(data['effectiveUnderlying']);
             }
+            
         }
         return obj;
     }

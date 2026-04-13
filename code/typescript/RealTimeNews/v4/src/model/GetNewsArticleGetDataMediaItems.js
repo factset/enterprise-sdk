@@ -47,24 +47,25 @@ class GetNewsArticleGetDataMediaItems {
         if (data) {
             obj = obj || new GetNewsArticleGetDataMediaItems();
 
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('mimeType')) {
+            if (data.hasOwnProperty('mimeType') && obj['mimeType'] === undefined) {
                 obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
             }
-            if (data.hasOwnProperty('caption')) {
+            if (data.hasOwnProperty('caption') && obj['caption'] === undefined) {
                 obj['caption'] = ApiClient.convertToType(data['caption'], 'String');
             }
-            if (data.hasOwnProperty('alternativeText')) {
+            if (data.hasOwnProperty('alternativeText') && obj['alternativeText'] === undefined) {
                 obj['alternativeText'] = ApiClient.convertToType(data['alternativeText'], 'String');
             }
-            if (data.hasOwnProperty('width')) {
+            if (data.hasOwnProperty('width') && obj['width'] === undefined) {
                 obj['width'] = ApiClient.convertToType(data['width'], 'Number');
             }
-            if (data.hasOwnProperty('height')) {
+            if (data.hasOwnProperty('height') && obj['height'] === undefined) {
                 obj['height'] = ApiClient.convertToType(data['height'], 'Number');
             }
+            
         }
         return obj;
     }

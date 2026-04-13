@@ -47,18 +47,19 @@ class EnableBookInfoFromTemplate {
         if (data) {
             obj = obj || new EnableBookInfoFromTemplate();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('book_name')) {
+            if (data.hasOwnProperty('book_name') && obj['book_name'] === undefined) {
                 obj['book_name'] = ApiClient.convertToType(data['book_name'], 'String');
             }
-            if (data.hasOwnProperty('book_id')) {
+            if (data.hasOwnProperty('book_id') && obj['book_id'] === undefined) {
                 obj['book_id'] = ApiClient.convertToType(data['book_id'], 'String');
             }
-            if (data.hasOwnProperty('estimated_time')) {
+            if (data.hasOwnProperty('estimated_time') && obj['estimated_time'] === undefined) {
                 obj['estimated_time'] = ApiClient.convertToType(data['estimated_time'], 'Number');
             }
+            
         }
         return obj;
     }

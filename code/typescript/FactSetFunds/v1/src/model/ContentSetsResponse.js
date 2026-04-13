@@ -48,9 +48,10 @@ class ContentSetsResponse {
         if (data) {
             obj = obj || new ContentSetsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ContentSet]);
             }
+            
         }
         return obj;
     }

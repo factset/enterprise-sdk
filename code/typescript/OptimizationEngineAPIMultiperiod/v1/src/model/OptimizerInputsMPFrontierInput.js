@@ -48,12 +48,13 @@ class OptimizerInputsMPFrontierInput {
         if (data) {
             obj = obj || new OptimizerInputsMPFrontierInput();
 
-            if (data.hasOwnProperty('input')) {
+            if (data.hasOwnProperty('input') && obj['input'] === undefined) {
                 obj['input'] = OptimizerInputsMultiPeriodInput.constructFromObject(data['input']);
             }
-            if (data.hasOwnProperty('frontier')) {
+            if (data.hasOwnProperty('frontier') && obj['frontier'] === undefined) {
                 obj['frontier'] = OptimizerInputsFrontierSettings.constructFromObject(data['frontier']);
             }
+            
         }
         return obj;
     }

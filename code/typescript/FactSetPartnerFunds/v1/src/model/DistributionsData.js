@@ -49,21 +49,22 @@ class DistributionsData {
         if (data) {
             obj = obj || new DistributionsData();
 
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('distributionOneMonth')) {
+            if (data.hasOwnProperty('distributionOneMonth') && obj['distributionOneMonth'] === undefined) {
                 obj['distributionOneMonth'] = Distribution.constructFromObject(data['distributionOneMonth']);
             }
-            if (data.hasOwnProperty('distributionYearToDate')) {
+            if (data.hasOwnProperty('distributionYearToDate') && obj['distributionYearToDate'] === undefined) {
                 obj['distributionYearToDate'] = Distribution.constructFromObject(data['distributionYearToDate']);
             }
-            if (data.hasOwnProperty('distributionOneYear')) {
+            if (data.hasOwnProperty('distributionOneYear') && obj['distributionOneYear'] === undefined) {
                 obj['distributionOneYear'] = Distribution.constructFromObject(data['distributionOneYear']);
             }
+            
         }
         return obj;
     }

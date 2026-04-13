@@ -46,27 +46,28 @@ class Library {
         if (data) {
             obj = obj || new Library();
 
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = ApiClient.convertToType(data['factor'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('factorGroup')) {
+            if (data.hasOwnProperty('factorGroup') && obj['factorGroup'] === undefined) {
                 obj['factorGroup'] = ApiClient.convertToType(data['factorGroup'], 'String');
             }
-            if (data.hasOwnProperty('sdfName')) {
+            if (data.hasOwnProperty('sdfName') && obj['sdfName'] === undefined) {
                 obj['sdfName'] = ApiClient.convertToType(data['sdfName'], 'String');
             }
-            if (data.hasOwnProperty('formula')) {
+            if (data.hasOwnProperty('formula') && obj['formula'] === undefined) {
                 obj['formula'] = ApiClient.convertToType(data['formula'], 'String');
             }
-            if (data.hasOwnProperty('tags')) {
+            if (data.hasOwnProperty('tags') && obj['tags'] === undefined) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], 'String');
             }
-            if (data.hasOwnProperty('format')) {
+            if (data.hasOwnProperty('format') && obj['format'] === undefined) {
                 obj['format'] = ApiClient.convertToType(data['format'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class BasicSearchResponse {
         if (data) {
             obj = obj || new BasicSearchResponse();
 
-            if (data.hasOwnProperty('results')) {
+            if (data.hasOwnProperty('results') && obj['results'] === undefined) {
                 obj['results'] = ApiClient.convertToType(data['results'], [BasicSearchResponseResults]);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class ResearchAnalystResponseObject {
         if (data) {
             obj = obj || new ResearchAnalystResponseObject();
 
-            if (data.hasOwnProperty('analystName')) {
+            if (data.hasOwnProperty('analystName') && obj['analystName'] === undefined) {
                 obj['analystName'] = ApiClient.convertToType(data['analystName'], 'String');
             }
-            if (data.hasOwnProperty('analystId')) {
+            if (data.hasOwnProperty('analystId') && obj['analystId'] === undefined) {
                 obj['analystId'] = ApiClient.convertToType(data['analystId'], 'Number');
             }
+            
         }
         return obj;
     }

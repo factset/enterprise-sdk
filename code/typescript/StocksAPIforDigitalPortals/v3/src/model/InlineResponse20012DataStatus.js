@@ -47,15 +47,16 @@ class InlineResponse20012DataStatus {
         if (data) {
             obj = obj || new InlineResponse20012DataStatus();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('encryptedDetails')) {
+            if (data.hasOwnProperty('encryptedDetails') && obj['encryptedDetails'] === undefined) {
                 obj['encryptedDetails'] = ApiClient.convertToType(data['encryptedDetails'], 'String');
             }
+            
         }
         return obj;
     }

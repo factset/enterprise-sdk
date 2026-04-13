@@ -47,18 +47,19 @@ class PriceTimeQuote {
         if (data) {
             obj = obj || new PriceTimeQuote();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Number');
             }
-            if (data.hasOwnProperty('orderNum')) {
+            if (data.hasOwnProperty('orderNum') && obj['orderNum'] === undefined) {
                 obj['orderNum'] = ApiClient.convertToType(data['orderNum'], 'Number');
             }
-            if (data.hasOwnProperty('bid')) {
+            if (data.hasOwnProperty('bid') && obj['bid'] === undefined) {
                 obj['bid'] = ApiClient.convertToType(data['bid'], 'Number');
             }
-            if (data.hasOwnProperty('ask')) {
+            if (data.hasOwnProperty('ask') && obj['ask'] === undefined) {
                 obj['ask'] = ApiClient.convertToType(data['ask'], 'Number');
             }
+            
         }
         return obj;
     }

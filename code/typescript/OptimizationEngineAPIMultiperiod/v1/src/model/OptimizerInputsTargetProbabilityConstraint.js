@@ -47,24 +47,25 @@ class OptimizerInputsTargetProbabilityConstraint {
         if (data) {
             obj = obj || new OptimizerInputsTargetProbabilityConstraint();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('threshold_min')) {
+            if (data.hasOwnProperty('threshold_min') && obj['threshold_min'] === undefined) {
                 obj['threshold_min'] = OptimizerInputsValue.constructFromObject(data['threshold_min']);
             }
-            if (data.hasOwnProperty('threshold_max')) {
+            if (data.hasOwnProperty('threshold_max') && obj['threshold_max'] === undefined) {
                 obj['threshold_max'] = OptimizerInputsValue.constructFromObject(data['threshold_max']);
             }
-            if (data.hasOwnProperty('min_probability')) {
+            if (data.hasOwnProperty('min_probability') && obj['min_probability'] === undefined) {
                 obj['min_probability'] = OptimizerInputsValue.constructFromObject(data['min_probability']);
             }
-            if (data.hasOwnProperty('max_probability')) {
+            if (data.hasOwnProperty('max_probability') && obj['max_probability'] === undefined) {
                 obj['max_probability'] = OptimizerInputsValue.constructFromObject(data['max_probability']);
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], 'Number');
             }
+            
         }
         return obj;
     }

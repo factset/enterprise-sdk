@@ -52,12 +52,13 @@ class Contract {
         if (data) {
             obj = obj || new Contract();
 
-            if (data.hasOwnProperty('fields')) {
+            if (data.hasOwnProperty('fields') && obj['fields'] === undefined) {
                 obj['fields'] = ContractFields.constructFromObject(data['fields']);
             }
-            if (data.hasOwnProperty('version')) {
+            if (data.hasOwnProperty('version') && obj['version'] === undefined) {
                 obj['version'] = ApiClient.convertToType(data['version'], 'String');
             }
+            
         }
         return obj;
     }

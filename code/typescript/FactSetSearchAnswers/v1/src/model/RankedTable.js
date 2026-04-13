@@ -49,12 +49,13 @@ class RankedTable {
         if (data) {
             obj = obj || new RankedTable();
 
-            if (data.hasOwnProperty('headers')) {
+            if (data.hasOwnProperty('headers') && obj['headers'] === undefined) {
                 obj['headers'] = ApiClient.convertToType(data['headers'], ['String']);
             }
-            if (data.hasOwnProperty('rows')) {
+            if (data.hasOwnProperty('rows') && obj['rows'] === undefined) {
                 obj['rows'] = ApiClient.convertToType(data['rows'], [RankedTableRow]);
             }
+            
         }
         return obj;
     }

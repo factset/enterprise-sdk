@@ -47,12 +47,13 @@ class Filters {
         if (data) {
             obj = obj || new Filters();
 
-            if (data.hasOwnProperty('include')) {
+            if (data.hasOwnProperty('include') && obj['include'] === undefined) {
                 obj['include'] = ApiClient.convertToType(data['include'], {'String': ['String']});
             }
-            if (data.hasOwnProperty('exclude')) {
+            if (data.hasOwnProperty('exclude') && obj['exclude'] === undefined) {
                 obj['exclude'] = ApiClient.convertToType(data['exclude'], {'String': ['String']});
             }
+            
         }
         return obj;
     }

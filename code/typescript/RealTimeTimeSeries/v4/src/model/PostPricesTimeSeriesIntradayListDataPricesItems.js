@@ -47,24 +47,25 @@ class PostPricesTimeSeriesIntradayListDataPricesItems {
         if (data) {
             obj = obj || new PostPricesTimeSeriesIntradayListDataPricesItems();
 
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Date');
             }
-            if (data.hasOwnProperty('tickId')) {
+            if (data.hasOwnProperty('tickId') && obj['tickId'] === undefined) {
                 obj['tickId'] = ApiClient.convertToType(data['tickId'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('quoteCondition')) {
+            if (data.hasOwnProperty('quoteCondition') && obj['quoteCondition'] === undefined) {
                 obj['quoteCondition'] = ApiClient.convertToType(data['quoteCondition'], 'String');
             }
-            if (data.hasOwnProperty('tradingVolume')) {
+            if (data.hasOwnProperty('tradingVolume') && obj['tradingVolume'] === undefined) {
                 obj['tradingVolume'] = ApiClient.convertToType(data['tradingVolume'], 'Number');
             }
-            if (data.hasOwnProperty('tradingValue')) {
+            if (data.hasOwnProperty('tradingValue') && obj['tradingValue'] === undefined) {
                 obj['tradingValue'] = ApiClient.convertToType(data['tradingValue'], 'Number');
             }
+            
         }
         return obj;
     }

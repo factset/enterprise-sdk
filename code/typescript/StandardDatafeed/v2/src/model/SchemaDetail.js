@@ -50,9 +50,10 @@ class SchemaDetail {
         if (data) {
             obj = obj || new SchemaDetail();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SchemaDetailObject]);
             }
+            
         }
         return obj;
     }

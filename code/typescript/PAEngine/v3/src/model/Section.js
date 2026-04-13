@@ -47,18 +47,19 @@ class Section {
         if (data) {
             obj = obj || new Section();
 
-            if (data.hasOwnProperty('metadata')) {
+            if (data.hasOwnProperty('metadata') && obj['metadata'] === undefined) {
                 obj['metadata'] = Metadata.constructFromObject(data['metadata']);
             }
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = ApiClient.convertToType(data['content'], 'String');
             }
-            if (data.hasOwnProperty('subSections')) {
+            if (data.hasOwnProperty('subSections') && obj['subSections'] === undefined) {
                 obj['subSections'] = ApiClient.convertToType(data['subSections'], [Section]);
             }
+            
         }
         return obj;
     }

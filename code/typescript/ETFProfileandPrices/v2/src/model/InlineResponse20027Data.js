@@ -49,12 +49,13 @@ class InlineResponse20027Data {
         if (data) {
             obj = obj || new InlineResponse20027Data();
 
-            if (data.hasOwnProperty('nav')) {
+            if (data.hasOwnProperty('nav') && obj['nav'] === undefined) {
                 obj['nav'] = InlineResponse20027DataNav.constructFromObject(data['nav']);
             }
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = InlineResponse20027DataSharesOutstanding.constructFromObject(data['sharesOutstanding']);
             }
+            
         }
         return obj;
     }

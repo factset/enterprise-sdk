@@ -51,30 +51,31 @@ class InlineResponse20013Instrument {
         if (data) {
             obj = obj || new InlineResponse20013Instrument();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
+            if (data.hasOwnProperty('shortName') && obj['shortName'] === undefined) {
                 obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
+            if (data.hasOwnProperty('nsin') && obj['nsin'] === undefined) {
                 obj['nsin'] = InlineResponse2001DataNsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = InlineResponse200DataFsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('industryClassification')) {
+            if (data.hasOwnProperty('industryClassification') && obj['industryClassification'] === undefined) {
                 obj['industryClassification'] = InlineResponse20013InstrumentIndustryClassification.constructFromObject(data['industryClassification']);
             }
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = InlineResponse2001DataCompany.constructFromObject(data['company']);
             }
+            
         }
         return obj;
     }

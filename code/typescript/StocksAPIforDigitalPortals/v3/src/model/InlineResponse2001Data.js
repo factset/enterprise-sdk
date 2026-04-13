@@ -51,27 +51,28 @@ class InlineResponse2001Data {
         if (data) {
             obj = obj || new InlineResponse2001Data();
 
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
+            if (data.hasOwnProperty('nsin') && obj['nsin'] === undefined) {
                 obj['nsin'] = InlineResponse2001DataNsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
+            if (data.hasOwnProperty('shortName') && obj['shortName'] === undefined) {
                 obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], [InlineResponse2001DataType]);
             }
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = InlineResponse2001DataCompany.constructFromObject(data['company']);
             }
-            if (data.hasOwnProperty('fiscalYearData')) {
+            if (data.hasOwnProperty('fiscalYearData') && obj['fiscalYearData'] === undefined) {
                 obj['fiscalYearData'] = ApiClient.convertToType(data['fiscalYearData'], [InlineResponse2001DataFiscalYearData]);
             }
+            
         }
         return obj;
     }

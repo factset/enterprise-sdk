@@ -46,12 +46,13 @@ class ExPostStatsFactorExposureSettingsAllOf {
         if (data) {
             obj = obj || new ExPostStatsFactorExposureSettingsAllOf();
 
-            if (data.hasOwnProperty('displayFormat')) {
+            if (data.hasOwnProperty('displayFormat') && obj['displayFormat'] === undefined) {
                 obj['displayFormat'] = ApiClient.convertToType(data['displayFormat'], 'Number');
             }
-            if (data.hasOwnProperty('riskTreeLevel')) {
+            if (data.hasOwnProperty('riskTreeLevel') && obj['riskTreeLevel'] === undefined) {
                 obj['riskTreeLevel'] = ApiClient.convertToType(data['riskTreeLevel'], 'Number');
             }
+            
         }
         return obj;
     }

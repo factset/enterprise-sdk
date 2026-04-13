@@ -50,9 +50,10 @@ class MarketValueRequest {
         if (data) {
             obj = obj || new MarketValueRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = MarketValueRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

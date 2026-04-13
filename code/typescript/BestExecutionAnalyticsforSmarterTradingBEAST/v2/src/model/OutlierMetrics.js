@@ -47,42 +47,43 @@ class OutlierMetrics {
         if (data) {
             obj = obj || new OutlierMetrics();
 
-            if (data.hasOwnProperty('max')) {
+            if (data.hasOwnProperty('max') && obj['max'] === undefined) {
                 obj['max'] = ApiClient.convertToType(data['max'], 'Number');
             }
-            if (data.hasOwnProperty('min')) {
+            if (data.hasOwnProperty('min') && obj['min'] === undefined) {
                 obj['min'] = ApiClient.convertToType(data['min'], 'Number');
             }
-            if (data.hasOwnProperty('stdDev')) {
+            if (data.hasOwnProperty('stdDev') && obj['stdDev'] === undefined) {
                 obj['stdDev'] = ApiClient.convertToType(data['stdDev'], 'Number');
             }
-            if (data.hasOwnProperty('avg')) {
+            if (data.hasOwnProperty('avg') && obj['avg'] === undefined) {
                 obj['avg'] = ApiClient.convertToType(data['avg'], 'Number');
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
-            if (data.hasOwnProperty('binWidth')) {
+            if (data.hasOwnProperty('binWidth') && obj['binWidth'] === undefined) {
                 obj['binWidth'] = ApiClient.convertToType(data['binWidth'], 'Number');
             }
-            if (data.hasOwnProperty('skew')) {
+            if (data.hasOwnProperty('skew') && obj['skew'] === undefined) {
                 obj['skew'] = ApiClient.convertToType(data['skew'], 'Number');
             }
-            if (data.hasOwnProperty('laplaceScale')) {
+            if (data.hasOwnProperty('laplaceScale') && obj['laplaceScale'] === undefined) {
                 obj['laplaceScale'] = ApiClient.convertToType(data['laplaceScale'], 'Number');
             }
-            if (data.hasOwnProperty('minMetric')) {
+            if (data.hasOwnProperty('minMetric') && obj['minMetric'] === undefined) {
                 obj['minMetric'] = ApiClient.convertToType(data['minMetric'], 'Number');
             }
-            if (data.hasOwnProperty('maxMetric')) {
+            if (data.hasOwnProperty('maxMetric') && obj['maxMetric'] === undefined) {
                 obj['maxMetric'] = ApiClient.convertToType(data['maxMetric'], 'Number');
             }
-            if (data.hasOwnProperty('binMax')) {
+            if (data.hasOwnProperty('binMax') && obj['binMax'] === undefined) {
                 obj['binMax'] = ApiClient.convertToType(data['binMax'], 'Number');
             }
-            if (data.hasOwnProperty('binMin')) {
+            if (data.hasOwnProperty('binMin') && obj['binMin'] === undefined) {
                 obj['binMin'] = ApiClient.convertToType(data['binMin'], 'Number');
             }
+            
         }
         return obj;
     }

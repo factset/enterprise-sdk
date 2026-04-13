@@ -47,12 +47,13 @@ class GroupingInfo {
         if (data) {
             obj = obj || new GroupingInfo();
 
-            if (data.hasOwnProperty('groupingState')) {
+            if (data.hasOwnProperty('groupingState') && obj['groupingState'] === undefined) {
                 obj['groupingState'] = ApiClient.convertToType(data['groupingState'], 'String');
             }
-            if (data.hasOwnProperty('customGrouping')) {
+            if (data.hasOwnProperty('customGrouping') && obj['customGrouping'] === undefined) {
                 obj['customGrouping'] = ApiClient.convertToType(data['customGrouping'], ['String']);
             }
+            
         }
         return obj;
     }

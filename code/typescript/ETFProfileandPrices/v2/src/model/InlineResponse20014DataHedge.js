@@ -47,15 +47,16 @@ class InlineResponse20014DataHedge {
         if (data) {
             obj = obj || new InlineResponse20014DataHedge();
 
-            if (data.hasOwnProperty('isHedged')) {
+            if (data.hasOwnProperty('isHedged') && obj['isHedged'] === undefined) {
                 obj['isHedged'] = ApiClient.convertToType(data['isHedged'], 'Boolean');
             }
-            if (data.hasOwnProperty('sourceCurrency')) {
+            if (data.hasOwnProperty('sourceCurrency') && obj['sourceCurrency'] === undefined) {
                 obj['sourceCurrency'] = ApiClient.convertToType(data['sourceCurrency'], 'String');
             }
-            if (data.hasOwnProperty('targetCurrency')) {
+            if (data.hasOwnProperty('targetCurrency') && obj['targetCurrency'] === undefined) {
                 obj['targetCurrency'] = ApiClient.convertToType(data['targetCurrency'], 'String');
             }
+            
         }
         return obj;
     }

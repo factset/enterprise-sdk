@@ -47,12 +47,13 @@ class InlineResponse20015DataEstimatesFirstFiscalYearFiscalYear {
         if (data) {
             obj = obj || new InlineResponse20015DataEstimatesFirstFiscalYearFiscalYear();
 
-            if (data.hasOwnProperty('yearEnd')) {
+            if (data.hasOwnProperty('yearEnd') && obj['yearEnd'] === undefined) {
                 obj['yearEnd'] = ApiClient.convertToType(data['yearEnd'], 'Number');
             }
-            if (data.hasOwnProperty('year')) {
+            if (data.hasOwnProperty('year') && obj['year'] === undefined) {
                 obj['year'] = ApiClient.convertToType(data['year'], 'Number');
             }
+            
         }
         return obj;
     }

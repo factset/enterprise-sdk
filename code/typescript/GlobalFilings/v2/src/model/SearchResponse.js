@@ -49,12 +49,13 @@ class SearchResponse {
         if (data) {
             obj = obj || new SearchResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [SearchResult]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = SearchResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

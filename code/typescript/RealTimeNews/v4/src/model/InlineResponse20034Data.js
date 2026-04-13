@@ -50,15 +50,16 @@ class InlineResponse20034Data {
         if (data) {
             obj = obj || new InlineResponse20034Data();
 
-            if (data.hasOwnProperty('system')) {
+            if (data.hasOwnProperty('system') && obj['system'] === undefined) {
                 obj['system'] = InlineResponse20034DataSystem.constructFromObject(data['system']);
             }
-            if (data.hasOwnProperty('parent')) {
+            if (data.hasOwnProperty('parent') && obj['parent'] === undefined) {
                 obj['parent'] = InlineResponse20034DataParent.constructFromObject(data['parent']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [GetCategoryListByLevelDataCategoriesItems]);
             }
+            
         }
         return obj;
     }

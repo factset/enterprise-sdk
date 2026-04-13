@@ -50,9 +50,10 @@ class DetailsRequest {
         if (data) {
             obj = obj || new DetailsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = DetailsRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

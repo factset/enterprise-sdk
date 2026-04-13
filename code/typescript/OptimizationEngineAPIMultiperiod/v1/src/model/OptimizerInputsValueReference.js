@@ -47,9 +47,10 @@ class OptimizerInputsValueReference {
         if (data) {
             obj = obj || new OptimizerInputsValueReference();
 
-            if (data.hasOwnProperty('asset_values')) {
+            if (data.hasOwnProperty('asset_values') && obj['asset_values'] === undefined) {
                 obj['asset_values'] = ApiClient.convertToType(data['asset_values'], 'Number');
             }
+            
         }
         return obj;
     }

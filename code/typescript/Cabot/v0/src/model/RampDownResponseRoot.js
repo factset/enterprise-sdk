@@ -47,9 +47,10 @@ class RampDownResponseRoot {
         if (data) {
             obj = obj || new RampDownResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = RampDownResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

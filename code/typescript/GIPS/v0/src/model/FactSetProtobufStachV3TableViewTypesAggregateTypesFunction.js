@@ -47,21 +47,22 @@ class FactSetProtobufStachV3TableViewTypesAggregateTypesFunction {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesAggregateTypesFunction();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('parameters')) {
+            if (data.hasOwnProperty('parameters') && obj['parameters'] === undefined) {
                 obj['parameters'] = ApiClient.convertToType(data['parameters'], {'String': GoogleProtobufWellKnownTypesValue});
             }
-            if (data.hasOwnProperty('excludeFromTotalRows')) {
+            if (data.hasOwnProperty('excludeFromTotalRows') && obj['excludeFromTotalRows'] === undefined) {
                 obj['excludeFromTotalRows'] = ApiClient.convertToType(data['excludeFromTotalRows'], 'Boolean');
             }
-            if (data.hasOwnProperty('excludeFromGroupRows')) {
+            if (data.hasOwnProperty('excludeFromGroupRows') && obj['excludeFromGroupRows'] === undefined) {
                 obj['excludeFromGroupRows'] = ApiClient.convertToType(data['excludeFromGroupRows'], ['String']);
             }
-            if (data.hasOwnProperty('targetColumnAlias')) {
+            if (data.hasOwnProperty('targetColumnAlias') && obj['targetColumnAlias'] === undefined) {
                 obj['targetColumnAlias'] = ApiClient.convertToType(data['targetColumnAlias'], 'String');
             }
+            
         }
         return obj;
     }

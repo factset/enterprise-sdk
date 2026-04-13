@@ -47,9 +47,10 @@ class AXPAvailableComponentsInput {
         if (data) {
             obj = obj || new AXPAvailableComponentsInput();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AXPAvailableComponentsInputData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

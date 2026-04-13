@@ -57,27 +57,28 @@ class EventUpdateData {
         if (data) {
             obj = obj || new EventUpdateData();
 
-            if (data.hasOwnProperty('title')) {
+            if (data.hasOwnProperty('title') && obj['title'] === undefined) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
-            if (data.hasOwnProperty('startDatetime')) {
+            if (data.hasOwnProperty('startDatetime') && obj['startDatetime'] === undefined) {
                 obj['startDatetime'] = ApiClient.convertToType(data['startDatetime'], 'Date');
             }
-            if (data.hasOwnProperty('agendaUrl')) {
+            if (data.hasOwnProperty('agendaUrl') && obj['agendaUrl'] === undefined) {
                 obj['agendaUrl'] = ApiClient.convertToType(data['agendaUrl'], 'String');
             }
-            if (data.hasOwnProperty('participants')) {
+            if (data.hasOwnProperty('participants') && obj['participants'] === undefined) {
                 obj['participants'] = ApiClient.convertToType(data['participants'], [ParticipantsData]);
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = LocationData.constructFromObject(data['location']);
             }
-            if (data.hasOwnProperty('symbols')) {
+            if (data.hasOwnProperty('symbols') && obj['symbols'] === undefined) {
                 obj['symbols'] = ApiClient.convertToType(data['symbols'], [SymbolData]);
             }
-            if (data.hasOwnProperty('registrationInfo')) {
+            if (data.hasOwnProperty('registrationInfo') && obj['registrationInfo'] === undefined) {
                 obj['registrationInfo'] = RegistrationInfoData.constructFromObject(data['registrationInfo']);
             }
+            
         }
         return obj;
     }

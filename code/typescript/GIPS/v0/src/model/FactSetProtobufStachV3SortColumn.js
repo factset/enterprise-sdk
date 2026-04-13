@@ -46,21 +46,22 @@ class FactSetProtobufStachV3SortColumn {
         if (data) {
             obj = obj || new FactSetProtobufStachV3SortColumn();
 
-            if (data.hasOwnProperty('by')) {
+            if (data.hasOwnProperty('by') && obj['by'] === undefined) {
                 obj['by'] = ApiClient.convertToType(data['by'], 'String');
             }
-            if (data.hasOwnProperty('descending')) {
+            if (data.hasOwnProperty('descending') && obj['descending'] === undefined) {
                 obj['descending'] = ApiClient.convertToType(data['descending'], 'Boolean');
             }
-            if (data.hasOwnProperty('nullsFirst')) {
+            if (data.hasOwnProperty('nullsFirst') && obj['nullsFirst'] === undefined) {
                 obj['nullsFirst'] = ApiClient.convertToType(data['nullsFirst'], 'Boolean');
             }
-            if (data.hasOwnProperty('caseInsensitive')) {
+            if (data.hasOwnProperty('caseInsensitive') && obj['caseInsensitive'] === undefined) {
                 obj['caseInsensitive'] = ApiClient.convertToType(data['caseInsensitive'], 'Boolean');
             }
-            if (data.hasOwnProperty('absoluteValue')) {
+            if (data.hasOwnProperty('absoluteValue') && obj['absoluteValue'] === undefined) {
                 obj['absoluteValue'] = ApiClient.convertToType(data['absoluteValue'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -48,15 +48,16 @@ class InlineResponse20020Data {
         if (data) {
             obj = obj || new InlineResponse20020Data();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('subdivisions')) {
+            if (data.hasOwnProperty('subdivisions') && obj['subdivisions'] === undefined) {
                 obj['subdivisions'] = ApiClient.convertToType(data['subdivisions'], [GetBasicRegionCountryGetByCodeDataSubdivisionsItems]);
             }
+            
         }
         return obj;
     }

@@ -47,45 +47,46 @@ class YearlyReturns {
         if (data) {
             obj = obj || new YearlyReturns();
 
-            if (data.hasOwnProperty('fundSimpleReturn')) {
+            if (data.hasOwnProperty('fundSimpleReturn') && obj['fundSimpleReturn'] === undefined) {
                 obj['fundSimpleReturn'] = ApiClient.convertToType(data['fundSimpleReturn'], 'Number');
             }
-            if (data.hasOwnProperty('fundSimpleReturnQuartile')) {
+            if (data.hasOwnProperty('fundSimpleReturnQuartile') && obj['fundSimpleReturnQuartile'] === undefined) {
                 obj['fundSimpleReturnQuartile'] = ApiClient.convertToType(data['fundSimpleReturnQuartile'], 'Number');
             }
-            if (data.hasOwnProperty('fundSimpleReturnCategoryRank')) {
+            if (data.hasOwnProperty('fundSimpleReturnCategoryRank') && obj['fundSimpleReturnCategoryRank'] === undefined) {
                 obj['fundSimpleReturnCategoryRank'] = ApiClient.convertToType(data['fundSimpleReturnCategoryRank'], 'Number');
             }
-            if (data.hasOwnProperty('fundSimpleReturnCategoryRankCount')) {
+            if (data.hasOwnProperty('fundSimpleReturnCategoryRankCount') && obj['fundSimpleReturnCategoryRankCount'] === undefined) {
                 obj['fundSimpleReturnCategoryRankCount'] = ApiClient.convertToType(data['fundSimpleReturnCategoryRankCount'], 'Number');
             }
-            if (data.hasOwnProperty('fundCompoundReturn')) {
+            if (data.hasOwnProperty('fundCompoundReturn') && obj['fundCompoundReturn'] === undefined) {
                 obj['fundCompoundReturn'] = ApiClient.convertToType(data['fundCompoundReturn'], 'Number');
             }
-            if (data.hasOwnProperty('indexSimpleReturn')) {
+            if (data.hasOwnProperty('indexSimpleReturn') && obj['indexSimpleReturn'] === undefined) {
                 obj['indexSimpleReturn'] = ApiClient.convertToType(data['indexSimpleReturn'], 'Number');
             }
-            if (data.hasOwnProperty('indexCompoundReturn')) {
+            if (data.hasOwnProperty('indexCompoundReturn') && obj['indexCompoundReturn'] === undefined) {
                 obj['indexCompoundReturn'] = ApiClient.convertToType(data['indexCompoundReturn'], 'Number');
             }
-            if (data.hasOwnProperty('categorySimpleReturn')) {
+            if (data.hasOwnProperty('categorySimpleReturn') && obj['categorySimpleReturn'] === undefined) {
                 obj['categorySimpleReturn'] = ApiClient.convertToType(data['categorySimpleReturn'], 'Number');
             }
-            if (data.hasOwnProperty('categoryCompoundReturn')) {
+            if (data.hasOwnProperty('categoryCompoundReturn') && obj['categoryCompoundReturn'] === undefined) {
                 obj['categoryCompoundReturn'] = ApiClient.convertToType(data['categoryCompoundReturn'], 'Number');
             }
-            if (data.hasOwnProperty('fundCompoundReturnQuartile')) {
+            if (data.hasOwnProperty('fundCompoundReturnQuartile') && obj['fundCompoundReturnQuartile'] === undefined) {
                 obj['fundCompoundReturnQuartile'] = ApiClient.convertToType(data['fundCompoundReturnQuartile'], 'Number');
             }
-            if (data.hasOwnProperty('fundCompoundReturnCategoryRank')) {
+            if (data.hasOwnProperty('fundCompoundReturnCategoryRank') && obj['fundCompoundReturnCategoryRank'] === undefined) {
                 obj['fundCompoundReturnCategoryRank'] = ApiClient.convertToType(data['fundCompoundReturnCategoryRank'], 'Number');
             }
-            if (data.hasOwnProperty('fundCompoundReturnCategoryRankCount')) {
+            if (data.hasOwnProperty('fundCompoundReturnCategoryRankCount') && obj['fundCompoundReturnCategoryRankCount'] === undefined) {
                 obj['fundCompoundReturnCategoryRankCount'] = ApiClient.convertToType(data['fundCompoundReturnCategoryRankCount'], 'Number');
             }
-            if (data.hasOwnProperty('year')) {
+            if (data.hasOwnProperty('year') && obj['year'] === undefined) {
                 obj['year'] = ApiClient.convertToType(data['year'], 'Number');
             }
+            
         }
         return obj;
     }

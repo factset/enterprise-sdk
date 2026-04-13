@@ -46,12 +46,13 @@ class InlineResponse2007DataClassifications {
         if (data) {
             obj = obj || new InlineResponse2007DataClassifications();
 
-            if (data.hasOwnProperty('classification')) {
+            if (data.hasOwnProperty('classification') && obj['classification'] === undefined) {
                 obj['classification'] = ApiClient.convertToType(data['classification'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

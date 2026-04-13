@@ -46,9 +46,10 @@ class ReferenceAttendeeDto {
         if (data) {
             obj = obj || new ReferenceAttendeeDto();
 
-            if (data.hasOwnProperty('emailAddress')) {
+            if (data.hasOwnProperty('emailAddress') && obj['emailAddress'] === undefined) {
                 obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
             }
+            
         }
         return obj;
     }

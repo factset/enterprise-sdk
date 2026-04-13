@@ -48,12 +48,13 @@ class InlineResponse20014Performance {
         if (data) {
             obj = obj || new InlineResponse20014Performance();
 
-            if (data.hasOwnProperty('intraday')) {
+            if (data.hasOwnProperty('intraday') && obj['intraday'] === undefined) {
                 obj['intraday'] = ApiClient.convertToType(data['intraday'], 'Number');
             }
-            if (data.hasOwnProperty('endOfDay')) {
+            if (data.hasOwnProperty('endOfDay') && obj['endOfDay'] === undefined) {
                 obj['endOfDay'] = InlineResponse20014PerformanceEndOfDay.constructFromObject(data['endOfDay']);
             }
+            
         }
         return obj;
     }

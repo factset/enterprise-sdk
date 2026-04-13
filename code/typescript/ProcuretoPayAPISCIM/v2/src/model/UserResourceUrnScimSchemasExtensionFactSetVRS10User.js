@@ -47,9 +47,10 @@ class UserResourceUrnScimSchemasExtensionFactSetVRS10User {
         if (data) {
             obj = obj || new UserResourceUrnScimSchemasExtensionFactSetVRS10User();
 
-            if (data.hasOwnProperty('domainData')) {
+            if (data.hasOwnProperty('domainData') && obj['domainData'] === undefined) {
                 obj['domainData'] = ApiClient.convertToType(data['domainData'], [UserResourceVRSDomainData]);
             }
+            
         }
         return obj;
     }

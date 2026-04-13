@@ -49,9 +49,10 @@ class CurrencyRoot {
         if (data) {
             obj = obj || new CurrencyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': Currency});
             }
+            
         }
         return obj;
     }

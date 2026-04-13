@@ -48,15 +48,16 @@ class CompanyEventRequestData {
         if (data) {
             obj = obj || new CompanyEventRequestData();
 
-            if (data.hasOwnProperty('dateTime')) {
+            if (data.hasOwnProperty('dateTime') && obj['dateTime'] === undefined) {
                 obj['dateTime'] = CompanyEventRequestDataDateTime.constructFromObject(data['dateTime']);
             }
-            if (data.hasOwnProperty('universe')) {
+            if (data.hasOwnProperty('universe') && obj['universe'] === undefined) {
                 obj['universe'] = CompanyEventRequestDataUniverse.constructFromObject(data['universe']);
             }
-            if (data.hasOwnProperty('eventTypes')) {
+            if (data.hasOwnProperty('eventTypes') && obj['eventTypes'] === undefined) {
                 obj['eventTypes'] = ApiClient.convertToType(data['eventTypes'], ['String']);
             }
+            
         }
         return obj;
     }

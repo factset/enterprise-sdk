@@ -48,9 +48,10 @@ class StandardSymbolDto {
         if (data) {
             obj = obj || new StandardSymbolDto();
 
-            if (data.hasOwnProperty('standardSymbol')) {
+            if (data.hasOwnProperty('standardSymbol') && obj['standardSymbol'] === undefined) {
                 obj['standardSymbol'] = ApiClient.convertToType(data['standardSymbol'], 'String');
             }
+            
         }
         return obj;
     }

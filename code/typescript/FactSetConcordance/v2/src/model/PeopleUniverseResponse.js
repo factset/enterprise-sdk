@@ -47,9 +47,10 @@ class PeopleUniverseResponse {
         if (data) {
             obj = obj || new PeopleUniverseResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [PeopleMapping]);
             }
+            
         }
         return obj;
     }

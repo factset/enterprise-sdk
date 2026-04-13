@@ -48,12 +48,13 @@ class PostCompanyKeyItemsCurrentGetByInstrumentRequest {
         if (data) {
             obj = obj || new PostCompanyKeyItemsCurrentGetByInstrumentRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostCompanyKeyItemsCurrentGetByInstrumentRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostCompanyKeyItemsCurrentGetByInstrumentRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

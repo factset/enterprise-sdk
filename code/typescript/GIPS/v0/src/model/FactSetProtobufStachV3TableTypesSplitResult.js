@@ -46,15 +46,16 @@ class FactSetProtobufStachV3TableTypesSplitResult {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesSplitResult();
 
-            if (data.hasOwnProperty('multiLevelHeadersTableReference')) {
+            if (data.hasOwnProperty('multiLevelHeadersTableReference') && obj['multiLevelHeadersTableReference'] === undefined) {
                 obj['multiLevelHeadersTableReference'] = ApiClient.convertToType(data['multiLevelHeadersTableReference'], 'String');
             }
-            if (data.hasOwnProperty('by')) {
+            if (data.hasOwnProperty('by') && obj['by'] === undefined) {
                 obj['by'] = ApiClient.convertToType(data['by'], ['String']);
             }
-            if (data.hasOwnProperty('over')) {
+            if (data.hasOwnProperty('over') && obj['over'] === undefined) {
                 obj['over'] = ApiClient.convertToType(data['over'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

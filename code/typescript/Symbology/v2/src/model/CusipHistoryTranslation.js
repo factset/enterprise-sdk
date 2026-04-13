@@ -47,27 +47,28 @@ class CusipHistoryTranslation {
         if (data) {
             obj = obj || new CusipHistoryTranslation();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('cusip')) {
+            if (data.hasOwnProperty('cusip') && obj['cusip'] === undefined) {
                 obj['cusip'] = ApiClient.convertToType(data['cusip'], 'String');
             }
-            if (data.hasOwnProperty('cusipEffectiveStartDate')) {
+            if (data.hasOwnProperty('cusipEffectiveStartDate') && obj['cusipEffectiveStartDate'] === undefined) {
                 obj['cusipEffectiveStartDate'] = ApiClient.convertToType(data['cusipEffectiveStartDate'], 'Date');
             }
-            if (data.hasOwnProperty('cusipEffectiveEndDate')) {
+            if (data.hasOwnProperty('cusipEffectiveEndDate') && obj['cusipEffectiveEndDate'] === undefined) {
                 obj['cusipEffectiveEndDate'] = ApiClient.convertToType(data['cusipEffectiveEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

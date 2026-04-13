@@ -52,33 +52,34 @@ class InlineResponse200Data {
         if (data) {
             obj = obj || new InlineResponse200Data();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
+            if (data.hasOwnProperty('shortName') && obj['shortName'] === undefined) {
                 obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
+            if (data.hasOwnProperty('nsin') && obj['nsin'] === undefined) {
                 obj['nsin'] = InlineResponse200DataNsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = InlineResponse200DataFsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('stockType')) {
+            if (data.hasOwnProperty('stockType') && obj['stockType'] === undefined) {
                 obj['stockType'] = ApiClient.convertToType(data['stockType'], 'String');
             }
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = InlineResponse200DataCompany.constructFromObject(data['company']);
             }
-            if (data.hasOwnProperty('companyKeyFigures')) {
+            if (data.hasOwnProperty('companyKeyFigures') && obj['companyKeyFigures'] === undefined) {
                 obj['companyKeyFigures'] = InlineResponse200DataCompanyKeyFigures.constructFromObject(data['companyKeyFigures']);
             }
-            if (data.hasOwnProperty('shareInstrumentKeyFigures')) {
+            if (data.hasOwnProperty('shareInstrumentKeyFigures') && obj['shareInstrumentKeyFigures'] === undefined) {
                 obj['shareInstrumentKeyFigures'] = InlineResponse200DataShareInstrumentKeyFigures.constructFromObject(data['shareInstrumentKeyFigures']);
             }
+            
         }
         return obj;
     }

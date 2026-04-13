@@ -51,12 +51,13 @@ class ScreenCalcParameters {
         if (data) {
             obj = obj || new ScreenCalcParameters();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = CalculateMetadata.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ScreenCalcParametersData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class AssetTypesResponse {
         if (data) {
             obj = obj || new AssetTypesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AssetResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

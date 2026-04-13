@@ -47,12 +47,13 @@ class AssetBreakdown {
         if (data) {
             obj = obj || new AssetBreakdown();
 
-            if (data.hasOwnProperty('asset')) {
+            if (data.hasOwnProperty('asset') && obj['asset'] === undefined) {
                 obj['asset'] = ApiClient.convertToType(data['asset'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

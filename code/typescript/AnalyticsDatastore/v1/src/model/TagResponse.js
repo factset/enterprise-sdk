@@ -48,9 +48,10 @@ class TagResponse {
         if (data) {
             obj = obj || new TagResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TagModel.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

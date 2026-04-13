@@ -48,18 +48,19 @@ class NRT {
         if (data) {
             obj = obj || new NRT();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('product')) {
+            if (data.hasOwnProperty('product') && obj['product'] === undefined) {
                 obj['product'] = ApiClient.convertToType(data['product'], 'String');
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = MetaNrt.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('body')) {
+            if (data.hasOwnProperty('body') && obj['body'] === undefined) {
                 obj['body'] = BodyNrt.constructFromObject(data['body']);
             }
+            
         }
         return obj;
     }

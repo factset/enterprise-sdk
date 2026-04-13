@@ -50,9 +50,10 @@ class HelperEndpoint {
         if (data) {
             obj = obj || new HelperEndpoint();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = HelperObject.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

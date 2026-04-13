@@ -57,21 +57,22 @@ class RiskModelSummary {
         if (data) {
             obj = obj || new RiskModelSummary();
 
-            if (data.hasOwnProperty('available')) {
+            if (data.hasOwnProperty('available') && obj['available'] === undefined) {
                 obj['available'] = ApiClient.convertToType(data['available'], 'Boolean');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('vendor')) {
+            if (data.hasOwnProperty('vendor') && obj['vendor'] === undefined) {
                 obj['vendor'] = ApiClient.convertToType(data['vendor'], 'String');
             }
+            
         }
         return obj;
     }

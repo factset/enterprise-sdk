@@ -48,12 +48,13 @@ class InlineResponse200DataUnderlying {
         if (data) {
             obj = obj || new InlineResponse200DataUnderlying();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('notation')) {
+            if (data.hasOwnProperty('notation') && obj['notation'] === undefined) {
                 obj['notation'] = InlineResponse200DataUnderlyingNotation.constructFromObject(data['notation']);
             }
+            
         }
         return obj;
     }

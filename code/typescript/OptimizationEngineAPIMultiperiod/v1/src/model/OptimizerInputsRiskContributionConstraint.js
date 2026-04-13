@@ -52,30 +52,31 @@ class OptimizerInputsRiskContributionConstraint {
         if (data) {
             obj = obj || new OptimizerInputsRiskContributionConstraint();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('max_percent')) {
+            if (data.hasOwnProperty('max_percent') && obj['max_percent'] === undefined) {
                 obj['max_percent'] = OptimizerInputsValue.constructFromObject(data['max_percent']);
             }
-            if (data.hasOwnProperty('custom_asset')) {
+            if (data.hasOwnProperty('custom_asset') && obj['custom_asset'] === undefined) {
                 obj['custom_asset'] = OptimizerInputsValue.constructFromObject(data['custom_asset']);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [OptimizerInputsConstraintGroup]);
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = OptimizerInputsEConstraintLevelEnum.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('asset_type')) {
+            if (data.hasOwnProperty('asset_type') && obj['asset_type'] === undefined) {
                 obj['asset_type'] = OptimizerInputsEFPOConstraintAssetTypeEnum.constructFromObject(data['asset_type']);
             }
-            if (data.hasOwnProperty('risk_type')) {
+            if (data.hasOwnProperty('risk_type') && obj['risk_type'] === undefined) {
                 obj['risk_type'] = OptimizerInputsEConstraintRiskTypeEnum.constructFromObject(data['risk_type']);
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], 'Number');
             }
+            
         }
         return obj;
     }

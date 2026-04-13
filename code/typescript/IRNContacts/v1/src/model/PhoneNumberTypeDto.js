@@ -46,15 +46,16 @@ class PhoneNumberTypeDto {
         if (data) {
             obj = obj || new PhoneNumberTypeDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('isStandard')) {
+            if (data.hasOwnProperty('isStandard') && obj['isStandard'] === undefined) {
                 obj['isStandard'] = ApiClient.convertToType(data['isStandard'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -59,42 +59,43 @@ class InlineResponse2002Ratios {
         if (data) {
             obj = obj || new InlineResponse2002Ratios();
 
-            if (data.hasOwnProperty('priceSales')) {
+            if (data.hasOwnProperty('priceSales') && obj['priceSales'] === undefined) {
                 obj['priceSales'] = InlineResponse2002RatiosPriceSales.constructFromObject(data['priceSales']);
             }
-            if (data.hasOwnProperty('priceEarnings')) {
+            if (data.hasOwnProperty('priceEarnings') && obj['priceEarnings'] === undefined) {
                 obj['priceEarnings'] = InlineResponse2002RatiosPriceEarnings.constructFromObject(data['priceEarnings']);
             }
-            if (data.hasOwnProperty('priceEarningsGrowth')) {
+            if (data.hasOwnProperty('priceEarningsGrowth') && obj['priceEarningsGrowth'] === undefined) {
                 obj['priceEarningsGrowth'] = InlineResponse2002RatiosPriceEarningsGrowth.constructFromObject(data['priceEarningsGrowth']);
             }
-            if (data.hasOwnProperty('priceBookValue')) {
+            if (data.hasOwnProperty('priceBookValue') && obj['priceBookValue'] === undefined) {
                 obj['priceBookValue'] = InlineResponse2002RatiosPriceBookValue.constructFromObject(data['priceBookValue']);
             }
-            if (data.hasOwnProperty('priceCashFlow')) {
+            if (data.hasOwnProperty('priceCashFlow') && obj['priceCashFlow'] === undefined) {
                 obj['priceCashFlow'] = InlineResponse2002RatiosPriceCashFlow.constructFromObject(data['priceCashFlow']);
             }
-            if (data.hasOwnProperty('priceFreeCashFlow')) {
+            if (data.hasOwnProperty('priceFreeCashFlow') && obj['priceFreeCashFlow'] === undefined) {
                 obj['priceFreeCashFlow'] = InlineResponse2002RatiosPriceFreeCashFlow.constructFromObject(data['priceFreeCashFlow']);
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = InlineResponse2002RatiosDividendYield.constructFromObject(data['dividendYield']);
             }
-            if (data.hasOwnProperty('enterpriseValueEbit')) {
+            if (data.hasOwnProperty('enterpriseValueEbit') && obj['enterpriseValueEbit'] === undefined) {
                 obj['enterpriseValueEbit'] = InlineResponse2002RatiosEnterpriseValueEbit.constructFromObject(data['enterpriseValueEbit']);
             }
-            if (data.hasOwnProperty('enterpriseValueEbita')) {
+            if (data.hasOwnProperty('enterpriseValueEbita') && obj['enterpriseValueEbita'] === undefined) {
                 obj['enterpriseValueEbita'] = InlineResponse2002RatiosEnterpriseValueEbita.constructFromObject(data['enterpriseValueEbita']);
             }
-            if (data.hasOwnProperty('enterpriseValueEbitda')) {
+            if (data.hasOwnProperty('enterpriseValueEbitda') && obj['enterpriseValueEbitda'] === undefined) {
                 obj['enterpriseValueEbitda'] = InlineResponse2002RatiosEnterpriseValueEbitda.constructFromObject(data['enterpriseValueEbitda']);
             }
-            if (data.hasOwnProperty('enterpriseValueSales')) {
+            if (data.hasOwnProperty('enterpriseValueSales') && obj['enterpriseValueSales'] === undefined) {
                 obj['enterpriseValueSales'] = InlineResponse2002RatiosEnterpriseValueSales.constructFromObject(data['enterpriseValueSales']);
             }
-            if (data.hasOwnProperty('enterpriseValueFreeCashFlow')) {
+            if (data.hasOwnProperty('enterpriseValueFreeCashFlow') && obj['enterpriseValueFreeCashFlow'] === undefined) {
                 obj['enterpriseValueFreeCashFlow'] = InlineResponse2002RatiosEnterpriseValueFreeCashFlow.constructFromObject(data['enterpriseValueFreeCashFlow']);
             }
+            
         }
         return obj;
     }

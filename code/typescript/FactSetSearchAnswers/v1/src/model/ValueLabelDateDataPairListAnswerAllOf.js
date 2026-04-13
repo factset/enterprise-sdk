@@ -49,9 +49,10 @@ class ValueLabelDateDataPairListAnswerAllOf {
         if (data) {
             obj = obj || new ValueLabelDateDataPairListAnswerAllOf();
 
-            if (data.hasOwnProperty('templateData')) {
+            if (data.hasOwnProperty('templateData') && obj['templateData'] === undefined) {
                 obj['templateData'] = ValueLabelDateDataPairListTemplateData.constructFromObject(data['templateData']);
             }
+            
         }
         return obj;
     }

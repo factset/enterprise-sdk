@@ -54,99 +54,100 @@ class Profile {
         if (data) {
             obj = obj || new Profile();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = ApiClient.convertToType(data['company'], 'String');
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = ApiClient.convertToType(data['group'], 'String');
             }
-            if (data.hasOwnProperty('objective')) {
+            if (data.hasOwnProperty('objective') && obj['objective'] === undefined) {
                 obj['objective'] = ApiClient.convertToType(data['objective'], 'String');
             }
-            if (data.hasOwnProperty('strategy')) {
+            if (data.hasOwnProperty('strategy') && obj['strategy'] === undefined) {
                 obj['strategy'] = ApiClient.convertToType(data['strategy'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkIndexName')) {
+            if (data.hasOwnProperty('benchmarkIndexName') && obj['benchmarkIndexName'] === undefined) {
                 obj['benchmarkIndexName'] = ApiClient.convertToType(data['benchmarkIndexName'], 'String');
             }
-            if (data.hasOwnProperty('managers')) {
+            if (data.hasOwnProperty('managers') && obj['managers'] === undefined) {
                 obj['managers'] = ApiClient.convertToType(data['managers'], [Manager]);
             }
-            if (data.hasOwnProperty('inceptionDate')) {
+            if (data.hasOwnProperty('inceptionDate') && obj['inceptionDate'] === undefined) {
                 obj['inceptionDate'] = ApiClient.convertToType(data['inceptionDate'], 'Date');
             }
-            if (data.hasOwnProperty('loadType')) {
+            if (data.hasOwnProperty('loadType') && obj['loadType'] === undefined) {
                 obj['loadType'] = ApiClient.convertToType(data['loadType'], 'String');
             }
-            if (data.hasOwnProperty('netExpenseRatio')) {
+            if (data.hasOwnProperty('netExpenseRatio') && obj['netExpenseRatio'] === undefined) {
                 obj['netExpenseRatio'] = ApiClient.convertToType(data['netExpenseRatio'], 'Number');
             }
-            if (data.hasOwnProperty('managementFee')) {
+            if (data.hasOwnProperty('managementFee') && obj['managementFee'] === undefined) {
                 obj['managementFee'] = ApiClient.convertToType(data['managementFee'], 'Number');
             }
-            if (data.hasOwnProperty('netAssets')) {
+            if (data.hasOwnProperty('netAssets') && obj['netAssets'] === undefined) {
                 obj['netAssets'] = ApiClient.convertToType(data['netAssets'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('address')) {
+            if (data.hasOwnProperty('address') && obj['address'] === undefined) {
                 obj['address'] = Address.constructFromObject(data['address']);
             }
-            if (data.hasOwnProperty('rrspInitialInvestment')) {
+            if (data.hasOwnProperty('rrspInitialInvestment') && obj['rrspInitialInvestment'] === undefined) {
                 obj['rrspInitialInvestment'] = ApiClient.convertToType(data['rrspInitialInvestment'], 'Number');
             }
-            if (data.hasOwnProperty('rrspAdditionalInvestment')) {
+            if (data.hasOwnProperty('rrspAdditionalInvestment') && obj['rrspAdditionalInvestment'] === undefined) {
                 obj['rrspAdditionalInvestment'] = ApiClient.convertToType(data['rrspAdditionalInvestment'], 'Number');
             }
-            if (data.hasOwnProperty('respEligible')) {
+            if (data.hasOwnProperty('respEligible') && obj['respEligible'] === undefined) {
                 obj['respEligible'] = ApiClient.convertToType(data['respEligible'], 'Boolean');
             }
-            if (data.hasOwnProperty('rrspEligible')) {
+            if (data.hasOwnProperty('rrspEligible') && obj['rrspEligible'] === undefined) {
                 obj['rrspEligible'] = ApiClient.convertToType(data['rrspEligible'], 'Boolean');
             }
-            if (data.hasOwnProperty('availableInProvinces')) {
+            if (data.hasOwnProperty('availableInProvinces') && obj['availableInProvinces'] === undefined) {
                 obj['availableInProvinces'] = ApiClient.convertToType(data['availableInProvinces'], ['String']);
             }
-            if (data.hasOwnProperty('minimumInvestment')) {
+            if (data.hasOwnProperty('minimumInvestment') && obj['minimumInvestment'] === undefined) {
                 obj['minimumInvestment'] = ApiClient.convertToType(data['minimumInvestment'], 'Number');
             }
-            if (data.hasOwnProperty('additionalInvestment')) {
+            if (data.hasOwnProperty('additionalInvestment') && obj['additionalInvestment'] === undefined) {
                 obj['additionalInvestment'] = ApiClient.convertToType(data['additionalInvestment'], 'Number');
             }
-            if (data.hasOwnProperty('nav')) {
+            if (data.hasOwnProperty('nav') && obj['nav'] === undefined) {
                 obj['nav'] = Nav.constructFromObject(data['nav']);
             }
-            if (data.hasOwnProperty('dividend')) {
+            if (data.hasOwnProperty('dividend') && obj['dividend'] === undefined) {
                 obj['dividend'] = Dividend.constructFromObject(data['dividend']);
             }
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = Returns.constructFromObject(data['returns']);
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('fundGrade')) {
+            if (data.hasOwnProperty('fundGrade') && obj['fundGrade'] === undefined) {
                 obj['fundGrade'] = ApiClient.convertToType(data['fundGrade'], 'String');
             }
-            if (data.hasOwnProperty('fundSeries')) {
+            if (data.hasOwnProperty('fundSeries') && obj['fundSeries'] === undefined) {
                 obj['fundSeries'] = ApiClient.convertToType(data['fundSeries'], 'String');
             }
-            if (data.hasOwnProperty('fundServ')) {
+            if (data.hasOwnProperty('fundServ') && obj['fundServ'] === undefined) {
                 obj['fundServ'] = ApiClient.convertToType(data['fundServ'], [FundServ]);
             }
+            
         }
         return obj;
     }

@@ -54,15 +54,16 @@ class IdentifierResolutionRequest {
         if (data) {
             obj = obj || new IdentifierResolutionRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('inputSymbolType')) {
+            if (data.hasOwnProperty('inputSymbolType') && obj['inputSymbolType'] === undefined) {
                 obj['inputSymbolType'] = GetInputSymbolType.constructFromObject(data['inputSymbolType']);
             }
-            if (data.hasOwnProperty('outputSymbolTypes')) {
+            if (data.hasOwnProperty('outputSymbolTypes') && obj['outputSymbolTypes'] === undefined) {
                 obj['outputSymbolTypes'] = ApiClient.convertToType(data['outputSymbolTypes'], ['String']);
             }
+            
         }
         return obj;
     }

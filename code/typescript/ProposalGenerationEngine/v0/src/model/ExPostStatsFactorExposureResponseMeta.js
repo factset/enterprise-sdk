@@ -47,9 +47,10 @@ class ExPostStatsFactorExposureResponseMeta {
         if (data) {
             obj = obj || new ExPostStatsFactorExposureResponseMeta();
 
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = ExPostStatsFactorExposureSettings.constructFromObject(data['settings']);
             }
+            
         }
         return obj;
     }

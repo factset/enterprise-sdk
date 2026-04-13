@@ -47,12 +47,13 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresSpread {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresSpread();
 
-            if (data.hasOwnProperty('harmonized')) {
+            if (data.hasOwnProperty('harmonized') && obj['harmonized'] === undefined) {
                 obj['harmonized'] = ApiClient.convertToType(data['harmonized'], 'Number');
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = ApiClient.convertToType(data['relative'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -47,27 +47,28 @@ class InlineResponse2009Data {
         if (data) {
             obj = obj || new InlineResponse2009Data();
 
-            if (data.hasOwnProperty('idNotation')) {
+            if (data.hasOwnProperty('idNotation') && obj['idNotation'] === undefined) {
                 obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('CEO')) {
+            if (data.hasOwnProperty('CEO') && obj['CEO'] === undefined) {
                 obj['CEO'] = ApiClient.convertToType(data['CEO'], 'String');
             }
-            if (data.hasOwnProperty('industry')) {
+            if (data.hasOwnProperty('industry') && obj['industry'] === undefined) {
                 obj['industry'] = ApiClient.convertToType(data['industry'], 'String');
             }
-            if (data.hasOwnProperty('headquarters')) {
+            if (data.hasOwnProperty('headquarters') && obj['headquarters'] === undefined) {
                 obj['headquarters'] = ApiClient.convertToType(data['headquarters'], 'String');
             }
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class ExplanationCreateResponseRoot {
         if (data) {
             obj = obj || new ExplanationCreateResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ExplanationCreateResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

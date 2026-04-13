@@ -47,24 +47,25 @@ class PartnerAddress {
         if (data) {
             obj = obj || new PartnerAddress();
 
-            if (data.hasOwnProperty('addressLine1')) {
+            if (data.hasOwnProperty('addressLine1') && obj['addressLine1'] === undefined) {
                 obj['addressLine1'] = ApiClient.convertToType(data['addressLine1'], 'String');
             }
-            if (data.hasOwnProperty('addressLine2')) {
+            if (data.hasOwnProperty('addressLine2') && obj['addressLine2'] === undefined) {
                 obj['addressLine2'] = ApiClient.convertToType(data['addressLine2'], 'String');
             }
-            if (data.hasOwnProperty('city')) {
+            if (data.hasOwnProperty('city') && obj['city'] === undefined) {
                 obj['city'] = ApiClient.convertToType(data['city'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('postCode')) {
+            if (data.hasOwnProperty('postCode') && obj['postCode'] === undefined) {
                 obj['postCode'] = ApiClient.convertToType(data['postCode'], 'String');
             }
-            if (data.hasOwnProperty('state')) {
+            if (data.hasOwnProperty('state') && obj['state'] === undefined) {
                 obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
+            
         }
         return obj;
     }

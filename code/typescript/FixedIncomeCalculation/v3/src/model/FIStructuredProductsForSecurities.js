@@ -50,27 +50,28 @@ class FIStructuredProductsForSecurities {
         if (data) {
             obj = obj || new FIStructuredProductsForSecurities();
 
-            if (data.hasOwnProperty('servicerAdvances')) {
+            if (data.hasOwnProperty('servicerAdvances') && obj['servicerAdvances'] === undefined) {
                 obj['servicerAdvances'] = FIServicerAdvancesForSecurities.constructFromObject(data['servicerAdvances']);
             }
-            if (data.hasOwnProperty('ignoreFinancialGuarantee')) {
+            if (data.hasOwnProperty('ignoreFinancialGuarantee') && obj['ignoreFinancialGuarantee'] === undefined) {
                 obj['ignoreFinancialGuarantee'] = ApiClient.convertToType(data['ignoreFinancialGuarantee'], 'String');
             }
-            if (data.hasOwnProperty('cleanUpCallMethod')) {
+            if (data.hasOwnProperty('cleanUpCallMethod') && obj['cleanUpCallMethod'] === undefined) {
                 obj['cleanUpCallMethod'] = ApiClient.convertToType(data['cleanUpCallMethod'], 'Boolean');
             }
-            if (data.hasOwnProperty('doOPTRedeem')) {
+            if (data.hasOwnProperty('doOPTRedeem') && obj['doOPTRedeem'] === undefined) {
                 obj['doOPTRedeem'] = ApiClient.convertToType(data['doOPTRedeem'], 'String');
             }
-            if (data.hasOwnProperty('prepayLockout')) {
+            if (data.hasOwnProperty('prepayLockout') && obj['prepayLockout'] === undefined) {
                 obj['prepayLockout'] = FIPrepayLockout.constructFromObject(data['prepayLockout']);
             }
-            if (data.hasOwnProperty('cashflows')) {
+            if (data.hasOwnProperty('cashflows') && obj['cashflows'] === undefined) {
                 obj['cashflows'] = FICashflows.constructFromObject(data['cashflows']);
             }
-            if (data.hasOwnProperty('balloonExtension')) {
+            if (data.hasOwnProperty('balloonExtension') && obj['balloonExtension'] === undefined) {
                 obj['balloonExtension'] = FIBalloonExtension.constructFromObject(data['balloonExtension']);
             }
+            
         }
         return obj;
     }

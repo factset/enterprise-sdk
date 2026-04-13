@@ -48,9 +48,10 @@ class FinancialStatementsResponse {
         if (data) {
             obj = obj || new FinancialStatementsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FinancialStatements]);
             }
+            
         }
         return obj;
     }

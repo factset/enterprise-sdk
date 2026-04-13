@@ -46,15 +46,16 @@ class UnlinkedPATemplateColumnDetails {
         if (data) {
             obj = obj || new UnlinkedPATemplateColumnDetails();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('statistics')) {
+            if (data.hasOwnProperty('statistics') && obj['statistics'] === undefined) {
                 obj['statistics'] = ApiClient.convertToType(data['statistics'], ['String']);
             }
+            
         }
         return obj;
     }

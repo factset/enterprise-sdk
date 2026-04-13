@@ -47,9 +47,10 @@ class FPOAvailableComponentsInput {
         if (data) {
             obj = obj || new FPOAvailableComponentsInput();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = FPOAvailableComponentsInputData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

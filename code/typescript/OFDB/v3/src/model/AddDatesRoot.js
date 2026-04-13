@@ -47,9 +47,10 @@ class AddDatesRoot {
         if (data) {
             obj = obj || new AddDatesRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AddDatesRootData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

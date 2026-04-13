@@ -49,21 +49,22 @@ class InlineResponse2007Data {
         if (data) {
             obj = obj || new InlineResponse2007Data();
 
-            if (data.hasOwnProperty('idNotation')) {
+            if (data.hasOwnProperty('idNotation') && obj['idNotation'] === undefined) {
                 obj['idNotation'] = ApiClient.convertToType(data['idNotation'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = InlineResponse200DataRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('subsamples')) {
+            if (data.hasOwnProperty('subsamples') && obj['subsamples'] === undefined) {
                 obj['subsamples'] = ApiClient.convertToType(data['subsamples'], [PostPricesTimeSeriesEodSubsampleListDataSubsamplesItems]);
             }
+            
         }
         return obj;
     }

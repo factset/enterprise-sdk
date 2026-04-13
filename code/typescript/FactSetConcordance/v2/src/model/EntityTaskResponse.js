@@ -47,9 +47,10 @@ class EntityTaskResponse {
         if (data) {
             obj = obj || new EntityTaskResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = EntityTaskStatus.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

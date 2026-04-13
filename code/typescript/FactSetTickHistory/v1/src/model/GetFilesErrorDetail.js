@@ -46,15 +46,16 @@ class GetFilesErrorDetail {
         if (data) {
             obj = obj || new GetFilesErrorDetail();
 
-            if (data.hasOwnProperty('not_authorized_tickers')) {
+            if (data.hasOwnProperty('not_authorized_tickers') && obj['not_authorized_tickers'] === undefined) {
                 obj['not_authorized_tickers'] = ApiClient.convertToType(data['not_authorized_tickers'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationLimit')) {
+            if (data.hasOwnProperty('_paginationLimit') && obj['_paginationLimit'] === undefined) {
                 obj['_paginationLimit'] = ApiClient.convertToType(data['_paginationLimit'], ['String']);
             }
-            if (data.hasOwnProperty('_paginationOffset')) {
+            if (data.hasOwnProperty('_paginationOffset') && obj['_paginationOffset'] === undefined) {
                 obj['_paginationOffset'] = ApiClient.convertToType(data['_paginationOffset'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShareE
         if (data) {
             obj = obj || new InlineResponse200DataCompanyKeyFiguresCurrencyDependentKeyFiguresPerShareEarnings();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

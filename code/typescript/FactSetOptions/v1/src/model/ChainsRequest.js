@@ -50,18 +50,19 @@ class ChainsRequest {
         if (data) {
             obj = obj || new ChainsRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('idType')) {
+            if (data.hasOwnProperty('idType') && obj['idType'] === undefined) {
                 obj['idType'] = IdType.constructFromObject(data['idType']);
             }
-            if (data.hasOwnProperty('exchange')) {
+            if (data.hasOwnProperty('exchange') && obj['exchange'] === undefined) {
                 obj['exchange'] = Exchange.constructFromObject(data['exchange']);
             }
+            
         }
         return obj;
     }

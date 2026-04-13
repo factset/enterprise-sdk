@@ -47,15 +47,16 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresMaximumY
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsKeyFiguresMaximumYield();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = ApiClient.convertToType(data['absolute'], 'Number');
             }
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = ApiClient.convertToType(data['relative'], 'Number');
             }
-            if (data.hasOwnProperty('annualized')) {
+            if (data.hasOwnProperty('annualized') && obj['annualized'] === undefined) {
                 obj['annualized'] = ApiClient.convertToType(data['annualized'], 'Number');
             }
+            
         }
         return obj;
     }

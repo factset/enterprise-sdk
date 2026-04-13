@@ -48,12 +48,13 @@ class ProductGroup {
         if (data) {
             obj = obj || new ProductGroup();
 
-            if (data.hasOwnProperty('productGroup')) {
+            if (data.hasOwnProperty('productGroup') && obj['productGroup'] === undefined) {
                 obj['productGroup'] = ApiClient.convertToType(data['productGroup'], 'String');
             }
-            if (data.hasOwnProperty('products')) {
+            if (data.hasOwnProperty('products') && obj['products'] === undefined) {
                 obj['products'] = ApiClient.convertToType(data['products'], [Product]);
             }
+            
         }
         return obj;
     }

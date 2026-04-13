@@ -51,21 +51,22 @@ class PostSecuritizedDerivativeNotationScreenerSearchRequestDataLifeCycle {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchRequestDataLifeCycle();
 
-            if (data.hasOwnProperty('issue')) {
+            if (data.hasOwnProperty('issue') && obj['issue'] === undefined) {
                 obj['issue'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataLifeCycleIssue.constructFromObject(data['issue']);
             }
-            if (data.hasOwnProperty('maturity')) {
+            if (data.hasOwnProperty('maturity') && obj['maturity'] === undefined) {
                 obj['maturity'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataLifeCycleMaturity.constructFromObject(data['maturity']);
             }
-            if (data.hasOwnProperty('callable')) {
+            if (data.hasOwnProperty('callable') && obj['callable'] === undefined) {
                 obj['callable'] = ApiClient.convertToType(data['callable'], 'Boolean');
             }
-            if (data.hasOwnProperty('valuation')) {
+            if (data.hasOwnProperty('valuation') && obj['valuation'] === undefined) {
                 obj['valuation'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataLifeCycleValuation.constructFromObject(data['valuation']);
             }
-            if (data.hasOwnProperty('repayment')) {
+            if (data.hasOwnProperty('repayment') && obj['repayment'] === undefined) {
                 obj['repayment'] = PostSecuritizedDerivativeNotationScreenerSearchRequestDataLifeCycleRepayment.constructFromObject(data['repayment']);
             }
+            
         }
         return obj;
     }

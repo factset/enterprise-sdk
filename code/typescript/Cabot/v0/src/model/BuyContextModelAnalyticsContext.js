@@ -48,15 +48,16 @@ class BuyContextModelAnalyticsContext {
         if (data) {
             obj = obj || new BuyContextModelAnalyticsContext();
 
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = BuyContextModelAnalyticsContextAttribute.constructFromObject(data['attribute']);
             }
-            if (data.hasOwnProperty('count')) {
+            if (data.hasOwnProperty('count') && obj['count'] === undefined) {
                 obj['count'] = ApiClient.convertToType(data['count'], 'Number');
             }
-            if (data.hasOwnProperty('sectors')) {
+            if (data.hasOwnProperty('sectors') && obj['sectors'] === undefined) {
                 obj['sectors'] = ApiClient.convertToType(data['sectors'], [BuyContextModelAnalyticsItem]);
             }
+            
         }
         return obj;
     }

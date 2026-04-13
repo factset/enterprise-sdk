@@ -48,15 +48,16 @@ class PostNewsArticleListByInstrumentDataIdentifiersItems {
         if (data) {
             obj = obj || new PostNewsArticleListByInstrumentDataIdentifiersItems();
 
-            if (data.hasOwnProperty('idInstrument')) {
+            if (data.hasOwnProperty('idInstrument') && obj['idInstrument'] === undefined) {
                 obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = PostNewsArticleListByInstrumentDataIdentifiersItemsStatus.constructFromObject(data['status']);
             }
+            
         }
         return obj;
     }

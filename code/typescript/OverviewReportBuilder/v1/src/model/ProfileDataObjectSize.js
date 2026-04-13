@@ -57,18 +57,19 @@ class ProfileDataObjectSize {
         if (data) {
             obj = obj || new ProfileDataObjectSize();
 
-            if (data.hasOwnProperty('employeeNumber')) {
+            if (data.hasOwnProperty('employeeNumber') && obj['employeeNumber'] === undefined) {
                 obj['employeeNumber'] = KeyStatsDataObjectFundAverageSpreadValue.constructFromObject(data['employeeNumber']);
             }
-            if (data.hasOwnProperty('ev')) {
+            if (data.hasOwnProperty('ev') && obj['ev'] === undefined) {
                 obj['ev'] = ProfileDataObjectSizeEv.constructFromObject(data['ev']);
             }
-            if (data.hasOwnProperty('mcap')) {
+            if (data.hasOwnProperty('mcap') && obj['mcap'] === undefined) {
                 obj['mcap'] = ProfileDataObjectSizeEv.constructFromObject(data['mcap']);
             }
-            if (data.hasOwnProperty('revenue')) {
+            if (data.hasOwnProperty('revenue') && obj['revenue'] === undefined) {
                 obj['revenue'] = ProfileDataObjectSizeRevenue.constructFromObject(data['revenue']);
             }
+            
         }
         return obj;
     }

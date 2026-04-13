@@ -48,9 +48,10 @@ class FlattenedFiltersCategories {
         if (data) {
             obj = obj || new FlattenedFiltersCategories();
 
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [FlattenedFiltersCategoriesObject]);
             }
+            
         }
         return obj;
     }

@@ -51,18 +51,19 @@ class InlineResponse20014Data {
         if (data) {
             obj = obj || new InlineResponse20014Data();
 
-            if (data.hasOwnProperty('gearing')) {
+            if (data.hasOwnProperty('gearing') && obj['gearing'] === undefined) {
                 obj['gearing'] = InlineResponse20014DataGearing.constructFromObject(data['gearing']);
             }
-            if (data.hasOwnProperty('hedge')) {
+            if (data.hasOwnProperty('hedge') && obj['hedge'] === undefined) {
                 obj['hedge'] = InlineResponse20014DataHedge.constructFromObject(data['hedge']);
             }
-            if (data.hasOwnProperty('counterParty')) {
+            if (data.hasOwnProperty('counterParty') && obj['counterParty'] === undefined) {
                 obj['counterParty'] = InlineResponse20014DataCounterParty.constructFromObject(data['counterParty']);
             }
-            if (data.hasOwnProperty('serviceProvider')) {
+            if (data.hasOwnProperty('serviceProvider') && obj['serviceProvider'] === undefined) {
                 obj['serviceProvider'] = InlineResponse20014DataServiceProvider.constructFromObject(data['serviceProvider']);
             }
+            
         }
         return obj;
     }

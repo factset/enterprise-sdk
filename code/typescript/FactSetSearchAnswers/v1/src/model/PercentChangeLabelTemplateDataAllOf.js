@@ -47,12 +47,13 @@ class PercentChangeLabelTemplateDataAllOf {
         if (data) {
             obj = obj || new PercentChangeLabelTemplateDataAllOf();
 
-            if (data.hasOwnProperty('percentChange')) {
+            if (data.hasOwnProperty('percentChange') && obj['percentChange'] === undefined) {
                 obj['percentChange'] = PercentChange.constructFromObject(data['percentChange']);
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
+            
         }
         return obj;
     }

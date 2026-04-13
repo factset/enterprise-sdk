@@ -48,9 +48,10 @@ class PeopleProfilesRequest {
         if (data) {
             obj = obj || new PeopleProfilesRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
+            
         }
         return obj;
     }

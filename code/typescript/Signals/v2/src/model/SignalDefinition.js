@@ -50,9 +50,10 @@ class SignalDefinition {
         if (data) {
             obj = obj || new SignalDefinition();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SignalDefinitionData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class InlineResponse200DataTriggerNotification {
         if (data) {
             obj = obj || new InlineResponse200DataTriggerNotification();
 
-            if (data.hasOwnProperty('channel')) {
+            if (data.hasOwnProperty('channel') && obj['channel'] === undefined) {
                 obj['channel'] = InlineResponse200DataTriggerNotificationChannel.constructFromObject(data['channel']);
             }
+            
         }
         return obj;
     }

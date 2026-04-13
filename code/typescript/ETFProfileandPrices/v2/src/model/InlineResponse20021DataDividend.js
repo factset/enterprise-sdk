@@ -47,21 +47,22 @@ class InlineResponse20021DataDividend {
         if (data) {
             obj = obj || new InlineResponse20021DataDividend();
 
-            if (data.hasOwnProperty('isReported')) {
+            if (data.hasOwnProperty('isReported') && obj['isReported'] === undefined) {
                 obj['isReported'] = ApiClient.convertToType(data['isReported'], 'Boolean');
             }
-            if (data.hasOwnProperty('exDividendDate')) {
+            if (data.hasOwnProperty('exDividendDate') && obj['exDividendDate'] === undefined) {
                 obj['exDividendDate'] = ApiClient.convertToType(data['exDividendDate'], 'Date');
             }
-            if (data.hasOwnProperty('qualified')) {
+            if (data.hasOwnProperty('qualified') && obj['qualified'] === undefined) {
                 obj['qualified'] = ApiClient.convertToType(data['qualified'], 'Number');
             }
-            if (data.hasOwnProperty('nonQualified')) {
+            if (data.hasOwnProperty('nonQualified') && obj['nonQualified'] === undefined) {
                 obj['nonQualified'] = ApiClient.convertToType(data['nonQualified'], 'Number');
             }
-            if (data.hasOwnProperty('returnOfCapital')) {
+            if (data.hasOwnProperty('returnOfCapital') && obj['returnOfCapital'] === undefined) {
                 obj['returnOfCapital'] = ApiClient.convertToType(data['returnOfCapital'], 'Number');
             }
+            
         }
         return obj;
     }

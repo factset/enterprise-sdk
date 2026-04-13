@@ -48,9 +48,10 @@ class PostNewsArticleListByChainRequestDataFilter {
         if (data) {
             obj = obj || new PostNewsArticleListByChainRequestDataFilter();
 
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = PostNewsArticleListByChainRequestDataFilterRange.constructFromObject(data['range']);
             }
+            
         }
         return obj;
     }

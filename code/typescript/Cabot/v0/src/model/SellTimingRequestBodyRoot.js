@@ -47,9 +47,10 @@ class SellTimingRequestBodyRoot {
         if (data) {
             obj = obj || new SellTimingRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SellTimingRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

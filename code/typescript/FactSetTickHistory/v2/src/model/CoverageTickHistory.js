@@ -47,36 +47,37 @@ class CoverageTickHistory {
         if (data) {
             obj = obj || new CoverageTickHistory();
 
-            if (data.hasOwnProperty('ticker')) {
+            if (data.hasOwnProperty('ticker') && obj['ticker'] === undefined) {
                 obj['ticker'] = ApiClient.convertToType(data['ticker'], 'String');
             }
-            if (data.hasOwnProperty('factsetExchangeCode')) {
+            if (data.hasOwnProperty('factsetExchangeCode') && obj['factsetExchangeCode'] === undefined) {
                 obj['factsetExchangeCode'] = ApiClient.convertToType(data['factsetExchangeCode'], 'String');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('latestTradeDate')) {
+            if (data.hasOwnProperty('latestTradeDate') && obj['latestTradeDate'] === undefined) {
                 obj['latestTradeDate'] = ApiClient.convertToType(data['latestTradeDate'], 'Date');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('lastExchangeCode')) {
+            if (data.hasOwnProperty('lastExchangeCode') && obj['lastExchangeCode'] === undefined) {
                 obj['lastExchangeCode'] = ApiClient.convertToType(data['lastExchangeCode'], 'String');
             }
-            if (data.hasOwnProperty('lastExchangeName')) {
+            if (data.hasOwnProperty('lastExchangeName') && obj['lastExchangeName'] === undefined) {
                 obj['lastExchangeName'] = ApiClient.convertToType(data['lastExchangeName'], 'String');
             }
-            if (data.hasOwnProperty('primaryTickerExchange')) {
+            if (data.hasOwnProperty('primaryTickerExchange') && obj['primaryTickerExchange'] === undefined) {
                 obj['primaryTickerExchange'] = ApiClient.convertToType(data['primaryTickerExchange'], 'String');
             }
+            
         }
         return obj;
     }

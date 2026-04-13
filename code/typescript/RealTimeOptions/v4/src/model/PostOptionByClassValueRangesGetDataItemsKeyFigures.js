@@ -48,9 +48,10 @@ class PostOptionByClassValueRangesGetDataItemsKeyFigures {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetDataItemsKeyFigures();
 
-            if (data.hasOwnProperty('moneyness')) {
+            if (data.hasOwnProperty('moneyness') && obj['moneyness'] === undefined) {
                 obj['moneyness'] = PostOptionByClassValueRangesGetDataItemsKeyFiguresMoneyness.constructFromObject(data['moneyness']);
             }
+            
         }
         return obj;
     }

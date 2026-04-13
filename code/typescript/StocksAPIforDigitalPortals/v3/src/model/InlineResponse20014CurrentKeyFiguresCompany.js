@@ -48,15 +48,16 @@ class InlineResponse20014CurrentKeyFiguresCompany {
         if (data) {
             obj = obj || new InlineResponse20014CurrentKeyFiguresCompany();
 
-            if (data.hasOwnProperty('sharesOutstanding')) {
+            if (data.hasOwnProperty('sharesOutstanding') && obj['sharesOutstanding'] === undefined) {
                 obj['sharesOutstanding'] = ApiClient.convertToType(data['sharesOutstanding'], 'String');
             }
-            if (data.hasOwnProperty('freeFloat')) {
+            if (data.hasOwnProperty('freeFloat') && obj['freeFloat'] === undefined) {
                 obj['freeFloat'] = ApiClient.convertToType(data['freeFloat'], 'String');
             }
-            if (data.hasOwnProperty('currencyDependent')) {
+            if (data.hasOwnProperty('currencyDependent') && obj['currencyDependent'] === undefined) {
                 obj['currencyDependent'] = InlineResponse20014CurrentKeyFiguresCompanyCurrencyDependent.constructFromObject(data['currencyDependent']);
             }
+            
         }
         return obj;
     }

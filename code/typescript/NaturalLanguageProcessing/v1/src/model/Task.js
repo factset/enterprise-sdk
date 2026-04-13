@@ -53,15 +53,16 @@ class Task {
         if (data) {
             obj = obj || new Task();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('startedAt')) {
+            if (data.hasOwnProperty('startedAt') && obj['startedAt'] === undefined) {
                 obj['startedAt'] = ApiClient.convertToType(data['startedAt'], 'Date');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            
         }
         return obj;
     }

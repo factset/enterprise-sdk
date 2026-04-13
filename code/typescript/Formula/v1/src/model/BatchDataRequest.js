@@ -49,9 +49,10 @@ class BatchDataRequest {
         if (data) {
             obj = obj || new BatchDataRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BatchDataRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

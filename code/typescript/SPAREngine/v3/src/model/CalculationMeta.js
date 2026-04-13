@@ -46,18 +46,19 @@ class CalculationMeta {
         if (data) {
             obj = obj || new CalculationMeta();
 
-            if (data.hasOwnProperty('contentorganization')) {
+            if (data.hasOwnProperty('contentorganization') && obj['contentorganization'] === undefined) {
                 obj['contentorganization'] = ApiClient.convertToType(data['contentorganization'], 'String');
             }
-            if (data.hasOwnProperty('stachContentOrganization')) {
+            if (data.hasOwnProperty('stachContentOrganization') && obj['stachContentOrganization'] === undefined) {
                 obj['stachContentOrganization'] = ApiClient.convertToType(data['stachContentOrganization'], 'String');
             }
-            if (data.hasOwnProperty('contenttype')) {
+            if (data.hasOwnProperty('contenttype') && obj['contenttype'] === undefined) {
                 obj['contenttype'] = ApiClient.convertToType(data['contenttype'], 'String');
             }
-            if (data.hasOwnProperty('format')) {
+            if (data.hasOwnProperty('format') && obj['format'] === undefined) {
                 obj['format'] = ApiClient.convertToType(data['format'], 'String');
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class FileGroupInfoData {
         if (data) {
             obj = obj || new FileGroupInfoData();
 
-            if (data.hasOwnProperty('fileGroupId')) {
+            if (data.hasOwnProperty('fileGroupId') && obj['fileGroupId'] === undefined) {
                 obj['fileGroupId'] = ApiClient.convertToType(data['fileGroupId'], 'String');
             }
+            
         }
         return obj;
     }

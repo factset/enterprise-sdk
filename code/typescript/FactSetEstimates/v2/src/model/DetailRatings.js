@@ -46,36 +46,37 @@ class DetailRatings {
         if (data) {
             obj = obj || new DetailRatings();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('estimateDate')) {
+            if (data.hasOwnProperty('estimateDate') && obj['estimateDate'] === undefined) {
                 obj['estimateDate'] = ApiClient.convertToType(data['estimateDate'], 'Date');
             }
-            if (data.hasOwnProperty('analystId')) {
+            if (data.hasOwnProperty('analystId') && obj['analystId'] === undefined) {
                 obj['analystId'] = ApiClient.convertToType(data['analystId'], 'String');
             }
-            if (data.hasOwnProperty('analystName')) {
+            if (data.hasOwnProperty('analystName') && obj['analystName'] === undefined) {
                 obj['analystName'] = ApiClient.convertToType(data['analystName'], 'String');
             }
-            if (data.hasOwnProperty('brokerId')) {
+            if (data.hasOwnProperty('brokerId') && obj['brokerId'] === undefined) {
                 obj['brokerId'] = ApiClient.convertToType(data['brokerId'], 'String');
             }
-            if (data.hasOwnProperty('brokerName')) {
+            if (data.hasOwnProperty('brokerName') && obj['brokerName'] === undefined) {
                 obj['brokerName'] = ApiClient.convertToType(data['brokerName'], 'String');
             }
-            if (data.hasOwnProperty('ratingsNoteText')) {
+            if (data.hasOwnProperty('ratingsNoteText') && obj['ratingsNoteText'] === undefined) {
                 obj['ratingsNoteText'] = ApiClient.convertToType(data['ratingsNoteText'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('inputDateTime')) {
+            if (data.hasOwnProperty('inputDateTime') && obj['inputDateTime'] === undefined) {
                 obj['inputDateTime'] = ApiClient.convertToType(data['inputDateTime'], 'String');
             }
-            if (data.hasOwnProperty('lastModifiedDate')) {
+            if (data.hasOwnProperty('lastModifiedDate') && obj['lastModifiedDate'] === undefined) {
                 obj['lastModifiedDate'] = ApiClient.convertToType(data['lastModifiedDate'], 'Date');
             }
+            
         }
         return obj;
     }

@@ -46,9 +46,10 @@ class IntegerConfigDto {
         if (data) {
             obj = obj || new IntegerConfigDto();
 
-            if (data.hasOwnProperty('splitType')) {
+            if (data.hasOwnProperty('splitType') && obj['splitType'] === undefined) {
                 obj['splitType'] = ApiClient.convertToType(data['splitType'], 'String');
             }
+            
         }
         return obj;
     }

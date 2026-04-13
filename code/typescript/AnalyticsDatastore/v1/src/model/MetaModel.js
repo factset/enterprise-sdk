@@ -48,9 +48,10 @@ class MetaModel {
         if (data) {
             obj = obj || new MetaModel();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = MetaModelPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

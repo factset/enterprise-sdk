@@ -47,12 +47,13 @@ class NrtCallsRequestMeta {
         if (data) {
             obj = obj || new NrtCallsRequestMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = TranscriptsRequestMetaPagination.constructFromObject(data['pagination']);
             }
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], ['String']);
             }
+            
         }
         return obj;
     }

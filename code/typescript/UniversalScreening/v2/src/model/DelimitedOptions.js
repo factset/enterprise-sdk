@@ -47,24 +47,25 @@ class DelimitedOptions {
         if (data) {
             obj = obj || new DelimitedOptions();
 
-            if (data.hasOwnProperty('isDatabase')) {
+            if (data.hasOwnProperty('isDatabase') && obj['isDatabase'] === undefined) {
                 obj['isDatabase'] = ApiClient.convertToType(data['isDatabase'], 'Boolean');
             }
-            if (data.hasOwnProperty('delimiter')) {
+            if (data.hasOwnProperty('delimiter') && obj['delimiter'] === undefined) {
                 obj['delimiter'] = ApiClient.convertToType(data['delimiter'], 'String');
             }
-            if (data.hasOwnProperty('hideHeaderRows')) {
+            if (data.hasOwnProperty('hideHeaderRows') && obj['hideHeaderRows'] === undefined) {
                 obj['hideHeaderRows'] = ApiClient.convertToType(data['hideHeaderRows'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyQuotedStrings')) {
+            if (data.hasOwnProperty('applyQuotedStrings') && obj['applyQuotedStrings'] === undefined) {
                 obj['applyQuotedStrings'] = ApiClient.convertToType(data['applyQuotedStrings'], 'Boolean');
             }
-            if (data.hasOwnProperty('applySavedNAFormatting')) {
+            if (data.hasOwnProperty('applySavedNAFormatting') && obj['applySavedNAFormatting'] === undefined) {
                 obj['applySavedNAFormatting'] = ApiClient.convertToType(data['applySavedNAFormatting'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyFilters')) {
+            if (data.hasOwnProperty('applyFilters') && obj['applyFilters'] === undefined) {
                 obj['applyFilters'] = ApiClient.convertToType(data['applyFilters'], 'Boolean');
             }
+            
         }
         return obj;
     }

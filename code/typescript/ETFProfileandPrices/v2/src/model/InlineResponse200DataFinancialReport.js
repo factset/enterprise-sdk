@@ -49,12 +49,13 @@ class InlineResponse200DataFinancialReport {
         if (data) {
             obj = obj || new InlineResponse200DataFinancialReport();
 
-            if (data.hasOwnProperty('annual')) {
+            if (data.hasOwnProperty('annual') && obj['annual'] === undefined) {
                 obj['annual'] = InlineResponse200DataFinancialReportAnnual.constructFromObject(data['annual']);
             }
-            if (data.hasOwnProperty('semiAnnual')) {
+            if (data.hasOwnProperty('semiAnnual') && obj['semiAnnual'] === undefined) {
                 obj['semiAnnual'] = InlineResponse200DataFinancialReportSemiAnnual.constructFromObject(data['semiAnnual']);
             }
+            
         }
         return obj;
     }

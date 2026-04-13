@@ -64,72 +64,73 @@ class LocationResource {
         if (data) {
             obj = obj || new LocationResource();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('externalId')) {
+            if (data.hasOwnProperty('externalId') && obj['externalId'] === undefined) {
                 obj['externalId'] = ApiClient.convertToType(data['externalId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('address1')) {
+            if (data.hasOwnProperty('address1') && obj['address1'] === undefined) {
                 obj['address1'] = ApiClient.convertToType(data['address1'], 'String');
             }
-            if (data.hasOwnProperty('address2')) {
+            if (data.hasOwnProperty('address2') && obj['address2'] === undefined) {
                 obj['address2'] = ApiClient.convertToType(data['address2'], 'String');
             }
-            if (data.hasOwnProperty('address3')) {
+            if (data.hasOwnProperty('address3') && obj['address3'] === undefined) {
                 obj['address3'] = ApiClient.convertToType(data['address3'], 'String');
             }
-            if (data.hasOwnProperty('locality')) {
+            if (data.hasOwnProperty('locality') && obj['locality'] === undefined) {
                 obj['locality'] = ApiClient.convertToType(data['locality'], 'String');
             }
-            if (data.hasOwnProperty('region')) {
+            if (data.hasOwnProperty('region') && obj['region'] === undefined) {
                 obj['region'] = ApiClient.convertToType(data['region'], 'String');
             }
-            if (data.hasOwnProperty('postalCode')) {
+            if (data.hasOwnProperty('postalCode') && obj['postalCode'] === undefined) {
                 obj['postalCode'] = ApiClient.convertToType(data['postalCode'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('phoneNumber')) {
+            if (data.hasOwnProperty('phoneNumber') && obj['phoneNumber'] === undefined) {
                 obj['phoneNumber'] = ApiClient.convertToType(data['phoneNumber'], 'String');
             }
-            if (data.hasOwnProperty('firmDescription')) {
+            if (data.hasOwnProperty('firmDescription') && obj['firmDescription'] === undefined) {
                 obj['firmDescription'] = LocationResourceFirmDescription.constructFromObject(data['firmDescription']);
             }
-            if (data.hasOwnProperty('emailDomains')) {
+            if (data.hasOwnProperty('emailDomains') && obj['emailDomains'] === undefined) {
                 obj['emailDomains'] = ApiClient.convertToType(data['emailDomains'], ['String']);
             }
-            if (data.hasOwnProperty('partnerAssertedEntityId')) {
+            if (data.hasOwnProperty('partnerAssertedEntityId') && obj['partnerAssertedEntityId'] === undefined) {
                 obj['partnerAssertedEntityId'] = ApiClient.convertToType(data['partnerAssertedEntityId'], 'String');
             }
-            if (data.hasOwnProperty('companyAgreementUrls')) {
+            if (data.hasOwnProperty('companyAgreementUrls') && obj['companyAgreementUrls'] === undefined) {
                 obj['companyAgreementUrls'] = ApiClient.convertToType(data['companyAgreementUrls'], [LocationResourceCompanyAgreementUrl]);
             }
-            if (data.hasOwnProperty('managedLocations')) {
+            if (data.hasOwnProperty('managedLocations') && obj['managedLocations'] === undefined) {
                 obj['managedLocations'] = ApiClient.convertToType(data['managedLocations'], [LocationResourceReference]);
             }
-            if (data.hasOwnProperty('managingLocation')) {
+            if (data.hasOwnProperty('managingLocation') && obj['managingLocation'] === undefined) {
                 obj['managingLocation'] = LocationResourceManagingLocation.constructFromObject(data['managingLocation']);
             }
-            if (data.hasOwnProperty('mainLocation')) {
+            if (data.hasOwnProperty('mainLocation') && obj['mainLocation'] === undefined) {
                 obj['mainLocation'] = LocationResourceMainLocation.constructFromObject(data['mainLocation']);
             }
-            if (data.hasOwnProperty('usernames')) {
+            if (data.hasOwnProperty('usernames') && obj['usernames'] === undefined) {
                 obj['usernames'] = ApiClient.convertToType(data['usernames'], ['String']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = LocationResourceMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

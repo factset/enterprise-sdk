@@ -51,15 +51,16 @@ class FeedbackRequestData {
         if (data) {
             obj = obj || new FeedbackRequestData();
 
-            if (data.hasOwnProperty('responseId')) {
+            if (data.hasOwnProperty('responseId') && obj['responseId'] === undefined) {
                 obj['responseId'] = ApiClient.convertToType(data['responseId'], 'String');
             }
-            if (data.hasOwnProperty('helpful')) {
+            if (data.hasOwnProperty('helpful') && obj['helpful'] === undefined) {
                 obj['helpful'] = ApiClient.convertToType(data['helpful'], 'Boolean');
             }
-            if (data.hasOwnProperty('comment')) {
+            if (data.hasOwnProperty('comment') && obj['comment'] === undefined) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
+            
         }
         return obj;
     }

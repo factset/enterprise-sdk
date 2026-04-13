@@ -46,12 +46,13 @@ class SpeakerNrt {
         if (data) {
             obj = obj || new SpeakerNrt();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('p')) {
+            if (data.hasOwnProperty('p') && obj['p'] === undefined) {
                 obj['p'] = ApiClient.convertToType(data['p'], ['String']);
             }
+            
         }
         return obj;
     }

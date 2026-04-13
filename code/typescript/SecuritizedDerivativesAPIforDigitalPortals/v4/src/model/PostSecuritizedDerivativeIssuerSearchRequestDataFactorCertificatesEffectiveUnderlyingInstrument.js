@@ -47,9 +47,10 @@ class PostSecuritizedDerivativeIssuerSearchRequestDataFactorCertificatesEffectiv
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequestDataFactorCertificatesEffectiveUnderlyingInstrument();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
+            
         }
         return obj;
     }

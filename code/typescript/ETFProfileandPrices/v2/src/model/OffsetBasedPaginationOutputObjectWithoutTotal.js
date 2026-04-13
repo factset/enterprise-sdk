@@ -49,9 +49,10 @@ class OffsetBasedPaginationOutputObjectWithoutTotal {
         if (data) {
             obj = obj || new OffsetBasedPaginationOutputObjectWithoutTotal();
 
-            if (data.hasOwnProperty('hasNext')) {
+            if (data.hasOwnProperty('hasNext') && obj['hasNext'] === undefined) {
                 obj['hasNext'] = ApiClient.convertToType(data['hasNext'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -51,18 +51,19 @@ class ClientScenariosUploadParameters {
         if (data) {
             obj = obj || new ClientScenariosUploadParameters();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('overwrite')) {
+            if (data.hasOwnProperty('overwrite') && obj['overwrite'] === undefined) {
                 obj['overwrite'] = ApiClient.convertToType(data['overwrite'], 'Boolean');
             }
-            if (data.hasOwnProperty('replaceSpecialCharacters')) {
+            if (data.hasOwnProperty('replaceSpecialCharacters') && obj['replaceSpecialCharacters'] === undefined) {
                 obj['replaceSpecialCharacters'] = ApiClient.convertToType(data['replaceSpecialCharacters'], 'Boolean');
             }
+            
         }
         return obj;
     }

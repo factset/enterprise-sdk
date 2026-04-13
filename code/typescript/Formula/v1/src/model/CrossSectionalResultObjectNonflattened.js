@@ -57,30 +57,31 @@ class CrossSectionalResultObjectNonflattened {
         if (data) {
             obj = obj || new CrossSectionalResultObjectNonflattened();
 
-            if (data.hasOwnProperty('universe')) {
+            if (data.hasOwnProperty('universe') && obj['universe'] === undefined) {
                 obj['universe'] = ApiClient.convertToType(data['universe'], 'String');
             }
-            if (data.hasOwnProperty('dataItemName')) {
+            if (data.hasOwnProperty('dataItemName') && obj['dataItemName'] === undefined) {
                 obj['dataItemName'] = ApiClient.convertToType(data['dataItemName'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], 'String');
             }
-            if (data.hasOwnProperty('result')) {
+            if (data.hasOwnProperty('result') && obj['result'] === undefined) {
                 obj['result'] = ApiClient.convertToType(data['result'], [CrossSectionalResultObjectNonflattenedResultAttribute]);
             }
-            if (data.hasOwnProperty('dataType')) {
+            if (data.hasOwnProperty('dataType') && obj['dataType'] === undefined) {
                 obj['dataType'] = ApiClient.convertToType(data['dataType'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'Number');
             }
-            if (data.hasOwnProperty('errorMessage')) {
+            if (data.hasOwnProperty('errorMessage') && obj['errorMessage'] === undefined) {
                 obj['errorMessage'] = ApiClient.convertToType(data['errorMessage'], 'String');
             }
-            if (data.hasOwnProperty('warnings')) {
+            if (data.hasOwnProperty('warnings') && obj['warnings'] === undefined) {
                 obj['warnings'] = ApiClient.convertToType(data['warnings'], [WarningsObject]);
             }
+            
         }
         return obj;
     }

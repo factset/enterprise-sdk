@@ -59,42 +59,43 @@ class GenerateIdMappingRequestData {
         if (data) {
             obj = obj || new GenerateIdMappingRequestData();
 
-            if (data.hasOwnProperty('allowForcedRisklessAssets')) {
+            if (data.hasOwnProperty('allowForcedRisklessAssets') && obj['allowForcedRisklessAssets'] === undefined) {
                 obj['allowForcedRisklessAssets'] = ApiClient.convertToType(data['allowForcedRisklessAssets'], 'Boolean');
             }
-            if (data.hasOwnProperty('assetTypes')) {
+            if (data.hasOwnProperty('assetTypes') && obj['assetTypes'] === undefined) {
                 obj['assetTypes'] = ApiClient.convertToType(data['assetTypes'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = ApiClient.convertToType(data['calendar'], 'String');
             }
-            if (data.hasOwnProperty('compositeAssets')) {
+            if (data.hasOwnProperty('compositeAssets') && obj['compositeAssets'] === undefined) {
                 obj['compositeAssets'] = ApiClient.convertToType(data['compositeAssets'], {'String': IDsAndMarketValues});
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = InputDate.constructFromObject(data['date']);
             }
-            if (data.hasOwnProperty('holdings')) {
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
                 obj['holdings'] = Holdings.constructFromObject(data['holdings']);
             }
-            if (data.hasOwnProperty('indexMapping')) {
+            if (data.hasOwnProperty('indexMapping') && obj['indexMapping'] === undefined) {
                 obj['indexMapping'] = SecurityIndexMapping.constructFromObject(data['indexMapping']);
             }
-            if (data.hasOwnProperty('laggingDates')) {
+            if (data.hasOwnProperty('laggingDates') && obj['laggingDates'] === undefined) {
                 obj['laggingDates'] = LaggingDates.constructFromObject(data['laggingDates']);
             }
-            if (data.hasOwnProperty('riskModel')) {
+            if (data.hasOwnProperty('riskModel') && obj['riskModel'] === undefined) {
                 obj['riskModel'] = ApiClient.convertToType(data['riskModel'], 'String');
             }
-            if (data.hasOwnProperty('riskModelAppendData')) {
+            if (data.hasOwnProperty('riskModelAppendData') && obj['riskModelAppendData'] === undefined) {
                 obj['riskModelAppendData'] = RiskModelAppendData.constructFromObject(data['riskModelAppendData']);
             }
-            if (data.hasOwnProperty('underlyingIds')) {
+            if (data.hasOwnProperty('underlyingIds') && obj['underlyingIds'] === undefined) {
                 obj['underlyingIds'] = ApiClient.convertToType(data['underlyingIds'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

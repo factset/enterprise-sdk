@@ -66,93 +66,94 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrument {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrument();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('shortName')) {
+            if (data.hasOwnProperty('shortName') && obj['shortName'] === undefined) {
                 obj['shortName'] = ApiClient.convertToType(data['shortName'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('nsin')) {
+            if (data.hasOwnProperty('nsin') && obj['nsin'] === undefined) {
                 obj['nsin'] = InlineResponse200DataNsin.constructFromObject(data['nsin']);
             }
-            if (data.hasOwnProperty('fsym')) {
+            if (data.hasOwnProperty('fsym') && obj['fsym'] === undefined) {
                 obj['fsym'] = GetSecuritizedDerivativeUnderlyingListDataUnderlyingsItemsNotationInstrumentFsym.constructFromObject(data['fsym']);
             }
-            if (data.hasOwnProperty('categorization')) {
+            if (data.hasOwnProperty('categorization') && obj['categorization'] === undefined) {
                 obj['categorization'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCategorization.constructFromObject(data['categorization']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('issuer')) {
+            if (data.hasOwnProperty('issuer') && obj['issuer'] === undefined) {
                 obj['issuer'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentIssuer.constructFromObject(data['issuer']);
             }
-            if (data.hasOwnProperty('exercise')) {
+            if (data.hasOwnProperty('exercise') && obj['exercise'] === undefined) {
                 obj['exercise'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentExercise.constructFromObject(data['exercise']);
             }
-            if (data.hasOwnProperty('settlement')) {
+            if (data.hasOwnProperty('settlement') && obj['settlement'] === undefined) {
                 obj['settlement'] = ApiClient.convertToType(data['settlement'], 'String');
             }
-            if (data.hasOwnProperty('collateralized')) {
+            if (data.hasOwnProperty('collateralized') && obj['collateralized'] === undefined) {
                 obj['collateralized'] = ApiClient.convertToType(data['collateralized'], 'Boolean');
             }
-            if (data.hasOwnProperty('quanto')) {
+            if (data.hasOwnProperty('quanto') && obj['quanto'] === undefined) {
                 obj['quanto'] = ApiClient.convertToType(data['quanto'], 'Boolean');
             }
-            if (data.hasOwnProperty('capitalProtection')) {
+            if (data.hasOwnProperty('capitalProtection') && obj['capitalProtection'] === undefined) {
                 obj['capitalProtection'] = ApiClient.convertToType(data['capitalProtection'], 'Number');
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentUnderlying.constructFromObject(data['underlying']);
             }
-            if (data.hasOwnProperty('strike')) {
+            if (data.hasOwnProperty('strike') && obj['strike'] === undefined) {
                 obj['strike'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentStrike.constructFromObject(data['strike']);
             }
-            if (data.hasOwnProperty('bonusLevel')) {
+            if (data.hasOwnProperty('bonusLevel') && obj['bonusLevel'] === undefined) {
                 obj['bonusLevel'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentBonusLevel.constructFromObject(data['bonusLevel']);
             }
-            if (data.hasOwnProperty('cap')) {
+            if (data.hasOwnProperty('cap') && obj['cap'] === undefined) {
                 obj['cap'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCap.constructFromObject(data['cap']);
             }
-            if (data.hasOwnProperty('knockOut')) {
+            if (data.hasOwnProperty('knockOut') && obj['knockOut'] === undefined) {
                 obj['knockOut'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentKnockOut.constructFromObject(data['knockOut']);
             }
-            if (data.hasOwnProperty('knockIn')) {
+            if (data.hasOwnProperty('knockIn') && obj['knockIn'] === undefined) {
                 obj['knockIn'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentKnockIn.constructFromObject(data['knockIn']);
             }
-            if (data.hasOwnProperty('lockOut')) {
+            if (data.hasOwnProperty('lockOut') && obj['lockOut'] === undefined) {
                 obj['lockOut'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLockOut.constructFromObject(data['lockOut']);
             }
-            if (data.hasOwnProperty('lockIn')) {
+            if (data.hasOwnProperty('lockIn') && obj['lockIn'] === undefined) {
                 obj['lockIn'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLockIn.constructFromObject(data['lockIn']);
             }
-            if (data.hasOwnProperty('capitalGuarantee')) {
+            if (data.hasOwnProperty('capitalGuarantee') && obj['capitalGuarantee'] === undefined) {
                 obj['capitalGuarantee'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCapitalGuarantee.constructFromObject(data['capitalGuarantee']);
             }
-            if (data.hasOwnProperty('couponTriggerLevel')) {
+            if (data.hasOwnProperty('couponTriggerLevel') && obj['couponTriggerLevel'] === undefined) {
                 obj['couponTriggerLevel'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCouponTriggerLevel.constructFromObject(data['couponTriggerLevel']);
             }
-            if (data.hasOwnProperty('rangeKnockOut')) {
+            if (data.hasOwnProperty('rangeKnockOut') && obj['rangeKnockOut'] === undefined) {
                 obj['rangeKnockOut'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentRangeKnockOut.constructFromObject(data['rangeKnockOut']);
             }
-            if (data.hasOwnProperty('participation')) {
+            if (data.hasOwnProperty('participation') && obj['participation'] === undefined) {
                 obj['participation'] = ApiClient.convertToType(data['participation'], 'String');
             }
-            if (data.hasOwnProperty('constantLeverage')) {
+            if (data.hasOwnProperty('constantLeverage') && obj['constantLeverage'] === undefined) {
                 obj['constantLeverage'] = ApiClient.convertToType(data['constantLeverage'], 'Number');
             }
-            if (data.hasOwnProperty('nominalCurrency')) {
+            if (data.hasOwnProperty('nominalCurrency') && obj['nominalCurrency'] === undefined) {
                 obj['nominalCurrency'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentNominalCurrency.constructFromObject(data['nominalCurrency']);
             }
-            if (data.hasOwnProperty('currentInterestRate')) {
+            if (data.hasOwnProperty('currentInterestRate') && obj['currentInterestRate'] === undefined) {
                 obj['currentInterestRate'] = PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentCurrentInterestRate.constructFromObject(data['currentInterestRate']);
             }
+            
         }
         return obj;
     }

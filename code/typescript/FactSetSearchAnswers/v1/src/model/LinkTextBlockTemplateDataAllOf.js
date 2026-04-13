@@ -46,12 +46,13 @@ class LinkTextBlockTemplateDataAllOf {
         if (data) {
             obj = obj || new LinkTextBlockTemplateDataAllOf();
 
-            if (data.hasOwnProperty('link')) {
+            if (data.hasOwnProperty('link') && obj['link'] === undefined) {
                 obj['link'] = ApiClient.convertToType(data['link'], 'String');
             }
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
+            
         }
         return obj;
     }

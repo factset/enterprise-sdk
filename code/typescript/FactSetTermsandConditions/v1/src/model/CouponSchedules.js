@@ -47,18 +47,19 @@ class CouponSchedules {
         if (data) {
             obj = obj || new CouponSchedules();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('couponEffDate')) {
+            if (data.hasOwnProperty('couponEffDate') && obj['couponEffDate'] === undefined) {
                 obj['couponEffDate'] = ApiClient.convertToType(data['couponEffDate'], 'Date');
             }
-            if (data.hasOwnProperty('couponRate')) {
+            if (data.hasOwnProperty('couponRate') && obj['couponRate'] === undefined) {
                 obj['couponRate'] = ApiClient.convertToType(data['couponRate'], 'Number');
             }
+            
         }
         return obj;
     }

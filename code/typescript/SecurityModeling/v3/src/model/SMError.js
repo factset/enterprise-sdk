@@ -46,9 +46,10 @@ class SMError {
         if (data) {
             obj = obj || new SMError();
 
-            if (data.hasOwnProperty('detail')) {
+            if (data.hasOwnProperty('detail') && obj['detail'] === undefined) {
                 obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
             }
+            
         }
         return obj;
     }

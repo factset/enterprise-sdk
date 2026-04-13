@@ -47,24 +47,25 @@ class TranscriptsByDateRequest {
         if (data) {
             obj = obj || new TranscriptsByDateRequest();
 
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('startDateRelative')) {
+            if (data.hasOwnProperty('startDateRelative') && obj['startDateRelative'] === undefined) {
                 obj['startDateRelative'] = ApiClient.convertToType(data['startDateRelative'], 'Number');
             }
-            if (data.hasOwnProperty('endDateRelative')) {
+            if (data.hasOwnProperty('endDateRelative') && obj['endDateRelative'] === undefined) {
                 obj['endDateRelative'] = ApiClient.convertToType(data['endDateRelative'], 'Number');
             }
-            if (data.hasOwnProperty('timeZone')) {
+            if (data.hasOwnProperty('timeZone') && obj['timeZone'] === undefined) {
                 obj['timeZone'] = ApiClient.convertToType(data['timeZone'], 'String');
             }
-            if (data.hasOwnProperty('dateType')) {
+            if (data.hasOwnProperty('dateType') && obj['dateType'] === undefined) {
                 obj['dateType'] = ApiClient.convertToType(data['dateType'], 'String');
             }
+            
         }
         return obj;
     }

@@ -48,15 +48,16 @@ class GetCategoryListDataCategoriesItemsParent {
         if (data) {
             obj = obj || new GetCategoryListDataCategoriesItemsParent();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = InlineResponse20032DataParentLevel.constructFromObject(data['level']);
             }
+            
         }
         return obj;
     }

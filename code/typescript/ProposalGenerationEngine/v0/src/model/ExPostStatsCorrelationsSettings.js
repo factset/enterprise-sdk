@@ -51,34 +51,41 @@ class ExPostStatsCorrelationsSettings {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExPostStatsCorrelationsSettings();
-            BaseSettings.constructFromObject(data, obj);
-            TimeWindow.constructFromObject(data, obj);
-            ExPostStatsCorrelationsSettingsAllOf.constructFromObject(data, obj);
+            try {
+              obj = BaseSettings.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = TimeWindow.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = ExPostStatsCorrelationsSettingsAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
             }
-            if (data.hasOwnProperty('returnsPreferences')) {
+            if (data.hasOwnProperty('returnsPreferences') && obj['returnsPreferences'] === undefined) {
                 obj['returnsPreferences'] = ApiClient.convertToType(data['returnsPreferences'], 'String');
             }
-            if (data.hasOwnProperty('validatePortfolio')) {
+            if (data.hasOwnProperty('validatePortfolio') && obj['validatePortfolio'] === undefined) {
                 obj['validatePortfolio'] = ApiClient.convertToType(data['validatePortfolio'], 'Boolean');
             }
-            if (data.hasOwnProperty('timeWindows')) {
+            if (data.hasOwnProperty('timeWindows') && obj['timeWindows'] === undefined) {
                 obj['timeWindows'] = ApiClient.convertToType(data['timeWindows'], ['String']);
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], ['String']);
             }
-            if (data.hasOwnProperty('holdingsLimit')) {
+            if (data.hasOwnProperty('holdingsLimit') && obj['holdingsLimit'] === undefined) {
                 obj['holdingsLimit'] = ApiClient.convertToType(data['holdingsLimit'], 'Number');
             }
-            if (data.hasOwnProperty('fundCorrelationsOnly')) {
+            if (data.hasOwnProperty('fundCorrelationsOnly') && obj['fundCorrelationsOnly'] === undefined) {
                 obj['fundCorrelationsOnly'] = ApiClient.convertToType(data['fundCorrelationsOnly'], 'Boolean');
             }
-            if (data.hasOwnProperty('showBenchmark')) {
+            if (data.hasOwnProperty('showBenchmark') && obj['showBenchmark'] === undefined) {
                 obj['showBenchmark'] = ApiClient.convertToType(data['showBenchmark'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -47,27 +47,28 @@ class MarketImpactQuoteAnalytics {
         if (data) {
             obj = obj || new MarketImpactQuoteAnalytics();
 
-            if (data.hasOwnProperty('binTime')) {
+            if (data.hasOwnProperty('binTime') && obj['binTime'] === undefined) {
                 obj['binTime'] = ApiClient.convertToType(data['binTime'], 'String');
             }
-            if (data.hasOwnProperty('twas')) {
+            if (data.hasOwnProperty('twas') && obj['twas'] === undefined) {
                 obj['twas'] = ApiClient.convertToType(data['twas'], 'Number');
             }
-            if (data.hasOwnProperty('twSize')) {
+            if (data.hasOwnProperty('twSize') && obj['twSize'] === undefined) {
                 obj['twSize'] = ApiClient.convertToType(data['twSize'], 'Number');
             }
-            if (data.hasOwnProperty('numQuotes')) {
+            if (data.hasOwnProperty('numQuotes') && obj['numQuotes'] === undefined) {
                 obj['numQuotes'] = ApiClient.convertToType(data['numQuotes'], 'Number');
             }
-            if (data.hasOwnProperty('spreadTime')) {
+            if (data.hasOwnProperty('spreadTime') && obj['spreadTime'] === undefined) {
                 obj['spreadTime'] = ApiClient.convertToType(data['spreadTime'], 'Number');
             }
-            if (data.hasOwnProperty('fittedTwas')) {
+            if (data.hasOwnProperty('fittedTwas') && obj['fittedTwas'] === undefined) {
                 obj['fittedTwas'] = ApiClient.convertToType(data['fittedTwas'], 'Number');
             }
-            if (data.hasOwnProperty('fittedTwSize')) {
+            if (data.hasOwnProperty('fittedTwSize') && obj['fittedTwSize'] === undefined) {
                 obj['fittedTwSize'] = ApiClient.convertToType(data['fittedTwSize'], 'Number');
             }
+            
         }
         return obj;
     }

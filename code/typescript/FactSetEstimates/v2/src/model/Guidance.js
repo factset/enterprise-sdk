@@ -46,84 +46,85 @@ class Guidance {
         if (data) {
             obj = obj || new Guidance();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('estimateCurrency')) {
+            if (data.hasOwnProperty('estimateCurrency') && obj['estimateCurrency'] === undefined) {
                 obj['estimateCurrency'] = ApiClient.convertToType(data['estimateCurrency'], 'String');
             }
-            if (data.hasOwnProperty('periodicity')) {
+            if (data.hasOwnProperty('periodicity') && obj['periodicity'] === undefined) {
                 obj['periodicity'] = ApiClient.convertToType(data['periodicity'], 'String');
             }
-            if (data.hasOwnProperty('consensusDate')) {
+            if (data.hasOwnProperty('consensusDate') && obj['consensusDate'] === undefined) {
                 obj['consensusDate'] = ApiClient.convertToType(data['consensusDate'], 'Date');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalEndDate')) {
+            if (data.hasOwnProperty('fiscalEndDate') && obj['fiscalEndDate'] === undefined) {
                 obj['fiscalEndDate'] = ApiClient.convertToType(data['fiscalEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('relativePeriod')) {
+            if (data.hasOwnProperty('relativePeriod') && obj['relativePeriod'] === undefined) {
                 obj['relativePeriod'] = ApiClient.convertToType(data['relativePeriod'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalPeriod')) {
+            if (data.hasOwnProperty('fiscalPeriod') && obj['fiscalPeriod'] === undefined) {
                 obj['fiscalPeriod'] = ApiClient.convertToType(data['fiscalPeriod'], 'Number');
             }
-            if (data.hasOwnProperty('guidanceDate')) {
+            if (data.hasOwnProperty('guidanceDate') && obj['guidanceDate'] === undefined) {
                 obj['guidanceDate'] = ApiClient.convertToType(data['guidanceDate'], 'Date');
             }
-            if (data.hasOwnProperty('inputDateHigh')) {
+            if (data.hasOwnProperty('inputDateHigh') && obj['inputDateHigh'] === undefined) {
                 obj['inputDateHigh'] = ApiClient.convertToType(data['inputDateHigh'], 'Date');
             }
-            if (data.hasOwnProperty('inputDateLow')) {
+            if (data.hasOwnProperty('inputDateLow') && obj['inputDateLow'] === undefined) {
                 obj['inputDateLow'] = ApiClient.convertToType(data['inputDateLow'], 'Date');
             }
-            if (data.hasOwnProperty('inputDateHighTime')) {
+            if (data.hasOwnProperty('inputDateHighTime') && obj['inputDateHighTime'] === undefined) {
                 obj['inputDateHighTime'] = ApiClient.convertToType(data['inputDateHighTime'], 'Date');
             }
-            if (data.hasOwnProperty('inputDateLowTime')) {
+            if (data.hasOwnProperty('inputDateLowTime') && obj['inputDateLowTime'] === undefined) {
                 obj['inputDateLowTime'] = ApiClient.convertToType(data['inputDateLowTime'], 'Date');
             }
-            if (data.hasOwnProperty('guidanceMidpoint')) {
+            if (data.hasOwnProperty('guidanceMidpoint') && obj['guidanceMidpoint'] === undefined) {
                 obj['guidanceMidpoint'] = ApiClient.convertToType(data['guidanceMidpoint'], 'Number');
             }
-            if (data.hasOwnProperty('guidanceLow')) {
+            if (data.hasOwnProperty('guidanceLow') && obj['guidanceLow'] === undefined) {
                 obj['guidanceLow'] = ApiClient.convertToType(data['guidanceLow'], 'Number');
             }
-            if (data.hasOwnProperty('guidanceHigh')) {
+            if (data.hasOwnProperty('guidanceHigh') && obj['guidanceHigh'] === undefined) {
                 obj['guidanceHigh'] = ApiClient.convertToType(data['guidanceHigh'], 'Number');
             }
-            if (data.hasOwnProperty('guidanceRange')) {
+            if (data.hasOwnProperty('guidanceRange') && obj['guidanceRange'] === undefined) {
                 obj['guidanceRange'] = ApiClient.convertToType(data['guidanceRange'], 'String');
             }
-            if (data.hasOwnProperty('prevMidpoint')) {
+            if (data.hasOwnProperty('prevMidpoint') && obj['prevMidpoint'] === undefined) {
                 obj['prevMidpoint'] = ApiClient.convertToType(data['prevMidpoint'], 'Number');
             }
-            if (data.hasOwnProperty('prevLow')) {
+            if (data.hasOwnProperty('prevLow') && obj['prevLow'] === undefined) {
                 obj['prevLow'] = ApiClient.convertToType(data['prevLow'], 'Number');
             }
-            if (data.hasOwnProperty('prevHigh')) {
+            if (data.hasOwnProperty('prevHigh') && obj['prevHigh'] === undefined) {
                 obj['prevHigh'] = ApiClient.convertToType(data['prevHigh'], 'Number');
             }
-            if (data.hasOwnProperty('meanBefore')) {
+            if (data.hasOwnProperty('meanBefore') && obj['meanBefore'] === undefined) {
                 obj['meanBefore'] = ApiClient.convertToType(data['meanBefore'], 'Number');
             }
-            if (data.hasOwnProperty('meanSurpriseAmt')) {
+            if (data.hasOwnProperty('meanSurpriseAmt') && obj['meanSurpriseAmt'] === undefined) {
                 obj['meanSurpriseAmt'] = ApiClient.convertToType(data['meanSurpriseAmt'], 'Number');
             }
-            if (data.hasOwnProperty('meanSurpriseAmtPercent')) {
+            if (data.hasOwnProperty('meanSurpriseAmtPercent') && obj['meanSurpriseAmtPercent'] === undefined) {
                 obj['meanSurpriseAmtPercent'] = ApiClient.convertToType(data['meanSurpriseAmtPercent'], 'Number');
             }
+            
         }
         return obj;
     }

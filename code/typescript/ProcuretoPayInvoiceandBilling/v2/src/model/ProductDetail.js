@@ -47,36 +47,37 @@ class ProductDetail {
         if (data) {
             obj = obj || new ProductDetail();
 
-            if (data.hasOwnProperty('username')) {
+            if (data.hasOwnProperty('username') && obj['username'] === undefined) {
                 obj['username'] = ApiClient.convertToType(data['username'], 'String');
             }
-            if (data.hasOwnProperty('serial')) {
+            if (data.hasOwnProperty('serial') && obj['serial'] === undefined) {
                 obj['serial'] = ApiClient.convertToType(data['serial'], 'String');
             }
-            if (data.hasOwnProperty('user')) {
+            if (data.hasOwnProperty('user') && obj['user'] === undefined) {
                 obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
-            if (data.hasOwnProperty('averageCost')) {
+            if (data.hasOwnProperty('averageCost') && obj['averageCost'] === undefined) {
                 obj['averageCost'] = ApiClient.convertToType(data['averageCost'], 'String');
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
             }
-            if (data.hasOwnProperty('position')) {
+            if (data.hasOwnProperty('position') && obj['position'] === undefined) {
                 obj['position'] = ApiClient.convertToType(data['position'], 'String');
             }
-            if (data.hasOwnProperty('division')) {
+            if (data.hasOwnProperty('division') && obj['division'] === undefined) {
                 obj['division'] = ApiClient.convertToType(data['division'], 'String');
             }
-            if (data.hasOwnProperty('recurring')) {
+            if (data.hasOwnProperty('recurring') && obj['recurring'] === undefined) {
                 obj['recurring'] = ApiClient.convertToType(data['recurring'], 'Boolean');
             }
-            if (data.hasOwnProperty('trial')) {
+            if (data.hasOwnProperty('trial') && obj['trial'] === undefined) {
                 obj['trial'] = ApiClient.convertToType(data['trial'], 'String');
             }
-            if (data.hasOwnProperty('email')) {
+            if (data.hasOwnProperty('email') && obj['email'] === undefined) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
+            
         }
         return obj;
     }

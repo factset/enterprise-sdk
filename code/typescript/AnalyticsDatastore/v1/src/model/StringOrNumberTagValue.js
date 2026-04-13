@@ -44,8 +44,9 @@ class StringOrNumberTagValue {
      */
     static constructFromObject(data, obj) {
         // openApiType:number format:
-        if (typeof data === 'number') return ApiClient.setValue(obj || new StringOrNumberTagValue(), data);
-        if (typeof data === 'string') return ApiClient.setValue(obj || new StringOrNumberTagValue(), data);
+        if (typeof data === 'number') return data;
+        if (typeof data === 'string') return data;
+        throw new Error("Failed to construct StringOrNumberTagValue due to oneOf-schemas not matching the data: " + data);
     }
 
 

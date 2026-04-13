@@ -47,33 +47,34 @@ class InlineResponse20024Data {
         if (data) {
             obj = obj || new InlineResponse20024Data();
 
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
-            if (data.hasOwnProperty('exchange')) {
+            if (data.hasOwnProperty('exchange') && obj['exchange'] === undefined) {
                 obj['exchange'] = InlineResponse20024Exchange.constructFromObject(data['exchange']);
             }
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('shares')) {
+            if (data.hasOwnProperty('shares') && obj['shares'] === undefined) {
                 obj['shares'] = ApiClient.convertToType(data['shares'], 'Number');
             }
-            if (data.hasOwnProperty('marketValue')) {
+            if (data.hasOwnProperty('marketValue') && obj['marketValue'] === undefined) {
                 obj['marketValue'] = ApiClient.convertToType(data['marketValue'], 'Number');
             }
-            if (data.hasOwnProperty('currencyCode')) {
+            if (data.hasOwnProperty('currencyCode') && obj['currencyCode'] === undefined) {
                 obj['currencyCode'] = ApiClient.convertToType(data['currencyCode'], 'String');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
+            
         }
         return obj;
     }

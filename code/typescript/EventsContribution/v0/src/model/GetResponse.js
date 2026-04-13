@@ -48,9 +48,10 @@ class GetResponse {
         if (data) {
             obj = obj || new GetResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = GetResponseData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

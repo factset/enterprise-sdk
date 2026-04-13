@@ -47,12 +47,13 @@ class RollingSeriesPerTimeWindow {
         if (data) {
             obj = obj || new RollingSeriesPerTimeWindow();
 
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = ApiClient.convertToType(data['dates'], ['Date']);
             }
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = RollingSeriesPerTimeWindowReturns.constructFromObject(data['returns']);
             }
+            
         }
         return obj;
     }

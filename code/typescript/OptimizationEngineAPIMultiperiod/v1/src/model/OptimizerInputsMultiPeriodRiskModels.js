@@ -47,9 +47,10 @@ class OptimizerInputsMultiPeriodRiskModels {
         if (data) {
             obj = obj || new OptimizerInputsMultiPeriodRiskModels();
 
-            if (data.hasOwnProperty('risk_models')) {
+            if (data.hasOwnProperty('risk_models') && obj['risk_models'] === undefined) {
                 obj['risk_models'] = ApiClient.convertToType(data['risk_models'], [OptimizerInputsRiskModelForPeriods]);
             }
+            
         }
         return obj;
     }

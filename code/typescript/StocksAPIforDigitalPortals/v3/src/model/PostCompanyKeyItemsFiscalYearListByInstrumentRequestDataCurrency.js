@@ -47,9 +47,10 @@ class PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataCurrency {
         if (data) {
             obj = obj || new PostCompanyKeyItemsFiscalYearListByInstrumentRequestDataCurrency();
 
-            if (data.hasOwnProperty('isoCode')) {
+            if (data.hasOwnProperty('isoCode') && obj['isoCode'] === undefined) {
                 obj['isoCode'] = ApiClient.convertToType(data['isoCode'], 'String');
             }
+            
         }
         return obj;
     }

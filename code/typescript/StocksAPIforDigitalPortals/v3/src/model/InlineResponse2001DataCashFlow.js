@@ -51,18 +51,19 @@ class InlineResponse2001DataCashFlow {
         if (data) {
             obj = obj || new InlineResponse2001DataCashFlow();
 
-            if (data.hasOwnProperty('netOperating')) {
+            if (data.hasOwnProperty('netOperating') && obj['netOperating'] === undefined) {
                 obj['netOperating'] = InlineResponse2001DataCashFlowNetOperating.constructFromObject(data['netOperating']);
             }
-            if (data.hasOwnProperty('capitalExpenditures')) {
+            if (data.hasOwnProperty('capitalExpenditures') && obj['capitalExpenditures'] === undefined) {
                 obj['capitalExpenditures'] = InlineResponse2001DataCashFlowCapitalExpenditures.constructFromObject(data['capitalExpenditures']);
             }
-            if (data.hasOwnProperty('netInvestingCashFlow')) {
+            if (data.hasOwnProperty('netInvestingCashFlow') && obj['netInvestingCashFlow'] === undefined) {
                 obj['netInvestingCashFlow'] = InlineResponse2001DataCashFlowNetInvestingCashFlow.constructFromObject(data['netInvestingCashFlow']);
             }
-            if (data.hasOwnProperty('netFinancingCashFlow')) {
+            if (data.hasOwnProperty('netFinancingCashFlow') && obj['netFinancingCashFlow'] === undefined) {
                 obj['netFinancingCashFlow'] = InlineResponse2001DataCashFlowNetFinancingCashFlow.constructFromObject(data['netFinancingCashFlow']);
             }
+            
         }
         return obj;
     }

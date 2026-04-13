@@ -47,18 +47,19 @@ class QuoteInsideSize {
         if (data) {
             obj = obj || new QuoteInsideSize();
 
-            if (data.hasOwnProperty('timeZoneName')) {
+            if (data.hasOwnProperty('timeZoneName') && obj['timeZoneName'] === undefined) {
                 obj['timeZoneName'] = ApiClient.convertToType(data['timeZoneName'], 'String');
             }
-            if (data.hasOwnProperty('twasBps')) {
+            if (data.hasOwnProperty('twasBps') && obj['twasBps'] === undefined) {
                 obj['twasBps'] = ApiClient.convertToType(data['twasBps'], 'Number');
             }
-            if (data.hasOwnProperty('timeMs')) {
+            if (data.hasOwnProperty('timeMs') && obj['timeMs'] === undefined) {
                 obj['timeMs'] = ApiClient.convertToType(data['timeMs'], 'String');
             }
-            if (data.hasOwnProperty('twasInsideSize')) {
+            if (data.hasOwnProperty('twasInsideSize') && obj['twasInsideSize'] === undefined) {
                 obj['twasInsideSize'] = ApiClient.convertToType(data['twasInsideSize'], 'Number');
             }
+            
         }
         return obj;
     }

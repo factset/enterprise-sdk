@@ -49,9 +49,10 @@ class VaultIdentifier {
         if (data) {
             obj = obj || new VaultIdentifier();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            
         }
         return obj;
     }

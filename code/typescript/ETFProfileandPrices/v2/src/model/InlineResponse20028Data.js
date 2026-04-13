@@ -47,24 +47,25 @@ class InlineResponse20028Data {
         if (data) {
             obj = obj || new InlineResponse20028Data();
 
-            if (data.hasOwnProperty('return1M')) {
+            if (data.hasOwnProperty('return1M') && obj['return1M'] === undefined) {
                 obj['return1M'] = ApiClient.convertToType(data['return1M'], 'Number');
             }
-            if (data.hasOwnProperty('return3M')) {
+            if (data.hasOwnProperty('return3M') && obj['return3M'] === undefined) {
                 obj['return3M'] = ApiClient.convertToType(data['return3M'], 'Number');
             }
-            if (data.hasOwnProperty('returnYTD')) {
+            if (data.hasOwnProperty('returnYTD') && obj['returnYTD'] === undefined) {
                 obj['returnYTD'] = ApiClient.convertToType(data['returnYTD'], 'Number');
             }
-            if (data.hasOwnProperty('return1Y')) {
+            if (data.hasOwnProperty('return1Y') && obj['return1Y'] === undefined) {
                 obj['return1Y'] = ApiClient.convertToType(data['return1Y'], 'Number');
             }
-            if (data.hasOwnProperty('return3Y')) {
+            if (data.hasOwnProperty('return3Y') && obj['return3Y'] === undefined) {
                 obj['return3Y'] = ApiClient.convertToType(data['return3Y'], 'Number');
             }
-            if (data.hasOwnProperty('return5Y')) {
+            if (data.hasOwnProperty('return5Y') && obj['return5Y'] === undefined) {
                 obj['return5Y'] = ApiClient.convertToType(data['return5Y'], 'Number');
             }
+            
         }
         return obj;
     }

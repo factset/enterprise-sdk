@@ -46,30 +46,31 @@ class UtlimateEntityStructure {
         if (data) {
             obj = obj || new UtlimateEntityStructure();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('fsymEntityId')) {
+            if (data.hasOwnProperty('fsymEntityId') && obj['fsymEntityId'] === undefined) {
                 obj['fsymEntityId'] = ApiClient.convertToType(data['fsymEntityId'], 'String');
             }
-            if (data.hasOwnProperty('ultimateParentId')) {
+            if (data.hasOwnProperty('ultimateParentId') && obj['ultimateParentId'] === undefined) {
                 obj['ultimateParentId'] = ApiClient.convertToType(data['ultimateParentId'], 'String');
             }
-            if (data.hasOwnProperty('parentEntityId')) {
+            if (data.hasOwnProperty('parentEntityId') && obj['parentEntityId'] === undefined) {
                 obj['parentEntityId'] = ApiClient.convertToType(data['parentEntityId'], 'String');
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = ApiClient.convertToType(data['level'], 'Number');
             }
-            if (data.hasOwnProperty('inactive')) {
+            if (data.hasOwnProperty('inactive') && obj['inactive'] === undefined) {
                 obj['inactive'] = ApiClient.convertToType(data['inactive'], 'Number');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

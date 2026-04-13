@@ -51,18 +51,19 @@ class InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimates 
         if (data) {
             obj = obj || new InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimates();
 
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('ebit')) {
+            if (data.hasOwnProperty('ebit') && obj['ebit'] === undefined) {
                 obj['ebit'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesEbit.constructFromObject(data['ebit']);
             }
-            if (data.hasOwnProperty('ebitda')) {
+            if (data.hasOwnProperty('ebitda') && obj['ebitda'] === undefined) {
                 obj['ebitda'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesEbitda.constructFromObject(data['ebitda']);
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesPerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

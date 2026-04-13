@@ -46,24 +46,25 @@ class EventCount {
         if (data) {
             obj = obj || new EventCount();
 
-            if (data.hasOwnProperty('eventDate')) {
+            if (data.hasOwnProperty('eventDate') && obj['eventDate'] === undefined) {
                 obj['eventDate'] = ApiClient.convertToType(data['eventDate'], 'Date');
             }
-            if (data.hasOwnProperty('dividends')) {
+            if (data.hasOwnProperty('dividends') && obj['dividends'] === undefined) {
                 obj['dividends'] = ApiClient.convertToType(data['dividends'], 'Number');
             }
-            if (data.hasOwnProperty('stockDistributions')) {
+            if (data.hasOwnProperty('stockDistributions') && obj['stockDistributions'] === undefined) {
                 obj['stockDistributions'] = ApiClient.convertToType(data['stockDistributions'], 'Number');
             }
-            if (data.hasOwnProperty('rightsIssues')) {
+            if (data.hasOwnProperty('rightsIssues') && obj['rightsIssues'] === undefined) {
                 obj['rightsIssues'] = ApiClient.convertToType(data['rightsIssues'], 'Number');
             }
-            if (data.hasOwnProperty('spinOffs')) {
+            if (data.hasOwnProperty('spinOffs') && obj['spinOffs'] === undefined) {
                 obj['spinOffs'] = ApiClient.convertToType(data['spinOffs'], 'Number');
             }
-            if (data.hasOwnProperty('splits')) {
+            if (data.hasOwnProperty('splits') && obj['splits'] === undefined) {
                 obj['splits'] = ApiClient.convertToType(data['splits'], 'Number');
             }
+            
         }
         return obj;
     }

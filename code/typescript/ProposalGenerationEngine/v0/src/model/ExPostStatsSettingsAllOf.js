@@ -46,9 +46,10 @@ class ExPostStatsSettingsAllOf {
         if (data) {
             obj = obj || new ExPostStatsSettingsAllOf();
 
-            if (data.hasOwnProperty('udfs')) {
+            if (data.hasOwnProperty('udfs') && obj['udfs'] === undefined) {
                 obj['udfs'] = ApiClient.convertToType(data['udfs'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitda
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitda();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = PostStockNotationScreenerSearchRequestDataCurrencyDependentEstimatesEbitMean.constructFromObject(data['mean']);
             }
+            
         }
         return obj;
     }

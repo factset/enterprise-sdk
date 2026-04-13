@@ -48,9 +48,10 @@ class PostBasicMarketListRequestData {
         if (data) {
             obj = obj || new PostBasicMarketListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicMarketListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

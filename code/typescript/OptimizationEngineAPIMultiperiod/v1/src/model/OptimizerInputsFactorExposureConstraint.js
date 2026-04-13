@@ -50,27 +50,28 @@ class OptimizerInputsFactorExposureConstraint {
         if (data) {
             obj = obj || new OptimizerInputsFactorExposureConstraint();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('penalty')) {
+            if (data.hasOwnProperty('penalty') && obj['penalty'] === undefined) {
                 obj['penalty'] = OptimizerInputsPenalty.constructFromObject(data['penalty']);
             }
-            if (data.hasOwnProperty('rel_to_benchmark')) {
+            if (data.hasOwnProperty('rel_to_benchmark') && obj['rel_to_benchmark'] === undefined) {
                 obj['rel_to_benchmark'] = ApiClient.convertToType(data['rel_to_benchmark'], 'Boolean');
             }
-            if (data.hasOwnProperty('benchmark_index')) {
+            if (data.hasOwnProperty('benchmark_index') && obj['benchmark_index'] === undefined) {
                 obj['benchmark_index'] = ApiClient.convertToType(data['benchmark_index'], 'Number');
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = OptimizerInputsFactorExposureAttributes.constructFromObject(data['factors']);
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], 'Number');
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [OptimizerInputsConstraintGroup]);
             }
+            
         }
         return obj;
     }

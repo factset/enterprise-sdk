@@ -50,9 +50,10 @@ class OrderFillCountResponseRoot {
         if (data) {
             obj = obj || new OrderFillCountResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = OrderFillCountResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

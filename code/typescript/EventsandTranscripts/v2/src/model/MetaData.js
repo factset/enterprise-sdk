@@ -47,9 +47,10 @@ class MetaData {
         if (data) {
             obj = obj || new MetaData();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = MetaDataPagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

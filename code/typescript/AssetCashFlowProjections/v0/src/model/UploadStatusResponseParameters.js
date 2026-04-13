@@ -47,30 +47,31 @@ class UploadStatusResponseParameters {
         if (data) {
             obj = obj || new UploadStatusResponseParameters();
 
-            if (data.hasOwnProperty('acfpStatus')) {
+            if (data.hasOwnProperty('acfpStatus') && obj['acfpStatus'] === undefined) {
                 obj['acfpStatus'] = ApiClient.convertToType(data['acfpStatus'], 'String');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('numberOfScenarios')) {
+            if (data.hasOwnProperty('numberOfScenarios') && obj['numberOfScenarios'] === undefined) {
                 obj['numberOfScenarios'] = ApiClient.convertToType(data['numberOfScenarios'], 'Number');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('uploadDateTime')) {
+            if (data.hasOwnProperty('uploadDateTime') && obj['uploadDateTime'] === undefined) {
                 obj['uploadDateTime'] = ApiClient.convertToType(data['uploadDateTime'], 'Date');
             }
-            if (data.hasOwnProperty('uploadId')) {
+            if (data.hasOwnProperty('uploadId') && obj['uploadId'] === undefined) {
                 obj['uploadId'] = ApiClient.convertToType(data['uploadId'], 'String');
             }
+            
         }
         return obj;
     }

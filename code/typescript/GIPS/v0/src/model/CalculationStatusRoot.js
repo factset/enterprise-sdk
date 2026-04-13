@@ -51,12 +51,13 @@ class CalculationStatusRoot {
         if (data) {
             obj = obj || new CalculationStatusRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CalculationStatus.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = CalculationStatusMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

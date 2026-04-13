@@ -47,9 +47,10 @@ class BuyContextRequestBodyRoot {
         if (data) {
             obj = obj || new BuyContextRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BuyContextRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

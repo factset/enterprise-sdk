@@ -48,9 +48,10 @@ class SearchData {
         if (data) {
             obj = obj || new SearchData();
 
-            if (data.hasOwnProperty('fieldValues')) {
+            if (data.hasOwnProperty('fieldValues') && obj['fieldValues'] === undefined) {
                 obj['fieldValues'] = ApiClient.convertToType(data['fieldValues'], [FieldValues]);
             }
+            
         }
         return obj;
     }

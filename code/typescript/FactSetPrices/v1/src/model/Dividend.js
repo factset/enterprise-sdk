@@ -46,48 +46,49 @@ class Dividend {
         if (data) {
             obj = obj || new Dividend();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('divsExDate')) {
+            if (data.hasOwnProperty('divsExDate') && obj['divsExDate'] === undefined) {
                 obj['divsExDate'] = ApiClient.convertToType(data['divsExDate'], 'Date');
             }
-            if (data.hasOwnProperty('adjDate')) {
+            if (data.hasOwnProperty('adjDate') && obj['adjDate'] === undefined) {
                 obj['adjDate'] = ApiClient.convertToType(data['adjDate'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('divsPaid')) {
+            if (data.hasOwnProperty('divsPaid') && obj['divsPaid'] === undefined) {
                 obj['divsPaid'] = ApiClient.convertToType(data['divsPaid'], 'Number');
             }
-            if (data.hasOwnProperty('divsRecDate')) {
+            if (data.hasOwnProperty('divsRecDate') && obj['divsRecDate'] === undefined) {
                 obj['divsRecDate'] = ApiClient.convertToType(data['divsRecDate'], 'Date');
             }
-            if (data.hasOwnProperty('divsPayDate')) {
+            if (data.hasOwnProperty('divsPayDate') && obj['divsPayDate'] === undefined) {
                 obj['divsPayDate'] = ApiClient.convertToType(data['divsPayDate'], 'Date');
             }
-            if (data.hasOwnProperty('divsTypeC')) {
+            if (data.hasOwnProperty('divsTypeC') && obj['divsTypeC'] === undefined) {
                 obj['divsTypeC'] = ApiClient.convertToType(data['divsTypeC'], 'Number');
             }
-            if (data.hasOwnProperty('divsTypeD')) {
+            if (data.hasOwnProperty('divsTypeD') && obj['divsTypeD'] === undefined) {
                 obj['divsTypeD'] = ApiClient.convertToType(data['divsTypeD'], 'String');
             }
-            if (data.hasOwnProperty('divsTaxC')) {
+            if (data.hasOwnProperty('divsTaxC') && obj['divsTaxC'] === undefined) {
                 obj['divsTaxC'] = ApiClient.convertToType(data['divsTaxC'], 'String');
             }
-            if (data.hasOwnProperty('divsTaxD')) {
+            if (data.hasOwnProperty('divsTaxD') && obj['divsTaxD'] === undefined) {
                 obj['divsTaxD'] = ApiClient.convertToType(data['divsTaxD'], 'String');
             }
-            if (data.hasOwnProperty('divsNGFlag')) {
+            if (data.hasOwnProperty('divsNGFlag') && obj['divsNGFlag'] === undefined) {
                 obj['divsNGFlag'] = ApiClient.convertToType(data['divsNGFlag'], 'String');
             }
-            if (data.hasOwnProperty('divsNGEquiv')) {
+            if (data.hasOwnProperty('divsNGEquiv') && obj['divsNGEquiv'] === undefined) {
                 obj['divsNGEquiv'] = ApiClient.convertToType(data['divsNGEquiv'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,33 +47,34 @@ class InlineResponse20014PerformanceEndOfDay {
         if (data) {
             obj = obj || new InlineResponse20014PerformanceEndOfDay();
 
-            if (data.hasOwnProperty('day1')) {
+            if (data.hasOwnProperty('day1') && obj['day1'] === undefined) {
                 obj['day1'] = ApiClient.convertToType(data['day1'], 'Number');
             }
-            if (data.hasOwnProperty('week1')) {
+            if (data.hasOwnProperty('week1') && obj['week1'] === undefined) {
                 obj['week1'] = ApiClient.convertToType(data['week1'], 'Number');
             }
-            if (data.hasOwnProperty('month1')) {
+            if (data.hasOwnProperty('month1') && obj['month1'] === undefined) {
                 obj['month1'] = ApiClient.convertToType(data['month1'], 'Number');
             }
-            if (data.hasOwnProperty('months3')) {
+            if (data.hasOwnProperty('months3') && obj['months3'] === undefined) {
                 obj['months3'] = ApiClient.convertToType(data['months3'], 'Number');
             }
-            if (data.hasOwnProperty('months6')) {
+            if (data.hasOwnProperty('months6') && obj['months6'] === undefined) {
                 obj['months6'] = ApiClient.convertToType(data['months6'], 'Number');
             }
-            if (data.hasOwnProperty('year1')) {
+            if (data.hasOwnProperty('year1') && obj['year1'] === undefined) {
                 obj['year1'] = ApiClient.convertToType(data['year1'], 'Number');
             }
-            if (data.hasOwnProperty('years3')) {
+            if (data.hasOwnProperty('years3') && obj['years3'] === undefined) {
                 obj['years3'] = ApiClient.convertToType(data['years3'], 'Number');
             }
-            if (data.hasOwnProperty('years5')) {
+            if (data.hasOwnProperty('years5') && obj['years5'] === undefined) {
                 obj['years5'] = ApiClient.convertToType(data['years5'], 'Number');
             }
-            if (data.hasOwnProperty('yearToDate')) {
+            if (data.hasOwnProperty('yearToDate') && obj['yearToDate'] === undefined) {
                 obj['yearToDate'] = ApiClient.convertToType(data['yearToDate'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -49,9 +49,10 @@ class InlineResponse200 {
         if (data) {
             obj = obj || new InlineResponse200();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [RiskModelSummary]);
             }
+            
         }
         return obj;
     }

@@ -46,21 +46,22 @@ class BenchmarkIdList {
         if (data) {
             obj = obj || new BenchmarkIdList();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('familyName')) {
+            if (data.hasOwnProperty('familyName') && obj['familyName'] === undefined) {
                 obj['familyName'] = ApiClient.convertToType(data['familyName'], 'String');
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = ApiClient.convertToType(data['market'], 'String');
             }
-            if (data.hasOwnProperty('categoryDescription')) {
+            if (data.hasOwnProperty('categoryDescription') && obj['categoryDescription'] === undefined) {
                 obj['categoryDescription'] = ApiClient.convertToType(data['categoryDescription'], 'String');
             }
+            
         }
         return obj;
     }

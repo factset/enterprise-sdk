@@ -54,18 +54,19 @@ class RelationshipsRequestBody {
         if (data) {
             obj = obj || new RelationshipsRequestBody();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('relationshipType')) {
+            if (data.hasOwnProperty('relationshipType') && obj['relationshipType'] === undefined) {
                 obj['relationshipType'] = RelationshipType.constructFromObject(data['relationshipType']);
             }
-            if (data.hasOwnProperty('companyType')) {
+            if (data.hasOwnProperty('companyType') && obj['companyType'] === undefined) {
                 obj['companyType'] = CompanyType.constructFromObject(data['companyType']);
             }
-            if (data.hasOwnProperty('relationshipDirection')) {
+            if (data.hasOwnProperty('relationshipDirection') && obj['relationshipDirection'] === undefined) {
                 obj['relationshipDirection'] = RelationshipDirection.constructFromObject(data['relationshipDirection']);
             }
+            
         }
         return obj;
     }

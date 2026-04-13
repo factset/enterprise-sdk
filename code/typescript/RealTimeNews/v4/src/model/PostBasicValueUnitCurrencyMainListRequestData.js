@@ -48,9 +48,10 @@ class PostBasicValueUnitCurrencyMainListRequestData {
         if (data) {
             obj = obj || new PostBasicValueUnitCurrencyMainListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicValueUnitCurrencyMainListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

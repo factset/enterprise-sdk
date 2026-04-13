@@ -49,12 +49,13 @@ class InlineResponse2003DataPerformanceIssue {
         if (data) {
             obj = obj || new InlineResponse2003DataPerformanceIssue();
 
-            if (data.hasOwnProperty('ask')) {
+            if (data.hasOwnProperty('ask') && obj['ask'] === undefined) {
                 obj['ask'] = InlineResponse2003DataPerformanceIssueAsk.constructFromObject(data['ask']);
             }
-            if (data.hasOwnProperty('bid')) {
+            if (data.hasOwnProperty('bid') && obj['bid'] === undefined) {
                 obj['bid'] = InlineResponse2003DataPerformanceIssueBid.constructFromObject(data['bid']);
             }
+            
         }
         return obj;
     }

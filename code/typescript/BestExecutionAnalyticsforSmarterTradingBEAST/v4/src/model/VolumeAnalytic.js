@@ -47,18 +47,19 @@ class VolumeAnalytic {
         if (data) {
             obj = obj || new VolumeAnalytic();
 
-            if (data.hasOwnProperty('dateId')) {
+            if (data.hasOwnProperty('dateId') && obj['dateId'] === undefined) {
                 obj['dateId'] = ApiClient.convertToType(data['dateId'], 'Date');
             }
-            if (data.hasOwnProperty('bidSideVolume')) {
+            if (data.hasOwnProperty('bidSideVolume') && obj['bidSideVolume'] === undefined) {
                 obj['bidSideVolume'] = ApiClient.convertToType(data['bidSideVolume'], 'Number');
             }
-            if (data.hasOwnProperty('askSideVolume')) {
+            if (data.hasOwnProperty('askSideVolume') && obj['askSideVolume'] === undefined) {
                 obj['askSideVolume'] = ApiClient.convertToType(data['askSideVolume'], 'Number');
             }
-            if (data.hasOwnProperty('blockVolume')) {
+            if (data.hasOwnProperty('blockVolume') && obj['blockVolume'] === undefined) {
                 obj['blockVolume'] = ApiClient.convertToType(data['blockVolume'], 'Number');
             }
+            
         }
         return obj;
     }

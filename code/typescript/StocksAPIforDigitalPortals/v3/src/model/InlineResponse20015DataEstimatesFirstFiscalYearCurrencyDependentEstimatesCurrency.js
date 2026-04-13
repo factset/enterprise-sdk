@@ -47,12 +47,13 @@ class InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesC
         if (data) {
             obj = obj || new InlineResponse20015DataEstimatesFirstFiscalYearCurrencyDependentEstimatesCurrency();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('isoCode')) {
+            if (data.hasOwnProperty('isoCode') && obj['isoCode'] === undefined) {
                 obj['isoCode'] = ApiClient.convertToType(data['isoCode'], 'String');
             }
+            
         }
         return obj;
     }

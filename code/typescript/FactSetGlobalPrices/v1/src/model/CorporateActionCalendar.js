@@ -47,45 +47,46 @@ class CorporateActionCalendar {
         if (data) {
             obj = obj || new CorporateActionCalendar();
 
-            if (data.hasOwnProperty('eventId')) {
+            if (data.hasOwnProperty('eventId') && obj['eventId'] === undefined) {
                 obj['eventId'] = ApiClient.convertToType(data['eventId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
             }
-            if (data.hasOwnProperty('companyName')) {
+            if (data.hasOwnProperty('companyName') && obj['companyName'] === undefined) {
                 obj['companyName'] = ApiClient.convertToType(data['companyName'], 'String');
             }
-            if (data.hasOwnProperty('exchangeCode')) {
+            if (data.hasOwnProperty('exchangeCode') && obj['exchangeCode'] === undefined) {
                 obj['exchangeCode'] = ApiClient.convertToType(data['exchangeCode'], 'String');
             }
-            if (data.hasOwnProperty('exchangeName')) {
+            if (data.hasOwnProperty('exchangeName') && obj['exchangeName'] === undefined) {
                 obj['exchangeName'] = ApiClient.convertToType(data['exchangeName'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('eventType')) {
+            if (data.hasOwnProperty('eventType') && obj['eventType'] === undefined) {
                 obj['eventType'] = ApiClient.convertToType(data['eventType'], 'String');
             }
-            if (data.hasOwnProperty('eventDate')) {
+            if (data.hasOwnProperty('eventDate') && obj['eventDate'] === undefined) {
                 obj['eventDate'] = ApiClient.convertToType(data['eventDate'], 'Date');
             }
-            if (data.hasOwnProperty('eventDescription')) {
+            if (data.hasOwnProperty('eventDescription') && obj['eventDescription'] === undefined) {
                 obj['eventDescription'] = ApiClient.convertToType(data['eventDescription'], 'String');
             }
-            if (data.hasOwnProperty('detailsRelativePath')) {
+            if (data.hasOwnProperty('detailsRelativePath') && obj['detailsRelativePath'] === undefined) {
                 obj['detailsRelativePath'] = ApiClient.convertToType(data['detailsRelativePath'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ErrorObjectResponse.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

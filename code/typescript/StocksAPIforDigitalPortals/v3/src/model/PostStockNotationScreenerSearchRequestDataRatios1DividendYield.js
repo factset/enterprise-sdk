@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataRatios1DividendYield {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRatios1DividendYield();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = PostStockNotationScreenerSearchRequestDataReturnOnAssets1Mean.constructFromObject(data['mean']);
             }
+            
         }
         return obj;
     }

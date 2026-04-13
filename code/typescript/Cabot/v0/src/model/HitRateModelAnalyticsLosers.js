@@ -47,12 +47,13 @@ class HitRateModelAnalyticsLosers {
         if (data) {
             obj = obj || new HitRateModelAnalyticsLosers();
 
-            if (data.hasOwnProperty('benefit')) {
+            if (data.hasOwnProperty('benefit') && obj['benefit'] === undefined) {
                 obj['benefit'] = ApiClient.convertToType(data['benefit'], 'Number');
             }
-            if (data.hasOwnProperty('percent')) {
+            if (data.hasOwnProperty('percent') && obj['percent'] === undefined) {
                 obj['percent'] = ApiClient.convertToType(data['percent'], 'Number');
             }
+            
         }
         return obj;
     }

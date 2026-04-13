@@ -50,9 +50,10 @@ class BadRequestError {
         if (data) {
             obj = obj || new BadRequestError();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [BadRequestErrorObject]);
             }
+            
         }
         return obj;
     }

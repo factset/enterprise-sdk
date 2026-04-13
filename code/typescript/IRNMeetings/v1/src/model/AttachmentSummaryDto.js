@@ -46,18 +46,19 @@ class AttachmentSummaryDto {
         if (data) {
             obj = obj || new AttachmentSummaryDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('mimeType')) {
+            if (data.hasOwnProperty('mimeType') && obj['mimeType'] === undefined) {
                 obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
             }
-            if (data.hasOwnProperty('size')) {
+            if (data.hasOwnProperty('size') && obj['size'] === undefined) {
                 obj['size'] = ApiClient.convertToType(data['size'], 'Number');
             }
+            
         }
         return obj;
     }

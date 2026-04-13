@@ -47,9 +47,10 @@ class PostNewsArticleListByIndexRequestMetaSubscription {
         if (data) {
             obj = obj || new PostNewsArticleListByIndexRequestMetaSubscription();
 
-            if (data.hasOwnProperty('minimumInterval')) {
+            if (data.hasOwnProperty('minimumInterval') && obj['minimumInterval'] === undefined) {
                 obj['minimumInterval'] = ApiClient.convertToType(data['minimumInterval'], 'Number');
             }
+            
         }
         return obj;
     }

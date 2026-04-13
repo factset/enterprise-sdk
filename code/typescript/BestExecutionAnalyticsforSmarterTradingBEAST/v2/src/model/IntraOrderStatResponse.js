@@ -48,9 +48,10 @@ class IntraOrderStatResponse {
         if (data) {
             obj = obj || new IntraOrderStatResponse();
 
-            if (data.hasOwnProperty('intraOrderStats')) {
+            if (data.hasOwnProperty('intraOrderStats') && obj['intraOrderStats'] === undefined) {
                 obj['intraOrderStats'] = ApiClient.convertToType(data['intraOrderStats'], [IntraOrderStat]);
             }
+            
         }
         return obj;
     }

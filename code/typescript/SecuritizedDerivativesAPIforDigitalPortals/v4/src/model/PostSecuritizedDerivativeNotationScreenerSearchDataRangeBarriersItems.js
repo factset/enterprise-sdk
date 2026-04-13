@@ -52,24 +52,25 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItems {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItems();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItemsObservation.constructFromObject(data['observation']);
             }
-            if (data.hasOwnProperty('upper')) {
+            if (data.hasOwnProperty('upper') && obj['upper'] === undefined) {
                 obj['upper'] = PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItemsUpper.constructFromObject(data['upper']);
             }
-            if (data.hasOwnProperty('lower')) {
+            if (data.hasOwnProperty('lower') && obj['lower'] === undefined) {
                 obj['lower'] = PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItemsLower.constructFromObject(data['lower']);
             }
-            if (data.hasOwnProperty('breach')) {
+            if (data.hasOwnProperty('breach') && obj['breach'] === undefined) {
                 obj['breach'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataSingleBarriersItemsBreach.constructFromObject(data['breach']);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItemsCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

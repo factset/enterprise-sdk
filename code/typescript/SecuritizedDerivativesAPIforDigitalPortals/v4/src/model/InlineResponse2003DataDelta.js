@@ -47,12 +47,13 @@ class InlineResponse2003DataDelta {
         if (data) {
             obj = obj || new InlineResponse2003DataDelta();
 
-            if (data.hasOwnProperty('effective')) {
+            if (data.hasOwnProperty('effective') && obj['effective'] === undefined) {
                 obj['effective'] = ApiClient.convertToType(data['effective'], 'Number');
             }
-            if (data.hasOwnProperty('unadjusted')) {
+            if (data.hasOwnProperty('unadjusted') && obj['unadjusted'] === undefined) {
                 obj['unadjusted'] = ApiClient.convertToType(data['unadjusted'], 'Number');
             }
+            
         }
         return obj;
     }

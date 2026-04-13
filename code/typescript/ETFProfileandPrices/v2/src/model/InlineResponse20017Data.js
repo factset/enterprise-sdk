@@ -46,9 +46,10 @@ class InlineResponse20017Data {
         if (data) {
             obj = obj || new InlineResponse20017Data();
 
-            if (data.hasOwnProperty('focusCategory')) {
+            if (data.hasOwnProperty('focusCategory') && obj['focusCategory'] === undefined) {
                 obj['focusCategory'] = ApiClient.convertToType(data['focusCategory'], 'String');
             }
+            
         }
         return obj;
     }

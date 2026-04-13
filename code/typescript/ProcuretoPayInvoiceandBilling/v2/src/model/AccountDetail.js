@@ -47,12 +47,13 @@ class AccountDetail {
         if (data) {
             obj = obj || new AccountDetail();
 
-            if (data.hasOwnProperty('accountName')) {
+            if (data.hasOwnProperty('accountName') && obj['accountName'] === undefined) {
                 obj['accountName'] = ApiClient.convertToType(data['accountName'], 'String');
             }
-            if (data.hasOwnProperty('accountId')) {
+            if (data.hasOwnProperty('accountId') && obj['accountId'] === undefined) {
                 obj['accountId'] = ApiClient.convertToType(data['accountId'], 'String');
             }
+            
         }
         return obj;
     }

@@ -48,12 +48,12 @@ class SymbolAndFields {
         if (data) {
             obj = obj || new SymbolAndFields();
 
-            ApiClient.constructFromObject(data, obj, 'DataValue');
-            
-
-            if (data.hasOwnProperty('symbol')) {
+            if (data.hasOwnProperty('symbol') && obj['symbol'] === undefined) {
                 obj['symbol'] = ApiClient.convertToType(data['symbol'], 'String');
             }
+            
+            ApiClient.constructFromObject(data, obj, DataValue);
+            
         }
         return obj;
     }

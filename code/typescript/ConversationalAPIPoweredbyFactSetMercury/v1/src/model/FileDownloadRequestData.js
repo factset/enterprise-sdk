@@ -49,9 +49,10 @@ class FileDownloadRequestData {
         if (data) {
             obj = obj || new FileDownloadRequestData();
 
-            if (data.hasOwnProperty('fileId')) {
+            if (data.hasOwnProperty('fileId') && obj['fileId'] === undefined) {
                 obj['fileId'] = ApiClient.convertToType(data['fileId'], 'String');
             }
+            
         }
         return obj;
     }

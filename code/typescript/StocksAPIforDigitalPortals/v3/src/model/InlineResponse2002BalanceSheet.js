@@ -50,15 +50,16 @@ class InlineResponse2002BalanceSheet {
         if (data) {
             obj = obj || new InlineResponse2002BalanceSheet();
 
-            if (data.hasOwnProperty('netDebt')) {
+            if (data.hasOwnProperty('netDebt') && obj['netDebt'] === undefined) {
                 obj['netDebt'] = InlineResponse2002BalanceSheetNetDebt.constructFromObject(data['netDebt']);
             }
-            if (data.hasOwnProperty('returnOnAssets')) {
+            if (data.hasOwnProperty('returnOnAssets') && obj['returnOnAssets'] === undefined) {
                 obj['returnOnAssets'] = InlineResponse2002BalanceSheetReturnOnAssets.constructFromObject(data['returnOnAssets']);
             }
-            if (data.hasOwnProperty('returnOnEquity')) {
+            if (data.hasOwnProperty('returnOnEquity') && obj['returnOnEquity'] === undefined) {
                 obj['returnOnEquity'] = InlineResponse2002BalanceSheetReturnOnEquity.constructFromObject(data['returnOnEquity']);
             }
+            
         }
         return obj;
     }

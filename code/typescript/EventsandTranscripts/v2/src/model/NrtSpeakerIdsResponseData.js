@@ -46,21 +46,22 @@ class NrtSpeakerIdsResponseData {
         if (data) {
             obj = obj || new NrtSpeakerIdsResponseData();
 
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], 'Number');
             }
-            if (data.hasOwnProperty('speakerStartOffset')) {
+            if (data.hasOwnProperty('speakerStartOffset') && obj['speakerStartOffset'] === undefined) {
                 obj['speakerStartOffset'] = ApiClient.convertToType(data['speakerStartOffset'], 'Number');
             }
-            if (data.hasOwnProperty('speakerId')) {
+            if (data.hasOwnProperty('speakerId') && obj['speakerId'] === undefined) {
                 obj['speakerId'] = ApiClient.convertToType(data['speakerId'], 'String');
             }
-            if (data.hasOwnProperty('confidenceScore')) {
+            if (data.hasOwnProperty('confidenceScore') && obj['confidenceScore'] === undefined) {
                 obj['confidenceScore'] = ApiClient.convertToType(data['confidenceScore'], 'Number');
             }
-            if (data.hasOwnProperty('affiliationId')) {
+            if (data.hasOwnProperty('affiliationId') && obj['affiliationId'] === undefined) {
                 obj['affiliationId'] = ApiClient.convertToType(data['affiliationId'], 'String');
             }
+            
         }
         return obj;
     }

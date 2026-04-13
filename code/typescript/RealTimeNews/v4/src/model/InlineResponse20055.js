@@ -48,12 +48,13 @@ class InlineResponse20055 {
         if (data) {
             obj = obj || new InlineResponse20055();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [GetNewsPublisherListDataItems]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = InlineResponse2009Meta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

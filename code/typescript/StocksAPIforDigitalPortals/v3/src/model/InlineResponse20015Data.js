@@ -61,51 +61,52 @@ class InlineResponse20015Data {
         if (data) {
             obj = obj || new InlineResponse20015Data();
 
-            if (data.hasOwnProperty('totalCount')) {
+            if (data.hasOwnProperty('totalCount') && obj['totalCount'] === undefined) {
                 obj['totalCount'] = ApiClient.convertToType(data['totalCount'], 'Number');
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = ApiClient.convertToType(data['valueUnit'], [InlineResponse20015DataValueUnit]);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = ApiClient.convertToType(data['market'], [InlineResponse20015DataMarket]);
             }
-            if (data.hasOwnProperty('stockType')) {
+            if (data.hasOwnProperty('stockType') && obj['stockType'] === undefined) {
                 obj['stockType'] = ApiClient.convertToType(data['stockType'], [InlineResponse20015DataStockType]);
             }
-            if (data.hasOwnProperty('industryClassification')) {
+            if (data.hasOwnProperty('industryClassification') && obj['industryClassification'] === undefined) {
                 obj['industryClassification'] = ApiClient.convertToType(data['industryClassification'], [InlineResponse20015DataIndustryClassification]);
             }
-            if (data.hasOwnProperty('company')) {
+            if (data.hasOwnProperty('company') && obj['company'] === undefined) {
                 obj['company'] = InlineResponse20015DataCompany.constructFromObject(data['company']);
             }
-            if (data.hasOwnProperty('compliance')) {
+            if (data.hasOwnProperty('compliance') && obj['compliance'] === undefined) {
                 obj['compliance'] = InlineResponse20015DataCompliance.constructFromObject(data['compliance']);
             }
-            if (data.hasOwnProperty('reportedKeyFigures')) {
+            if (data.hasOwnProperty('reportedKeyFigures') && obj['reportedKeyFigures'] === undefined) {
                 obj['reportedKeyFigures'] = InlineResponse20015DataReportedKeyFigures.constructFromObject(data['reportedKeyFigures']);
             }
-            if (data.hasOwnProperty('performance')) {
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
                 obj['performance'] = InlineResponse20015DataPerformance.constructFromObject(data['performance']);
             }
-            if (data.hasOwnProperty('volatility')) {
+            if (data.hasOwnProperty('volatility') && obj['volatility'] === undefined) {
                 obj['volatility'] = InlineResponse20015DataVolatility.constructFromObject(data['volatility']);
             }
-            if (data.hasOwnProperty('tradingValue')) {
+            if (data.hasOwnProperty('tradingValue') && obj['tradingValue'] === undefined) {
                 obj['tradingValue'] = InlineResponse20015DataTradingValue.constructFromObject(data['tradingValue']);
             }
-            if (data.hasOwnProperty('simpleMovingAverage')) {
+            if (data.hasOwnProperty('simpleMovingAverage') && obj['simpleMovingAverage'] === undefined) {
                 obj['simpleMovingAverage'] = InlineResponse20015DataSimpleMovingAverage.constructFromObject(data['simpleMovingAverage']);
             }
-            if (data.hasOwnProperty('rsiWilder')) {
+            if (data.hasOwnProperty('rsiWilder') && obj['rsiWilder'] === undefined) {
                 obj['rsiWilder'] = InlineResponse20015DataRsiWilder.constructFromObject(data['rsiWilder']);
             }
-            if (data.hasOwnProperty('recommendation')) {
+            if (data.hasOwnProperty('recommendation') && obj['recommendation'] === undefined) {
                 obj['recommendation'] = InlineResponse20015DataRecommendation.constructFromObject(data['recommendation']);
             }
-            if (data.hasOwnProperty('estimates')) {
+            if (data.hasOwnProperty('estimates') && obj['estimates'] === undefined) {
                 obj['estimates'] = InlineResponse20015DataEstimates.constructFromObject(data['estimates']);
             }
+            
         }
         return obj;
     }

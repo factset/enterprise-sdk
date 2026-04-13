@@ -50,36 +50,37 @@ class RiskNodeStats {
         if (data) {
             obj = obj || new RiskNodeStats();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = ApiClient.convertToType(data['group'], 'String');
             }
-            if (data.hasOwnProperty('leaf')) {
+            if (data.hasOwnProperty('leaf') && obj['leaf'] === undefined) {
                 obj['leaf'] = ApiClient.convertToType(data['leaf'], 'Boolean');
             }
-            if (data.hasOwnProperty('weight')) {
+            if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
-            if (data.hasOwnProperty('risks')) {
+            if (data.hasOwnProperty('risks') && obj['risks'] === undefined) {
                 obj['risks'] = RiskStats.constructFromObject(data['risks']);
             }
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = ReturnStats.constructFromObject(data['returns']);
             }
-            if (data.hasOwnProperty('exposures')) {
+            if (data.hasOwnProperty('exposures') && obj['exposures'] === undefined) {
                 obj['exposures'] = ApiClient.convertToType(data['exposures'], [Exposure]);
             }
-            if (data.hasOwnProperty('correlationToPortfolio')) {
+            if (data.hasOwnProperty('correlationToPortfolio') && obj['correlationToPortfolio'] === undefined) {
                 obj['correlationToPortfolio'] = ApiClient.convertToType(data['correlationToPortfolio'], 'Number');
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], [UiValueObject]);
             }
+            
         }
         return obj;
     }

@@ -60,45 +60,46 @@ class InlineResponse2001DataIncomeStatement {
         if (data) {
             obj = obj || new InlineResponse2001DataIncomeStatement();
 
-            if (data.hasOwnProperty('sales')) {
+            if (data.hasOwnProperty('sales') && obj['sales'] === undefined) {
                 obj['sales'] = InlineResponse2001DataIncomeStatementSales.constructFromObject(data['sales']);
             }
-            if (data.hasOwnProperty('grossIncome')) {
+            if (data.hasOwnProperty('grossIncome') && obj['grossIncome'] === undefined) {
                 obj['grossIncome'] = InlineResponse2001DataIncomeStatementGrossIncome.constructFromObject(data['grossIncome']);
             }
-            if (data.hasOwnProperty('ebit')) {
+            if (data.hasOwnProperty('ebit') && obj['ebit'] === undefined) {
                 obj['ebit'] = InlineResponse2001DataIncomeStatementEbit.constructFromObject(data['ebit']);
             }
-            if (data.hasOwnProperty('ebitda')) {
+            if (data.hasOwnProperty('ebitda') && obj['ebitda'] === undefined) {
                 obj['ebitda'] = InlineResponse2001DataIncomeStatementEbitda.constructFromObject(data['ebitda']);
             }
-            if (data.hasOwnProperty('interestIncome')) {
+            if (data.hasOwnProperty('interestIncome') && obj['interestIncome'] === undefined) {
                 obj['interestIncome'] = InlineResponse2001DataIncomeStatementInterestIncome.constructFromObject(data['interestIncome']);
             }
-            if (data.hasOwnProperty('interestExpense')) {
+            if (data.hasOwnProperty('interestExpense') && obj['interestExpense'] === undefined) {
                 obj['interestExpense'] = InlineResponse2001DataIncomeStatementInterestExpense.constructFromObject(data['interestExpense']);
             }
-            if (data.hasOwnProperty('loanLossProvision')) {
+            if (data.hasOwnProperty('loanLossProvision') && obj['loanLossProvision'] === undefined) {
                 obj['loanLossProvision'] = InlineResponse2001DataIncomeStatementLoanLossProvision.constructFromObject(data['loanLossProvision']);
             }
-            if (data.hasOwnProperty('netInterestIncome')) {
+            if (data.hasOwnProperty('netInterestIncome') && obj['netInterestIncome'] === undefined) {
                 obj['netInterestIncome'] = InlineResponse2001DataIncomeStatementNetInterestIncome.constructFromObject(data['netInterestIncome']);
             }
-            if (data.hasOwnProperty('netIncome')) {
+            if (data.hasOwnProperty('netIncome') && obj['netIncome'] === undefined) {
                 obj['netIncome'] = InlineResponse2001DataIncomeStatementNetIncome.constructFromObject(data['netIncome']);
             }
-            if (data.hasOwnProperty('operatingIncome')) {
+            if (data.hasOwnProperty('operatingIncome') && obj['operatingIncome'] === undefined) {
                 obj['operatingIncome'] = InlineResponse2001DataIncomeStatementOperatingIncome.constructFromObject(data['operatingIncome']);
             }
-            if (data.hasOwnProperty('operatingExpense')) {
+            if (data.hasOwnProperty('operatingExpense') && obj['operatingExpense'] === undefined) {
                 obj['operatingExpense'] = InlineResponse2001DataIncomeStatementOperatingExpense.constructFromObject(data['operatingExpense']);
             }
-            if (data.hasOwnProperty('claimLossExpense')) {
+            if (data.hasOwnProperty('claimLossExpense') && obj['claimLossExpense'] === undefined) {
                 obj['claimLossExpense'] = InlineResponse2001DataIncomeStatementClaimLossExpense.constructFromObject(data['claimLossExpense']);
             }
-            if (data.hasOwnProperty('longTermInsuranceReserves')) {
+            if (data.hasOwnProperty('longTermInsuranceReserves') && obj['longTermInsuranceReserves'] === undefined) {
                 obj['longTermInsuranceReserves'] = InlineResponse2001DataIncomeStatementLongTermInsuranceReserves.constructFromObject(data['longTermInsuranceReserves']);
             }
+            
         }
         return obj;
     }

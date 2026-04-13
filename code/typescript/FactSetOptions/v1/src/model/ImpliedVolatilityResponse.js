@@ -47,9 +47,10 @@ class ImpliedVolatilityResponse {
         if (data) {
             obj = obj || new ImpliedVolatilityResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ImpliedVolatility]);
             }
+            
         }
         return obj;
     }

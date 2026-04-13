@@ -48,12 +48,13 @@ class ExPostRollingSettingsAllOf {
         if (data) {
             obj = obj || new ExPostRollingSettingsAllOf();
 
-            if (data.hasOwnProperty('rollingTimeWindow')) {
+            if (data.hasOwnProperty('rollingTimeWindow') && obj['rollingTimeWindow'] === undefined) {
                 obj['rollingTimeWindow'] = ApiClient.convertToType(data['rollingTimeWindow'], 'Number');
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], ['String']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class PostOptionByClassValueRangesGetDataItemsLifeCycleExpiration {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetDataItemsLifeCycleExpiration();
 
-            if (data.hasOwnProperty('month')) {
+            if (data.hasOwnProperty('month') && obj['month'] === undefined) {
                 obj['month'] = ApiClient.convertToType(data['month'], [PostOptionByClassValueRangesGetDataLifeCycleExpirationMonthItems]);
             }
-            if (data.hasOwnProperty('year')) {
+            if (data.hasOwnProperty('year') && obj['year'] === undefined) {
                 obj['year'] = ApiClient.convertToType(data['year'], [PostOptionByClassValueRangesGetDataLifeCycleExpirationYearItems]);
             }
+            
         }
         return obj;
     }

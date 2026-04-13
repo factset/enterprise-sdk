@@ -50,9 +50,10 @@ class ScreenArchiveOFDBParameters {
         if (data) {
             obj = obj || new ScreenArchiveOFDBParameters();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ScreenArchiveOFDBParametersData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

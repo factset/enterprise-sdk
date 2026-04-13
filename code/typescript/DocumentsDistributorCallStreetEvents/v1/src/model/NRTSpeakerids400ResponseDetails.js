@@ -47,9 +47,10 @@ class NRTSpeakerids400ResponseDetails {
         if (data) {
             obj = obj || new NRTSpeakerids400ResponseDetails();
 
-            if (data.hasOwnProperty('validParameters')) {
+            if (data.hasOwnProperty('validParameters') && obj['validParameters'] === undefined) {
                 obj['validParameters'] = NRTSpeakerids400ResponseDetailsValidParameters.constructFromObject(data['validParameters']);
             }
+            
         }
         return obj;
     }

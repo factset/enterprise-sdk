@@ -46,9 +46,10 @@ class CountryID {
         if (data) {
             obj = obj || new CountryID();
 
-            if (data.hasOwnProperty('ISOALPHA2')) {
+            if (data.hasOwnProperty('ISOALPHA2') && obj['ISOALPHA2'] === undefined) {
                 obj['ISOALPHA2'] = ApiClient.convertToType(data['ISOALPHA2'], 'String');
             }
+            
         }
         return obj;
     }

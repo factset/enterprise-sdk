@@ -47,27 +47,28 @@ class IsinHistoryTranslation {
         if (data) {
             obj = obj || new IsinHistoryTranslation();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('isinEffectiveStartDate')) {
+            if (data.hasOwnProperty('isinEffectiveStartDate') && obj['isinEffectiveStartDate'] === undefined) {
                 obj['isinEffectiveStartDate'] = ApiClient.convertToType(data['isinEffectiveStartDate'], 'Date');
             }
-            if (data.hasOwnProperty('isinEffectiveEndDate')) {
+            if (data.hasOwnProperty('isinEffectiveEndDate') && obj['isinEffectiveEndDate'] === undefined) {
                 obj['isinEffectiveEndDate'] = ApiClient.convertToType(data['isinEffectiveEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

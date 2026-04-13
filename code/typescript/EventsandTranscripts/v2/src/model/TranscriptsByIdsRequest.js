@@ -49,30 +49,31 @@ class TranscriptsByIdsRequest {
         if (data) {
             obj = obj || new TranscriptsByIdsRequest();
 
-            if (data.hasOwnProperty('primaryId')) {
+            if (data.hasOwnProperty('primaryId') && obj['primaryId'] === undefined) {
                 obj['primaryId'] = ApiClient.convertToType(data['primaryId'], 'Boolean');
             }
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('reportIds')) {
+            if (data.hasOwnProperty('reportIds') && obj['reportIds'] === undefined) {
                 obj['reportIds'] = ApiClient.convertToType(data['reportIds'], ['String']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('dateType')) {
+            if (data.hasOwnProperty('dateType') && obj['dateType'] === undefined) {
                 obj['dateType'] = ApiClient.convertToType(data['dateType'], 'String');
             }
-            if (data.hasOwnProperty('searchText')) {
+            if (data.hasOwnProperty('searchText') && obj['searchText'] === undefined) {
                 obj['searchText'] = ApiClient.convertToType(data['searchText'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class Body {
         if (data) {
             obj = obj || new Body();
 
-            if (data.hasOwnProperty('section')) {
+            if (data.hasOwnProperty('section') && obj['section'] === undefined) {
                 obj['section'] = ApiClient.convertToType(data['section'], [Section]);
             }
+            
         }
         return obj;
     }

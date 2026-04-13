@@ -55,30 +55,31 @@ class NEREntity {
         if (data) {
             obj = obj || new NEREntity();
 
-            if (data.hasOwnProperty('associatedOrgs')) {
+            if (data.hasOwnProperty('associatedOrgs') && obj['associatedOrgs'] === undefined) {
                 obj['associatedOrgs'] = ApiClient.convertToType(data['associatedOrgs'], [NEROrganization]);
             }
-            if (data.hasOwnProperty('endChar')) {
+            if (data.hasOwnProperty('endChar') && obj['endChar'] === undefined) {
                 obj['endChar'] = ApiClient.convertToType(data['endChar'], 'Number');
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('lookupText')) {
+            if (data.hasOwnProperty('lookupText') && obj['lookupText'] === undefined) {
                 obj['lookupText'] = ApiClient.convertToType(data['lookupText'], 'String');
             }
-            if (data.hasOwnProperty('lookupUrl')) {
+            if (data.hasOwnProperty('lookupUrl') && obj['lookupUrl'] === undefined) {
                 obj['lookupUrl'] = ApiClient.convertToType(data['lookupUrl'], 'String');
             }
-            if (data.hasOwnProperty('startChar')) {
+            if (data.hasOwnProperty('startChar') && obj['startChar'] === undefined) {
                 obj['startChar'] = ApiClient.convertToType(data['startChar'], 'Number');
             }
-            if (data.hasOwnProperty('text')) {
+            if (data.hasOwnProperty('text') && obj['text'] === undefined) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
+            
         }
         return obj;
     }

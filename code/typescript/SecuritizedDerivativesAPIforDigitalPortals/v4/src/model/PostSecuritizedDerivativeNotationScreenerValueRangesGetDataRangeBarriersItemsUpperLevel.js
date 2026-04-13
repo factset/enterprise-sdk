@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetDataRangeBarriersIt
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetDataRangeBarriersItemsUpperLevel();
 
-            if (data.hasOwnProperty('absolute')) {
+            if (data.hasOwnProperty('absolute') && obj['absolute'] === undefined) {
                 obj['absolute'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetDataRangeBarriersItemsUpperLevelAbsolute.constructFromObject(data['absolute']);
             }
+            
         }
         return obj;
     }

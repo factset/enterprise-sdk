@@ -48,30 +48,31 @@ class AnalystRating {
         if (data) {
             obj = obj || new AnalystRating();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('asOfMonth')) {
+            if (data.hasOwnProperty('asOfMonth') && obj['asOfMonth'] === undefined) {
                 obj['asOfMonth'] = ApiClient.convertToType(data['asOfMonth'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('ratingsCount')) {
+            if (data.hasOwnProperty('ratingsCount') && obj['ratingsCount'] === undefined) {
                 obj['ratingsCount'] = RatingsCount.constructFromObject(data['ratingsCount']);
             }
-            if (data.hasOwnProperty('meanRecommendation')) {
+            if (data.hasOwnProperty('meanRecommendation') && obj['meanRecommendation'] === undefined) {
                 obj['meanRecommendation'] = ApiClient.convertToType(data['meanRecommendation'], 'String');
             }
-            if (data.hasOwnProperty('meanRecommendationScale')) {
+            if (data.hasOwnProperty('meanRecommendationScale') && obj['meanRecommendationScale'] === undefined) {
                 obj['meanRecommendationScale'] = ApiClient.convertToType(data['meanRecommendationScale'], 'Number');
             }
-            if (data.hasOwnProperty('targetPrice')) {
+            if (data.hasOwnProperty('targetPrice') && obj['targetPrice'] === undefined) {
                 obj['targetPrice'] = TargetPrice.constructFromObject(data['targetPrice']);
             }
+            
         }
         return obj;
     }

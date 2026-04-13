@@ -48,30 +48,31 @@ class HeadlinesRequestData {
         if (data) {
             obj = obj || new HeadlinesRequestData();
 
-            if (data.hasOwnProperty('tickers')) {
+            if (data.hasOwnProperty('tickers') && obj['tickers'] === undefined) {
                 obj['tickers'] = ApiClient.convertToType(data['tickers'], [HeadlinesRequestTickersObject]);
             }
-            if (data.hasOwnProperty('isPrimary')) {
+            if (data.hasOwnProperty('isPrimary') && obj['isPrimary'] === undefined) {
                 obj['isPrimary'] = ApiClient.convertToType(data['isPrimary'], 'Boolean');
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('topics')) {
+            if (data.hasOwnProperty('topics') && obj['topics'] === undefined) {
                 obj['topics'] = ApiClient.convertToType(data['topics'], ['String']);
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = ApiClient.convertToType(data['regions'], ['String']);
             }
-            if (data.hasOwnProperty('sectors')) {
+            if (data.hasOwnProperty('sectors') && obj['sectors'] === undefined) {
                 obj['sectors'] = ApiClient.convertToType(data['sectors'], ['String']);
             }
-            if (data.hasOwnProperty('predefinedRange')) {
+            if (data.hasOwnProperty('predefinedRange') && obj['predefinedRange'] === undefined) {
                 obj['predefinedRange'] = ApiClient.convertToType(data['predefinedRange'], 'String');
             }
-            if (data.hasOwnProperty('searchTime')) {
+            if (data.hasOwnProperty('searchTime') && obj['searchTime'] === undefined) {
                 obj['searchTime'] = HeadlinesRequestDataSearchTime.constructFromObject(data['searchTime']);
             }
+            
         }
         return obj;
     }

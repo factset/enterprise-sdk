@@ -46,18 +46,19 @@ class RequestFileErrorDetails {
         if (data) {
             obj = obj || new RequestFileErrorDetails();
 
-            if (data.hasOwnProperty('Permission Error')) {
+            if (data.hasOwnProperty('Permission Error') && obj['Permission Error'] === undefined) {
                 obj['Permission Error'] = ApiClient.convertToType(data['Permission Error'], ['String']);
             }
-            if (data.hasOwnProperty('Param Error')) {
+            if (data.hasOwnProperty('Param Error') && obj['Param Error'] === undefined) {
                 obj['Param Error'] = ApiClient.convertToType(data['Param Error'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], ['String']);
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], ['String']);
             }
+            
         }
         return obj;
     }

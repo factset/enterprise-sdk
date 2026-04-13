@@ -48,12 +48,13 @@ class ConstructionModelAnalyticsActiveWeights {
         if (data) {
             obj = obj || new ConstructionModelAnalyticsActiveWeights();
 
-            if (data.hasOwnProperty('maxOver')) {
+            if (data.hasOwnProperty('maxOver') && obj['maxOver'] === undefined) {
                 obj['maxOver'] = ConstructionModelAnalyticsActiveWeightsMaxOver.constructFromObject(data['maxOver']);
             }
-            if (data.hasOwnProperty('maxUnder')) {
+            if (data.hasOwnProperty('maxUnder') && obj['maxUnder'] === undefined) {
                 obj['maxUnder'] = ApiClient.convertToType(data['maxUnder'], 'Number');
             }
+            
         }
         return obj;
     }

@@ -46,24 +46,25 @@ class FactSetProtobufFormatV1NumberFormatTypesCurrencyStandardSpecifier {
         if (data) {
             obj = obj || new FactSetProtobufFormatV1NumberFormatTypesCurrencyStandardSpecifier();
 
-            if (data.hasOwnProperty('decimalDigits')) {
+            if (data.hasOwnProperty('decimalDigits') && obj['decimalDigits'] === undefined) {
                 obj['decimalDigits'] = ApiClient.convertToType(data['decimalDigits'], 'Number');
             }
-            if (data.hasOwnProperty('decimalSeparator')) {
+            if (data.hasOwnProperty('decimalSeparator') && obj['decimalSeparator'] === undefined) {
                 obj['decimalSeparator'] = ApiClient.convertToType(data['decimalSeparator'], 'String');
             }
-            if (data.hasOwnProperty('groupSeparator')) {
+            if (data.hasOwnProperty('groupSeparator') && obj['groupSeparator'] === undefined) {
                 obj['groupSeparator'] = ApiClient.convertToType(data['groupSeparator'], 'String');
             }
-            if (data.hasOwnProperty('groupSizes')) {
+            if (data.hasOwnProperty('groupSizes') && obj['groupSizes'] === undefined) {
                 obj['groupSizes'] = ApiClient.convertToType(data['groupSizes'], ['Number']);
             }
-            if (data.hasOwnProperty('negativePattern')) {
+            if (data.hasOwnProperty('negativePattern') && obj['negativePattern'] === undefined) {
                 obj['negativePattern'] = ApiClient.convertToType(data['negativePattern'], 'String');
             }
-            if (data.hasOwnProperty('positivePattern')) {
+            if (data.hasOwnProperty('positivePattern') && obj['positivePattern'] === undefined) {
                 obj['positivePattern'] = ApiClient.convertToType(data['positivePattern'], 'String');
             }
+            
         }
         return obj;
     }

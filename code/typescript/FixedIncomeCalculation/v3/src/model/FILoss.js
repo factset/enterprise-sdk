@@ -46,9 +46,10 @@ class FILoss {
         if (data) {
             obj = obj || new FILoss();
 
-            if (data.hasOwnProperty('lossName')) {
+            if (data.hasOwnProperty('lossName') && obj['lossName'] === undefined) {
                 obj['lossName'] = ApiClient.convertToType(data['lossName'], 'String');
             }
+            
         }
         return obj;
     }

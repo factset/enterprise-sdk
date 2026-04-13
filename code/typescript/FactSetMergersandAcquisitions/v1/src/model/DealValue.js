@@ -47,57 +47,58 @@ class DealValue {
         if (data) {
             obj = obj || new DealValue();
 
-            if (data.hasOwnProperty('baseEquity')) {
+            if (data.hasOwnProperty('baseEquity') && obj['baseEquity'] === undefined) {
                 obj['baseEquity'] = ApiClient.convertToType(data['baseEquity'], 'Number');
             }
-            if (data.hasOwnProperty('transactionValue')) {
+            if (data.hasOwnProperty('transactionValue') && obj['transactionValue'] === undefined) {
                 obj['transactionValue'] = ApiClient.convertToType(data['transactionValue'], 'Number');
             }
-            if (data.hasOwnProperty('enterpriseValue')) {
+            if (data.hasOwnProperty('enterpriseValue') && obj['enterpriseValue'] === undefined) {
                 obj['enterpriseValue'] = ApiClient.convertToType(data['enterpriseValue'], 'Number');
             }
-            if (data.hasOwnProperty('annOfferPriceShare')) {
+            if (data.hasOwnProperty('annOfferPriceShare') && obj['annOfferPriceShare'] === undefined) {
                 obj['annOfferPriceShare'] = ApiClient.convertToType(data['annOfferPriceShare'], 'Number');
             }
-            if (data.hasOwnProperty('buyerExchangeRatio')) {
+            if (data.hasOwnProperty('buyerExchangeRatio') && obj['buyerExchangeRatio'] === undefined) {
                 obj['buyerExchangeRatio'] = ApiClient.convertToType(data['buyerExchangeRatio'], 'Number');
             }
-            if (data.hasOwnProperty('targetExchangeRatio')) {
+            if (data.hasOwnProperty('targetExchangeRatio') && obj['targetExchangeRatio'] === undefined) {
                 obj['targetExchangeRatio'] = ApiClient.convertToType(data['targetExchangeRatio'], 'Number');
             }
-            if (data.hasOwnProperty('cashShare')) {
+            if (data.hasOwnProperty('cashShare') && obj['cashShare'] === undefined) {
                 obj['cashShare'] = ApiClient.convertToType(data['cashShare'], 'Number');
             }
-            if (data.hasOwnProperty('stockShare')) {
+            if (data.hasOwnProperty('stockShare') && obj['stockShare'] === undefined) {
                 obj['stockShare'] = ApiClient.convertToType(data['stockShare'], 'Number');
             }
-            if (data.hasOwnProperty('choice')) {
+            if (data.hasOwnProperty('choice') && obj['choice'] === undefined) {
                 obj['choice'] = ApiClient.convertToType(data['choice'], 'Boolean');
             }
-            if (data.hasOwnProperty('buyerSharesIssued')) {
+            if (data.hasOwnProperty('buyerSharesIssued') && obj['buyerSharesIssued'] === undefined) {
                 obj['buyerSharesIssued'] = ApiClient.convertToType(data['buyerSharesIssued'], 'Number');
             }
-            if (data.hasOwnProperty('percentSought')) {
+            if (data.hasOwnProperty('percentSought') && obj['percentSought'] === undefined) {
                 obj['percentSought'] = ApiClient.convertToType(data['percentSought'], 'Number');
             }
-            if (data.hasOwnProperty('sharesSought')) {
+            if (data.hasOwnProperty('sharesSought') && obj['sharesSought'] === undefined) {
                 obj['sharesSought'] = ApiClient.convertToType(data['sharesSought'], 'Number');
             }
-            if (data.hasOwnProperty('sharesOwnedPrior')) {
+            if (data.hasOwnProperty('sharesOwnedPrior') && obj['sharesOwnedPrior'] === undefined) {
                 obj['sharesOwnedPrior'] = ApiClient.convertToType(data['sharesOwnedPrior'], 'Number');
             }
-            if (data.hasOwnProperty('premium1Day')) {
+            if (data.hasOwnProperty('premium1Day') && obj['premium1Day'] === undefined) {
                 obj['premium1Day'] = ApiClient.convertToType(data['premium1Day'], 'Number');
             }
-            if (data.hasOwnProperty('premium5Day')) {
+            if (data.hasOwnProperty('premium5Day') && obj['premium5Day'] === undefined) {
                 obj['premium5Day'] = ApiClient.convertToType(data['premium5Day'], 'Number');
             }
-            if (data.hasOwnProperty('premium30Day')) {
+            if (data.hasOwnProperty('premium30Day') && obj['premium30Day'] === undefined) {
                 obj['premium30Day'] = ApiClient.convertToType(data['premium30Day'], 'Number');
             }
-            if (data.hasOwnProperty('paymentMethod')) {
+            if (data.hasOwnProperty('paymentMethod') && obj['paymentMethod'] === undefined) {
                 obj['paymentMethod'] = ApiClient.convertToType(data['paymentMethod'], ['String']);
             }
+            
         }
         return obj;
     }

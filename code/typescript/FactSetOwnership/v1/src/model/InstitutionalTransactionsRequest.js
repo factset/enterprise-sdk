@@ -50,9 +50,10 @@ class InstitutionalTransactionsRequest {
         if (data) {
             obj = obj || new InstitutionalTransactionsRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InstitutionalTransactionsRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

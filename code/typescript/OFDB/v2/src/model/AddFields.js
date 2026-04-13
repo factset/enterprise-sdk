@@ -47,9 +47,10 @@ class AddFields {
         if (data) {
             obj = obj || new AddFields();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [FieldProperties]);
             }
+            
         }
         return obj;
     }

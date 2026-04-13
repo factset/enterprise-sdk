@@ -48,9 +48,10 @@ class InlineResponse429 {
         if (data) {
             obj = obj || new InlineResponse429();
 
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
+            
         }
         return obj;
     }

@@ -50,9 +50,10 @@ class ListSchema {
         if (data) {
             obj = obj || new ListSchema();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ListSchemaObject]);
             }
+            
         }
         return obj;
     }

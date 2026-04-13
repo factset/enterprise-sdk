@@ -47,24 +47,25 @@ class FIReferenceSecurity {
         if (data) {
             obj = obj || new FIReferenceSecurity();
 
-            if (data.hasOwnProperty('securityType')) {
+            if (data.hasOwnProperty('securityType') && obj['securityType'] === undefined) {
                 obj['securityType'] = ApiClient.convertToType(data['securityType'], 'String');
             }
-            if (data.hasOwnProperty('securityName')) {
+            if (data.hasOwnProperty('securityName') && obj['securityName'] === undefined) {
                 obj['securityName'] = ApiClient.convertToType(data['securityName'], 'String');
             }
-            if (data.hasOwnProperty('calcFromMethod')) {
+            if (data.hasOwnProperty('calcFromMethod') && obj['calcFromMethod'] === undefined) {
                 obj['calcFromMethod'] = ApiClient.convertToType(data['calcFromMethod'], 'String');
             }
-            if (data.hasOwnProperty('calcFromValue')) {
+            if (data.hasOwnProperty('calcFromValue') && obj['calcFromValue'] === undefined) {
                 obj['calcFromValue'] = ApiClient.convertToType(data['calcFromValue'], 'Number');
             }
-            if (data.hasOwnProperty('prepay')) {
+            if (data.hasOwnProperty('prepay') && obj['prepay'] === undefined) {
                 obj['prepay'] = FIReferencePrepay.constructFromObject(data['prepay']);
             }
-            if (data.hasOwnProperty('settlement')) {
+            if (data.hasOwnProperty('settlement') && obj['settlement'] === undefined) {
                 obj['settlement'] = ApiClient.convertToType(data['settlement'], 'String');
             }
+            
         }
         return obj;
     }

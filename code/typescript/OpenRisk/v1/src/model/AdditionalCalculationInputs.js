@@ -48,12 +48,13 @@ class AdditionalCalculationInputs {
         if (data) {
             obj = obj || new AdditionalCalculationInputs();
 
-            if (data.hasOwnProperty('marketExcess')) {
+            if (data.hasOwnProperty('marketExcess') && obj['marketExcess'] === undefined) {
                 obj['marketExcess'] = AdditionalCalculationInputsMarketExcess.constructFromObject(data['marketExcess']);
             }
-            if (data.hasOwnProperty('calculationPeriodsPerYear')) {
+            if (data.hasOwnProperty('calculationPeriodsPerYear') && obj['calculationPeriodsPerYear'] === undefined) {
                 obj['calculationPeriodsPerYear'] = ApiClient.convertToType(data['calculationPeriodsPerYear'], 'Number');
             }
+            
         }
         return obj;
     }

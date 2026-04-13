@@ -47,21 +47,22 @@ class SedolTranslation {
         if (data) {
             obj = obj || new SedolTranslation();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('sedol')) {
+            if (data.hasOwnProperty('sedol') && obj['sedol'] === undefined) {
                 obj['sedol'] = ApiClient.convertToType(data['sedol'], 'String');
             }
-            if (data.hasOwnProperty('sedolPrimary')) {
+            if (data.hasOwnProperty('sedolPrimary') && obj['sedolPrimary'] === undefined) {
                 obj['sedolPrimary'] = ApiClient.convertToType(data['sedolPrimary'], 'String');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

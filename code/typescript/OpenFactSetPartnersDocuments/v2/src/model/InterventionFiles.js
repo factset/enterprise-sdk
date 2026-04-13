@@ -47,30 +47,31 @@ class InterventionFiles {
         if (data) {
             obj = obj || new InterventionFiles();
 
-            if (data.hasOwnProperty('fileName')) {
+            if (data.hasOwnProperty('fileName') && obj['fileName'] === undefined) {
                 obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
             }
-            if (data.hasOwnProperty('clinicalTrialId')) {
+            if (data.hasOwnProperty('clinicalTrialId') && obj['clinicalTrialId'] === undefined) {
                 obj['clinicalTrialId'] = ApiClient.convertToType(data['clinicalTrialId'], 'String');
             }
-            if (data.hasOwnProperty('beamInterventionType')) {
+            if (data.hasOwnProperty('beamInterventionType') && obj['beamInterventionType'] === undefined) {
                 obj['beamInterventionType'] = ApiClient.convertToType(data['beamInterventionType'], 'String');
             }
-            if (data.hasOwnProperty('beamInterventionName')) {
+            if (data.hasOwnProperty('beamInterventionName') && obj['beamInterventionName'] === undefined) {
                 obj['beamInterventionName'] = ApiClient.convertToType(data['beamInterventionName'], 'String');
             }
-            if (data.hasOwnProperty('beamInterventionDesc')) {
+            if (data.hasOwnProperty('beamInterventionDesc') && obj['beamInterventionDesc'] === undefined) {
                 obj['beamInterventionDesc'] = ApiClient.convertToType(data['beamInterventionDesc'], 'String');
             }
-            if (data.hasOwnProperty('beamOtherName')) {
+            if (data.hasOwnProperty('beamOtherName') && obj['beamOtherName'] === undefined) {
                 obj['beamOtherName'] = ApiClient.convertToType(data['beamOtherName'], 'String');
             }
-            if (data.hasOwnProperty('beamArmGroupLabel')) {
+            if (data.hasOwnProperty('beamArmGroupLabel') && obj['beamArmGroupLabel'] === undefined) {
                 obj['beamArmGroupLabel'] = ApiClient.convertToType(data['beamArmGroupLabel'], 'String');
             }
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
+            
         }
         return obj;
     }

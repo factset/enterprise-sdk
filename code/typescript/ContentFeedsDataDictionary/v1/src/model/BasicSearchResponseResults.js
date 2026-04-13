@@ -52,12 +52,13 @@ class BasicSearchResponseResults {
         if (data) {
             obj = obj || new BasicSearchResponseResults();
 
-            if (data.hasOwnProperty('product')) {
+            if (data.hasOwnProperty('product') && obj['product'] === undefined) {
                 obj['product'] = Product.constructFromObject(data['product']);
             }
-            if (data.hasOwnProperty('dataItem')) {
+            if (data.hasOwnProperty('dataItem') && obj['dataItem'] === undefined) {
                 obj['dataItem'] = DataItem.constructFromObject(data['dataItem']);
             }
+            
         }
         return obj;
     }

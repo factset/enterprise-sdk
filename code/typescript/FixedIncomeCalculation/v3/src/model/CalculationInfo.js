@@ -46,9 +46,10 @@ class CalculationInfo {
         if (data) {
             obj = obj || new CalculationInfo();
 
-            if (data.hasOwnProperty('calculationId')) {
+            if (data.hasOwnProperty('calculationId') && obj['calculationId'] === undefined) {
                 obj['calculationId'] = ApiClient.convertToType(data['calculationId'], 'String');
             }
+            
         }
         return obj;
     }

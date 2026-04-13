@@ -47,9 +47,10 @@ class NPOOptimizationParametersRequest {
         if (data) {
             obj = obj || new NPOOptimizationParametersRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = NPOOptimizationParameters.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

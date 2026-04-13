@@ -49,15 +49,15 @@ class Constraints {
         if (data) {
             obj = obj || new Constraints();
 
-            ApiClient.constructFromObject(data, obj, 'EnabledEnum');
-            
-
-            if (data.hasOwnProperty('enableHierarchy')) {
+            if (data.hasOwnProperty('enableHierarchy') && obj['enableHierarchy'] === undefined) {
                 obj['enableHierarchy'] = ApiClient.convertToType(data['enableHierarchy'], 'Boolean');
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], {'String': 'Number'});
             }
+            
+            ApiClient.constructFromObject(data, obj, EnabledEnum);
+            
         }
         return obj;
     }

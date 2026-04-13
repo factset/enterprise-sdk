@@ -47,15 +47,16 @@ class InlineResponse2001DataIncomeStatementEbitda {
         if (data) {
             obj = obj || new InlineResponse2001DataIncomeStatementEbitda();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('growth')) {
+            if (data.hasOwnProperty('growth') && obj['growth'] === undefined) {
                 obj['growth'] = ApiClient.convertToType(data['growth'], 'Number');
             }
-            if (data.hasOwnProperty('margin')) {
+            if (data.hasOwnProperty('margin') && obj['margin'] === undefined) {
                 obj['margin'] = ApiClient.convertToType(data['margin'], 'Number');
             }
+            
         }
         return obj;
     }

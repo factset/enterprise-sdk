@@ -52,15 +52,16 @@ class PostNewsPublisherSearchByNameRequestData {
         if (data) {
             obj = obj || new PostNewsPublisherSearchByNameRequestData();
 
-            if (data.hasOwnProperty('searchValue')) {
+            if (data.hasOwnProperty('searchValue') && obj['searchValue'] === undefined) {
                 obj['searchValue'] = ApiClient.convertToType(data['searchValue'], 'String');
             }
-            if (data.hasOwnProperty('matchType')) {
+            if (data.hasOwnProperty('matchType') && obj['matchType'] === undefined) {
                 obj['matchType'] = ApiClient.convertToType(data['matchType'], 'String');
             }
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostNewsPublisherSearchByNameRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

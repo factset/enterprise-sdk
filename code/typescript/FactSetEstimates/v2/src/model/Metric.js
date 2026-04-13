@@ -46,24 +46,25 @@ class Metric {
         if (data) {
             obj = obj || new Metric();
 
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('category')) {
+            if (data.hasOwnProperty('category') && obj['category'] === undefined) {
                 obj['category'] = ApiClient.convertToType(data['category'], 'String');
             }
-            if (data.hasOwnProperty('subcategory')) {
+            if (data.hasOwnProperty('subcategory') && obj['subcategory'] === undefined) {
                 obj['subcategory'] = ApiClient.convertToType(data['subcategory'], 'String');
             }
-            if (data.hasOwnProperty('OAurl')) {
+            if (data.hasOwnProperty('OAurl') && obj['OAurl'] === undefined) {
                 obj['OAurl'] = ApiClient.convertToType(data['OAurl'], 'String');
             }
-            if (data.hasOwnProperty('factor')) {
+            if (data.hasOwnProperty('factor') && obj['factor'] === undefined) {
                 obj['factor'] = ApiClient.convertToType(data['factor'], 'Number');
             }
+            
         }
         return obj;
     }

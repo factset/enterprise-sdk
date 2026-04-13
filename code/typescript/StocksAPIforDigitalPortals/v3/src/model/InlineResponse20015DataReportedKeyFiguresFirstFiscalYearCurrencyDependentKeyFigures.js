@@ -52,21 +52,22 @@ class InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentK
         if (data) {
             obj = obj || new InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFigures();
 
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresCurrency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('marketCapitalization')) {
+            if (data.hasOwnProperty('marketCapitalization') && obj['marketCapitalization'] === undefined) {
                 obj['marketCapitalization'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresMarketCapitalization.constructFromObject(data['marketCapitalization']);
             }
-            if (data.hasOwnProperty('ebit')) {
+            if (data.hasOwnProperty('ebit') && obj['ebit'] === undefined) {
                 obj['ebit'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresEbit.constructFromObject(data['ebit']);
             }
-            if (data.hasOwnProperty('ebitda')) {
+            if (data.hasOwnProperty('ebitda') && obj['ebitda'] === undefined) {
                 obj['ebitda'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresEbitda.constructFromObject(data['ebitda']);
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = InlineResponse20015DataReportedKeyFiguresFirstFiscalYearCurrencyDependentKeyFiguresPerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

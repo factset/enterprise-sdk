@@ -50,12 +50,13 @@ class ProfileDataObjectStageCrunchbaseRank {
         if (data) {
             obj = obj || new ProfileDataObjectStageCrunchbaseRank();
 
-            if (data.hasOwnProperty('note')) {
+            if (data.hasOwnProperty('note') && obj['note'] === undefined) {
                 obj['note'] = ApiClient.convertToType(data['note'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

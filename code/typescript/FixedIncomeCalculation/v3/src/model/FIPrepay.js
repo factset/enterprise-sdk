@@ -46,9 +46,10 @@ class FIPrepay {
         if (data) {
             obj = obj || new FIPrepay();
 
-            if (data.hasOwnProperty('prepayName')) {
+            if (data.hasOwnProperty('prepayName') && obj['prepayName'] === undefined) {
                 obj['prepayName'] = ApiClient.convertToType(data['prepayName'], 'String');
             }
+            
         }
         return obj;
     }

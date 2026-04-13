@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabs {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEsgTruvalueLabs();
 
-            if (data.hasOwnProperty('sasb')) {
+            if (data.hasOwnProperty('sasb') && obj['sasb'] === undefined) {
                 obj['sasb'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSasb.constructFromObject(data['sasb']);
             }
-            if (data.hasOwnProperty('sdg')) {
+            if (data.hasOwnProperty('sdg') && obj['sdg'] === undefined) {
                 obj['sdg'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdg.constructFromObject(data['sdg']);
             }
+            
         }
         return obj;
     }

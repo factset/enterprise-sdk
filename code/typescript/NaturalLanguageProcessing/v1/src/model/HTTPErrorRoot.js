@@ -50,9 +50,10 @@ class HTTPErrorRoot {
         if (data) {
             obj = obj || new HTTPErrorRoot();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [HTTPError]);
             }
+            
         }
         return obj;
     }

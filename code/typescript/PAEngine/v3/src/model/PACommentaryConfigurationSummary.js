@@ -46,12 +46,13 @@ class PACommentaryConfigurationSummary {
         if (data) {
             obj = obj || new PACommentaryConfigurationSummary();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], 'String');
             }
+            
         }
         return obj;
     }

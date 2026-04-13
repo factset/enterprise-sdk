@@ -54,15 +54,16 @@ class CreateContentSetRequestBody {
         if (data) {
             obj = obj || new CreateContentSetRequestBody();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('contentSets')) {
+            if (data.hasOwnProperty('contentSets') && obj['contentSets'] === undefined) {
                 obj['contentSets'] = ApiClient.convertToType(data['contentSets'], [CustomContentSetItem]);
             }
+            
         }
         return obj;
     }

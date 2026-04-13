@@ -47,9 +47,10 @@ class SkillsResponseRoot {
         if (data) {
             obj = obj || new SkillsResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = SkillsResponseOptions.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

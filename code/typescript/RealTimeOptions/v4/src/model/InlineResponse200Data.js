@@ -56,54 +56,55 @@ class InlineResponse200Data {
         if (data) {
             obj = obj || new InlineResponse200Data();
 
-            if (data.hasOwnProperty('idInstrument')) {
+            if (data.hasOwnProperty('idInstrument') && obj['idInstrument'] === undefined) {
                 obj['idInstrument'] = ApiClient.convertToType(data['idInstrument'], 'String');
             }
-            if (data.hasOwnProperty('sourceIdentifier')) {
+            if (data.hasOwnProperty('sourceIdentifier') && obj['sourceIdentifier'] === undefined) {
                 obj['sourceIdentifier'] = ApiClient.convertToType(data['sourceIdentifier'], 'String');
             }
-            if (data.hasOwnProperty('isin')) {
+            if (data.hasOwnProperty('isin') && obj['isin'] === undefined) {
                 obj['isin'] = ApiClient.convertToType(data['isin'], 'String');
             }
-            if (data.hasOwnProperty('normalizedSymbol')) {
+            if (data.hasOwnProperty('normalizedSymbol') && obj['normalizedSymbol'] === undefined) {
                 obj['normalizedSymbol'] = ApiClient.convertToType(data['normalizedSymbol'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], [GetOptionGetDataTypeItems]);
             }
-            if (data.hasOwnProperty('market')) {
+            if (data.hasOwnProperty('market') && obj['market'] === undefined) {
                 obj['market'] = InlineResponse200DataMarket.constructFromObject(data['market']);
             }
-            if (data.hasOwnProperty('class')) {
+            if (data.hasOwnProperty('class') && obj['class'] === undefined) {
                 obj['class'] = InlineResponse200DataClass.constructFromObject(data['class']);
             }
-            if (data.hasOwnProperty('exercise')) {
+            if (data.hasOwnProperty('exercise') && obj['exercise'] === undefined) {
                 obj['exercise'] = InlineResponse200DataExercise.constructFromObject(data['exercise']);
             }
-            if (data.hasOwnProperty('strikePrice')) {
+            if (data.hasOwnProperty('strikePrice') && obj['strikePrice'] === undefined) {
                 obj['strikePrice'] = InlineResponse200DataStrikePrice.constructFromObject(data['strikePrice']);
             }
-            if (data.hasOwnProperty('lifeCycle')) {
+            if (data.hasOwnProperty('lifeCycle') && obj['lifeCycle'] === undefined) {
                 obj['lifeCycle'] = InlineResponse200DataLifeCycle.constructFromObject(data['lifeCycle']);
             }
-            if (data.hasOwnProperty('contractSize')) {
+            if (data.hasOwnProperty('contractSize') && obj['contractSize'] === undefined) {
                 obj['contractSize'] = ApiClient.convertToType(data['contractSize'], 'Number');
             }
-            if (data.hasOwnProperty('openInterest')) {
+            if (data.hasOwnProperty('openInterest') && obj['openInterest'] === undefined) {
                 obj['openInterest'] = InlineResponse200DataOpenInterest.constructFromObject(data['openInterest']);
             }
-            if (data.hasOwnProperty('tickSize')) {
+            if (data.hasOwnProperty('tickSize') && obj['tickSize'] === undefined) {
                 obj['tickSize'] = ApiClient.convertToType(data['tickSize'], 'Number');
             }
-            if (data.hasOwnProperty('settlement')) {
+            if (data.hasOwnProperty('settlement') && obj['settlement'] === undefined) {
                 obj['settlement'] = InlineResponse200DataSettlement.constructFromObject(data['settlement']);
             }
-            if (data.hasOwnProperty('underlying')) {
+            if (data.hasOwnProperty('underlying') && obj['underlying'] === undefined) {
                 obj['underlying'] = InlineResponse200DataUnderlying.constructFromObject(data['underlying']);
             }
+            
         }
         return obj;
     }

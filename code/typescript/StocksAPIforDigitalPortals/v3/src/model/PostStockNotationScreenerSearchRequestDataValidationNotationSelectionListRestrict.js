@@ -47,9 +47,10 @@ class PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListR
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataValidationNotationSelectionListRestrict();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['Number']);
             }
+            
         }
         return obj;
     }

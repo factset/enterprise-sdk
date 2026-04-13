@@ -47,9 +47,10 @@ class EventsAudioHistory {
         if (data) {
             obj = obj || new EventsAudioHistory();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ListFileObject]);
             }
+            
         }
         return obj;
     }

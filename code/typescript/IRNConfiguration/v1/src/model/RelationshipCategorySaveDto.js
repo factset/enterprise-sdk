@@ -48,15 +48,16 @@ class RelationshipCategorySaveDto {
         if (data) {
             obj = obj || new RelationshipCategorySaveDto();
 
-            if (data.hasOwnProperty('categoryName')) {
+            if (data.hasOwnProperty('categoryName') && obj['categoryName'] === undefined) {
                 obj['categoryName'] = ApiClient.convertToType(data['categoryName'], 'String');
             }
-            if (data.hasOwnProperty('isContactToContact')) {
+            if (data.hasOwnProperty('isContactToContact') && obj['isContactToContact'] === undefined) {
                 obj['isContactToContact'] = ApiClient.convertToType(data['isContactToContact'], 'Boolean');
             }
-            if (data.hasOwnProperty('isContactToSymbol')) {
+            if (data.hasOwnProperty('isContactToSymbol') && obj['isContactToSymbol'] === undefined) {
                 obj['isContactToSymbol'] = ApiClient.convertToType(data['isContactToSymbol'], 'Boolean');
             }
+            
         }
         return obj;
     }

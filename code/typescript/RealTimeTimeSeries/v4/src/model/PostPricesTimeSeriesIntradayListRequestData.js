@@ -54,30 +54,31 @@ class PostPricesTimeSeriesIntradayListRequestData {
         if (data) {
             obj = obj || new PostPricesTimeSeriesIntradayListRequestData();
 
-            if (data.hasOwnProperty('identifier')) {
+            if (data.hasOwnProperty('identifier') && obj['identifier'] === undefined) {
                 obj['identifier'] = PostVendorChartIQTimeSeriesEodListRequestDataIdentifier.constructFromObject(data['identifier']);
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('quality')) {
+            if (data.hasOwnProperty('quality') && obj['quality'] === undefined) {
                 obj['quality'] = ApiClient.convertToType(data['quality'], 'String');
             }
-            if (data.hasOwnProperty('range')) {
+            if (data.hasOwnProperty('range') && obj['range'] === undefined) {
                 obj['range'] = PostPricesTimeSeriesIntradayListRequestDataRange.constructFromObject(data['range']);
             }
-            if (data.hasOwnProperty('newestFirst')) {
+            if (data.hasOwnProperty('newestFirst') && obj['newestFirst'] === undefined) {
                 obj['newestFirst'] = ApiClient.convertToType(data['newestFirst'], 'Boolean');
             }
-            if (data.hasOwnProperty('applyTickCorrections')) {
+            if (data.hasOwnProperty('applyTickCorrections') && obj['applyTickCorrections'] === undefined) {
                 obj['applyTickCorrections'] = ApiClient.convertToType(data['applyTickCorrections'], 'String');
             }
-            if (data.hasOwnProperty('includeVolumeOnlyTicks')) {
+            if (data.hasOwnProperty('includeVolumeOnlyTicks') && obj['includeVolumeOnlyTicks'] === undefined) {
                 obj['includeVolumeOnlyTicks'] = ApiClient.convertToType(data['includeVolumeOnlyTicks'], 'Boolean');
             }
-            if (data.hasOwnProperty('adjustments')) {
+            if (data.hasOwnProperty('adjustments') && obj['adjustments'] === undefined) {
                 obj['adjustments'] = PostVendorChartIQTimeSeriesIntradaySubsampleGetRequestDataAdjustments.constructFromObject(data['adjustments']);
             }
+            
         }
         return obj;
     }

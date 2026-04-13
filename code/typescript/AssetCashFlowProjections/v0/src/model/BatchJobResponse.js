@@ -47,9 +47,10 @@ class BatchJobResponse {
         if (data) {
             obj = obj || new BatchJobResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BatchJobResponseRoot.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -46,15 +46,16 @@ class TemplateContentTypes {
         if (data) {
             obj = obj || new TemplateContentTypes();
 
-            if (data.hasOwnProperty('mandatory')) {
+            if (data.hasOwnProperty('mandatory') && obj['mandatory'] === undefined) {
                 obj['mandatory'] = ApiClient.convertToType(data['mandatory'], ['String']);
             }
-            if (data.hasOwnProperty('optional')) {
+            if (data.hasOwnProperty('optional') && obj['optional'] === undefined) {
                 obj['optional'] = ApiClient.convertToType(data['optional'], ['String']);
             }
-            if (data.hasOwnProperty('locked')) {
+            if (data.hasOwnProperty('locked') && obj['locked'] === undefined) {
                 obj['locked'] = ApiClient.convertToType(data['locked'], ['String']);
             }
+            
         }
         return obj;
     }

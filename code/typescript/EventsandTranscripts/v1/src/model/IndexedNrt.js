@@ -48,9 +48,10 @@ class IndexedNrt {
         if (data) {
             obj = obj || new IndexedNrt();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [IndexedObject]);
             }
+            
         }
         return obj;
     }

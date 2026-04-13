@@ -47,21 +47,22 @@ class InlineResponse20022Data {
         if (data) {
             obj = obj || new InlineResponse20022Data();
 
-            if (data.hasOwnProperty('flows1D')) {
+            if (data.hasOwnProperty('flows1D') && obj['flows1D'] === undefined) {
                 obj['flows1D'] = ApiClient.convertToType(data['flows1D'], 'Number');
             }
-            if (data.hasOwnProperty('flows1W')) {
+            if (data.hasOwnProperty('flows1W') && obj['flows1W'] === undefined) {
                 obj['flows1W'] = ApiClient.convertToType(data['flows1W'], 'Number');
             }
-            if (data.hasOwnProperty('flows1M')) {
+            if (data.hasOwnProperty('flows1M') && obj['flows1M'] === undefined) {
                 obj['flows1M'] = ApiClient.convertToType(data['flows1M'], 'Number');
             }
-            if (data.hasOwnProperty('flowsYTD')) {
+            if (data.hasOwnProperty('flowsYTD') && obj['flowsYTD'] === undefined) {
                 obj['flowsYTD'] = ApiClient.convertToType(data['flowsYTD'], 'Number');
             }
-            if (data.hasOwnProperty('flows1Y')) {
+            if (data.hasOwnProperty('flows1Y') && obj['flows1Y'] === undefined) {
                 obj['flows1Y'] = ApiClient.convertToType(data['flows1Y'], 'Number');
             }
+            
         }
         return obj;
     }

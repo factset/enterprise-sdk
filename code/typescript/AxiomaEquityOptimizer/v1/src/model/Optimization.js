@@ -46,15 +46,16 @@ class Optimization {
         if (data) {
             obj = obj || new Optimization();
 
-            if (data.hasOwnProperty('riskmodeldate')) {
+            if (data.hasOwnProperty('riskmodeldate') && obj['riskmodeldate'] === undefined) {
                 obj['riskmodeldate'] = ApiClient.convertToType(data['riskmodeldate'], 'String');
             }
-            if (data.hasOwnProperty('backtestdate')) {
+            if (data.hasOwnProperty('backtestdate') && obj['backtestdate'] === undefined) {
                 obj['backtestdate'] = ApiClient.convertToType(data['backtestdate'], 'String');
             }
-            if (data.hasOwnProperty('cashflow')) {
+            if (data.hasOwnProperty('cashflow') && obj['cashflow'] === undefined) {
                 obj['cashflow'] = ApiClient.convertToType(data['cashflow'], 'String');
             }
+            
         }
         return obj;
     }

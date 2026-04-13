@@ -46,12 +46,13 @@ class RelatedRecordsDto {
         if (data) {
             obj = obj || new RelatedRecordsDto();
 
-            if (data.hasOwnProperty('noteIds')) {
+            if (data.hasOwnProperty('noteIds') && obj['noteIds'] === undefined) {
                 obj['noteIds'] = ApiClient.convertToType(data['noteIds'], ['String']);
             }
-            if (data.hasOwnProperty('meetingIds')) {
+            if (data.hasOwnProperty('meetingIds') && obj['meetingIds'] === undefined) {
                 obj['meetingIds'] = ApiClient.convertToType(data['meetingIds'], ['String']);
             }
+            
         }
         return obj;
     }

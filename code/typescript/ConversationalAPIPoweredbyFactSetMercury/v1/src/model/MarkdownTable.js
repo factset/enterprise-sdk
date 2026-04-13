@@ -52,15 +52,16 @@ class MarkdownTable {
         if (data) {
             obj = obj || new MarkdownTable();
 
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('metadata')) {
+            if (data.hasOwnProperty('metadata') && obj['metadata'] === undefined) {
                 obj['metadata'] = MarkdownTableMetadata.constructFromObject(data['metadata']);
             }
+            
         }
         return obj;
     }

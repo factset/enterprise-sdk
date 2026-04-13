@@ -49,18 +49,19 @@ class LookupCount {
         if (data) {
             obj = obj || new LookupCount();
 
-            if (data.hasOwnProperty('result_count')) {
+            if (data.hasOwnProperty('result_count') && obj['result_count'] === undefined) {
                 obj['result_count'] = LookupAssettype.constructFromObject(data['result_count']);
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ApiClient.convertToType(data['error'], 'String');
             }
-            if (data.hasOwnProperty('is_success')) {
+            if (data.hasOwnProperty('is_success') && obj['is_success'] === undefined) {
                 obj['is_success'] = ApiClient.convertToType(data['is_success'], 'Number');
             }
-            if (data.hasOwnProperty('results')) {
+            if (data.hasOwnProperty('results') && obj['results'] === undefined) {
                 obj['results'] = ApiClient.convertToType(data['results'], [ResponseDetails]);
             }
+            
         }
         return obj;
     }

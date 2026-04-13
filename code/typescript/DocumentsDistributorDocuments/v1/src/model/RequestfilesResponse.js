@@ -46,12 +46,13 @@ class RequestfilesResponse {
         if (data) {
             obj = obj || new RequestfilesResponse();
 
-            if (data.hasOwnProperty('jobID')) {
+            if (data.hasOwnProperty('jobID') && obj['jobID'] === undefined) {
                 obj['jobID'] = ApiClient.convertToType(data['jobID'], 'String');
             }
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            
         }
         return obj;
     }

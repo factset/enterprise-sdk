@@ -46,18 +46,19 @@ class OptimizerAccountOverridesInput {
         if (data) {
             obj = obj || new OptimizerAccountOverridesInput();
 
-            if (data.hasOwnProperty('portfolio')) {
+            if (data.hasOwnProperty('portfolio') && obj['portfolio'] === undefined) {
                 obj['portfolio'] = ApiClient.convertToType(data['portfolio'], 'String');
             }
-            if (data.hasOwnProperty('benchmark')) {
+            if (data.hasOwnProperty('benchmark') && obj['benchmark'] === undefined) {
                 obj['benchmark'] = ApiClient.convertToType(data['benchmark'], 'String');
             }
-            if (data.hasOwnProperty('riskModelId')) {
+            if (data.hasOwnProperty('riskModelId') && obj['riskModelId'] === undefined) {
                 obj['riskModelId'] = ApiClient.convertToType(data['riskModelId'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
+            
         }
         return obj;
     }

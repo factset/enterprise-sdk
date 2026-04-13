@@ -47,24 +47,25 @@ class CalculationUnitStatus {
         if (data) {
             obj = obj || new CalculationUnitStatus();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [Error]);
             }
-            if (data.hasOwnProperty('result')) {
+            if (data.hasOwnProperty('result') && obj['result'] === undefined) {
                 obj['result'] = ApiClient.convertToType(data['result'], 'String');
             }
-            if (data.hasOwnProperty('progress')) {
+            if (data.hasOwnProperty('progress') && obj['progress'] === undefined) {
                 obj['progress'] = ApiClient.convertToType(data['progress'], 'String');
             }
-            if (data.hasOwnProperty('points')) {
+            if (data.hasOwnProperty('points') && obj['points'] === undefined) {
                 obj['points'] = ApiClient.convertToType(data['points'], 'Number');
             }
-            if (data.hasOwnProperty('warnings')) {
+            if (data.hasOwnProperty('warnings') && obj['warnings'] === undefined) {
                 obj['warnings'] = ApiClient.convertToType(data['warnings'], ['String']);
             }
+            
         }
         return obj;
     }

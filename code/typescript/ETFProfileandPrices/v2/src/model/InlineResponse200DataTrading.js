@@ -49,12 +49,13 @@ class InlineResponse200DataTrading {
         if (data) {
             obj = obj || new InlineResponse200DataTrading();
 
-            if (data.hasOwnProperty('average')) {
+            if (data.hasOwnProperty('average') && obj['average'] === undefined) {
                 obj['average'] = InlineResponse200DataTradingAverage.constructFromObject(data['average']);
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = InlineResponse200DataTradingMedian.constructFromObject(data['median']);
             }
+            
         }
         return obj;
     }

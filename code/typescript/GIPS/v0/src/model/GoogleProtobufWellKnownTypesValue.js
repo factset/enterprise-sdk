@@ -50,39 +50,40 @@ class GoogleProtobufWellKnownTypesValue {
         if (data) {
             obj = obj || new GoogleProtobufWellKnownTypesValue();
 
-            if (data.hasOwnProperty('nullValue')) {
+            if (data.hasOwnProperty('nullValue') && obj['nullValue'] === undefined) {
                 obj['nullValue'] = GoogleProtobufWellKnownTypesNullValue.constructFromObject(data['nullValue']);
             }
-            if (data.hasOwnProperty('hasNullValue')) {
+            if (data.hasOwnProperty('hasNullValue') && obj['hasNullValue'] === undefined) {
                 obj['hasNullValue'] = ApiClient.convertToType(data['hasNullValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('numberValue')) {
+            if (data.hasOwnProperty('numberValue') && obj['numberValue'] === undefined) {
                 obj['numberValue'] = ApiClient.convertToType(data['numberValue'], 'Number');
             }
-            if (data.hasOwnProperty('hasNumberValue')) {
+            if (data.hasOwnProperty('hasNumberValue') && obj['hasNumberValue'] === undefined) {
                 obj['hasNumberValue'] = ApiClient.convertToType(data['hasNumberValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('stringValue')) {
+            if (data.hasOwnProperty('stringValue') && obj['stringValue'] === undefined) {
                 obj['stringValue'] = ApiClient.convertToType(data['stringValue'], 'String');
             }
-            if (data.hasOwnProperty('hasStringValue')) {
+            if (data.hasOwnProperty('hasStringValue') && obj['hasStringValue'] === undefined) {
                 obj['hasStringValue'] = ApiClient.convertToType(data['hasStringValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('boolValue')) {
+            if (data.hasOwnProperty('boolValue') && obj['boolValue'] === undefined) {
                 obj['boolValue'] = ApiClient.convertToType(data['boolValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('hasBoolValue')) {
+            if (data.hasOwnProperty('hasBoolValue') && obj['hasBoolValue'] === undefined) {
                 obj['hasBoolValue'] = ApiClient.convertToType(data['hasBoolValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('structValue')) {
+            if (data.hasOwnProperty('structValue') && obj['structValue'] === undefined) {
                 obj['structValue'] = GoogleProtobufWellKnownTypesStruct.constructFromObject(data['structValue']);
             }
-            if (data.hasOwnProperty('listValue')) {
+            if (data.hasOwnProperty('listValue') && obj['listValue'] === undefined) {
                 obj['listValue'] = GoogleProtobufWellKnownTypesListValue.constructFromObject(data['listValue']);
             }
-            if (data.hasOwnProperty('kindCase')) {
+            if (data.hasOwnProperty('kindCase') && obj['kindCase'] === undefined) {
                 obj['kindCase'] = GoogleProtobufWellKnownTypesValueKindOneofCase.constructFromObject(data['kindCase']);
             }
+            
         }
         return obj;
     }

@@ -54,27 +54,32 @@ class PercentChangeLabelTemplateData {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new PercentChangeLabelTemplateData();
-            TemplateWithLinks.constructFromObject(data, obj);
-            PercentChangeLabelTemplateDataAllOf.constructFromObject(data, obj);
+            try {
+              obj = TemplateWithLinks.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = PercentChangeLabelTemplateDataAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
             }
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
-            if (data.hasOwnProperty('applicationLinks')) {
+            if (data.hasOwnProperty('applicationLinks') && obj['applicationLinks'] === undefined) {
                 obj['applicationLinks'] = ApiClient.convertToType(data['applicationLinks'], [ApplicationLink]);
             }
-            if (data.hasOwnProperty('percentChange')) {
+            if (data.hasOwnProperty('percentChange') && obj['percentChange'] === undefined) {
                 obj['percentChange'] = PercentChange.constructFromObject(data['percentChange']);
             }
-            if (data.hasOwnProperty('label')) {
+            if (data.hasOwnProperty('label') && obj['label'] === undefined) {
                 obj['label'] = ApiClient.convertToType(data['label'], 'String');
             }
+            
         }
         return obj;
     }

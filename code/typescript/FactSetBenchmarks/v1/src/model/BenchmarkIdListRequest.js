@@ -47,9 +47,10 @@ class BenchmarkIdListRequest {
         if (data) {
             obj = obj || new BenchmarkIdListRequest();
 
-            if (data.hasOwnProperty('familyFilter')) {
+            if (data.hasOwnProperty('familyFilter') && obj['familyFilter'] === undefined) {
                 obj['familyFilter'] = FamilyFilter.constructFromObject(data['familyFilter']);
             }
+            
         }
         return obj;
     }

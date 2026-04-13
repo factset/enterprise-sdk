@@ -47,24 +47,25 @@ class Exposure {
         if (data) {
             obj = obj || new Exposure();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('group')) {
+            if (data.hasOwnProperty('group') && obj['group'] === undefined) {
                 obj['group'] = ApiClient.convertToType(data['group'], 'String');
             }
-            if (data.hasOwnProperty('exposure')) {
+            if (data.hasOwnProperty('exposure') && obj['exposure'] === undefined) {
                 obj['exposure'] = ApiClient.convertToType(data['exposure'], 'Number');
             }
-            if (data.hasOwnProperty('rsquare')) {
+            if (data.hasOwnProperty('rsquare') && obj['rsquare'] === undefined) {
                 obj['rsquare'] = ApiClient.convertToType(data['rsquare'], 'Number');
             }
-            if (data.hasOwnProperty('factors')) {
+            if (data.hasOwnProperty('factors') && obj['factors'] === undefined) {
                 obj['factors'] = ApiClient.convertToType(data['factors'], [UiValueObject]);
             }
+            
         }
         return obj;
     }

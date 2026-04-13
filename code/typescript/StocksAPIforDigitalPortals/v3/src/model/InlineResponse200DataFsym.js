@@ -48,9 +48,10 @@ class InlineResponse200DataFsym {
         if (data) {
             obj = obj || new InlineResponse200DataFsym();
 
-            if (data.hasOwnProperty('security')) {
+            if (data.hasOwnProperty('security') && obj['security'] === undefined) {
                 obj['security'] = InlineResponse200DataFsymSecurity.constructFromObject(data['security']);
             }
+            
         }
         return obj;
     }

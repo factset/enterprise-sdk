@@ -49,12 +49,13 @@ class InlineResponse20033Data {
         if (data) {
             obj = obj || new InlineResponse20033Data();
 
-            if (data.hasOwnProperty('system')) {
+            if (data.hasOwnProperty('system') && obj['system'] === undefined) {
                 obj['system'] = InlineResponse20033DataSystem.constructFromObject(data['system']);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [GetCategoryListDataCategoriesItems]);
             }
+            
         }
         return obj;
     }

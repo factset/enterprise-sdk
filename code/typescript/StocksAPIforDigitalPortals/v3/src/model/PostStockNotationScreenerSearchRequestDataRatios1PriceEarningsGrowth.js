@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowth {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowth();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowthMean.constructFromObject(data['mean']);
             }
+            
         }
         return obj;
     }

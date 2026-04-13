@@ -49,12 +49,13 @@ class JobListResponse {
         if (data) {
             obj = obj || new JobListResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [JobListResponseRoot]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = JobListResponseMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

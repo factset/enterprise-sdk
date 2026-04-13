@@ -49,9 +49,10 @@ class PostSecuritizedDerivativeIssuerSearchRequestDataName {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeIssuerSearchRequestDataName();
 
-            if (data.hasOwnProperty('searchValue')) {
+            if (data.hasOwnProperty('searchValue') && obj['searchValue'] === undefined) {
                 obj['searchValue'] = ApiClient.convertToType(data['searchValue'], 'String');
             }
+            
         }
         return obj;
     }

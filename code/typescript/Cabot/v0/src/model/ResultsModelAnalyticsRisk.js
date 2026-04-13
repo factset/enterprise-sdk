@@ -46,15 +46,16 @@ class ResultsModelAnalyticsRisk {
         if (data) {
             obj = obj || new ResultsModelAnalyticsRisk();
 
-            if (data.hasOwnProperty('alpha')) {
+            if (data.hasOwnProperty('alpha') && obj['alpha'] === undefined) {
                 obj['alpha'] = ApiClient.convertToType(data['alpha'], 'Number');
             }
-            if (data.hasOwnProperty('beta')) {
+            if (data.hasOwnProperty('beta') && obj['beta'] === undefined) {
                 obj['beta'] = ApiClient.convertToType(data['beta'], 'Number');
             }
-            if (data.hasOwnProperty('rSquared')) {
+            if (data.hasOwnProperty('rSquared') && obj['rSquared'] === undefined) {
                 obj['rSquared'] = ApiClient.convertToType(data['rSquared'], 'Number');
             }
+            
         }
         return obj;
     }

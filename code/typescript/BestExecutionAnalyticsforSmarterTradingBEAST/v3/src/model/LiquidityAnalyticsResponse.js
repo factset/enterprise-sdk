@@ -49,24 +49,25 @@ class LiquidityAnalyticsResponse {
         if (data) {
             obj = obj || new LiquidityAnalyticsResponse();
 
-            if (data.hasOwnProperty('quoteAnalytics')) {
+            if (data.hasOwnProperty('quoteAnalytics') && obj['quoteAnalytics'] === undefined) {
                 obj['quoteAnalytics'] = ApiClient.convertToType(data['quoteAnalytics'], [MarketImpactQuoteAnalytics]);
             }
-            if (data.hasOwnProperty('tradeAnalytics')) {
+            if (data.hasOwnProperty('tradeAnalytics') && obj['tradeAnalytics'] === undefined) {
                 obj['tradeAnalytics'] = ApiClient.convertToType(data['tradeAnalytics'], [MarketImpactTradeAnalytics]);
             }
-            if (data.hasOwnProperty('timeZoneName')) {
+            if (data.hasOwnProperty('timeZoneName') && obj['timeZoneName'] === undefined) {
                 obj['timeZoneName'] = ApiClient.convertToType(data['timeZoneName'], 'String');
             }
-            if (data.hasOwnProperty('securityId')) {
+            if (data.hasOwnProperty('securityId') && obj['securityId'] === undefined) {
                 obj['securityId'] = ApiClient.convertToType(data['securityId'], 'String');
             }
-            if (data.hasOwnProperty('country')) {
+            if (data.hasOwnProperty('country') && obj['country'] === undefined) {
                 obj['country'] = ApiClient.convertToType(data['country'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
+            
         }
         return obj;
     }

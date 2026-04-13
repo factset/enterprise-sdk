@@ -50,18 +50,19 @@ class OptimizerInputsMPTailRiskTerm {
         if (data) {
             obj = obj || new OptimizerInputsMPTailRiskTerm();
 
-            if (data.hasOwnProperty('term')) {
+            if (data.hasOwnProperty('term') && obj['term'] === undefined) {
                 obj['term'] = OptimizerInputsTailRiskTerm.constructFromObject(data['term']);
             }
-            if (data.hasOwnProperty('term_on')) {
+            if (data.hasOwnProperty('term_on') && obj['term_on'] === undefined) {
                 obj['term_on'] = OptimizerInputsBoundSourceEnum.constructFromObject(data['term_on']);
             }
-            if (data.hasOwnProperty('on_periods')) {
+            if (data.hasOwnProperty('on_periods') && obj['on_periods'] === undefined) {
                 obj['on_periods'] = OptimizerInputsOnPeriods.constructFromObject(data['on_periods']);
             }
-            if (data.hasOwnProperty('across_periods')) {
+            if (data.hasOwnProperty('across_periods') && obj['across_periods'] === undefined) {
                 obj['across_periods'] = OptimizerInputsAcrossPeriods.constructFromObject(data['across_periods']);
             }
+            
         }
         return obj;
     }

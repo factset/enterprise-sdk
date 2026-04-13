@@ -46,27 +46,28 @@ class MarketValue {
         if (data) {
             obj = obj || new MarketValue();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('entityMarketValue')) {
+            if (data.hasOwnProperty('entityMarketValue') && obj['entityMarketValue'] === undefined) {
                 obj['entityMarketValue'] = ApiClient.convertToType(data['entityMarketValue'], 'Number');
             }
-            if (data.hasOwnProperty('entityMarketValueExNonTraded')) {
+            if (data.hasOwnProperty('entityMarketValueExNonTraded') && obj['entityMarketValueExNonTraded'] === undefined) {
                 obj['entityMarketValueExNonTraded'] = ApiClient.convertToType(data['entityMarketValueExNonTraded'], 'Number');
             }
-            if (data.hasOwnProperty('securityMarketValue')) {
+            if (data.hasOwnProperty('securityMarketValue') && obj['securityMarketValue'] === undefined) {
                 obj['securityMarketValue'] = ApiClient.convertToType(data['securityMarketValue'], 'Number');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

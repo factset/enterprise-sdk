@@ -54,18 +54,19 @@ class FileManagerAuditItemAdditionalProperty {
         if (data) {
             obj = obj || new FileManagerAuditItemAdditionalProperty();
 
-            if (data.hasOwnProperty('entity')) {
+            if (data.hasOwnProperty('entity') && obj['entity'] === undefined) {
                 obj['entity'] = FileManagerAuditItemAdditionalPropertyEntity.constructFromObject(data['entity']);
             }
-            if (data.hasOwnProperty('permissions')) {
+            if (data.hasOwnProperty('permissions') && obj['permissions'] === undefined) {
                 obj['permissions'] = FileManagerAuditItemAdditionalPropertyPermissions.constructFromObject(data['permissions']);
             }
-            if (data.hasOwnProperty('permission-override')) {
+            if (data.hasOwnProperty('permission-override') && obj['permission-override'] === undefined) {
                 obj['permission-override'] = FileManagerAuditItemAdditionalPropertyPermissionOverride.constructFromObject(data['permission-override']);
             }
-            if (data.hasOwnProperty('inheritance-distance')) {
+            if (data.hasOwnProperty('inheritance-distance') && obj['inheritance-distance'] === undefined) {
                 obj['inheritance-distance'] = ApiClient.convertToType(data['inheritance-distance'], 'Number');
             }
+            
         }
         return obj;
     }

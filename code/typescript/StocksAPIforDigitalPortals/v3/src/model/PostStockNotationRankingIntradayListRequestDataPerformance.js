@@ -48,9 +48,10 @@ class PostStockNotationRankingIntradayListRequestDataPerformance {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestDataPerformance();
 
-            if (data.hasOwnProperty('relative')) {
+            if (data.hasOwnProperty('relative') && obj['relative'] === undefined) {
                 obj['relative'] = PostStockNotationRankingIntradayListRequestDataPerformanceRelative.constructFromObject(data['relative']);
             }
+            
         }
         return obj;
     }

@@ -50,21 +50,22 @@ class CreateNewDocumentRoot {
         if (data) {
             obj = obj || new CreateNewDocumentRoot();
 
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('existingDocumentName')) {
+            if (data.hasOwnProperty('existingDocumentName') && obj['existingDocumentName'] === undefined) {
                 obj['existingDocumentName'] = ApiClient.convertToType(data['existingDocumentName'], 'String');
             }
-            if (data.hasOwnProperty('newDocumentName')) {
+            if (data.hasOwnProperty('newDocumentName') && obj['newDocumentName'] === undefined) {
                 obj['newDocumentName'] = ApiClient.convertToType(data['newDocumentName'], 'String');
             }
-            if (data.hasOwnProperty('portfolios')) {
+            if (data.hasOwnProperty('portfolios') && obj['portfolios'] === undefined) {
                 obj['portfolios'] = ApiClient.convertToType(data['portfolios'], ['String']);
             }
-            if (data.hasOwnProperty('scenarios')) {
+            if (data.hasOwnProperty('scenarios') && obj['scenarios'] === undefined) {
                 obj['scenarios'] = ApiClient.convertToType(data['scenarios'], ['String']);
             }
+            
         }
         return obj;
     }

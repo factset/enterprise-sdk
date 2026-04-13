@@ -48,9 +48,10 @@ class PostOptionByClassValueRangesGetRequestDataFilter {
         if (data) {
             obj = obj || new PostOptionByClassValueRangesGetRequestDataFilter();
 
-            if (data.hasOwnProperty('validation')) {
+            if (data.hasOwnProperty('validation') && obj['validation'] === undefined) {
                 obj['validation'] = PostOptionByClassValueRangesGetRequestDataFilterValidation.constructFromObject(data['validation']);
             }
+            
         }
         return obj;
     }

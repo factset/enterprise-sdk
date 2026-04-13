@@ -49,18 +49,19 @@ class Participant {
         if (data) {
             obj = obj || new Participant();
 
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('industry')) {
+            if (data.hasOwnProperty('industry') && obj['industry'] === undefined) {
                 obj['industry'] = ApiClient.convertToType(data['industry'], 'String');
             }
-            if (data.hasOwnProperty('ultimateParentId')) {
+            if (data.hasOwnProperty('ultimateParentId') && obj['ultimateParentId'] === undefined) {
                 obj['ultimateParentId'] = ApiClient.convertToType(data['ultimateParentId'], 'String');
             }
+            
         }
         return obj;
     }

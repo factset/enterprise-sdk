@@ -48,9 +48,10 @@ class CategoriesResponse {
         if (data) {
             obj = obj || new CategoriesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CategoriesResponseData]);
             }
+            
         }
         return obj;
     }

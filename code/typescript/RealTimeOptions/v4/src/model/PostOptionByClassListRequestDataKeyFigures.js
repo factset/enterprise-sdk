@@ -56,33 +56,34 @@ class PostOptionByClassListRequestDataKeyFigures {
         if (data) {
             obj = obj || new PostOptionByClassListRequestDataKeyFigures();
 
-            if (data.hasOwnProperty('moneyness')) {
+            if (data.hasOwnProperty('moneyness') && obj['moneyness'] === undefined) {
                 obj['moneyness'] = PostOptionByClassListRequestDataKeyFiguresMoneyness.constructFromObject(data['moneyness']);
             }
-            if (data.hasOwnProperty('impliedVolatility')) {
+            if (data.hasOwnProperty('impliedVolatility') && obj['impliedVolatility'] === undefined) {
                 obj['impliedVolatility'] = PostOptionByClassListRequestDataKeyFiguresImpliedVolatility.constructFromObject(data['impliedVolatility']);
             }
-            if (data.hasOwnProperty('omega')) {
+            if (data.hasOwnProperty('omega') && obj['omega'] === undefined) {
                 obj['omega'] = PostOptionByClassListRequestDataKeyFiguresOmega.constructFromObject(data['omega']);
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = PostOptionByClassListRequestDataKeyFiguresLeverage.constructFromObject(data['leverage']);
             }
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = PostOptionByClassListRequestDataKeyFiguresDelta.constructFromObject(data['delta']);
             }
-            if (data.hasOwnProperty('thetaOneWeek')) {
+            if (data.hasOwnProperty('thetaOneWeek') && obj['thetaOneWeek'] === undefined) {
                 obj['thetaOneWeek'] = PostOptionByClassListRequestDataKeyFiguresThetaOneWeek.constructFromObject(data['thetaOneWeek']);
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = PostOptionByClassListRequestDataKeyFiguresVega.constructFromObject(data['vega']);
             }
-            if (data.hasOwnProperty('gamma')) {
+            if (data.hasOwnProperty('gamma') && obj['gamma'] === undefined) {
                 obj['gamma'] = PostOptionByClassListRequestDataKeyFiguresGamma.constructFromObject(data['gamma']);
             }
-            if (data.hasOwnProperty('rho')) {
+            if (data.hasOwnProperty('rho') && obj['rho'] === undefined) {
                 obj['rho'] = PostOptionByClassListRequestDataKeyFiguresRho.constructFromObject(data['rho']);
             }
+            
         }
         return obj;
     }

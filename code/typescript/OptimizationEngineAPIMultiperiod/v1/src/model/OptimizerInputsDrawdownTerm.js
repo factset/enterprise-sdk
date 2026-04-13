@@ -48,18 +48,19 @@ class OptimizerInputsDrawdownTerm {
         if (data) {
             obj = obj || new OptimizerInputsDrawdownTerm();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('multiplier')) {
+            if (data.hasOwnProperty('multiplier') && obj['multiplier'] === undefined) {
                 obj['multiplier'] = OptimizerInputsValue.constructFromObject(data['multiplier']);
             }
-            if (data.hasOwnProperty('direction')) {
+            if (data.hasOwnProperty('direction') && obj['direction'] === undefined) {
                 obj['direction'] = OptimizerInputsEObjectiveTermDirectionEnum.constructFromObject(data['direction']);
             }
-            if (data.hasOwnProperty('confidence_level')) {
+            if (data.hasOwnProperty('confidence_level') && obj['confidence_level'] === undefined) {
                 obj['confidence_level'] = ApiClient.convertToType(data['confidence_level'], 'Number');
             }
+            
         }
         return obj;
     }

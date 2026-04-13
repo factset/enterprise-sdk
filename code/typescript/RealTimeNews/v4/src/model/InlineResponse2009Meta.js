@@ -49,12 +49,13 @@ class InlineResponse2009Meta {
         if (data) {
             obj = obj || new InlineResponse2009Meta();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = StatusObject.constructFromObject(data['status']);
             }
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = OffsetBasedPaginationOutputObjectWithoutTotal.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

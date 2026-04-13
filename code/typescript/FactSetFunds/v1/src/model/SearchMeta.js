@@ -48,9 +48,10 @@ class SearchMeta {
         if (data) {
             obj = obj || new SearchMeta();
 
-            if (data.hasOwnProperty('pagination')) {
+            if (data.hasOwnProperty('pagination') && obj['pagination'] === undefined) {
                 obj['pagination'] = Pagination.constructFromObject(data['pagination']);
             }
+            
         }
         return obj;
     }

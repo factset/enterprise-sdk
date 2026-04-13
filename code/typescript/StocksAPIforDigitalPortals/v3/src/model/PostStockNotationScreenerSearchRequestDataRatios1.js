@@ -57,36 +57,37 @@ class PostStockNotationScreenerSearchRequestDataRatios1 {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRatios1();
 
-            if (data.hasOwnProperty('priceSales')) {
+            if (data.hasOwnProperty('priceSales') && obj['priceSales'] === undefined) {
                 obj['priceSales'] = PostStockNotationScreenerSearchRequestDataRatios1PriceSales.constructFromObject(data['priceSales']);
             }
-            if (data.hasOwnProperty('priceEarnings')) {
+            if (data.hasOwnProperty('priceEarnings') && obj['priceEarnings'] === undefined) {
                 obj['priceEarnings'] = PostStockNotationScreenerSearchRequestDataRatios1PriceEarnings.constructFromObject(data['priceEarnings']);
             }
-            if (data.hasOwnProperty('priceEarningsGrowth')) {
+            if (data.hasOwnProperty('priceEarningsGrowth') && obj['priceEarningsGrowth'] === undefined) {
                 obj['priceEarningsGrowth'] = PostStockNotationScreenerSearchRequestDataRatios1PriceEarningsGrowth.constructFromObject(data['priceEarningsGrowth']);
             }
-            if (data.hasOwnProperty('priceBookValue')) {
+            if (data.hasOwnProperty('priceBookValue') && obj['priceBookValue'] === undefined) {
                 obj['priceBookValue'] = PostStockNotationScreenerSearchRequestDataRatios1PriceBookValue.constructFromObject(data['priceBookValue']);
             }
-            if (data.hasOwnProperty('priceCashFlow')) {
+            if (data.hasOwnProperty('priceCashFlow') && obj['priceCashFlow'] === undefined) {
                 obj['priceCashFlow'] = PostStockNotationScreenerSearchRequestDataRatios1PriceCashFlow.constructFromObject(data['priceCashFlow']);
             }
-            if (data.hasOwnProperty('priceFreeCashFlow')) {
+            if (data.hasOwnProperty('priceFreeCashFlow') && obj['priceFreeCashFlow'] === undefined) {
                 obj['priceFreeCashFlow'] = PostStockNotationScreenerSearchRequestDataRatios1PriceFreeCashFlow.constructFromObject(data['priceFreeCashFlow']);
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = PostStockNotationScreenerSearchRequestDataRatios1DividendYield.constructFromObject(data['dividendYield']);
             }
-            if (data.hasOwnProperty('enterpriseValueEbit')) {
+            if (data.hasOwnProperty('enterpriseValueEbit') && obj['enterpriseValueEbit'] === undefined) {
                 obj['enterpriseValueEbit'] = PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueEbit.constructFromObject(data['enterpriseValueEbit']);
             }
-            if (data.hasOwnProperty('enterpriseValueEbitda')) {
+            if (data.hasOwnProperty('enterpriseValueEbitda') && obj['enterpriseValueEbitda'] === undefined) {
                 obj['enterpriseValueEbitda'] = PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueEbitda.constructFromObject(data['enterpriseValueEbitda']);
             }
-            if (data.hasOwnProperty('enterpriseValueSales')) {
+            if (data.hasOwnProperty('enterpriseValueSales') && obj['enterpriseValueSales'] === undefined) {
                 obj['enterpriseValueSales'] = PostStockNotationScreenerSearchRequestDataRatios1EnterpriseValueSales.constructFromObject(data['enterpriseValueSales']);
             }
+            
         }
         return obj;
     }

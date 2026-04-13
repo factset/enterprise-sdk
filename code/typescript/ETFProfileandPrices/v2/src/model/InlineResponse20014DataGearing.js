@@ -48,15 +48,16 @@ class InlineResponse20014DataGearing {
         if (data) {
             obj = obj || new InlineResponse20014DataGearing();
 
-            if (data.hasOwnProperty('isInverseFund')) {
+            if (data.hasOwnProperty('isInverseFund') && obj['isInverseFund'] === undefined) {
                 obj['isInverseFund'] = ApiClient.convertToType(data['isInverseFund'], 'Boolean');
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = InlineResponse20014DataGearingLeverage.constructFromObject(data['leverage']);
             }
-            if (data.hasOwnProperty('exposureResetPeriod')) {
+            if (data.hasOwnProperty('exposureResetPeriod') && obj['exposureResetPeriod'] === undefined) {
                 obj['exposureResetPeriod'] = ApiClient.convertToType(data['exposureResetPeriod'], 'String');
             }
+            
         }
         return obj;
     }

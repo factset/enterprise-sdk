@@ -47,15 +47,16 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLifeCycl
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataItemsInstrumentLifeCycleMaturity();
 
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('remainingTermDays')) {
+            if (data.hasOwnProperty('remainingTermDays') && obj['remainingTermDays'] === undefined) {
                 obj['remainingTermDays'] = ApiClient.convertToType(data['remainingTermDays'], 'Number');
             }
-            if (data.hasOwnProperty('perpetual')) {
+            if (data.hasOwnProperty('perpetual') && obj['perpetual'] === undefined) {
                 obj['perpetual'] = ApiClient.convertToType(data['perpetual'], 'Boolean');
             }
+            
         }
         return obj;
     }

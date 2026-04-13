@@ -49,12 +49,13 @@ class OptimizerInputsRiskModelForPeriods {
         if (data) {
             obj = obj || new OptimizerInputsRiskModelForPeriods();
 
-            if (data.hasOwnProperty('risk_model')) {
+            if (data.hasOwnProperty('risk_model') && obj['risk_model'] === undefined) {
                 obj['risk_model'] = OptimizerInputsRiskModel.constructFromObject(data['risk_model']);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = OptimizerInputsOnPeriods.constructFromObject(data['periods']);
             }
+            
         }
         return obj;
     }

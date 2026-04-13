@@ -48,18 +48,19 @@ class InlineResponse20015Data {
         if (data) {
             obj = obj || new InlineResponse20015Data();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('nestedRegions')) {
+            if (data.hasOwnProperty('nestedRegions') && obj['nestedRegions'] === undefined) {
                 obj['nestedRegions'] = ApiClient.convertToType(data['nestedRegions'], [GetBasicRegionGetDataNestedRegionsItems]);
             }
+            
         }
         return obj;
     }

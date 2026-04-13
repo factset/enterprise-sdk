@@ -47,9 +47,10 @@ class Meta {
         if (data) {
             obj = obj || new Meta();
 
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ApiClient.convertToType(data['sort'], 'String');
             }
+            
         }
         return obj;
     }

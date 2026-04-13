@@ -47,27 +47,28 @@ class LinkedPATemplate {
         if (data) {
             obj = obj || new LinkedPATemplate();
 
-            if (data.hasOwnProperty('directory')) {
+            if (data.hasOwnProperty('directory') && obj['directory'] === undefined) {
                 obj['directory'] = ApiClient.convertToType(data['directory'], 'String');
             }
-            if (data.hasOwnProperty('snapshot')) {
+            if (data.hasOwnProperty('snapshot') && obj['snapshot'] === undefined) {
                 obj['snapshot'] = ApiClient.convertToType(data['snapshot'], 'Boolean');
             }
-            if (data.hasOwnProperty('content')) {
+            if (data.hasOwnProperty('content') && obj['content'] === undefined) {
                 obj['content'] = TemplateContentTypes.constructFromObject(data['content']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('parentComponentId')) {
+            if (data.hasOwnProperty('parentComponentId') && obj['parentComponentId'] === undefined) {
                 obj['parentComponentId'] = ApiClient.convertToType(data['parentComponentId'], 'String');
             }
+            
         }
         return obj;
     }

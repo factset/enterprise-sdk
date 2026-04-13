@@ -52,30 +52,31 @@ class OptimizerInputsDiversificationConstraint {
         if (data) {
             obj = obj || new OptimizerInputsDiversificationConstraint();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('asset_value')) {
+            if (data.hasOwnProperty('asset_value') && obj['asset_value'] === undefined) {
                 obj['asset_value'] = OptimizerInputsValue.constructFromObject(data['asset_value']);
             }
-            if (data.hasOwnProperty('max_percent')) {
+            if (data.hasOwnProperty('max_percent') && obj['max_percent'] === undefined) {
                 obj['max_percent'] = OptimizerInputsValue.constructFromObject(data['max_percent']);
             }
-            if (data.hasOwnProperty('penalty')) {
+            if (data.hasOwnProperty('penalty') && obj['penalty'] === undefined) {
                 obj['penalty'] = OptimizerInputsPenalty.constructFromObject(data['penalty']);
             }
-            if (data.hasOwnProperty('groups')) {
+            if (data.hasOwnProperty('groups') && obj['groups'] === undefined) {
                 obj['groups'] = ApiClient.convertToType(data['groups'], [OptimizerInputsConstraintGroup]);
             }
-            if (data.hasOwnProperty('unit')) {
+            if (data.hasOwnProperty('unit') && obj['unit'] === undefined) {
                 obj['unit'] = OptimizerInputsEConstraintUnitTypeEnum.constructFromObject(data['unit']);
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = OptimizerInputsEConstraintLevelEnum.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('hierarchy')) {
+            if (data.hasOwnProperty('hierarchy') && obj['hierarchy'] === undefined) {
                 obj['hierarchy'] = ApiClient.convertToType(data['hierarchy'], 'Number');
             }
+            
         }
         return obj;
     }

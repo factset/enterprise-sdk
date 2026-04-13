@@ -47,12 +47,13 @@ class InlineResponse20013DataPremiumDiscount {
         if (data) {
             obj = obj || new InlineResponse20013DataPremiumDiscount();
 
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
-            if (data.hasOwnProperty('max')) {
+            if (data.hasOwnProperty('max') && obj['max'] === undefined) {
                 obj['max'] = ApiClient.convertToType(data['max'], 'Number');
             }
+            
         }
         return obj;
     }

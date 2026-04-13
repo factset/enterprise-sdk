@@ -49,21 +49,22 @@ class IndexSnapshotRequest {
         if (data) {
             obj = obj || new IndexSnapshotRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'String');
             }
-            if (data.hasOwnProperty('returnType')) {
+            if (data.hasOwnProperty('returnType') && obj['returnType'] === undefined) {
                 obj['returnType'] = ReturnType.constructFromObject(data['returnType']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = ApiClient.convertToType(data['calendar'], 'String');
             }
+            
         }
         return obj;
     }

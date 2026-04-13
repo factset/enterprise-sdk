@@ -53,18 +53,19 @@ class ResultsRequestBody {
         if (data) {
             obj = obj || new ResultsRequestBody();
 
-            if (data.hasOwnProperty('accountPath')) {
+            if (data.hasOwnProperty('accountPath') && obj['accountPath'] === undefined) {
                 obj['accountPath'] = ApiClient.convertToType(data['accountPath'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkPath')) {
+            if (data.hasOwnProperty('benchmarkPath') && obj['benchmarkPath'] === undefined) {
                 obj['benchmarkPath'] = ApiClient.convertToType(data['benchmarkPath'], 'String');
             }
-            if (data.hasOwnProperty('period')) {
+            if (data.hasOwnProperty('period') && obj['period'] === undefined) {
                 obj['period'] = ApiClient.convertToType(data['period'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = Currency.constructFromObject(data['currency']);
             }
+            
         }
         return obj;
     }

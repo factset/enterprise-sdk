@@ -46,9 +46,10 @@ class ExPostSeriesSettingsAllOf {
         if (data) {
             obj = obj || new ExPostSeriesSettingsAllOf();
 
-            if (data.hasOwnProperty('series')) {
+            if (data.hasOwnProperty('series') && obj['series'] === undefined) {
                 obj['series'] = ApiClient.convertToType(data['series'], ['String']);
             }
+            
         }
         return obj;
     }

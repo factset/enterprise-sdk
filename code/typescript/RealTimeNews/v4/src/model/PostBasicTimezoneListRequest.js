@@ -51,12 +51,13 @@ class PostBasicTimezoneListRequest {
         if (data) {
             obj = obj || new PostBasicTimezoneListRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PostBasicTimezoneListRequestData.constructFromObject(data['data']);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PostBasicBackgroundTextTypeListRequestMeta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

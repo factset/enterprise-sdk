@@ -47,9 +47,10 @@ class TimeWindowSeries {
         if (data) {
             obj = obj || new TimeWindowSeries();
 
-            if (data.hasOwnProperty('timeWindow')) {
+            if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': SeriesStats});
             }
+            
         }
         return obj;
     }

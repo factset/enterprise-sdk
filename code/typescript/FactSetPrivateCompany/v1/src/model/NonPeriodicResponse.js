@@ -48,9 +48,10 @@ class NonPeriodicResponse {
         if (data) {
             obj = obj || new NonPeriodicResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [NonPeriodic]);
             }
+            
         }
         return obj;
     }

@@ -46,33 +46,34 @@ class InvestmentResearchObject {
         if (data) {
             obj = obj || new InvestmentResearchObject();
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('primaryIds')) {
+            if (data.hasOwnProperty('primaryIds') && obj['primaryIds'] === undefined) {
                 obj['primaryIds'] = ApiClient.convertToType(data['primaryIds'], ['String']);
             }
-            if (data.hasOwnProperty('allIds')) {
+            if (data.hasOwnProperty('allIds') && obj['allIds'] === undefined) {
                 obj['allIds'] = ApiClient.convertToType(data['allIds'], ['String']);
             }
-            if (data.hasOwnProperty('filingsDate')) {
+            if (data.hasOwnProperty('filingsDate') && obj['filingsDate'] === undefined) {
                 obj['filingsDate'] = ApiClient.convertToType(data['filingsDate'], 'String');
             }
-            if (data.hasOwnProperty('filingsTime')) {
+            if (data.hasOwnProperty('filingsTime') && obj['filingsTime'] === undefined) {
                 obj['filingsTime'] = ApiClient.convertToType(data['filingsTime'], 'String');
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], ['String']);
             }
-            if (data.hasOwnProperty('filingsLink')) {
+            if (data.hasOwnProperty('filingsLink') && obj['filingsLink'] === undefined) {
                 obj['filingsLink'] = ApiClient.convertToType(data['filingsLink'], 'String');
             }
-            if (data.hasOwnProperty('documentId')) {
+            if (data.hasOwnProperty('documentId') && obj['documentId'] === undefined) {
                 obj['documentId'] = ApiClient.convertToType(data['documentId'], 'String');
             }
+            
         }
         return obj;
     }

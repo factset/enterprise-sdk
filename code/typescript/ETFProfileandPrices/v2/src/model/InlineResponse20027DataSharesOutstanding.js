@@ -47,15 +47,16 @@ class InlineResponse20027DataSharesOutstanding {
         if (data) {
             obj = obj || new InlineResponse20027DataSharesOutstanding();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
-            if (data.hasOwnProperty('lastValue')) {
+            if (data.hasOwnProperty('lastValue') && obj['lastValue'] === undefined) {
                 obj['lastValue'] = ApiClient.convertToType(data['lastValue'], 'Number');
             }
-            if (data.hasOwnProperty('earliestDate')) {
+            if (data.hasOwnProperty('earliestDate') && obj['earliestDate'] === undefined) {
                 obj['earliestDate'] = ApiClient.convertToType(data['earliestDate'], 'Date');
             }
+            
         }
         return obj;
     }

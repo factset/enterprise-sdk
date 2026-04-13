@@ -47,15 +47,16 @@ class UserClassResourceList {
         if (data) {
             obj = obj || new UserClassResourceList();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('totalResults')) {
+            if (data.hasOwnProperty('totalResults') && obj['totalResults'] === undefined) {
                 obj['totalResults'] = ApiClient.convertToType(data['totalResults'], 'Number');
             }
-            if (data.hasOwnProperty('Resources')) {
+            if (data.hasOwnProperty('Resources') && obj['Resources'] === undefined) {
                 obj['Resources'] = ApiClient.convertToType(data['Resources'], [UserClassResource]);
             }
+            
         }
         return obj;
     }

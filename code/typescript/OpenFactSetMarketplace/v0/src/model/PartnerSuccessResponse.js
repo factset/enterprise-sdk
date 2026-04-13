@@ -50,9 +50,10 @@ class PartnerSuccessResponse {
         if (data) {
             obj = obj || new PartnerSuccessResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = Partner.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -47,18 +47,19 @@ class ErrorResponseSubErrors {
         if (data) {
             obj = obj || new ErrorResponseSubErrors();
 
-            if (data.hasOwnProperty('object')) {
+            if (data.hasOwnProperty('object') && obj['object'] === undefined) {
                 obj['object'] = ApiClient.convertToType(data['object'], 'String');
             }
-            if (data.hasOwnProperty('field')) {
+            if (data.hasOwnProperty('field') && obj['field'] === undefined) {
                 obj['field'] = ApiClient.convertToType(data['field'], 'String');
             }
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('rejectedValue')) {
+            if (data.hasOwnProperty('rejectedValue') && obj['rejectedValue'] === undefined) {
                 obj['rejectedValue'] = ApiClient.convertToType(data['rejectedValue'], ['String']);
             }
+            
         }
         return obj;
     }

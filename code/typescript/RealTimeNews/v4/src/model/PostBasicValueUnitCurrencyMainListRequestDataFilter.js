@@ -47,9 +47,10 @@ class PostBasicValueUnitCurrencyMainListRequestDataFilter {
         if (data) {
             obj = obj || new PostBasicValueUnitCurrencyMainListRequestDataFilter();
 
-            if (data.hasOwnProperty('status')) {
+            if (data.hasOwnProperty('status') && obj['status'] === undefined) {
                 obj['status'] = ApiClient.convertToType(data['status'], 'String');
             }
+            
         }
         return obj;
     }

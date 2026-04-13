@@ -47,9 +47,10 @@ class InvalidCreateBookRequest {
         if (data) {
             obj = obj || new InvalidCreateBookRequest();
 
-            if (data.hasOwnProperty('message')) {
+            if (data.hasOwnProperty('message') && obj['message'] === undefined) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
+            
         }
         return obj;
     }

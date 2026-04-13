@@ -46,24 +46,25 @@ class PaginationInfo {
         if (data) {
             obj = obj || new PaginationInfo();
 
-            if (data.hasOwnProperty('pageNumber')) {
+            if (data.hasOwnProperty('pageNumber') && obj['pageNumber'] === undefined) {
                 obj['pageNumber'] = ApiClient.convertToType(data['pageNumber'], 'Number');
             }
-            if (data.hasOwnProperty('pageSize')) {
+            if (data.hasOwnProperty('pageSize') && obj['pageSize'] === undefined) {
                 obj['pageSize'] = ApiClient.convertToType(data['pageSize'], 'Number');
             }
-            if (data.hasOwnProperty('totalPages')) {
+            if (data.hasOwnProperty('totalPages') && obj['totalPages'] === undefined) {
                 obj['totalPages'] = ApiClient.convertToType(data['totalPages'], 'Number');
             }
-            if (data.hasOwnProperty('totalCalculations')) {
+            if (data.hasOwnProperty('totalCalculations') && obj['totalCalculations'] === undefined) {
                 obj['totalCalculations'] = ApiClient.convertToType(data['totalCalculations'], 'Number');
             }
-            if (data.hasOwnProperty('nextPage')) {
+            if (data.hasOwnProperty('nextPage') && obj['nextPage'] === undefined) {
                 obj['nextPage'] = ApiClient.convertToType(data['nextPage'], 'String');
             }
-            if (data.hasOwnProperty('previousPage')) {
+            if (data.hasOwnProperty('previousPage') && obj['previousPage'] === undefined) {
                 obj['previousPage'] = ApiClient.convertToType(data['previousPage'], 'String');
             }
+            
         }
         return obj;
     }

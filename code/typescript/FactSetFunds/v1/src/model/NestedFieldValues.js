@@ -48,9 +48,10 @@ class NestedFieldValues {
         if (data) {
             obj = obj || new NestedFieldValues();
 
-            if (data.hasOwnProperty('fieldValues')) {
+            if (data.hasOwnProperty('fieldValues') && obj['fieldValues'] === undefined) {
                 obj['fieldValues'] = ApiClient.convertToType(data['fieldValues'], [NestedFieldValueObject]);
             }
+            
         }
         return obj;
     }

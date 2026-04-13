@@ -50,24 +50,25 @@ class PerformanceReturns {
         if (data) {
             obj = obj || new PerformanceReturns();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('returns')) {
+            if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = Returns.constructFromObject(data['returns']);
             }
-            if (data.hasOwnProperty('benchmarkIndexReturns')) {
+            if (data.hasOwnProperty('benchmarkIndexReturns') && obj['benchmarkIndexReturns'] === undefined) {
                 obj['benchmarkIndexReturns'] = Returns.constructFromObject(data['benchmarkIndexReturns']);
             }
-            if (data.hasOwnProperty('calendarYearReturns')) {
+            if (data.hasOwnProperty('calendarYearReturns') && obj['calendarYearReturns'] === undefined) {
                 obj['calendarYearReturns'] = ApiClient.convertToType(data['calendarYearReturns'], [YearlyReturns]);
             }
+            
         }
         return obj;
     }

@@ -47,33 +47,34 @@ class PostOptionByClassListDataItemsKeyFigures {
         if (data) {
             obj = obj || new PostOptionByClassListDataItemsKeyFigures();
 
-            if (data.hasOwnProperty('moneyness')) {
+            if (data.hasOwnProperty('moneyness') && obj['moneyness'] === undefined) {
                 obj['moneyness'] = ApiClient.convertToType(data['moneyness'], 'Number');
             }
-            if (data.hasOwnProperty('impliedVolatility')) {
+            if (data.hasOwnProperty('impliedVolatility') && obj['impliedVolatility'] === undefined) {
                 obj['impliedVolatility'] = ApiClient.convertToType(data['impliedVolatility'], 'Number');
             }
-            if (data.hasOwnProperty('omega')) {
+            if (data.hasOwnProperty('omega') && obj['omega'] === undefined) {
                 obj['omega'] = ApiClient.convertToType(data['omega'], 'Number');
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = ApiClient.convertToType(data['leverage'], 'Number');
             }
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = ApiClient.convertToType(data['delta'], 'Number');
             }
-            if (data.hasOwnProperty('thetaOneWeek')) {
+            if (data.hasOwnProperty('thetaOneWeek') && obj['thetaOneWeek'] === undefined) {
                 obj['thetaOneWeek'] = ApiClient.convertToType(data['thetaOneWeek'], 'Number');
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = ApiClient.convertToType(data['vega'], 'Number');
             }
-            if (data.hasOwnProperty('gamma')) {
+            if (data.hasOwnProperty('gamma') && obj['gamma'] === undefined) {
                 obj['gamma'] = ApiClient.convertToType(data['gamma'], 'Number');
             }
-            if (data.hasOwnProperty('rho')) {
+            if (data.hasOwnProperty('rho') && obj['rho'] === undefined) {
                 obj['rho'] = ApiClient.convertToType(data['rho'], 'Number');
             }
+            
         }
         return obj;
     }

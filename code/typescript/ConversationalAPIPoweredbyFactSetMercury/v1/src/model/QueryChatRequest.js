@@ -50,9 +50,10 @@ class QueryChatRequest {
         if (data) {
             obj = obj || new QueryChatRequest();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = QueryChatRequestData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

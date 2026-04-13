@@ -46,15 +46,16 @@ class AttendeeDto {
         if (data) {
             obj = obj || new AttendeeDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('emailAddress')) {
+            if (data.hasOwnProperty('emailAddress') && obj['emailAddress'] === undefined) {
                 obj['emailAddress'] = ApiClient.convertToType(data['emailAddress'], 'String');
             }
-            if (data.hasOwnProperty('fullName')) {
+            if (data.hasOwnProperty('fullName') && obj['fullName'] === undefined) {
                 obj['fullName'] = ApiClient.convertToType(data['fullName'], 'String');
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class TextBlockFootingTemplateDataAllOf {
         if (data) {
             obj = obj || new TextBlockFootingTemplateDataAllOf();
 
-            if (data.hasOwnProperty('body')) {
+            if (data.hasOwnProperty('body') && obj['body'] === undefined) {
                 obj['body'] = ApiClient.convertToType(data['body'], 'String');
             }
-            if (data.hasOwnProperty('footing')) {
+            if (data.hasOwnProperty('footing') && obj['footing'] === undefined) {
                 obj['footing'] = TitledTextBlock.constructFromObject(data['footing']);
             }
+            
         }
         return obj;
     }

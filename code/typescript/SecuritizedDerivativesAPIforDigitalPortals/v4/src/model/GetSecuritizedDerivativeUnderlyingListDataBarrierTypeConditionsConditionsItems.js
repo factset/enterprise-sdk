@@ -50,15 +50,16 @@ class GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsI
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItems();
 
-            if (data.hasOwnProperty('observation')) {
+            if (data.hasOwnProperty('observation') && obj['observation'] === undefined) {
                 obj['observation'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItemsObservation.constructFromObject(data['observation']);
             }
-            if (data.hasOwnProperty('barriers')) {
+            if (data.hasOwnProperty('barriers') && obj['barriers'] === undefined) {
                 obj['barriers'] = ApiClient.convertToType(data['barriers'], [GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItems]);
             }
-            if (data.hasOwnProperty('cashFlow')) {
+            if (data.hasOwnProperty('cashFlow') && obj['cashFlow'] === undefined) {
                 obj['cashFlow'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsItemsCashFlow.constructFromObject(data['cashFlow']);
             }
+            
         }
         return obj;
     }

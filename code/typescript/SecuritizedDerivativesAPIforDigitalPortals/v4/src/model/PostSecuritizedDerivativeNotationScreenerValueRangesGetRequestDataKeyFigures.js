@@ -64,57 +64,58 @@ class PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFigur
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFigures();
 
-            if (data.hasOwnProperty('bonusYield')) {
+            if (data.hasOwnProperty('bonusYield') && obj['bonusYield'] === undefined) {
                 obj['bonusYield'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresBonusYield.constructFromObject(data['bonusYield']);
             }
-            if (data.hasOwnProperty('sidewaysYield')) {
+            if (data.hasOwnProperty('sidewaysYield') && obj['sidewaysYield'] === undefined) {
                 obj['sidewaysYield'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSidewaysYield.constructFromObject(data['sidewaysYield']);
             }
-            if (data.hasOwnProperty('maximumYield')) {
+            if (data.hasOwnProperty('maximumYield') && obj['maximumYield'] === undefined) {
                 obj['maximumYield'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresMaximumYield.constructFromObject(data['maximumYield']);
             }
-            if (data.hasOwnProperty('agio')) {
+            if (data.hasOwnProperty('agio') && obj['agio'] === undefined) {
                 obj['agio'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresAgio.constructFromObject(data['agio']);
             }
-            if (data.hasOwnProperty('discount')) {
+            if (data.hasOwnProperty('discount') && obj['discount'] === undefined) {
                 obj['discount'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresDiscount.constructFromObject(data['discount']);
             }
-            if (data.hasOwnProperty('breakEven')) {
+            if (data.hasOwnProperty('breakEven') && obj['breakEven'] === undefined) {
                 obj['breakEven'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresBreakEven.constructFromObject(data['breakEven']);
             }
-            if (data.hasOwnProperty('spread')) {
+            if (data.hasOwnProperty('spread') && obj['spread'] === undefined) {
                 obj['spread'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresSpread.constructFromObject(data['spread']);
             }
-            if (data.hasOwnProperty('delta')) {
+            if (data.hasOwnProperty('delta') && obj['delta'] === undefined) {
                 obj['delta'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresDelta.constructFromObject(data['delta']);
             }
-            if (data.hasOwnProperty('thetaOneWeek')) {
+            if (data.hasOwnProperty('thetaOneWeek') && obj['thetaOneWeek'] === undefined) {
                 obj['thetaOneWeek'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresThetaOneWeek.constructFromObject(data['thetaOneWeek']);
             }
-            if (data.hasOwnProperty('vega')) {
+            if (data.hasOwnProperty('vega') && obj['vega'] === undefined) {
                 obj['vega'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresVega.constructFromObject(data['vega']);
             }
-            if (data.hasOwnProperty('leverage')) {
+            if (data.hasOwnProperty('leverage') && obj['leverage'] === undefined) {
                 obj['leverage'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresLeverage.constructFromObject(data['leverage']);
             }
-            if (data.hasOwnProperty('omega')) {
+            if (data.hasOwnProperty('omega') && obj['omega'] === undefined) {
                 obj['omega'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresOmega.constructFromObject(data['omega']);
             }
-            if (data.hasOwnProperty('impliedVolatility')) {
+            if (data.hasOwnProperty('impliedVolatility') && obj['impliedVolatility'] === undefined) {
                 obj['impliedVolatility'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresImpliedVolatility.constructFromObject(data['impliedVolatility']);
             }
-            if (data.hasOwnProperty('intrinsicValue')) {
+            if (data.hasOwnProperty('intrinsicValue') && obj['intrinsicValue'] === undefined) {
                 obj['intrinsicValue'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresIntrinsicValue.constructFromObject(data['intrinsicValue']);
             }
-            if (data.hasOwnProperty('timeValue')) {
+            if (data.hasOwnProperty('timeValue') && obj['timeValue'] === undefined) {
                 obj['timeValue'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresTimeValue.constructFromObject(data['timeValue']);
             }
-            if (data.hasOwnProperty('outperformancePoint')) {
+            if (data.hasOwnProperty('outperformancePoint') && obj['outperformancePoint'] === undefined) {
                 obj['outperformancePoint'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresOutperformancePoint.constructFromObject(data['outperformancePoint']);
             }
-            if (data.hasOwnProperty('parity')) {
+            if (data.hasOwnProperty('parity') && obj['parity'] === undefined) {
                 obj['parity'] = PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataKeyFiguresParity.constructFromObject(data['parity']);
             }
+            
         }
         return obj;
     }

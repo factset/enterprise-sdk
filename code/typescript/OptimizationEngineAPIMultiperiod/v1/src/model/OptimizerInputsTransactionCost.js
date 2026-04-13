@@ -48,15 +48,16 @@ class OptimizerInputsTransactionCost {
         if (data) {
             obj = obj || new OptimizerInputsTransactionCost();
 
-            if (data.hasOwnProperty('unit_type')) {
+            if (data.hasOwnProperty('unit_type') && obj['unit_type'] === undefined) {
                 obj['unit_type'] = OptimizerInputsETransactionCostUnitTypeEnum.constructFromObject(data['unit_type']);
             }
-            if (data.hasOwnProperty('buy_cost')) {
+            if (data.hasOwnProperty('buy_cost') && obj['buy_cost'] === undefined) {
                 obj['buy_cost'] = OptimizerInputsValue.constructFromObject(data['buy_cost']);
             }
-            if (data.hasOwnProperty('sell_cost')) {
+            if (data.hasOwnProperty('sell_cost') && obj['sell_cost'] === undefined) {
                 obj['sell_cost'] = OptimizerInputsValue.constructFromObject(data['sell_cost']);
             }
+            
         }
         return obj;
     }

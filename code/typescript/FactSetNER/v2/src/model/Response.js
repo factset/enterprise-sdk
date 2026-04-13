@@ -47,9 +47,10 @@ class Response {
         if (data) {
             obj = obj || new Response();
 
-            if (data.hasOwnProperty('entities')) {
+            if (data.hasOwnProperty('entities') && obj['entities'] === undefined) {
                 obj['entities'] = ApiClient.convertToType(data['entities'], [Entity]);
             }
+            
         }
         return obj;
     }

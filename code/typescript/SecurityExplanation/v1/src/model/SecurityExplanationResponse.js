@@ -47,9 +47,10 @@ class SecurityExplanationResponse {
         if (data) {
             obj = obj || new SecurityExplanationResponse();
 
-            if (data.hasOwnProperty('explanation')) {
+            if (data.hasOwnProperty('explanation') && obj['explanation'] === undefined) {
                 obj['explanation'] = ApiClient.convertToType(data['explanation'], 'String');
             }
+            
         }
         return obj;
     }

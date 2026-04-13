@@ -48,9 +48,10 @@ class AvailableReportsList {
         if (data) {
             obj = obj || new AvailableReportsList();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ReportSection]);
             }
+            
         }
         return obj;
     }

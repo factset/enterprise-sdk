@@ -53,15 +53,16 @@ class Competitor {
         if (data) {
             obj = obj || new Competitor();
 
-            if (data.hasOwnProperty('entityName')) {
+            if (data.hasOwnProperty('entityName') && obj['entityName'] === undefined) {
                 obj['entityName'] = ApiClient.convertToType(data['entityName'], 'String');
             }
-            if (data.hasOwnProperty('entityId')) {
+            if (data.hasOwnProperty('entityId') && obj['entityId'] === undefined) {
                 obj['entityId'] = ApiClient.convertToType(data['entityId'], 'String');
             }
-            if (data.hasOwnProperty('priceChangePercentage')) {
+            if (data.hasOwnProperty('priceChangePercentage') && obj['priceChangePercentage'] === undefined) {
                 obj['priceChangePercentage'] = ApiClient.convertToType(data['priceChangePercentage'], 'Number');
             }
+            
         }
         return obj;
     }

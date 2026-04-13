@@ -48,12 +48,13 @@ class FilterWatchlistsResponseData {
         if (data) {
             obj = obj || new FilterWatchlistsResponseData();
 
-            if (data.hasOwnProperty('structured')) {
+            if (data.hasOwnProperty('structured') && obj['structured'] === undefined) {
                 obj['structured'] = StructuredFiltersWatchlists.constructFromObject(data['structured']);
             }
-            if (data.hasOwnProperty('flattened')) {
+            if (data.hasOwnProperty('flattened') && obj['flattened'] === undefined) {
                 obj['flattened'] = FlattenedFiltersWatchlists.constructFromObject(data['flattened']);
             }
+            
         }
         return obj;
     }

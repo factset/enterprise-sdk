@@ -47,12 +47,13 @@ class PercentChange {
         if (data) {
             obj = obj || new PercentChange();
 
-            if (data.hasOwnProperty('change')) {
+            if (data.hasOwnProperty('change') && obj['change'] === undefined) {
                 obj['change'] = ApiClient.convertToType(data['change'], 'String');
             }
-            if (data.hasOwnProperty('color')) {
+            if (data.hasOwnProperty('color') && obj['color'] === undefined) {
                 obj['color'] = ChangeColor.constructFromObject(data['color']);
             }
+            
         }
         return obj;
     }

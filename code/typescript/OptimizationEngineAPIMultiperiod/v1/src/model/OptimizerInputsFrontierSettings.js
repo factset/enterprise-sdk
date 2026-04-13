@@ -47,18 +47,19 @@ class OptimizerInputsFrontierSettings {
         if (data) {
             obj = obj || new OptimizerInputsFrontierSettings();
 
-            if (data.hasOwnProperty('constraint_name')) {
+            if (data.hasOwnProperty('constraint_name') && obj['constraint_name'] === undefined) {
                 obj['constraint_name'] = ApiClient.convertToType(data['constraint_name'], 'String');
             }
-            if (data.hasOwnProperty('objective_term_name')) {
+            if (data.hasOwnProperty('objective_term_name') && obj['objective_term_name'] === undefined) {
                 obj['objective_term_name'] = ApiClient.convertToType(data['objective_term_name'], 'String');
             }
-            if (data.hasOwnProperty('min')) {
+            if (data.hasOwnProperty('min') && obj['min'] === undefined) {
                 obj['min'] = OptimizerInputsRange.constructFromObject(data['min']);
             }
-            if (data.hasOwnProperty('max')) {
+            if (data.hasOwnProperty('max') && obj['max'] === undefined) {
                 obj['max'] = OptimizerInputsRange.constructFromObject(data['max']);
             }
+            
         }
         return obj;
     }

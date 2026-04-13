@@ -47,21 +47,22 @@ class OptimizerInputsConstraintGroup {
         if (data) {
             obj = obj || new OptimizerInputsConstraintGroup();
 
-            if (data.hasOwnProperty('min')) {
+            if (data.hasOwnProperty('min') && obj['min'] === undefined) {
                 obj['min'] = OptimizerInputsValue.constructFromObject(data['min']);
             }
-            if (data.hasOwnProperty('max')) {
+            if (data.hasOwnProperty('max') && obj['max'] === undefined) {
                 obj['max'] = OptimizerInputsValue.constructFromObject(data['max']);
             }
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('nested_groups')) {
+            if (data.hasOwnProperty('nested_groups') && obj['nested_groups'] === undefined) {
                 obj['nested_groups'] = ApiClient.convertToType(data['nested_groups'], [OptimizerInputsConstraintGroup]);
             }
-            if (data.hasOwnProperty('group_lookup_index')) {
+            if (data.hasOwnProperty('group_lookup_index') && obj['group_lookup_index'] === undefined) {
                 obj['group_lookup_index'] = ApiClient.convertToType(data['group_lookup_index'], 'Number');
             }
+            
         }
         return obj;
     }

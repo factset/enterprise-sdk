@@ -48,15 +48,16 @@ class DocumentModel {
         if (data) {
             obj = obj || new DocumentModel();
 
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('productType')) {
+            if (data.hasOwnProperty('productType') && obj['productType'] === undefined) {
                 obj['productType'] = ApiClient.convertToType(data['productType'], 'String');
             }
-            if (data.hasOwnProperty('tags')) {
+            if (data.hasOwnProperty('tags') && obj['tags'] === undefined) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], {'String': StringOrNumberTagValue});
             }
+            
         }
         return obj;
     }

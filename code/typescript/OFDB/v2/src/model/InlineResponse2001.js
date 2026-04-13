@@ -47,9 +47,10 @@ class InlineResponse2001 {
         if (data) {
             obj = obj || new InlineResponse2001();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = InlineResponse2001Data.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

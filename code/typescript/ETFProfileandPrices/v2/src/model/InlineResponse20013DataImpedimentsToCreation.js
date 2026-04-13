@@ -47,12 +47,13 @@ class InlineResponse20013DataImpedimentsToCreation {
         if (data) {
             obj = obj || new InlineResponse20013DataImpedimentsToCreation();
 
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('reason')) {
+            if (data.hasOwnProperty('reason') && obj['reason'] === undefined) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
             }
+            
         }
         return obj;
     }

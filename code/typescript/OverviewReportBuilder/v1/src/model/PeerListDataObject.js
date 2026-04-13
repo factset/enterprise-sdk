@@ -51,12 +51,13 @@ class PeerListDataObject {
         if (data) {
             obj = obj || new PeerListDataObject();
 
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = PeerListDataObjectMeta.constructFromObject(data['meta']);
             }
-            if (data.hasOwnProperty('peers')) {
+            if (data.hasOwnProperty('peers') && obj['peers'] === undefined) {
                 obj['peers'] = ApiClient.convertToType(data['peers'], [PeerListItem]);
             }
+            
         }
         return obj;
     }

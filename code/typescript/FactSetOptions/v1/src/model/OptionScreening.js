@@ -47,9 +47,10 @@ class OptionScreening {
         if (data) {
             obj = obj || new OptionScreening();
 
-            if (data.hasOwnProperty('optionId')) {
+            if (data.hasOwnProperty('optionId') && obj['optionId'] === undefined) {
                 obj['optionId'] = ApiClient.convertToType(data['optionId'], 'String');
             }
+            
         }
         return obj;
     }

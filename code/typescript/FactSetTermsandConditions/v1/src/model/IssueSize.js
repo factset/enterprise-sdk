@@ -51,30 +51,31 @@ class IssueSize {
         if (data) {
             obj = obj || new IssueSize();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('outAmtEffDate')) {
+            if (data.hasOwnProperty('outAmtEffDate') && obj['outAmtEffDate'] === undefined) {
                 obj['outAmtEffDate'] = ApiClient.convertToType(data['outAmtEffDate'], 'Date');
             }
-            if (data.hasOwnProperty('outAmtCurrency')) {
+            if (data.hasOwnProperty('outAmtCurrency') && obj['outAmtCurrency'] === undefined) {
                 obj['outAmtCurrency'] = ApiClient.convertToType(data['outAmtCurrency'], 'String');
             }
-            if (data.hasOwnProperty('outAmt')) {
+            if (data.hasOwnProperty('outAmt') && obj['outAmt'] === undefined) {
                 obj['outAmt'] = ApiClient.convertToType(data['outAmt'], 'Number');
             }
-            if (data.hasOwnProperty('outAmtChange')) {
+            if (data.hasOwnProperty('outAmtChange') && obj['outAmtChange'] === undefined) {
                 obj['outAmtChange'] = ApiClient.convertToType(data['outAmtChange'], 'Number');
             }
-            if (data.hasOwnProperty('outAmtChangePrice')) {
+            if (data.hasOwnProperty('outAmtChangePrice') && obj['outAmtChangePrice'] === undefined) {
                 obj['outAmtChangePrice'] = ApiClient.convertToType(data['outAmtChangePrice'], 'Number');
             }
-            if (data.hasOwnProperty('outAmtChangeType')) {
+            if (data.hasOwnProperty('outAmtChangeType') && obj['outAmtChangeType'] === undefined) {
                 obj['outAmtChangeType'] = ApiClient.convertToType(data['outAmtChangeType'], 'String');
             }
+            
         }
         return obj;
     }

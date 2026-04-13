@@ -48,9 +48,10 @@ class SubmittedResponse {
         if (data) {
             obj = obj || new SubmittedResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = StatusOne.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

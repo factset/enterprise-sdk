@@ -49,12 +49,13 @@ class InlineResponse2005DataCurrentInterestRate {
         if (data) {
             obj = obj || new InlineResponse2005DataCurrentInterestRate();
 
-            if (data.hasOwnProperty('types')) {
+            if (data.hasOwnProperty('types') && obj['types'] === undefined) {
                 obj['types'] = ApiClient.convertToType(data['types'], [PostSecuritizedDerivativeNotationScreenerValueRangesGetDataCurrentInterestRateTypesItems]);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = InlineResponse2005DataCurrentInterestRateValue.constructFromObject(data['value']);
             }
+            
         }
         return obj;
     }

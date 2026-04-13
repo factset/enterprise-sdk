@@ -47,18 +47,19 @@ class IndexETF {
         if (data) {
             obj = obj || new IndexETF();
 
-            if (data.hasOwnProperty('priceChange')) {
+            if (data.hasOwnProperty('priceChange') && obj['priceChange'] === undefined) {
                 obj['priceChange'] = ApiClient.convertToType(data['priceChange'], 'Number');
             }
-            if (data.hasOwnProperty('time')) {
+            if (data.hasOwnProperty('time') && obj['time'] === undefined) {
                 obj['time'] = ApiClient.convertToType(data['time'], 'Number');
             }
-            if (data.hasOwnProperty('price')) {
+            if (data.hasOwnProperty('price') && obj['price'] === undefined) {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
-            if (data.hasOwnProperty('etfIndexName')) {
+            if (data.hasOwnProperty('etfIndexName') && obj['etfIndexName'] === undefined) {
                 obj['etfIndexName'] = ApiClient.convertToType(data['etfIndexName'], 'String');
             }
+            
         }
         return obj;
     }

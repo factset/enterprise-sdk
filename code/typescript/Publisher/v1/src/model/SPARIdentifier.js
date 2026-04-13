@@ -49,15 +49,16 @@ class SPARIdentifier {
         if (data) {
             obj = obj || new SPARIdentifier();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('returntype')) {
+            if (data.hasOwnProperty('returntype') && obj['returntype'] === undefined) {
                 obj['returntype'] = ApiClient.convertToType(data['returntype'], 'String');
             }
-            if (data.hasOwnProperty('prefix')) {
+            if (data.hasOwnProperty('prefix') && obj['prefix'] === undefined) {
                 obj['prefix'] = ApiClient.convertToType(data['prefix'], 'String');
             }
+            
         }
         return obj;
     }

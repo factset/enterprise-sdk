@@ -49,12 +49,13 @@ class PostStockNotationScreenerSearchRequestDataValidationMarket {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataValidationMarket();
 
-            if (data.hasOwnProperty('selection')) {
+            if (data.hasOwnProperty('selection') && obj['selection'] === undefined) {
                 obj['selection'] = PostStockNotationScreenerSearchRequestDataValidationMarketSelection.constructFromObject(data['selection']);
             }
-            if (data.hasOwnProperty('priority')) {
+            if (data.hasOwnProperty('priority') && obj['priority'] === undefined) {
                 obj['priority'] = PostStockNotationScreenerSearchRequestDataValidationMarketPriority.constructFromObject(data['priority']);
             }
+            
         }
         return obj;
     }

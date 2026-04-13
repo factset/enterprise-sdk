@@ -46,66 +46,67 @@ class SegmentsEstimate {
         if (data) {
             obj = obj || new SegmentsEstimate();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('segmentType')) {
+            if (data.hasOwnProperty('segmentType') && obj['segmentType'] === undefined) {
                 obj['segmentType'] = ApiClient.convertToType(data['segmentType'], 'String');
             }
-            if (data.hasOwnProperty('metric')) {
+            if (data.hasOwnProperty('metric') && obj['metric'] === undefined) {
                 obj['metric'] = ApiClient.convertToType(data['metric'], 'String');
             }
-            if (data.hasOwnProperty('fiscalPeriod')) {
+            if (data.hasOwnProperty('fiscalPeriod') && obj['fiscalPeriod'] === undefined) {
                 obj['fiscalPeriod'] = ApiClient.convertToType(data['fiscalPeriod'], 'Number');
             }
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = ApiClient.convertToType(data['fiscalYear'], 'Number');
             }
-            if (data.hasOwnProperty('segmentLabel')) {
+            if (data.hasOwnProperty('segmentLabel') && obj['segmentLabel'] === undefined) {
                 obj['segmentLabel'] = ApiClient.convertToType(data['segmentLabel'], 'String');
             }
-            if (data.hasOwnProperty('segmentLevel')) {
+            if (data.hasOwnProperty('segmentLevel') && obj['segmentLevel'] === undefined) {
                 obj['segmentLevel'] = ApiClient.convertToType(data['segmentLevel'], 'String');
             }
-            if (data.hasOwnProperty('fiscalEndDate')) {
+            if (data.hasOwnProperty('fiscalEndDate') && obj['fiscalEndDate'] === undefined) {
                 obj['fiscalEndDate'] = ApiClient.convertToType(data['fiscalEndDate'], 'Date');
             }
-            if (data.hasOwnProperty('estimateDate')) {
+            if (data.hasOwnProperty('estimateDate') && obj['estimateDate'] === undefined) {
                 obj['estimateDate'] = ApiClient.convertToType(data['estimateDate'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('estimateCurrency')) {
+            if (data.hasOwnProperty('estimateCurrency') && obj['estimateCurrency'] === undefined) {
                 obj['estimateCurrency'] = ApiClient.convertToType(data['estimateCurrency'], 'String');
             }
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
-            if (data.hasOwnProperty('median')) {
+            if (data.hasOwnProperty('median') && obj['median'] === undefined) {
                 obj['median'] = ApiClient.convertToType(data['median'], 'Number');
             }
-            if (data.hasOwnProperty('standardDeviation')) {
+            if (data.hasOwnProperty('standardDeviation') && obj['standardDeviation'] === undefined) {
                 obj['standardDeviation'] = ApiClient.convertToType(data['standardDeviation'], 'Number');
             }
-            if (data.hasOwnProperty('high')) {
+            if (data.hasOwnProperty('high') && obj['high'] === undefined) {
                 obj['high'] = ApiClient.convertToType(data['high'], 'Number');
             }
-            if (data.hasOwnProperty('low')) {
+            if (data.hasOwnProperty('low') && obj['low'] === undefined) {
                 obj['low'] = ApiClient.convertToType(data['low'], 'Number');
             }
-            if (data.hasOwnProperty('estimateCount')) {
+            if (data.hasOwnProperty('estimateCount') && obj['estimateCount'] === undefined) {
                 obj['estimateCount'] = ApiClient.convertToType(data['estimateCount'], 'Number');
             }
-            if (data.hasOwnProperty('up')) {
+            if (data.hasOwnProperty('up') && obj['up'] === undefined) {
                 obj['up'] = ApiClient.convertToType(data['up'], 'Number');
             }
-            if (data.hasOwnProperty('down')) {
+            if (data.hasOwnProperty('down') && obj['down'] === undefined) {
                 obj['down'] = ApiClient.convertToType(data['down'], 'Number');
             }
+            
         }
         return obj;
     }

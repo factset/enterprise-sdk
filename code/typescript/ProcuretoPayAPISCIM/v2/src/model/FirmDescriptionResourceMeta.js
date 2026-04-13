@@ -46,12 +46,13 @@ class FirmDescriptionResourceMeta {
         if (data) {
             obj = obj || new FirmDescriptionResourceMeta();
 
-            if (data.hasOwnProperty('resourceType')) {
+            if (data.hasOwnProperty('resourceType') && obj['resourceType'] === undefined) {
                 obj['resourceType'] = ApiClient.convertToType(data['resourceType'], 'String');
             }
-            if (data.hasOwnProperty('location')) {
+            if (data.hasOwnProperty('location') && obj['location'] === undefined) {
                 obj['location'] = ApiClient.convertToType(data['location'], 'String');
             }
+            
         }
         return obj;
     }

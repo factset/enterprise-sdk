@@ -67,33 +67,34 @@ class ServiceProviderConfig {
         if (data) {
             obj = obj || new ServiceProviderConfig();
 
-            if (data.hasOwnProperty('schemas')) {
+            if (data.hasOwnProperty('schemas') && obj['schemas'] === undefined) {
                 obj['schemas'] = ApiClient.convertToType(data['schemas'], ['String']);
             }
-            if (data.hasOwnProperty('documentationUri')) {
+            if (data.hasOwnProperty('documentationUri') && obj['documentationUri'] === undefined) {
                 obj['documentationUri'] = ApiClient.convertToType(data['documentationUri'], 'String');
             }
-            if (data.hasOwnProperty('patch')) {
+            if (data.hasOwnProperty('patch') && obj['patch'] === undefined) {
                 obj['patch'] = ServiceProviderConfigPatch.constructFromObject(data['patch']);
             }
-            if (data.hasOwnProperty('bulk')) {
+            if (data.hasOwnProperty('bulk') && obj['bulk'] === undefined) {
                 obj['bulk'] = ServiceProviderConfigBulk.constructFromObject(data['bulk']);
             }
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = ServiceProviderConfigFilter.constructFromObject(data['filter']);
             }
-            if (data.hasOwnProperty('changePassword')) {
+            if (data.hasOwnProperty('changePassword') && obj['changePassword'] === undefined) {
                 obj['changePassword'] = ServiceProviderConfigChangePassword.constructFromObject(data['changePassword']);
             }
-            if (data.hasOwnProperty('sort')) {
+            if (data.hasOwnProperty('sort') && obj['sort'] === undefined) {
                 obj['sort'] = ServiceProviderConfigSort.constructFromObject(data['sort']);
             }
-            if (data.hasOwnProperty('etag')) {
+            if (data.hasOwnProperty('etag') && obj['etag'] === undefined) {
                 obj['etag'] = ServiceProviderConfigEtag.constructFromObject(data['etag']);
             }
-            if (data.hasOwnProperty('authenticationSchemes')) {
+            if (data.hasOwnProperty('authenticationSchemes') && obj['authenticationSchemes'] === undefined) {
                 obj['authenticationSchemes'] = ApiClient.convertToType(data['authenticationSchemes'], [AuthenticationScheme]);
             }
+            
         }
         return obj;
     }

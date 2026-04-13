@@ -50,15 +50,16 @@ class InlineResponse20014ReportedKeyFigures {
         if (data) {
             obj = obj || new InlineResponse20014ReportedKeyFigures();
 
-            if (data.hasOwnProperty('firstFiscalYear')) {
+            if (data.hasOwnProperty('firstFiscalYear') && obj['firstFiscalYear'] === undefined) {
                 obj['firstFiscalYear'] = InlineResponse20014ReportedKeyFiguresFirstFiscalYear.constructFromObject(data['firstFiscalYear']);
             }
-            if (data.hasOwnProperty('secondFiscalYear')) {
+            if (data.hasOwnProperty('secondFiscalYear') && obj['secondFiscalYear'] === undefined) {
                 obj['secondFiscalYear'] = InlineResponse20014ReportedKeyFiguresSecondFiscalYear.constructFromObject(data['secondFiscalYear']);
             }
-            if (data.hasOwnProperty('thirdFiscalYear')) {
+            if (data.hasOwnProperty('thirdFiscalYear') && obj['thirdFiscalYear'] === undefined) {
                 obj['thirdFiscalYear'] = InlineResponse20014ReportedKeyFiguresThirdFiscalYear.constructFromObject(data['thirdFiscalYear']);
             }
+            
         }
         return obj;
     }

@@ -47,9 +47,10 @@ class PostNewsArticleListByInstrumentDataArticlesInstrumentsItemsFsymSecurity {
         if (data) {
             obj = obj || new PostNewsArticleListByInstrumentDataArticlesInstrumentsItemsFsymSecurity();
 
-            if (data.hasOwnProperty('permanentIdentifier')) {
+            if (data.hasOwnProperty('permanentIdentifier') && obj['permanentIdentifier'] === undefined) {
                 obj['permanentIdentifier'] = ApiClient.convertToType(data['permanentIdentifier'], 'String');
             }
+            
         }
         return obj;
     }

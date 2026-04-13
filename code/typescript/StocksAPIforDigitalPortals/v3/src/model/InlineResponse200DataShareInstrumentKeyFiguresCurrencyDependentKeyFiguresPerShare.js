@@ -48,9 +48,10 @@ class InlineResponse200DataShareInstrumentKeyFiguresCurrencyDependentKeyFiguresP
         if (data) {
             obj = obj || new InlineResponse200DataShareInstrumentKeyFiguresCurrencyDependentKeyFiguresPerShare();
 
-            if (data.hasOwnProperty('dividend')) {
+            if (data.hasOwnProperty('dividend') && obj['dividend'] === undefined) {
                 obj['dividend'] = InlineResponse200DataShareInstrumentKeyFiguresCurrencyDependentKeyFiguresPerShareDividend.constructFromObject(data['dividend']);
             }
+            
         }
         return obj;
     }

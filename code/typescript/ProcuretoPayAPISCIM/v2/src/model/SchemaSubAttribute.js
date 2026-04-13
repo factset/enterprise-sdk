@@ -52,39 +52,40 @@ class SchemaSubAttribute {
         if (data) {
             obj = obj || new SchemaSubAttribute();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('multiValued')) {
+            if (data.hasOwnProperty('multiValued') && obj['multiValued'] === undefined) {
                 obj['multiValued'] = ApiClient.convertToType(data['multiValued'], 'Boolean');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('required')) {
+            if (data.hasOwnProperty('required') && obj['required'] === undefined) {
                 obj['required'] = ApiClient.convertToType(data['required'], 'Boolean');
             }
-            if (data.hasOwnProperty('canonicalValues')) {
+            if (data.hasOwnProperty('canonicalValues') && obj['canonicalValues'] === undefined) {
                 obj['canonicalValues'] = ApiClient.convertToType(data['canonicalValues'], ['String']);
             }
-            if (data.hasOwnProperty('caseExact')) {
+            if (data.hasOwnProperty('caseExact') && obj['caseExact'] === undefined) {
                 obj['caseExact'] = ApiClient.convertToType(data['caseExact'], 'Boolean');
             }
-            if (data.hasOwnProperty('mutability')) {
+            if (data.hasOwnProperty('mutability') && obj['mutability'] === undefined) {
                 obj['mutability'] = ApiClient.convertToType(data['mutability'], 'String');
             }
-            if (data.hasOwnProperty('returned')) {
+            if (data.hasOwnProperty('returned') && obj['returned'] === undefined) {
                 obj['returned'] = ApiClient.convertToType(data['returned'], 'String');
             }
-            if (data.hasOwnProperty('uniqueness')) {
+            if (data.hasOwnProperty('uniqueness') && obj['uniqueness'] === undefined) {
                 obj['uniqueness'] = ApiClient.convertToType(data['uniqueness'], 'String');
             }
-            if (data.hasOwnProperty('referenceTypes')) {
+            if (data.hasOwnProperty('referenceTypes') && obj['referenceTypes'] === undefined) {
                 obj['referenceTypes'] = ApiClient.convertToType(data['referenceTypes'], ['String']);
             }
+            
         }
         return obj;
     }

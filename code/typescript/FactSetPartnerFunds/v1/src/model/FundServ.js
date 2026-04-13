@@ -47,18 +47,19 @@ class FundServ {
         if (data) {
             obj = obj || new FundServ();
 
-            if (data.hasOwnProperty('fundServCode')) {
+            if (data.hasOwnProperty('fundServCode') && obj['fundServCode'] === undefined) {
                 obj['fundServCode'] = ApiClient.convertToType(data['fundServCode'], 'String');
             }
-            if (data.hasOwnProperty('fundServName')) {
+            if (data.hasOwnProperty('fundServName') && obj['fundServName'] === undefined) {
                 obj['fundServName'] = ApiClient.convertToType(data['fundServName'], 'String');
             }
-            if (data.hasOwnProperty('fundServLoadCode')) {
+            if (data.hasOwnProperty('fundServLoadCode') && obj['fundServLoadCode'] === undefined) {
                 obj['fundServLoadCode'] = ApiClient.convertToType(data['fundServLoadCode'], 'String');
             }
-            if (data.hasOwnProperty('fundServLoadName')) {
+            if (data.hasOwnProperty('fundServLoadName') && obj['fundServLoadName'] === undefined) {
                 obj['fundServLoadName'] = ApiClient.convertToType(data['fundServLoadName'], 'String');
             }
+            
         }
         return obj;
     }

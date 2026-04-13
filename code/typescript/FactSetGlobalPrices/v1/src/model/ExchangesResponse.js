@@ -48,9 +48,10 @@ class ExchangesResponse {
         if (data) {
             obj = obj || new ExchangesResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Exchange]);
             }
+            
         }
         return obj;
     }

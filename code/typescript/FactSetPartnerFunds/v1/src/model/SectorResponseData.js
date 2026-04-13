@@ -49,18 +49,19 @@ class SectorResponseData {
         if (data) {
             obj = obj || new SectorResponseData();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = InvalidIdErrorObject.constructFromObject(data['error']);
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
-            if (data.hasOwnProperty('sectorAllocations')) {
+            if (data.hasOwnProperty('sectorAllocations') && obj['sectorAllocations'] === undefined) {
                 obj['sectorAllocations'] = ApiClient.convertToType(data['sectorAllocations'], [SectorBreakdown]);
             }
+            
         }
         return obj;
     }

@@ -46,12 +46,13 @@ class FIABCalculationStatusSummary {
         if (data) {
             obj = obj || new FIABCalculationStatusSummary();
 
-            if (data.hasOwnProperty('requesttime')) {
+            if (data.hasOwnProperty('requesttime') && obj['requesttime'] === undefined) {
                 obj['requesttime'] = ApiClient.convertToType(data['requesttime'], 'Date');
             }
-            if (data.hasOwnProperty('lastpolltime')) {
+            if (data.hasOwnProperty('lastpolltime') && obj['lastpolltime'] === undefined) {
                 obj['lastpolltime'] = ApiClient.convertToType(data['lastpolltime'], 'Date');
             }
+            
         }
         return obj;
     }

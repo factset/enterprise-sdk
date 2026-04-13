@@ -55,27 +55,28 @@ class BuyContextRequestBody {
         if (data) {
             obj = obj || new BuyContextRequestBody();
 
-            if (data.hasOwnProperty('accountPath')) {
+            if (data.hasOwnProperty('accountPath') && obj['accountPath'] === undefined) {
                 obj['accountPath'] = ApiClient.convertToType(data['accountPath'], 'String');
             }
-            if (data.hasOwnProperty('benchmarkPath')) {
+            if (data.hasOwnProperty('benchmarkPath') && obj['benchmarkPath'] === undefined) {
                 obj['benchmarkPath'] = ApiClient.convertToType(data['benchmarkPath'], 'String');
             }
-            if (data.hasOwnProperty('period')) {
+            if (data.hasOwnProperty('period') && obj['period'] === undefined) {
                 obj['period'] = ApiClient.convertToType(data['period'], 'String');
             }
-            if (data.hasOwnProperty('attribute')) {
+            if (data.hasOwnProperty('attribute') && obj['attribute'] === undefined) {
                 obj['attribute'] = Attributes.constructFromObject(data['attribute']);
             }
-            if (data.hasOwnProperty('sector')) {
+            if (data.hasOwnProperty('sector') && obj['sector'] === undefined) {
                 obj['sector'] = ApiClient.convertToType(data['sector'], 'String');
             }
-            if (data.hasOwnProperty('region')) {
+            if (data.hasOwnProperty('region') && obj['region'] === undefined) {
                 obj['region'] = ApiClient.convertToType(data['region'], 'String');
             }
-            if (data.hasOwnProperty('customClassifications')) {
+            if (data.hasOwnProperty('customClassifications') && obj['customClassifications'] === undefined) {
                 obj['customClassifications'] = ApiClient.convertToType(data['customClassifications'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

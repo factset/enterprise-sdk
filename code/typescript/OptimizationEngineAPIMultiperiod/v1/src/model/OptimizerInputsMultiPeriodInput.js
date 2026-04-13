@@ -51,24 +51,25 @@ class OptimizerInputsMultiPeriodInput {
         if (data) {
             obj = obj || new OptimizerInputsMultiPeriodInput();
 
-            if (data.hasOwnProperty('strategy')) {
+            if (data.hasOwnProperty('strategy') && obj['strategy'] === undefined) {
                 obj['strategy'] = OptimizerInputsMultiPeriodStrategy.constructFromObject(data['strategy']);
             }
-            if (data.hasOwnProperty('universe')) {
+            if (data.hasOwnProperty('universe') && obj['universe'] === undefined) {
                 obj['universe'] = OptimizerInputsTotalUniverse.constructFromObject(data['universe']);
             }
-            if (data.hasOwnProperty('portfolios')) {
+            if (data.hasOwnProperty('portfolios') && obj['portfolios'] === undefined) {
                 obj['portfolios'] = OptimizerInputsPortfolios.constructFromObject(data['portfolios']);
             }
-            if (data.hasOwnProperty('riskmodels')) {
+            if (data.hasOwnProperty('riskmodels') && obj['riskmodels'] === undefined) {
                 obj['riskmodels'] = OptimizerInputsMultiPeriodRiskModels.constructFromObject(data['riskmodels']);
             }
-            if (data.hasOwnProperty('lookup_tables')) {
+            if (data.hasOwnProperty('lookup_tables') && obj['lookup_tables'] === undefined) {
                 obj['lookup_tables'] = OptimizerInputsLookupTables.constructFromObject(data['lookup_tables']);
             }
-            if (data.hasOwnProperty('output_statistics')) {
+            if (data.hasOwnProperty('output_statistics') && obj['output_statistics'] === undefined) {
                 obj['output_statistics'] = ApiClient.convertToType(data['output_statistics'], 'Boolean');
             }
+            
         }
         return obj;
     }

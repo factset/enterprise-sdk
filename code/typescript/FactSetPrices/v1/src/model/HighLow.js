@@ -46,33 +46,34 @@ class HighLow {
         if (data) {
             obj = obj || new HighLow();
 
-            if (data.hasOwnProperty('adjDate')) {
+            if (data.hasOwnProperty('adjDate') && obj['adjDate'] === undefined) {
                 obj['adjDate'] = ApiClient.convertToType(data['adjDate'], 'Date');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
-            if (data.hasOwnProperty('period')) {
+            if (data.hasOwnProperty('period') && obj['period'] === undefined) {
                 obj['period'] = ApiClient.convertToType(data['period'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('priceHigh')) {
+            if (data.hasOwnProperty('priceHigh') && obj['priceHigh'] === undefined) {
                 obj['priceHigh'] = ApiClient.convertToType(data['priceHigh'], 'Number');
             }
-            if (data.hasOwnProperty('priceLow')) {
+            if (data.hasOwnProperty('priceLow') && obj['priceLow'] === undefined) {
                 obj['priceLow'] = ApiClient.convertToType(data['priceLow'], 'Number');
             }
-            if (data.hasOwnProperty('priceHighDate')) {
+            if (data.hasOwnProperty('priceHighDate') && obj['priceHighDate'] === undefined) {
                 obj['priceHighDate'] = ApiClient.convertToType(data['priceHighDate'], 'Date');
             }
-            if (data.hasOwnProperty('priceLowDate')) {
+            if (data.hasOwnProperty('priceLowDate') && obj['priceLowDate'] === undefined) {
                 obj['priceLowDate'] = ApiClient.convertToType(data['priceLowDate'], 'Date');
             }
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
+            
         }
         return obj;
     }

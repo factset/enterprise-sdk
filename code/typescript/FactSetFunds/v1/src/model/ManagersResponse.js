@@ -47,9 +47,10 @@ class ManagersResponse {
         if (data) {
             obj = obj || new ManagersResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Managers]);
             }
+            
         }
         return obj;
     }

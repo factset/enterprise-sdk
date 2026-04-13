@@ -46,15 +46,16 @@ class CustomFieldTeamConfigDto {
         if (data) {
             obj = obj || new CustomFieldTeamConfigDto();
 
-            if (data.hasOwnProperty('teamId')) {
+            if (data.hasOwnProperty('teamId') && obj['teamId'] === undefined) {
                 obj['teamId'] = ApiClient.convertToType(data['teamId'], 'String');
             }
-            if (data.hasOwnProperty('teamName')) {
+            if (data.hasOwnProperty('teamName') && obj['teamName'] === undefined) {
                 obj['teamName'] = ApiClient.convertToType(data['teamName'], 'String');
             }
-            if (data.hasOwnProperty('fieldName')) {
+            if (data.hasOwnProperty('fieldName') && obj['fieldName'] === undefined) {
                 obj['fieldName'] = ApiClient.convertToType(data['fieldName'], 'String');
             }
+            
         }
         return obj;
     }

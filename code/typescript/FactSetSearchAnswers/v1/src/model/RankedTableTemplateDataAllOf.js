@@ -47,9 +47,10 @@ class RankedTableTemplateDataAllOf {
         if (data) {
             obj = obj || new RankedTableTemplateDataAllOf();
 
-            if (data.hasOwnProperty('table')) {
+            if (data.hasOwnProperty('table') && obj['table'] === undefined) {
                 obj['table'] = RankedTable.constructFromObject(data['table']);
             }
+            
         }
         return obj;
     }

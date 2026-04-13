@@ -48,9 +48,10 @@ class PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItemsUpper
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItemsUpper();
 
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = PostSecuritizedDerivativeNotationScreenerSearchDataRangeBarriersItemsUpperLevel.constructFromObject(data['level']);
             }
+            
         }
         return obj;
     }

@@ -49,12 +49,13 @@ class ErrorWithMetaResponse {
         if (data) {
             obj = obj || new ErrorWithMetaResponse();
 
-            if (data.hasOwnProperty('errors')) {
+            if (data.hasOwnProperty('errors') && obj['errors'] === undefined) {
                 obj['errors'] = ApiClient.convertToType(data['errors'], [ErrorObject]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

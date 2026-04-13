@@ -46,12 +46,13 @@ class OptimizerTradesList {
         if (data) {
             obj = obj || new OptimizerTradesList();
 
-            if (data.hasOwnProperty('identifierType')) {
+            if (data.hasOwnProperty('identifierType') && obj['identifierType'] === undefined) {
                 obj['identifierType'] = ApiClient.convertToType(data['identifierType'], 'String');
             }
-            if (data.hasOwnProperty('includeCash')) {
+            if (data.hasOwnProperty('includeCash') && obj['includeCash'] === undefined) {
                 obj['includeCash'] = ApiClient.convertToType(data['includeCash'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -51,18 +51,19 @@ class GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsB
         if (data) {
             obj = obj || new GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeLower();
 
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeLowerLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('breach')) {
+            if (data.hasOwnProperty('breach') && obj['breach'] === undefined) {
                 obj['breach'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeLowerBreach.constructFromObject(data['breach']);
             }
-            if (data.hasOwnProperty('distance')) {
+            if (data.hasOwnProperty('distance') && obj['distance'] === undefined) {
                 obj['distance'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeLowerDistance.constructFromObject(data['distance']);
             }
-            if (data.hasOwnProperty('participationFactor')) {
+            if (data.hasOwnProperty('participationFactor') && obj['participationFactor'] === undefined) {
                 obj['participationFactor'] = GetSecuritizedDerivativeUnderlyingListDataBarrierTypeConditionsConditionsBarriersItemsRangeLowerParticipationFactor.constructFromObject(data['participationFactor']);
             }
+            
         }
         return obj;
     }

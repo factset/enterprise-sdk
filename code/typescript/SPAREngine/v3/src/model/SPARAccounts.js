@@ -47,9 +47,10 @@ class SPARAccounts {
         if (data) {
             obj = obj || new SPARAccounts();
 
-            if (data.hasOwnProperty('returnsType')) {
+            if (data.hasOwnProperty('returnsType') && obj['returnsType'] === undefined) {
                 obj['returnsType'] = ApiClient.convertToType(data['returnsType'], [ReturnType]);
             }
+            
         }
         return obj;
     }

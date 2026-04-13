@@ -48,12 +48,13 @@ class OptimizerInputsMPHoldingsThresholdConstraint {
         if (data) {
             obj = obj || new OptimizerInputsMPHoldingsThresholdConstraint();
 
-            if (data.hasOwnProperty('constraint')) {
+            if (data.hasOwnProperty('constraint') && obj['constraint'] === undefined) {
                 obj['constraint'] = OptimizerInputsHoldingsThresholdConstraint.constructFromObject(data['constraint']);
             }
-            if (data.hasOwnProperty('on_periods')) {
+            if (data.hasOwnProperty('on_periods') && obj['on_periods'] === undefined) {
                 obj['on_periods'] = OptimizerInputsOnPeriods.constructFromObject(data['on_periods']);
             }
+            
         }
         return obj;
     }

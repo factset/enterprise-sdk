@@ -48,12 +48,13 @@ class PostOptionByClassListDataItemsInstrumentStrikePrice {
         if (data) {
             obj = obj || new PostOptionByClassListDataItemsInstrumentStrikePrice();
 
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = ApiClient.convertToType(data['level'], 'Number');
             }
-            if (data.hasOwnProperty('valueUnit')) {
+            if (data.hasOwnProperty('valueUnit') && obj['valueUnit'] === undefined) {
                 obj['valueUnit'] = PostOptionByClassListDataItemsInstrumentStrikePriceValueUnit.constructFromObject(data['valueUnit']);
             }
+            
         }
         return obj;
     }

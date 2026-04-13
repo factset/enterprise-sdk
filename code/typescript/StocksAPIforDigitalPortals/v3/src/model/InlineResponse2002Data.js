@@ -52,27 +52,28 @@ class InlineResponse2002Data {
         if (data) {
             obj = obj || new InlineResponse2002Data();
 
-            if (data.hasOwnProperty('fiscalYear')) {
+            if (data.hasOwnProperty('fiscalYear') && obj['fiscalYear'] === undefined) {
                 obj['fiscalYear'] = InlineResponse2002FiscalYear.constructFromObject(data['fiscalYear']);
             }
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = InlineResponse2002Currency.constructFromObject(data['currency']);
             }
-            if (data.hasOwnProperty('incomeStatement')) {
+            if (data.hasOwnProperty('incomeStatement') && obj['incomeStatement'] === undefined) {
                 obj['incomeStatement'] = InlineResponse2002IncomeStatement.constructFromObject(data['incomeStatement']);
             }
-            if (data.hasOwnProperty('balanceSheet')) {
+            if (data.hasOwnProperty('balanceSheet') && obj['balanceSheet'] === undefined) {
                 obj['balanceSheet'] = InlineResponse2002BalanceSheet.constructFromObject(data['balanceSheet']);
             }
-            if (data.hasOwnProperty('ratios')) {
+            if (data.hasOwnProperty('ratios') && obj['ratios'] === undefined) {
                 obj['ratios'] = InlineResponse2002Ratios.constructFromObject(data['ratios']);
             }
-            if (data.hasOwnProperty('perShare')) {
+            if (data.hasOwnProperty('perShare') && obj['perShare'] === undefined) {
                 obj['perShare'] = InlineResponse2002PerShare.constructFromObject(data['perShare']);
             }
+            
         }
         return obj;
     }

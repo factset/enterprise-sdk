@@ -47,12 +47,13 @@ class PostStockNotationRankingIntradayListRequestDataIndexMembership {
         if (data) {
             obj = obj || new PostStockNotationRankingIntradayListRequestDataIndexMembership();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('useAlternativeNotation')) {
+            if (data.hasOwnProperty('useAlternativeNotation') && obj['useAlternativeNotation'] === undefined) {
                 obj['useAlternativeNotation'] = ApiClient.convertToType(data['useAlternativeNotation'], 'Boolean');
             }
+            
         }
         return obj;
     }

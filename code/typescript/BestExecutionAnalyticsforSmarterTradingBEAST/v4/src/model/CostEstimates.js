@@ -48,12 +48,13 @@ class CostEstimates {
         if (data) {
             obj = obj || new CostEstimates();
 
-            if (data.hasOwnProperty('orderLiquidity')) {
+            if (data.hasOwnProperty('orderLiquidity') && obj['orderLiquidity'] === undefined) {
                 obj['orderLiquidity'] = CostEstimate.constructFromObject(data['orderLiquidity']);
             }
-            if (data.hasOwnProperty('predictedLiquidity')) {
+            if (data.hasOwnProperty('predictedLiquidity') && obj['predictedLiquidity'] === undefined) {
                 obj['predictedLiquidity'] = CostEstimate.constructFromObject(data['predictedLiquidity']);
             }
+            
         }
         return obj;
     }

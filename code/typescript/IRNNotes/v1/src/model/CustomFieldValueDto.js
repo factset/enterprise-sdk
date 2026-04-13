@@ -47,21 +47,22 @@ class CustomFieldValueDto {
         if (data) {
             obj = obj || new CustomFieldValueDto();
 
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'String');
             }
-            if (data.hasOwnProperty('options')) {
+            if (data.hasOwnProperty('options') && obj['options'] === undefined) {
                 obj['options'] = ApiClient.convertToType(data['options'], ['String']);
             }
-            if (data.hasOwnProperty('contactValues')) {
+            if (data.hasOwnProperty('contactValues') && obj['contactValues'] === undefined) {
                 obj['contactValues'] = ApiClient.convertToType(data['contactValues'], ['String']);
             }
-            if (data.hasOwnProperty('userTeamValues')) {
+            if (data.hasOwnProperty('userTeamValues') && obj['userTeamValues'] === undefined) {
                 obj['userTeamValues'] = UserTeamLookupDto.constructFromObject(data['userTeamValues']);
             }
+            
         }
         return obj;
     }

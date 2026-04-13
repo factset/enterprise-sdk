@@ -47,9 +47,10 @@ class RelationshipsResponse {
         if (data) {
             obj = obj || new RelationshipsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Relationships]);
             }
+            
         }
         return obj;
     }

@@ -46,9 +46,10 @@ class FactSetProtobufStachV3TableTypesFormatResult {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesFormatResult();
 
-            if (data.hasOwnProperty('columns')) {
+            if (data.hasOwnProperty('columns') && obj['columns'] === undefined) {
                 obj['columns'] = ApiClient.convertToType(data['columns'], {'String': 'String'});
             }
+            
         }
         return obj;
     }

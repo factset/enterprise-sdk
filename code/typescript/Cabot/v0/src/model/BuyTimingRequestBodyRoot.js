@@ -47,9 +47,10 @@ class BuyTimingRequestBodyRoot {
         if (data) {
             obj = obj || new BuyTimingRequestBodyRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = BuyTimingRequestBody.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

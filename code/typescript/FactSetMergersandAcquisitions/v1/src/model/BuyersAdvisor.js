@@ -48,12 +48,13 @@ class BuyersAdvisor {
         if (data) {
             obj = obj || new BuyersAdvisor();
 
-            if (data.hasOwnProperty('financial')) {
+            if (data.hasOwnProperty('financial') && obj['financial'] === undefined) {
                 obj['financial'] = ApiClient.convertToType(data['financial'], [AdvisorParticipant]);
             }
-            if (data.hasOwnProperty('legal')) {
+            if (data.hasOwnProperty('legal') && obj['legal'] === undefined) {
                 obj['legal'] = ApiClient.convertToType(data['legal'], [AdvisorParticipant]);
             }
+            
         }
         return obj;
     }

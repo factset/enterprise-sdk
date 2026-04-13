@@ -53,24 +53,25 @@ class FlattenedFilters {
         if (data) {
             obj = obj || new FlattenedFilters();
 
-            if (data.hasOwnProperty('sources')) {
+            if (data.hasOwnProperty('sources') && obj['sources'] === undefined) {
                 obj['sources'] = ApiClient.convertToType(data['sources'], [FlattenedFiltersSourcesObject]);
             }
-            if (data.hasOwnProperty('categories')) {
+            if (data.hasOwnProperty('categories') && obj['categories'] === undefined) {
                 obj['categories'] = ApiClient.convertToType(data['categories'], [FlattenedFiltersCategoriesObject]);
             }
-            if (data.hasOwnProperty('topics')) {
+            if (data.hasOwnProperty('topics') && obj['topics'] === undefined) {
                 obj['topics'] = ApiClient.convertToType(data['topics'], [FlattenedFiltersTopicsObject]);
             }
-            if (data.hasOwnProperty('regions')) {
+            if (data.hasOwnProperty('regions') && obj['regions'] === undefined) {
                 obj['regions'] = ApiClient.convertToType(data['regions'], [FlattenedFiltersRegionsObject]);
             }
-            if (data.hasOwnProperty('countries')) {
+            if (data.hasOwnProperty('countries') && obj['countries'] === undefined) {
                 obj['countries'] = ApiClient.convertToType(data['countries'], [FlattenedFiltersCountriesObject]);
             }
-            if (data.hasOwnProperty('watchlists')) {
+            if (data.hasOwnProperty('watchlists') && obj['watchlists'] === undefined) {
                 obj['watchlists'] = ApiClient.convertToType(data['watchlists'], [FlattenedFiltersWatchlistsObject]);
             }
+            
         }
         return obj;
     }

@@ -47,18 +47,19 @@ class ChartList {
         if (data) {
             obj = obj || new ChartList();
 
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('description')) {
+            if (data.hasOwnProperty('description') && obj['description'] === undefined) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('tags')) {
+            if (data.hasOwnProperty('tags') && obj['tags'] === undefined) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
-            if (data.hasOwnProperty('inputs')) {
+            if (data.hasOwnProperty('inputs') && obj['inputs'] === undefined) {
                 obj['inputs'] = ApiClient.convertToType(data['inputs'], [ChartInput]);
             }
+            
         }
         return obj;
     }

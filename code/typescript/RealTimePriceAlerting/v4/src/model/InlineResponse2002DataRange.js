@@ -47,12 +47,13 @@ class InlineResponse2002DataRange {
         if (data) {
             obj = obj || new InlineResponse2002DataRange();
 
-            if (data.hasOwnProperty('upperLimit')) {
+            if (data.hasOwnProperty('upperLimit') && obj['upperLimit'] === undefined) {
                 obj['upperLimit'] = ApiClient.convertToType(data['upperLimit'], 'Number');
             }
-            if (data.hasOwnProperty('lowerLimit')) {
+            if (data.hasOwnProperty('lowerLimit') && obj['lowerLimit'] === undefined) {
                 obj['lowerLimit'] = ApiClient.convertToType(data['lowerLimit'], 'Number');
             }
+            
         }
         return obj;
     }

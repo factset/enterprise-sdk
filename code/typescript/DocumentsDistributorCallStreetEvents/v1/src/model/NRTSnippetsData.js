@@ -47,21 +47,22 @@ class NRTSnippetsData {
         if (data) {
             obj = obj || new NRTSnippetsData();
 
-            if (data.hasOwnProperty('reportId')) {
+            if (data.hasOwnProperty('reportId') && obj['reportId'] === undefined) {
                 obj['reportId'] = ApiClient.convertToType(data['reportId'], 'Number');
             }
-            if (data.hasOwnProperty('snippetEndTimestamp')) {
+            if (data.hasOwnProperty('snippetEndTimestamp') && obj['snippetEndTimestamp'] === undefined) {
                 obj['snippetEndTimestamp'] = ApiClient.convertToType(data['snippetEndTimestamp'], 'String');
             }
-            if (data.hasOwnProperty('transcriptData')) {
+            if (data.hasOwnProperty('transcriptData') && obj['transcriptData'] === undefined) {
                 obj['transcriptData'] = ApiClient.convertToType(data['transcriptData'], [NRTSnippetsTranscriptData]);
             }
-            if (data.hasOwnProperty('snippetSequence')) {
+            if (data.hasOwnProperty('snippetSequence') && obj['snippetSequence'] === undefined) {
                 obj['snippetSequence'] = ApiClient.convertToType(data['snippetSequence'], 'Number');
             }
-            if (data.hasOwnProperty('audioSourceId')) {
+            if (data.hasOwnProperty('audioSourceId') && obj['audioSourceId'] === undefined) {
                 obj['audioSourceId'] = ApiClient.convertToType(data['audioSourceId'], 'Number');
             }
+            
         }
         return obj;
     }

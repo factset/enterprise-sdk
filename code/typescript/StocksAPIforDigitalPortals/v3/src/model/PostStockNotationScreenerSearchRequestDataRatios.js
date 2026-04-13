@@ -57,36 +57,37 @@ class PostStockNotationScreenerSearchRequestDataRatios {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataRatios();
 
-            if (data.hasOwnProperty('priceSales')) {
+            if (data.hasOwnProperty('priceSales') && obj['priceSales'] === undefined) {
                 obj['priceSales'] = PostStockNotationScreenerSearchRequestDataRatiosPriceSales.constructFromObject(data['priceSales']);
             }
-            if (data.hasOwnProperty('priceEarnings')) {
+            if (data.hasOwnProperty('priceEarnings') && obj['priceEarnings'] === undefined) {
                 obj['priceEarnings'] = PostStockNotationScreenerSearchRequestDataRatiosPriceEarnings.constructFromObject(data['priceEarnings']);
             }
-            if (data.hasOwnProperty('priceBookValue')) {
+            if (data.hasOwnProperty('priceBookValue') && obj['priceBookValue'] === undefined) {
                 obj['priceBookValue'] = PostStockNotationScreenerSearchRequestDataRatiosPriceBookValue.constructFromObject(data['priceBookValue']);
             }
-            if (data.hasOwnProperty('priceCashFlow')) {
+            if (data.hasOwnProperty('priceCashFlow') && obj['priceCashFlow'] === undefined) {
                 obj['priceCashFlow'] = PostStockNotationScreenerSearchRequestDataRatiosPriceCashFlow.constructFromObject(data['priceCashFlow']);
             }
-            if (data.hasOwnProperty('priceFreeCashFlow')) {
+            if (data.hasOwnProperty('priceFreeCashFlow') && obj['priceFreeCashFlow'] === undefined) {
                 obj['priceFreeCashFlow'] = PostStockNotationScreenerSearchRequestDataRatiosPriceFreeCashFlow.constructFromObject(data['priceFreeCashFlow']);
             }
-            if (data.hasOwnProperty('dividendYield')) {
+            if (data.hasOwnProperty('dividendYield') && obj['dividendYield'] === undefined) {
                 obj['dividendYield'] = PostStockNotationScreenerSearchRequestDataRatiosDividendYield.constructFromObject(data['dividendYield']);
             }
-            if (data.hasOwnProperty('enterpriseValueEbit')) {
+            if (data.hasOwnProperty('enterpriseValueEbit') && obj['enterpriseValueEbit'] === undefined) {
                 obj['enterpriseValueEbit'] = PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueEbit.constructFromObject(data['enterpriseValueEbit']);
             }
-            if (data.hasOwnProperty('enterpriseValueEbitda')) {
+            if (data.hasOwnProperty('enterpriseValueEbitda') && obj['enterpriseValueEbitda'] === undefined) {
                 obj['enterpriseValueEbitda'] = PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueEbitda.constructFromObject(data['enterpriseValueEbitda']);
             }
-            if (data.hasOwnProperty('enterpriseValueSales')) {
+            if (data.hasOwnProperty('enterpriseValueSales') && obj['enterpriseValueSales'] === undefined) {
                 obj['enterpriseValueSales'] = PostStockNotationScreenerSearchRequestDataRatiosEnterpriseValueSales.constructFromObject(data['enterpriseValueSales']);
             }
-            if (data.hasOwnProperty('debtEquity')) {
+            if (data.hasOwnProperty('debtEquity') && obj['debtEquity'] === undefined) {
                 obj['debtEquity'] = PostStockNotationScreenerSearchRequestDataRatiosDebtEquity.constructFromObject(data['debtEquity']);
             }
+            
         }
         return obj;
     }

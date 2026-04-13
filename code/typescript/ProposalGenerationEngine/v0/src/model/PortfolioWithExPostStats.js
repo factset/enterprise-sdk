@@ -52,24 +52,29 @@ class PortfolioWithExPostStats {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new PortfolioWithExPostStats();
-            PortfolioEntity.constructFromObject(data, obj);
-            PortfolioWithExPostStatsAllOf.constructFromObject(data, obj);
+            try {
+              obj = PortfolioEntity.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = PortfolioWithExPostStatsAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('details')) {
+            if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = PortfolioEntityDetails.constructFromObject(data['details']);
             }
-            if (data.hasOwnProperty('stats')) {
+            if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = TimeWindowStats.constructFromObject(data['stats']);
             }
-            if (data.hasOwnProperty('udfs')) {
+            if (data.hasOwnProperty('udfs') && obj['udfs'] === undefined) {
                 obj['udfs'] = ApiClient.convertToType(data['udfs'], Object);
             }
-            if (data.hasOwnProperty('periods')) {
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
                 obj['periods'] = ExPostPeriodStats.constructFromObject(data['periods']);
             }
+            
         }
         return obj;
     }

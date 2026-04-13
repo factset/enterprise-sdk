@@ -48,9 +48,10 @@ class PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdg {
         if (data) {
             obj = obj || new PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdg();
 
-            if (data.hasOwnProperty('impact')) {
+            if (data.hasOwnProperty('impact') && obj['impact'] === undefined) {
                 obj['impact'] = PostStockNotationScreenerSearchRequestDataEsgTruvalueLabsSdgImpact.constructFromObject(data['impact']);
             }
+            
         }
         return obj;
     }

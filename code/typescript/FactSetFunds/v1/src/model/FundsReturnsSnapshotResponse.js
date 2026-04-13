@@ -47,9 +47,10 @@ class FundsReturnsSnapshotResponse {
         if (data) {
             obj = obj || new FundsReturnsSnapshotResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [ReturnsSnapshot]);
             }
+            
         }
         return obj;
     }

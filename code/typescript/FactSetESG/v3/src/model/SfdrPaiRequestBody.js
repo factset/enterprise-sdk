@@ -53,27 +53,28 @@ class SfdrPaiRequestBody {
         if (data) {
             obj = obj || new SfdrPaiRequestBody();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('feelback')) {
+            if (data.hasOwnProperty('feelback') && obj['feelback'] === undefined) {
                 obj['feelback'] = ApiClient.convertToType(data['feelback'], 'Boolean');
             }
-            if (data.hasOwnProperty('fiscalPeriodStart')) {
+            if (data.hasOwnProperty('fiscalPeriodStart') && obj['fiscalPeriodStart'] === undefined) {
                 obj['fiscalPeriodStart'] = ApiClient.convertToType(data['fiscalPeriodStart'], 'Date');
             }
-            if (data.hasOwnProperty('fiscalPeriodEnd')) {
+            if (data.hasOwnProperty('fiscalPeriodEnd') && obj['fiscalPeriodEnd'] === undefined) {
                 obj['fiscalPeriodEnd'] = ApiClient.convertToType(data['fiscalPeriodEnd'], 'Date');
             }
-            if (data.hasOwnProperty('indicators')) {
+            if (data.hasOwnProperty('indicators') && obj['indicators'] === undefined) {
                 obj['indicators'] = ApiClient.convertToType(data['indicators'], ['String']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('calculation')) {
+            if (data.hasOwnProperty('calculation') && obj['calculation'] === undefined) {
                 obj['calculation'] = ApiClient.convertToType(data['calculation'], 'Boolean');
             }
+            
         }
         return obj;
     }

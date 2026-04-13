@@ -47,9 +47,10 @@ class CompanyCompensationResponse {
         if (data) {
             obj = obj || new CompanyCompensationResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CompanyCompensation]);
             }
+            
         }
         return obj;
     }

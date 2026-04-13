@@ -53,21 +53,26 @@ class RankedTableTemplateData {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new RankedTableTemplateData();
-            Template.constructFromObject(data, obj);
-            RankedTableTemplateDataAllOf.constructFromObject(data, obj);
+            try {
+              obj = Template.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
+              obj = RankedTableTemplateDataAllOf.constructFromObject(data, obj);
+            } catch(error) {}
 
-            if (data.hasOwnProperty('headline')) {
+            if (data.hasOwnProperty('headline') && obj['headline'] === undefined) {
                 obj['headline'] = ApiClient.convertToType(data['headline'], 'String');
             }
-            if (data.hasOwnProperty('footer')) {
+            if (data.hasOwnProperty('footer') && obj['footer'] === undefined) {
                 obj['footer'] = ApiClient.convertToType(data['footer'], 'String');
             }
-            if (data.hasOwnProperty('fdc3Context')) {
+            if (data.hasOwnProperty('fdc3Context') && obj['fdc3Context'] === undefined) {
                 obj['fdc3Context'] = Fdc3Context.constructFromObject(data['fdc3Context']);
             }
-            if (data.hasOwnProperty('table')) {
+            if (data.hasOwnProperty('table') && obj['table'] === undefined) {
                 obj['table'] = RankedTable.constructFromObject(data['table']);
             }
+            
         }
         return obj;
     }

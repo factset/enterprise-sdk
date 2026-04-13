@@ -47,9 +47,10 @@ class AvailableStrategiesInput {
         if (data) {
             obj = obj || new AvailableStrategiesInput();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = AvailableStrategiesInputData.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

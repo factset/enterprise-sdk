@@ -46,24 +46,25 @@ class SerieStats {
         if (data) {
             obj = obj || new SerieStats();
 
-            if (data.hasOwnProperty('mean')) {
+            if (data.hasOwnProperty('mean') && obj['mean'] === undefined) {
                 obj['mean'] = ApiClient.convertToType(data['mean'], 'Number');
             }
-            if (data.hasOwnProperty('annMean')) {
+            if (data.hasOwnProperty('annMean') && obj['annMean'] === undefined) {
                 obj['annMean'] = ApiClient.convertToType(data['annMean'], 'Number');
             }
-            if (data.hasOwnProperty('stDev')) {
+            if (data.hasOwnProperty('stDev') && obj['stDev'] === undefined) {
                 obj['stDev'] = ApiClient.convertToType(data['stDev'], 'Number');
             }
-            if (data.hasOwnProperty('annStDev')) {
+            if (data.hasOwnProperty('annStDev') && obj['annStDev'] === undefined) {
                 obj['annStDev'] = ApiClient.convertToType(data['annStDev'], 'Number');
             }
-            if (data.hasOwnProperty('etl')) {
+            if (data.hasOwnProperty('etl') && obj['etl'] === undefined) {
                 obj['etl'] = ApiClient.convertToType(data['etl'], {'String': 'Number'});
             }
-            if (data.hasOwnProperty('var')) {
+            if (data.hasOwnProperty('var') && obj['var'] === undefined) {
                 obj['var'] = ApiClient.convertToType(data['var'], {'String': 'Number'});
             }
+            
         }
         return obj;
     }

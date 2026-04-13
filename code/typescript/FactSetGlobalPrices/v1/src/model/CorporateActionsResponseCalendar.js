@@ -49,12 +49,13 @@ class CorporateActionsResponseCalendar {
         if (data) {
             obj = obj || new CorporateActionsResponseCalendar();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [CorporateActionCalendar]);
             }
-            if (data.hasOwnProperty('meta')) {
+            if (data.hasOwnProperty('meta') && obj['meta'] === undefined) {
                 obj['meta'] = Meta.constructFromObject(data['meta']);
             }
+            
         }
         return obj;
     }

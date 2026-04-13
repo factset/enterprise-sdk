@@ -55,21 +55,22 @@ class StatResult {
         if (data) {
             obj = obj || new StatResult();
 
-            if (data.hasOwnProperty('stat')) {
+            if (data.hasOwnProperty('stat') && obj['stat'] === undefined) {
                 obj['stat'] = ApiClient.convertToType(data['stat'], 'String');
             }
-            if (data.hasOwnProperty('level')) {
+            if (data.hasOwnProperty('level') && obj['level'] === undefined) {
                 obj['level'] = StatCalculationLevel.constructFromObject(data['level']);
             }
-            if (data.hasOwnProperty('settings')) {
+            if (data.hasOwnProperty('settings') && obj['settings'] === undefined) {
                 obj['settings'] = StatCalculationSettings.constructFromObject(data['settings']);
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = StatResultValue.constructFromObject(data['value']);
             }
-            if (data.hasOwnProperty('error')) {
+            if (data.hasOwnProperty('error') && obj['error'] === undefined) {
                 obj['error'] = ErrorItem.constructFromObject(data['error']);
             }
+            
         }
         return obj;
     }

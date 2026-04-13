@@ -46,24 +46,25 @@ class Spot {
         if (data) {
             obj = obj || new Spot();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('currencyName')) {
+            if (data.hasOwnProperty('currencyName') && obj['currencyName'] === undefined) {
                 obj['currencyName'] = ApiClient.convertToType(data['currencyName'], 'String');
             }
-            if (data.hasOwnProperty('spotBid')) {
+            if (data.hasOwnProperty('spotBid') && obj['spotBid'] === undefined) {
                 obj['spotBid'] = ApiClient.convertToType(data['spotBid'], 'Number');
             }
-            if (data.hasOwnProperty('spotMid')) {
+            if (data.hasOwnProperty('spotMid') && obj['spotMid'] === undefined) {
                 obj['spotMid'] = ApiClient.convertToType(data['spotMid'], 'Number');
             }
-            if (data.hasOwnProperty('spotAsk')) {
+            if (data.hasOwnProperty('spotAsk') && obj['spotAsk'] === undefined) {
                 obj['spotAsk'] = ApiClient.convertToType(data['spotAsk'], 'Number');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

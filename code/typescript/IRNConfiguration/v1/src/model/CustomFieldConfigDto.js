@@ -52,57 +52,58 @@ class CustomFieldConfigDto {
         if (data) {
             obj = obj || new CustomFieldConfigDto();
 
-            if (data.hasOwnProperty('id')) {
+            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
-            if (data.hasOwnProperty('code')) {
+            if (data.hasOwnProperty('code') && obj['code'] === undefined) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'String');
             }
-            if (data.hasOwnProperty('name')) {
+            if (data.hasOwnProperty('name') && obj['name'] === undefined) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('source')) {
+            if (data.hasOwnProperty('source') && obj['source'] === undefined) {
                 obj['source'] = ApiClient.convertToType(data['source'], 'String');
             }
-            if (data.hasOwnProperty('type')) {
+            if (data.hasOwnProperty('type') && obj['type'] === undefined) {
                 obj['type'] = ApiClient.convertToType(data['type'], 'String');
             }
-            if (data.hasOwnProperty('usePreviousValue')) {
+            if (data.hasOwnProperty('usePreviousValue') && obj['usePreviousValue'] === undefined) {
                 obj['usePreviousValue'] = ApiClient.convertToType(data['usePreviousValue'], 'Boolean');
             }
-            if (data.hasOwnProperty('isMandatory')) {
+            if (data.hasOwnProperty('isMandatory') && obj['isMandatory'] === undefined) {
                 obj['isMandatory'] = ApiClient.convertToType(data['isMandatory'], 'Boolean');
             }
-            if (data.hasOwnProperty('isHidden')) {
+            if (data.hasOwnProperty('isHidden') && obj['isHidden'] === undefined) {
                 obj['isHidden'] = ApiClient.convertToType(data['isHidden'], 'Boolean');
             }
-            if (data.hasOwnProperty('isFilePath')) {
+            if (data.hasOwnProperty('isFilePath') && obj['isFilePath'] === undefined) {
                 obj['isFilePath'] = ApiClient.convertToType(data['isFilePath'], 'Boolean');
             }
-            if (data.hasOwnProperty('isCalculated')) {
+            if (data.hasOwnProperty('isCalculated') && obj['isCalculated'] === undefined) {
                 obj['isCalculated'] = ApiClient.convertToType(data['isCalculated'], 'Boolean');
             }
-            if (data.hasOwnProperty('hasPairedField')) {
+            if (data.hasOwnProperty('hasPairedField') && obj['hasPairedField'] === undefined) {
                 obj['hasPairedField'] = ApiClient.convertToType(data['hasPairedField'], 'Boolean');
             }
-            if (data.hasOwnProperty('formulaConfig')) {
+            if (data.hasOwnProperty('formulaConfig') && obj['formulaConfig'] === undefined) {
                 obj['formulaConfig'] = FormulaConfigDto.constructFromObject(data['formulaConfig']);
             }
-            if (data.hasOwnProperty('numericConfig')) {
+            if (data.hasOwnProperty('numericConfig') && obj['numericConfig'] === undefined) {
                 obj['numericConfig'] = NumericConfigDto.constructFromObject(data['numericConfig']);
             }
-            if (data.hasOwnProperty('integerConfig')) {
+            if (data.hasOwnProperty('integerConfig') && obj['integerConfig'] === undefined) {
                 obj['integerConfig'] = IntegerConfigDto.constructFromObject(data['integerConfig']);
             }
-            if (data.hasOwnProperty('extendedTextConfig')) {
+            if (data.hasOwnProperty('extendedTextConfig') && obj['extendedTextConfig'] === undefined) {
                 obj['extendedTextConfig'] = ExtendedTextConfigDto.constructFromObject(data['extendedTextConfig']);
             }
-            if (data.hasOwnProperty('optionsConfig')) {
+            if (data.hasOwnProperty('optionsConfig') && obj['optionsConfig'] === undefined) {
                 obj['optionsConfig'] = OptionsConfigDto.constructFromObject(data['optionsConfig']);
             }
-            if (data.hasOwnProperty('userTeamConfig')) {
+            if (data.hasOwnProperty('userTeamConfig') && obj['userTeamConfig'] === undefined) {
                 obj['userTeamConfig'] = UserTeamConfigDto.constructFromObject(data['userTeamConfig']);
             }
+            
         }
         return obj;
     }

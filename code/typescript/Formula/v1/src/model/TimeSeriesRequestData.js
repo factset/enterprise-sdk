@@ -48,42 +48,43 @@ class TimeSeriesRequestData {
         if (data) {
             obj = obj || new TimeSeriesRequestData();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('symbolType')) {
+            if (data.hasOwnProperty('symbolType') && obj['symbolType'] === undefined) {
                 obj['symbolType'] = ApiClient.convertToType(data['symbolType'], 'String');
             }
-            if (data.hasOwnProperty('universe')) {
+            if (data.hasOwnProperty('universe') && obj['universe'] === undefined) {
                 obj['universe'] = ApiClient.convertToType(data['universe'], 'String');
             }
-            if (data.hasOwnProperty('universeType')) {
+            if (data.hasOwnProperty('universeType') && obj['universeType'] === undefined) {
                 obj['universeType'] = ApiClient.convertToType(data['universeType'], 'String');
             }
-            if (data.hasOwnProperty('universeExclusion')) {
+            if (data.hasOwnProperty('universeExclusion') && obj['universeExclusion'] === undefined) {
                 obj['universeExclusion'] = ApiClient.convertToType(data['universeExclusion'], ['String']);
             }
-            if (data.hasOwnProperty('formulas')) {
+            if (data.hasOwnProperty('formulas') && obj['formulas'] === undefined) {
                 obj['formulas'] = ApiClient.convertToType(data['formulas'], ['String']);
             }
-            if (data.hasOwnProperty('calendar')) {
+            if (data.hasOwnProperty('calendar') && obj['calendar'] === undefined) {
                 obj['calendar'] = ApiClient.convertToType(data['calendar'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('displayName')) {
+            if (data.hasOwnProperty('displayName') && obj['displayName'] === undefined) {
                 obj['displayName'] = ApiClient.convertToType(data['displayName'], ['String']);
             }
-            if (data.hasOwnProperty('flatten')) {
+            if (data.hasOwnProperty('flatten') && obj['flatten'] === undefined) {
                 obj['flatten'] = ApiClient.convertToType(data['flatten'], 'String');
             }
-            if (data.hasOwnProperty('dates')) {
+            if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = ApiClient.convertToType(data['dates'], 'String');
             }
-            if (data.hasOwnProperty('batch')) {
+            if (data.hasOwnProperty('batch') && obj['batch'] === undefined) {
                 obj['batch'] = ApiClient.convertToType(data['batch'], 'String');
             }
+            
         }
         return obj;
     }

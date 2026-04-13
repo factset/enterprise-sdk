@@ -47,15 +47,16 @@ class PACalculationDataSources {
         if (data) {
             obj = obj || new PACalculationDataSources();
 
-            if (data.hasOwnProperty('portfoliopricingsources')) {
+            if (data.hasOwnProperty('portfoliopricingsources') && obj['portfoliopricingsources'] === undefined) {
                 obj['portfoliopricingsources'] = ApiClient.convertToType(data['portfoliopricingsources'], [PACalculationPricingSource]);
             }
-            if (data.hasOwnProperty('benchmarkpricingsources')) {
+            if (data.hasOwnProperty('benchmarkpricingsources') && obj['benchmarkpricingsources'] === undefined) {
                 obj['benchmarkpricingsources'] = ApiClient.convertToType(data['benchmarkpricingsources'], [PACalculationPricingSource]);
             }
-            if (data.hasOwnProperty('useportfoliopricingsourcesforbenchmark')) {
+            if (data.hasOwnProperty('useportfoliopricingsourcesforbenchmark') && obj['useportfoliopricingsourcesforbenchmark'] === undefined) {
                 obj['useportfoliopricingsourcesforbenchmark'] = ApiClient.convertToType(data['useportfoliopricingsourcesforbenchmark'], 'Boolean');
             }
+            
         }
         return obj;
     }

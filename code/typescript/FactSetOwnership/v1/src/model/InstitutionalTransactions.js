@@ -47,39 +47,40 @@ class InstitutionalTransactions {
         if (data) {
             obj = obj || new InstitutionalTransactions();
 
-            if (data.hasOwnProperty('requestId')) {
+            if (data.hasOwnProperty('requestId') && obj['requestId'] === undefined) {
                 obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
-            if (data.hasOwnProperty('fsymId')) {
+            if (data.hasOwnProperty('fsymId') && obj['fsymId'] === undefined) {
                 obj['fsymId'] = ApiClient.convertToType(data['fsymId'], 'String');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('holderName')) {
+            if (data.hasOwnProperty('holderName') && obj['holderName'] === undefined) {
                 obj['holderName'] = ApiClient.convertToType(data['holderName'], 'String');
             }
-            if (data.hasOwnProperty('pctOS')) {
+            if (data.hasOwnProperty('pctOS') && obj['pctOS'] === undefined) {
                 obj['pctOS'] = ApiClient.convertToType(data['pctOS'], 'Number');
             }
-            if (data.hasOwnProperty('pctChange')) {
+            if (data.hasOwnProperty('pctChange') && obj['pctChange'] === undefined) {
                 obj['pctChange'] = ApiClient.convertToType(data['pctChange'], 'Number');
             }
-            if (data.hasOwnProperty('posChange')) {
+            if (data.hasOwnProperty('posChange') && obj['posChange'] === undefined) {
                 obj['posChange'] = ApiClient.convertToType(data['posChange'], 'Number');
             }
-            if (data.hasOwnProperty('marketVal')) {
+            if (data.hasOwnProperty('marketVal') && obj['marketVal'] === undefined) {
                 obj['marketVal'] = ApiClient.convertToType(data['marketVal'], 'Number');
             }
-            if (data.hasOwnProperty('periodOfMeasure')) {
+            if (data.hasOwnProperty('periodOfMeasure') && obj['periodOfMeasure'] === undefined) {
                 obj['periodOfMeasure'] = ApiClient.convertToType(data['periodOfMeasure'], 'String');
             }
-            if (data.hasOwnProperty('reportDate')) {
+            if (data.hasOwnProperty('reportDate') && obj['reportDate'] === undefined) {
                 obj['reportDate'] = ApiClient.convertToType(data['reportDate'], 'Date');
             }
-            if (data.hasOwnProperty('asOfDate')) {
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
                 obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'Date');
             }
+            
         }
         return obj;
     }

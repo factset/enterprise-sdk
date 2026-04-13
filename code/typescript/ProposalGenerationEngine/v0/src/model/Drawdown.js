@@ -46,18 +46,19 @@ class Drawdown {
         if (data) {
             obj = obj || new Drawdown();
 
-            if (data.hasOwnProperty('drawdownDate')) {
+            if (data.hasOwnProperty('drawdownDate') && obj['drawdownDate'] === undefined) {
                 obj['drawdownDate'] = ApiClient.convertToType(data['drawdownDate'], 'Date');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
             }
-            if (data.hasOwnProperty('value')) {
+            if (data.hasOwnProperty('value') && obj['value'] === undefined) {
                 obj['value'] = ApiClient.convertToType(data['value'], 'Number');
             }
+            
         }
         return obj;
     }

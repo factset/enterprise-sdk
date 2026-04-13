@@ -47,12 +47,13 @@ class InlineResponse200DataLarge {
         if (data) {
             obj = obj || new InlineResponse200DataLarge();
 
-            if (data.hasOwnProperty('url')) {
+            if (data.hasOwnProperty('url') && obj['url'] === undefined) {
                 obj['url'] = ApiClient.convertToType(data['url'], 'String');
             }
-            if (data.hasOwnProperty('mimeType')) {
+            if (data.hasOwnProperty('mimeType') && obj['mimeType'] === undefined) {
                 obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
             }
+            
         }
         return obj;
     }

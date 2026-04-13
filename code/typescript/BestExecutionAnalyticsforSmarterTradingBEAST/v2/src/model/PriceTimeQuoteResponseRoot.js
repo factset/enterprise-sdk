@@ -50,9 +50,10 @@ class PriceTimeQuoteResponseRoot {
         if (data) {
             obj = obj || new PriceTimeQuoteResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = PriceTimeQuoteResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

@@ -51,27 +51,28 @@ class DistHistoricalRequest {
         if (data) {
             obj = obj || new DistHistoricalRequest();
 
-            if (data.hasOwnProperty('ids')) {
+            if (data.hasOwnProperty('ids') && obj['ids'] === undefined) {
                 obj['ids'] = ApiClient.convertToType(data['ids'], ['String']);
             }
-            if (data.hasOwnProperty('startDate')) {
+            if (data.hasOwnProperty('startDate') && obj['startDate'] === undefined) {
                 obj['startDate'] = ApiClient.convertToType(data['startDate'], 'String');
             }
-            if (data.hasOwnProperty('endDate')) {
+            if (data.hasOwnProperty('endDate') && obj['endDate'] === undefined) {
                 obj['endDate'] = ApiClient.convertToType(data['endDate'], 'String');
             }
-            if (data.hasOwnProperty('frequency')) {
+            if (data.hasOwnProperty('frequency') && obj['frequency'] === undefined) {
                 obj['frequency'] = Frequency.constructFromObject(data['frequency']);
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
-            if (data.hasOwnProperty('splitAdjust')) {
+            if (data.hasOwnProperty('splitAdjust') && obj['splitAdjust'] === undefined) {
                 obj['splitAdjust'] = ApiClient.convertToType(data['splitAdjust'], 'Boolean');
             }
-            if (data.hasOwnProperty('distributionOrYield')) {
+            if (data.hasOwnProperty('distributionOrYield') && obj['distributionOrYield'] === undefined) {
                 obj['distributionOrYield'] = DistributionOrYieldDist.constructFromObject(data['distributionOrYield']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class InlineResponse20010DataIndexChange {
         if (data) {
             obj = obj || new InlineResponse20010DataIndexChange();
 
-            if (data.hasOwnProperty('hasChanged')) {
+            if (data.hasOwnProperty('hasChanged') && obj['hasChanged'] === undefined) {
                 obj['hasChanged'] = ApiClient.convertToType(data['hasChanged'], 'Boolean');
             }
-            if (data.hasOwnProperty('date')) {
+            if (data.hasOwnProperty('date') && obj['date'] === undefined) {
                 obj['date'] = ApiClient.convertToType(data['date'], 'Date');
             }
+            
         }
         return obj;
     }

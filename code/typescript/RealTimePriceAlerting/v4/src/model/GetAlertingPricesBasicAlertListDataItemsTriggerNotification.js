@@ -48,9 +48,10 @@ class GetAlertingPricesBasicAlertListDataItemsTriggerNotification {
         if (data) {
             obj = obj || new GetAlertingPricesBasicAlertListDataItemsTriggerNotification();
 
-            if (data.hasOwnProperty('channel')) {
+            if (data.hasOwnProperty('channel') && obj['channel'] === undefined) {
                 obj['channel'] = GetAlertingPricesBasicAlertListDataItemsTriggerNotificationChannel.constructFromObject(data['channel']);
             }
+            
         }
         return obj;
     }

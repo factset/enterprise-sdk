@@ -46,9 +46,10 @@ class FactSetProtobufStachV3TableViewTypesCollapsedColumn {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableViewTypesCollapsedColumn();
 
-            if (data.hasOwnProperty('alias')) {
+            if (data.hasOwnProperty('alias') && obj['alias'] === undefined) {
                 obj['alias'] = ApiClient.convertToType(data['alias'], 'String');
             }
+            
         }
         return obj;
     }

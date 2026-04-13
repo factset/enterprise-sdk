@@ -49,18 +49,19 @@ class FactSetProtobufStachV3TableTypesPagination {
         if (data) {
             obj = obj || new FactSetProtobufStachV3TableTypesPagination();
 
-            if (data.hasOwnProperty('isEstimatedTotal')) {
+            if (data.hasOwnProperty('isEstimatedTotal') && obj['isEstimatedTotal'] === undefined) {
                 obj['isEstimatedTotal'] = ApiClient.convertToType(data['isEstimatedTotal'], 'Boolean');
             }
-            if (data.hasOwnProperty('offset')) {
+            if (data.hasOwnProperty('offset') && obj['offset'] === undefined) {
                 obj['offset'] = FactSetProtobufStachV3TableTypesPaginationTypesOffset.constructFromObject(data['offset']);
             }
-            if (data.hasOwnProperty('cursor')) {
+            if (data.hasOwnProperty('cursor') && obj['cursor'] === undefined) {
                 obj['cursor'] = FactSetProtobufStachV3TableTypesPaginationTypesCursor.constructFromObject(data['cursor']);
             }
-            if (data.hasOwnProperty('typeCase')) {
+            if (data.hasOwnProperty('typeCase') && obj['typeCase'] === undefined) {
                 obj['typeCase'] = FactSetProtobufStachV3TableTypesPaginationTypeOneofCase.constructFromObject(data['typeCase']);
             }
+            
         }
         return obj;
     }

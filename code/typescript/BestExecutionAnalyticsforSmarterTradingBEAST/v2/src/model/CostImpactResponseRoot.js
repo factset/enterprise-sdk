@@ -50,9 +50,10 @@ class CostImpactResponseRoot {
         if (data) {
             obj = obj || new CostImpactResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = CostImpact.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

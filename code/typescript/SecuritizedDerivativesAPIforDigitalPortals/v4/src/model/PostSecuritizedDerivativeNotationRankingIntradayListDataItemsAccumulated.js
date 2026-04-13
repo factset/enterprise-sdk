@@ -48,18 +48,19 @@ class PostSecuritizedDerivativeNotationRankingIntradayListDataItemsAccumulated {
         if (data) {
             obj = obj || new PostSecuritizedDerivativeNotationRankingIntradayListDataItemsAccumulated();
 
-            if (data.hasOwnProperty('numberTrades')) {
+            if (data.hasOwnProperty('numberTrades') && obj['numberTrades'] === undefined) {
                 obj['numberTrades'] = ApiClient.convertToType(data['numberTrades'], 'Number');
             }
-            if (data.hasOwnProperty('tradingVolume')) {
+            if (data.hasOwnProperty('tradingVolume') && obj['tradingVolume'] === undefined) {
                 obj['tradingVolume'] = ApiClient.convertToType(data['tradingVolume'], 'Number');
             }
-            if (data.hasOwnProperty('tradingValue')) {
+            if (data.hasOwnProperty('tradingValue') && obj['tradingValue'] === undefined) {
                 obj['tradingValue'] = ApiClient.convertToType(data['tradingValue'], 'Number');
             }
-            if (data.hasOwnProperty('currency')) {
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
                 obj['currency'] = PostSecuritizedDerivativeNotationRankingIntradayListDataItemsAccumulatedCurrency.constructFromObject(data['currency']);
             }
+            
         }
         return obj;
     }

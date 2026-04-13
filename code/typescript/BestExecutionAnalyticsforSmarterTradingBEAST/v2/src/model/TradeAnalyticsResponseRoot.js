@@ -50,9 +50,10 @@ class TradeAnalyticsResponseRoot {
         if (data) {
             obj = obj || new TradeAnalyticsResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = TradeAnalyticsResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

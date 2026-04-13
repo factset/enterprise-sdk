@@ -48,9 +48,10 @@ class PostBasicMediaTypeListRequestData {
         if (data) {
             obj = obj || new PostBasicMediaTypeListRequestData();
 
-            if (data.hasOwnProperty('filter')) {
+            if (data.hasOwnProperty('filter') && obj['filter'] === undefined) {
                 obj['filter'] = PostBasicMediaTypeListRequestDataFilter.constructFromObject(data['filter']);
             }
+            
         }
         return obj;
     }

@@ -47,12 +47,13 @@ class PostVendorChartIQTimeSeriesEodListRequestDataAdjustments {
         if (data) {
             obj = obj || new PostVendorChartIQTimeSeriesEodListRequestDataAdjustments();
 
-            if (data.hasOwnProperty('payout')) {
+            if (data.hasOwnProperty('payout') && obj['payout'] === undefined) {
                 obj['payout'] = ApiClient.convertToType(data['payout'], 'Boolean');
             }
-            if (data.hasOwnProperty('split')) {
+            if (data.hasOwnProperty('split') && obj['split'] === undefined) {
                 obj['split'] = ApiClient.convertToType(data['split'], 'Boolean');
             }
+            
         }
         return obj;
     }

@@ -48,9 +48,10 @@ class PerformanceRankingsResponse {
         if (data) {
             obj = obj || new PerformanceRankingsResponse();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = ApiClient.convertToType(data['data'], [PerformanceRankings]);
             }
+            
         }
         return obj;
     }

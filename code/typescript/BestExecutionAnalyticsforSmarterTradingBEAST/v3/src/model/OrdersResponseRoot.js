@@ -50,9 +50,10 @@ class OrdersResponseRoot {
         if (data) {
             obj = obj || new OrdersResponseRoot();
 
-            if (data.hasOwnProperty('data')) {
+            if (data.hasOwnProperty('data') && obj['data'] === undefined) {
                 obj['data'] = OrdersResponse.constructFromObject(data['data']);
             }
+            
         }
         return obj;
     }

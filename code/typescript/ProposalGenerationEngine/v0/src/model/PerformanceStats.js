@@ -46,15 +46,16 @@ class PerformanceStats {
         if (data) {
             obj = obj || new PerformanceStats();
 
-            if (data.hasOwnProperty('sharpe')) {
+            if (data.hasOwnProperty('sharpe') && obj['sharpe'] === undefined) {
                 obj['sharpe'] = ApiClient.convertToType(data['sharpe'], 'Number');
             }
-            if (data.hasOwnProperty('sortino')) {
+            if (data.hasOwnProperty('sortino') && obj['sortino'] === undefined) {
                 obj['sortino'] = ApiClient.convertToType(data['sortino'], 'Number');
             }
-            if (data.hasOwnProperty('starr')) {
+            if (data.hasOwnProperty('starr') && obj['starr'] === undefined) {
                 obj['starr'] = ApiClient.convertToType(data['starr'], 'Number');
             }
+            
         }
         return obj;
     }
