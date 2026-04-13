@@ -2,7 +2,7 @@
 
 ## 2026-04-09 TypeScript SDKs: oneOf/anyOf Deserialization Fix
 
-This update improves support for composed schemas (`oneOf`/`anyOf`) in TypeScript SDKs. Previously, `constructFromObject` would unconditionally call every interface parser, causing `data.map is not a function` errors when a response didn't match a particular schema leg. The fix applies interface parsers conditionally and stops overwriting properties that were already successfully parsed.
+This update fixes how TypeScript SDKs deserialize response fields defined as `oneOf`/`anyOf` with primitive types (numbers, strings, booleans). Previously, these fields were wrapped in an object with a `.value` property. They are now returned as plain values.
 
 **Before:**
 
@@ -18,9 +18,31 @@ const val = response.someField; // 123.45 — direct primitive value
 console.log(val);               // 123.45
 ```
 
+**Migration:** If your code accesses `.value` on these fields, remove the `.value` access.
+
 **Affected SDKs:**
-- Formula (TypeScript)
-- Quant Engine (TypeScript)
+- Analytics Datastore
+- FactSet News
+- Formula
+- OFDB
+- OPEN:OPTIMIZER
+- Open:Risk
+- Quant Engine
+
+### Additional SDKs with Stricter Deserialization
+
+The same update also affects the following TypeScript SDKs. These did not receive a major version bump because the change is not breaking under normal usage: response fields with `oneOf`/`anyOf` schemas that fail to match any expected type now throw an error instead of silently returning `undefined`.
+
+This only surfaces errors for responses that were already failing to deserialize correctly. If your code handles `undefined` values from these fields as a fallback, you may need to add error handling.
+
+**Affected SDKs:**
+- Chart Generation Service
+- Conversational API Powered by FactSet Mercury
+- Events and Transcripts
+- FactSet Ownership
+- FactSet Search Answers
+- Procure to Pay API: SCIM
+- Security Modeling
 
 ## 2025-09-03 Formula API SDK: Removal of GET Endpoint versions and Deserialization fix for BatchData
 
