@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Asset Cash Flow Projections API
-  version: 0.3.0
+  version: 0.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/asset-cash-flow-projections-api
@@ -169,10 +169,6 @@ paths:
             X-FactSet-Api-RateLimit-Reset:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
         "429":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -352,10 +348,6 @@ paths:
             X-FactSet-Api-RateLimit-Reset:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
         "429":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientErrorResponse'
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
@@ -396,7 +388,7 @@ paths:
       operationId: getDocuments
       parameters:
       - description: The directory path to retrieve documents from.
-        example: Client:/ACFP
+        example: Client
         explode: true
         in: query
         name: directoryPath
@@ -501,6 +493,12 @@ paths:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
               $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
             Retry-After:
               $ref: '#/components/headers/Retry-After'
         "500":
@@ -643,7 +641,8 @@ paths:
             X-FactSet-Api-RateLimit-Reset:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
         "429":
-          description: 'Rate limit reached. '
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
           headers:
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
@@ -707,7 +706,7 @@ paths:
                       - Client:Scenario2.SCN
                       asOfDate: 2019-08-24
               schema:
-                $ref: '#/components/schemas/UpdateNewDocument'
+                $ref: '#/components/schemas/UpdateDocument'
           description: Expected response, returns a list of all the documents and
             the directories.
           headers:
@@ -789,6 +788,12 @@ paths:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
             X-FactSet-Api-Request-Key:
               $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
             Retry-After:
               $ref: '#/components/headers/Retry-After'
         "500":
@@ -838,7 +843,7 @@ paths:
                     - Client:Scenario2.SCN
                     asOfDate: 2019-08-24
             schema:
-              $ref: '#/components/schemas/UpdateNewDocument'
+              $ref: '#/components/schemas/UpdateDocument'
       responses:
         "204":
           description: Expected response, document updated succesfully
@@ -914,7 +919,8 @@ paths:
             X-FactSet-Api-RateLimit-Reset:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
         "429":
-          description: 'Rate limit reached. '
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
           headers:
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
@@ -956,7 +962,7 @@ paths:
         content:
           application/json:
             examples:
-              Example 1:
+              Create Batch Job:
                 value:
                   data:
                     documentName: Client:Myscenario_01
@@ -1053,16 +1059,18 @@ paths:
           description: Rate limit reached. Wait till the time specified in Retry-After
             header value to make further requests.
           headers:
-            Retry-After:
-              $ref: '#/components/headers/Retry-After'
             X-DataDirect-Request-Key:
               $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
             X-FactSet-Api-RateLimit-Limit:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
             X-FactSet-Api-RateLimit-Remaining:
               $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
-            X-FactSet-Api-Request-Key:
-              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting
@@ -1082,6 +1090,320 @@ paths:
       tags:
       - Batch
       x-contentType: application/json
+      x-accepts: application/json
+  /batch/{batchId}/status:
+    get:
+      description: This endpoint is used to fetch the status of a batch job
+      operationId: getBatchStatus
+      parameters:
+      - description: Batch Job ID
+        explode: false
+        in: path
+        name: batchId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              examples:
+                "201 - Expected Response":
+                  value:
+                    data:
+                      batchId: d94edff4-3805-476e-9baf-a489b0dce3b2
+                      status: completed
+              schema:
+                $ref: '#/components/schemas/BatchJobStatus'
+          description: Expected response, once the batch job is completed
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "202":
+          content:
+            application/json:
+              examples:
+                "202 - Expected Response":
+                  value:
+                    data:
+                      batchId: d94edff4-3805-476e-9baf-a489b0dce3b2
+                      status: queued
+              schema:
+                $ref: '#/components/schemas/BatchJobStatus'
+          description: Expected response, once the batch job is queued/ executing.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  $ref: '#/components/examples/400BadRequest'
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid path parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Path not found":
+                  $ref: '#/components/examples/404PathNotFound'
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not found - batchId does not exist
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Get Batch status by ID
+      tags:
+      - Batch
+      x-accepts: application/json
+  /batch/{batchId}/result:
+    get:
+      description: This endpoint is used to fetch the result of the batch job
+      operationId: getBatchJobResult
+      parameters:
+      - description: Batch Job ID
+        explode: false
+        in: path
+        name: batchId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200 - Expected Response":
+                  value:
+                    data:
+                      id: 10877132
+                      duration: 00:11:58
+                      jobs:
+                      - duration: 00:05:24
+                        jobId: ECSPPVB01:17717791
+                        logs:
+                          errors:
+                          - code: Error/Warning Messages
+                            title: Dropped
+                            detail: Bond has matured - FACTSET CH0180006170 (All)
+                            id: "123456"
+                          - code: Error/Warning Messages
+                            title: Dropped
+                            detail: Invalid Book Price - 11777QAB
+                            id: "123456"
+                          warnings:
+                          - code: Error/Warning Messages
+                            title: Gained Vendor Coverage
+                            detail: Vendor coverage is now available - no longer using
+                              modeling from SM - US05549RAG20
+                            id: "123456"
+                        name: SAMPLESCENARIO1-API_PORT
+                        status: created
+                      name: API_POST2114_20250925
+                      runDate: 2025-10-12
+                      status: completed
+                      submittedBy: "914985"
+                    meta:
+                      batchId: 0013cfd8-b3f1-4e71-920e-4292345a407d
+              schema:
+                $ref: '#/components/schemas/BatchJobResult'
+          description: Expected response, once batch job is completed.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Bad Request":
+                  $ref: '#/components/examples/400BadRequest'
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Invalid path parameter or value provided
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "401":
+          description: Missing or invalid authentication
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "404":
+          content:
+            application/json:
+              examples:
+                "404 - Path not found":
+                  $ref: '#/components/examples/404PathNotFound'
+              schema:
+                $ref: '#/components/schemas/ClientErrorResponse'
+          description: Not found - batchId does not exist
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+            X-FactSet-Api-RateLimit-Limit:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Limit'
+            X-FactSet-Api-RateLimit-Remaining:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Remaining'
+            X-FactSet-Api-RateLimit-Reset:
+              $ref: '#/components/headers/X-FactSet-Api-RateLimit-Reset'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+        "503":
+          description: Request timed out. Retry the request in some time
+          headers:
+            X-DataDirect-Request-Key:
+              $ref: '#/components/headers/X-DataDirect-Request-Key'
+            X-FactSet-Api-Request-Key:
+              $ref: '#/components/headers/X-FactSet-Api-Request-Key'
+      summary: Get Batch Job result by ID
+      tags:
+      - Batch
       x-accepts: application/json
 components:
   examples:
@@ -1155,6 +1477,106 @@ components:
         batchId:
           type: string
       title: BatchJobResponseRoot
+      type: object
+    BatchJobStatus:
+      description: Batch Status
+      example:
+        data:
+          batchId: batchId
+          status: queued
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchJobStatusRoot'
+      title: BatchJobStatus
+      type: object
+    BatchJobResult:
+      description: Batch Results
+      example:
+        data:
+          duration: duration
+          runDate: 2000-01-23
+          jobs:
+          - duration: duration
+            jobId: jobId
+            name: name
+            logs:
+              warnings:
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+              errors:
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+            status: created
+          - duration: duration
+            jobId: jobId
+            name: name
+            logs:
+              warnings:
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+              errors:
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+              - code: code
+                detail: detail
+                id: id
+                source:
+                  pointer: pointer
+                  parameter: parameter
+                title: title
+            status: created
+          name: name
+          id: 0
+          status: completed
+        meta:
+          batchId: batchId
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchJobResultRoot'
+        meta:
+          $ref: '#/components/schemas/BatchJobResult_meta'
+      title: BatchJobResult
       type: object
     ClientErrorResponse:
       description: The response schema for reporting errors
@@ -1356,6 +1778,9 @@ components:
       title: DocumentResponseRoot
       type: object
     ErrorSource:
+      example:
+        pointer: pointer
+        parameter: parameter
       properties:
         parameter:
           nullable: true
@@ -1366,8 +1791,19 @@ components:
       title: ErrorSource
       type: object
     Errors:
+      example:
+        code: code
+        detail: detail
+        id: id
+        source:
+          pointer: pointer
+          parameter: parameter
+        title: title
       properties:
         code:
+          nullable: true
+          type: string
+        title:
           nullable: true
           type: string
         detail:
@@ -1378,16 +1814,12 @@ components:
           type: string
         source:
           $ref: '#/components/schemas/ErrorSource'
-        title:
-          nullable: true
-          type: string
       required:
       - code
-      - id
       - title
       title: Errors
       type: object
-    UpdateNewDocument:
+    UpdateDocument:
       example:
         data:
           portfolios:
@@ -1399,10 +1831,10 @@ components:
           asOfDate: 2024-04-24T00:00:00.000+0000
       properties:
         data:
-          $ref: '#/components/schemas/UpdateNewDocumentRoot'
-      title: UpdateNewDocument
+          $ref: '#/components/schemas/UpdateDocumentRoot'
+      title: UpdateDocument
       type: object
-    UpdateNewDocumentRoot:
+    UpdateDocumentRoot:
       example:
         portfolios:
         - portfolios
@@ -1500,10 +1932,243 @@ components:
         uploadDateTime:
           description: The time stamp when the file is uploaded
           format: date-time
+          nullable: true
           type: string
         uploadId:
           description: Unique Identifier for the file
           type: string
+      type: object
+    BatchJobStatusRoot:
+      example:
+        batchId: batchId
+        status: queued
+      properties:
+        batchId:
+          description: ID generated on trigerring the batch
+          type: string
+        status:
+          description: Current status of the job
+          enum:
+          - queued
+          - executing
+          - completed
+          - cancelled
+          type: string
+      title: BatchJobStatusRoot
+      type: object
+    BatchJobResultRoot:
+      example:
+        duration: duration
+        runDate: 2000-01-23
+        jobs:
+        - duration: duration
+          jobId: jobId
+          name: name
+          logs:
+            warnings:
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            errors:
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+          status: created
+        - duration: duration
+          jobId: jobId
+          name: name
+          logs:
+            warnings:
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            errors:
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+            - code: code
+              detail: detail
+              id: id
+              source:
+                pointer: pointer
+                parameter: parameter
+              title: title
+          status: created
+        name: name
+        id: 0
+        status: completed
+      properties:
+        id:
+          description: ID generated on trigerring the batch
+          type: integer
+        duration:
+          description: Time taken to run the batch represented in HH:MM:SS
+          type: string
+        jobs:
+          description: Job id generated in the batch
+          items:
+            $ref: '#/components/schemas/BatchJobResults'
+          type: array
+        name:
+          description: Name of the ACFP document trigerred
+          type: string
+        runDate:
+          description: Date and time of the trigeered batch represented in MM/DD/YYYY
+            HH:MM:SS
+          format: date
+          type: string
+        status:
+          description: Current status of the batch
+          enum:
+          - completed
+          - cancelled
+          type: string
+      title: BatchJobResultRoot
+      type: object
+    BatchJobResults:
+      example:
+        duration: duration
+        jobId: jobId
+        name: name
+        logs:
+          warnings:
+          - code: code
+            detail: detail
+            id: id
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          - code: code
+            detail: detail
+            id: id
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          errors:
+          - code: code
+            detail: detail
+            id: id
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+          - code: code
+            detail: detail
+            id: id
+            source:
+              pointer: pointer
+              parameter: parameter
+            title: title
+        status: created
+      properties:
+        duration:
+          description: Time taken to run the batch represented in HH:MM:SS
+          type: string
+        jobId:
+          description: Internal id generated by Calc Engine
+          type: string
+        logs:
+          $ref: '#/components/schemas/BatchJobResults_logs'
+        name:
+          description: ACFP job name represented as portfolio-scenario
+          type: string
+        status:
+          description: Current status of the batch
+          enum:
+          - created
+          - failed
+          - cancelled
+          type: string
+      title: BatchJobResults
+      type: object
+    BatchJobResult_meta:
+      example:
+        batchId: batchId
+      properties:
+        batchId:
+          type: string
+      type: object
+    BatchJobResults_logs:
+      description: Log details consisting of errors and warnings
+      example:
+        warnings:
+        - code: code
+          detail: detail
+          id: id
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        - code: code
+          detail: detail
+          id: id
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        errors:
+        - code: code
+          detail: detail
+          id: id
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+        - code: code
+          detail: detail
+          id: id
+          source:
+            pointer: pointer
+            parameter: parameter
+          title: title
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Errors'
+          type: array
+        warnings:
+          items:
+            $ref: '#/components/schemas/Errors'
+          type: array
       type: object
   securitySchemes:
     FactSetOAuth2:

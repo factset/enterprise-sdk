@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **number_of_scenarios** | **float** | Number of scenarios that are within a scenario file | [optional] 
 **status** | **str** | The status of the uploaded file, can be one of the following: | [optional] 
 **type** | **str** | Actuarial Scenario File Type | [optional] 
-**upload_date_time** | **datetime** | The time stamp when the file is uploaded | [optional] 
+**upload_date_time** | **datetime, none_type** | The time stamp when the file is uploaded | [optional] 
 **upload_id** | **str** | Unique Identifier for the file | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

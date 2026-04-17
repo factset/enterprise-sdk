@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **NumberOfScenarios** | **decimal** | Number of scenarios that are within a scenario file | [optional] 
 **Status** | **string** | The status of the uploaded file, can be one of the following: | [optional] 
 **Type** | **string** | Actuarial Scenario File Type | [optional] 
-**UploadDateTime** | **DateTime** | The time stamp when the file is uploaded | [optional] 
+**UploadDateTime** | **DateTime?** | The time stamp when the file is uploaded | [optional] 
 **UploadId** | **string** | Unique Identifier for the file | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -35,7 +35,6 @@ public class ScenariosApi {
     getUploadStatusResponseTypeMap.put(202, new GenericType<UploadStatusResponse>(){});
     getUploadStatusResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     getUploadStatusResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
-    getUploadStatusResponseTypeMap.put(429, new GenericType<ClientErrorResponse>(){});
   }
 
   private static final Map<Integer, GenericType> uploadScenariosResponseTypeMap = new HashMap<Integer, GenericType>();
@@ -44,7 +43,6 @@ public class ScenariosApi {
     uploadScenariosResponseTypeMap.put(400, new GenericType<ClientErrorResponse>(){});
     uploadScenariosResponseTypeMap.put(404, new GenericType<ClientErrorResponse>(){});
     uploadScenariosResponseTypeMap.put(409, new GenericType<ClientErrorResponse>(){});
-    uploadScenariosResponseTypeMap.put(429, new GenericType<ClientErrorResponse>(){});
   }
 
   

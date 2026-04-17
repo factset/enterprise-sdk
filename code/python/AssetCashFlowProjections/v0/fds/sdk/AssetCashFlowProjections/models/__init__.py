@@ -11,6 +11,13 @@
 
 from fds.sdk.AssetCashFlowProjections.model.batch_job_response import BatchJobResponse
 from fds.sdk.AssetCashFlowProjections.model.batch_job_response_root import BatchJobResponseRoot
+from fds.sdk.AssetCashFlowProjections.model.batch_job_result import BatchJobResult
+from fds.sdk.AssetCashFlowProjections.model.batch_job_result_meta import BatchJobResultMeta
+from fds.sdk.AssetCashFlowProjections.model.batch_job_result_root import BatchJobResultRoot
+from fds.sdk.AssetCashFlowProjections.model.batch_job_results import BatchJobResults
+from fds.sdk.AssetCashFlowProjections.model.batch_job_results_logs import BatchJobResultsLogs
+from fds.sdk.AssetCashFlowProjections.model.batch_job_status import BatchJobStatus
+from fds.sdk.AssetCashFlowProjections.model.batch_job_status_root import BatchJobStatusRoot
 from fds.sdk.AssetCashFlowProjections.model.client_error_response import ClientErrorResponse
 from fds.sdk.AssetCashFlowProjections.model.client_scenarios_upload import ClientScenariosUpload
 from fds.sdk.AssetCashFlowProjections.model.client_scenarios_upload_parameters import ClientScenariosUploadParameters
@@ -24,7 +31,7 @@ from fds.sdk.AssetCashFlowProjections.model.document_response import DocumentRes
 from fds.sdk.AssetCashFlowProjections.model.document_response_root import DocumentResponseRoot
 from fds.sdk.AssetCashFlowProjections.model.error_source import ErrorSource
 from fds.sdk.AssetCashFlowProjections.model.errors import Errors
-from fds.sdk.AssetCashFlowProjections.model.update_new_document import UpdateNewDocument
-from fds.sdk.AssetCashFlowProjections.model.update_new_document_root import UpdateNewDocumentRoot
+from fds.sdk.AssetCashFlowProjections.model.update_document import UpdateDocument
+from fds.sdk.AssetCashFlowProjections.model.update_document_root import UpdateDocumentRoot
 from fds.sdk.AssetCashFlowProjections.model.upload_status_response import UploadStatusResponse
 from fds.sdk.AssetCashFlowProjections.model.upload_status_response_parameters import UploadStatusResponseParameters

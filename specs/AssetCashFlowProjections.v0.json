@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Asset Cash Flow Projections API",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "Allow clients to upload scenario files through APIs.",
     "license": {
       "name": "Apache License, Version 2.0",
@@ -232,13 +232,6 @@
               },
               "Retry-After": {
                 "$ref": "#/components/headers/Retry-After"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
               }
             }
           },
@@ -535,13 +528,6 @@
               "Retry-After": {
                 "$ref": "#/components/headers/Retry-After"
               }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
             }
           },
           "500": {
@@ -737,7 +723,7 @@
             }
           },
           "429": {
-            "description": "Rate limit reached. ",
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "$ref": "#/components/headers/X-DataDirect-Request-Key"
@@ -826,7 +812,7 @@
             "in": "query",
             "required": true,
             "description": "The directory path to retrieve documents from.",
-            "example": "Client:/ACFP"
+            "example": "Client"
           }
         ],
         "responses": {
@@ -976,6 +962,15 @@
               },
               "X-FactSet-Api-Request-Key": {
                 "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               },
               "Retry-After": {
                 "$ref": "#/components/headers/Retry-After"
@@ -1133,7 +1128,7 @@
             }
           },
           "429": {
-            "description": "Rate limit reached. ",
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
             "headers": {
               "X-DataDirect-Request-Key": {
                 "$ref": "#/components/headers/X-DataDirect-Request-Key"
@@ -1182,7 +1177,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateNewDocument"
+                "$ref": "#/components/schemas/UpdateDocument"
               },
               "examples": {
                 "Example 1": {
@@ -1235,7 +1230,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UpdateNewDocument"
+                  "$ref": "#/components/schemas/UpdateDocument"
                 },
                 "examples": {
                   "200 - successful response": {
@@ -1360,6 +1355,15 @@
               },
               "X-FactSet-Api-Request-Key": {
                 "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
               },
               "Retry-After": {
                 "$ref": "#/components/headers/Retry-After"
@@ -1549,11 +1553,11 @@
           "429": {
             "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
             "headers": {
-              "Retry-After": {
-                "$ref": "#/components/headers/Retry-After"
-              },
               "X-DataDirect-Request-Key": {
                 "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
               },
               "X-FactSet-Api-RateLimit-Limit": {
                 "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
@@ -1561,8 +1565,11 @@
               "X-FactSet-Api-RateLimit-Remaining": {
                 "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
               },
-              "X-FactSet-Api-Request-Key": {
-                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
               }
             }
           },
@@ -1598,7 +1605,7 @@
                 "$ref": "#/components/schemas/CreateBatchJob"
               },
               "examples": {
-                "Example 1": {
+                "Create Batch Job": {
                   "value": {
                     "data": {
                       "documentName": "Client:Myscenario_01"
@@ -1610,6 +1617,482 @@
           }
         }
       }
+    },
+    "/batch/{batchId}/status": {
+      "get": {
+        "summary": "Get Batch status by ID",
+        "operationId": "getBatchStatus",
+        "tags": [
+          "Batch"
+        ],
+        "responses": {
+          "201": {
+            "description": "Expected response, once the batch job is completed",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchJobStatus"
+                },
+                "examples": {
+                  "201 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "batchId": "d94edff4-3805-476e-9baf-a489b0dce3b2",
+                        "status": "completed"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Expected response, once the batch job is queued/ executing.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchJobStatus"
+                },
+                "examples": {
+                  "202 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "batchId": "d94edff4-3805-476e-9baf-a489b0dce3b2",
+                        "status": "queued"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid path parameter or value provided",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - batchId does not exist",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "description": "This endpoint is used to fetch the status of a batch job"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "batchId",
+          "in": "path",
+          "required": true,
+          "description": "Batch Job ID"
+        }
+      ]
+    },
+    "/batch/{batchId}/result": {
+      "get": {
+        "summary": "Get Batch Job result by ID",
+        "operationId": "getBatchJobResult",
+        "tags": [
+          "Batch"
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response, once batch job is completed.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchJobResult"
+                },
+                "examples": {
+                  "200 - Expected Response": {
+                    "value": {
+                      "data": {
+                        "id": 10877132,
+                        "duration": "00:11:58",
+                        "jobs": [
+                          {
+                            "duration": "00:05:24",
+                            "jobId": "ECSPPVB01:17717791",
+                            "logs": {
+                              "errors": [
+                                {
+                                  "code": "Error/Warning Messages",
+                                  "title": "Dropped",
+                                  "detail": "Bond has matured - FACTSET CH0180006170 (All)",
+                                  "id": "123456"
+                                },
+                                {
+                                  "code": "Error/Warning Messages",
+                                  "title": "Dropped",
+                                  "detail": "Invalid Book Price - 11777QAB",
+                                  "id": "123456"
+                                }
+                              ],
+                              "warnings": [
+                                {
+                                  "code": "Error/Warning Messages",
+                                  "title": "Gained Vendor Coverage",
+                                  "detail": "Vendor coverage is now available - no longer using modeling from SM - US05549RAG20",
+                                  "id": "123456"
+                                }
+                              ]
+                            },
+                            "name": "SAMPLESCENARIO1-API_PORT",
+                            "status": "created"
+                          }
+                        ],
+                        "name": "API_POST2114_20250925",
+                        "runDate": "2025-10-12",
+                        "status": "completed",
+                        "submittedBy": "914985"
+                      },
+                      "meta": {
+                        "batchId": "0013cfd8-b3f1-4e71-920e-4292345a407d"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid path parameter or value provided",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "400 - Bad Request": {
+                    "$ref": "#/components/examples/400BadRequest"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            }
+          },
+          "404": {
+            "description": "Not found - batchId does not exist",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                },
+                "examples": {
+                  "404 - Path not found": {
+                    "$ref": "#/components/examples/404PathNotFound"
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Limit"
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Remaining"
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-FactSet-Api-RateLimit-Reset"
+              },
+              "Retry-After": {
+                "$ref": "#/components/headers/Retry-After"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in some time",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "$ref": "#/components/headers/X-DataDirect-Request-Key"
+              },
+              "X-FactSet-Api-Request-Key": {
+                "$ref": "#/components/headers/X-FactSet-Api-Request-Key"
+              }
+            }
+          }
+        },
+        "description": "This endpoint is used to fetch the result of the batch job"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "batchId",
+          "in": "path",
+          "required": true,
+          "description": "Batch Job ID"
+        }
+      ]
     }
   },
   "components": {
@@ -1631,6 +2114,34 @@
         },
         "title": "BatchJobResponseRoot",
         "type": "object"
+      },
+      "BatchJobStatus": {
+        "description": "Batch Status",
+        "title": "BatchJobStatus",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJobStatusRoot"
+          }
+        }
+      },
+      "BatchJobResult": {
+        "title": "BatchJobResult",
+        "description": "Batch Results",
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJobResultRoot"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "batchId": {
+                "type": "string"
+              }
+            }
+          }
+        }
       },
       "ClientErrorResponse": {
         "description": "The response schema for reporting errors",
@@ -1829,11 +2340,14 @@
       "Errors": {
         "required": [
           "code",
-          "id",
           "title"
         ],
         "properties": {
           "code": {
+            "nullable": true,
+            "type": "string"
+          },
+          "title": {
             "nullable": true,
             "type": "string"
           },
@@ -1847,25 +2361,21 @@
           },
           "source": {
             "$ref": "#/components/schemas/ErrorSource"
-          },
-          "title": {
-            "nullable": true,
-            "type": "string"
           }
         },
         "title": "Errors",
         "type": "object"
       },
-      "UpdateNewDocument": {
+      "UpdateDocument": {
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/UpdateNewDocumentRoot"
+            "$ref": "#/components/schemas/UpdateDocumentRoot"
           }
         },
-        "title": "UpdateNewDocument",
+        "title": "UpdateDocument",
         "type": "object"
       },
-      "UpdateNewDocumentRoot": {
+      "UpdateDocumentRoot": {
         "type": "object",
         "properties": {
           "asOfDate": {
@@ -1951,7 +2461,8 @@
           "uploadDateTime": {
             "description": "The time stamp when the file is uploaded",
             "format": "date-time",
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "uploadId": {
             "description": "Unique Identifier for the file",
@@ -1959,6 +2470,109 @@
           }
         },
         "type": "object"
+      },
+      "BatchJobStatusRoot": {
+        "title": "BatchJobStatusRoot",
+        "type": "object",
+        "properties": {
+          "batchId": {
+            "description": "ID generated on trigerring the batch",
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the job",
+            "enum": [
+              "queued",
+              "executing",
+              "completed",
+              "cancelled"
+            ]
+          }
+        }
+      },
+      "BatchJobResultRoot": {
+        "title": "BatchJobResultRoot",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "ID generated on trigerring the batch",
+            "type": "integer"
+          },
+          "duration": {
+            "description": "Time taken to run the batch represented in HH:MM:SS",
+            "type": "string"
+          },
+          "jobs": {
+            "type": "array",
+            "description": "Job id generated in the batch",
+            "items": {
+              "$ref": "#/components/schemas/BatchJobResults"
+            }
+          },
+          "name": {
+            "description": "Name of the ACFP document trigerred",
+            "type": "string"
+          },
+          "runDate": {
+            "description": "Date and time of the trigeered batch represented in MM/DD/YYYY HH:MM:SS",
+            "type": "string",
+            "format": "date"
+          },
+          "status": {
+            "description": "Current status of the batch",
+            "type": "string",
+            "enum": [
+              "completed",
+              "cancelled"
+            ]
+          }
+        }
+      },
+      "BatchJobResults": {
+        "title": "BatchJobResults",
+        "type": "object",
+        "properties": {
+          "duration": {
+            "type": "string",
+            "description": "Time taken to run the batch represented in HH:MM:SS"
+          },
+          "jobId": {
+            "type": "string",
+            "description": "Internal id generated by Calc Engine"
+          },
+          "logs": {
+            "type": "object",
+            "description": "Log details consisting of errors and warnings",
+            "properties": {
+              "errors": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              },
+              "warnings": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Errors"
+                }
+              }
+            }
+          },
+          "name": {
+            "type": "string",
+            "description": "ACFP job name represented as portfolio-scenario"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the batch",
+            "enum": [
+              "created",
+              "failed",
+              "cancelled"
+            ]
+          }
+        }
       }
     },
     "headers": {

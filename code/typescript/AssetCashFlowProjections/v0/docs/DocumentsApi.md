@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getDocumentDetails
 
-> UpdateNewDocument getDocumentDetails(documentPath)
+> UpdateDocument getDocumentDetails(documentPath)
 
 Retrieve a document
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateNewDocument**](UpdateNewDocument.md)
+[**UpdateDocument**](UpdateDocument.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new DocumentsApi();
-const directoryPath = Client:/ACFP; // String | The directory path to retrieve documents from.
+const directoryPath = Client; // String | The directory path to retrieve documents from.
 
 // Call api endpoint
 apiInstance.getDocuments(directoryPath).then(
@@ -291,7 +291,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new DocumentsApi();
 const documentPath = Client:/ACFP/Scenario_01; // String | Enter the path to existing document name
 const opts = {
-  'updateNewDocument': {"data":{"portfolios":["Client:/ACFP/PORTFOLIO1.OFDB","Client:/ACFP/PORTFOLIO2.ACTM"],"scenarios":["Client:Scenario1.CSV","Client:Scenario2.SCN"],"asOfDate":"2019-08-24"}} // UpdateNewDocument | 
+  'updateDocument': {"data":{"portfolios":["Client:/ACFP/PORTFOLIO1.OFDB","Client:/ACFP/PORTFOLIO2.ACTM"],"scenarios":["Client:Scenario1.CSV","Client:Scenario2.SCN"],"asOfDate":"2019-08-24"}} // UpdateDocument | 
 };
 
 // Call api endpoint
@@ -313,7 +313,7 @@ apiInstance.putDocument(documentPath, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **documentPath** | **String**| Enter the path to existing document name | 
- **updateNewDocument** | [**UpdateNewDocument**](UpdateNewDocument.md)|  | [optional] 
+ **updateDocument** | [**UpdateDocument**](UpdateDocument.md)|  | [optional] 
 
 ### Return type
 
