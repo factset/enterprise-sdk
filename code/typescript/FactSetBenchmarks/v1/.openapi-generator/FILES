@@ -29,6 +29,9 @@ docs/IndexHistory.md
 docs/IndexHistoryRequest.md
 docs/IndexHistoryResponse.md
 docs/IndexLevelApi.md
+docs/IndexReturns.md
+docs/IndexReturnsRequest.md
+docs/IndexReturnsResponse.md
 docs/IndexSnapshot.md
 docs/IndexSnapshotRequest.md
 docs/IndexSnapshotResponse.md
@@ -64,6 +67,9 @@ src/model/ImpliedDate.js
 src/model/IndexHistory.js
 src/model/IndexHistoryRequest.js
 src/model/IndexHistoryResponse.js
+src/model/IndexReturns.js
+src/model/IndexReturnsRequest.js
+src/model/IndexReturnsResponse.js
 src/model/IndexSnapshot.js
 src/model/IndexSnapshotRequest.js
 src/model/IndexSnapshotResponse.js

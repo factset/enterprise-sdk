@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **frequency** | **Frequency** |  |  [optional]
 **returnType** | **ReturnType** |  |  [optional]
 **hedgeType** | **HedgeType** |  |  [optional]
-**currency** | **String** | Currency for response. |  [optional]
+**currency** | **String** | Currency for response. Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). |  [optional]
 **calendar** | **String** | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. |  [optional]
 **impliedDate** | **ImpliedDate** |  |  [optional]
 

@@ -1385,6 +1385,7 @@ components:
             - ISO
             - DATE_UTC
             - TIME_UTC
+            - TICK_CONDITION
             type: string
           type: array
         single:
@@ -1500,6 +1501,7 @@ components:
         - ISO
         - DATE_UTC
         - TIME_UTC
+        - TICK_CONDITION
         type: string
       type: array
     MinRequest:

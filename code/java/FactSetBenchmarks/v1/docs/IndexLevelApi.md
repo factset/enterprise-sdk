@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**getBenchmarkRatiosForList**](IndexLevelApi.md#getBenchmarkRatiosForList) | **POST** /factset-benchmarks/v1/ratios | Returns the aggregated ratios of a requested benchmark
 [**getIndexHistory**](IndexLevelApi.md#getIndexHistory) | **GET** /factset-benchmarks/v1/index-history | Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
 [**getIndexHistoryForList**](IndexLevelApi.md#getIndexHistoryForList) | **POST** /factset-benchmarks/v1/index-history | Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
+[**getIndexReturns**](IndexLevelApi.md#getIndexReturns) | **GET** /factset-benchmarks/v1/index-returns | Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters
+[**getIndexReturnsForList**](IndexLevelApi.md#getIndexReturnsForList) | **POST** /factset-benchmarks/v1/index-returns | Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body
 [**getIndexSnapshot**](IndexLevelApi.md#getIndexSnapshot) | **GET** /factset-benchmarks/v1/index-snapshot | Index Level Prices, Returns, and related information as of a single date.
 [**getIndexSnapshotForList**](IndexLevelApi.md#getIndexSnapshotForList) | **POST** /factset-benchmarks/v1/index-snapshot | Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.
 
@@ -69,7 +71,7 @@ public class Example {
         String endDate = "endDate_example"; // String | Requested End Date for Range expressed in YYYY-MM-DD format.
         String frequency = "D"; // String | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year. 
         String periodicity = "LTM"; // String | The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies 
-        String currency = "currency_example"; // String | Currency for response.
+        String currency = "currency_example"; // String | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         try {
             BenchmarkRatiosResponse result = apiInstance.getBenchmarkRatios(ids, metrics, startDate, endDate, frequency, periodicity, currency);
             System.out.println(result);
@@ -96,7 +98,7 @@ Name | Type | Description  | Notes
  **endDate** | **String**| Requested End Date for Range expressed in YYYY-MM-DD format. | [optional]
  **frequency** | **String**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  | [optional] [default to D] [enum: D, W, M, AM, CQ, AY, CY]
  **periodicity** | **String**| The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  | [optional] [default to LTM] [enum: LTM, LTMA, STMA, NTMA, 0, 1, 2, QTR]
- **currency** | **String**| Currency for response. | [optional]
+ **currency** | **String**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
 
 ### Return type
 
@@ -275,7 +277,7 @@ public class Example {
         String frequency = "D"; // String | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year. 
         String returnType = "GROSS"; // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
         String hedgeType = "UNHEDGED"; // String | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
-        String currency = "currency_example"; // String | Currency for response.
+        String currency = "currency_example"; // String | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         String calendar = "FIVEDAY"; // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
         String impliedDate = "Y"; // String | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.
         try {
@@ -304,7 +306,7 @@ Name | Type | Description  | Notes
  **frequency** | **String**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  | [optional] [default to D] [enum: D, W, M, AM, CQ, AY, CY]
  **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS] [enum: GROSS, NET]
  **hedgeType** | **String**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to UNHEDGED] [enum: UNHEDGED, HEDGED]
- **currency** | **String**| Currency for response. | [optional]
+ **currency** | **String**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
  **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to FIVEDAY]
  **impliedDate** | **String**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to N] [enum: Y, N]
 
@@ -429,6 +431,215 @@ Name | Type | Description  | Notes
 | **500** | Internal Server Error. |  -  |
 
 
+## getIndexReturns
+
+> IndexReturnsResponse getIndexReturns(ids, startDate, endDate, returnType, hedgeType, currency, calendar, impliedDate)
+
+Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters
+
+Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period.
+
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+import java.time.LocalDate;
+// Import classes:
+import com.factset.sdk.FactSetBenchmarks.ApiClient;
+import com.factset.sdk.FactSetBenchmarks.ApiException;
+import com.factset.sdk.FactSetBenchmarks.Configuration;
+import com.factset.sdk.FactSetBenchmarks.auth.*;
+import com.factset.sdk.FactSetBenchmarks.models.*;
+import com.factset.sdk.FactSetBenchmarks.api.IndexLevelApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        IndexLevelApi apiInstance = new IndexLevelApi(defaultClient);
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+        LocalDate startDate = LocalDate.now(); // LocalDate | Requested start date expressed in YYYY-MM-DD format.
+        LocalDate endDate = LocalDate.now(); // LocalDate | Requested End Date for Range expressed in YYYY-MM-DD format.
+        String returnType = "GROSS"; // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
+        String hedgeType = "UNHEDGED"; // String | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
+        String currency = "currency_example"; // String | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+        String calendar = "FIVEDAY"; // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
+        String impliedDate = "Y"; // String | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.
+        try {
+            IndexReturnsResponse result = apiInstance.getIndexReturns(ids, startDate, endDate, returnType, hedgeType, currency, calendar, impliedDate);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IndexLevelApi#getIndexReturns");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ids** | **List&lt;String&gt;**| Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* |
+ **startDate** | **LocalDate**| Requested start date expressed in YYYY-MM-DD format. |
+ **endDate** | **LocalDate**| Requested End Date for Range expressed in YYYY-MM-DD format. |
+ **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS] [enum: GROSS, NET]
+ **hedgeType** | **String**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] [default to UNHEDGED] [enum: UNHEDGED, HEDGED]
+ **currency** | **String**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
+ **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to FIVEDAY]
+ **impliedDate** | **String**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] [default to N] [enum: Y, N]
+
+### Return type
+
+[**IndexReturnsResponse**](IndexReturnsResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | An array of Index Returns information for a requested date range. |  -  |
+| **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+| **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+| **500** | Internal Server Error. |  -  |
+
+
+## getIndexReturnsForList
+
+> IndexReturnsResponse getIndexReturnsForList(indexReturnsRequest)
+
+Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body
+
+Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period.
+
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```java
+// Import classes:
+import com.factset.sdk.FactSetBenchmarks.ApiClient;
+import com.factset.sdk.FactSetBenchmarks.ApiException;
+import com.factset.sdk.FactSetBenchmarks.Configuration;
+import com.factset.sdk.FactSetBenchmarks.auth.*;
+import com.factset.sdk.FactSetBenchmarks.models.*;
+import com.factset.sdk.FactSetBenchmarks.api.IndexLevelApi;
+
+import com.factset.sdk.utils.authentication.ConfidentialClient;
+
+public class Example {
+    public static void main(String[] args) throws Exception {
+        // Examples for each supported authentication method are below,
+        // choose one that satisfies your use case.
+
+        /* (Preferred) OAuth 2.0: FactSetOAuth2 */
+        // See https://github.com/FactSet/enterprise-sdk#oauth-20
+        // for information on how to create the app-config.json file
+        //
+        // The confidential client instance should be reused in production environments.
+        // See https://github.com/FactSet/enterprise-sdk-utils-java#authentication
+        // for more information on using the ConfidentialClient class
+        ConfidentialClient confidentialClient = new ConfidentialClient("./path/to/config.json");
+        ApiClient defaultClient = new ApiClient()
+          .setFactSetOAuth2Client(confidentialClient);
+
+        /* Basic authentication: FactSetApiKey */
+        // See https://github.com/FactSet/enterprise-sdk#api-key
+        // ApiClient defaultClient = new ApiClient()
+        //   .setUsername("YOUR USERNAME")
+        //   .setPassword("YOUR PASSWORD");
+
+        IndexLevelApi apiInstance = new IndexLevelApi(defaultClient);
+        IndexReturnsRequest indexReturnsRequest = new IndexReturnsRequest(); // IndexReturnsRequest | Requests Index Returns for a list of identifiers and specified date range.
+        try {
+            IndexReturnsResponse result = apiInstance.getIndexReturnsForList(indexReturnsRequest);
+            System.out.println(result);
+
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IndexLevelApi#getIndexReturnsForList");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **indexReturnsRequest** | [**IndexReturnsRequest**](IndexReturnsRequest.md)| Requests Index Returns for a list of identifiers and specified date range. |
+
+### Return type
+
+[**IndexReturnsResponse**](IndexReturnsResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | An array of Index Returns information for a requested date range. |  -  |
+| **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
+| **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+| **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+| **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+| **500** | Internal Server Error. |  -  |
+
+
 ## getIndexSnapshot
 
 > IndexSnapshotResponse getIndexSnapshot(ids, date, returnType, currency, calendar)
@@ -482,7 +693,7 @@ public class Example {
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
         String date = "date_example"; // String | Date of holding expressed in YYYY-MM-DD format.
         String returnType = "GROSS"; // String | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.
-        String currency = "currency_example"; // String | Currency for response.
+        String currency = "currency_example"; // String | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         String calendar = "FIVEDAY"; // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
         try {
             IndexSnapshotResponse result = apiInstance.getIndexSnapshot(ids, date, returnType, currency, calendar);
@@ -507,7 +718,7 @@ Name | Type | Description  | Notes
  **ids** | **List&lt;String&gt;**| Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* |
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **returnType** | **String**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] [default to GROSS] [enum: GROSS, NET]
- **currency** | **String**| Currency for response. | [optional]
+ **currency** | **String**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
  **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to FIVEDAY]
 
 ### Return type

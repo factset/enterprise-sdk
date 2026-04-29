@@ -380,7 +380,13 @@ Level1RequestBody['FieldsEnum'] = {
      * value: "TIME_UTC"
      * @const
      */
-    "TIME_UTC": "TIME_UTC"
+    "TIME_UTC": "TIME_UTC",
+
+    /**
+     * value: "TICK_CONDITION"
+     * @const
+     */
+    "TICK_CONDITION": "TICK_CONDITION"
 };
 
 

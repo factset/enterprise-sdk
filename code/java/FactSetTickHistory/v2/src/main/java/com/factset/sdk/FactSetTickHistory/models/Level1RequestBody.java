@@ -145,7 +145,9 @@ public class Level1RequestBody implements Serializable {
     
     DATE_UTC("DATE_UTC"),
     
-    TIME_UTC("TIME_UTC");
+    TIME_UTC("TIME_UTC"),
+    
+    TICK_CONDITION("TICK_CONDITION");
 
     private String value;
 

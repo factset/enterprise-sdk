@@ -69,6 +69,14 @@ class SegmentsDetailsEstimate(ModelNormal):
 
 
         },
+        ('change_type',): {
+            'None': None,
+            'INCREASE': "increase",
+            'DECREASE': "decrease",
+            'UNCHANGED': "unchanged",
+
+
+        },
     }
 
     validations = {
@@ -116,6 +124,7 @@ class SegmentsDetailsEstimate(ModelNormal):
             'last_modified_date': (date, none_type,),  # noqa: E501
             'prev_estimate_date': (date, none_type,),  # noqa: E501
             'prev_estimate_value': (float, none_type,),  # noqa: E501
+            'change_type': (str, none_type,),  # noqa: E501
             'section': (str, none_type,),  # noqa: E501
             'status_code': (int, none_type,),  # noqa: E501
             'status_text': (str, none_type,),  # noqa: E501
@@ -151,6 +160,7 @@ class SegmentsDetailsEstimate(ModelNormal):
         'last_modified_date': 'lastModifiedDate',  # noqa: E501
         'prev_estimate_date': 'prevEstimateDate',  # noqa: E501
         'prev_estimate_value': 'prevEstimateValue',  # noqa: E501
+        'change_type': 'changeType',  # noqa: E501
         'section': 'section',  # noqa: E501
         'status_code': 'statusCode',  # noqa: E501
         'status_text': 'statusText',  # noqa: E501
@@ -221,6 +231,7 @@ class SegmentsDetailsEstimate(ModelNormal):
             last_modified_date (date, none_type): The date at which a broker provided an estimate that is a revision.. [optional]  # noqa: E501
             prev_estimate_date (date, none_type): Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598). [optional]  # noqa: E501
             prev_estimate_value (float, none_type): The value of the previous estimate.. [optional]  # noqa: E501
+            change_type (str, none_type): Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing `estimateValue` and `prevEstimateValue`.   * **increase** = estimateValue > prevEstimateValue   * **decrease** = estimateValue < prevEstimateValue   * **unchanged** = estimateValue = prevEstimateValue . [optional]  # noqa: E501
             section (str, none_type): Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus. [optional]  # noqa: E501
             status_code (int, none_type): Status code of the estimate.. [optional]  # noqa: E501
             status_text (str, none_type): Status description of the estimate.. [optional]  # noqa: E501
@@ -329,6 +340,7 @@ class SegmentsDetailsEstimate(ModelNormal):
             last_modified_date (date, none_type): The date at which a broker provided an estimate that is a revision.. [optional]  # noqa: E501
             prev_estimate_date (date, none_type): Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598). [optional]  # noqa: E501
             prev_estimate_value (float, none_type): The value of the previous estimate.. [optional]  # noqa: E501
+            change_type (str, none_type): Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing `estimateValue` and `prevEstimateValue`.   * **increase** = estimateValue > prevEstimateValue   * **decrease** = estimateValue < prevEstimateValue   * **unchanged** = estimateValue = prevEstimateValue . [optional]  # noqa: E501
             section (str, none_type): Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus. [optional]  # noqa: E501
             status_code (int, none_type): Status code of the estimate.. [optional]  # noqa: E501
             status_text (str, none_type): Status description of the estimate.. [optional]  # noqa: E501

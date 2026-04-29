@@ -9,6 +9,10 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.CompanyLogo.model.error_detail import ErrorDetail
+from fds.sdk.CompanyLogo.model.error_response import ErrorResponse
+from fds.sdk.CompanyLogo.model.error_response_meta import ErrorResponseMeta
+from fds.sdk.CompanyLogo.model.error_response_meta_status import ErrorResponseMetaStatus
 from fds.sdk.CompanyLogo.model.inline_response200 import InlineResponse200
 from fds.sdk.CompanyLogo.model.inline_response200_data import InlineResponse200Data
 from fds.sdk.CompanyLogo.model.inline_response200_data_large import InlineResponse200DataLarge

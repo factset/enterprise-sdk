@@ -98,6 +98,9 @@ class SegmentsDetailsRequest {
             if (data.hasOwnProperty('includeAll') && obj['includeAll'] === undefined) {
                 obj['includeAll'] = ApiClient.convertToType(data['includeAll'], 'Boolean');
             }
+            if (data.hasOwnProperty('sortByInputDateTime') && obj['sortByInputDateTime'] === undefined) {
+                obj['sortByInputDateTime'] = ApiClient.convertToType(data['sortByInputDateTime'], 'Boolean');
+            }
             
         }
         return obj;
@@ -177,7 +180,7 @@ SegmentsDetailsRequest.prototype['currency'] = undefined;
 SegmentsDetailsRequest.prototype['brokerNames'] = undefined;
 
 /**
- * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. 
+ * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.
  * @member {Boolean} updatesOnly
  * @default false
  */
@@ -189,6 +192,13 @@ SegmentsDetailsRequest.prototype['updatesOnly'] = false;
  * @default false
  */
 SegmentsDetailsRequest.prototype['includeAll'] = false;
+
+/**
+ * When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. 
+ * @member {Boolean} sortByInputDateTime
+ * @default false
+ */
+SegmentsDetailsRequest.prototype['sortByInputDateTime'] = false;
 
 
 

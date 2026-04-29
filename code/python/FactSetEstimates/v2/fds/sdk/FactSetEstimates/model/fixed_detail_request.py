@@ -108,6 +108,7 @@ class FixedDetailRequest(ModelNormal):
             'currency': (str,),  # noqa: E501
             'broker_names': (BrokerNames,),  # noqa: E501
             'updates_only': (bool,),  # noqa: E501
+            'sort_by_input_date_time': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -128,6 +129,7 @@ class FixedDetailRequest(ModelNormal):
         'currency': 'currency',  # noqa: E501
         'broker_names': 'brokerNames',  # noqa: E501
         'updates_only': 'updatesOnly',  # noqa: E501
+        'sort_by_input_date_time': 'sortByInputDateTime',  # noqa: E501
     }
 
     read_only_vars = {
@@ -184,7 +186,8 @@ class FixedDetailRequest(ModelNormal):
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. Use input as `ESTIMATE` for values in Estimate currency. For a list of currency ISO codes, visit <a href=\"https://oa.apps.factset.com/pages/1470\" target=\"_blank\">Online Assistant Page. [optional]  # noqa: E501
             broker_names (BrokerNames): [optional]  # noqa: E501
-            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. . [optional] if omitted the server will use the default value of False  # noqa: E501
+            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            sort_by_input_date_time (bool): When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -281,7 +284,8 @@ class FixedDetailRequest(ModelNormal):
             fiscal_period_end (str): Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Semiannual Period-end** - YYYY/FSA (e.g., 2019/1S, 2019/2S)   * **Fiscal Year-end** - YYYY (e.g. 2019) . [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. Use input as `ESTIMATE` for values in Estimate currency. For a list of currency ISO codes, visit <a href=\"https://oa.apps.factset.com/pages/1470\" target=\"_blank\">Online Assistant Page. [optional]  # noqa: E501
             broker_names (BrokerNames): [optional]  # noqa: E501
-            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. . [optional] if omitted the server will use the default value of False  # noqa: E501
+            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            sort_by_input_date_time (bool): When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

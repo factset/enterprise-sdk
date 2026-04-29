@@ -59,6 +59,7 @@ import com.factset.sdk.FactSetEstimates.JSON;
   SegmentsDetailsEstimate.JSON_PROPERTY_LAST_MODIFIED_DATE,
   SegmentsDetailsEstimate.JSON_PROPERTY_PREV_ESTIMATE_DATE,
   SegmentsDetailsEstimate.JSON_PROPERTY_PREV_ESTIMATE_VALUE,
+  SegmentsDetailsEstimate.JSON_PROPERTY_CHANGE_TYPE,
   SegmentsDetailsEstimate.JSON_PROPERTY_SECTION,
   SegmentsDetailsEstimate.JSON_PROPERTY_STATUS_CODE,
   SegmentsDetailsEstimate.JSON_PROPERTY_STATUS_TEXT,
@@ -203,6 +204,46 @@ public class SegmentsDetailsEstimate implements Serializable {
 
   public static final String JSON_PROPERTY_PREV_ESTIMATE_VALUE = "prevEstimateValue";
   private JsonNullable<Double> prevEstimateValue = JsonNullable.<Double>undefined();
+
+  /**
+   * Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue 
+   */
+  public enum ChangeTypeEnum {
+    INCREASE("increase"),
+    
+    DECREASE("decrease"),
+    
+    UNCHANGED("unchanged");
+
+    private String value;
+
+    ChangeTypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static ChangeTypeEnum fromValue(String value) {
+      for (ChangeTypeEnum b : ChangeTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+  }
+
+  public static final String JSON_PROPERTY_CHANGE_TYPE = "changeType";
+  private JsonNullable<ChangeTypeEnum> changeType = JsonNullable.<ChangeTypeEnum>undefined();
 
   public static final String JSON_PROPERTY_SECTION = "section";
   private JsonNullable<String> section = JsonNullable.<String>undefined();
@@ -923,6 +964,40 @@ public class SegmentsDetailsEstimate implements Serializable {
   }
 
 
+  public SegmentsDetailsEstimate changeType(ChangeTypeEnum changeType) {
+    this.changeType = JsonNullable.<ChangeTypeEnum>of(changeType);
+    return this;
+  }
+
+   /**
+   * Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue 
+   * @return changeType
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "increase", value = "Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing `estimateValue` and `prevEstimateValue`.   * **increase** = estimateValue > prevEstimateValue   * **decrease** = estimateValue < prevEstimateValue   * **unchanged** = estimateValue = prevEstimateValue ")
+  @JsonIgnore
+
+  public ChangeTypeEnum getChangeType() {
+        return changeType.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<ChangeTypeEnum> getChangeType_JsonNullable() {
+    return changeType;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
+  public void setChangeType_JsonNullable(JsonNullable<ChangeTypeEnum> changeType) {
+    this.changeType = changeType;
+  }
+
+  public void setChangeType(ChangeTypeEnum changeType) {
+    this.changeType = JsonNullable.<ChangeTypeEnum>of(changeType);
+  }
+
+
   public SegmentsDetailsEstimate section(String section) {
     this.section = JsonNullable.<String>of(section);
     return this;
@@ -1160,6 +1235,7 @@ public class SegmentsDetailsEstimate implements Serializable {
         equalsNullable(this.lastModifiedDate, segmentsDetailsEstimate.lastModifiedDate) &&
         equalsNullable(this.prevEstimateDate, segmentsDetailsEstimate.prevEstimateDate) &&
         equalsNullable(this.prevEstimateValue, segmentsDetailsEstimate.prevEstimateValue) &&
+        equalsNullable(this.changeType, segmentsDetailsEstimate.changeType) &&
         equalsNullable(this.section, segmentsDetailsEstimate.section) &&
         equalsNullable(this.statusCode, segmentsDetailsEstimate.statusCode) &&
         equalsNullable(this.statusText, segmentsDetailsEstimate.statusText) &&
@@ -1174,7 +1250,7 @@ public class SegmentsDetailsEstimate implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), hashCodeNullable(segmentId), segmentType, hashCodeNullable(fiscalYear), hashCodeNullable(fiscalPeriod), hashCodeNullable(fiscalEndDate), hashCodeNullable(segmentLabel), hashCodeNullable(segmentLevel), hashCodeNullable(currency), hashCodeNullable(estimateCurrency), hashCodeNullable(estimateDate), hashCodeNullable(estimateValue), hashCodeNullable(analystId), hashCodeNullable(analystName), hashCodeNullable(brokerId), hashCodeNullable(brokerName), hashCodeNullable(lastModifiedDate), hashCodeNullable(prevEstimateDate), hashCodeNullable(prevEstimateValue), hashCodeNullable(section), hashCodeNullable(statusCode), hashCodeNullable(statusText), hashCodeNullable(inputDateTime), hashCodeNullable(securityCurrency), hashCodeNullable(brokerEstimateCurrency));
+    return Objects.hash(requestId, hashCodeNullable(fsymId), hashCodeNullable(metric), hashCodeNullable(segmentId), segmentType, hashCodeNullable(fiscalYear), hashCodeNullable(fiscalPeriod), hashCodeNullable(fiscalEndDate), hashCodeNullable(segmentLabel), hashCodeNullable(segmentLevel), hashCodeNullable(currency), hashCodeNullable(estimateCurrency), hashCodeNullable(estimateDate), hashCodeNullable(estimateValue), hashCodeNullable(analystId), hashCodeNullable(analystName), hashCodeNullable(brokerId), hashCodeNullable(brokerName), hashCodeNullable(lastModifiedDate), hashCodeNullable(prevEstimateDate), hashCodeNullable(prevEstimateValue), hashCodeNullable(changeType), hashCodeNullable(section), hashCodeNullable(statusCode), hashCodeNullable(statusText), hashCodeNullable(inputDateTime), hashCodeNullable(securityCurrency), hashCodeNullable(brokerEstimateCurrency));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1209,6 +1285,7 @@ public class SegmentsDetailsEstimate implements Serializable {
     sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    prevEstimateDate: ").append(toIndentedString(prevEstimateDate)).append("\n");
     sb.append("    prevEstimateValue: ").append(toIndentedString(prevEstimateValue)).append("\n");
+    sb.append("    changeType: ").append(toIndentedString(changeType)).append("\n");
     sb.append("    section: ").append(toIndentedString(section)).append("\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    statusText: ").append(toIndentedString(statusText)).append("\n");

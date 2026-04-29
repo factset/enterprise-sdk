@@ -5,6 +5,10 @@ LICENSE
 README.md
 appveyor.yml
 docs/CompanyApi.md
+docs/ErrorDetail.md
+docs/ErrorResponse.md
+docs/ErrorResponseMeta.md
+docs/ErrorResponseMetaStatus.md
 docs/InlineResponse200.md
 docs/InlineResponse200Data.md
 docs/InlineResponse200DataLarge.md
@@ -33,6 +37,10 @@ src/FactSet.SDK.CompanyLogo/Client/RequestOptions.cs
 src/FactSet.SDK.CompanyLogo/Client/RetryConfiguration.cs
 src/FactSet.SDK.CompanyLogo/FactSet.SDK.CompanyLogo.csproj
 src/FactSet.SDK.CompanyLogo/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.CompanyLogo/Model/ErrorDetail.cs
+src/FactSet.SDK.CompanyLogo/Model/ErrorResponse.cs
+src/FactSet.SDK.CompanyLogo/Model/ErrorResponseMeta.cs
+src/FactSet.SDK.CompanyLogo/Model/ErrorResponseMetaStatus.cs
 src/FactSet.SDK.CompanyLogo/Model/InlineResponse200.cs
 src/FactSet.SDK.CompanyLogo/Model/InlineResponse200Data.cs
 src/FactSet.SDK.CompanyLogo/Model/InlineResponse200DataLarge.cs

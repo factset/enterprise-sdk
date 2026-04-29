@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.CompanyLogo.models.ErrorResponse;
 import com.factset.sdk.CompanyLogo.models.InlineResponse200;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -29,6 +30,10 @@ public class CompanyApi {
   private static final Map<Integer, GenericType> getCompanyLogoGetResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCompanyLogoGetResponseTypeMap.put(200, new GenericType<InlineResponse200>(){});
+    getCompanyLogoGetResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getCompanyLogoGetResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getCompanyLogoGetResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getCompanyLogoGetResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   
@@ -65,6 +70,10 @@ public class CompanyApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated API Key or Token. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden. The API Key or token is not authorized. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
   public InlineResponse200 getCompanyLogoGet(String identifier, String identifierType, String format, java.util.Set<String> attributes) throws ApiException {
@@ -84,6 +93,10 @@ public class CompanyApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated API Key or Token. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden. The API Key or token is not authorized. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<InlineResponse200> getCompanyLogoGetWithHttpInfo(String identifier, String identifierType, String format, java.util.Set<String> attributes) throws ApiException {
@@ -100,7 +113,7 @@ public class CompanyApi {
     }
     
     // create path and map variables
-    String localVarPath = "/company/logo/get";
+    String localVarPath = "/company/logo";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

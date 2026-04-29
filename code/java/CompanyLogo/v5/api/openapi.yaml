@@ -1,0 +1,848 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "Consume FactSet collected company logos through an API that seamlessly\
+    \ integrates with company fundamentals and estimates data\n(listed equities data\
+    \ available via the stocks API), quotes, time series, and other Digital APIs.\n\
+    \nThe Company Logo API provides access to logos for a global universe of listed\
+    \ companies. The logos can be accessed by using national and\ninternational identifiers\
+    \ like ISIN, CUSIP, WKN, Valor, etc. and are a nice feature for comprehensive\
+    \ visualizations of equities\non overview pages (factsheets).\n\nLogo collection\
+    \ and maintenance takes into account IPOs, M&A notifications, and further consistency\
+    \ check mechanisms.\n\nThe Company Logo API seamlessly integrates with the [Stocks\
+    \ API](https://developer.factset.com/api-catalog/stocks-api-digital-portals)\n\
+    for equities and estimates data and the [Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api),\
+    \ allowing\naccess to detailed price and performance information of listings.\
+    \ The [Quotes API](https://developer.factset.com/api-catalog/real-time-quotes-api)\n\
+    also supports basic security identifier cross-reference.\nFor direct access to\
+    \ price histories for charting, please refer to the\n[Real-Time Time Series API](https://developer.factset.com/api-catalog/real-time-time-series-api).\n\
+    \ \n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Company Logo API
+  version: 5.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/
+servers:
+- url: https://api.factset.com/wealth/v5
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Retrieve logos for companies.
+  name: Company logos
+paths:
+  /company/logo:
+    post:
+      description: 'Retrieves high-quality logos for one or more publicly traded companies
+        using standard identifiers (e.g., ticker symbols, ISIN). Logos are available
+        in a selection of predefined sizes or can be generated on-the-fly to custom
+        dimensions. The endpoint accepts up to 100 identifiers per request. Note:
+        Requesting a large number of logos in a single call may result in increased
+        response times.'
+      operationId: postCompanyLogo
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Single identifier with multiple predefined sizes:
+                value:
+                  data:
+                    identifier:
+                      values:
+                      - FDS-US
+                      type: tickerRegion
+                    format: square
+                    size:
+                      predefined:
+                      - small
+                      - medium
+                      - large
+                      - vector
+              Multiple identifiers with a predefined size vector:
+                value:
+                  data:
+                    identifier:
+                      values:
+                      - NVDA-US
+                      - AAPL-US
+                      - MSFT-US
+                      - AMZN-US
+                      type: tickerRegion
+                    format: rectangular
+                    size:
+                      predefined:
+                      - vector
+                    mimeType: image/svg+xml
+              Single identifier and custom size:
+                value:
+                  data:
+                    identifier:
+                      values:
+                      - FDS-US
+                      type: tickerRegion
+                    format: rectangular
+                    size:
+                      custom:
+                        width: 150
+                        height: 150
+              Multiple identifiers with a predefined size:
+                value:
+                  data:
+                    identifier:
+                      values:
+                      - US3030751057
+                      - US67066G1040
+                      type: isin
+                    size:
+                      predefined:
+                      - large
+                      - vector
+                    format: rectangular
+            schema:
+              $ref: '#/components/schemas/PostCompanyLogoRequest'
+        description: Request Body
+        required: false
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Single identifier with multiple predefined sizes:
+                  value:
+                    data:
+                    - logos:
+                      - format: square
+                        size: small
+                        url: https://logos.factset.com/111213/2025/2/3af9ea68-5016-5640-ada6-12b032f14762/99624_1_11.png?Expires=1765398905&Key-Pair-Id=KD5OMB71J2Q9G&Signature=Mqb58e5b9q9g54iyEeDL0kP6H-9rXdXruUHQ8kqi3DpINsJPIsT0zRIyHXpxWc89pSxkpxEt-ddjG1N-mYEnaARH0wE9e5Tm2jQVgwDL7KLIvrW80GWKSM0Fb6Hr6zrTwNF4ESzhl95WXknAs7PTcuJBmyP2UyByhWorD2aI-YZ0aoeeCYnnpTOUhMKpdGk97LoRnBldjhaCIc4wdktk2v3ueU-mHqBrLWyafougataWqHHM-tdszw9RSf7MrGblSxPWAPUnxI5sI2j2k5a~AmNGZWYQB6m-crJzhqlEhC4L~s-3cjP2Z0WC0-eh0Nht7QNr4rqYxrtMGj6YLn8URQ__
+                        mimeType: image/png
+                      - format: square
+                        size: medium
+                        url: https://logos.factset.com/111213/2025/2/4741e722-f780-519c-aad1-f9a0f510220f/99624_1_12.png?Expires=1765396655&Key-Pair-Id=KD5OMB71J2Q9G&Signature=IXfyR5bEIQ4LkIAHwRt8Hk5u-G6WkQbAJ4YceVBWDBRJXlpr2Y1FbHfLQFcrz2oeJk2cxTIWYPdLnHDf8GaLWHmEt2X7jGM9iozzwA3ZYl8fN~98h6WII5yFTglSD4FlX9KA5Q56ajS5FJjZZez8bZc9kx2jfoQLwq8LmtqpUXW~nxZX2zlG8OpdVCO-uEjEdPsmFtQtJf05FxQr-nwPo~K2~bXL2xDfuZkRPGQlqBlpPdxHj~Uke227iPwdQ8E268w~650rkSuXEphx4Vn3F2WY4QYzNjOn84UzgNU-jY99bWm~UqrhF-AH~LmRzygQ~oFts5rl9dF5wBid5n48lQ__
+                        mimeType: image/png
+                      - format: square
+                        size: large
+                        url: https://logos.factset.com/111213/2025/2/6f878556-62e6-512a-9500-0ae7019ebfa5/99624_1_13.png?Expires=1765393784&Key-Pair-Id=KD5OMB71J2Q9G&Signature=Fhrs~7ROW4x79PEMhk9qTwb7feiQw6i4PdRsCGBFaSnPcLYCHmuiR1GF3LKST5hDf5eJmyv0JOSAAZvdW2DjntvCquiinpfTiMncBCsHXoQw847SV3c6YU7mupFYfXV2h4lo6qwQ8xtYAq7Mowm6-ATn16aR7IplzVu5osujaem9BNkrTYHevDw~Qxq85ImYeSy67tojuIWm41NmsJXo5TBQ4m886Twml1Tj4yRiJW9axfVa6Gh5-DmFB1-r1j0Ibe~nwuiG4yRrcIsHnLC0NEcqXVo7nSQ5uPabpwtqwnDjfMFlTxvT2T9nl3CCNgrX5bwB3Qh1LCVBcTyzy~J32w__
+                        mimeType: image/png
+                      - format: square
+                        size: vector
+                        url: https://logos.factset.com/111213/2025/2/4deea43b-52af-5041-b726-c304c4345b91/99624_1_10.svg?Expires=1765395508&Key-Pair-Id=KD5OMB71J2Q9G&Signature=aSq6hyMjyttG-83qv6WhtbOOAdnRJSWHrPILJEOLG09iLJaKOzdWffUBZDCEpQDJ5Tn5JfRyXB3qbqxbGlgS1lmg0mlya~yiy4AWiMATc1UjJXXnhKbWuTmwIJEVCSbdx5RIHTPiZGsfi8qlKnG~Exd1648pzL4ZfVOV4WeIVzEFFwT2NhNU1hj3V9kuAqj~gKpCtjqt7W7JJm98-8WFkSXinVAXXWi9TdW2pPg4jw-h2gbnI6AM4~ggiUMVhqJSQ0g-sMihjCLKRLdMk~KW6q6PTZKYRlvVBOLs1bJqgEgduZLkP2Vsq6uw1yEJNF7W~qFu64jYeL95NrodSd6Efg__
+                        mimeType: image/svg+xml
+                      idInstrument: "209485"
+                      sourceIdentifier: "209485"
+                    meta:
+                      status:
+                        code: 200
+                Multiple identifiers with a predefined size vector:
+                  value:
+                    data:
+                    - logos:
+                      - format: rectangular
+                        size: vector
+                        url: https://logos.factset.com/111213/2025/3/d75d2408-9764-5275-87a5-39b01c3d2800/2540_1_14.svg?Expires=1765396490&Key-Pair-Id=KD5OMB71J2Q9G&Signature=HJ0sPkIR4C2qRAybclPhgB7f1ipUgFbmrVEES8UdP3zshLiKdR2DcbGVy5mOVDYcliGbjO3s5iGhZVkHb6kcZ1xm9ouBFX17Qz~HRiQ00LsnjpYoAzXkbuq-UjYWmmDV5liUjOfTjJuO4Jxp5SCGUrFwbz6k89HtIF6V-axwV6n6XR5tei2JrGgNmSyUXeb1wK7i3PqVKHXzWswJ8gHcTWqCK4GrYb99jvxvnmaIPJQ8xVXJuOcn3R2hjoLIRVW7SET4h8sk9dpi~2TgY2mCu77OzwfQFUuNW~symcWViAMKq~dIT0jj-wwqCIYpK59qxcUkItBPszxwH0IplUnpWw__
+                        mimeType: image/svg+xml
+                      idInstrument: "92472"
+                      sourceIdentifier: "92472"
+                    - logos:
+                      - format: rectangular
+                        size: vector
+                        url: https://logos.factset.com/111213/2025/2/77c6c469-01d1-515d-af15-f9f797a118a7/151481_1_14.svg?Expires=1765395410&Key-Pair-Id=KD5OMB71J2Q9G&Signature=VzLa3mPNl1z7SCzRSUxE84ht~kIxjYDn8cznJZpWltkd2nV46cSmUC5lTixS~nnaRwvwT5jQfcitofYLCeZPc2sIot4dRGXl~1cCjujRLLHH4qLAyRJhwi7~z~VuJrkKSnEAR4gkWFPZxBeSJfTaoDZ-~dhhZFqi7lh5BmRsqpoInvuaHnrUUWu~gzMgnQb28cBi-ksCwiSqAcX4hHrDyXtolHSWkcibwhYsgr53zM~WXpiGNbl250w2IX~RAmahbxbGxItG7vOkPtzUHxnnoiTeqBuF5SBh4BxB~jcVhgEV50FkjqV~AL5SlypSZBTHLY61RaGSG3QzwsRwASunpA__
+                        mimeType: image/svg+xml
+                      idInstrument: "87089"
+                      sourceIdentifier: "87089"
+                    meta:
+                      status:
+                        code: 200
+                Single identifier and custom size:
+                  value:
+                    data:
+                    - logos:
+                      - format: rectangular
+                        size: large
+                        url: https://logos.factset.com/111213/2025/2/48c7aae2-667a-5782-9fdc-ed7c2cdfcd4e/99624_1_9.png?width=75&height=75&Expires=1765529914&Key-Pair-Id=KD5OMB71J2Q9G&Signature=ZAB4w9w1PmB5C92KGYUBnGmHaQB4flzGaZj2RHRBkVh2IFA1yVkYcGjhnCJnrUtCHL2gF5ykbM5N559XX89XQWmdaFQeDKIGR47a9-WNLblDXJLEXQ2xOrcE9OzzOrFlxTWCQ3wqYUCZoYDq2k2TRePPKCWN5HbZAeC6m6ER4-q3wgLnez7Hz-xsDpwQ-s5cEngBgjZLWGFyS~TQXtC6SZqLz8iz9vMPa0UO6gjEtJ3mlEhtmDjd3ZrcLluJ42DvKhPSXa0El-L0WP5h6oJ1oyS35Au1LZsTScbtfboNSA-h6VKtbvI8gYRppTs64fNmRxo1gtVSf1FQNLfOWvVRpw__
+                        mimeType: image/png
+                      idInstrument: "209485"
+                      sourceIdentifier: "209485"
+                    meta:
+                      status:
+                        code: 200
+                Multiple identifiers with a predefined size:
+                  value:
+                    data:
+                    - logos:
+                      - format: rectangular
+                        size: large
+                        url: https://logos.factset.com/111213/2025/2/48c7aae2-667a-5782-9fdc-ed7c2cdfcd4e/99624_1_9.png?Expires=1765393704&Key-Pair-Id=KD5OMB71J2Q9G&Signature=bk1CFAbaLIa9W367-E430cVDzIyhf3JTV65TT4ZZlKluWq2Uzrd~lNIeHug74-6CzO3UGHfeS9-HI1WK1~f~ap2oVAqEkZk1Dopqpfus4DTpfMdvMsxnd0Q49j6PMcJdUQ7uN3gVR-3rx9mHDs3qP~zpWy5k3ZnDqCSwlENr4RtGfpduAdi4NKRvpOFvUQr~HMBdNEOO2h87dbxOcRfznYYMtDqnIr6QhWUnsB4bbOO4e39LVqB1-AouRvTtwDxUndzpuEXpdShx9QbIPyYx0LcF-83Q1T4zT7RVLVfrFibW-GqguYUp0fTiwX4IOGFTdti3rqfJjwB8Hhi9SMuyNw__
+                        mimeType: image/png
+                      idInstrument: "209485"
+                      sourceIdentifier: "209485"
+                    - logos:
+                      - format: rectangular
+                        size: large
+                        url: https://logos.factset.com/111213/2025/3/a42f89cf-f7ba-5163-9866-3b16d32c7cf8/2540_1_9.png?Expires=1765395472&Key-Pair-Id=KD5OMB71J2Q9G&Signature=j3JbrPh-Gp31wJtK4gf2tB~N02ZByY-dLEpJoaPKfp2V~OSXftfwMbcp96HwzfoRIFgj2jaNaKYnM4wyINdlwLJfmZSNXFoTVMjAP8blOx90GVnBJbuEDHG5PVxT3R82lLPK7OtrArWKaU-mRnl1KFoG7JcLPXv8dvXk-zcjHWjT24GywkBm1Z4mWdJchSrXaKYu3zbUynFR~rKJogOTER~2hNNBwoAheaHpKmevVQlehfIrmJ7EBQ3sBpYk54pixIeJ0ktn8STIagXiZsX4BI5WcdhXEpIoDUoXb9GhXSQTGcWazoFAduwZhNXmFH7NFKEvGzlsY8y~VTGWOiWsig__
+                        mimeType: image/png
+                      - format: rectangular
+                        size: vector
+                        url: https://logos.factset.com/111213/2025/3/d75d2408-9764-5275-87a5-39b01c3d2800/2540_1_14.svg?Expires=1765396490&Key-Pair-Id=KD5OMB71J2Q9G&Signature=HJ0sPkIR4C2qRAybclPhgB7f1ipUgFbmrVEES8UdP3zshLiKdR2DcbGVy5mOVDYcliGbjO3s5iGhZVkHb6kcZ1xm9ouBFX17Qz~HRiQ00LsnjpYoAzXkbuq-UjYWmmDV5liUjOfTjJuO4Jxp5SCGUrFwbz6k89HtIF6V-axwV6n6XR5tei2JrGgNmSyUXeb1wK7i3PqVKHXzWswJ8gHcTWqCK4GrYb99jvxvnmaIPJQ8xVXJuOcn3R2hjoLIRVW7SET4h8sk9dpi~2TgY2mCu77OzwfQFUuNW~symcWViAMKq~dIT0jj-wwqCIYpK59qxcUkItBPszxwH0IplUnpWw__
+                        mimeType: image/svg+xml
+                      idInstrument: "92472"
+                      sourceIdentifier: "92472"
+                    meta:
+                      status:
+                        code: 200
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+          description: Successful Response
+        "400":
+          content:
+            application/json:
+              examples:
+                badRequest:
+                  $ref: '#/components/examples/badRequest'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. Please review the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated API Key or Token.
+        "403":
+          content:
+            application/json:
+              examples:
+                forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden. The API Key or token is not authorized.
+        "500":
+          content:
+            application/json:
+              examples:
+                internalServerError:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Retrieves logos for one or more publicly traded companies.
+      tags:
+      - Company logos
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  callbacks: {}
+  examples:
+    badRequest:
+      summary: Bad Request - Invalid Parameter
+      value:
+        errors:
+        - id: req-001
+          code: parameterError
+          title: Parameter validation error
+          detail: The parameter 'identifier' is required and may not be empty.
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 400
+    unauthenticated:
+      summary: User Authentication Failed
+      value:
+        errors:
+        - id: auth-001
+          code: authenticationFailed
+          title: Authentication failed
+          detail: Authorization required
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 401
+    forbidden:
+      summary: Forbidden
+      value:
+        errors:
+        - id: auth-002
+          code: forbidden
+          title: Access forbidden
+          detail: Forbidden. You are not authorized to access this resource.
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 403
+    internalServerError:
+      summary: Internal Server Error
+      value:
+        errors:
+        - id: server-001
+          code: internalServerError
+          title: Internal server error
+          detail: Internal Server Error. An unexpected error occurred.
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 500
+  headers: {}
+  links: {}
+  parameters: {}
+  requestBodies: {}
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            badRequest:
+              $ref: '#/components/examples/badRequest'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. Please review the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            unauthenticated:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated API Key or Token.
+    "403":
+      content:
+        application/json:
+          examples:
+            forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Forbidden. The API Key or token is not authorized.
+    "500":
+      content:
+        application/json:
+          examples:
+            internalServerError:
+              $ref: '#/components/examples/internalServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error.
+    postCompanyLogo200Response:
+      content:
+        application/json:
+          examples:
+            Single identifier with multiple predefined sizes:
+              value:
+                data:
+                - logos:
+                  - format: square
+                    size: small
+                    url: https://logos.factset.com/111213/2025/2/3af9ea68-5016-5640-ada6-12b032f14762/99624_1_11.png?Expires=1765398905&Key-Pair-Id=KD5OMB71J2Q9G&Signature=Mqb58e5b9q9g54iyEeDL0kP6H-9rXdXruUHQ8kqi3DpINsJPIsT0zRIyHXpxWc89pSxkpxEt-ddjG1N-mYEnaARH0wE9e5Tm2jQVgwDL7KLIvrW80GWKSM0Fb6Hr6zrTwNF4ESzhl95WXknAs7PTcuJBmyP2UyByhWorD2aI-YZ0aoeeCYnnpTOUhMKpdGk97LoRnBldjhaCIc4wdktk2v3ueU-mHqBrLWyafougataWqHHM-tdszw9RSf7MrGblSxPWAPUnxI5sI2j2k5a~AmNGZWYQB6m-crJzhqlEhC4L~s-3cjP2Z0WC0-eh0Nht7QNr4rqYxrtMGj6YLn8URQ__
+                    mimeType: image/png
+                  - format: square
+                    size: medium
+                    url: https://logos.factset.com/111213/2025/2/4741e722-f780-519c-aad1-f9a0f510220f/99624_1_12.png?Expires=1765396655&Key-Pair-Id=KD5OMB71J2Q9G&Signature=IXfyR5bEIQ4LkIAHwRt8Hk5u-G6WkQbAJ4YceVBWDBRJXlpr2Y1FbHfLQFcrz2oeJk2cxTIWYPdLnHDf8GaLWHmEt2X7jGM9iozzwA3ZYl8fN~98h6WII5yFTglSD4FlX9KA5Q56ajS5FJjZZez8bZc9kx2jfoQLwq8LmtqpUXW~nxZX2zlG8OpdVCO-uEjEdPsmFtQtJf05FxQr-nwPo~K2~bXL2xDfuZkRPGQlqBlpPdxHj~Uke227iPwdQ8E268w~650rkSuXEphx4Vn3F2WY4QYzNjOn84UzgNU-jY99bWm~UqrhF-AH~LmRzygQ~oFts5rl9dF5wBid5n48lQ__
+                    mimeType: image/png
+                  - format: square
+                    size: large
+                    url: https://logos.factset.com/111213/2025/2/6f878556-62e6-512a-9500-0ae7019ebfa5/99624_1_13.png?Expires=1765393784&Key-Pair-Id=KD5OMB71J2Q9G&Signature=Fhrs~7ROW4x79PEMhk9qTwb7feiQw6i4PdRsCGBFaSnPcLYCHmuiR1GF3LKST5hDf5eJmyv0JOSAAZvdW2DjntvCquiinpfTiMncBCsHXoQw847SV3c6YU7mupFYfXV2h4lo6qwQ8xtYAq7Mowm6-ATn16aR7IplzVu5osujaem9BNkrTYHevDw~Qxq85ImYeSy67tojuIWm41NmsJXo5TBQ4m886Twml1Tj4yRiJW9axfVa6Gh5-DmFB1-r1j0Ibe~nwuiG4yRrcIsHnLC0NEcqXVo7nSQ5uPabpwtqwnDjfMFlTxvT2T9nl3CCNgrX5bwB3Qh1LCVBcTyzy~J32w__
+                    mimeType: image/png
+                  - format: square
+                    size: vector
+                    url: https://logos.factset.com/111213/2025/2/4deea43b-52af-5041-b726-c304c4345b91/99624_1_10.svg?Expires=1765395508&Key-Pair-Id=KD5OMB71J2Q9G&Signature=aSq6hyMjyttG-83qv6WhtbOOAdnRJSWHrPILJEOLG09iLJaKOzdWffUBZDCEpQDJ5Tn5JfRyXB3qbqxbGlgS1lmg0mlya~yiy4AWiMATc1UjJXXnhKbWuTmwIJEVCSbdx5RIHTPiZGsfi8qlKnG~Exd1648pzL4ZfVOV4WeIVzEFFwT2NhNU1hj3V9kuAqj~gKpCtjqt7W7JJm98-8WFkSXinVAXXWi9TdW2pPg4jw-h2gbnI6AM4~ggiUMVhqJSQ0g-sMihjCLKRLdMk~KW6q6PTZKYRlvVBOLs1bJqgEgduZLkP2Vsq6uw1yEJNF7W~qFu64jYeL95NrodSd6Efg__
+                    mimeType: image/svg+xml
+                  idInstrument: "209485"
+                  sourceIdentifier: "209485"
+                meta:
+                  status:
+                    code: 200
+            Multiple identifiers with a predefined size vector:
+              value:
+                data:
+                - logos:
+                  - format: rectangular
+                    size: vector
+                    url: https://logos.factset.com/111213/2025/3/d75d2408-9764-5275-87a5-39b01c3d2800/2540_1_14.svg?Expires=1765396490&Key-Pair-Id=KD5OMB71J2Q9G&Signature=HJ0sPkIR4C2qRAybclPhgB7f1ipUgFbmrVEES8UdP3zshLiKdR2DcbGVy5mOVDYcliGbjO3s5iGhZVkHb6kcZ1xm9ouBFX17Qz~HRiQ00LsnjpYoAzXkbuq-UjYWmmDV5liUjOfTjJuO4Jxp5SCGUrFwbz6k89HtIF6V-axwV6n6XR5tei2JrGgNmSyUXeb1wK7i3PqVKHXzWswJ8gHcTWqCK4GrYb99jvxvnmaIPJQ8xVXJuOcn3R2hjoLIRVW7SET4h8sk9dpi~2TgY2mCu77OzwfQFUuNW~symcWViAMKq~dIT0jj-wwqCIYpK59qxcUkItBPszxwH0IplUnpWw__
+                    mimeType: image/svg+xml
+                  idInstrument: "92472"
+                  sourceIdentifier: "92472"
+                - logos:
+                  - format: rectangular
+                    size: vector
+                    url: https://logos.factset.com/111213/2025/2/77c6c469-01d1-515d-af15-f9f797a118a7/151481_1_14.svg?Expires=1765395410&Key-Pair-Id=KD5OMB71J2Q9G&Signature=VzLa3mPNl1z7SCzRSUxE84ht~kIxjYDn8cznJZpWltkd2nV46cSmUC5lTixS~nnaRwvwT5jQfcitofYLCeZPc2sIot4dRGXl~1cCjujRLLHH4qLAyRJhwi7~z~VuJrkKSnEAR4gkWFPZxBeSJfTaoDZ-~dhhZFqi7lh5BmRsqpoInvuaHnrUUWu~gzMgnQb28cBi-ksCwiSqAcX4hHrDyXtolHSWkcibwhYsgr53zM~WXpiGNbl250w2IX~RAmahbxbGxItG7vOkPtzUHxnnoiTeqBuF5SBh4BxB~jcVhgEV50FkjqV~AL5SlypSZBTHLY61RaGSG3QzwsRwASunpA__
+                    mimeType: image/svg+xml
+                  idInstrument: "87089"
+                  sourceIdentifier: "87089"
+                meta:
+                  status:
+                    code: 200
+            Single identifier and custom size:
+              value:
+                data:
+                - logos:
+                  - format: rectangular
+                    size: large
+                    url: https://logos.factset.com/111213/2025/2/48c7aae2-667a-5782-9fdc-ed7c2cdfcd4e/99624_1_9.png?width=75&height=75&Expires=1765529914&Key-Pair-Id=KD5OMB71J2Q9G&Signature=ZAB4w9w1PmB5C92KGYUBnGmHaQB4flzGaZj2RHRBkVh2IFA1yVkYcGjhnCJnrUtCHL2gF5ykbM5N559XX89XQWmdaFQeDKIGR47a9-WNLblDXJLEXQ2xOrcE9OzzOrFlxTWCQ3wqYUCZoYDq2k2TRePPKCWN5HbZAeC6m6ER4-q3wgLnez7Hz-xsDpwQ-s5cEngBgjZLWGFyS~TQXtC6SZqLz8iz9vMPa0UO6gjEtJ3mlEhtmDjd3ZrcLluJ42DvKhPSXa0El-L0WP5h6oJ1oyS35Au1LZsTScbtfboNSA-h6VKtbvI8gYRppTs64fNmRxo1gtVSf1FQNLfOWvVRpw__
+                    mimeType: image/png
+                  idInstrument: "209485"
+                  sourceIdentifier: "209485"
+                meta:
+                  status:
+                    code: 200
+            Multiple identifiers with a predefined size:
+              value:
+                data:
+                - logos:
+                  - format: rectangular
+                    size: large
+                    url: https://logos.factset.com/111213/2025/2/48c7aae2-667a-5782-9fdc-ed7c2cdfcd4e/99624_1_9.png?Expires=1765393704&Key-Pair-Id=KD5OMB71J2Q9G&Signature=bk1CFAbaLIa9W367-E430cVDzIyhf3JTV65TT4ZZlKluWq2Uzrd~lNIeHug74-6CzO3UGHfeS9-HI1WK1~f~ap2oVAqEkZk1Dopqpfus4DTpfMdvMsxnd0Q49j6PMcJdUQ7uN3gVR-3rx9mHDs3qP~zpWy5k3ZnDqCSwlENr4RtGfpduAdi4NKRvpOFvUQr~HMBdNEOO2h87dbxOcRfznYYMtDqnIr6QhWUnsB4bbOO4e39LVqB1-AouRvTtwDxUndzpuEXpdShx9QbIPyYx0LcF-83Q1T4zT7RVLVfrFibW-GqguYUp0fTiwX4IOGFTdti3rqfJjwB8Hhi9SMuyNw__
+                    mimeType: image/png
+                  idInstrument: "209485"
+                  sourceIdentifier: "209485"
+                - logos:
+                  - format: rectangular
+                    size: large
+                    url: https://logos.factset.com/111213/2025/3/a42f89cf-f7ba-5163-9866-3b16d32c7cf8/2540_1_9.png?Expires=1765395472&Key-Pair-Id=KD5OMB71J2Q9G&Signature=j3JbrPh-Gp31wJtK4gf2tB~N02ZByY-dLEpJoaPKfp2V~OSXftfwMbcp96HwzfoRIFgj2jaNaKYnM4wyINdlwLJfmZSNXFoTVMjAP8blOx90GVnBJbuEDHG5PVxT3R82lLPK7OtrArWKaU-mRnl1KFoG7JcLPXv8dvXk-zcjHWjT24GywkBm1Z4mWdJchSrXaKYu3zbUynFR~rKJogOTER~2hNNBwoAheaHpKmevVQlehfIrmJ7EBQ3sBpYk54pixIeJ0ktn8STIagXiZsX4BI5WcdhXEpIoDUoXb9GhXSQTGcWazoFAduwZhNXmFH7NFKEvGzlsY8y~VTGWOiWsig__
+                    mimeType: image/png
+                  - format: rectangular
+                    size: vector
+                    url: https://logos.factset.com/111213/2025/3/d75d2408-9764-5275-87a5-39b01c3d2800/2540_1_14.svg?Expires=1765396490&Key-Pair-Id=KD5OMB71J2Q9G&Signature=HJ0sPkIR4C2qRAybclPhgB7f1ipUgFbmrVEES8UdP3zshLiKdR2DcbGVy5mOVDYcliGbjO3s5iGhZVkHb6kcZ1xm9ouBFX17Qz~HRiQ00LsnjpYoAzXkbuq-UjYWmmDV5liUjOfTjJuO4Jxp5SCGUrFwbz6k89HtIF6V-axwV6n6XR5tei2JrGgNmSyUXeb1wK7i3PqVKHXzWswJ8gHcTWqCK4GrYb99jvxvnmaIPJQ8xVXJuOcn3R2hjoLIRVW7SET4h8sk9dpi~2TgY2mCu77OzwfQFUuNW~symcWViAMKq~dIT0jj-wwqCIYpK59qxcUkItBPszxwH0IplUnpWw__
+                    mimeType: image/svg+xml
+                  idInstrument: "92472"
+                  sourceIdentifier: "92472"
+                meta:
+                  status:
+                    code: 200
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+      description: Successful Response
+  schemas:
+    CompanyLogoObject:
+      description: Company logos that satisfy the request parameters.
+      example:
+        size: small
+        format: rectangular
+        mimeType: image/png
+        url: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+      nullable: false
+      properties:
+        format:
+          description: Format of the logo.
+          enum:
+          - rectangular
+          - square
+          nullable: true
+          type: string
+        size:
+          description: Size for the logo.
+          enum:
+          - small
+          - medium
+          - large
+          - vector
+          - custom
+          nullable: true
+          type: string
+        mimeType:
+          description: Mime type of the logo.
+          example: image/png
+          nullable: true
+          type: string
+        url:
+          description: URL of the logo.
+          example: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+          format: url
+          nullable: true
+          type: string
+      type: object
+    CompanyLogoItemObject:
+      description: List of company logos.
+      example:
+        idInstrument: "209485"
+        sourceIdentifier: FDS-US
+        logos:
+        - size: small
+          format: rectangular
+          mimeType: image/png
+          url: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+        - size: small
+          format: rectangular
+          mimeType: image/png
+          url: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+      nullable: false
+      properties:
+        idInstrument:
+          description: MDG identifier of the instrument.
+          example: "209485"
+          format: id64
+          nullable: true
+          type: string
+        sourceIdentifier:
+          description: Identifier used in the request.
+          example: FDS-US
+          nullable: true
+          type: string
+        logos:
+          description: Company logos that satisfy the request parameters.
+          items:
+            $ref: '#/components/schemas/CompanyLogoObject'
+          nullable: false
+          type: array
+      type: object
+    AttributesMember:
+      description: Limit the attributes returned in the response to the specified
+        set.
+      example: []
+      items:
+        maxLength: 100
+        type: string
+      maxItems: 100
+      type: array
+      uniqueItems: true
+    StatusObject:
+      description: The status member contains the status code of the response.
+      example:
+        code: 0.8008281904610115
+      properties:
+        code:
+          description: The HTTP status code of the response, mirroring the code from
+            the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
+          format: int32
+          type: number
+      type: object
+    PostCompanyLogoRequest:
+      description: Request Body
+      example:
+        data:
+          identifier:
+            values:
+            - FDS-US
+            type: tickerRegion
+          size:
+            custom:
+              width: 25.21573561875922
+              height: 124.52166747833766
+            predefined:
+            - small
+            - small
+          format: rectangular
+          mimeType: image/png
+        meta:
+          attributes: []
+      properties:
+        data:
+          $ref: '#/components/schemas/PostCompanyLogoRequest_data'
+        meta:
+          $ref: '#/components/schemas/PostCompanyLogoRequest_meta'
+      type: object
+    ErrorResponse:
+      description: Error response schema following FactSet's MDG API standards for
+        error handling and reporting.
+      properties:
+        meta:
+          $ref: '#/components/schemas/ErrorResponse_meta'
+        errors:
+          description: Array of error objects
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type: array
+      required:
+      - errors
+      - meta
+      title: Error Response
+      type: object
+    ErrorDetail:
+      description: Detailed error information following FactSet API standards
+      properties:
+        id:
+          description: Unique identifier for this error instance
+          example: 07aed48e-f6fa-417a-ba7e-74e4267d3e39
+          type: string
+        code:
+          description: Error code identifying the type of error
+          example: parameterError
+          type: string
+        title:
+          description: Short human-readable summary of the error
+          example: Generic request error
+          type: string
+        detail:
+          description: Detailed human-readable explanation of this specific error
+            occurrence
+          example: Authorization required
+          type: string
+        timestamp:
+          description: ISO 8601 formatted timestamp when the error occurred
+          example: 2025-12-15T07:15:30.131Z
+          format: date-time
+          type: string
+      required:
+      - code
+      - detail
+      - id
+      - timestamp
+      - title
+      type: object
+    inline_response_200_meta:
+      description: The meta member contains the meta information of the response.
+      example:
+        status:
+          code: 0.8008281904610115
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusObject'
+      type: object
+    inline_response_200:
+      example:
+        data:
+        - idInstrument: "209485"
+          sourceIdentifier: FDS-US
+          logos:
+          - size: small
+            format: rectangular
+            mimeType: image/png
+            url: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+          - size: small
+            format: rectangular
+            mimeType: image/png
+            url: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+        - idInstrument: "209485"
+          sourceIdentifier: FDS-US
+          logos:
+          - size: small
+            format: rectangular
+            mimeType: image/png
+            url: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+          - size: small
+            format: rectangular
+            mimeType: image/png
+            url: https://logos.factset.com/111213/2025/2/4474af02-261f-5645-ae4c-bbcdd643798a/99624_1_7.png?Expires=1764444941&Key-Pair-Id=KD5OMB71J2Q9G&Signature=KYKEjQ6RBv7TarSI2FfFgMAyP0KkeUXqe7LTMA45Rzar8lWdo2V-5By7iD6OAb2-LhJPLXoA~l0vdgxL4OCOfy7~~2yORSHtw59tV-EYdycx5G016kIIEJfBII1F5Af5T9L87QE~9CF74-Pd7IRBLBRWu8PBsoscJd52aPxZYiIqig8THSwDpukxKSMPDL06E7DVawQQpvEMaqDjZS5HY8dhPGkcm8Ef2I7O9Ttt7p6-RJ2kYo8gK-10iUsNo6cSD62E5IMM4bwEeqRPCXy80twENBedFMWv9hLR4yjr~W~Pypp7Gm-ID~krXGnw95uCMGoU2TXzaiXI6KUkfK6Plw__
+        meta:
+          status:
+            code: 0.8008281904610115
+      properties:
+        data:
+          description: Company logos.
+          items:
+            $ref: '#/components/schemas/CompanyLogoItemObject'
+          nullable: false
+          type: array
+        meta:
+          $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    PostCompanyLogoRequest_data_identifier:
+      description: Set of identifiers and their type.
+      example:
+        values:
+        - FDS-US
+        type: tickerRegion
+      properties:
+        values:
+          description: |
+            Set of identifiers to resolve. ***values*** limit = 100 per request.
+          example:
+          - FDS-US
+          items:
+            example: FDS-US
+            exclusiveMaximum: false
+            exclusiveMinimum: false
+            maxLength: 50
+            maximum: 1
+            minLength: 1
+            minimum: 1
+            pattern: ^[B-DF-HJ-NP-TV-Z0-9]{6}-[SLR]$|^[A-Z0-9.#&*+]{1,47}-[A-Z0-9]{2,4}$|^[0-9]{3,20}$|^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$|^[A-Z]{2}[A-Z0-9]{9}[0-9]$|^[A-Z1-9][A-Z0-9]{5}$|^[0-9]{1,9}$|^[A-Z0-9]{8}[0-9]$|^[-A-Za-z0-9.#:]{1,25}$
+            type: string
+          maxItems: 100
+          minItems: 1
+          nullable: false
+          type: array
+          uniqueItems: true
+        type:
+          description: |
+            Type of the identifier. Accepted values types include:
+             * **idInstrument** - MDG identifier of an instrument.
+             * **idNotation** - MDG identifier of a listing.
+             * **fdsPermanentIdentifierSecurity** - FactSet Permanent Identifier on security level.
+             * **fdsPermanentIdentifierListing** - FactSet Permanent Identifier on listing level.
+             * **fdsPermanentIdentifierRegional** - Regional FactSet Permanent Identifier.
+             * **tickerExchange** - FactSet market symbol of a listing.
+             * **tickerRegion** - Regional FactSet ticker symbol.
+             * **sedol** - SEDOL or IDII of a listing.
+             * **isin** - ISIN of an instrument.
+             * **wkn** - WKN of an instrument.
+             * **valor** - Valor number of an instrument.
+             * **cusip** - CUSIP or CINS identifier of an instrument
+             * **symbol** - Symbol of a listing
+          enum:
+          - idInstrument
+          - idNotation
+          - fdsPermanentIdentifierSecurity
+          - fdsPermanentIdentifierListing
+          - fdsPermanentIdentifierRegional
+          - tickerExchange
+          - tickerRegion
+          - sedol
+          - isin
+          - wkn
+          - valor
+          - cusip
+          - symbol
+          example: tickerRegion
+          type: string
+      required:
+      - type
+      - values
+      type: object
+    PostCompanyLogoRequest_data_size_custom:
+      description: |
+        Custom pixel-based size for the logo. Custom-sized logos are downscaled when possible; otherwise upscaled from the size-wise closest available logo. Regardless of the selected pixel width and height, the aspect ratio of the original logo is preserved without distortion.
+      example:
+        width: 25.21573561875922
+        height: 124.52166747833766
+      properties:
+        width:
+          description: Width of the logo in pixels.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 200
+          minimum: 10
+          type: number
+        height:
+          description: Height of the logo in pixels.
+          exclusiveMaximum: false
+          exclusiveMinimum: false
+          format: int32
+          maximum: 200
+          minimum: 10
+          type: number
+      required:
+      - height
+      - width
+      type: object
+    PostCompanyLogoRequest_data_size:
+      description: Standard or custom-size for the logo. Either a predefined size
+        from the available options must be selected, or a custom size in pixels must
+        be provided.
+      example:
+        custom:
+          width: 25.21573561875922
+          height: 124.52166747833766
+        predefined:
+        - small
+        - small
+      properties:
+        predefined:
+          description: |
+            Set of predefined sizes for logos. Accepted sizes are:
+             * **small** - Rectangular logo maximum width of 88 pixels and maximum height of 31 pixels. Square logo 31 x 31 pixels.
+             * **medium** - Small logo scaled up by 200%.
+             * **large** - Small logo scaled up by 300%.
+             * **vector** - Can be rendered at any size.
+          items:
+            enum:
+            - small
+            - medium
+            - large
+            - vector
+            type: string
+          nullable: false
+          type: array
+          uniqueItems: true
+        custom:
+          $ref: '#/components/schemas/PostCompanyLogoRequest_data_size_custom'
+      type: object
+    PostCompanyLogoRequest_data:
+      description: The data member contains the request's primary data.
+      example:
+        identifier:
+          values:
+          - FDS-US
+          type: tickerRegion
+        size:
+          custom:
+            width: 25.21573561875922
+            height: 124.52166747833766
+          predefined:
+          - small
+          - small
+        format: rectangular
+        mimeType: image/png
+      properties:
+        identifier:
+          $ref: '#/components/schemas/PostCompanyLogoRequest_data_identifier'
+        format:
+          default: rectangular
+          description: |
+            Format of the logo. If no format is defined all available formats are returned. Accepted formats are:
+             * **rectangular** - Logos in rectangular format.
+             * **square** - Logos in square format.
+          enum:
+          - rectangular
+          - square
+          type: string
+        size:
+          $ref: '#/components/schemas/PostCompanyLogoRequest_data_size'
+        mimeType:
+          description: |
+            Mime type of the logo. Accepted mime types are:
+            * **image/png** - PNG compressed image.
+            * **image/svg+xml** - Scalable Vector Graphics (SVG).
+          enum:
+          - image/png
+          - image/svg+xml
+          type: string
+      required:
+      - identifier
+      - size
+      type: object
+    PostCompanyLogoRequest_meta:
+      description: The meta member contains the meta information of the request.
+      example:
+        attributes: []
+      properties:
+        attributes:
+          description: Limit the attributes returned in the response to the specified
+            set.
+          example: []
+          items:
+            maxLength: 100
+            type: string
+          maxItems: 100
+          type: array
+          uniqueItems: true
+      type: object
+    ErrorResponse_meta_status:
+      description: Status information
+      properties:
+        code:
+          description: HTTP status code
+          example: 400
+          type: integer
+      required:
+      - code
+      type: object
+    ErrorResponse_meta:
+      description: Meta information containing status
+      properties:
+        status:
+          $ref: '#/components/schemas/ErrorResponse_meta_status'
+      required:
+      - status
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

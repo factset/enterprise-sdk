@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsetesg",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "FactSet ESG client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

@@ -51,8 +51,11 @@ docs/Meta.md
 docs/Pagination.md
 docs/Price.md
 docs/PricesApi.md
+docs/RangeRequest.md
+docs/RangeResponse.md
 docs/Returns.md
 docs/ReturnsApi.md
+docs/ReturnsRange.md
 docs/ReturnsRequest.md
 docs/ReturnsResponse.md
 docs/RightsIssue.md
@@ -139,7 +142,10 @@ src/FactSet.SDK.FactSetGlobalPrices/Model/MarketValueResponseObject.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Meta.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Pagination.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Price.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/RangeRequest.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/RangeResponse.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/Returns.cs
+src/FactSet.SDK.FactSetGlobalPrices/Model/ReturnsRange.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/ReturnsRequest.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/ReturnsResponse.cs
 src/FactSet.SDK.FactSetGlobalPrices/Model/RightsIssue.cs

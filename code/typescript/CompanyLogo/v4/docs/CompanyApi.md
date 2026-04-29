@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com/wealth/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCompanyLogoGet**](CompanyApi.md#getCompanyLogoGet) | **GET** /company/logo/get | List of URLs of company logos.
+[**getCompanyLogoGet**](CompanyApi.md#getCompanyLogoGet) | **GET** /company/logo | List of URLs of company logos.
 
 
 

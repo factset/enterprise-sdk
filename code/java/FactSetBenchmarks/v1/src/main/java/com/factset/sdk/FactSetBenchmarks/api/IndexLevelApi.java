@@ -16,8 +16,11 @@ import com.factset.sdk.FactSetBenchmarks.models.BenchmarkRatiosResponse;
 import com.factset.sdk.FactSetBenchmarks.models.ErrorResponse;
 import com.factset.sdk.FactSetBenchmarks.models.IndexHistoryRequest;
 import com.factset.sdk.FactSetBenchmarks.models.IndexHistoryResponse;
+import com.factset.sdk.FactSetBenchmarks.models.IndexReturnsRequest;
+import com.factset.sdk.FactSetBenchmarks.models.IndexReturnsResponse;
 import com.factset.sdk.FactSetBenchmarks.models.IndexSnapshotRequest;
 import com.factset.sdk.FactSetBenchmarks.models.IndexSnapshotResponse;
+import java.time.LocalDate;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -72,6 +75,26 @@ public class IndexLevelApi {
     getIndexHistoryForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
+  private static final Map<Integer, GenericType> getIndexReturnsResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIndexReturnsResponseTypeMap.put(200, new GenericType<IndexReturnsResponse>(){});
+    getIndexReturnsResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIndexReturnsResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIndexReturnsResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIndexReturnsResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIndexReturnsResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> getIndexReturnsForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getIndexReturnsForListResponseTypeMap.put(200, new GenericType<IndexReturnsResponse>(){});
+    getIndexReturnsForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getIndexReturnsForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getIndexReturnsForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getIndexReturnsForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getIndexReturnsForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
   private static final Map<Integer, GenericType> getIndexSnapshotResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getIndexSnapshotResponseTypeMap.put(200, new GenericType<IndexSnapshotResponse>(){});
@@ -122,7 +145,7 @@ public class IndexLevelApi {
    * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)
    * @param periodicity The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  (optional, default to LTM)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @return BenchmarkRatiosResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -149,7 +172,7 @@ public class IndexLevelApi {
    * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)
    * @param periodicity The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  (optional, default to LTM)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @return ApiResponse&lt;BenchmarkRatiosResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -312,7 +335,7 @@ public class IndexLevelApi {
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
    * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
    * @return IndexHistoryResponse
@@ -341,7 +364,7 @@ public class IndexLevelApi {
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  (optional, default to D)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
    * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
    * @return ApiResponse&lt;IndexHistoryResponse&gt;
@@ -495,12 +518,210 @@ public class IndexLevelApi {
 
   }
   /**
+   * Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters
+   * Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike &#x60;/index-history&#x60;, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period. 
+   * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
+   * @param startDate Requested start date expressed in YYYY-MM-DD format. (required)
+   * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (required)
+   * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
+   * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
+   * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
+   * @return IndexReturnsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> An array of Index Returns information for a requested date range. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public IndexReturnsResponse getIndexReturns(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String returnType, String hedgeType, String currency, String calendar, String impliedDate) throws ApiException {
+    return getIndexReturnsWithHttpInfo(ids, startDate, endDate, returnType, hedgeType, currency, calendar, impliedDate).getData();
+  }
+
+  /**
+   * Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters
+   * Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike &#x60;/index-history&#x60;, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period. 
+   * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
+   * @param startDate Requested start date expressed in YYYY-MM-DD format. (required)
+   * @param endDate Requested End Date for Range expressed in YYYY-MM-DD format. (required)
+   * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
+   * @param hedgeType The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional, default to UNHEDGED)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
+   * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
+   * @param impliedDate This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional, default to N)
+   * @return ApiResponse&lt;IndexReturnsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> An array of Index Returns information for a requested date range. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<IndexReturnsResponse> getIndexReturnsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String returnType, String hedgeType, String currency, String calendar, String impliedDate) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'ids' is set
+    if (ids == null) {
+      throw new ApiException(400, "Missing the required parameter 'ids' when calling getIndexReturns");
+    }
+    
+    // verify the required parameter 'startDate' is set
+    if (startDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'startDate' when calling getIndexReturns");
+    }
+    
+    // verify the required parameter 'endDate' is set
+    if (endDate == null) {
+      throw new ApiException(400, "Missing the required parameter 'endDate' when calling getIndexReturns");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-benchmarks/v1/index-returns";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "returnType", returnType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "hedgeType", hedgeType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "calendar", calendar));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "impliedDate", impliedDate));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        IndexReturnsResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getIndexReturns", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getIndexReturnsResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body
+   * Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike &#x60;/index-history&#x60;, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period. 
+   * @param indexReturnsRequest Requests Index Returns for a list of identifiers and specified date range. (required)
+   * @return IndexReturnsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> An array of Index Returns information for a requested date range. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public IndexReturnsResponse getIndexReturnsForList(IndexReturnsRequest indexReturnsRequest) throws ApiException {
+    return getIndexReturnsForListWithHttpInfo(indexReturnsRequest).getData();
+  }
+
+  /**
+   * Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body
+   * Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike &#x60;/index-history&#x60;, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period. 
+   * @param indexReturnsRequest Requests Index Returns for a list of identifiers and specified date range. (required)
+   * @return ApiResponse&lt;IndexReturnsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> An array of Index Returns information for a requested date range. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<IndexReturnsResponse> getIndexReturnsForListWithHttpInfo(IndexReturnsRequest indexReturnsRequest) throws ApiException {
+    Object localVarPostBody = indexReturnsRequest;
+    
+    // verify the required parameter 'indexReturnsRequest' is set
+    if (indexReturnsRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'indexReturnsRequest' when calling getIndexReturnsForList");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-benchmarks/v1/index-returns";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        IndexReturnsResponse
+      
+    > apiResponse = apiClient.invokeAPI("IndexLevelApi.getIndexReturnsForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getIndexReturnsForListResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
    * Index Level Prices, Returns, and related information as of a single date.
    * Retrieves Index Level Prices and Returns information as of a specific date. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information. 
    * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @return IndexSnapshotResponse
    * @throws ApiException if fails to make API call
@@ -525,7 +746,7 @@ public class IndexLevelApi {
    * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
    * @param returnType The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional, default to GROSS)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @return ApiResponse&lt;IndexSnapshotResponse&gt;
    * @throws ApiException if fails to make API call

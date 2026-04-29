@@ -52,8 +52,11 @@ docs/Meta.md
 docs/Pagination.md
 docs/Price.md
 docs/PricesApi.md
+docs/RangeRequest.md
+docs/RangeResponse.md
 docs/Returns.md
 docs/ReturnsApi.md
+docs/ReturnsRange.md
 docs/ReturnsRequest.md
 docs/ReturnsResponse.md
 docs/RightsIssue.md
@@ -148,7 +151,10 @@ src/main/java/com/factset/sdk/FactSetGlobalPrices/models/MarketValueResponseObje
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Meta.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Pagination.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Price.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/RangeRequest.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/RangeResponse.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/Returns.java
+src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ReturnsRange.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ReturnsRequest.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/ReturnsResponse.java
 src/main/java/com/factset/sdk/FactSetGlobalPrices/models/RightsIssue.java

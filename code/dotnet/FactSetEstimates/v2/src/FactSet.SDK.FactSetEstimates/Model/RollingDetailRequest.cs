@@ -51,8 +51,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="metrics">Requested metrics. Use the &#x60;/metrics&#x60; endpoint for a list of estimate items.For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). (required).</param>
         /// <param name="currency">Currency code for adjusting the data. Use input as &#x60;ESTIMATE&#x60; for values in Estimate currency. For a list of currency ISO codes, visit &lt;a href&#x3D;\&quot;https://oa.apps.factset.com/pages/1470\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Online Assistant Page.</param>
         /// <param name="brokerNames">Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706)..</param>
-        /// <param name="updatesOnly">Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.  (default to false).</param>
-        public RollingDetailRequest(List<string> ids, List<string> metrics,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = 1, int relativeFiscalEnd = 1, PeriodicityDetail periodicity = default(PeriodicityDetail), string currency = default(string), List<string> brokerNames = default(List<string>), bool updatesOnly = false)
+        /// <param name="updatesOnly">Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. (default to false).</param>
+        /// <param name="sortByInputDateTime">When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (default to false).</param>
+        public RollingDetailRequest(List<string> ids, List<string> metrics,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Frequency frequency = default(Frequency), bool includeAll = false, int relativeFiscalStart = 1, int relativeFiscalEnd = 1, PeriodicityDetail periodicity = default(PeriodicityDetail), string currency = default(string), List<string> brokerNames = default(List<string>), bool updatesOnly = false, bool sortByInputDateTime = false)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -74,6 +75,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
             this.Currency = currency;
             this.BrokerNames = brokerNames;
             this.UpdatesOnly = updatesOnly;
+            this.SortByInputDateTime = sortByInputDateTime;
         }
 
         /// <summary>
@@ -154,11 +156,18 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public List<string> BrokerNames { get; set; }
 
         /// <summary>
-        /// Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. 
+        /// Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.
         /// </summary>
-        /// <value>Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. </value>
+        /// <value>Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.</value>
         [DataMember(Name = "updatesOnly", EmitDefaultValue = true)]
         public bool UpdatesOnly { get; set; }
+
+        /// <summary>
+        /// When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. 
+        /// </summary>
+        /// <value>When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. </value>
+        [DataMember(Name = "sortByInputDateTime", EmitDefaultValue = true)]
+        public bool SortByInputDateTime { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -180,6 +189,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  BrokerNames: ").Append(BrokerNames).Append("\n");
             sb.Append("  UpdatesOnly: ").Append(UpdatesOnly).Append("\n");
+            sb.Append("  SortByInputDateTime: ").Append(SortByInputDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -273,6 +283,10 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 (
                     this.UpdatesOnly == input.UpdatesOnly ||
                     this.UpdatesOnly.Equals(input.UpdatesOnly)
+                ) && 
+                (
+                    this.SortByInputDateTime == input.SortByInputDateTime ||
+                    this.SortByInputDateTime.Equals(input.SortByInputDateTime)
                 );
         }
 
@@ -321,6 +335,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
                     hashCode = (hashCode * 59) + this.BrokerNames.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.UpdatesOnly.GetHashCode();
+                hashCode = (hashCode * 59) + this.SortByInputDateTime.GetHashCode();
                 return hashCode;
             }
         }

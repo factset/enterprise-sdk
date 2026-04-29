@@ -35,13 +35,8 @@ namespace FactSet.SDK.CompanyLogo.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatusObject" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatusObject() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatusObject" /> class.
-        /// </summary>
-        /// <param name="code">The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1). (required).</param>
-        public StatusObject(decimal code)
+        /// <param name="code">The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1)..</param>
+        public StatusObject(decimal code = default(decimal))
         {
             this.Code = code;
         }
@@ -50,7 +45,7 @@ namespace FactSet.SDK.CompanyLogo.Model
         /// The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
         /// </summary>
         /// <value>The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1).</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "code", EmitDefaultValue = false)]
         public decimal Code { get; set; }
 
         /// <summary>

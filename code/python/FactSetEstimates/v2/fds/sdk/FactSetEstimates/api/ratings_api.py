@@ -761,9 +761,9 @@ class RatingsApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   . [optional] if omitted the server will use the default value of False
             broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
-            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     . [optional] if omitted the server will use the default value of False
+            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    . [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -813,9 +813,9 @@ class RatingsApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   . [optional] if omitted the server will use the default value of False
             broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
-            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     . [optional] if omitted the server will use the default value of False
+            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    . [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -869,9 +869,9 @@ class RatingsApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   . [optional] if omitted the server will use the default value of False
             broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
-            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     . [optional] if omitted the server will use the default value of False
+            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    . [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility
@@ -920,9 +920,9 @@ class RatingsApi(object):
         Keyword Args:
             start_date (date): Start date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
             end_date (date): End date for point in time of estimates expressed in YYYY-MM-DD format.. [optional]
-            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False
+            include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   . [optional] if omitted the server will use the default value of False
             broker_names ([str]): Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).. [optional]
-            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     . [optional] if omitted the server will use the default value of False
+            updates_only (bool): If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    . [optional] if omitted the server will use the default value of False
             _preload_content (bool): if False, the urllib3.HTTPResponse object
                 will be returned without reading/decoding response data.
                 Default is True. NOTE: if this API returns a file, it is the responsibility

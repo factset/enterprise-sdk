@@ -22,11 +22,10 @@ class StatusObject {
      * Constructs a new <code>StatusObject</code>.
      * The status member contains the status code of the response.
      * @alias module:model/StatusObject
-     * @param code {Number} The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
      */
-    constructor(code) { 
+    constructor() { 
         
-        StatusObject.initialize(this, code);
+        StatusObject.initialize(this);
     }
 
     /**
@@ -34,8 +33,7 @@ class StatusObject {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, code) { 
-        obj['code'] = code;
+    static initialize(obj) { 
     }
 
     /**

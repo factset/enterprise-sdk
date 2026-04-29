@@ -30,6 +30,9 @@ docs/IndexHistory.md
 docs/IndexHistoryRequest.md
 docs/IndexHistoryResponse.md
 docs/IndexLevelApi.md
+docs/IndexReturns.md
+docs/IndexReturnsRequest.md
+docs/IndexReturnsResponse.md
 docs/IndexSnapshot.md
 docs/IndexSnapshotRequest.md
 docs/IndexSnapshotResponse.md
@@ -87,6 +90,9 @@ src/main/java/com/factset/sdk/FactSetBenchmarks/models/ImpliedDate.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistory.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistoryRequest.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexHistoryResponse.java
+src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexReturns.java
+src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexReturnsRequest.java
+src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexReturnsResponse.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexSnapshot.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexSnapshotRequest.java
 src/main/java/com/factset/sdk/FactSetBenchmarks/models/IndexSnapshotResponse.java

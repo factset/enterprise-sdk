@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.10.0
+  version: 1.11.0
   title: FactSet Global Prices API
   contact:
     name: FactSet Research Systems
@@ -511,6 +511,118 @@ paths:
               examples:
                 Returns:
                   $ref: '#/components/examples/returnsResponseAll'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
+  /factset-global-prices/v1/returns-range:
+    get:
+      tags:
+        - Returns
+      summary: >-
+        Retrieves returns for specified IDs and currency within a required
+        custom date range.
+      operationId: getRange
+      description: >
+        Returns the total calculated returns for the specified IDs and currency
+        over a required date range, defined by the mandatory parameters
+        `startDate` and `endDate`.  
+      parameters:
+        - $ref: '#/components/parameters/idsBatchMax1000'
+        - $ref: '#/components/parameters/StartDate'
+        - $ref: '#/components/parameters/EndDateRange'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/DividendAdjust'
+        - $ref: '#/components/parameters/Batch'
+      responses:
+        '200':
+          description: Array of Range Objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RangeResponse'
+              examples:
+                ReturnsRange:
+                  $ref: '#/components/examples/rangeResponseAll'
+        '202':
+          description: Batch request has been accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              schema:
+                type: string
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
+    post:
+      tags:
+        - Returns
+      summary: >-
+        Retrieves returns for specified IDs and currency within a required
+        custom date range.
+      description: >-
+        Returns the total calculated returns for the specified IDs and currency
+        over a required date range, defined by the mandatory parameters
+        `startDate` and `endDate`.
+      operationId: getReturnsRangeForList
+      requestBody:
+        required: true
+        description: Request object for `ReturnsRange`.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RangeRequest'
+            examples:
+              Returns Request over 1 year period for one security - FactSet (FDS-US):
+                $ref: '#/components/examples/postRange'
+      responses:
+        '200':
+          description: Array of security prices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RangeResponse'
+              examples:
+                Returns:
+                  $ref: '#/components/examples/rangeResponseAll'
         '202':
           description: Batch request has been accepted.
           content:
@@ -1978,6 +2090,17 @@ components:
         The end date requested for a given date range in **YYYY-MM-DD** format.
         The input end date must be after the input start date. Future dates
         (T+1) are not accepted in this endpoint.
+      example: '2021-08-27'
+    EndDateRange:
+      name: endDate
+      in: query
+      required: true
+      schema:
+        type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The input end date is required and must come after the input start date.
+        Future dates (T+1) are not accepted in this endpoint.
       example: '2021-08-27'
     startDateSS:
       name: startDate
@@ -3792,6 +3915,14 @@ components:
         Omitting startDate and endDate will pull "all" events for each requested
         IDs.
       example: '2021-06-30'
+    EndDateRange:
+      title: End Date
+      type: string
+      description: >
+        The end date requested for a given date range in **YYYY-MM-DD** format.
+        The input end date is required and must come after the input start date.
+        Future dates (T+1) are not accepted in this endpoint.
+      example: '2021-08-27'
     Frequency:
       title: Frequency
       type: string
@@ -4035,6 +4166,65 @@ components:
           type: string
           format: date
           example: '2020-11-19'
+          nullable: true
+        currency:
+          type: string
+          description: >-
+            Currency ISO code. For more details, visit [Online Assistant Page
+            #1470](https://oa.apps.factset.com/pages/1470).
+          example: USD
+          nullable: true
+        requestId:
+          description: Identifier that was used for the request.
+          type: string
+          example: DDD-USA
+    RangeRequest:
+      title: Range Request Body
+      description: Range Request Body
+      type: object
+      properties:
+        ids:
+          $ref: '#/components/schemas/IdsMax1000'
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDateRange'
+        currency:
+          $ref: '#/components/schemas/RequestCurrency'
+        dividendAdjust:
+          $ref: '#/components/schemas/DividendAdjust'
+        batch:
+          $ref: '#/components/schemas/Batch'
+      required:
+        - ids
+        - startDate
+        - endDate
+    RangeResponse:
+      type: object
+      title: Range Response
+      properties:
+        data:
+          description: Array of Range Objects
+          type: array
+          items:
+            $ref: '#/components/schemas/ReturnsRange'
+    ReturnsRange:
+      title: Range Object
+      type: object
+      properties:
+        fsymId:
+          description: >-
+            FactSet Permanent Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -R suffix (XXXXXX-R) or a -L Suffix
+            (XXXXXX-L).
+          type: string
+          example: LCV42P-L
+          nullable: true
+        totalReturn:
+          description: Returns the data for the given input parameters.
+          type: number
+          format: double
+          example: 0.927077
           nullable: true
         currency:
           type: string
@@ -5078,6 +5268,18 @@ components:
             currency: USD
             totalReturn: 1.782245
             requestId: AAPL
+    rangeResponseAll:
+      summary: Returns Response of Google (GOOGL) and Apple (AAPL)
+      value:
+        data:
+          - fsymId: WFJYTJ-R
+            currency: USD
+            totalReturn: 0.927077
+            requestId: GOOGL
+          - fsymId: MH33D6-R
+            currency: USD
+            totalReturn: 1.782245
+            requestId: AAPL
     annualizedDividendsResponse:
       summary: Annualized Dividends Response of Apple (AAPL-US)
       value:
@@ -5146,6 +5348,16 @@ components:
         endDate: '2021-06-30'
         currency: USD
         frequency: M
+        dividendAdjust: EXDATE_C
+        batch: 'N'
+    postRange:
+      summary: Returns Request over 1 year period FDS-US
+      value:
+        ids:
+          - FDS-US
+        startDate: '2020-06-30'
+        endDate: '2021-06-30'
+        currency: USD
         dividendAdjust: EXDATE_C
         batch: 'N'
     postCorporateActions:

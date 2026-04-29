@@ -38,7 +38,7 @@ tags:
 - description: company endpoints
   name: company
 paths:
-  /company/logo/get:
+  /company/logo:
     get:
       description: "List of URLs for transparent company logos in different sizes\
         \ and formats.   The different sizes for the rectangular and square formats\
@@ -185,18 +185,138 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
           description: Successful Response
+        "400":
+          content:
+            application/json:
+              examples:
+                badRequest:
+                  $ref: '#/components/examples/badRequest'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. Please review the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated API Key or Token.
+        "403":
+          content:
+            application/json:
+              examples:
+                forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden. The API Key or token is not authorized.
+        "500":
+          content:
+            application/json:
+              examples:
+                internalServerError:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
       summary: List of URLs of company logos.
       tags:
       - company
       x-accepts: application/json
 components:
   callbacks: {}
-  examples: {}
+  examples:
+    badRequest:
+      summary: Bad Request - Invalid Parameter
+      value:
+        errors:
+        - id: req-001
+          code: parameterError
+          title: Parameter validation error
+          detail: The parameter 'identifier' is required and may not be empty.
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 400
+    unauthenticated:
+      summary: User Authentication Failed
+      value:
+        errors:
+        - id: auth-001
+          code: authenticationFailed
+          title: Authentication failed
+          detail: Authorization required
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 401
+    forbidden:
+      summary: Forbidden
+      value:
+        errors:
+        - id: auth-002
+          code: forbidden
+          title: Access forbidden
+          detail: Forbidden. You are not authorized to access this resource.
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 403
+    internalServerError:
+      summary: Internal Server Error
+      value:
+        errors:
+        - id: server-001
+          code: internalServerError
+          title: Internal server error
+          detail: Internal Server Error. An unexpected error occurred.
+          timestamp: 2025-12-15T07:15:30.131Z
+        meta:
+          status:
+            code: 500
   headers: {}
   links: {}
   parameters: {}
   requestBodies: {}
   responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            badRequest:
+              $ref: '#/components/examples/badRequest'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. Please review the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            unauthenticated:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated API Key or Token.
+    "403":
+      content:
+        application/json:
+          examples:
+            forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Forbidden. The API Key or token is not authorized.
+    "500":
+      content:
+        application/json:
+          examples:
+            internalServerError:
+              $ref: '#/components/examples/internalServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error.
     GetCompanyLogoGet200Response:
       content:
         application/json:
@@ -234,8 +354,54 @@ components:
           example: 200
           format: int32
           type: number
+      type: object
+    ErrorResponse:
+      description: Error response schema following FactSet's MDG API standards for
+        error handling and reporting.
+      properties:
+        meta:
+          $ref: '#/components/schemas/ErrorResponse_meta'
+        errors:
+          description: Array of error objects
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type: array
+      required:
+      - errors
+      - meta
+      title: Error Response
+      type: object
+    ErrorDetail:
+      description: Detailed error information following FactSet API standards
+      properties:
+        id:
+          description: Unique identifier for this error instance
+          example: 07aed48e-f6fa-417a-ba7e-74e4267d3e39
+          type: string
+        code:
+          description: Error code identifying the type of error
+          example: parameterError
+          type: string
+        title:
+          description: Short human-readable summary of the error
+          example: Generic request error
+          type: string
+        detail:
+          description: Detailed human-readable explanation of this specific error
+            occurrence
+          example: Authorization required
+          type: string
+        timestamp:
+          description: ISO 8601 formatted timestamp when the error occurred
+          example: 2025-12-15T07:15:30.131Z
+          format: date-time
+          type: string
       required:
       - code
+      - detail
+      - id
+      - timestamp
+      - title
       type: object
     inline_response_200_data_small:
       description: Small logo.
@@ -389,6 +555,24 @@ components:
           $ref: '#/components/schemas/inline_response_200_data'
         meta:
           $ref: '#/components/schemas/inline_response_200_meta'
+      type: object
+    ErrorResponse_meta_status:
+      description: Status information
+      properties:
+        code:
+          description: HTTP status code
+          example: 400
+          type: integer
+      required:
+      - code
+      type: object
+    ErrorResponse_meta:
+      description: Meta information containing status
+      properties:
+        status:
+          $ref: '#/components/schemas/ErrorResponse_meta_status'
+      required:
+      - status
       type: object
   securitySchemes:
     FactSetOAuth2:

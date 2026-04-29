@@ -29,6 +29,9 @@ docs/IndexHistory.md
 docs/IndexHistoryRequest.md
 docs/IndexHistoryResponse.md
 docs/IndexLevelApi.md
+docs/IndexReturns.md
+docs/IndexReturnsRequest.md
+docs/IndexReturnsResponse.md
 docs/IndexSnapshot.md
 docs/IndexSnapshotRequest.md
 docs/IndexSnapshotResponse.md
@@ -78,6 +81,9 @@ src/FactSet.SDK.FactSetBenchmarks/Model/ImpliedDate.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexHistory.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexHistoryRequest.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexHistoryResponse.cs
+src/FactSet.SDK.FactSetBenchmarks/Model/IndexReturns.cs
+src/FactSet.SDK.FactSetBenchmarks/Model/IndexReturnsRequest.cs
+src/FactSet.SDK.FactSetBenchmarks/Model/IndexReturnsResponse.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexSnapshot.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexSnapshotRequest.cs
 src/FactSet.SDK.FactSetBenchmarks/Model/IndexSnapshotResponse.cs

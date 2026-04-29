@@ -1,0 +1,17 @@
+
+
+# AnalyticsType
+
+## Enum
+
+
+* `ASSET_ALLOCATION` (value: `"ASSET_ALLOCATION"`)
+
+* `SECTOR_WEIGHTAGE` (value: `"SECTOR_WEIGHTAGE"`)
+
+* `GEOGRAPHIC_REVENUE` (value: `"GEOGRAPHIC_REVENUE"`)
+
+* `MARKET_CAPITALIZATION` (value: `"MARKET_CAPITALIZATION"`)
+
+
+

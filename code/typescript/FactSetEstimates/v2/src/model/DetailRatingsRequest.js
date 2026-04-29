@@ -107,7 +107,7 @@ DetailRatingsRequest.prototype['includeAll'] = false;
 DetailRatingsRequest.prototype['brokerNames'] = undefined;
 
 /**
- * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. 
+ * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.
  * @member {Boolean} updatesOnly
  * @default false
  */

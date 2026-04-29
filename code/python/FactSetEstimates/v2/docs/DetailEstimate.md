@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **last_modified_date** | **date, none_type** | The date at which a broker provided an estimate that is a revision. | [optional] 
 **prev_estimate_date** | **date, none_type** | Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) | [optional] 
 **prev_estimate_value** | **float, none_type** | The value of the previous estimate. | [optional] 
+**change_type** | **str, none_type** | Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue  | [optional] 
 **section** | **str, none_type** | Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus | [optional] 
 **status_code** | **int, none_type** | Status code of the estimate. | [optional] 
 **status_text** | **str, none_type** | Status description of the estimate. | [optional] 

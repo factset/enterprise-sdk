@@ -119,6 +119,7 @@ class SegmentsDetailsRequest(ModelNormal):
             'broker_names': (BrokerNames,),  # noqa: E501
             'updates_only': (bool,),  # noqa: E501
             'include_all': (bool,),  # noqa: E501
+            'sort_by_input_date_time': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -141,6 +142,7 @@ class SegmentsDetailsRequest(ModelNormal):
         'broker_names': 'brokerNames',  # noqa: E501
         'updates_only': 'updatesOnly',  # noqa: E501
         'include_all': 'includeAll',  # noqa: E501
+        'sort_by_input_date_time': 'sortByInputDateTime',  # noqa: E501
     }
 
     read_only_vars = {
@@ -198,8 +200,9 @@ class SegmentsDetailsRequest(ModelNormal):
             segment_type (SegmentType): [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. Use input as `ESTIMATE` for values in Estimate currency. For a list of currency ISO codes, visit <a href=\"https://oa.apps.factset.com/pages/1470\" target=\"_blank\">Online Assistant Page. [optional]  # noqa: E501
             broker_names (BrokerNames): [optional]  # noqa: E501
-            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. . [optional] if omitted the server will use the default value of False  # noqa: E501
+            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.. [optional] if omitted the server will use the default value of False  # noqa: E501
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * `TRUE` = Returns all the brokers included and excluded in the consensus   * `FALSE` = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
+            sort_by_input_date_time (bool): When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -298,8 +301,9 @@ class SegmentsDetailsRequest(ModelNormal):
             segment_type (SegmentType): [optional]  # noqa: E501
             currency (str): Currency code for adjusting the data. Use input as `ESTIMATE` for values in Estimate currency. For a list of currency ISO codes, visit <a href=\"https://oa.apps.factset.com/pages/1470\" target=\"_blank\">Online Assistant Page. [optional]  # noqa: E501
             broker_names (BrokerNames): [optional]  # noqa: E501
-            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. . [optional] if omitted the server will use the default value of False  # noqa: E501
+            updates_only (bool): Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.. [optional] if omitted the server will use the default value of False  # noqa: E501
             include_all (bool): Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * `TRUE` = Returns all the brokers included and excluded in the consensus   * `FALSE` = Returns only the broker details included in the consensus . [optional] if omitted the server will use the default value of False  # noqa: E501
+            sort_by_input_date_time (bool): When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. . [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

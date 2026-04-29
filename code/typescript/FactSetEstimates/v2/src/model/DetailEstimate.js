@@ -103,6 +103,9 @@ class DetailEstimate {
             if (data.hasOwnProperty('prevEstimateValue') && obj['prevEstimateValue'] === undefined) {
                 obj['prevEstimateValue'] = ApiClient.convertToType(data['prevEstimateValue'], 'Number');
             }
+            if (data.hasOwnProperty('changeType') && obj['changeType'] === undefined) {
+                obj['changeType'] = ApiClient.convertToType(data['changeType'], 'String');
+            }
             if (data.hasOwnProperty('section') && obj['section'] === undefined) {
                 obj['section'] = ApiClient.convertToType(data['section'], 'String');
             }
@@ -243,6 +246,12 @@ DetailEstimate.prototype['prevEstimateDate'] = undefined;
 DetailEstimate.prototype['prevEstimateValue'] = undefined;
 
 /**
+ * Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing `estimateValue` and `prevEstimateValue`.   * **increase** = estimateValue > prevEstimateValue   * **decrease** = estimateValue < prevEstimateValue   * **unchanged** = estimateValue = prevEstimateValue 
+ * @member {module:model/DetailEstimate.ChangeTypeEnum} changeType
+ */
+DetailEstimate.prototype['changeType'] = undefined;
+
+/**
  * Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus
  * @member {String} section
  */
@@ -280,6 +289,33 @@ DetailEstimate.prototype['brokerEstimateCurrency'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>changeType</code> property.
+ * @enum {String}
+ * @readonly
+ */
+DetailEstimate['ChangeTypeEnum'] = {
+
+    /**
+     * value: "increase"
+     * @const
+     */
+    "increase": "increase",
+
+    /**
+     * value: "decrease"
+     * @const
+     */
+    "decrease": "decrease",
+
+    /**
+     * value: "unchanged"
+     * @const
+     */
+    "unchanged": "unchanged"
+};
 
 
 

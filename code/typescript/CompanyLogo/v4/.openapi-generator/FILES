@@ -5,6 +5,10 @@
 LICENSE
 README.md
 docs/CompanyApi.md
+docs/ErrorDetail.md
+docs/ErrorResponse.md
+docs/ErrorResponseMeta.md
+docs/ErrorResponseMetaStatus.md
 docs/InlineResponse200.md
 docs/InlineResponse200Data.md
 docs/InlineResponse200DataLarge.md
@@ -19,6 +23,10 @@ package.json
 src/ApiClient.js
 src/api/CompanyApi.js
 src/index.js
+src/model/ErrorDetail.js
+src/model/ErrorResponse.js
+src/model/ErrorResponseMeta.js
+src/model/ErrorResponseMetaStatus.js
 src/model/InlineResponse200.js
 src/model/InlineResponse200Data.js
 src/model/InlineResponse200DataLarge.js

@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetBenchmarks.Model.HedgeType
-The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service weill default to UNHEDGED.
+The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.
 
 ## Properties
 

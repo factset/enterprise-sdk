@@ -116,6 +116,10 @@ namespace FactSet.SDK.CompanyLogo.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCompanyLogoGetResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(InlineResponse200) },
+            { (HttpStatusCode)400, typeof(ErrorResponse) },
+            { (HttpStatusCode)401, typeof(ErrorResponse) },
+            { (HttpStatusCode)403, typeof(ErrorResponse) },
+            { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
 
         # endregion Response Type Disctionaries
@@ -322,7 +326,7 @@ namespace FactSet.SDK.CompanyLogo.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<
-            InlineResponse200>("/company/logo/get", localVarRequestOptions, this.Configuration);
+            InlineResponse200>("/company/logo", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCompanyLogoGet", localVarResponse);
@@ -432,7 +436,7 @@ namespace FactSet.SDK.CompanyLogo.Api
             localVarRequestOptions.ResponseTypeDictionary = GetCompanyLogoGetResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/company/logo/get", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse200>("/company/logo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

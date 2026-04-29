@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com/wealth/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCompanyLogoGet**](CompanyApi.md#getCompanyLogoGet) | **GET** /company/logo/get | List of URLs of company logos.
+[**getCompanyLogoGet**](CompanyApi.md#getCompanyLogoGet) | **GET** /company/logo | List of URLs of company logos.
 
 
 
@@ -114,4 +114,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+| **400** | Bad Request. Please review the \&quot;message\&quot; for more details. |  -  |
+| **401** | Unauthenticated API Key or Token. |  -  |
+| **403** | Forbidden. The API Key or token is not authorized. |  -  |
+| **500** | Internal Server Error. |  -  |
 

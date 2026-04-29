@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**get_benchmark_ratios_for_list**](IndexLevelApi.md#get_benchmark_ratios_for_list) | **POST** /factset-benchmarks/v1/ratios | Returns the aggregated ratios of a requested benchmark
 [**get_index_history**](IndexLevelApi.md#get_index_history) | **GET** /factset-benchmarks/v1/index-history | Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
 [**get_index_history_for_list**](IndexLevelApi.md#get_index_history_for_list) | **POST** /factset-benchmarks/v1/index-history | Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.
+[**get_index_returns**](IndexLevelApi.md#get_index_returns) | **GET** /factset-benchmarks/v1/index-returns | Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters
+[**get_index_returns_for_list**](IndexLevelApi.md#get_index_returns_for_list) | **POST** /factset-benchmarks/v1/index-returns | Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body
 [**get_index_snapshot**](IndexLevelApi.md#get_index_snapshot) | **GET** /factset-benchmarks/v1/index-snapshot | Index Level Prices, Returns, and related information as of a single date.
 [**get_index_snapshot_for_list**](IndexLevelApi.md#get_index_snapshot_for_list) | **POST** /factset-benchmarks/v1/index-snapshot | Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.
 
@@ -73,7 +75,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     end_date = "endDate_example" # str | Requested End Date for Range expressed in YYYY-MM-DD format. (optional)
     frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "D"
     periodicity = "LTM" # str | The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  (optional) if omitted the server will use the default value of "LTM"
-    currency = "currency_example" # str | Currency for response. (optional)
+    currency = "currency_example" # str | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
 
     try:
         # Returns the aggregated ratios of a requested benchmark
@@ -98,7 +100,7 @@ Name | Type | Description  | Notes
  **end_date** | **str**| Requested End Date for Range expressed in YYYY-MM-DD format. | [optional]
  **frequency** | **str**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  | [optional] if omitted the server will use the default value of "D"
  **periodicity** | **str**| The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric. |Periodicity| Description| |:---|:---| |LTM| Last Twelve Months |LTMA| Last Twelve Months using Broker Actuals for Estimated Items |STMA| Second Twelve Month Forward |NTMA| 12 Month Forward |0| Latest Reported Calendar Year |1| Current Unreported Year |2| Following Year |QTR| Quarterly - Reported by companies  | [optional] if omitted the server will use the default value of "LTM"
- **currency** | **str**| Currency for response. | [optional]
+ **currency** | **str**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
 
 ### Return type
 
@@ -294,7 +296,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     frequency = "D" # str | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.  (optional) if omitted the server will use the default value of "D"
     return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) if omitted the server will use the default value of "GROSS"
     hedge_type = "UNHEDGED" # str | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional) if omitted the server will use the default value of "UNHEDGED"
-    currency = "currency_example" # str | Currency for response. (optional)
+    currency = "currency_example" # str | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
     calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional) if omitted the server will use the default value of "FIVEDAY"
     implied_date = "N" # str | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional) if omitted the server will use the default value of "N"
 
@@ -321,7 +323,7 @@ Name | Type | Description  | Notes
  **frequency** | **str**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.  | [optional] if omitted the server will use the default value of "D"
  **return_type** | **str**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] if omitted the server will use the default value of "GROSS"
  **hedge_type** | **str**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] if omitted the server will use the default value of "UNHEDGED"
- **currency** | **str**| Currency for response. | [optional]
+ **currency** | **str**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
  **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] if omitted the server will use the default value of "FIVEDAY"
  **implied_date** | **str**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] if omitted the server will use the default value of "N"
 
@@ -461,6 +463,230 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_index_returns**
+> IndexReturnsResponse get_index_returns(ids, start_date, end_date)
+
+Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters
+
+Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period. 
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.FactSetBenchmarks
+from fds.sdk.FactSetBenchmarks.api import index_level_api
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.FactSetBenchmarks.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.FactSetBenchmarks.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = index_level_api.IndexLevelApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    ids = [
+        "SP50",
+    ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+    start_date = dateutil_parser('1970-01-01').date() # date | Requested start date expressed in YYYY-MM-DD format.
+    end_date = dateutil_parser('1970-01-01').date() # date | Requested End Date for Range expressed in YYYY-MM-DD format.
+    return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) if omitted the server will use the default value of "GROSS"
+    hedge_type = "UNHEDGED" # str | The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. (optional) if omitted the server will use the default value of "UNHEDGED"
+    currency = "currency_example" # str | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
+    calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional) if omitted the server will use the default value of "FIVEDAY"
+    implied_date = "N" # str | This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. (optional) if omitted the server will use the default value of "N"
+
+    try:
+        # Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters
+        # example passing only required values which don't have defaults set
+        # and optional values
+        api_response = api_instance.get_index_returns(ids, start_date, end_date, return_type=return_type, hedge_type=hedge_type, currency=currency, calendar=calendar, implied_date=implied_date)
+
+        pprint(api_response)
+
+    except fds.sdk.FactSetBenchmarks.ApiException as e:
+        print("Exception when calling IndexLevelApi->get_index_returns: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ids** | **[str]**| Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* |
+ **start_date** | **date**| Requested start date expressed in YYYY-MM-DD format. |
+ **end_date** | **date**| Requested End Date for Range expressed in YYYY-MM-DD format. |
+ **return_type** | **str**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] if omitted the server will use the default value of "GROSS"
+ **hedge_type** | **str**| The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED. | [optional] if omitted the server will use the default value of "UNHEDGED"
+ **currency** | **str**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
+ **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] if omitted the server will use the default value of "FIVEDAY"
+ **implied_date** | **str**| This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique. | [optional] if omitted the server will use the default value of "N"
+
+### Return type
+
+[**IndexReturnsResponse**](IndexReturnsResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An array of Index Returns information for a requested date range. |  -  |
+**400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+**403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+**415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+**500** | Internal Server Error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_index_returns_for_list**
+> IndexReturnsResponse get_index_returns_for_list(index_returns_request)
+
+Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body
+
+Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period. 
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.FactSetBenchmarks
+from fds.sdk.FactSetBenchmarks.api import index_level_api
+from fds.sdk.FactSetBenchmarks.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.FactSetBenchmarks.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.FactSetBenchmarks.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = index_level_api.IndexLevelApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    index_returns_request = IndexReturnsRequest(
+        ids=IndexIds(["SP50"]),
+        start_date="2018-12-31",
+        end_date="2019-12-31",
+        return_type=ReturnType("GROSS"),
+        hedge_type=HedgeType("UNHEDGED"),
+        currency="USD",
+        calendar="FIVEDAY",
+        implied_date=ImpliedDate("N"),
+    ) # IndexReturnsRequest | Requests Index Returns for a list of identifiers and specified date range.
+
+    try:
+        # Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_index_returns_for_list(index_returns_request)
+
+        pprint(api_response)
+
+    except fds.sdk.FactSetBenchmarks.ApiException as e:
+        print("Exception when calling IndexLevelApi->get_index_returns_for_list: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **index_returns_request** | [**IndexReturnsRequest**](IndexReturnsRequest.md)| Requests Index Returns for a list of identifiers and specified date range. |
+
+### Return type
+
+[**IndexReturnsResponse**](IndexReturnsResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | An array of Index Returns information for a requested date range. |  -  |
+**400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+**403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+**415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+**500** | Internal Server Error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_index_snapshot**
 > IndexSnapshotResponse get_index_snapshot(ids)
 
@@ -518,7 +744,7 @@ with fds.sdk.FactSetBenchmarks.ApiClient(configuration) as api_client:
     ] # [str] | Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
     date = "date_example" # str | Date of holding expressed in YYYY-MM-DD format. (optional)
     return_type = "GROSS" # str | The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. (optional) if omitted the server will use the default value of "GROSS"
-    currency = "currency_example" # str | Currency for response. (optional)
+    currency = "currency_example" # str | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
     calendar = "FIVEDAY" # str | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional) if omitted the server will use the default value of "FIVEDAY"
 
     try:
@@ -541,7 +767,7 @@ Name | Type | Description  | Notes
  **ids** | **[str]**| Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. &lt;p&gt;***ids limit** &#x3D;  500 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* |
  **date** | **str**| Date of holding expressed in YYYY-MM-DD format. | [optional]
  **return_type** | **str**| The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS. | [optional] if omitted the server will use the default value of "GROSS"
- **currency** | **str**| Currency for response. | [optional]
+ **currency** | **str**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
  **calendar** | **str**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] if omitted the server will use the default value of "FIVEDAY"
 
 ### Return type

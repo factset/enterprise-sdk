@@ -886,10 +886,11 @@ paths:
           - SEMI
           type: string
         style: form
-      - description: |
-          Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.
-            * **TRUE** = Returns all the brokers included and excluded in the consensus
-            * **FALSE** = Returns only the broker details included in the consensus
+      - description: "Include All filter is used to identify included and excluded\
+          \ broker details from the consensus\n  By default the service would return\
+          \ only the brokers included in the consensus-\n  * **TRUE** = Returns all\
+          \ the brokers included and excluded in the consensus\n  * **FALSE** = Returns\
+          \ only the broker details included in the consensus  \n"
         explode: true
         in: query
         name: includeAll
@@ -954,7 +955,7 @@ paths:
         style: form
       - description: 'If `true`, the endpoint returns the first reported estimates
           within the period plus any subsequent broker updates. If `false`, it returns
-          data for every date in the requested range at the chosen frequency.     '
+          data for every date in the requested range at the chosen frequency.    '
         example: false
         explode: true
         in: query
@@ -962,6 +963,17 @@ paths:
         required: false
         schema:
           default: false
+          type: boolean
+        style: form
+      - description: |
+          When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
+        explode: true
+        in: query
+        name: sortByInputDateTime
+        required: false
+        schema:
+          default: false
+          example: true
           type: boolean
         style: form
       responses:
@@ -1264,10 +1276,11 @@ paths:
           - SEMI
           type: string
         style: form
-      - description: |
-          Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.
-            * **TRUE** = Returns all the brokers included and excluded in the consensus
-            * **FALSE** = Returns only the broker details included in the consensus
+      - description: "Include All filter is used to identify included and excluded\
+          \ broker details from the consensus\n  By default the service would return\
+          \ only the brokers included in the consensus-\n  * **TRUE** = Returns all\
+          \ the brokers included and excluded in the consensus\n  * **FALSE** = Returns\
+          \ only the broker details included in the consensus  \n"
         explode: true
         in: query
         name: includeAll
@@ -1328,7 +1341,7 @@ paths:
         style: form
       - description: 'If `true`, the endpoint returns the first reported estimates
           within the period plus any subsequent broker updates. If `false`, it returns
-          data for every date in the requested range at the chosen frequency.     '
+          data for every date in the requested range at the chosen frequency.    '
         example: false
         explode: true
         in: query
@@ -1336,6 +1349,17 @@ paths:
         required: false
         schema:
           default: false
+          type: boolean
+        style: form
+      - description: |
+          When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
+        explode: true
+        in: query
+        name: sortByInputDateTime
+        required: false
+        schema:
+          default: false
+          example: true
           type: boolean
         style: form
       responses:
@@ -1841,10 +1865,11 @@ paths:
           format: date
           type: string
         style: form
-      - description: |
-          Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.
-            * **TRUE** = Returns all the brokers included and excluded in the consensus
-            * **FALSE** = Returns only the broker details included in the consensus
+      - description: "Include All filter is used to identify included and excluded\
+          \ broker details from the consensus\n  By default the service would return\
+          \ only the brokers included in the consensus-\n  * **TRUE** = Returns all\
+          \ the brokers included and excluded in the consensus\n  * **FALSE** = Returns\
+          \ only the broker details included in the consensus  \n"
         explode: true
         in: query
         name: includeAll
@@ -1870,7 +1895,7 @@ paths:
         style: form
       - description: 'If `true`, the endpoint returns the first reported estimates
           within the period plus any subsequent broker updates. If `false`, it returns
-          data for every date in the requested range at the chosen frequency.     '
+          data for every date in the requested range at the chosen frequency.    '
         example: false
         explode: true
         in: query
@@ -4960,6 +4985,7 @@ components:
         brokerNames:
         - Morningstar Equity Research
         updatesOnly: false
+        sortByInputDateTime: false
     postFixedDetail:
       description: Fixed Detail response of FDS-US for SALES metrics with frequency
         set to 'AM' and periodicity to 'ANN'
@@ -4980,6 +5006,7 @@ components:
         brokerNames:
         - Morningstar Equity Research
         updatesOnly: false
+        sortByInputDateTime: false
     postConsensusRatings:
       description: Consensus Ratings response of FDS-US for SALES metrics with frequency
         set to 'AM'.
@@ -5058,6 +5085,7 @@ components:
         - Morgan Stanley
         updatesOnly: false
         includeAll: false
+        sortByInputDateTime: false
     postSegmentsDetailsExample:
       description: Segments details request of AAPL-USA for SALES metrics and 'BUS'
         segmentType with frequency set to 'AM' and periodicity to 'ANN'
@@ -5079,6 +5107,7 @@ components:
         - PRODLINE_SALES_1
         currency: USD
         includeAll: false
+        sortByInputDateTime: false
     postMetricsExample:
       description: Mertics response with 'FINANCIAL_STATEMENT' category and 'AIRLINES'
         subcategory
@@ -5308,6 +5337,7 @@ components:
           lastModifiedDate: 2019-05-23
           prevEstimateDate: 2019-07-29
           prevEstimateValue: "257310"
+          changeType: unchanged
           section: Included
           statusCode: "0"
           statusText: null
@@ -5333,6 +5363,7 @@ components:
           lastModifiedDate: 2019-06-04
           prevEstimateDate: 2019-07-26
           prevEstimateValue: "256000"
+          changeType: unchanged
           section: Included
           statusCode: "0"
           statusText: null
@@ -5364,6 +5395,7 @@ components:
           lastModifiedDate: 2019-05-23
           prevEstimateDate: 2019-07-29
           prevEstimateValue: "257310"
+          changeType: unchanged
           section: Included
           statusCode: "0"
           statusText: null
@@ -5389,6 +5421,7 @@ components:
           lastModifiedDate: 2019-06-04
           prevEstimateDate: 2019-07-26
           prevEstimateValue: "256000"
+          changeType: unchanged
           section: Included
           statusCode: "0"
           statusText: null
@@ -5528,6 +5561,7 @@ components:
           lastModifiedDate: 2017-07-24
           prevEstimateDate: 2017-05-02
           prevEstimateValue: 22336.12
+          changeType: increase
           section: Included
           statusCode: 0
           statusText: ""
@@ -6562,16 +6596,29 @@ components:
         type: string
       style: form
     includeAll:
-      description: |
-        Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.
-          * **TRUE** = Returns all the brokers included and excluded in the consensus
-          * **FALSE** = Returns only the broker details included in the consensus
+      description: "Include All filter is used to identify included and excluded broker\
+        \ details from the consensus\n  By default the service would return only the\
+        \ brokers included in the consensus-\n  * **TRUE** = Returns all the brokers\
+        \ included and excluded in the consensus\n  * **FALSE** = Returns only the\
+        \ broker details included in the consensus  \n"
       explode: true
       in: query
       name: includeAll
       required: false
       schema:
         default: false
+        type: boolean
+      style: form
+    sortByInputDateTime:
+      description: |
+        When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
+      explode: true
+      in: query
+      name: sortByInputDateTime
+      required: false
+      schema:
+        default: false
+        example: true
         type: boolean
       style: form
     brokerNames:
@@ -6593,7 +6640,7 @@ components:
     updatesOnly:
       description: 'If `true`, the endpoint returns the first reported estimates within
         the period plus any subsequent broker updates. If `false`, it returns data
-        for every date in the requested range at the chosen frequency.     '
+        for every date in the requested range at the chosen frequency.    '
       example: false
       explode: true
       in: query
@@ -7873,11 +7920,17 @@ components:
           type: array
         updatesOnly:
           default: false
-          description: |
+          description: |-
             Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency.
             * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates.
             * `FALSE` = Returns data for every date in the requested range at the selected frequency.
           example: false
+          type: boolean
+        sortByInputDateTime:
+          default: false
+          description: |
+            When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
+          example: true
           type: boolean
       required:
       - ids
@@ -7901,6 +7954,7 @@ components:
           brokerId: 05FBK7-E
           estimateValue: 23456
           lastModifiedDate: 2017-07-24T00:00:00.000+0000
+          changeType: increase
           prevEstimateDate: 2017-05-02T00:00:00.000+0000
           brokerEstimateCurrency: USD
           analystId: 0DXTST-E
@@ -7926,6 +7980,7 @@ components:
           brokerId: 05FBK7-E
           estimateValue: 23456
           lastModifiedDate: 2017-07-24T00:00:00.000+0000
+          changeType: increase
           prevEstimateDate: 2017-05-02T00:00:00.000+0000
           brokerEstimateCurrency: USD
           analystId: 0DXTST-E
@@ -7961,6 +8016,7 @@ components:
         brokerId: 05FBK7-E
         estimateValue: 23456
         lastModifiedDate: 2017-07-24T00:00:00.000+0000
+        changeType: increase
         prevEstimateDate: 2017-05-02T00:00:00.000+0000
         brokerEstimateCurrency: USD
         analystId: 0DXTST-E
@@ -8083,6 +8139,19 @@ components:
           format: double
           nullable: true
           type: number
+        changeType:
+          description: |
+            Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing `estimateValue` and `prevEstimateValue`.
+              * **increase** = estimateValue > prevEstimateValue
+              * **decrease** = estimateValue < prevEstimateValue
+              * **unchanged** = estimateValue = prevEstimateValue
+          enum:
+          - increase
+          - decrease
+          - unchanged
+          example: increase
+          nullable: true
+          type: string
         section:
           description: Section of the estimate.Returns the details of brokers inlcuded
             and excluded in the consensus
@@ -8200,11 +8269,17 @@ components:
           type: array
         updatesOnly:
           default: false
-          description: |
+          description: |-
             Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency.
             * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates.
             * `FALSE` = Returns data for every date in the requested range at the selected frequency.
           example: false
+          type: boolean
+        sortByInputDateTime:
+          default: false
+          description: |
+            When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
+          example: true
           type: boolean
       required:
       - ids
@@ -8382,7 +8457,7 @@ components:
       type: array
     updatesOnly:
       default: false
-      description: |
+      description: |-
         Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency.
         * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates.
         * `FALSE` = Returns data for every date in the requested range at the selected frequency.
@@ -8435,7 +8510,7 @@ components:
           type: array
         updatesOnly:
           default: false
-          description: |
+          description: |-
             Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency.
             * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates.
             * `FALSE` = Returns data for every date in the requested range at the selected frequency.
@@ -8708,7 +8783,7 @@ components:
           type: array
         updatesOnly:
           default: false
-          description: |
+          description: |-
             Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency.
             * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates.
             * `FALSE` = Returns data for every date in the requested range at the selected frequency.
@@ -8721,6 +8796,12 @@ components:
               * `TRUE` = Returns all the brokers included and excluded in the consensus
               * `FALSE` = Returns only the broker details included in the consensus
           example: false
+          type: boolean
+        sortByInputDateTime:
+          default: false
+          description: |
+            When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
+          example: true
           type: boolean
       required:
       - ids
@@ -8958,6 +9039,7 @@ components:
           brokerId: 05FBK7-E
           estimateValue: 23456.12
           lastModifiedDate: 2017-07-24T00:00:00.000+0000
+          changeType: increase
           prevEstimateDate: 2017-05-02T00:00:00.000+0000
           brokerEstimateCurrency: USD
           analystId: 0DXTST-E
@@ -8985,6 +9067,7 @@ components:
           brokerId: 05FBK7-E
           estimateValue: 23456.12
           lastModifiedDate: 2017-07-24T00:00:00.000+0000
+          changeType: increase
           prevEstimateDate: 2017-05-02T00:00:00.000+0000
           brokerEstimateCurrency: USD
           analystId: 0DXTST-E
@@ -9022,6 +9105,7 @@ components:
         brokerId: 05FBK7-E
         estimateValue: 23456.12
         lastModifiedDate: 2017-07-24T00:00:00.000+0000
+        changeType: increase
         prevEstimateDate: 2017-05-02T00:00:00.000+0000
         brokerEstimateCurrency: USD
         analystId: 0DXTST-E
@@ -9171,6 +9255,19 @@ components:
           format: double
           nullable: true
           type: number
+        changeType:
+          description: |
+            Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing `estimateValue` and `prevEstimateValue`.
+              * **increase** = estimateValue > prevEstimateValue
+              * **decrease** = estimateValue < prevEstimateValue
+              * **unchanged** = estimateValue = prevEstimateValue
+          enum:
+          - increase
+          - decrease
+          - unchanged
+          example: increase
+          nullable: true
+          type: string
         section:
           description: Section of the estimate.Returns the details of brokers inlcuded
             and excluded in the consensus
@@ -9755,6 +9852,12 @@ components:
           * `TRUE` = Returns all the brokers included and excluded in the consensus
           * `FALSE` = Returns only the broker details included in the consensus
       example: false
+      type: boolean
+    sortByInputDateTime:
+      default: false
+      description: |
+        When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
+      example: true
       type: boolean
     segmentType:
       default: BUS

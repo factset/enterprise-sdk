@@ -6,6 +6,10 @@ README.md
 api/openapi.yaml
 build.gradle
 docs/CompanyApi.md
+docs/ErrorDetail.md
+docs/ErrorResponse.md
+docs/ErrorResponseMeta.md
+docs/ErrorResponseMetaStatus.md
 docs/InlineResponse200.md
 docs/InlineResponse200Data.md
 docs/InlineResponse200DataLarge.md
@@ -42,6 +46,10 @@ src/main/java/com/factset/sdk/CompanyLogo/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/CompanyLogo/auth/OAuth.java
 src/main/java/com/factset/sdk/CompanyLogo/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/CompanyLogo/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/CompanyLogo/models/ErrorDetail.java
+src/main/java/com/factset/sdk/CompanyLogo/models/ErrorResponse.java
+src/main/java/com/factset/sdk/CompanyLogo/models/ErrorResponseMeta.java
+src/main/java/com/factset/sdk/CompanyLogo/models/ErrorResponseMetaStatus.java
 src/main/java/com/factset/sdk/CompanyLogo/models/InlineResponse200.java
 src/main/java/com/factset/sdk/CompanyLogo/models/InlineResponse200Data.java
 src/main/java/com/factset/sdk/CompanyLogo/models/InlineResponse200DataLarge.java

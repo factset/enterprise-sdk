@@ -6,7 +6,7 @@ info:
   description: |
     FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.
   title: FactSet Benchmarks API
-  version: 1.10.0
+  version: 1.11.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -45,7 +45,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: Currency for response.
+      - description: Currency for response.  Currency code (ISO 4217). For a list
+          of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         explode: true
         in: query
         name: currency
@@ -295,7 +296,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: Currency for response.
+      - description: Currency for response.  Currency code (ISO 4217). For a list
+          of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         explode: true
         in: query
         name: currency
@@ -536,7 +538,8 @@ paths:
           - NET
           type: string
         style: form
-      - description: Currency for response.
+      - description: Currency for response.  Currency code (ISO 4217). For a list
+          of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         explode: true
         in: query
         name: currency
@@ -878,7 +881,8 @@ paths:
           - HEDGED
           type: string
         style: form
-      - description: Currency for response.
+      - description: Currency for response.  Currency code (ISO 4217). For a list
+          of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         explode: true
         in: query
         name: currency
@@ -1117,6 +1121,314 @@ paths:
       - Index Level
       x-contentType: application/json
       x-accepts: application/json
+  /factset-benchmarks/v1/index-returns:
+    get:
+      description: |
+        Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period.
+      operationId: getIndexReturns
+      parameters:
+      - description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+          to get a sample list of  valid identifiers. <p>***ids limit** =  500 per
+          request*</p> *<p>Make note, GET Method URL request lines are also limited
+          to a total length of 8192 bytes (8KB). In cases where the service allows
+          for thousands of ids, which may lead to exceeding this request line limit
+          of 8KB, its advised for any requests with large request lines to be requested
+          through the respective "POST" method.</p>*
+        example: SP50
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          type: array
+        style: form
+      - description: Requested start date expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: startDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Requested End Date for Range expressed in YYYY-MM-DD format.
+        explode: true
+        in: query
+        name: endDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: The return type adjustment used in returns response items. Adjustment
+          can be made for GROSS and NET dividends that will be included in the return
+          calculation. The service will default to GROSS.
+        explode: true
+        in: query
+        name: returnType
+        required: false
+        schema:
+          default: GROSS
+          enum:
+          - GROSS
+          - NET
+          type: string
+        style: form
+      - description: The hedge type adjustment used in returns response items. Adjustment
+          can be made for HEDGED and UNHEDGED values that will be included in the
+          return calculation. The service will default to UNHEDGED.
+        explode: true
+        in: query
+        name: hedgeType
+        required: false
+        schema:
+          default: UNHEDGED
+          enum:
+          - UNHEDGED
+          - HEDGED
+          type: string
+        style: form
+      - description: Currency for response.  Currency code (ISO 4217). For a list
+          of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Calendar of data returned. The default value is FIVEDAY which
+          displays Monday through Friday, regardless of whether there were trading
+          holidays.
+        examples:
+          fiveday:
+            description: Displays Monday through Friday, regardless of whether there
+              were trading holidays. This is the default for `calendar`.
+            summary: FIVEDAY
+            value: FIVEDAY
+          sevenday:
+            description: Displays Monday through Sunday.
+            summary: SEVENDAY
+            value: SEVENDAY
+          region:
+            description: The calendar of a specific region. The example shown here
+              'NAY' is for the UNITED STATES calendar. You can find the calendar codes
+              for regions on [Online Assistant Page 16610](https://my.apps.factset.com/oa/pages/16610#country).
+            summary: Region Specific
+            value: NAY
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          default: FIVEDAY
+          type: string
+        style: form
+      - description: This parameter controls the **date** returned in the date field.
+          The default value is **N**. By default, the date field returns the actual
+          date of the observation. This means it will repeat values for weekends and
+          holidays. If  set to **Y**, the date field will return the implied date
+          of the observation, making all the dates unique.
+        explode: true
+        in: query
+        name: impliedDate
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Index Level cumulative Returns for S&P 500:
+                  $ref: '#/components/examples/resultofIndexReturns'
+              schema:
+                $ref: '#/components/schemas/indexReturnsResponse'
+          description: An array of Index Returns information for a requested date
+            range.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieves cumulative index returns over a specified date range for
+        a list of benchmark identifiers via query parameters
+      tags:
+      - Index Level
+      x-accepts: application/json
+    post:
+      description: |
+        Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period.
+      operationId: getIndexReturnsForList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/indexReturnsRequest'
+        description: Requests Index Returns for a list of identifiers and specified
+          date range.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Index Level cumulative Returns for S&P 500:
+                  $ref: '#/components/examples/resultofIndexReturns'
+              schema:
+                $ref: '#/components/schemas/indexReturnsResponse'
+          description: An array of Index Returns information for a requested date
+            range.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - More Than One Benchmark Identifier:
+                  $ref: '#/components/examples/badRequestMoreThanOneBenchmarkIdentifier'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Retrieves cumulative index returns over a specified date range for
+        a list of benchmark identifiers via JSON Request body
+      tags:
+      - Index Level
+      x-contentType: application/json
+      x-accepts: application/json
   /factset-benchmarks/v1/ratios:
     get:
       description: |
@@ -1311,7 +1623,8 @@ paths:
           - QTR
           type: string
         style: form
-      - description: Currency for response.
+      - description: Currency for response.  Currency code (ISO 4217). For a list
+          of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         explode: true
         in: query
         name: currency
@@ -2057,6 +2370,19 @@ components:
           hedgeType: UNHEDGED
           requestId: SP50
           observationDate: 2019-12-31
+    resultofIndexReturns:
+      description: Index Returns for 'SP50' derived from historical data
+      summary: Cumulative Index Returns Response of SP50
+      value:
+        data:
+        - fsymId: SP50
+          inceptionDate: 1988-01-04
+          name: S&P 500
+          currency: USD
+          totalReturnPercent: -4.38434932977296
+          returnType: GROSS
+          hedgeType: UNHEDGED
+          requestId: SP50
     indexHistoryRequestBody:
       description: Index History Request for the 'SP50' from 2018-12-31 to 2019-12-31
       summary: Index History Request
@@ -2642,6 +2968,26 @@ components:
       schema:
         type: string
       style: form
+    startDateRequired:
+      description: Requested start date expressed in YYYY-MM-DD format.
+      explode: true
+      in: query
+      name: startDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    endDateRequired:
+      description: Requested End Date for Range expressed in YYYY-MM-DD format.
+      explode: true
+      in: query
+      name: endDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
     returnType:
       description: The return type adjustment used in returns response items. Adjustment
         can be made for GROSS and NET dividends that will be included in the return
@@ -2731,7 +3077,8 @@ components:
         type: string
       style: form
     currency:
-      description: Currency for response.
+      description: Currency for response.  Currency code (ISO 4217). For a list of
+        currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
       explode: true
       in: query
       name: currency
@@ -3020,7 +3367,8 @@ components:
           title: Date
           type: string
         currency:
-          description: Currency for response.
+          description: Currency for response. Currency code (ISO 4217). For a list
+            of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
           example: USD
           title: Currency
           type: string
@@ -3169,7 +3517,8 @@ components:
           title: Date
           type: string
         currency:
-          description: Currency for response.
+          description: Currency for response. Currency code (ISO 4217). For a list
+            of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
           example: USD
           title: Currency
           type: string
@@ -3284,7 +3633,8 @@ components:
         returnType:
           $ref: '#/components/schemas/returnType'
         currency:
-          description: Currency for response.
+          description: Currency for response. Currency code (ISO 4217). For a list
+            of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
           example: USD
           title: Currency
           type: string
@@ -3501,7 +3851,8 @@ components:
         hedgeType:
           $ref: '#/components/schemas/hedgeType'
         currency:
-          description: Currency for response.
+          description: Currency for response. Currency code (ISO 4217). For a list
+            of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
           example: USD
           title: Currency
           type: string
@@ -3518,6 +3869,55 @@ components:
       required:
       - ids
       title: Index History Request
+      type: object
+    indexReturnsRequest:
+      properties:
+        ids:
+          description: Benchmark Identifiers. Reference the helper endpoint **/id-list**
+            to get a sample list of  valid identifiers.
+          example:
+          - SP50
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          title: Index Ids
+          type: array
+        startDate:
+          description: Requested start date expressed in YYYY-MM-DD format.
+          example: 2018-12-31
+          title: Start Date
+          type: string
+        endDate:
+          description: Requested end date for Range expressed in YYYY-MM-DD format.
+          example: 2019-12-31
+          title: End Date
+          type: string
+        returnType:
+          $ref: '#/components/schemas/returnType'
+        hedgeType:
+          $ref: '#/components/schemas/hedgeType'
+        currency:
+          description: Currency for response. Currency code (ISO 4217). For a list
+            of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          title: Currency
+          type: string
+        calendar:
+          default: FIVEDAY
+          description: Calendar of data returned. The default value is FIVEDAY which
+            displays Monday through Friday, regardless of whether there were trading
+            holidays.
+          example: FIVEDAY
+          title: Calendar
+          type: string
+        impliedDate:
+          $ref: '#/components/schemas/impliedDate'
+      required:
+      - endDate
+      - ids
+      - startDate
+      title: Index Returns Request
       type: object
     indexHistoryResponse:
       example:
@@ -3667,6 +4067,94 @@ components:
           type: string
       title: Index History Object
       type: object
+    indexReturnsResponse:
+      example:
+        data:
+        - hedgeType: UNHEDGED
+          inceptionDate: 1988-01-04T00:00:00.000+0000
+          requestId: SP50
+          fsymId: SP50
+          name: S&P 500
+          currency: USD
+          totalReturnPercent: 0.653957589855003
+          returnType: GROSS
+        - hedgeType: UNHEDGED
+          inceptionDate: 1988-01-04T00:00:00.000+0000
+          requestId: SP50
+          fsymId: SP50
+          name: S&P 500
+          currency: USD
+          totalReturnPercent: 0.653957589855003
+          returnType: GROSS
+      properties:
+        data:
+          description: |
+            Array of Index Returns response objects.
+          items:
+            $ref: '#/components/schemas/indexReturns'
+          type: array
+      title: Index Returns Response
+      type: object
+    indexReturns:
+      example:
+        hedgeType: UNHEDGED
+        inceptionDate: 1988-01-04T00:00:00.000+0000
+        requestId: SP50
+        fsymId: SP50
+        name: S&P 500
+        currency: USD
+        totalReturnPercent: 0.653957589855003
+        returnType: GROSS
+      properties:
+        fsymId:
+          description: Requested Identifier. Must be a valid Benchmark Identifier
+            recognized by FactSet.
+          example: SP50
+          type: string
+        inceptionDate:
+          description: The inception date of the requested index in YYYY-MM-DD format.
+          example: 1988-01-04
+          format: date
+          nullable: true
+          type: string
+        name:
+          description: Proper Name of Index.
+          example: S&P 500
+          nullable: true
+          type: string
+        currency:
+          description: Currency Code used in adjustments. If no Currency was requested,
+            the service will default to LOCAL ('LOC'). Currency code (ISO 4217). For
+            a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          nullable: true
+          type: string
+        totalReturnPercent:
+          description: Cumulative total return (%) for the index over the specified
+            date range, calculated as ((startDate level / endDate level) - 1) * 100
+            using total return index levels. Returns a single aggregated value per
+            benchmark. Dates are inclusive and based on closing levels; non-trading
+            days use the nearest available trading date.
+          example: 0.653957589855003
+          format: double
+          nullable: true
+          type: number
+        returnType:
+          description: The requested Return Type - GROSS or NET
+          example: GROSS
+          nullable: true
+          type: string
+        hedgeType:
+          description: The requested Hedge Type - HEDGED or UNHEDGED
+          example: UNHEDGED
+          nullable: true
+          type: string
+        requestId:
+          description: Benchmark Identifier specified in the request
+          example: SP50
+          type: string
+      title: Index Returns Object
+      type: object
     benchmarkRatiosRequest:
       properties:
         ids:
@@ -3746,7 +4234,8 @@ components:
         frequency:
           $ref: '#/components/schemas/frequency'
         currency:
-          description: Currency for response.
+          description: Currency for response. Currency code (ISO 4217). For a list
+            of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
           example: USD
           title: Currency
           type: string
@@ -3967,7 +4456,7 @@ components:
       default: UNHEDGED
       description: The hedge type adjustment used in returns response items. Adjustment
         can be made for HEDGED and UNHEDGED values that will be included in the return
-        calculation. The service weill default to UNHEDGED.
+        calculation. The service will default to UNHEDGED.
       enum:
       - UNHEDGED
       - HEDGED
@@ -4003,7 +4492,8 @@ components:
       title: Calendar
       type: string
     currency:
-      description: Currency for response.
+      description: Currency for response. Currency code (ISO 4217). For a list of
+        currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
       example: USD
       title: Currency
       type: string

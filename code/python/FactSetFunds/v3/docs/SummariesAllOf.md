@@ -1,0 +1,57 @@
+# SummariesAllOf
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**error** | [**FundsErrorObject**](FundsErrorObject.md) |  | [optional] 
+**fsym_entity_id** | **str, none_type** | FactSet Entity Identifier. Six alpha-numeric characters, excluding vowels, with a -E suffix (XXXXXX-E), resolved from the &#x60;requestId&#x60; of the Fund requested. | [optional] 
+**fsym_regional_id** | **str, none_type** | FactSet Regional Identifier. Six alpha-numeric characters, excluding vowels, with a -R suffix (XXXXXX-R), resolved from the&#x60;requestId&#x60; of the Fund requested. | [optional] 
+**fsym_ticker_region** | **str, none_type** | FactSet Ticker-Region for the requested fund. | [optional] 
+**fsym_ultimate_parent_id** | **str, none_type** | The FactSet Ultimate Parent Entity Identifier, with a -E suffix (XXXXXX-E). | [optional] 
+**name** | **str, none_type** | The Fund security&#39;s name in proper format. | [optional] 
+**isin** | **str, none_type** | Unique 12-character identifier for the requested fund, as per the International Securities Identification Number (ISIN) standard. | [optional] 
+**cusip** | **str, none_type** | Unique 9-character identifier for the requested fund, as per the CUSIP Numbering System. | [optional] 
+**sedol** | **str, none_type** | Sedol Identifier | [optional] 
+**wkn** | **str, none_type** | WKN | [optional] 
+**valoren** | **str, none_type** | Valoren | [optional] 
+**issuer_id** | **str, none_type** | The Issuer Identifier. | [optional] 
+**issuer_name** | **str, none_type** | The Issuer Name in proper format. | [optional] 
+**active_flag** | **bool, none_type** | Boolean flag to indicate whether the fund is currently active or not. | [optional] 
+**actively_managed_flag** | **bool, none_type** | Boolean flag of whether the fund is actively managed or not. | [optional] 
+**brand** | **str, none_type** | The Funds Brand Name in proper format. | [optional] 
+**fund_domicile** | **str, none_type** | Returns the fund&#39;s country of domicile in ISO2 format. Only available for Mutual Funds. | [optional] 
+**currency** | **str, none_type** | ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39; | [optional] 
+**currency_hedged** | **bool, none_type** | Returns selected ETF currency hedge information. | [optional] 
+**share_class** | **str, none_type** | The Funds Share class type name in proper format. | [optional] 
+**share_class_name** | **str, none_type** | The specified share class name for the fund in proper format. | [optional] 
+**share_class_active_flag** | **bool, none_type** | Returns a binary indicator of whether the specified share class is currently active, where 1 is active and 0 is inactive. | [optional] 
+**share_class_actively_managed_flag** | **bool, none_type** | Returns a binary indicator of whether the specified share class is actively managed, where 1 is active and 0 is inactive. | [optional] 
+**share_class_currency** | **str, none_type** | The currency for the specified share class. ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39; | [optional] 
+**is_oldest_share_class** | **bool, none_type** | Returns a flag to indicate whether the specified ID is the oldest share class. Data is returned for Mutual Funds only. | [optional] 
+**desc_info** | **str, none_type** | The Fund&#39;s Investment Strategy short description.  For the long-form description, see &#x60;insight&#x60;. | [optional] 
+**price_first_date** | **date, none_type** | The fund&#39;s first available date for prices (NAV) in YYYY-MM-DD format. This can be used to fetch the first available price from FactSet. *NOTE: This is not the inception date of fund.* | [optional] 
+**price_recent_date** | **date** | The fund&#39;s most recent available date for prices (NAV) in YYYY-MM-DD format. | [optional] 
+**insight** | **str, none_type** | The fund&#39;s investment strategy long description. Use &#x60;descInfo&#x60; if needing short description. | [optional] 
+**legal_structure** | **str, none_type** | The legal structure of the fund, e.g. Open-Ended Fund, close-ended fund | [optional] 
+**inception_date** | **date, none_type** | The fund&#39;s inception date in YYYY-MM-DD format. | [optional] 
+**share_class_launch_date** | **date, none_type** | The specified share class&#39;s inception date in YYYY-MM-DD format. Available only for Mutual Funds | [optional] 
+**primary_exchange** | **str, none_type** | Returns exchange information for the fund.  Exchange Name is available for Mutual Funds and ETFs, returns a short-form exchange code (e.g., \&quot;NYSE\&quot;), rather than the full exchange name. | [optional] 
+**web_site** | **str, none_type** | The URL of the Fund. | [optional] 
+**web_site_share_class** | **str, none_type** | URL of the share class webpage. | [optional] 
+**backing** | **str, none_type** | Returns selected ETF structure backing information. Data items available are ETF type, legal structure, and disclosures. | [optional] 
+**synthetic_type** | **str, none_type** | Returns selected ETF structure information. Data items available are ETF type, legal structure, and disclosures. | [optional] 
+**underlying_index** | **str, none_type** | Returns the name of the fund&#39;s benchmark. Data is returned for both Mutual Funds and ETFs. | [optional] 
+**broad_based_index** | **str, none_type** | Returns the index that represents the overall market applicable to the fund, providing a broad measure of market performance. Data is returned for both Mutual Funds and ETFs. | [optional] 
+**narrow_benchmark** | **str, none_type** | Returns the fund&#39;s narrow benchmark data. Narrow Benchmark returns the primary benchmark for an actively managed fund, reflecting the specific market in which the fund primarily invests. It is a more focused measure compared to a broad-based index, offering a closer alignment with the fund’s investment strategy | [optional] 
+**additional_narrow_benchmark** | **str, none_type** | Returns the fund&#39;s additional narrow benchmark data. Narrow Benchmark returns the primary benchmark for an actively managed fund, reflecting the specific market in which the fund primarily invests. Additional Narrow Benchmark returns an additional benchmark for an actively managed fund that measures performance within a specific market segment, providing a more detailed comparison than the primary benchmark. Data is returned for both Mutual Funds and ETFs.  | [optional] 
+**fund_objective** | **str, none_type** | Returns the fund&#39;s objective long description. National language returns French translations for US Mutual Funds and US and Canadian ETFs. Data is returned for both Mutual Funds and ETFs.  | [optional] 
+**dual_priced** | **bool, none_type** | Returns true if the fund is based on \&quot;dual pricing\&quot;. These unit trusts have an offer (buying) price and a bid (selling) price. In such cases, Net Asset Value (NAV) is substituted with either a bid, offer, or mid price, as provided by the fund issuer. Data is returned for Mutual Funds only.  | [optional] 
+**currency_hedged_from** | **str, none_type** | Returns ETF currency hedge source currency. Part of ETF hedge information including: - currency hedged flag - currency hedged from - currency hedged into ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39;  | [optional] 
+**currency_hedged_into** | **str, none_type** | Returns ETF currency hedge target currency. Part of ETF hedge information including: - currency hedged flag - currency hedged from - currency hedged into ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39;  | [optional] 
+**managers** | [**[Managers], none_type**](Managers.md) | Fetch basic Fund manager details, such as Title, Phone, Job Id and Name. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

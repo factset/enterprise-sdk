@@ -58,8 +58,11 @@ docs/Precision.md
 docs/Price.md
 docs/PricesApi.md
 docs/PricesFields.md
+docs/RangeRequest.md
+docs/RangeResponse.md
 docs/Returns.md
 docs/ReturnsApi.md
+docs/ReturnsRange.md
 docs/ReturnsRequest.md
 docs/ReturnsResponse.md
 docs/RightsIssue.md
@@ -142,7 +145,10 @@ fds/sdk/FactSetGlobalPrices/model/pagination.py
 fds/sdk/FactSetGlobalPrices/model/precision.py
 fds/sdk/FactSetGlobalPrices/model/price.py
 fds/sdk/FactSetGlobalPrices/model/prices_fields.py
+fds/sdk/FactSetGlobalPrices/model/range_request.py
+fds/sdk/FactSetGlobalPrices/model/range_response.py
 fds/sdk/FactSetGlobalPrices/model/returns.py
+fds/sdk/FactSetGlobalPrices/model/returns_range.py
 fds/sdk/FactSetGlobalPrices/model/returns_request.py
 fds/sdk/FactSetGlobalPrices/model/returns_response.py
 fds/sdk/FactSetGlobalPrices/model/rights_issue.py

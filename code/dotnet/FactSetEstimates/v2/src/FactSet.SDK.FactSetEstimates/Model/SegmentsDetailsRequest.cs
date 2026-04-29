@@ -52,9 +52,10 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="segmentIds">Requested segmentId. Use the &#x60;/segments-metrics&#x60; endpoint for a list of segment_ids. (required).</param>
         /// <param name="currency">Currency code for adjusting the data. Use input as &#x60;ESTIMATE&#x60; for values in Estimate currency. For a list of currency ISO codes, visit &lt;a href&#x3D;\&quot;https://oa.apps.factset.com/pages/1470\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Online Assistant Page.</param>
         /// <param name="brokerNames">Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706)..</param>
-        /// <param name="updatesOnly">Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.  (default to false).</param>
+        /// <param name="updatesOnly">Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. (default to false).</param>
         /// <param name="includeAll">Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * &#x60;TRUE&#x60; &#x3D; Returns all the brokers included and excluded in the consensus   * &#x60;FALSE&#x60; &#x3D; Returns only the broker details included in the consensus  (default to false).</param>
-        public SegmentsDetailsRequest(List<string> ids, List<string> metrics, List<string> segmentIds,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), int relativeFiscalStart = 1, int relativeFiscalEnd = 1, PeriodicityDetail periodicity = default(PeriodicityDetail), Frequency frequency = default(Frequency), SegmentType segmentType = default(SegmentType), string currency = default(string), List<string> brokerNames = default(List<string>), bool updatesOnly = false, bool includeAll = false)
+        /// <param name="sortByInputDateTime">When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (default to false).</param>
+        public SegmentsDetailsRequest(List<string> ids, List<string> metrics, List<string> segmentIds,DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), int relativeFiscalStart = 1, int relativeFiscalEnd = 1, PeriodicityDetail periodicity = default(PeriodicityDetail), Frequency frequency = default(Frequency), SegmentType segmentType = default(SegmentType), string currency = default(string), List<string> brokerNames = default(List<string>), bool updatesOnly = false, bool includeAll = false, bool sortByInputDateTime = false)
         {
             // to ensure "ids" is required (not null)
             if (ids == null) {
@@ -82,6 +83,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
             this.BrokerNames = brokerNames;
             this.UpdatesOnly = updatesOnly;
             this.IncludeAll = includeAll;
+            this.SortByInputDateTime = sortByInputDateTime;
         }
 
         /// <summary>
@@ -167,9 +169,9 @@ namespace FactSet.SDK.FactSetEstimates.Model
         public List<string> BrokerNames { get; set; }
 
         /// <summary>
-        /// Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. 
+        /// Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.
         /// </summary>
-        /// <value>Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. </value>
+        /// <value>Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.</value>
         [DataMember(Name = "updatesOnly", EmitDefaultValue = true)]
         public bool UpdatesOnly { get; set; }
 
@@ -179,6 +181,13 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <value>Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * &#x60;TRUE&#x60; &#x3D; Returns all the brokers included and excluded in the consensus   * &#x60;FALSE&#x60; &#x3D; Returns only the broker details included in the consensus </value>
         [DataMember(Name = "includeAll", EmitDefaultValue = true)]
         public bool IncludeAll { get; set; }
+
+        /// <summary>
+        /// When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. 
+        /// </summary>
+        /// <value>When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. </value>
+        [DataMember(Name = "sortByInputDateTime", EmitDefaultValue = true)]
+        public bool SortByInputDateTime { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -202,6 +211,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
             sb.Append("  BrokerNames: ").Append(BrokerNames).Append("\n");
             sb.Append("  UpdatesOnly: ").Append(UpdatesOnly).Append("\n");
             sb.Append("  IncludeAll: ").Append(IncludeAll).Append("\n");
+            sb.Append("  SortByInputDateTime: ").Append(SortByInputDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -306,6 +316,10 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 (
                     this.IncludeAll == input.IncludeAll ||
                     this.IncludeAll.Equals(input.IncludeAll)
+                ) && 
+                (
+                    this.SortByInputDateTime == input.SortByInputDateTime ||
+                    this.SortByInputDateTime.Equals(input.SortByInputDateTime)
                 );
         }
 
@@ -362,6 +376,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 }
                 hashCode = (hashCode * 59) + this.UpdatesOnly.GetHashCode();
                 hashCode = (hashCode * 59) + this.IncludeAll.GetHashCode();
+                hashCode = (hashCode * 59) + this.SortByInputDateTime.GetHashCode();
                 return hashCode;
             }
         }

@@ -25,6 +25,7 @@ from fds.sdk.CompanyLogo.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.CompanyLogo.exceptions import ApiException
+from fds.sdk.CompanyLogo.model.error_response import ErrorResponse
 from fds.sdk.CompanyLogo.model.inline_response200 import InlineResponse200
 
 
@@ -46,14 +47,14 @@ class CompanyApi(object):
         self.get_company_logo_get_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (InlineResponse200,),  },
+                  { 200: (InlineResponse200,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/company/logo/get',
+                'endpoint_path': '/company/logo',
                 'operation_id': 'get_company_logo_get',
                 'http_method': 'GET',
                 'servers': None,

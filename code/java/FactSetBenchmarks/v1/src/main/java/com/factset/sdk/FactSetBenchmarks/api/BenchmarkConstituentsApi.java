@@ -96,7 +96,7 @@ public class BenchmarkConstituentsApi {
    * Returns the requested Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the &#x60;ids&#x60; requested. Use the helper endpoint **_/id-list** for valid identifiers.   
    * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @return BenchmarkConstituentsResponse
    * @throws ApiException if fails to make API call
@@ -120,7 +120,7 @@ public class BenchmarkConstituentsApi {
    * Returns the requested Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the &#x60;ids&#x60; requested. Use the helper endpoint **_/id-list** for valid identifiers.   
    * @param ids Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @param calendar Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional, default to FIVEDAY)
    * @return ApiResponse&lt;BenchmarkConstituentsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -272,7 +272,7 @@ public class BenchmarkConstituentsApi {
    * Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the &#x60;ids&#x60; requested. 
    * @param ids Fixed Income Benchmark Identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @return FixedIncomeBenchmarkConstituentsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -295,7 +295,7 @@ public class BenchmarkConstituentsApi {
    * Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the &#x60;ids&#x60; requested. 
    * @param ids Fixed Income Benchmark Identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; (required)
    * @param date Date of holding expressed in YYYY-MM-DD format. (optional)
-   * @param currency Currency for response. (optional)
+   * @param currency Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional)
    * @return ApiResponse&lt;FixedIncomeBenchmarkConstituentsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

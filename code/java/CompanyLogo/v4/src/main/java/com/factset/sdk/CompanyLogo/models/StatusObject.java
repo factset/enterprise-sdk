@@ -48,14 +48,6 @@ public class StatusObject implements Serializable {
   public StatusObject() { 
   }
 
-  @JsonCreator
-  public StatusObject(
-    @JsonProperty(value=JSON_PROPERTY_CODE, required=true) BigDecimal code
-  ) {
-    this();
-    this.code = code;
-  }
-
   public StatusObject code(BigDecimal code) {
     this.code = code;
     return this;
@@ -65,10 +57,10 @@ public class StatusObject implements Serializable {
    * The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1).
    * @return code
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "200", required = true, value = "The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1).")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "200", value = "The HTTP status code of the response, mirroring the code from the Status-Line of the HTTP response message (see [RFC2616] section 6.1).")
   @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BigDecimal getCode() {
     return code;
@@ -76,7 +68,7 @@ public class StatusObject implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCode(BigDecimal code) {
     this.code = code;
   }

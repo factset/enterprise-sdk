@@ -196,6 +196,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         broker_names=BrokerNames(["Morningstar Equity Research"]),
         updates_only=False,
         include_all=False,
+        sort_by_input_date_time=True,
     ) # SegmentsDetailsRequest | Request object for Product Segments estimates.
 
     try:

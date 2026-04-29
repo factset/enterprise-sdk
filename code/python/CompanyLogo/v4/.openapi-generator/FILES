@@ -5,6 +5,10 @@
 LICENSE
 README.md
 docs/CompanyApi.md
+docs/ErrorDetail.md
+docs/ErrorResponse.md
+docs/ErrorResponseMeta.md
+docs/ErrorResponseMetaStatus.md
 docs/InlineResponse200.md
 docs/InlineResponse200Data.md
 docs/InlineResponse200DataLarge.md
@@ -22,6 +26,10 @@ fds/sdk/CompanyLogo/apis/__init__.py
 fds/sdk/CompanyLogo/configuration.py
 fds/sdk/CompanyLogo/exceptions.py
 fds/sdk/CompanyLogo/model/__init__.py
+fds/sdk/CompanyLogo/model/error_detail.py
+fds/sdk/CompanyLogo/model/error_response.py
+fds/sdk/CompanyLogo/model/error_response_meta.py
+fds/sdk/CompanyLogo/model/error_response_meta_status.py
 fds/sdk/CompanyLogo/model/inline_response200.py
 fds/sdk/CompanyLogo/model/inline_response200_data.py
 fds/sdk/CompanyLogo/model/inline_response200_data_large.py

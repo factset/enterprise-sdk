@@ -58,7 +58,10 @@ from fds.sdk.FactSetGlobalPrices.model.pagination import Pagination
 from fds.sdk.FactSetGlobalPrices.model.precision import Precision
 from fds.sdk.FactSetGlobalPrices.model.price import Price
 from fds.sdk.FactSetGlobalPrices.model.prices_fields import PricesFields
+from fds.sdk.FactSetGlobalPrices.model.range_request import RangeRequest
+from fds.sdk.FactSetGlobalPrices.model.range_response import RangeResponse
 from fds.sdk.FactSetGlobalPrices.model.returns import Returns
+from fds.sdk.FactSetGlobalPrices.model.returns_range import ReturnsRange
 from fds.sdk.FactSetGlobalPrices.model.returns_request import ReturnsRequest
 from fds.sdk.FactSetGlobalPrices.model.returns_response import ReturnsResponse
 from fds.sdk.FactSetGlobalPrices.model.rights_issue import RightsIssue

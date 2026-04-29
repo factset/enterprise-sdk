@@ -34,6 +34,9 @@ from fds.sdk.FactSetBenchmarks.model.index_history import IndexHistory
 from fds.sdk.FactSetBenchmarks.model.index_history_request import IndexHistoryRequest
 from fds.sdk.FactSetBenchmarks.model.index_history_response import IndexHistoryResponse
 from fds.sdk.FactSetBenchmarks.model.index_ids import IndexIds
+from fds.sdk.FactSetBenchmarks.model.index_returns import IndexReturns
+from fds.sdk.FactSetBenchmarks.model.index_returns_request import IndexReturnsRequest
+from fds.sdk.FactSetBenchmarks.model.index_returns_response import IndexReturnsResponse
 from fds.sdk.FactSetBenchmarks.model.index_snapshot import IndexSnapshot
 from fds.sdk.FactSetBenchmarks.model.index_snapshot_request import IndexSnapshotRequest
 from fds.sdk.FactSetBenchmarks.model.index_snapshot_response import IndexSnapshotResponse

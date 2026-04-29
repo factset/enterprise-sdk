@@ -950,6 +950,7 @@ components:
           - ISO
           - DATE_UTC
           - TIME_UTC
+          - TICK_CONDITION
       description: |
         Fields for which data is requested
       example:

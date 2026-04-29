@@ -1,0 +1,10 @@
+# factsetfunds.FundsReturnsResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**data** | [**[Returns]**](Returns.md) | Array of Returns Objects | [optional] 
+**meta** | [**SearchMeta**](SearchMeta.md) |  | [optional] 
+
+

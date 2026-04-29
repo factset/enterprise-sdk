@@ -225,11 +225,11 @@ public class DetailRatingsRequest implements Serializable {
   }
 
    /**
-   * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. 
+   * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.
    * @return updatesOnly
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. ")
+  @ApiModelProperty(example = "false", value = "Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.")
   @JsonProperty(JSON_PROPERTY_UPDATES_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

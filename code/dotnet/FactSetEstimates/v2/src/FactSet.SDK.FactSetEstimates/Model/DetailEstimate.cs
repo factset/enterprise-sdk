@@ -33,6 +33,40 @@ namespace FactSet.SDK.FactSetEstimates.Model
     public partial class DetailEstimate : IEquatable<DetailEstimate>, IValidatableObject
     {
         /// <summary>
+        /// Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue 
+        /// </summary>
+        /// <value>Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ChangeTypeEnum
+        {
+            /// <summary>
+            /// Enum Increase for value: increase
+            /// </summary>
+            [EnumMember(Value = "increase")]
+            Increase = 1,
+
+            /// <summary>
+            /// Enum Decrease for value: decrease
+            /// </summary>
+            [EnumMember(Value = "decrease")]
+            Decrease = 2,
+
+            /// <summary>
+            /// Enum Unchanged for value: unchanged
+            /// </summary>
+            [EnumMember(Value = "unchanged")]
+            Unchanged = 3
+
+        }
+
+
+        /// <summary>
+        /// Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue 
+        /// </summary>
+        /// <value>Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue </value>
+        [DataMember(Name = "changeType", EmitDefaultValue = true)]
+        public ChangeTypeEnum? ChangeType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="DetailEstimate" /> class.
         /// </summary>
         /// <param name="requestId">Identifier that was used for the request..</param>
@@ -54,13 +88,14 @@ namespace FactSet.SDK.FactSetEstimates.Model
         /// <param name="lastModifiedDate">The date at which a broker provided an estimate that is a revision..</param>
         /// <param name="prevEstimateDate">Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598).</param>
         /// <param name="prevEstimateValue">The value of the previous estimate..</param>
+        /// <param name="changeType">Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue .</param>
         /// <param name="section">Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus.</param>
         /// <param name="statusCode">Status code of the estimate..</param>
         /// <param name="statusText">Status description of the estimate..</param>
         /// <param name="inputDateTime">Date and time when the data is available at the source..</param>
         /// <param name="securityCurrency">The currency that the company trades in..</param>
         /// <param name="brokerEstimateCurrency">The currency in which estimates are made by broker..</param>
-        public DetailEstimate(string requestId = default(string), string fsymId = default(string), string metric = default(string), string periodicity = default(string), int? fiscalYear = default(int?), int? fiscalPeriod = default(int?), DateTime? fiscalEndDate = default(DateTime?), int? relativePeriod = default(int?), string currency = default(string), string estimateCurrency = default(string), DateTime? estimateDate = default(DateTime?), double? estimateValue = default(double?), string analystId = default(string), string analystName = default(string), string brokerId = default(string), string brokerName = default(string), DateTime? lastModifiedDate = default(DateTime?), DateTime? prevEstimateDate = default(DateTime?), double? prevEstimateValue = default(double?), string section = default(string), int? statusCode = default(int?), string statusText = default(string), string inputDateTime = default(string), string securityCurrency = default(string), string brokerEstimateCurrency = default(string))
+        public DetailEstimate(string requestId = default(string), string fsymId = default(string), string metric = default(string), string periodicity = default(string), int? fiscalYear = default(int?), int? fiscalPeriod = default(int?), DateTime? fiscalEndDate = default(DateTime?), int? relativePeriod = default(int?), string currency = default(string), string estimateCurrency = default(string), DateTime? estimateDate = default(DateTime?), double? estimateValue = default(double?), string analystId = default(string), string analystName = default(string), string brokerId = default(string), string brokerName = default(string), DateTime? lastModifiedDate = default(DateTime?), DateTime? prevEstimateDate = default(DateTime?), double? prevEstimateValue = default(double?), ChangeTypeEnum? changeType = default(ChangeTypeEnum?), string section = default(string), int? statusCode = default(int?), string statusText = default(string), string inputDateTime = default(string), string securityCurrency = default(string), string brokerEstimateCurrency = default(string))
         {
             this.RequestId = requestId;
             this.FsymId = fsymId;
@@ -81,6 +116,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
             this.LastModifiedDate = lastModifiedDate;
             this.PrevEstimateDate = prevEstimateDate;
             this.PrevEstimateValue = prevEstimateValue;
+            this.ChangeType = changeType;
             this.Section = section;
             this.StatusCode = statusCode;
             this.StatusText = statusText;
@@ -294,6 +330,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
             sb.Append("  LastModifiedDate: ").Append(LastModifiedDate).Append("\n");
             sb.Append("  PrevEstimateDate: ").Append(PrevEstimateDate).Append("\n");
             sb.Append("  PrevEstimateValue: ").Append(PrevEstimateValue).Append("\n");
+            sb.Append("  ChangeType: ").Append(ChangeType).Append("\n");
             sb.Append("  Section: ").Append(Section).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  StatusText: ").Append(StatusText).Append("\n");
@@ -431,6 +468,10 @@ namespace FactSet.SDK.FactSetEstimates.Model
                     this.PrevEstimateValue.Equals(input.PrevEstimateValue))
                 ) && 
                 (
+                    this.ChangeType == input.ChangeType ||
+                    this.ChangeType.Equals(input.ChangeType)
+                ) && 
+                (
                     this.Section == input.Section ||
                     (this.Section != null &&
                     this.Section.Equals(input.Section))
@@ -547,6 +588,7 @@ namespace FactSet.SDK.FactSetEstimates.Model
                 {
                     hashCode = (hashCode * 59) + this.PrevEstimateValue.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.ChangeType.GetHashCode();
                 if (this.Section != null)
                 {
                     hashCode = (hashCode * 59) + this.Section.GetHashCode();

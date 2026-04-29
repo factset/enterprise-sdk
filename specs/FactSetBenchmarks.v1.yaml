@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 1.10.0
+  version: 1.11.0
   title: FactSet Benchmarks API
   contact:
     name: FactSet Research Systems
@@ -351,6 +351,99 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-benchmarks/v1/index-returns:
+    get:
+      summary: >-
+        Retrieves cumulative index returns over a specified date range for a
+        list of benchmark identifiers via query parameters
+      operationId: getIndexReturns
+      tags:
+        - Index Level
+      description: >
+        Returns aggregated (cumulative) index returns for each requested
+        benchmark across the specified date range. Unlike `/index-history`,
+        which provides full time-series data (prices, levels, constituents, and
+        frequency-based observations), this endpoint is returns-focused and does
+        not return a time series or support frequency parameters. Each benchmark
+        produces a single cumulative return value for the entire date window,
+        rather than a series of observations. The data is aligned with FactSet
+        Benchmark Data Feed. Submit benchmark identifiers and a date range to
+        retrieve cumulative return metrics for the period.
+      parameters:
+        - $ref: '#/components/parameters/indexIds'
+        - $ref: '#/components/parameters/startDateRequired'
+        - $ref: '#/components/parameters/endDateRequired'
+        - $ref: '#/components/parameters/returnType'
+        - $ref: '#/components/parameters/hedgeType'
+        - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/regionCalendar'
+        - $ref: '#/components/parameters/impliedDate'
+      responses:
+        '200':
+          description: An array of Index Returns information for a requested date range.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/indexReturnsResponse'
+              examples:
+                Index Level cumulative Returns for S&P 500:
+                  $ref: '#/components/examples/resultofIndexReturns'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: >-
+        Retrieves cumulative index returns over a specified date range for a
+        list of benchmark identifiers via JSON Request body
+      operationId: getIndexReturnsForList
+      tags:
+        - Index Level
+      description: >
+        Returns aggregated (cumulative) index returns for each requested
+        benchmark across the specified date range. Unlike `/index-history`,
+        which provides full time-series data (prices, levels, constituents, and
+        frequency-based observations), this endpoint is returns-focused and does
+        not return a time series or support frequency parameters. Each benchmark
+        produces a single cumulative return value for the entire date window,
+        rather than a series of observations. The data is aligned with FactSet
+        Benchmark Data Feed. Submit benchmark identifiers and a date range to
+        retrieve cumulative return metrics for the period.
+      requestBody:
+        required: true
+        description: >-
+          Requests Index Returns for a list of identifiers and specified date
+          range.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/indexReturnsRequest'
+      responses:
+        '200':
+          description: An array of Index Returns information for a requested date range.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/indexReturnsResponse'
+              examples:
+                Index Level cumulative Returns for S&P 500:
+                  $ref: '#/components/examples/resultofIndexReturns'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
   /factset-benchmarks/v1/ratios:
     get:
       tags:
@@ -617,6 +710,22 @@ components:
       schema:
         type: string
       description: Requested End Date for Range expressed in YYYY-MM-DD format.
+    startDateRequired:
+      name: startDate
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date
+      description: Requested start date expressed in YYYY-MM-DD format.
+    endDateRequired:
+      name: endDate
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date
+      description: Requested End Date for Range expressed in YYYY-MM-DD format.
     returnType:
       name: returnType
       in: query
@@ -708,7 +817,9 @@ components:
       required: false
       schema:
         type: string
-      description: Currency for response.
+      description: >-
+        Currency for response.  Currency code (ISO 4217). For a list of currency
+        codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
     frequency:
       name: frequency
       in: query
@@ -1317,6 +1428,30 @@ components:
           $ref: '#/components/schemas/impliedDate'
       required:
         - ids
+    indexReturnsRequest:
+      type: object
+      title: Index Returns Request
+      properties:
+        ids:
+          $ref: '#/components/schemas/indexIds'
+        startDate:
+          $ref: '#/components/schemas/startDate'
+        endDate:
+          $ref: '#/components/schemas/endDate'
+        returnType:
+          $ref: '#/components/schemas/returnType'
+        hedgeType:
+          $ref: '#/components/schemas/hedgeType'
+        currency:
+          $ref: '#/components/schemas/currency'
+        calendar:
+          $ref: '#/components/schemas/regionCalendar'
+        impliedDate:
+          $ref: '#/components/schemas/impliedDate'
+      required:
+        - ids
+        - startDate
+        - endDate
     indexHistoryResponse:
       title: Index History Response
       type: object
@@ -1422,6 +1557,71 @@ components:
           type: string
           example: '2020-07-21'
           nullable: true
+    indexReturnsResponse:
+      title: Index Returns Response
+      type: object
+      properties:
+        data:
+          description: |
+            Array of Index Returns response objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/indexReturns'
+    indexReturns:
+      title: Index Returns Object
+      type: object
+      properties:
+        fsymId:
+          type: string
+          description: >-
+            Requested Identifier. Must be a valid Benchmark Identifier
+            recognized by FactSet.
+          example: SP50
+        inceptionDate:
+          description: The inception date of the requested index in YYYY-MM-DD format.
+          type: string
+          format: date
+          example: '1988-01-04'
+          nullable: true
+        name:
+          description: Proper Name of Index.
+          type: string
+          example: S&P 500
+          nullable: true
+        currency:
+          description: >-
+            Currency Code used in adjustments. If no Currency was requested, the
+            service will default to LOCAL ('LOC'). Currency code (ISO 4217). For
+            a list of currency codes, see [OA Page
+            1470](https://my.apps.factset.com/oa/pages/1470).
+          type: string
+          example: USD
+          nullable: true
+        totalReturnPercent:
+          description: >-
+            Cumulative total return (%) for the index over the specified date
+            range, calculated as ((startDate level / endDate level) - 1) * 100
+            using total return index levels. Returns a single aggregated value
+            per benchmark. Dates are inclusive and based on closing levels;
+            non-trading days use the nearest available trading date.
+          type: number
+          format: double
+          example: 0.653957589855003
+          nullable: true
+        returnType:
+          description: The requested Return Type - GROSS or NET
+          type: string
+          example: GROSS
+          nullable: true
+        hedgeType:
+          description: The requested Hedge Type - HEDGED or UNHEDGED
+          type: string
+          example: UNHEDGED
+          nullable: true
+        requestId:
+          type: string
+          description: Benchmark Identifier specified in the request
+          example: SP50
     benchmarkRatiosRequest:
       type: object
       title: Benchamrk Ratios Request
@@ -1622,7 +1822,7 @@ components:
       description: >-
         The hedge type adjustment used in returns response items. Adjustment can
         be made for HEDGED and UNHEDGED values that will be included in the
-        return calculation. The service weill default to UNHEDGED.
+        return calculation. The service will default to UNHEDGED.
       example: UNHEDGED
     impliedDate:
       title: Implied Date
@@ -1658,7 +1858,9 @@ components:
     currency:
       title: Currency
       type: string
-      description: Currency for response.
+      description: >-
+        Currency for response. Currency code (ISO 4217). For a list of currency
+        codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
       example: USD
     frequency:
       title: Frequency
@@ -2306,6 +2508,19 @@ components:
             hedgeType: UNHEDGED
             requestId: SP50
             observationDate: '2019-12-31'
+    resultofIndexReturns:
+      summary: Cumulative Index Returns Response of SP50
+      description: Index Returns for 'SP50' derived from historical data
+      value:
+        data:
+          - fsymId: SP50
+            inceptionDate: '1988-01-04'
+            name: S&P 500
+            currency: USD
+            totalReturnPercent: -4.38434932977296
+            returnType: GROSS
+            hedgeType: UNHEDGED
+            requestId: SP50
     indexHistoryRequestBody:
       summary: Index History Request
       description: Index History Request for the 'SP50' from 2018-12-31 to 2019-12-31

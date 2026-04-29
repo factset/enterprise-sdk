@@ -65,7 +65,7 @@ namespace Example
 
             var ids = new List<string>(); // List<string> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
             var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
-            var currency = "currency_example";  // string | Currency for response. (optional) 
+            var currency = "currency_example";  // string | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional) 
             var calendar = "\"FIVEDAY\"";  // string | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. (optional)  (default to "FIVEDAY")
 
             try
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; | 
  **date** | **string**| Date of holding expressed in YYYY-MM-DD format. | [optional] 
- **currency** | **string**| Currency for response. | [optional] 
+ **currency** | **string**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional] 
  **calendar** | **string**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to &quot;FIVEDAY&quot;]
 
 ### Return type
@@ -277,7 +277,7 @@ namespace Example
 
             var ids = new List<string>(); // List<string> | Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
             var date = "date_example";  // string | Date of holding expressed in YYYY-MM-DD format. (optional) 
-            var currency = "currency_example";  // string | Currency for response. (optional) 
+            var currency = "currency_example";  // string | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). (optional) 
 
             try
             {
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Fixed Income Benchmark Identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; | 
  **date** | **string**| Date of holding expressed in YYYY-MM-DD format. | [optional] 
- **currency** | **string**| Currency for response. | [optional] 
+ **currency** | **string**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional] 
 
 ### Return type
 [**FixedIncomeBenchmarkConstituentsResponse**](FixedIncomeBenchmarkConstituentsResponse.md)

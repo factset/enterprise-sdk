@@ -26,12 +26,23 @@ Name | Type | Description | Notes
 **lastModifiedDate** | **LocalDate** | The date at which a broker provided an estimate that is a revision. |  [optional]
 **prevEstimateDate** | **LocalDate** | Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) |  [optional]
 **prevEstimateValue** | **Double** | The value of the previous estimate. |  [optional]
+**changeType** | [**ChangeTypeEnum**](#ChangeTypeEnum) | Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue  |  [optional]
 **section** | **String** | Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus |  [optional]
 **statusCode** | **Integer** | Status code of the estimate. |  [optional]
 **statusText** | **String** | Status description of the estimate. |  [optional]
 **inputDateTime** | **String** | Date and time when the data is available at the source. |  [optional]
 **securityCurrency** | **String** | The currency that the company trades in. |  [optional]
 **brokerEstimateCurrency** | **String** | The currency in which estimates are made by broker. |  [optional]
+
+
+
+## Enum: ChangeTypeEnum
+
+Name | Value
+---- | -----
+INCREASE | &quot;increase&quot;
+DECREASE | &quot;decrease&quot;
+UNCHANGED | &quot;unchanged&quot;
 
 
 ## Implemented Interfaces

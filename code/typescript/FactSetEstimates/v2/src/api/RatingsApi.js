@@ -158,9 +158,9 @@ export default class RatingsApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {Date} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
-     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus  (default to false)
+     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    (default to false)
      * @param {Array.<String>} opts.brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
-     * @param {Boolean} opts.updatesOnly If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.      (default to false)
+     * @param {Boolean} opts.updatesOnly If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     (default to false)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/DetailRatingsResponse} and HTTP response
      */
     getDetailRatingsWithHttpInfo(ids, opts) {
@@ -207,9 +207,9 @@ export default class RatingsApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate Start date for point in time of estimates expressed in YYYY-MM-DD format.
      * @param {Date} opts.endDate End date for point in time of estimates expressed in YYYY-MM-DD format.
-     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus  (default to false)
+     * @param {Boolean} opts.includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    (default to false)
      * @param {Array.<String>} opts.brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
-     * @param {Boolean} opts.updatesOnly If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.      (default to false)
+     * @param {Boolean} opts.updatesOnly If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     (default to false)
      * @return { Promise.< module:model/DetailRatingsResponse > } a Promise, with data of type {@link module:model/DetailRatingsResponse }
      */
     getDetailRatings(ids, opts) {

@@ -100,12 +100,13 @@ public class BrokerDetailApi {
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
-   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  (optional, default to false)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
    * @param fiscalPeriodStart Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)
    * @param fiscalPeriodEnd Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)
    * @param currency Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
-   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.      (optional, default to false)
+   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
+   * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
    * @return DetailResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -119,8 +120,8 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DetailResponse getFixedDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly) throws ApiException {
-    return getFixedDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly).getData();
+  public DetailResponse getFixedDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
+    return getFixedDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime).getData();
   }
 
   /**
@@ -132,12 +133,13 @@ public class BrokerDetailApi {
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
-   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  (optional, default to false)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
    * @param fiscalPeriodStart Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)
    * @param fiscalPeriodEnd Fiscal period start expressed in absolute date formats. Date that will fall back to most recent completed period during resolution.   * **Fiscal Quarter-end** - YYYY/FQ (e.g., 2019/1F, 2019/2F, 2019/3F, 2019/4F)   * **Fiscal Year-end** - YYYY (e.g. 2019)  (optional)
    * @param currency Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
-   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.      (optional, default to false)
+   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
+   * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
    * @return ApiResponse&lt;DetailResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -151,7 +153,7 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DetailResponse> getFixedDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly) throws ApiException {
+  public ApiResponse<DetailResponse> getFixedDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -185,6 +187,7 @@ public class BrokerDetailApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "brokerNames", brokerNames));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "updatesOnly", updatesOnly));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortByInputDateTime", sortByInputDateTime));
 
     
     
@@ -305,12 +308,13 @@ public class BrokerDetailApi {
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
-   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  (optional, default to false)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
    * @param relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)
    * @param relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)
    * @param currency Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
-   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.      (optional, default to false)
+   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
+   * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
    * @return DetailResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -324,8 +328,8 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DetailResponse getRollingDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly) throws ApiException {
-    return getRollingDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly).getData();
+  public DetailResponse getRollingDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
+    return getRollingDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime).getData();
   }
 
   /**
@@ -337,12 +341,13 @@ public class BrokerDetailApi {
    * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
-   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus  (optional, default to false)
+   * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
    * @param relativeFiscalStart Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for relative Fiscal Year 1 (FY1). (optional)
    * @param relativeFiscalEnd Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2). (optional)
    * @param currency Currency code for adjusting the data. Use &#x60;ESTIMATE&#x60; as input value for the values in Estimate Currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). (optional)
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
-   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.      (optional, default to false)
+   * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
+   * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
    * @return ApiResponse&lt;DetailResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -356,7 +361,7 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DetailResponse> getRollingDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly) throws ApiException {
+  public ApiResponse<DetailResponse> getRollingDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -390,6 +395,7 @@ public class BrokerDetailApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "brokerNames", brokerNames));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "updatesOnly", updatesOnly));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortByInputDateTime", sortByInputDateTime));
 
     
     

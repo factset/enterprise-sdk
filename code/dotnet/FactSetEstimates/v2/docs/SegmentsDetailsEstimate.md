@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **LastModifiedDate** | **DateTime?** | The date at which a broker provided an estimate that is a revision. | [optional] 
 **PrevEstimateDate** | **DateTime?** | Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) | [optional] 
 **PrevEstimateValue** | **double?** | The value of the previous estimate. | [optional] 
+**ChangeType** | **string** | Indicates whether the estimate has increased, decreased, or remained unchanged compared to the previous estimate. Derived by comparing &#x60;estimateValue&#x60; and &#x60;prevEstimateValue&#x60;.   * **increase** &#x3D; estimateValue &gt; prevEstimateValue   * **decrease** &#x3D; estimateValue &lt; prevEstimateValue   * **unchanged** &#x3D; estimateValue &#x3D; prevEstimateValue  | [optional] 
 **Section** | **string** | Section of the estimate.Returns the details of brokers inlcuded and excluded in the consensus | [optional] 
 **StatusCode** | **int?** | Status code of the estimate. | [optional] 
 **StatusText** | **string** | Status description of the estimate. | [optional] 

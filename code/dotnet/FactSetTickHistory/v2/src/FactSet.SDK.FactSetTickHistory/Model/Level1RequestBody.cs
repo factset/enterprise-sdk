@@ -300,7 +300,13 @@ namespace FactSet.SDK.FactSetTickHistory.Model
             /// Enum TIMEUTC for value: TIME_UTC
             /// </summary>
             [EnumMember(Value = "TIME_UTC")]
-            TIMEUTC = 44
+            TIMEUTC = 44,
+
+            /// <summary>
+            /// Enum TICKCONDITION for value: TICK_CONDITION
+            /// </summary>
+            [EnumMember(Value = "TICK_CONDITION")]
+            TICKCONDITION = 45
 
         }
 

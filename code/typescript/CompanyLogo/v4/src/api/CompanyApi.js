@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import ErrorResponse from '../model/ErrorResponse';
 import InlineResponse200 from '../model/InlineResponse200';
 
 /**
@@ -77,7 +78,7 @@ export default class CompanyApi {
       let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
-        '/company/logo/get', 'GET',
+        '/company/logo', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

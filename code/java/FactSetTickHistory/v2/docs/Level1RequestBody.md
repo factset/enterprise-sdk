@@ -64,6 +64,7 @@ ORDER_NUM | &quot;ORDER_NUM&quot;
 ISO | &quot;ISO&quot;
 DATE_UTC | &quot;DATE_UTC&quot;
 TIME_UTC | &quot;TIME_UTC&quot;
+TICK_CONDITION | &quot;TICK_CONDITION&quot;
 
 
 ## Implemented Interfaces

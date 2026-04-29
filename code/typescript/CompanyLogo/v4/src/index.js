@@ -12,6 +12,10 @@
  */
 
 import ApiClient from './ApiClient';
+import ErrorDetail from './model/ErrorDetail';
+import ErrorResponse from './model/ErrorResponse';
+import ErrorResponseMeta from './model/ErrorResponseMeta';
+import ErrorResponseMetaStatus from './model/ErrorResponseMetaStatus';
 import InlineResponse200 from './model/InlineResponse200';
 import InlineResponse200Data from './model/InlineResponse200Data';
 import InlineResponse200DataLarge from './model/InlineResponse200DataLarge';
@@ -60,6 +64,30 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The ErrorDetail model constructor.
+     * @property {module:model/ErrorDetail}
+     */
+    ErrorDetail,
+
+    /**
+     * The ErrorResponse model constructor.
+     * @property {module:model/ErrorResponse}
+     */
+    ErrorResponse,
+
+    /**
+     * The ErrorResponseMeta model constructor.
+     * @property {module:model/ErrorResponseMeta}
+     */
+    ErrorResponseMeta,
+
+    /**
+     * The ErrorResponseMetaStatus model constructor.
+     * @property {module:model/ErrorResponseMetaStatus}
+     */
+    ErrorResponseMetaStatus,
 
     /**
      * The InlineResponse200 model constructor.

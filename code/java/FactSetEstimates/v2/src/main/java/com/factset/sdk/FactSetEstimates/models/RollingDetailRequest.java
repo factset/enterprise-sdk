@@ -48,7 +48,8 @@ import com.factset.sdk.FactSetEstimates.JSON;
   RollingDetailRequest.JSON_PROPERTY_METRICS,
   RollingDetailRequest.JSON_PROPERTY_CURRENCY,
   RollingDetailRequest.JSON_PROPERTY_BROKER_NAMES,
-  RollingDetailRequest.JSON_PROPERTY_UPDATES_ONLY
+  RollingDetailRequest.JSON_PROPERTY_UPDATES_ONLY,
+  RollingDetailRequest.JSON_PROPERTY_SORT_BY_INPUT_DATE_TIME
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -90,6 +91,9 @@ public class RollingDetailRequest implements Serializable {
 
   public static final String JSON_PROPERTY_UPDATES_ONLY = "updatesOnly";
   private Boolean updatesOnly = false;
+
+  public static final String JSON_PROPERTY_SORT_BY_INPUT_DATE_TIME = "sortByInputDateTime";
+  private Boolean sortByInputDateTime = false;
 
   public RollingDetailRequest() { 
   }
@@ -418,11 +422,11 @@ public class RollingDetailRequest implements Serializable {
   }
 
    /**
-   * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. 
+   * Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency.
    * @return updatesOnly
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency. ")
+  @ApiModelProperty(example = "false", value = "Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * `TRUE` = Returns the first reported estimates within the period plus any subsequent broker updates. * `FALSE` = Returns data for every date in the requested range at the selected frequency.")
   @JsonProperty(JSON_PROPERTY_UPDATES_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -435,6 +439,32 @@ public class RollingDetailRequest implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdatesOnly(Boolean updatesOnly) {
     this.updatesOnly = updatesOnly;
+  }
+
+
+  public RollingDetailRequest sortByInputDateTime(Boolean sortByInputDateTime) {
+    this.sortByInputDateTime = sortByInputDateTime;
+    return this;
+  }
+
+   /**
+   * When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. 
+   * @return sortByInputDateTime
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. ")
+  @JsonProperty(JSON_PROPERTY_SORT_BY_INPUT_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSortByInputDateTime() {
+    return sortByInputDateTime;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SORT_BY_INPUT_DATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSortByInputDateTime(Boolean sortByInputDateTime) {
+    this.sortByInputDateTime = sortByInputDateTime;
   }
 
 
@@ -461,12 +491,13 @@ public class RollingDetailRequest implements Serializable {
         Objects.equals(this.metrics, rollingDetailRequest.metrics) &&
         Objects.equals(this.currency, rollingDetailRequest.currency) &&
         Objects.equals(this.brokerNames, rollingDetailRequest.brokerNames) &&
-        Objects.equals(this.updatesOnly, rollingDetailRequest.updatesOnly);
+        Objects.equals(this.updatesOnly, rollingDetailRequest.updatesOnly) &&
+        Objects.equals(this.sortByInputDateTime, rollingDetailRequest.sortByInputDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, startDate, endDate, frequency, includeAll, relativeFiscalStart, relativeFiscalEnd, periodicity, metrics, currency, brokerNames, updatesOnly);
+    return Objects.hash(ids, startDate, endDate, frequency, includeAll, relativeFiscalStart, relativeFiscalEnd, periodicity, metrics, currency, brokerNames, updatesOnly, sortByInputDateTime);
   }
 
   @Override
@@ -485,6 +516,7 @@ public class RollingDetailRequest implements Serializable {
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    brokerNames: ").append(toIndentedString(brokerNames)).append("\n");
     sb.append("    updatesOnly: ").append(toIndentedString(updatesOnly)).append("\n");
+    sb.append("    sortByInputDateTime: ").append(toIndentedString(sortByInputDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

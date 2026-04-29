@@ -316,6 +316,7 @@ paths:
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/brokerNames'
         - $ref: '#/components/parameters/updatesOnly'
+        - $ref: '#/components/parameters/sortByInputDateTime'
       responses:
         '200':
           description: Estimate data items
@@ -400,6 +401,7 @@ paths:
         - $ref: '#/components/parameters/currency'
         - $ref: '#/components/parameters/brokerNames'
         - $ref: '#/components/parameters/updatesOnly'
+        - $ref: '#/components/parameters/sortByInputDateTime'
       responses:
         '200':
           description: Estimate data items
@@ -1861,10 +1863,22 @@ components:
       required: false
       description: >
         Include All filter is used to identify included and excluded broker
-        details from the consensus. By default, the service would return only
-        the brokers included in the consensus.
+        details from the consensus
+          By default the service would return only the brokers included in the consensus-
           * **TRUE** = Returns all the brokers included and excluded in the consensus
-          * **FALSE** = Returns only the broker details included in the consensus
+          * **FALSE** = Returns only the broker details included in the consensus  
+    sortByInputDateTime:
+      name: sortByInputDateTime
+      in: query
+      description: >
+        When set to true, results will be sorted by `inputDateTime` in
+        descending order (latest records first). This ensures the most recent
+        estimate revisions are returned first in the response.
+      required: false
+      schema:
+        type: boolean
+        default: false
+        example: true
     brokerNames:
       name: brokerNames
       in: query
@@ -1893,7 +1907,7 @@ components:
       description: >-
         If `true`, the endpoint returns the first reported estimates within the
         period plus any subsequent broker updates. If `false`, it returns data
-        for every date in the requested range at the chosen frequency.     
+        for every date in the requested range at the chosen frequency.    
     segmentType:
       name: segmentType
       in: query
@@ -2809,6 +2823,8 @@ components:
           $ref: '#/components/schemas/brokerNames'
         updatesOnly:
           $ref: '#/components/schemas/updatesOnly'
+        sortByInputDateTime:
+          $ref: '#/components/schemas/sortByInputDateTime'
       required:
         - ids
         - metrics
@@ -2948,6 +2964,21 @@ components:
           format: double
           example: 22336
           nullable: true
+        changeType:
+          description: >
+            Indicates whether the estimate has increased, decreased, or remained
+            unchanged compared to the previous estimate. Derived by comparing
+            `estimateValue` and `prevEstimateValue`.
+              * **increase** = estimateValue > prevEstimateValue
+              * **decrease** = estimateValue < prevEstimateValue
+              * **unchanged** = estimateValue = prevEstimateValue
+          type: string
+          enum:
+            - increase
+            - decrease
+            - unchanged
+          example: increase
+          nullable: true
         section:
           description: >-
             Section of the estimate.Returns the details of brokers inlcuded and
@@ -3010,6 +3041,8 @@ components:
           $ref: '#/components/schemas/brokerNames'
         updatesOnly:
           $ref: '#/components/schemas/updatesOnly'
+        sortByInputDateTime:
+          $ref: '#/components/schemas/sortByInputDateTime'
       required:
         - ids
         - metrics
@@ -3166,7 +3199,7 @@ components:
       type: boolean
       default: false
       example: false
-      description: >
+      description: >-
         Controls whether the response includes only broker updates within the
         requested period or all reported data points. By default, the service
         returns data for every date in the requested range at the selected
@@ -3344,6 +3377,8 @@ components:
           $ref: '#/components/schemas/updatesOnly'
         includeAll:
           $ref: '#/components/schemas/includeAll'
+        sortByInputDateTime:
+          $ref: '#/components/schemas/sortByInputDateTime'
       required:
         - ids
         - metrics
@@ -3689,6 +3724,21 @@ components:
           type: number
           format: double
           example: 22336.12
+          nullable: true
+        changeType:
+          description: >
+            Indicates whether the estimate has increased, decreased, or remained
+            unchanged compared to the previous estimate. Derived by comparing
+            `estimateValue` and `prevEstimateValue`.
+              * **increase** = estimateValue > prevEstimateValue
+              * **decrease** = estimateValue < prevEstimateValue
+              * **unchanged** = estimateValue = prevEstimateValue
+          type: string
+          enum:
+            - increase
+            - decrease
+            - unchanged
+          example: increase
           nullable: true
         section:
           description: >-
@@ -4344,6 +4394,14 @@ components:
         the brokers included in the consensus.
           * `TRUE` = Returns all the brokers included and excluded in the consensus
           * `FALSE` = Returns only the broker details included in the consensus
+    sortByInputDateTime:
+      description: >
+        When set to true, results will be sorted by `inputDateTime` in
+        descending order (latest records first). This ensures the most recent
+        estimate revisions are returned first in the response.
+      type: boolean
+      example: true
+      default: false
     segmentType:
       type: string
       enum:
@@ -5356,6 +5414,7 @@ components:
         brokerNames:
           - Morningstar Equity Research
         updatesOnly: false
+        sortByInputDateTime: false
     postFixedDetail:
       summary: Fixed Detail response of FDS-US for SALES metrics
       description: >-
@@ -5377,6 +5436,7 @@ components:
         brokerNames:
           - Morningstar Equity Research
         updatesOnly: false
+        sortByInputDateTime: false
     postConsensusRatings:
       summary: Consensus Ratings response of FDS-US for frequency 'AM'
       description: >-
@@ -5460,6 +5520,7 @@ components:
           - Morgan Stanley
         updatesOnly: false
         includeAll: false
+        sortByInputDateTime: false
     postSegmentsDetailsExample:
       summary: >-
         Segments details request of AAPL-USA for 'SALES' metrics and 'BUS'
@@ -5483,6 +5544,7 @@ components:
           - PRODLINE_SALES_1
         currency: USD
         includeAll: false
+        sortByInputDateTime: false
     postMetricsExample:
       summary: >-
         Metrics response with 'FINANCIAL_STATEMENT' category and 'AIRLINES'
@@ -5717,6 +5779,7 @@ components:
             lastModifiedDate: '2019-05-23'
             prevEstimateDate: '2019-07-29'
             prevEstimateValue: '257310'
+            changeType: unchanged
             section: Included
             statusCode: '0'
             statusText: null
@@ -5742,6 +5805,7 @@ components:
             lastModifiedDate: '2019-06-04'
             prevEstimateDate: '2019-07-26'
             prevEstimateValue: '256000'
+            changeType: unchanged
             section: Included
             statusCode: '0'
             statusText: null
@@ -5774,6 +5838,7 @@ components:
             lastModifiedDate: '2019-05-23'
             prevEstimateDate: '2019-07-29'
             prevEstimateValue: '257310'
+            changeType: unchanged
             section: Included
             statusCode: '0'
             statusText: null
@@ -5799,6 +5864,7 @@ components:
             lastModifiedDate: '2019-06-04'
             prevEstimateDate: '2019-07-26'
             prevEstimateValue: '256000'
+            changeType: unchanged
             section: Included
             statusCode: '0'
             statusText: null
@@ -5944,6 +6010,7 @@ components:
             lastModifiedDate: '2017-07-24'
             prevEstimateDate: '2017-05-02'
             prevEstimateValue: 22336.12
+            changeType: increase
             section: Included
             statusCode: 0
             statusText: ''

@@ -63,7 +63,7 @@ public class Example {
         BenchmarkConstituentsApi apiInstance = new BenchmarkConstituentsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
         String date = "date_example"; // String | Date of holding expressed in YYYY-MM-DD format.
-        String currency = "currency_example"; // String | Currency for response.
+        String currency = "currency_example"; // String | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         String calendar = "FIVEDAY"; // String | Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.
         try {
             BenchmarkConstituentsResponse result = apiInstance.getBenchmarkConstituents(ids, date, currency, calendar);
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Benchmark Identifiers. Reference the helper endpoint **_/id-list** to get a sample list of  valid identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; |
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional]
- **currency** | **String**| Currency for response. | [optional]
+ **currency** | **String**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
  **calendar** | **String**| Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays. | [optional] [default to FIVEDAY]
 
 ### Return type
@@ -263,7 +263,7 @@ public class Example {
         BenchmarkConstituentsApi apiInstance = new BenchmarkConstituentsApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>
         String date = "date_example"; // String | Date of holding expressed in YYYY-MM-DD format.
-        String currency = "currency_example"; // String | Currency for response.
+        String currency = "currency_example"; // String | Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
         try {
             FixedIncomeBenchmarkConstituentsResponse result = apiInstance.getFIBenchmarkConstituents(ids, date, currency);
             System.out.println(result);
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Fixed Income Benchmark Identifiers. You must be authorized for the &#x60;ids&#x60; requested, otherwise you will receive an error. &lt;p&gt;***ids limit** &#x3D;  1 per request*&lt;/p&gt; |
  **date** | **String**| Date of holding expressed in YYYY-MM-DD format. | [optional]
- **currency** | **String**| Currency for response. | [optional]
+ **currency** | **String**| Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional]
 
 ### Return type
 

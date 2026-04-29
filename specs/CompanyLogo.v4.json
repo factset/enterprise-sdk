@@ -20,7 +20,7 @@
     }
   ],
   "paths": {
-    "/company/logo/get": {
+    "/company/logo": {
       "get": {
         "tags": [
           "company"
@@ -107,6 +107,18 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/GetCompanyLogoGet200Response"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -124,13 +136,150 @@
             "example": 200
           }
         },
-        "description": "The status member contains the status code of the response.",
+        "description": "The status member contains the status code of the response."
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "title": "Error Response",
+        "description": "Error response schema following FactSet's MDG API standards for error handling and reporting.",
+        "properties": {
+          "meta": {
+            "description": "Meta information containing status",
+            "type": "object",
+            "properties": {
+              "status": {
+                "description": "Status information",
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "description": "HTTP status code",
+                    "type": "integer",
+                    "example": 400
+                  }
+                },
+                "required": [
+                  "code"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "errors": {
+            "description": "Array of error objects",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            }
+          }
+        },
         "required": [
-          "code"
+          "meta",
+          "errors"
+        ]
+      },
+      "ErrorDetail": {
+        "type": "object",
+        "description": "Detailed error information following FactSet API standards",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for this error instance",
+            "type": "string",
+            "example": "07aed48e-f6fa-417a-ba7e-74e4267d3e39"
+          },
+          "code": {
+            "description": "Error code identifying the type of error",
+            "type": "string",
+            "example": "parameterError"
+          },
+          "title": {
+            "description": "Short human-readable summary of the error",
+            "type": "string",
+            "example": "Generic request error"
+          },
+          "detail": {
+            "description": "Detailed human-readable explanation of this specific error occurrence",
+            "type": "string",
+            "example": "Authorization required"
+          },
+          "timestamp": {
+            "description": "ISO 8601 formatted timestamp when the error occurred",
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-12-15T07:15:30.131Z"
+          }
+        },
+        "required": [
+          "id",
+          "code",
+          "title",
+          "detail",
+          "timestamp"
         ]
       }
     },
     "responses": {
+      "400": {
+        "description": "Bad Request. Please review the \"message\" for more details.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "examples": {
+              "badRequest": {
+                "$ref": "#/components/examples/badRequest"
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Unauthenticated API Key or Token.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "examples": {
+              "unauthenticated": {
+                "$ref": "#/components/examples/unauthenticated"
+              }
+            }
+          }
+        }
+      },
+      "403": {
+        "description": "Forbidden. The API Key or token is not authorized.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "examples": {
+              "forbidden": {
+                "$ref": "#/components/examples/forbidden"
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "Internal Server Error.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "examples": {
+              "internalServerError": {
+                "$ref": "#/components/examples/internalServerError"
+              }
+            }
+          }
+        }
+      },
       "GetCompanyLogoGet200Response": {
         "description": "Successful Response",
         "content": {
@@ -281,7 +430,84 @@
       }
     },
     "parameters": {},
-    "examples": {},
+    "examples": {
+      "badRequest": {
+        "summary": "Bad Request - Invalid Parameter",
+        "value": {
+          "errors": [
+            {
+              "id": "req-001",
+              "code": "parameterError",
+              "title": "Parameter validation error",
+              "detail": "The parameter 'identifier' is required and may not be empty.",
+              "timestamp": "2025-12-15T07:15:30.131Z"
+            }
+          ],
+          "meta": {
+            "status": {
+              "code": 400
+            }
+          }
+        }
+      },
+      "unauthenticated": {
+        "summary": "User Authentication Failed",
+        "value": {
+          "errors": [
+            {
+              "id": "auth-001",
+              "code": "authenticationFailed",
+              "title": "Authentication failed",
+              "detail": "Authorization required",
+              "timestamp": "2025-12-15T07:15:30.131Z"
+            }
+          ],
+          "meta": {
+            "status": {
+              "code": 401
+            }
+          }
+        }
+      },
+      "forbidden": {
+        "summary": "Forbidden",
+        "value": {
+          "errors": [
+            {
+              "id": "auth-002",
+              "code": "forbidden",
+              "title": "Access forbidden",
+              "detail": "Forbidden. You are not authorized to access this resource.",
+              "timestamp": "2025-12-15T07:15:30.131Z"
+            }
+          ],
+          "meta": {
+            "status": {
+              "code": 403
+            }
+          }
+        }
+      },
+      "internalServerError": {
+        "summary": "Internal Server Error",
+        "value": {
+          "errors": [
+            {
+              "id": "server-001",
+              "code": "internalServerError",
+              "title": "Internal server error",
+              "detail": "Internal Server Error. An unexpected error occurred.",
+              "timestamp": "2025-12-15T07:15:30.131Z"
+            }
+          ],
+          "meta": {
+            "status": {
+              "code": 500
+            }
+          }
+        }
+      }
+    },
     "requestBodies": {},
     "headers": {},
     "securitySchemes": {

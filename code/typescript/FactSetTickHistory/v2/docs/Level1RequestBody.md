@@ -103,6 +103,8 @@ Name | Type | Description | Notes
 
 * `TIME_UTC` (value: `"TIME_UTC"`)
 
+* `TICK_CONDITION` (value: `"TICK_CONDITION"`)
+
 
 
 

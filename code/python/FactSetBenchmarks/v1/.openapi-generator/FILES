@@ -32,6 +32,9 @@ docs/IndexHistoryRequest.md
 docs/IndexHistoryResponse.md
 docs/IndexIds.md
 docs/IndexLevelApi.md
+docs/IndexReturns.md
+docs/IndexReturnsRequest.md
+docs/IndexReturnsResponse.md
 docs/IndexSnapshot.md
 docs/IndexSnapshotRequest.md
 docs/IndexSnapshotResponse.md
@@ -74,6 +77,9 @@ fds/sdk/FactSetBenchmarks/model/index_history.py
 fds/sdk/FactSetBenchmarks/model/index_history_request.py
 fds/sdk/FactSetBenchmarks/model/index_history_response.py
 fds/sdk/FactSetBenchmarks/model/index_ids.py
+fds/sdk/FactSetBenchmarks/model/index_returns.py
+fds/sdk/FactSetBenchmarks/model/index_returns_request.py
+fds/sdk/FactSetBenchmarks/model/index_returns_response.py
 fds/sdk/FactSetBenchmarks/model/index_snapshot.py
 fds/sdk/FactSetBenchmarks/model/index_snapshot_request.py
 fds/sdk/FactSetBenchmarks/model/index_snapshot_response.py
