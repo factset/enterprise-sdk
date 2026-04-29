@@ -341,7 +341,7 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         ContactsRelationshipsApi apiInstance = new ContactsRelationshipsApi(defaultClient);
-        RelationshipType type = RelationshipType.fromValue("0"); // RelationshipType | 
+        RelationshipType type = RelationshipType.fromValue("All"); // RelationshipType | 
         try {
             java.util.List<RelationshipDto> result = apiInstance.getRelationships(type);
             System.out.println(result);
@@ -362,7 +362,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **RelationshipType**|  | [optional] [enum: 0, 1, 2]
+ **type** | **RelationshipType**|  | [optional] [enum: All, ContactToContact, ContactToSymbol]
 
 ### Return type
 

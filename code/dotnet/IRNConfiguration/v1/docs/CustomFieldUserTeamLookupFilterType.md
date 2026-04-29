@@ -1,5 +1,4 @@
 # FactSet.SDK.IRNConfiguration.Model.CustomFieldUserTeamLookupFilterType
-Type can be one of 0-Users, 1-Teams, 2-Both
 
 ## Properties
 

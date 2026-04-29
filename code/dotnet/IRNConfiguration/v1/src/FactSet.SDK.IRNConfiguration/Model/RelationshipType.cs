@@ -27,25 +27,28 @@ using OpenAPIDateConverter = FactSet.SDK.IRNConfiguration.Client.OpenAPIDateConv
 namespace FactSet.SDK.IRNConfiguration.Model
 {
     /// <summary>
-    /// Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol
+    /// Defines RelationshipType
     /// </summary>
-    /// <value>Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol</value>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum RelationshipType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum All for value: All
         /// </summary>
-        NUMBER_0 = 0,
+        [EnumMember(Value = "All")]
+        All = 1,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum ContactToContact for value: ContactToContact
         /// </summary>
-        NUMBER_1 = 1,
+        [EnumMember(Value = "ContactToContact")]
+        ContactToContact = 2,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum ContactToSymbol for value: ContactToSymbol
         /// </summary>
-        NUMBER_2 = 2
+        [EnumMember(Value = "ContactToSymbol")]
+        ContactToSymbol = 3
 
     }
 

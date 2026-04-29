@@ -365,7 +365,7 @@ namespace Example
 
             var apiInstance = new ContactsRelationshipsApi(config);
 
-            var type = (RelationshipType) "0";  // RelationshipType? |  (optional) 
+            var type = (RelationshipType) "All";  // RelationshipType? |  (optional) 
 
             try
             {

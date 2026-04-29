@@ -3247,13 +3247,11 @@
       },
       "CustomFieldUserTeamLookupFilterType": {
         "enum": [
-          0,
-          1,
-          2
+          "Users",
+          "Teams",
+          "Both"
         ],
-        "type": "integer",
-        "format": "int32",
-        "description": "Type can be one of 0-Users, 1-Teams, 2-Both"
+        "type": "string"
       },
       "CustomSymbolCustomFieldConfigDto": {
         "type": "object",
@@ -4028,13 +4026,11 @@
       },
       "RelationshipType": {
         "enum": [
-          0,
-          1,
-          2
+          "All",
+          "ContactToContact",
+          "ContactToSymbol"
         ],
-        "type": "integer",
-        "format": "int32",
-        "description": "Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol"
+        "type": "string"
       },
       "ReorderCustomSymbolTypeDto": {
         "type": "object",

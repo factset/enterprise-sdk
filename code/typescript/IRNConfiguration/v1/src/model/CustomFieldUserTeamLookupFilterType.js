@@ -20,24 +20,24 @@ import ApiClient from '../ApiClient';
 export default class CustomFieldUserTeamLookupFilterType {
     
         /**
-         * value: 0
+         * value: "Users"
          * @const
          */
-        "0" = 0;
+        "Users" = "Users";
 
     
         /**
-         * value: 1
+         * value: "Teams"
          * @const
          */
-        "1" = 1;
+        "Teams" = "Teams";
 
     
         /**
-         * value: 2
+         * value: "Both"
          * @const
          */
-        "2" = 2;
+        "Both" = "Both";
 
     
 

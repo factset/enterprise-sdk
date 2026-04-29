@@ -42,7 +42,7 @@ export default class TaxesFeesAndRisksApi {
     /**
      * Get the Fund's Costs, Investment minimums and Risk, and Fees.
      * Fetch the Fund's Costs, Investment minimums and Risk, and Fees. This subcategory includes management fees, 12b-1 fees, expense ratios, and several other data items. The value for each specified share class is expressed as a percentage of the AUM.
-     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {String} opts.currency The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470) (default to 'USD')
      * @param {Date} opts.date The date for costs and fees in YYYY-MM-DD format. Future dates (T+1) are not accepted in this endpoint.
@@ -85,7 +85,7 @@ export default class TaxesFeesAndRisksApi {
     /**
      * Get the Fund's Costs, Investment minimums and Risk, and Fees.
      * Fetch the Fund's Costs, Investment minimums and Risk, and Fees. This subcategory includes management fees, 12b-1 fees, expense ratios, and several other data items. The value for each specified share class is expressed as a percentage of the AUM.
-     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {String} opts.currency The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470) (default to 'USD')
      * @param {Date} opts.date The date for costs and fees in YYYY-MM-DD format. Future dates (T+1) are not accepted in this endpoint.
@@ -152,7 +152,7 @@ export default class TaxesFeesAndRisksApi {
     /**
      * Get Regulatory/Tax, Tax Exposure, and Risk Measures
      * Returns tax and risk information (regulatory/tax compliance, tax exposure, or risk measures) based on the `taxItemsType` parameter.
-     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {module:model/TaxItemsType} opts.taxItemsType Returns type of tax and risk information.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TaxesAndRisksResponse} and HTTP response
@@ -193,7 +193,7 @@ export default class TaxesFeesAndRisksApi {
     /**
      * Get Regulatory/Tax, Tax Exposure, and Risk Measures
      * Returns tax and risk information (regulatory/tax compliance, tax exposure, or risk measures) based on the `taxItemsType` parameter.
-     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
+     * @param {Array.<String>} ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*
      * @param {Object} opts Optional parameters
      * @param {module:model/TaxItemsType} opts.taxItemsType Returns type of tax and risk information.
      * @return { Promise.< module:model/TaxesAndRisksResponse > } a Promise, with data of type {@link module:model/TaxesAndRisksResponse }

@@ -373,7 +373,7 @@ with fds.sdk.IRNConfiguration.ApiClient(configuration) as api_client:
     api_instance = contacts___relationships_api.ContactsRelationshipsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    type = RelationshipType(0) # RelationshipType |  (optional)
+    type = RelationshipType("All") # RelationshipType |  (optional)
 
     try:
         # Get list of the relationships configured in your group

@@ -3,10 +3,10 @@
 ## Enum
 
 
-* `0` (value: `0`)
+* `Users` (value: `"Users"`)
 
-* `1` (value: `1`)
+* `Teams` (value: `"Teams"`)
 
-* `2` (value: `2`)
+* `Both` (value: `"Both"`)
 
 

@@ -20,24 +20,24 @@ import ApiClient from '../ApiClient';
 export default class RelationshipType {
     
         /**
-         * value: 0
+         * value: "All"
          * @const
          */
-        "0" = 0;
+        "All" = "All";
 
     
         /**
-         * value: 1
+         * value: "ContactToContact"
          * @const
          */
-        "1" = 1;
+        "ContactToContact" = "ContactToContact";
 
     
         /**
-         * value: 2
+         * value: "ContactToSymbol"
          * @const
          */
-        "2" = 2;
+        "ContactToSymbol" = "ContactToSymbol";
 
     
 

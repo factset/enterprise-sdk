@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.IRNConfiguration.JSON;
@@ -27,24 +26,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Type can be one of 0-Users, 1-Teams, 2-Both
+ * Gets or Sets CustomFieldUserTeamLookupFilterType
  */
 public enum CustomFieldUserTeamLookupFilterType {
   
-  NUMBER_0(0),
+  USERS("Users"),
   
-  NUMBER_1(1),
+  TEAMS("Teams"),
   
-  NUMBER_2(2);
+  BOTH("Both");
 
-  private Integer value;
+  private String value;
 
-  CustomFieldUserTeamLookupFilterType(Integer value) {
+  CustomFieldUserTeamLookupFilterType(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -54,7 +53,7 @@ public enum CustomFieldUserTeamLookupFilterType {
   }
 
   @JsonCreator
-  public static CustomFieldUserTeamLookupFilterType fromValue(Integer value) {
+  public static CustomFieldUserTeamLookupFilterType fromValue(String value) {
     for (CustomFieldUserTeamLookupFilterType b : CustomFieldUserTeamLookupFilterType.values()) {
       if (b.value.equals(value)) {
         return b;

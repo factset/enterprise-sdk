@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.IRNConfiguration.JSON;
@@ -27,24 +26,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol
+ * Gets or Sets RelationshipType
  */
 public enum RelationshipType {
   
-  NUMBER_0(0),
+  ALL("All"),
   
-  NUMBER_1(1),
+  CONTACTTOCONTACT("ContactToContact"),
   
-  NUMBER_2(2);
+  CONTACTTOSYMBOL("ContactToSymbol");
 
-  private Integer value;
+  private String value;
 
-  RelationshipType(Integer value) {
+  RelationshipType(String value) {
     this.value = value;
   }
 
   @JsonValue
-  public Integer getValue() {
+  public String getValue() {
     return value;
   }
 
@@ -54,7 +53,7 @@ public enum RelationshipType {
   }
 
   @JsonCreator
-  public static RelationshipType fromValue(Integer value) {
+  public static RelationshipType fromValue(String value) {
     for (RelationshipType b : RelationshipType.values()) {
       if (b.value.equals(value)) {
         return b;

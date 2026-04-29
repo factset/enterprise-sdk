@@ -5,11 +5,11 @@
 ## Enum
 
 
-* `NUMBER_0` (value: `0`)
+* `USERS` (value: `"Users"`)
 
-* `NUMBER_1` (value: `1`)
+* `TEAMS` (value: `"Teams"`)
 
-* `NUMBER_2` (value: `2`)
+* `BOTH` (value: `"Both"`)
 
 
 

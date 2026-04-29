@@ -3,10 +3,10 @@
 ## Enum
 
 
-* `0` (value: `0`)
+* `All` (value: `"All"`)
 
-* `1` (value: `1`)
+* `ContactToContact` (value: `"ContactToContact"`)
 
-* `2` (value: `2`)
+* `ContactToSymbol` (value: `"ContactToSymbol"`)
 
 

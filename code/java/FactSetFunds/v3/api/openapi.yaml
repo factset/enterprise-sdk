@@ -61,7 +61,7 @@ paths:
       operationId: getFundsSummary
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -84,7 +84,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -329,7 +329,7 @@ paths:
       operationId: getFundsPrices
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -352,7 +352,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -695,7 +695,7 @@ paths:
       operationId: getFundsReturns
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -718,7 +718,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -1056,7 +1056,7 @@ paths:
       operationId: getFundsReturnsSnapshot
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -1079,7 +1079,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -1341,7 +1341,7 @@ paths:
       operationId: getFundsReturnsRange
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -1364,7 +1364,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -1641,7 +1641,7 @@ paths:
       operationId: getFundsYield
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -1664,7 +1664,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -1971,7 +1971,7 @@ paths:
       operationId: getFundsCostsFees
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -1994,7 +1994,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -2254,7 +2254,7 @@ paths:
       operationId: getFundsAum
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -2277,7 +2277,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -2617,7 +2617,7 @@ paths:
       operationId: getFundsFlows
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -2640,7 +2640,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -2976,7 +2976,7 @@ paths:
       operationId: getScoringDetails
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -2999,7 +2999,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -3308,7 +3308,7 @@ paths:
       operationId: getPortfolioStatistics
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -3331,7 +3331,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -4410,7 +4410,7 @@ paths:
       operationId: getSegmentsAndStructure
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -4433,7 +4433,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -4692,7 +4692,7 @@ paths:
       operationId: getTaxesAndRisks
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -4715,7 +4715,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -4962,7 +4962,7 @@ paths:
       operationId: getRiskAnalytics
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -4985,7 +4985,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -5309,7 +5309,7 @@ paths:
       operationId: getPortfolioAnalytics
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -5332,7 +5332,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -5594,7 +5594,7 @@ paths:
       operationId: getFundsDistributions
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -5617,7 +5617,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -5948,7 +5948,7 @@ paths:
       operationId: getTop10Holdings
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -5971,7 +5971,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -6200,7 +6200,7 @@ paths:
       operationId: getTrading
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -6223,7 +6223,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -6455,7 +6455,7 @@ paths:
       operationId: getFinancialKeyItems
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
-          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+          CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
           request*</p> *<p>Make note, GET Method URL request lines are also limited
           to a total length of 8192 bytes (8KB). In cases where the service allows
           for thousands of IDs, which may lead to exceeding this request line limit
@@ -6478,7 +6478,7 @@ paths:
         schema:
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         style: form
@@ -8536,7 +8536,7 @@ components:
   parameters:
     ids:
       description: The requested fund identifier. FactSet Identifiers, tickers, CUSIP,
-        SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per request*</p>
+        SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per request*</p>
         *<p>Make note, GET Method URL request lines are also limited to a total length
         of 8192 bytes (8KB). In cases where the service allows for thousands of IDs,
         which may lead to exceeding this request line limit of 8KB, its advised for
@@ -8559,7 +8559,7 @@ components:
       schema:
         items:
           type: string
-        maxItems: 200
+        maxItems: 10
         minItems: 1
         type: array
       style: form
@@ -11393,7 +11393,7 @@ components:
       type: object
     Ids:
       description: The requested fund identifier. FactSet Identifiers, tickers, CUSIP,
-        SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per request*</p>
+        SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per request*</p>
         *<p>Make note, GET Method URL request lines are also limited to a total length
         of 8192 bytes (8KB). In cases where the service allows for thousands of IDs,
         which may lead to exceeding this request line limit of 8KB, its advised for
@@ -11404,7 +11404,7 @@ components:
       - SPY
       items:
         type: string
-      maxItems: 200
+      maxItems: 10
       minItems: 1
       type: array
     Lang:
@@ -11986,7 +11986,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -11997,7 +11997,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         distributionType:
@@ -12326,7 +12326,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -12337,7 +12337,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         lang:
@@ -12837,7 +12837,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -12848,7 +12848,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -12956,7 +12956,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -12967,7 +12967,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -13379,7 +13379,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -13390,7 +13390,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         date:
@@ -13600,7 +13600,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -13611,7 +13611,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -13677,7 +13677,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -13688,7 +13688,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -13744,7 +13744,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -13755,7 +13755,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         date:
@@ -13890,7 +13890,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -13901,7 +13901,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -14135,7 +14135,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -14146,7 +14146,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -14240,7 +14240,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -14251,7 +14251,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -14483,7 +14483,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -14494,7 +14494,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
       required:
@@ -14531,7 +14531,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -14542,7 +14542,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         keyItemsType:
@@ -14800,7 +14800,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -14811,7 +14811,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -14920,7 +14920,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -14931,7 +14931,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         structureType:
@@ -15029,7 +15029,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -15040,7 +15040,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         taxItemsType:
@@ -15062,7 +15062,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -15073,7 +15073,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         startDate:
@@ -15113,7 +15113,7 @@ components:
       properties:
         ids:
           description: The requested fund identifier. FactSet Identifiers, tickers,
-            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  200 per
+            CUSIP, SEDOL, and ISIN are accepted inputs. <p>***IDs limit** =  10 per
             request*</p> *<p>Make note, GET Method URL request lines are also limited
             to a total length of 8192 bytes (8KB). In cases where the service allows
             for thousands of IDs, which may lead to exceeding this request line limit
@@ -15124,7 +15124,7 @@ components:
           - SPY
           items:
             type: string
-          maxItems: 200
+          maxItems: 10
           minItems: 1
           type: array
         analyticsType:

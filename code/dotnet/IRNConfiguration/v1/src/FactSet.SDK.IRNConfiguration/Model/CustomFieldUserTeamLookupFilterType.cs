@@ -27,25 +27,28 @@ using OpenAPIDateConverter = FactSet.SDK.IRNConfiguration.Client.OpenAPIDateConv
 namespace FactSet.SDK.IRNConfiguration.Model
 {
     /// <summary>
-    /// Type can be one of 0-Users, 1-Teams, 2-Both
+    /// Defines CustomFieldUserTeamLookupFilterType
     /// </summary>
-    /// <value>Type can be one of 0-Users, 1-Teams, 2-Both</value>
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum CustomFieldUserTeamLookupFilterType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum Users for value: Users
         /// </summary>
-        NUMBER_0 = 0,
+        [EnumMember(Value = "Users")]
+        Users = 1,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Teams for value: Teams
         /// </summary>
-        NUMBER_1 = 1,
+        [EnumMember(Value = "Teams")]
+        Teams = 2,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Both for value: Both
         /// </summary>
-        NUMBER_2 = 2
+        [EnumMember(Value = "Both")]
+        Both = 3
 
     }
 

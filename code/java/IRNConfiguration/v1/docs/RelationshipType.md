@@ -5,11 +5,11 @@
 ## Enum
 
 
-* `NUMBER_0` (value: `0`)
+* `ALL` (value: `"All"`)
 
-* `NUMBER_1` (value: `1`)
+* `CONTACTTOCONTACT` (value: `"ContactToContact"`)
 
-* `NUMBER_2` (value: `2`)
+* `CONTACTTOSYMBOL` (value: `"ContactToSymbol"`)
 
 
 

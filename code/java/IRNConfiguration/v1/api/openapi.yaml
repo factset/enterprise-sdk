@@ -2416,13 +2416,11 @@ components:
           type: string
       type: object
     CustomFieldUserTeamLookupFilterType:
-      description: Type can be one of 0-Users, 1-Teams, 2-Both
       enum:
-      - 0
-      - 1
-      - 2
-      format: int32
-      type: integer
+      - Users
+      - Teams
+      - Both
+      type: string
     CustomSymbolCustomFieldConfigDto:
       example:
         code: code
@@ -3266,13 +3264,11 @@ components:
       - relationshipCategoryId
       type: object
     RelationshipType:
-      description: Type can be one of 0-All, 1-Contact-to-Contact, 2-Contact-to-Symbol
       enum:
-      - 0
-      - 1
-      - 2
-      format: int32
-      type: integer
+      - All
+      - ContactToContact
+      - ContactToSymbol
+      type: string
     ReorderCustomSymbolTypeDto:
       example:
         ids:
