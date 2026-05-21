@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DomainCode** | **string** | Unique identifier for the Vermilion domain. | 
-**Tenancies** | [**UserResourceVRSDomainDataTenancies**](UserResourceVRSDomainDataTenancies.md) |  | 
+**Tenancies** | [**UserResourceVRSDomainDataTenancies**](UserResourceVRSDomainDataTenancies.md) |  | [optional] 
 **IsAdministrator** | **bool** | Whether the User is an administrator in the associated domain. | 
 **Password** | **string** | Password of the User in the associated domain. May be null upon creation of the User, but afterward may not change from a non-null to a null value. | [optional] 
 

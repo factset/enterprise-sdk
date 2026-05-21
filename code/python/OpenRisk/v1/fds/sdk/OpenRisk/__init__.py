@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "4.0.3"
+__version__ = "5.0.0"
 
 # import ApiClient
 from fds.sdk.OpenRisk.api_client import ApiClient

@@ -7,6 +7,7 @@ api/openapi.yaml
 build.gradle
 docs/AuthenticationScheme.md
 docs/Error.md
+docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
 docs/FederationResourceLocation.md
@@ -30,6 +31,7 @@ docs/GroupResource.md
 docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -129,6 +131,7 @@ src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/AuthenticationScheme.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/Error.java
+src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ErrorUrnScimSchemasExtensionFactSetCore10Error.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/FederationResource.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/FederationResourceList.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/FederationResourceLocation.java
@@ -149,6 +152,7 @@ src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResource.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceList.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceMember.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceMeta.java
+src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/InlineResponse429.java

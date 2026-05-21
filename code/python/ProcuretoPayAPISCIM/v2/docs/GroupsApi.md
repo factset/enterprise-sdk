@@ -421,7 +421,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | ID of resource.
     group_resource = GroupResource(
-        schemas=["urn:ietf:params:scim:schemas:core:2.0:Group","urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group","urn:scim:schemas:extension:FactSet:VRS:1.0:Group"],
+        schemas=["urn:ietf:params:scim:schemas:core:2.0:Group","urn:scim:schemas:extension:FactSet:Core:1.0:Group","urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group","urn:scim:schemas:extension:FactSet:VRS:1.0:Group"],
         external_id="B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9",
         display_name="Domain btud - Pod 04 - CitrixApps - Cymba OMS",
         description="Group representing access to the Cymba OMS application.",
@@ -432,6 +432,9 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
                 type="User",
             ),
         ],
+        urnscimschemasextension_fact_set_core1_0_group=GroupResourceUrnScimSchemasExtensionFactSetCore10Group(
+            type="eh",
+        ),
         urnscimschemasextension_fact_set_vrs1_0_group=GroupResourceUrnScimSchemasExtensionFactSetVRS10Group(
             tenant="QA",
             domain_code="btud",

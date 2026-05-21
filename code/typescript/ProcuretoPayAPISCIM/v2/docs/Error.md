@@ -8,15 +8,7 @@ Name | Type | Description | Notes
 **scimType** | **String** |  | [optional] 
 **detail** | **String** | A detailed human-readable message. | [optional] 
 **status** | **String** | HTTP status code. | [optional] 
-
-
-
-## Enum: [SchemasEnum]
-
-
-* `urn:ietf:params:scim:api:messages:2.0:Error` (value: `"urn:ietf:params:scim:api:messages:2.0:Error"`)
-
-
+**urnscimschemasextensionFactSetCore10Error** | [**ErrorUrnScimSchemasExtensionFactSetCore10Error**](ErrorUrnScimSchemasExtensionFactSetCore10Error.md) |  | [optional] 
 
 
 

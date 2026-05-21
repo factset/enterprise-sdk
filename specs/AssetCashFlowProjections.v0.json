@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Asset Cash Flow Projections API",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "Allow clients to upload scenario files through APIs.",
     "license": {
       "name": "Apache License, Version 2.0",
@@ -1927,8 +1927,7 @@
                         ],
                         "name": "API_POST2114_20250925",
                         "runDate": "2025-10-12",
-                        "status": "completed",
-                        "submittedBy": "914985"
+                        "status": "completed"
                       },
                       "meta": {
                         "batchId": "0013cfd8-b3f1-4e71-920e-4292345a407d"

@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/AuthenticationScheme.md
 docs/Error.md
+docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
 docs/FederationResourceLocation.md
@@ -30,6 +31,7 @@ docs/GroupResource.md
 docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -110,6 +112,7 @@ fds/sdk/ProcuretoPayAPISCIM/exceptions.py
 fds/sdk/ProcuretoPayAPISCIM/model/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/model/authentication_scheme.py
 fds/sdk/ProcuretoPayAPISCIM/model/error.py
+fds/sdk/ProcuretoPayAPISCIM/model/error_urn_scim_schemas_extension_fact_set_core10_error.py
 fds/sdk/ProcuretoPayAPISCIM/model/federation_resource.py
 fds/sdk/ProcuretoPayAPISCIM/model/federation_resource_list.py
 fds/sdk/ProcuretoPayAPISCIM/model/federation_resource_location.py
@@ -131,6 +134,7 @@ fds/sdk/ProcuretoPayAPISCIM/model/group_resource.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_list.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_member.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_meta.py
+fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_core10_group.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_enterprise_hosting10_group.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_vrs10_group.py
 fds/sdk/ProcuretoPayAPISCIM/model/inline_response429.py

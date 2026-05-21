@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **location** | [**LocationResourceReference**](LocationResourceReference.md) |  | [optional] 
 **user_taxonomy_data** | [**UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData**](UserResourceUrnScimSchemasExtensionFactSetCore10UserUserTaxonomyData.md) |  | [optional] 
 **role_name** | **str** | Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber | [optional] 
+**department** | **str** | Description of user&#39;s role/workflow within your organization. | [optional] [readonly] 
 **royalty_class** | **str** | Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative. | [optional] 
 **products** | [**[ProductResourceReferenceWithRapidActivationInfo]**](ProductResourceReferenceWithRapidActivationInfo.md) | An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them. | [optional] 
 **pending_product_orders** | [**[PendingProductOrder]**](PendingProductOrder.md) | An array of pending FactSet product orders. | [optional] [readonly] 

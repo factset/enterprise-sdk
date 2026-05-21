@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.8.17"
+__version__ = "0.9.0"
 
 # import ApiClient
 from fds.sdk.AxiomaEquityOptimizer.api_client import ApiClient

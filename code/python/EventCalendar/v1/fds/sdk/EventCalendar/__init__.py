@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.21.1"
+__version__ = "0.22.0"
 
 # import ApiClient
 from fds.sdk.EventCalendar.api_client import ApiClient

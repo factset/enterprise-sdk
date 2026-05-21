@@ -1,5 +1,26 @@
 # Breaking Changes
 
+## 2026-05-20 Python SDKs: Minimum Python Version Bump and Dependency Updates
+
+All Python SDKs have received a major version bump. This release drops support for Python 3.7, 3.8, and 3.9. The minimum supported version is now **Python 3.10**.
+
+Additionally, vulnerable dependencies (urllib3, certifi, etc.) have been updated.
+
+**Migration:** Upgrade to Python 3.10 or later before updating to the new SDK versions.
+
+**Affected SDKs:** All Python SDKs
+
+## 2026-05-20 Global Filings API v2: `ids` Parameter Now Optional
+
+The `ids` parameter in the SDKs for the Global Filings API v2 was changed from required to optional, which moves its position in all method signatures. This was erroneously published as a patch version (dotnet 2.3.1, java 2.3.2, python 2.3.1, typescript 3.3.1). This release properly marks the change as breaking with a major version bump.
+
+**New versions:** dotnet 3.0.0, java 3.0.0, python 3.0.0, typescript 4.0.0
+
+**Migration:** Update any calls that pass `ids` positionally — either use the named parameter or adjust for its new position.
+
+**Affected SDKs:**
+- Global Filings (API v2)
+
 ## 2026-04-09 TypeScript SDKs: oneOf/anyOf Deserialization Fix
 
 This update fixes how TypeScript SDKs deserialize response fields defined as `oneOf`/`anyOf` with primitive types (numbers, strings, booleans). Previously, these fields were wrapped in an object with a `.value` property. They are now returned as plain values.

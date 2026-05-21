@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: FactSet SCIM API
-  version: 2.6.0
+  version: 2.7.0
   contact:
     name: FactSet Research Systems
     email: api@factset.com
@@ -1455,6 +1455,10 @@ components:
             An HTTP-addressable URL pointing to the authentication scheme's
             usage documentation.
           readOnly: true
+      required:
+        - type
+        - name
+        - description
     ServiceProviderConfig:
       type: object
       properties:
@@ -1596,10 +1600,6 @@ components:
               description: FactSet API key authentication.
               specUri: http://www.rfc-editor.org/info/rfc7617
               documentationUrl: https://developer.factset.com/learn/authentication-api-key
-          required:
-            - type
-            - name
-            - description
       required:
         - patch
         - bulk
@@ -2378,6 +2378,11 @@ components:
                 base-FactSet workstation will be allocated to the individual
                 granting the individual a FactSet SerialNumber
               example: Wealth Manager
+            department:
+              type: string
+              description: Description of user's role/workflow within your organization.
+              example: Sales
+              readOnly: true
             royaltyClass:
               type: string
               description: >-
@@ -2530,7 +2535,6 @@ components:
             to a null value.
       required:
         - domainCode
-        - tenancies
         - isAdministrator
     UserResourceList:
       type: object
@@ -2557,6 +2561,7 @@ components:
             type: string
           example:
             - urn:ietf:params:scim:schemas:core:2.0:Group
+            - urn:scim:schemas:extension:FactSet:Core:1.0:Group
             - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
             - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
         id:
@@ -2583,6 +2588,18 @@ components:
           description: A list of members of the Group.
           items:
             $ref: '#/components/schemas/GroupResourceMember'
+        urn:scim:schemas:extension:FactSet:Core:1.0:Group:
+          type: object
+          properties:
+            type:
+              type: string
+              description: >-
+                A FactSet-specific string identifying the type of group. This
+                value is also used as a prefix for all group resource
+                identifiers of a given type.
+              example: eh
+          required:
+            - type
         urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group:
           type: object
           properties:
@@ -2628,6 +2645,8 @@ components:
               example: >-
                 https://api.factset.com/scim/v2/Groups/eh%3Abtud%3APod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
           readOnly: true
+      required:
+        - displayName
     GroupResourceMember:
       type: object
       properties:
@@ -3674,13 +3693,11 @@ components:
           description: >-
             An array containing the standard schema URI used for identifying an
             error. See RFC 7644 section 3.12.
-          maxItems: 1
           items:
             type: string
-            enum:
-              - urn:ietf:params:scim:api:messages:2.0:Error
           example:
             - urn:ietf:params:scim:api:messages:2.0:Error
+            - urn:scim:schemas:extension:FactSet:Core:1.0:Error
         scimType:
           type: string
           enum:
@@ -3715,3 +3732,35 @@ components:
             - '501'
           description: HTTP status code.
           example: '500'
+        urn:scim:schemas:extension:FactSet:Core:1.0:Error:
+          type: object
+          properties:
+            id:
+              type: integer
+              description: FactSet-specific error identifier.
+              example: 7001
+              readOnly: true
+            name:
+              type: string
+              description: FactSet-specific unique error name.
+              example: DependencyMisconfigurationError
+              readOnly: true
+            documentationUrl:
+              type: string
+              format: url
+              description: >-
+                URL to the documentation for the error on the FactSet support
+                website.
+              example: https://support.factset.com/docs/SCIM/errors.htm#7001
+              readOnly: true
+            requestKey:
+              type: string
+              description: >-
+                FactSet-specific unique identifier referencing the HTTP request
+                associated with the error.
+              example: 3AED15D328F69C7A
+              readOnly: true
+          required:
+            - id
+            - documentationUrl
+            - requestKey

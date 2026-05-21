@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.1.6"
+__version__ = "2.0.0"
 
 # import ApiClient
 from fds.sdk.FactSetOwnershipReportBuilder.api_client import ApiClient

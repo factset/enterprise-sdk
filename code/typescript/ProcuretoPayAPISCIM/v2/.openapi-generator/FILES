@@ -6,6 +6,7 @@ LICENSE
 README.md
 docs/AuthenticationScheme.md
 docs/Error.md
+docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
 docs/FederationResourceLocation.md
@@ -29,6 +30,7 @@ docs/GroupResource.md
 docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -106,6 +108,7 @@ src/api/UsersApi.js
 src/index.js
 src/model/AuthenticationScheme.js
 src/model/Error.js
+src/model/ErrorUrnScimSchemasExtensionFactSetCore10Error.js
 src/model/FederationResource.js
 src/model/FederationResourceList.js
 src/model/FederationResourceLocation.js
@@ -126,6 +129,7 @@ src/model/GroupResource.js
 src/model/GroupResourceList.js
 src/model/GroupResourceMember.js
 src/model/GroupResourceMeta.js
+src/model/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.js
 src/model/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.js
 src/model/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.js
 src/model/InlineResponse429.js

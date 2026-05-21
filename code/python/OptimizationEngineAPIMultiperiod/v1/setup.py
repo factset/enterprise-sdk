@@ -15,7 +15,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.OptimizationEngineAPIMultiperiod"
-VERSION = "0.21.14"
+VERSION = "0.22.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -24,8 +24,8 @@ VERSION = "0.21.14"
 # http://pypi.python.org/pypi/setuptools
 
 REQUIRES = [
-  "urllib3 >= 1.25.3",
-  "python-dateutil",
+  "urllib3 >= 2.7.0",
+  "python-dateutil >= 2.9.0.post0",
   "fds.sdk.utils >= 1.0.0",
 ]
 
@@ -36,7 +36,7 @@ setup(
     author="FactSet Research Systems",
     url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/OptimizationEngineAPIMultiperiod/v1",
     keywords=["FactSet", "API", "SDK"],
-    python_requires=">=3.7",
+    python_requires=">=3.10",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

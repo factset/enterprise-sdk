@@ -10,7 +10,7 @@
 """
 
 
-__version__ = "0.21.14"
+__version__ = "0.22.0"
 
 # import ApiClient
 from fds.sdk.OptimizationEngineAPIMultiperiod.api_client import ApiClient

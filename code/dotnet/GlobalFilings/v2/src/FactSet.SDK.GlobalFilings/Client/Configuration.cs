@@ -33,7 +33,7 @@ namespace FactSet.SDK.GlobalFilings.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.3.1";
+        public const string Version = "3.0.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,7 +106,7 @@ namespace FactSet.SDK.GlobalFilings.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/GlobalFilings/2.3.1";
+            UserAgent = "fds-sdk/dotnet/GlobalFilings/3.0.0";
             BasePath = "https://api.factset.com/content/global-filings/v2";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -484,7 +484,7 @@ namespace FactSet.SDK.GlobalFilings.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.2.1\n";
-            report += "    SDK Package Version: 2.3.1\n";
+            report += "    SDK Package Version: 3.0.0\n";
 
             return report;
         }

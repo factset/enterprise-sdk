@@ -6,6 +6,7 @@ README.md
 appveyor.yml
 docs/AuthenticationScheme.md
 docs/Error.md
+docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
 docs/FederationResourceList.md
 docs/FederationResourceLocation.md
@@ -29,6 +30,7 @@ docs/GroupResource.md
 docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -120,6 +122,7 @@ src/FactSet.SDK.ProcuretoPayAPISCIM/FactSet.SDK.ProcuretoPayAPISCIM.csproj
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/AuthenticationScheme.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/Error.cs
+src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ErrorUrnScimSchemasExtensionFactSetCore10Error.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/FederationResource.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/FederationResourceList.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/FederationResourceLocation.cs
@@ -140,6 +143,7 @@ src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResource.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceList.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceMember.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceMeta.cs
+src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/InlineResponse429.cs

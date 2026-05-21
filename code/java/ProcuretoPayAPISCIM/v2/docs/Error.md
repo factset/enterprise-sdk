@@ -7,18 +7,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**schemas** | [**java.util.List&lt;SchemasEnum&gt;**](#java.util.List&lt;SchemasEnum&gt;) | An array containing the standard schema URI used for identifying an error. See RFC 7644 section 3.12. |  [optional]
+**schemas** | **java.util.List&lt;String&gt;** | An array containing the standard schema URI used for identifying an error. See RFC 7644 section 3.12. |  [optional]
 **scimType** | [**ScimTypeEnum**](#ScimTypeEnum) |  |  [optional]
 **detail** | **String** | A detailed human-readable message. |  [optional]
 **status** | [**StatusEnum**](#StatusEnum) | HTTP status code. |  [optional]
-
-
-
-## Enum: java.util.List&lt;SchemasEnum&gt;
-
-Name | Value
----- | -----
-URN_IETF_PARAMS_SCIM_API_MESSAGES_2_0_ERROR | &quot;urn:ietf:params:scim:api:messages:2.0:Error&quot;
+**urnColonScimColonSchemasColonExtensionColonFactSetColonCoreColon10ColonError** | [**ErrorUrnScimSchemasExtensionFactSetCore10Error**](ErrorUrnScimSchemasExtensionFactSetCore10Error.md) |  |  [optional]
 
 
 

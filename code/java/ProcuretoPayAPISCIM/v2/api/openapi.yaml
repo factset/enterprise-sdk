@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet SCIM API
-  version: 2.6.0
+  version: 2.7.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/procure-to-pay-api-scim
@@ -4433,6 +4433,10 @@ components:
           format: url
           readOnly: true
           type: string
+      required:
+      - description
+      - name
+      - type
       type: object
     ServiceProviderConfig:
       example:
@@ -4511,10 +4515,6 @@ components:
             documentationUrl: https://developer.factset.com/learn/authentication-api-key
           items:
             $ref: '#/components/schemas/AuthenticationScheme'
-          required:
-          - description
-          - name
-          - type
           type: array
       required:
       - authenticationSchemes
@@ -6317,6 +6317,7 @@ components:
             display: FooBar SAML federation
             value: d69a94b6-5f30-49f1-8d15-db42013c52bd
             $ref: https://api.factset.com/scim/v2/Federations/d69a94b6-5f30-49f1-8d15-db42013c52bd
+          department: Sales
           pendingProductOrders:
           - product:
               display: FactSet Identity
@@ -6505,7 +6506,6 @@ components:
       required:
       - domainCode
       - isAdministrator
-      - tenancies
       type: object
     UserResourceList:
       example:
@@ -6578,6 +6578,7 @@ components:
               display: FooBar SAML federation
               value: d69a94b6-5f30-49f1-8d15-db42013c52bd
               $ref: https://api.factset.com/scim/v2/Federations/d69a94b6-5f30-49f1-8d15-db42013c52bd
+            department: Sales
             pendingProductOrders:
             - product:
                 display: FactSet Identity
@@ -6689,6 +6690,7 @@ components:
               display: FooBar SAML federation
               value: d69a94b6-5f30-49f1-8d15-db42013c52bd
               $ref: https://api.factset.com/scim/v2/Federations/d69a94b6-5f30-49f1-8d15-db42013c52bd
+            department: Sales
             pendingProductOrders:
             - product:
                 display: FactSet Identity
@@ -6752,6 +6754,8 @@ components:
       type: object
     GroupResource:
       example:
+        urn:scim:schemas:extension:FactSet:Core:1.0:Group:
+          type: eh
         displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
         meta:
           created: 2019-02-11T15:33:31.077Z
@@ -6760,6 +6764,7 @@ components:
           resourceType: Group
         schemas:
         - urn:ietf:params:scim:schemas:core:2.0:Group
+        - urn:scim:schemas:extension:FactSet:Core:1.0:Group
         - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
         - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
         members:
@@ -6781,6 +6786,7 @@ components:
         schemas:
           example:
           - urn:ietf:params:scim:schemas:core:2.0:Group
+          - urn:scim:schemas:extension:FactSet:Core:1.0:Group
           - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
           - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
           items:
@@ -6809,12 +6815,16 @@ components:
           items:
             $ref: '#/components/schemas/GroupResourceMember'
           type: array
+        urn:scim:schemas:extension:FactSet:Core:1.0:Group:
+          $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_Core_1_0_Group'
         urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group:
           $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_EnterpriseHosting_1_0_Group'
         urn:scim:schemas:extension:FactSet:VRS:1.0:Group:
           $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_VRS_1_0_Group'
         meta:
           $ref: '#/components/schemas/GroupResource_meta'
+      required:
+      - displayName
       type: object
     GroupResourceMember:
       example:
@@ -6842,7 +6852,9 @@ components:
         schemas:
         - urn:ietf:params:scim:api:messages:2.0:ListResponse
         Resources:
-        - displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+        - urn:scim:schemas:extension:FactSet:Core:1.0:Group:
+            type: eh
+          displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
           meta:
             created: 2019-02-11T15:33:31.077Z
             location: https://api.factset.com/scim/v2/Groups/eh%3Abtud%3APod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
@@ -6850,6 +6862,7 @@ components:
             resourceType: Group
           schemas:
           - urn:ietf:params:scim:schemas:core:2.0:Group
+          - urn:scim:schemas:extension:FactSet:Core:1.0:Group
           - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
           - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
           members:
@@ -6867,7 +6880,9 @@ components:
           urn:scim:schemas:extension:FactSet:VRS:1.0:Group:
             domainCode: btud
             tenant: QA
-        - displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+        - urn:scim:schemas:extension:FactSet:Core:1.0:Group:
+            type: eh
+          displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
           meta:
             created: 2019-02-11T15:33:31.077Z
             location: https://api.factset.com/scim/v2/Groups/eh%3Abtud%3APod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
@@ -6875,6 +6890,7 @@ components:
             resourceType: Group
           schemas:
           - urn:ietf:params:scim:schemas:core:2.0:Group
+          - urn:scim:schemas:extension:FactSet:Core:1.0:Group
           - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
           - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
           members:
@@ -8288,11 +8304,9 @@ components:
             an error. See RFC 7644 section 3.12.
           example:
           - urn:ietf:params:scim:api:messages:2.0:Error
+          - urn:scim:schemas:extension:FactSet:Core:1.0:Error
           items:
-            enum:
-            - urn:ietf:params:scim:api:messages:2.0:Error
             type: string
-          maxItems: 1
           type: array
         scimType:
           enum:
@@ -8328,6 +8342,8 @@ components:
           - "501"
           example: "500"
           type: string
+        urn:scim:schemas:extension:FactSet:Core:1.0:Error:
+          $ref: '#/components/schemas/Error_urn_scim_schemas_extension_FactSet_Core_1_0_Error'
       type: object
     inline_response_429:
       properties:
@@ -8540,6 +8556,7 @@ components:
           display: FooBar SAML federation
           value: d69a94b6-5f30-49f1-8d15-db42013c52bd
           $ref: https://api.factset.com/scim/v2/Federations/d69a94b6-5f30-49f1-8d15-db42013c52bd
+        department: Sales
         pendingProductOrders:
         - product:
             display: FactSet Identity
@@ -8605,6 +8622,11 @@ components:
             workstation will be allocated to the individual granting the individual
             a FactSet SerialNumber
           example: Wealth Manager
+          type: string
+        department:
+          description: Description of user's role/workflow within your organization.
+          example: Sales
+          readOnly: true
           type: string
         royaltyClass:
           description: Determines the type of client the individual and the royalty
@@ -8693,6 +8715,19 @@ components:
           type: string
       required:
       - value
+      type: object
+    GroupResource_urn_scim_schemas_extension_FactSet_Core_1_0_Group:
+      example:
+        type: eh
+      properties:
+        type:
+          description: A FactSet-specific string identifying the type of group. This
+            value is also used as a prefix for all group resource identifiers of a
+            given type.
+          example: eh
+          type: string
+      required:
+      - type
       type: object
     GroupResource_urn_scim_schemas_extension_FactSet_EnterpriseHosting_1_0_Group:
       example:
@@ -8866,6 +8901,36 @@ components:
       - maintain
       - read
       - write
+      type: object
+    Error_urn_scim_schemas_extension_FactSet_Core_1_0_Error:
+      properties:
+        id:
+          description: FactSet-specific error identifier.
+          example: 7001
+          readOnly: true
+          type: integer
+        name:
+          description: FactSet-specific unique error name.
+          example: DependencyMisconfigurationError
+          readOnly: true
+          type: string
+        documentationUrl:
+          description: URL to the documentation for the error on the FactSet support
+            website.
+          example: https://support.factset.com/docs/SCIM/errors.htm#7001
+          format: url
+          readOnly: true
+          type: string
+        requestKey:
+          description: FactSet-specific unique identifier referencing the HTTP request
+            associated with the error.
+          example: 3AED15D328F69C7A
+          readOnly: true
+          type: string
+      required:
+      - documentationUrl
+      - id
+      - requestKey
       type: object
   securitySchemes:
     FactSetOAuth2:
