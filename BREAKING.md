@@ -1,5 +1,16 @@
 # Breaking Changes
 
+## 2026-05-29 FactSet Concordance API v2 (Java): New Optional Parameters Change Method Signatures
+
+The `creditsafe` and `crunchbase` optional parameters were added to entity match endpoints. In Java, optional parameters are positional, so this changes the method signatures for `getEntityMatch()`, `getEntityMatchForList()`, and `getEntityTaskForList()`. Other languages (Python, TypeScript, .NET) are unaffected.
+
+**New versions:** java 3.0.0 (other languages: minor bump only)
+
+**Migration:** Add `null` (or actual values) for the new `creditsafe` and `crunchbase` parameters in any Java calls to the affected methods. The compiler will flag the exact call sites.
+
+**Affected SDKs:**
+- FactSet Concordance (API v2, Java only)
+
 ## 2026-05-20 Python SDKs: Minimum Python Version Bump and Dependency Updates
 
 All Python SDKs have received a major version bump. This release drops support for Python 3.7, 3.8, and 3.9. The minimum supported version is now **Python 3.10**.
