@@ -55,7 +55,7 @@ class CompanyLogosApi(object):
                     'FactSetApiKey',
                     'FactSetOAuth2'
                 ],
-                'endpoint_path': '/company/logo',
+                'endpoint_path': '/logo/list',
                 'operation_id': 'post_company_logo',
                 'http_method': 'POST',
                 'servers': None,

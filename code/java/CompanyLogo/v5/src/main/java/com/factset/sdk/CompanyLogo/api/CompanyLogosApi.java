@@ -98,7 +98,7 @@ public class CompanyLogosApi {
     Object localVarPostBody = postCompanyLogoRequest;
     
     // create path and map variables
-    String localVarPath = "/company/logo";
+    String localVarPath = "/logo/list";
 
     // query params
     java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Estimates detail data for fixed fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
 
 ### Example
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 Estimates detail data for fixed fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
 
 ### Example
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 FactSet estimates detail data for rolling fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
 
 ### Example
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 
 FactSet estimates detail data for rolling fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
 
 ### Example
 

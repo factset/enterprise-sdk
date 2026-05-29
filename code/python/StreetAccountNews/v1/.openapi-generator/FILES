@@ -4,6 +4,8 @@
 .travis.yml
 LICENSE
 README.md
+docs/BurstFileResponse.md
+docs/BurstFileResponseData.md
 docs/CreateOrEditViewBody.md
 docs/CreateOrEditViewBodyData.md
 docs/CreateOrEditViewTickers.md
@@ -55,6 +57,7 @@ docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
 docs/QuickAlertsResponseData.md
+docs/SABurstsApi.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -81,12 +84,15 @@ fds/sdk/StreetAccountNews/__init__.py
 fds/sdk/StreetAccountNews/api/__init__.py
 fds/sdk/StreetAccountNews/api/filters_api.py
 fds/sdk/StreetAccountNews/api/headlines_api.py
+fds/sdk/StreetAccountNews/api/sa_bursts_api.py
 fds/sdk/StreetAccountNews/api/views_api.py
 fds/sdk/StreetAccountNews/api_client.py
 fds/sdk/StreetAccountNews/apis/__init__.py
 fds/sdk/StreetAccountNews/configuration.py
 fds/sdk/StreetAccountNews/exceptions.py
 fds/sdk/StreetAccountNews/model/__init__.py
+fds/sdk/StreetAccountNews/model/burst_file_response.py
+fds/sdk/StreetAccountNews/model/burst_file_response_data.py
 fds/sdk/StreetAccountNews/model/create_or_edit_view_body.py
 fds/sdk/StreetAccountNews/model/create_or_edit_view_body_data.py
 fds/sdk/StreetAccountNews/model/create_or_edit_view_tickers.py

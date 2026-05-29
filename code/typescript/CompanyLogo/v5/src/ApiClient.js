@@ -33,11 +33,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'https://api.factset.com/wealth/v5') {
+    constructor(basePath = 'https://api.factset.com/company-logo/v5') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://api.factset.com/wealth/v5
+         * @default https://api.factset.com/company-logo/v5
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/CompanyLogo/0.40.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/CompanyLogo/0.41.0 (${process.platform}; node ${process.version})`
         };
 
         /**
@@ -640,7 +640,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "https://api.factset.com/wealth/v5",
+              'url': "https://api.factset.com/company-logo/v5",
               'description': "No description provided",
             }
       ];

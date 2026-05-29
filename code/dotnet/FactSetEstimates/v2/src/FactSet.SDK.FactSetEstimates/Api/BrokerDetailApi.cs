@@ -1,9 +1,9 @@
 /*
  * FactSet Estimates
  *
- * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
+ * With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  All endpoints, except /company-reports/_* and /metrics are limited to a quota of 4 million datapoints per minute. Requests exceeding this limit (greater than 4 million datapoints per minute) will receive a 429 response.      **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml) 
  *
- * The version of the OpenAPI document: 2.9.0
+ * The version of the OpenAPI document: 2.9.1
  * Contact: api@factset.com
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -32,7 +32,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -55,7 +55,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -77,7 +77,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -88,7 +88,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -98,7 +98,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -121,7 +121,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -143,7 +143,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
@@ -154,7 +154,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
@@ -173,7 +173,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -197,7 +197,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -220,7 +220,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -232,7 +232,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// Estimates detail data for fixed fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -243,7 +243,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -267,7 +267,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -290,7 +290,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
@@ -302,7 +302,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         /// FactSet estimates detail data for rolling fiscal periods
         /// </summary>
         /// <remarks>
-        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
@@ -336,6 +336,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
             { (HttpStatusCode)401, typeof(ErrorResponse) },
             { (HttpStatusCode)403, typeof(ErrorResponse) },
             { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)429, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
 
@@ -346,6 +347,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
             { (HttpStatusCode)401, typeof(ErrorResponse) },
             { (HttpStatusCode)403, typeof(ErrorResponse) },
             { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)429, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
 
@@ -356,6 +358,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
             { (HttpStatusCode)401, typeof(ErrorResponse) },
             { (HttpStatusCode)403, typeof(ErrorResponse) },
             { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)429, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
 
@@ -366,6 +369,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
             { (HttpStatusCode)401, typeof(ErrorResponse) },
             { (HttpStatusCode)403, typeof(ErrorResponse) },
             { (HttpStatusCode)415, typeof(ErrorResponse) },
+            { (HttpStatusCode)429, typeof(ErrorResponse) },
             { (HttpStatusCode)500, typeof(ErrorResponse) },
         };
 
@@ -479,7 +483,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -503,7 +507,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -640,7 +644,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -665,7 +669,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -806,7 +810,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -818,7 +822,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -893,7 +897,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -906,7 +910,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+        /// Estimates detail data for fixed fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fixedDetailRequest">Request object for Estimate Data Items.</param>
@@ -985,7 +989,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -1009,7 +1013,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -1146,7 +1150,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -1171,7 +1175,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt; </param>
@@ -1312,7 +1316,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
@@ -1324,7 +1328,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
@@ -1399,7 +1403,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>
@@ -1412,7 +1416,7 @@ namespace FactSet.SDK.FactSetEstimates.Api
         }
 
         /// <summary>
-        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+        /// FactSet estimates detail data for rolling fiscal periods Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetEstimates.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rollingDetailRequest">Request object for Estimate Data Items.</param>

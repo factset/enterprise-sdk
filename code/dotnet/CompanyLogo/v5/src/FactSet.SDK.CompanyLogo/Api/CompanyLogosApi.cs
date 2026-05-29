@@ -288,7 +288,7 @@ namespace FactSet.SDK.CompanyLogo.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<
-            InlineResponse200>("/company/logo", localVarRequestOptions, this.Configuration);
+            InlineResponse200>("/logo/list", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PostCompanyLogo", localVarResponse);
@@ -372,7 +372,7 @@ namespace FactSet.SDK.CompanyLogo.Api
             localVarRequestOptions.ResponseTypeDictionary = PostCompanyLogoResponseTypeDictionary;
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse200>("/company/logo", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<InlineResponse200>("/logo/list", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

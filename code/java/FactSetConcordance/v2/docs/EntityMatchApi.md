@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getEntityMatch
 
-> EntityMatchesResponse getEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount)
+> EntityMatchesResponse getEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, creditsafe, crunchbase, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount)
 
 Get Entity Candidates and Matches for a single name and attributes.
 
@@ -73,6 +73,8 @@ public class Example {
         String bic = "TSLAUS66"; // String | Input identifiers for the BICCode - Bank Indentification Code symbol Type.
         String cik = "1318605"; // String | Input identifiers for the CIK - Edgar Central Index Keys symbol type.
         String crd = "CRD"; // String | Input identifiers for the CRD - Central Registration Depository symbol type.
+        String creditsafe = "DE00001447"; // String | Creditsafe Identifier
+        String crunchbase = "9d94b6c1-8b80-4169-8fd5-115bee96cde0"; // String | Crunchbase Identifier
         String cusip = "88160R101"; // String | Input identifiers for the CUSIP symbol type.
         String ein = "912197729"; // String | Input identifiers for the EIN - Employer Identification Number symbol type.
         String factsetId = "006XY7-E"; // String | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type.
@@ -96,7 +98,7 @@ public class Example {
         String wkn = "A1CX3T"; // String | Input identifiers for the WKN - German Securities symbol type.
         Integer candidatesCount = 40; // Integer | Maximum number of candidates to be returned. Parent entities, when includeParent is true, are not included in this count. <p>*minimum - 20*</p> <p>*maximum - 100*</p>
         try {
-            EntityMatchesResponse result = apiInstance.getEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount);
+            EntityMatchesResponse result = apiInstance.getEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, creditsafe, crunchbase, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -129,6 +131,8 @@ Name | Type | Description  | Notes
  **bic** | **String**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional]
  **cik** | **String**| Input identifiers for the CIK - Edgar Central Index Keys symbol type. | [optional]
  **crd** | **String**| Input identifiers for the CRD - Central Registration Depository symbol type. | [optional]
+ **creditsafe** | **String**| Creditsafe Identifier | [optional]
+ **crunchbase** | **String**| Crunchbase Identifier | [optional]
  **cusip** | **String**| Input identifiers for the CUSIP symbol type. | [optional]
  **ein** | **String**| Input identifiers for the EIN - Employer Identification Number symbol type. | [optional]
  **factsetId** | **String**| Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional]

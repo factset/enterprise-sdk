@@ -27,14 +27,17 @@ info:
     \ Reports endpoints, businesses can streamline their financial data integration\
     \ process, improve operational efficiency, and deliver superior financial insights\
     \ to their clients and end-users.\n    <p>This API is rate-limited to 10 requests\
-    \ per second and 10 concurrent requests per user.</p>\n\n**Download API Specification**\n\
+    \ per second and 10 concurrent requests per user.</p>\n\nAll endpoints, except\
+    \ /company-reports/* and /metrics are limited to a quota of 4 million datapoints\
+    \ per minute. Requests exceeding this limit (greater than 4 million datapoints\
+    \ per minute) will receive a 429 response.    \n\n**Download API Specification**\n\
     \    \n  To programmatically download the FactSet Estimates API Specification\
     \ file in .yaml format, utilize the link below. You must be authorized for this\
     \ API to extract the specification. This specification can then be used for Codegen\
     \ to create your own SDKs. You can also access it by selecting the \"Download\
     \ Spec\" button beside the version information.\n  \n  [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)\n"
   title: FactSet Estimates
-  version: 2.9.0
+  version: 2.9.1
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -71,7 +74,7 @@ paths:
   /factset-estimates/v2/rolling-consensus:
     get:
       description: |
-        Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the "next fiscal year" estimates were through time as you "roll" back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.</p>
+        Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the "next fiscal year" estimates were through time as you "roll" back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.</p>
       operationId: getRollingConsensus
       parameters:
       - description: |
@@ -304,6 +307,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -322,7 +336,7 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the "next fiscal year" estimates were through time as you "roll" back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.</p>
+        Returns FactSet Estimates consensus data using rolling fiscal dates. <p>The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the "next fiscal year" estimates were through time as you "roll" back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.</p>
       operationId: getRollingConsensusForList
       requestBody:
         content:
@@ -401,6 +415,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -421,7 +446,7 @@ paths:
   /factset-estimates/v2/fixed-consensus:
     get:
       description: |
-        Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company's current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are "locked" in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint.
+        Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company's current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are "locked" in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window.
       operationId: getFixedConsensus
       parameters:
       - description: |
@@ -650,6 +675,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -668,7 +704,7 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company's current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are "locked" in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint.
+        Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company's current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are "locked" in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window.
       operationId: getFixedConsensusForList
       requestBody:
         content:
@@ -747,6 +783,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -765,10 +812,8 @@ paths:
       x-accepts: application/json
   /factset-estimates/v2/rolling-detail:
     get:
-      description: "Updated intraday, the FactSet detail estimates apis provide individual\
-        \ broker-level estimates collected from over 800 sell-side analysts. This\
-        \ database contains 20+ years of broker history across more than 59,000 global\
-        \ companies. Content is provided for \"rolling\" fiscal periods.     \n"
+      description: |
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "rolling" fiscal periods. The consensus window default is 100 day window.
       operationId: getRollingDetail
       parameters:
       - description: |
@@ -1043,6 +1088,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -1060,7 +1116,7 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "rolling" fiscal periods.
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "rolling" fiscal periods. The consensus window default is 100 day window.
       operationId: getRollingDetailForList
       requestBody:
         content:
@@ -1139,6 +1195,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -1158,7 +1225,7 @@ paths:
   /factset-estimates/v2/fixed-detail:
     get:
       description: |
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods.
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods. The consensus window default is 100 day window.
       operationId: getFixedDetail
       parameters:
       - description: |
@@ -1429,6 +1496,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -1446,7 +1524,7 @@ paths:
       x-accepts: application/json
     post:
       description: |
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods.
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods. The consensus window default is 100 day window.
       operationId: getFixedDetailForList
       requestBody:
         content:
@@ -1525,6 +1603,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -1696,6 +1785,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -1793,6 +1893,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -1972,6 +2083,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -2070,6 +2192,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -2302,6 +2435,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -2398,6 +2542,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -2499,6 +2654,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -2929,6 +3095,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -3027,6 +3204,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -3975,6 +4163,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -4065,6 +4264,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -4375,6 +4585,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -4469,6 +4690,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -4722,6 +4954,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -4815,6 +5058,17 @@ paths:
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
             value. In this instance, "application/json" would be the appropriate value.
+        "429":
+          content:
+            application/json:
+              examples:
+                rateLimitExceeded:
+                  $ref: '#/components/examples/errorRateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Too Many Requests - The API rate limit of 4 million datapoints
+            per minute has been exceeded, resulting in a 429 error. Please wait and
+            check the `Retry-After` header before sending more requests.
         "500":
           content:
             application/json:
@@ -6047,6 +6301,18 @@ components:
         message: text/html media type is not supported. Supported media types are
           application/json
         subErrors: null
+    errorRateLimitExceeded:
+      description: This occurs when you have exceeded the allowed request rate limit
+        for the API. Please slow down your request frequency and retry after the duration
+        specified in the Retry-After response header, if provided. Report Issue under
+        429 error for help with troubleshooting.
+      summary: Too Many Requests - Rate Limit Exceeded
+      value:
+        status: Too Many Requests
+        timestamp: 2024-03-15 10:23:45.123
+        path: /factset-estimates/v2/{endpoint}
+        message: You have exceeded the allowed request rate. Please try again later.
+        subErrors: null
     companyReportsunsupportedMediaType:
       description: This bad request occurs when the media type passed in the request
         is not supported. Currently the APIs only support 'application/json'.
@@ -6837,6 +7103,17 @@ components:
         sends a resource in a format that is not accepted by the server. This can
         be fixed by ensuring that Content-Type header is set to the correct value.
         In this instance, "application/json" would be the appropriate value.
+    "429":
+      content:
+        application/json:
+          examples:
+            rateLimitExceeded:
+              $ref: '#/components/examples/errorRateLimitExceeded'
+          schema:
+            $ref: '#/components/schemas/errorResponse'
+      description: Too Many Requests - The API rate limit of 4 million datapoints
+        per minute has been exceeded, resulting in a 429 error. Please wait and check
+        the `Retry-After` header before sending more requests.
     "500":
       content:
         application/json:

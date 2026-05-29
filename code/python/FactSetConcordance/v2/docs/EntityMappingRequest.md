@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **client_bic** | **str** | User provided input for BICCode, bank indentification code symbol type. | [optional] 
 **client_cik** | **str** | User provided input for CIK, Edgar Central Index Keys symbol type. | [optional] 
 **client_crd** | **str** | User provided input for CRD, Central Registration Depository symbol type. | [optional] 
+**client_creditsafe** | **str** | Creditsafe Identifier | [optional] 
+**client_crunchbase** | **str** | Crunchbase Identifier | [optional] 
 **client_cusip** | **str** | User provided input for CUSIP symbol type. | [optional] 
 **client_ein** | **str** | User provided input for EmployerIdentificationNumber, EIN symbol type. | [optional] 
 **client_factset_id** | **str** | User provided input for FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional] 

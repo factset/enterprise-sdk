@@ -12,6 +12,8 @@
  */
 
 import ApiClient from './ApiClient';
+import BurstFileResponse from './model/BurstFileResponse';
+import BurstFileResponseData from './model/BurstFileResponseData';
 import CreateOrEditViewBody from './model/CreateOrEditViewBody';
 import CreateOrEditViewBodyData from './model/CreateOrEditViewBodyData';
 import CreateOrEditViewTickers from './model/CreateOrEditViewTickers';
@@ -84,6 +86,7 @@ import ViewsObject from './model/ViewsObject';
 
 import FiltersApi from './api/FiltersApi';
 import HeadlinesApi from './api/HeadlinesApi';
+import SABurstsApi from './api/SABurstsApi';
 import ViewsApi from './api/ViewsApi';
 
 
@@ -123,6 +126,18 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The BurstFileResponse model constructor.
+     * @property {module:model/BurstFileResponse}
+     */
+    BurstFileResponse,
+
+    /**
+     * The BurstFileResponseData model constructor.
+     * @property {module:model/BurstFileResponseData}
+     */
+    BurstFileResponseData,
 
     /**
      * The CreateOrEditViewBody model constructor.
@@ -549,6 +564,12 @@ export {
     * @property {module:api/HeadlinesApi}
     */
     HeadlinesApi,
+
+    /**
+    * The SABurstsApi service constructor.
+    * @property {module:api/SABurstsApi}
+    */
+    SABurstsApi,
 
     /**
     * The ViewsApi service constructor.

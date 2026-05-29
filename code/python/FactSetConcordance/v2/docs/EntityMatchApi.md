@@ -83,6 +83,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     bic = "TSLAUS66" # str | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
     cik = "1318605" # str | Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional)
     crd = "CRD" # str | Input identifiers for the CRD - Central Registration Depository symbol type. (optional)
+    creditsafe = "DE00001447" # str | Creditsafe Identifier (optional)
+    crunchbase = "9d94b6c1-8b80-4169-8fd5-115bee96cde0" # str | Crunchbase Identifier (optional)
     cusip = "88160R101" # str | Input identifiers for the CUSIP symbol type. (optional)
     ein = "912197729" # str | Input identifiers for the EIN - Employer Identification Number symbol type. (optional)
     factset_id = "006XY7-E" # str | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional)
@@ -110,7 +112,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Get Entity Candidates and Matches for a single name and attributes.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent, bbg_figi=bbg_figi, bbg_ticker=bbg_ticker, bic=bic, cik=cik, crd=crd, cusip=cusip, ein=ein, factset_id=factset_id, fitch=fitch, gvkey=gvkey, gvkey_iid=gvkey_iid, isin=isin, jcn=jcn, lei=lei, lxid=lxid, md=md, red_code=red_code, rssd=rssd, sedol=sedol, spr=spr, ticker=ticker, ticker_exchange=ticker_exchange, ticker_region=ticker_region, ukch=ukch, valoren=valoren, wkn=wkn, candidates_count=candidates_count)
+        api_response = api_instance.get_entity_match(name, country=country, state=state, url=url, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, include_parent=include_parent, bbg_figi=bbg_figi, bbg_ticker=bbg_ticker, bic=bic, cik=cik, crd=crd, creditsafe=creditsafe, crunchbase=crunchbase, cusip=cusip, ein=ein, factset_id=factset_id, fitch=fitch, gvkey=gvkey, gvkey_iid=gvkey_iid, isin=isin, jcn=jcn, lei=lei, lxid=lxid, md=md, red_code=red_code, rssd=rssd, sedol=sedol, spr=spr, ticker=ticker, ticker_exchange=ticker_exchange, ticker_region=ticker_region, ukch=ukch, valoren=valoren, wkn=wkn, candidates_count=candidates_count)
 
         pprint(api_response)
 
@@ -137,6 +139,8 @@ Name | Type | Description  | Notes
  **bic** | **str**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional]
  **cik** | **str**| Input identifiers for the CIK - Edgar Central Index Keys symbol type. | [optional]
  **crd** | **str**| Input identifiers for the CRD - Central Registration Depository symbol type. | [optional]
+ **creditsafe** | **str**| Creditsafe Identifier | [optional]
+ **crunchbase** | **str**| Crunchbase Identifier | [optional]
  **cusip** | **str**| Input identifiers for the CUSIP symbol type. | [optional]
  **ein** | **str**| Input identifiers for the EIN - Employer Identification Number symbol type. | [optional]
  **factset_id** | **str**| Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional]
@@ -253,6 +257,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
                 bic="TSLAUS66",
                 cik="0001318605",
                 crd="",
+                creditsafe="DE00001447",
+                crunchbase="9d94b6c1-8b80-4169-8fd5-115bee96cde0",
                 cusip="88160R101",
                 ein="",
                 factset_id="006XY7-E",

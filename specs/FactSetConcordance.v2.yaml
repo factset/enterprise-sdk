@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2.10.0
+  version: 2.11.0
   title: FactSet Concordance API
   description: >
 
@@ -85,6 +85,8 @@ paths:
         - $ref: '#/components/parameters/bic'
         - $ref: '#/components/parameters/cik'
         - $ref: '#/components/parameters/crd'
+        - $ref: '#/components/parameters/creditsafe'
+        - $ref: '#/components/parameters/crunchbase'
         - $ref: '#/components/parameters/cusip'
         - $ref: '#/components/parameters/ein'
         - $ref: '#/components/parameters/factsetId'
@@ -275,6 +277,14 @@ paths:
                     CRD, `Central Registration Depository`.
                   type: string
                   example: CRD
+                creditsafeColumn:
+                  description: the column name for type `Creditsafe Identifier`.
+                  type: string
+                  example: CreditsafeId
+                crunchbaseColumn:
+                  description: the column name for type `Crunchbase Identifier`.
+                  type: string
+                  example: CrunchbaseId
                 cusipColumn:
                   description: >-
                     Header Name of the column in the input file for the type
@@ -1545,6 +1555,20 @@ components:
       schema:
         type: string
         example: VALOR
+    creditsafe:
+      description: Creditsafe Identifier
+      name: creditsafe
+      in: query
+      schema:
+        type: string
+        example: DE00001447
+    crunchbase:
+      description: Crunchbase Identifier
+      name: crunchbase
+      in: query
+      schema:
+        type: string
+        example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
     wkn:
       description: Input identifiers for the WKN - German Securities symbol type.
       name: wkn
@@ -2387,6 +2411,14 @@ components:
                 description: Name for the type CRD, Central Registration Depository
                 type: string
                 example: ''
+              creditsafe:
+                description: Creditsafe Identifier
+                type: string
+                example: DE00001447
+              crunchbase:
+                description: Crunchbase Identifier
+                type: string
+                example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
               cusip:
                 description: Name for the type CUSIP.
                 type: string
@@ -2706,6 +2738,14 @@ components:
             type.
           type: string
           example: 149722
+        clientCreditsafe:
+          description: Creditsafe Identifier
+          type: string
+          example: DE00004868
+        clientCrunchbase:
+          description: Crunchbase Identifier
+          type: string
+          example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
         clientCusip:
           description: User provided input for CUSIP symbol type.
           type: string
@@ -3361,6 +3401,8 @@ components:
       example:
         data:
           - clientCountry: us,
+            clientCreditsafe: DE00004868,
+            clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0,
             clientId: null,
             clientName: apple,
             clientState: ca,
@@ -3395,6 +3437,8 @@ components:
             url: www.apple.com,
             clientAdditionalContext: Address
           - clientCountry: null,
+            clientCreditsafe: DE00004868,
+            clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0,
             clientId: null,
             clientName: factset,
             clientState: null,
@@ -3448,6 +3492,8 @@ components:
               clientCik: null
               clientCountry: US
               clientCrd: null
+              clientCreditsafe: null
+              clientCrunchbase: null
               clientCusip: null
               clientEin: null
               clientFitch: null
@@ -3488,6 +3534,8 @@ components:
               clientCik: null
               clientCountry: null
               clientCrd: null
+              clientCreditsafe: null
+              clientCrunchbase: null
               clientCusip: null
               clientEin: null
               clientFitch: null
@@ -3678,6 +3726,16 @@ components:
             Registration Depository
           type: string
           example: 149722
+          nullable: true
+        clientCreditsafe:
+          description: Creditsafe Identifier
+          type: string
+          example: DE00001447
+          nullable: true
+        clientCrunchbase:
+          description: Crunchbase Identifier
+          type: string
+          example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           nullable: true
         clientCusip:
           description: Name of the column as provided by the user -  CUSIP.
@@ -4144,6 +4202,16 @@ components:
           type: string
           example: CRD
           nullable: true
+        creditsafeColumn:
+          description: the column name for type Creditsafe Identifier
+          type: string
+          example: CreditsafeId
+          nullable: true
+        crunchbaseColumn:
+          description: the column name for type Crunchbase Identifier
+          type: string
+          example: CrunchbaseId
+          nullable: true
         cusipColumn:
           description: Header Name of the column in the input file for the type CUSIP.
           type: string
@@ -4532,6 +4600,16 @@ components:
             Depository.
           type: string
           example: 149722
+          nullable: true
+        clientCreditsafe:
+          description: Creditsafe Identifier
+          type: string
+          example: DE00001447
+          nullable: true
+        clientCrunchbase:
+          description: Crunchbase Identifier
+          type: string
+          example: 6101d973-de6b-4db7-8dc7-1b543451d80a
           nullable: true
         clientCusip:
           description: Name as provided by the user for the type CUSIP.
@@ -5857,6 +5935,8 @@ components:
             bic: TSLAUS66
             cik: '0001318605'
             crd: ''
+            creditsafe: DE00001447
+            crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
             cusip: 88160R101
             ein: ''
             factsetId: 006XY7-E
@@ -5905,6 +5985,8 @@ components:
             clientCik: 100331
             clientCountry: US
             clientCrd: 149722
+            clientCreditsafe: DE00001447
+            clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
             clientCusip: 02079K305
             clientEin: 953540776
             clientFactsetId: 0013TZ-E
@@ -5990,6 +6072,8 @@ components:
             bicColumn: bicColumn
             cikColumn: cikColumn
             crdColumn: crdColumn
+            creditsafeColumn: CreditsafeId
+            crunchbaseColumn: CrunchbaseId
             cusipColumn: cusipColumn
             einColumn: einColumn
             factsetIdColumn: factsetIdColumn
@@ -6115,6 +6199,8 @@ components:
           bicColumn: bicColumn
           cikColumn: cikColumn
           crdColumn: crdColumn
+          creditsafeColumn: CreditsafeId
+          crunchbaseColumn: CrunchbaseId
           cusipColumn: cusipColumn
           einColumn: einColumn
           factsetIdColumn: factsetIdColumn
@@ -6183,6 +6269,8 @@ components:
             clientIdColumn: id
             nameColumn: name
             countryColumn: country
+            creditsafeColumn: CreditsafeId
+            crunchbaseColumn: CrunchbaseId
             priorityColumn: null
             stateColumn: state
             urlColumn: url
@@ -6266,6 +6354,8 @@ components:
             clientIdColumn: id
             nameColumn: name
             countryColumn: country
+            creditsafeColumn: CreditsafeId
+            crunchbaseColumn: CrunchbaseId
             stateColumn: state
             urlColumn: url
             includeEntityType:
@@ -6350,6 +6440,8 @@ components:
             clientIdColumn: id
             nameColumn: name
             countryColumn: country
+            creditsafeColumn: CreditsafeId
+            crunchbaseColumn: CrunchbaseId
             stateColumn: state
             urlColumn: url
             includeEntityType:
@@ -6439,6 +6531,8 @@ components:
             clientCik: 100331
             clientCountry: US
             clientCrd: 149722
+            clientCreditsafe: DE00001447
+            clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
             clientCusip: 02079K305
             clientEin: 953540776
             clientFactsetId: 0013TZ-E
@@ -6603,6 +6697,8 @@ components:
         clientBic: ABXXHKH1
         clientCik: '100331'
         clientCrd: '149722'
+        clientCreditsafe: DE00004868
+        clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
         clientCusip: 02079K305
         clientEin: '953540776'
         clientFactsetId: 0013TZ-E
@@ -6771,6 +6867,8 @@ components:
             clientName: factset
             clientSedol: 2329770
             clientCountry: us
+            clientCreditsafe: DE00001447
+            clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
             clientState: ct
             clientUrl: www.factset.com
             createdTime: '2020-09-04T20:14:13.123'
@@ -6788,6 +6886,8 @@ components:
             clientName: apple
             clientSedol: 2046251
             clientCountry: us
+            clientCreditsafe: DE00004868
+            clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
             clientState: ca
             clientUrl: www.apple.com
             createdTime: '2020-07-04T20:14:13.123'
@@ -6851,6 +6951,8 @@ components:
           clientName: factset
           clientSedol: BYZ5YB6
           clientCountry: US
+          clientCreditsafe: DE00004868
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           clientState: CT
           clientUrl: www.factset.com
           createdTime: 2020:09:04T20:14:13.123

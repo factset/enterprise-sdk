@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 <a name="getentitytaskforlist"></a>
 # **GetEntityTaskForList**
-> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, string priorityColumn = null, string bbgFigiColumn = null, string bbgTickerColumn = null, string bicColumn = null, string cikColumn = null, string crdColumn = null, string cusipColumn = null, string einColumn = null, string factsetIdColumn = null, string fitchColumn = null, string gvkeyColumn = null, string gvkeyIidColumn = null, string isinColumn = null, string jcnColumn = null, string leiColumn = null, string lxidColumn = null, string mdColumn = null, string redCodeColumn = null, string rssdColumn = null, string sedolColumn = null, string sprColumn = null, string tickerColumn = null, string tickerExchangeColumn = null, string tickerRegionColumn = null, string ukchColumn = null, string valorenColumn = null, string wknColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, List<string> additionalContextColumns = null, bool? autoRemap = null)
+> EntityTaskResponse GetEntityTaskForList (int universeId, string taskName, System.IO.Stream inputFile, string clientIdColumn, string nameColumn, string countryColumn = null, string urlColumn = null, string stateColumn = null, string priorityColumn = null, string bbgFigiColumn = null, string bbgTickerColumn = null, string bicColumn = null, string cikColumn = null, string crdColumn = null, string creditsafeColumn = null, string crunchbaseColumn = null, string cusipColumn = null, string einColumn = null, string factsetIdColumn = null, string fitchColumn = null, string gvkeyColumn = null, string gvkeyIidColumn = null, string isinColumn = null, string jcnColumn = null, string leiColumn = null, string lxidColumn = null, string mdColumn = null, string redCodeColumn = null, string rssdColumn = null, string sedolColumn = null, string sprColumn = null, string tickerColumn = null, string tickerExchangeColumn = null, string tickerRegionColumn = null, string ukchColumn = null, string valorenColumn = null, string wknColumn = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, List<string> additionalContextColumns = null, bool? autoRemap = null)
 
 Input a file with names and attributes, creating a taskId.
 
@@ -183,6 +183,8 @@ namespace Example
             var bicColumn = "bicColumn_example";  // string | Header Name of the column in the input file for the type BICCode, `bank indentification code`.  (optional) 
             var cikColumn = "cikColumn_example";  // string | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys` (optional) 
             var crdColumn = "crdColumn_example";  // string | Header Name of the column in the input file for the type CRD, `Central Registration Depository`. (optional) 
+            var creditsafeColumn = "creditsafeColumn_example";  // string | the column name for type `Creditsafe Identifier`. (optional) 
+            var crunchbaseColumn = "crunchbaseColumn_example";  // string | the column name for type `Crunchbase Identifier`. (optional) 
             var cusipColumn = "cusipColumn_example";  // string | Header Name of the column in the input file for the type `CUSIP` (optional) 
             var einColumn = "einColumn_example";  // string | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`. (optional) 
             var factsetIdColumn = "factsetIdColumn_example";  // string | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`. (optional) 
@@ -214,7 +216,7 @@ namespace Example
             try
             {
                 // Input a file with names and attributes, creating a taskId.
-                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap);
+                EntityTaskResponse result = apiInstance.GetEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, creditsafeColumn, crunchbaseColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -246,6 +248,8 @@ Name | Type | Description  | Notes
  **bicColumn** | **string**| Header Name of the column in the input file for the type BICCode, &#x60;bank indentification code&#x60;.  | [optional] 
  **cikColumn** | **string**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional] 
  **crdColumn** | **string**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional] 
+ **creditsafeColumn** | **string**| the column name for type &#x60;Creditsafe Identifier&#x60;. | [optional] 
+ **crunchbaseColumn** | **string**| the column name for type &#x60;Crunchbase Identifier&#x60;. | [optional] 
  **cusipColumn** | **string**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional] 
  **einColumn** | **string**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional] 
  **factsetIdColumn** | **string**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional] 

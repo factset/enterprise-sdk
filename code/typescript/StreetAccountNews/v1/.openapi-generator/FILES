@@ -4,6 +4,8 @@
 .travis.yml
 LICENSE
 README.md
+docs/BurstFileResponse.md
+docs/BurstFileResponseData.md
 docs/CreateOrEditViewBody.md
 docs/CreateOrEditViewBodyData.md
 docs/CreateOrEditViewTickers.md
@@ -55,6 +57,7 @@ docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
 docs/QuickAlertsResponseData.md
+docs/SABurstsApi.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -82,8 +85,11 @@ package.json
 src/ApiClient.js
 src/api/FiltersApi.js
 src/api/HeadlinesApi.js
+src/api/SABurstsApi.js
 src/api/ViewsApi.js
 src/index.js
+src/model/BurstFileResponse.js
+src/model/BurstFileResponseData.js
 src/model/CreateOrEditViewBody.js
 src/model/CreateOrEditViewBodyData.js
 src/model/CreateOrEditViewTickers.js

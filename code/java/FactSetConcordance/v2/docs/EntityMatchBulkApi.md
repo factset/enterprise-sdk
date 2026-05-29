@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ## getEntityTaskForList
 
-> EntityTaskResponse getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap)
+> EntityTaskResponse getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, creditsafeColumn, crunchbaseColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap)
 
 Input a file with names and attributes, creating a taskId.
 
@@ -176,6 +176,8 @@ public class Example {
         String bicColumn = "bicColumn_example"; // String | Header Name of the column in the input file for the type BICCode, `bank indentification code`. 
         String cikColumn = "cikColumn_example"; // String | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys`
         String crdColumn = "crdColumn_example"; // String | Header Name of the column in the input file for the type CRD, `Central Registration Depository`.
+        String creditsafeColumn = "creditsafeColumn_example"; // String | the column name for type `Creditsafe Identifier`.
+        String crunchbaseColumn = "crunchbaseColumn_example"; // String | the column name for type `Crunchbase Identifier`.
         String cusipColumn = "cusipColumn_example"; // String | Header Name of the column in the input file for the type `CUSIP`
         String einColumn = "einColumn_example"; // String | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`.
         String factsetIdColumn = "factsetIdColumn_example"; // String | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`.
@@ -204,7 +206,7 @@ public class Example {
         java.util.List<String> additionalContextColumns = Arrays.asList(); // java.util.List<String> | Comma separated list of any additional column names in the input file.  To be used by Managed Service for any unmapped records. 
         Boolean autoRemap = true; // Boolean | When `true`, automatically re-evaluates and overwrites existing mappings using updated metadata submitted in this task. Applicable when the specified universe has auto-remap set to true. **Caution: Mapping updates cannot be undone.** 
         try {
-            EntityTaskResponse result = apiInstance.getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap);
+            EntityTaskResponse result = apiInstance.getEntityTaskForList(universeId, taskName, inputFile, clientIdColumn, nameColumn, countryColumn, urlColumn, stateColumn, priorityColumn, bbgFigiColumn, bbgTickerColumn, bicColumn, cikColumn, crdColumn, creditsafeColumn, crunchbaseColumn, cusipColumn, einColumn, factsetIdColumn, fitchColumn, gvkeyColumn, gvkeyIidColumn, isinColumn, jcnColumn, leiColumn, lxidColumn, mdColumn, redCodeColumn, rssdColumn, sedolColumn, sprColumn, tickerColumn, tickerExchangeColumn, tickerRegionColumn, ukchColumn, valorenColumn, wknColumn, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, additionalContextColumns, autoRemap);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -237,6 +239,8 @@ Name | Type | Description  | Notes
  **bicColumn** | **String**| Header Name of the column in the input file for the type BICCode, &#x60;bank indentification code&#x60;.  | [optional]
  **cikColumn** | **String**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional]
  **crdColumn** | **String**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional]
+ **creditsafeColumn** | **String**| the column name for type &#x60;Creditsafe Identifier&#x60;. | [optional]
+ **crunchbaseColumn** | **String**| the column name for type &#x60;Crunchbase Identifier&#x60;. | [optional]
  **cusipColumn** | **String**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional]
  **einColumn** | **String**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional]
  **factsetIdColumn** | **String**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional]

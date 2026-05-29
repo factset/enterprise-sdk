@@ -1,9 +1,9 @@
 """
     FactSet Estimates
 
-    With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)   # noqa: E501
+    With global coverage since 1999, the FactSet Estimates API provides you with comprehensive estimates and statistics on a wide variety of financial statement items as well as industry-specific metrics. The universe is comprised of over 19,000 active companies across 90+ countries with the following types of data included:   - **Consensus** - **Detail** - **Ratings** - **Surprise** - **Segments** - **Actuals** - **Guidance** - **New Estimates and Ratings Reports Endpoints**  For clients seeking  curated and relevant financial data, the FactSet Estimates API now includes Estimates and Ratings Reports endpoints. These powerful endpoints are designed for easy integration and consumption, delivering a wide array of financial metrics, estimates, and critical statistics in a highly accessible format suitable for both mobile and web applications.   Whether you are an analyst, investor, or financial professional, the Estimates and Ratings Reports endpoints offer detailed and actionable financial insights that can support thorough analyses and strategic decision-making processes.   The Estimates and Ratings Reports endpoints are especially valuable for B2B2C  applications, empowering financial services firms, investment companies, and corporate finance teams to:   - **Elevate Client Engagement:** Enrich user experiences in client-facing applications with comprehensive and up-to-date financial metrics.  - **Build Custom Reporting Tools:** Create tailored dashboards and analytics tools that provide deep insights and foster better financial understanding.  By adopting the FactSet Estimates API with its enriched Estimates and Ratings Reports endpoints, businesses can streamline their financial data integration process, improve operational efficiency, and deliver superior financial insights to their clients and end-users.     <p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>  All endpoints, except /company-reports/* and /metrics are limited to a quota of 4 million datapoints per minute. Requests exceeding this limit (greater than 4 million datapoints per minute) will receive a 429 response.      **Download API Specification**        To programmatically download the FactSet Estimates API Specification file in .yaml format, utilize the link below. You must be authorized for this API to extract the specification. This specification can then be used for Codegen to create your own SDKs. You can also access it by selecting the \"Download Spec\" button beside the version information.      [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)   # noqa: E501
 
-    The version of the OpenAPI document: 2.9.0
+    The version of the OpenAPI document: 2.9.1
     Contact: api@factset.com
     Generated by: https://openapi-generator.tech
 """
@@ -49,7 +49,7 @@ class BrokerDetailApi(object):
         self.get_fixed_detail_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 429: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -196,7 +196,7 @@ class BrokerDetailApi(object):
         self.get_fixed_detail_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 429: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -253,7 +253,7 @@ class BrokerDetailApi(object):
         self.get_rolling_detail_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 429: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -412,7 +412,7 @@ class BrokerDetailApi(object):
         self.get_rolling_detail_for_list_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 500: (ErrorResponse,),  },
+                  { 200: (DetailResponse,), 400: (ErrorResponse,), 401: (ErrorResponse,), 403: (ErrorResponse,), 415: (ErrorResponse,), 429: (ErrorResponse,), 500: (ErrorResponse,),  },
                   None
                 ),
                 'auth': [
@@ -488,7 +488,7 @@ class BrokerDetailApi(object):
     ) -> DetailResponse:
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -550,7 +550,7 @@ class BrokerDetailApi(object):
     ) -> typing.Tuple[DetailResponse, int, typing.MutableMapping]:
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -616,7 +616,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[DetailResponse]":
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -677,7 +677,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[typing.Tuple[DetailResponse, int, typing.MutableMapping]]":
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -738,7 +738,7 @@ class BrokerDetailApi(object):
     ) -> DetailResponse:
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -785,7 +785,7 @@ class BrokerDetailApi(object):
     ) -> typing.Tuple[DetailResponse, int, typing.MutableMapping]:
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -836,7 +836,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[DetailResponse]":
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -882,7 +882,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[typing.Tuple[DetailResponse, int, typing.MutableMapping]]":
         """Estimates detail data for fixed fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"fixed\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -930,7 +930,7 @@ class BrokerDetailApi(object):
     ) -> DetailResponse:
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.        # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -992,7 +992,7 @@ class BrokerDetailApi(object):
     ) -> typing.Tuple[DetailResponse, int, typing.MutableMapping]:
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.        # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -1058,7 +1058,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[DetailResponse]":
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.        # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -1119,7 +1119,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[typing.Tuple[DetailResponse, int, typing.MutableMapping]]":
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.        # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -1180,7 +1180,7 @@ class BrokerDetailApi(object):
     ) -> DetailResponse:
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -1227,7 +1227,7 @@ class BrokerDetailApi(object):
     ) -> typing.Tuple[DetailResponse, int, typing.MutableMapping]:
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -1278,7 +1278,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[DetailResponse]":
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -1324,7 +1324,7 @@ class BrokerDetailApi(object):
     ) -> "ApplyResult[typing.Tuple[DetailResponse, int, typing.MutableMapping]]":
         """FactSet estimates detail data for rolling fiscal periods  # noqa: E501
 
-        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods.   # noqa: E501
+        Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \"rolling\" fiscal periods. The consensus window default is 100 day window.   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

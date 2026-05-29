@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **BicColumn** | **string** | Header Name of the column in the input file for the type BICCode, bank indentification code. | [optional] 
 **CikColumn** | **string** | Header Name of the column in the input file for the type CIK, Edgar Central Index Keys. | [optional] 
 **CrdColumn** | **string** | Header Name of the column in the input file for the type CRD, Central Registration Depository. | [optional] 
+**CreditsafeColumn** | **string** | the column name for type Creditsafe Identifier | [optional] 
+**CrunchbaseColumn** | **string** | the column name for type Crunchbase Identifier | [optional] 
 **CusipColumn** | **string** | Header Name of the column in the input file for the type CUSIP. | [optional] 
 **EinColumn** | **string** | Header Name of the column in the input file for the type EmployerIdentificationNumber, EIN. | [optional] 
 **FactsetIdColumn** | **string** | Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 

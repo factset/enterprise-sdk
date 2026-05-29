@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **clientBic** | **String** | User provided input for BICCode, bank indentification code symbol type. |  [optional]
 **clientCik** | **String** | User provided input for CIK, Edgar Central Index Keys symbol type. |  [optional]
 **clientCrd** | **String** | User provided input for CRD, Central Registration Depository symbol type. |  [optional]
+**clientCreditsafe** | **String** | Creditsafe Identifier |  [optional]
+**clientCrunchbase** | **String** | Crunchbase Identifier |  [optional]
 **clientCusip** | **String** | User provided input for CUSIP symbol type. |  [optional]
 **clientEin** | **String** | User provided input for EmployerIdentificationNumber, EIN symbol type. |  [optional]
 **clientFactsetId** | **String** | User provided input for FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier symbol type. |  [optional]

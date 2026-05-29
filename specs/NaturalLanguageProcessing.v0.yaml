@@ -1,0 +1,300 @@
+openapi: 3.0.3
+info:
+  title: FactSet NER API
+  description: >-
+    Identify and extract named entities from unstructured or semi-structured
+    text.
+  contact:
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+    email: api@factset.com
+  version: 0.0.0
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://api.factset.com/aiml/ner/v0
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Express
+  - name: Advanced
+paths:
+  /express:
+    post:
+      summary: Express Processing
+      description: >-
+        NER endpoint optimized for speed, supports batch processing up to 10
+        inputs. Supports person, organization, location, product, datetime,
+        period, and numerical entity types.
+      operationId: postExpressNerExtraction
+      tags:
+        - Express
+      security:
+        - FactSetApiKey: []
+        - FactSetOAuth2: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpressRequestRoot'
+      responses:
+        '200':
+          description: Successful entity extraction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutputRoot'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /advanced:
+    post:
+      summary: Advanced Processing
+      description: >-
+        NER endpoint optimized for accuracy and entity coverage, supports
+        single-input processing. Supports financial entity types such as
+        cryptocurrency, index, rate, yield, commodity, currency, future, fund,
+        asset, and debt instrument in addition to Express entity types.
+      operationId: postAdvancedNerExtraction
+      tags:
+        - Advanced
+      security:
+        - FactSetApiKey: []
+        - FactSetOAuth2: []
+      parameters:
+        - name: model
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - openai.gpt-5.2-2025-12-11
+              - anthropic.claude-sonnet-4-6
+              - meta.llama-4-scout-instruct
+            default: meta.llama-4-scout-instruct
+          description: Optional override for the Advanced model backend.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdvancedRequestRoot'
+      responses:
+        '200':
+          description: Successful entity extraction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutputRoot'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  schemas:
+    ExpressRequestRoot:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/ExpressInput'
+        meta:
+          type: object
+          additionalProperties: true
+    ExpressInput:
+      type: object
+      required:
+        - inputData
+        - requiredEntities
+      properties:
+        inputData:
+          type: array
+          maxItems: 10
+          items:
+            type: string
+            minLength: 1
+        requiredEntities:
+          type: array
+          description: If `product` is included, `organization` must also be included.
+          items:
+            $ref: '#/components/schemas/StandardEntityType'
+    AdvancedRequestRoot:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          $ref: '#/components/schemas/AdvancedInput'
+    AdvancedInput:
+      type: object
+      required:
+        - inputData
+        - requiredEntities
+      properties:
+        inputData:
+          type: string
+          minLength: 1
+        requiredEntities:
+          type: array
+          description: If `product` is included, `organization` must also be included.
+          items:
+            $ref: '#/components/schemas/AdvancedEntityType'
+        offsetRequired:
+          type: boolean
+          default: true
+        lookupRequired:
+          type: boolean
+          default: true
+        model:
+          type: string
+          enum:
+            - openai.gpt-5.2-2025-12-11
+            - anthropic.claude-sonnet-4-6
+            - meta.llama-4-scout-instruct
+          default: meta.llama-4-scout-instruct
+    StandardEntityType:
+      type: string
+      description: Standard NER entity type supported by the Express endpoint.
+      enum:
+        - person
+        - organization
+        - location
+        - product
+        - datetime
+        - period
+        - numerical
+    AdvancedEntityType:
+      type: string
+      description: >-
+        Extended NER entity type supported by the Advanced endpoint, including
+        financial instrument types.
+      enum:
+        - person
+        - organization
+        - location
+        - product
+        - datetime
+        - period
+        - numerical
+        - cryptocurrency
+        - index
+        - rate
+        - yield
+        - commodity
+        - currency
+        - future
+        - fund
+        - asset
+        - debtinstrument
+    OutputRoot:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutputItem'
+        meta:
+          type: object
+          additionalProperties: true
+          description: Includes `model`, `modelDuration`, and `taskDuration`.
+    OutputItem:
+      type: object
+      properties:
+        entities:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/EntityData'
+        error:
+          type: string
+          nullable: true
+        lookupStatuses:
+          type: object
+          nullable: true
+          additionalProperties:
+            $ref: '#/components/schemas/LookupStatus'
+    EntityData:
+      type: object
+      description: A single extracted entity with its associated metadata fields.
+      additionalProperties: true
+    LookupStatus:
+      type: string
+      description: Status of an entity lookup operation.
+      enum:
+        - success
+        - noMatch
+        - unavailable
+    ErrorResponse:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/HTTPError'
+    ErrorSource:
+      type: object
+      properties:
+        parameter:
+          type: string
+        pointer:
+          type: string
+      required:
+        - parameter
+        - pointer
+    HTTPError:
+      type: object
+      properties:
+        code:
+          type: string
+        detail:
+          type: string
+        id:
+          type: string
+          format: uuid
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+        title:
+          type: string
+      required:
+        - code
+        - id
+        - title
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/natural-language-processing-api

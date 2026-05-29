@@ -4,6 +4,8 @@ FactSet.SDK.StreetAccountNews.sln
 LICENSE
 README.md
 appveyor.yml
+docs/BurstFileResponse.md
+docs/BurstFileResponseData.md
 docs/CreateOrEditViewBody.md
 docs/CreateOrEditViewBodyData.md
 docs/CreateOrEditViewTickers.md
@@ -55,6 +57,7 @@ docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
 docs/QuickAlertsResponseData.md
+docs/SABurstsApi.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -79,6 +82,7 @@ docs/ViewsObject.md
 git_push.sh
 src/FactSet.SDK.StreetAccountNews/Api/FiltersApi.cs
 src/FactSet.SDK.StreetAccountNews/Api/HeadlinesApi.cs
+src/FactSet.SDK.StreetAccountNews/Api/SABurstsApi.cs
 src/FactSet.SDK.StreetAccountNews/Api/ViewsApi.cs
 src/FactSet.SDK.StreetAccountNews/Client/ApiClient.cs
 src/FactSet.SDK.StreetAccountNews/Client/ApiException.cs
@@ -98,6 +102,8 @@ src/FactSet.SDK.StreetAccountNews/Client/RequestOptions.cs
 src/FactSet.SDK.StreetAccountNews/Client/RetryConfiguration.cs
 src/FactSet.SDK.StreetAccountNews/FactSet.SDK.StreetAccountNews.csproj
 src/FactSet.SDK.StreetAccountNews/Model/AbstractOpenAPISchema.cs
+src/FactSet.SDK.StreetAccountNews/Model/BurstFileResponse.cs
+src/FactSet.SDK.StreetAccountNews/Model/BurstFileResponseData.cs
 src/FactSet.SDK.StreetAccountNews/Model/CreateOrEditViewBody.cs
 src/FactSet.SDK.StreetAccountNews/Model/CreateOrEditViewBodyData.cs
 src/FactSet.SDK.StreetAccountNews/Model/CreateOrEditViewTickers.cs

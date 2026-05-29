@@ -86,6 +86,8 @@ public class EntityMatchApi {
    * @param bic Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
    * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional)
    * @param crd Input identifiers for the CRD - Central Registration Depository symbol type. (optional)
+   * @param creditsafe Creditsafe Identifier (optional)
+   * @param crunchbase Crunchbase Identifier (optional)
    * @param cusip Input identifiers for the CUSIP symbol type. (optional)
    * @param ein Input identifiers for the EIN - Employer Identification Number symbol type. (optional)
    * @param factsetId Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional)
@@ -121,8 +123,8 @@ public class EntityMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public EntityMatchesResponse getEntityMatch(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bbgFigi, String bbgTicker, String bic, String cik, String crd, String cusip, String ein, String factsetId, String fitch, String gvkey, String gvkeyIid, String isin, String jcn, String lei, String lxid, String md, String redCode, String rssd, String sedol, String spr, String ticker, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn, Integer candidatesCount) throws ApiException {
-    return getEntityMatchWithHttpInfo(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount).getData();
+  public EntityMatchesResponse getEntityMatch(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bbgFigi, String bbgTicker, String bic, String cik, String crd, String creditsafe, String crunchbase, String cusip, String ein, String factsetId, String fitch, String gvkey, String gvkeyIid, String isin, String jcn, String lei, String lxid, String md, String redCode, String rssd, String sedol, String spr, String ticker, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn, Integer candidatesCount) throws ApiException {
+    return getEntityMatchWithHttpInfo(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, creditsafe, crunchbase, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount).getData();
   }
 
   /**
@@ -142,6 +144,8 @@ public class EntityMatchApi {
    * @param bic Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional)
    * @param cik Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional)
    * @param crd Input identifiers for the CRD - Central Registration Depository symbol type. (optional)
+   * @param creditsafe Creditsafe Identifier (optional)
+   * @param crunchbase Crunchbase Identifier (optional)
    * @param cusip Input identifiers for the CUSIP symbol type. (optional)
    * @param ein Input identifiers for the EIN - Employer Identification Number symbol type. (optional)
    * @param factsetId Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional)
@@ -177,7 +181,7 @@ public class EntityMatchApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EntityMatchesResponse> getEntityMatchWithHttpInfo(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bbgFigi, String bbgTicker, String bic, String cik, String crd, String cusip, String ein, String factsetId, String fitch, String gvkey, String gvkeyIid, String isin, String jcn, String lei, String lxid, String md, String redCode, String rssd, String sedol, String spr, String ticker, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn, Integer candidatesCount) throws ApiException {
+  public ApiResponse<EntityMatchesResponse> getEntityMatchWithHttpInfo(String name, String country, String state, String url, java.util.List<String> includeEntityType, java.util.List<String> excludeEntityType, java.util.List<String> includeEntitySubType, java.util.List<String> excludeEntitySubType, Boolean includeParent, String bbgFigi, String bbgTicker, String bic, String cik, String crd, String creditsafe, String crunchbase, String cusip, String ein, String factsetId, String fitch, String gvkey, String gvkeyIid, String isin, String jcn, String lei, String lxid, String md, String redCode, String rssd, String sedol, String spr, String ticker, String tickerExchange, String tickerRegion, String ukch, String valoren, String wkn, Integer candidatesCount) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'name' is set
@@ -208,6 +212,8 @@ public class EntityMatchApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "bic", bic));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "cik", cik));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "crd", crd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "creditsafe", creditsafe));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "crunchbase", crunchbase));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "cusip", cusip));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ein", ein));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "factsetId", factsetId));

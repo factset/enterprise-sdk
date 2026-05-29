@@ -178,6 +178,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         client_bic="ABXXHKH1",
         client_cik="100331",
         client_crd="149722",
+        client_creditsafe="DE00004868",
+        client_crunchbase="9d94b6c1-8b80-4169-8fd5-115bee96cde0",
         client_cusip="02079K305",
         client_ein="953540776",
         client_factset_id="0013TZ-E",

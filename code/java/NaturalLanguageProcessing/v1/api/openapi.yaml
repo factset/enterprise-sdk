@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Natural Language Processing API
-  version: 1.4.0
+  version: 1.6.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/natural-language-processing-api

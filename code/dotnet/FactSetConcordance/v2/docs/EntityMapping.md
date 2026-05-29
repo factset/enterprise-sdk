@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **ClientBic** | **string** | Name as provided by the user for the type BIC - Bank Indentification Code. | [optional] 
 **ClientCik** | **string** | Name as provided by the user for the type CIK - Edgar Central Index Keys. | [optional] 
 **ClientCrd** | **string** | Name as provided by the user for the type CRD - Central Registration Depository. | [optional] 
+**ClientCreditsafe** | **string** | Creditsafe Identifier | [optional] 
+**ClientCrunchbase** | **string** | Crunchbase Identifier | [optional] 
 **ClientCusip** | **string** | Name as provided by the user for the type CUSIP. | [optional] 
 **ClientEin** | **string** | Name as provided by the user for the type EIN - Employer Identification Number. | [optional] 
 **ClientFactsetId** | **string** | Name as provided by the user for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 

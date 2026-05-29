@@ -29,7 +29,7 @@ externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/
 servers:
-- url: https://api.factset.com/wealth/v5
+- url: https://api.factset.com/company-logo/v5
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
@@ -37,7 +37,7 @@ tags:
 - description: Retrieve logos for companies.
   name: Company logos
 paths:
-  /company/logo:
+  /logo/list:
     post:
       description: 'Retrieves high-quality logos for one or more publicly traded companies
         using standard identifiers (e.g., ticker symbols, ISIN). Logos are available

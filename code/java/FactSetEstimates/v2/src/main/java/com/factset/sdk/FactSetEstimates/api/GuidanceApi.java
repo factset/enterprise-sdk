@@ -36,6 +36,7 @@ public class GuidanceApi {
     getGuidanceResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getGuidanceResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getGuidanceResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getGuidanceResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getGuidanceResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -46,6 +47,7 @@ public class GuidanceApi {
     getGuidanceForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getGuidanceForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getGuidanceForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getGuidanceForListResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getGuidanceForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -92,6 +94,7 @@ public class GuidanceApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -121,6 +124,7 @@ public class GuidanceApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -197,6 +201,7 @@ public class GuidanceApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -218,6 +223,7 @@ public class GuidanceApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */

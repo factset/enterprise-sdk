@@ -5,6 +5,8 @@ LICENSE
 README.md
 api/openapi.yaml
 build.gradle
+docs/BurstFileResponse.md
+docs/BurstFileResponseData.md
 docs/CreateOrEditViewBody.md
 docs/CreateOrEditViewBodyData.md
 docs/CreateOrEditViewTickers.md
@@ -56,6 +58,7 @@ docs/QuickAlertsBody.md
 docs/QuickAlertsBodyData.md
 docs/QuickAlertsResponse.md
 docs/QuickAlertsResponseData.md
+docs/SaBurstsApi.md
 docs/SearchResponseArrayObject.md
 docs/StructuredFilters.md
 docs/StructuredFiltersCategories.md
@@ -98,6 +101,7 @@ src/main/java/com/factset/sdk/StreetAccountNews/ServerVariable.java
 src/main/java/com/factset/sdk/StreetAccountNews/StringUtil.java
 src/main/java/com/factset/sdk/StreetAccountNews/api/FiltersApi.java
 src/main/java/com/factset/sdk/StreetAccountNews/api/HeadlinesApi.java
+src/main/java/com/factset/sdk/StreetAccountNews/api/SaBurstsApi.java
 src/main/java/com/factset/sdk/StreetAccountNews/api/ViewsApi.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/Authentication.java
@@ -107,6 +111,8 @@ src/main/java/com/factset/sdk/StreetAccountNews/auth/HttpBearerAuth.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/OAuth.java
 src/main/java/com/factset/sdk/StreetAccountNews/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/AbstractOpenApiSchema.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/BurstFileResponse.java
+src/main/java/com/factset/sdk/StreetAccountNews/models/BurstFileResponseData.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/CreateOrEditViewBody.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/CreateOrEditViewBodyData.java
 src/main/java/com/factset/sdk/StreetAccountNews/models/CreateOrEditViewTickers.java

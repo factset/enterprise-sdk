@@ -1,0 +1,4 @@
+python_dateutil >= 2.9.0.post0
+setuptools >= 21.0.0
+urllib3 >= 2.7.0
+fds.sdk.utils >= 1.0.0

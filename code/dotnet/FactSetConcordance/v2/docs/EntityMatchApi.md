@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getentitymatch"></a>
 # **GetEntityMatch**
-> EntityMatchesResponse GetEntityMatch (string name, string country = null, string state = null, string url = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, bool? includeParent = null, string bbgFigi = null, string bbgTicker = null, string bic = null, string cik = null, string crd = null, string cusip = null, string ein = null, string factsetId = null, string fitch = null, string gvkey = null, string gvkeyIid = null, string isin = null, string jcn = null, string lei = null, string lxid = null, string md = null, string redCode = null, string rssd = null, string sedol = null, string spr = null, string ticker = null, string tickerExchange = null, string tickerRegion = null, string ukch = null, string valoren = null, string wkn = null, int? candidatesCount = null)
+> EntityMatchesResponse GetEntityMatch (string name, string country = null, string state = null, string url = null, List<string> includeEntityType = null, List<string> excludeEntityType = null, List<string> includeEntitySubType = null, List<string> excludeEntitySubType = null, bool? includeParent = null, string bbgFigi = null, string bbgTicker = null, string bic = null, string cik = null, string crd = null, string creditsafe = null, string crunchbase = null, string cusip = null, string ein = null, string factsetId = null, string fitch = null, string gvkey = null, string gvkeyIid = null, string isin = null, string jcn = null, string lei = null, string lxid = null, string md = null, string redCode = null, string rssd = null, string sedol = null, string spr = null, string ticker = null, string tickerExchange = null, string tickerRegion = null, string ukch = null, string valoren = null, string wkn = null, int? candidatesCount = null)
 
 Get Entity Candidates and Matches for a single name and attributes.
 
@@ -75,6 +75,8 @@ namespace Example
             var bic = "TSLAUS66";  // string | Input identifiers for the BICCode - Bank Indentification Code symbol Type. (optional) 
             var cik = "1318605";  // string | Input identifiers for the CIK - Edgar Central Index Keys symbol type. (optional) 
             var crd = "CRD";  // string | Input identifiers for the CRD - Central Registration Depository symbol type. (optional) 
+            var creditsafe = "DE00001447";  // string | Creditsafe Identifier (optional) 
+            var crunchbase = "9d94b6c1-8b80-4169-8fd5-115bee96cde0";  // string | Crunchbase Identifier (optional) 
             var cusip = "88160R101";  // string | Input identifiers for the CUSIP symbol type. (optional) 
             var ein = "912197729";  // string | Input identifiers for the EIN - Employer Identification Number symbol type. (optional) 
             var factsetId = "006XY7-E";  // string | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. (optional) 
@@ -101,7 +103,7 @@ namespace Example
             try
             {
                 // Get Entity Candidates and Matches for a single name and attributes.
-                EntityMatchesResponse result = apiInstance.GetEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount);
+                EntityMatchesResponse result = apiInstance.GetEntityMatch(name, country, state, url, includeEntityType, excludeEntityType, includeEntitySubType, excludeEntitySubType, includeParent, bbgFigi, bbgTicker, bic, cik, crd, creditsafe, crunchbase, cusip, ein, factsetId, fitch, gvkey, gvkeyIid, isin, jcn, lei, lxid, md, redCode, rssd, sedol, spr, ticker, tickerExchange, tickerRegion, ukch, valoren, wkn, candidatesCount);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -133,6 +135,8 @@ Name | Type | Description  | Notes
  **bic** | **string**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional] 
  **cik** | **string**| Input identifiers for the CIK - Edgar Central Index Keys symbol type. | [optional] 
  **crd** | **string**| Input identifiers for the CRD - Central Registration Depository symbol type. | [optional] 
+ **creditsafe** | **string**| Creditsafe Identifier | [optional] 
+ **crunchbase** | **string**| Crunchbase Identifier | [optional] 
  **cusip** | **string**| Input identifiers for the CUSIP symbol type. | [optional] 
  **ein** | **string**| Input identifiers for the EIN - Employer Identification Number symbol type. | [optional] 
  **factsetId** | **string**| Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional] 

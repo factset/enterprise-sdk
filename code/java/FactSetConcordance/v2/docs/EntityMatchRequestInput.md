@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **bic** | **String** | Name for type BICCode, bank indentification code |  [optional]
 **cik** | **String** | Name for the type CIK, Edgar Central Index Keys |  [optional]
 **crd** | **String** | Name for the type CRD, Central Registration Depository |  [optional]
+**creditsafe** | **String** | Creditsafe Identifier |  [optional]
+**crunchbase** | **String** | Crunchbase Identifier |  [optional]
 **cusip** | **String** | Name for the type CUSIP. |  [optional]
 **ein** | **String** | Name for the type EmployerIdentificationNumber, EIN. |  [optional]
 **factsetId** | **String** | Name for the type FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. |  [optional]

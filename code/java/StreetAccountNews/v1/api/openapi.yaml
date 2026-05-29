@@ -29,6 +29,8 @@ tags:
   name: Filters
 - description: Get headlines for a specified view or specified filters
   name: Headlines
+- description: Real-time burst file notifications and downloads
+  name: SA Bursts
 - description: Create, edit and delete views
   name: Views
 paths:
@@ -1307,6 +1309,86 @@ paths:
       summary: Retrieve all StreetAccount filter watchlists
       tags:
       - Filters
+      x-accepts: application/json
+  /sa-bursts/latest-file:
+    get:
+      description: |
+        Returns JSON containing the timestamp and a download URL for the most recent StreetAccount burst ZIP file. Use the `downloadUrl` in the response to download the file.
+
+        **Response fields**
+
+        - **`burstDateTime`** — Timestamp of the latest burst file in ISO 8601 UTC format (YYYY-MM-DDTHH:mm:ssZ).
+
+        - **`downloadUrl`** — Opaque URL to download the burst file. Issue
+          a `GET` request to this URL to receive an HTTP 302 redirect to the file.
+          The URL contains a short-lived token unique to this burst and
+          is valid for **5 minutes**.
+      operationId: getLatestBurstFile
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  value:
+                    data:
+                      burstDateTime: 2026-04-04T11:21:06Z
+                      downloadUrl: https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download
+              schema:
+                $ref: '#/components/schemas/BurstFileResponse'
+          description: Latest burst file metadata.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthDetails'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: |
+            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+        "404":
+          content:
+            application/json:
+              examples:
+                default404ResponseExample:
+                  $ref: '#/components/examples/NotFound'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: No burst file available.
+        "429":
+          description: Limit Exceeded
+          headers:
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/500Details'
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal Server Error
+      summary: Retrieve the latest burst file metadata and download URL
+      tags:
+      - SA Bursts
       x-accepts: application/json
 components:
   examples:
@@ -3493,6 +3575,16 @@ components:
             $ref: '#/components/schemas/StructuredFiltersWatchlistsObject'
           type: array
       type: object
+    BurstFileResponse:
+      description: Latest burst file metadata and download URL.
+      example:
+        data:
+          downloadUrl: https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download
+          burstDateTime: 2026-04-04T11:21:06Z
+      properties:
+        data:
+          $ref: '#/components/schemas/BurstFileResponse_data'
+      type: object
     HeadlinesRequest_data_searchTime:
       description: Elements of search time.
       example:
@@ -4412,6 +4504,23 @@ components:
           $ref: '#/components/schemas/StructuredFiltersWatchlists'
         flattened:
           $ref: '#/components/schemas/FlattenedFiltersWatchlists'
+      type: object
+    BurstFileResponse_data:
+      description: Response data containing burst file metadata.
+      example:
+        downloadUrl: https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download
+        burstDateTime: 2026-04-04T11:21:06Z
+      properties:
+        burstDateTime:
+          description: Timestamp in ISO 8601 format (UTC).
+          example: 2026-04-04T11:21:06Z
+          format: date-time
+          type: string
+        downloadUrl:
+          description: |
+            Opaque URL to download the burst file. Contains a short-lived token unique to this burst. Issue a GET to this URL to receive an HTTP 302 redirect to the file. Valid for 5 minutes.
+          example: https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download
+          type: string
       type: object
   securitySchemes:
     FactSetOAuth2:

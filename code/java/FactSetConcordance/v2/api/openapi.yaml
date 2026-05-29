@@ -30,7 +30,7 @@ info:
     \ Methodology Guide link: \n [https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d](https://open.factset.com/api/public/media/download/products/documents/8ca33e81-a7da-4d77-a8cf-2b3a2e868b3d)\n\
     \n \n"
   title: FactSet Concordance API
-  version: 2.10.0
+  version: 2.11.0
 servers:
 - description: Production Server
   url: https://api.factset.com/content
@@ -294,6 +294,24 @@ paths:
         required: false
         schema:
           example: CRD
+          type: string
+        style: form
+      - description: Creditsafe Identifier
+        explode: true
+        in: query
+        name: creditsafe
+        required: false
+        schema:
+          example: DE00001447
+          type: string
+        style: form
+      - description: Crunchbase Identifier
+        explode: true
+        in: query
+        name: crunchbase
+        required: false
+        schema:
+          example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           type: string
         style: form
       - description: Input identifiers for the CUSIP symbol type.
@@ -755,6 +773,14 @@ paths:
                   description: Header Name of the column in the input file for the
                     type CRD, `Central Registration Depository`.
                   example: CRD
+                  type: string
+                creditsafeColumn:
+                  description: the column name for type `Creditsafe Identifier`.
+                  example: CreditsafeId
+                  type: string
+                crunchbaseColumn:
+                  description: the column name for type `Crunchbase Identifier`.
+                  example: CrunchbaseId
                   type: string
                 cusipColumn:
                   description: Header Name of the column in the input file for the
@@ -3190,6 +3216,8 @@ components:
           bic: TSLAUS66
           cik: "0001318605"
           crd: ""
+          creditsafe: DE00001447
+          crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           cusip: 88160R101
           ein: ""
           factsetId: 006XY7-E
@@ -3238,6 +3266,8 @@ components:
           clientCik: 100331
           clientCountry: US
           clientCrd: 149722
+          clientCreditsafe: DE00001447
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientCusip: 02079K305
           clientEin: 953540776
           clientFactsetId: 0013TZ-E
@@ -3323,6 +3353,8 @@ components:
           bicColumn: bicColumn
           cikColumn: cikColumn
           crdColumn: crdColumn
+          creditsafeColumn: CreditsafeId
+          crunchbaseColumn: CrunchbaseId
           cusipColumn: cusipColumn
           einColumn: einColumn
           factsetIdColumn: factsetIdColumn
@@ -3448,6 +3480,8 @@ components:
           bicColumn: bicColumn
           cikColumn: cikColumn
           crdColumn: crdColumn
+          creditsafeColumn: CreditsafeId
+          crunchbaseColumn: CrunchbaseId
           cusipColumn: cusipColumn
           einColumn: einColumn
           factsetIdColumn: factsetIdColumn
@@ -3516,6 +3550,8 @@ components:
           clientIdColumn: id
           nameColumn: name
           countryColumn: country
+          creditsafeColumn: CreditsafeId
+          crunchbaseColumn: CrunchbaseId
           priorityColumn: null
           stateColumn: state
           urlColumn: url
@@ -3599,6 +3635,8 @@ components:
           clientIdColumn: id
           nameColumn: name
           countryColumn: country
+          creditsafeColumn: CreditsafeId
+          crunchbaseColumn: CrunchbaseId
           stateColumn: state
           urlColumn: url
           includeEntityType:
@@ -3682,6 +3720,8 @@ components:
           clientIdColumn: id
           nameColumn: name
           countryColumn: country
+          creditsafeColumn: CreditsafeId
+          crunchbaseColumn: CrunchbaseId
           stateColumn: state
           urlColumn: url
           includeEntityType:
@@ -3768,6 +3808,8 @@ components:
           clientCik: 100331
           clientCountry: US
           clientCrd: 149722
+          clientCreditsafe: DE00001447
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientCusip: 02079K305
           clientEin: 953540776
           clientFactsetId: 0013TZ-E
@@ -3932,6 +3974,8 @@ components:
         clientBic: ABXXHKH1
         clientCik: "100331"
         clientCrd: "149722"
+        clientCreditsafe: DE00004868
+        clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
         clientCusip: 02079K305
         clientEin: "953540776"
         clientFactsetId: 0013TZ-E
@@ -4100,6 +4144,8 @@ components:
           clientName: factset
           clientSedol: 2329770
           clientCountry: us
+          clientCreditsafe: DE00001447
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientState: ct
           clientUrl: www.factset.com
           createdTime: 2020-09-04T20:14:13.123
@@ -4117,6 +4163,8 @@ components:
           clientName: apple
           clientSedol: 2046251
           clientCountry: us
+          clientCreditsafe: DE00004868
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           clientState: ca
           clientUrl: www.apple.com
           createdTime: 2020-07-04T20:14:13.123
@@ -4180,6 +4228,8 @@ components:
           clientName: factset
           clientSedol: BYZ5YB6
           clientCountry: US
+          clientCreditsafe: DE00004868
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           clientState: CT
           clientUrl: www.factset.com
           createdTime: 2020:09:04T20:14:13.123
@@ -4798,6 +4848,26 @@ components:
       required: false
       schema:
         example: VALOR
+        type: string
+      style: form
+    creditsafe:
+      description: Creditsafe Identifier
+      explode: true
+      in: query
+      name: creditsafe
+      required: false
+      schema:
+        example: DE00001447
+        type: string
+      style: form
+    crunchbase:
+      description: Crunchbase Identifier
+      explode: true
+      in: query
+      name: crunchbase
+      required: false
+      schema:
+        example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
         type: string
       style: form
     wkn:
@@ -5660,7 +5730,9 @@ components:
           rssd: ""
           priority: HIGH
           sedol: B616C79
+          creditsafe: DE00001447
           url: www.tesla.com
+          crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           gvkey: ""
           spr: "562703"
           name: Tesla
@@ -5696,7 +5768,9 @@ components:
           rssd: ""
           priority: HIGH
           sedol: B616C79
+          creditsafe: DE00001447
           url: www.tesla.com
+          crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           gvkey: ""
           spr: "562703"
           name: Tesla
@@ -5732,7 +5806,9 @@ components:
           rssd: ""
           priority: HIGH
           sedol: B616C79
+          creditsafe: DE00001447
           url: www.tesla.com
+          crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           gvkey: ""
           spr: "562703"
           name: Tesla
@@ -5768,7 +5844,9 @@ components:
           rssd: ""
           priority: HIGH
           sedol: B616C79
+          creditsafe: DE00001447
           url: www.tesla.com
+          crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           gvkey: ""
           spr: "562703"
           name: Tesla
@@ -5804,7 +5882,9 @@ components:
           rssd: ""
           priority: HIGH
           sedol: B616C79
+          creditsafe: DE00001447
           url: www.tesla.com
+          crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           gvkey: ""
           spr: "562703"
           name: Tesla
@@ -5976,6 +6056,7 @@ components:
         - PEF
         clientTickerRegion: GOOGL-US
         clientWkn: A0MU9T
+        clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
         clientUkch: CE012494
         clientGvkey: "107481"
         clientSedol: BYZ5YB6
@@ -5992,6 +6073,7 @@ components:
           Phone: 555-555-5555
           City: New York
         clientUrl: www.factset.com
+        clientCreditsafe: DE00004868
         clientMd: "823736553"
         clientTickerExchange: GOOGL-NAS
         entityId: 0016YD-E
@@ -6071,6 +6153,14 @@ components:
           description: User provided input for CRD, Central Registration Depository
             symbol type.
           example: "149722"
+          type: string
+        clientCreditsafe:
+          description: Creditsafe Identifier
+          example: DE00004868
+          type: string
+        clientCrunchbase:
+          description: Crunchbase Identifier
+          example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           type: string
         clientCusip:
           description: User provided input for CUSIP symbol type.
@@ -6703,6 +6793,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           parentMatchFlag: false
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: SEDOL
@@ -6717,6 +6808,7 @@ components:
             Address: 123 Main St
             Phone: 555-555-5555
             City: New York
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -6778,6 +6870,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           parentMatchFlag: false
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: SEDOL
@@ -6792,6 +6885,7 @@ components:
             Address: 123 Main St
             Phone: 555-555-5555
             City: New York
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -6835,6 +6929,7 @@ components:
           processStartTime: 2000-01-23T04:56:07.000+00:00
           decisionRate: 0.7272727272727273
           mappedCount: 8
+          creditsafeColumn: CreditsafeId
           autoRemap: true
           universeName: My Universe
           lxidColumn: LXID
@@ -6891,6 +6986,7 @@ components:
           tryCount: 3
           taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           processDuration: 1.51603
+          crunchbaseColumn: CrunchbaseId
           tickerExchangeColumn: TickerExch
           taskId: 31
           inputCount: 11
@@ -6958,6 +7054,7 @@ components:
           processStartTime: 2000-01-23T04:56:07.000+00:00
           decisionRate: 0.7272727272727273
           mappedCount: 8
+          creditsafeColumn: CreditsafeId
           autoRemap: true
           universeName: My Universe
           lxidColumn: LXID
@@ -7014,6 +7111,7 @@ components:
           tryCount: 3
           taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           processDuration: 1.51603
+          crunchbaseColumn: CrunchbaseId
           tickerExchangeColumn: TickerExch
           taskId: 31
           inputCount: 11
@@ -7029,6 +7127,7 @@ components:
           processStartTime: 2000-01-23T04:56:07.000+00:00
           decisionRate: 0.7272727272727273
           mappedCount: 8
+          creditsafeColumn: CreditsafeId
           autoRemap: true
           universeName: My Universe
           lxidColumn: LXID
@@ -7085,6 +7184,7 @@ components:
           tryCount: 3
           taskSubmitTime: 2000-01-23T04:56:07.000+00:00
           processDuration: 1.51603
+          crunchbaseColumn: CrunchbaseId
           tickerExchangeColumn: TickerExch
           taskId: 31
           inputCount: 11
@@ -7140,6 +7240,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           parentMatchFlag: false
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: SEDOL
@@ -7154,6 +7255,7 @@ components:
             Address: 123 Main St
             Phone: 555-555-5555
             City: New York
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -7215,6 +7317,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           parentMatchFlag: false
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: SEDOL
@@ -7229,6 +7332,7 @@ components:
             Address: 123 Main St
             Phone: 555-555-5555
             City: New York
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: entityId
@@ -7348,6 +7452,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: BYZ5YB6
@@ -7367,6 +7472,7 @@ components:
             Phone: 555-555-5555
             City: New York
           clientUrl: www.factset.com
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
@@ -7398,6 +7504,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: BYZ5YB6
@@ -7417,6 +7524,7 @@ components:
             Phone: 555-555-5555
             City: New York
           clientUrl: www.factset.com
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
@@ -7506,6 +7614,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: BYZ5YB6
@@ -7525,6 +7634,7 @@ components:
             Phone: 555-555-5555
             City: New York
           clientUrl: www.factset.com
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
@@ -7673,6 +7783,8 @@ components:
       example:
         data:
         - clientCountry: us,
+          clientCreditsafe: DE00004868,
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0,
           clientId: null,
           clientName: apple,
           clientState: ca,
@@ -7707,6 +7819,8 @@ components:
           url: www.apple.com,
           clientAdditionalContext: Address
         - clientCountry: null,
+          clientCreditsafe: DE00004868,
+          clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0,
           clientId: null,
           clientName: factset,
           clientState: null,
@@ -7760,6 +7874,8 @@ components:
             clientCik: null
             clientCountry: US
             clientCrd: null
+            clientCreditsafe: null
+            clientCrunchbase: null
             clientCusip: null
             clientEin: null
             clientFitch: null
@@ -7800,6 +7916,8 @@ components:
             clientCik: null
             clientCountry: null
             clientCrd: null
+            clientCreditsafe: null
+            clientCrunchbase: null
             clientCusip: null
             clientEin: null
             clientFitch: null
@@ -7862,6 +7980,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: BYZ5YB6
@@ -7881,6 +8000,7 @@ components:
             Phone: 555-555-5555
             City: New York
           clientUrl: www.factset.com
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
@@ -7912,6 +8032,7 @@ components:
           clientTickerRegion: GOOGL-US
           clientWkn: A0MU9T
           mapStatus: MAPPED
+          clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
           clientUkch: CE012494
           clientGvkey: "107481"
           clientSedol: BYZ5YB6
@@ -7931,6 +8052,7 @@ components:
             Phone: 555-555-5555
             City: New York
           clientUrl: www.factset.com
+          clientCreditsafe: DE00001447
           clientMd: "823736553"
           clientTickerExchange: GOOGL-NAS
           entityId: 00456-E
@@ -8234,6 +8356,7 @@ components:
         clientTickerRegion: GOOGL-US
         clientWkn: A0MU9T
         parentMatchFlag: false
+        clientCrunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
         clientUkch: CE012494
         clientGvkey: "107481"
         clientSedol: SEDOL
@@ -8248,6 +8371,7 @@ components:
           Address: 123 Main St
           Phone: 555-555-5555
           City: New York
+        clientCreditsafe: DE00001447
         clientMd: "823736553"
         clientTickerExchange: GOOGL-NAS
         entityId: entityId
@@ -8319,6 +8443,16 @@ components:
           description: Name of the column as provided by the user -  CRD, Central
             Registration Depository
           example: "149722"
+          nullable: true
+          type: string
+        clientCreditsafe:
+          description: Creditsafe Identifier
+          example: DE00001447
+          nullable: true
+          type: string
+        clientCrunchbase:
+          description: Crunchbase Identifier
+          example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           nullable: true
           type: string
         clientCusip:
@@ -8679,6 +8813,7 @@ components:
         processStartTime: 2000-01-23T04:56:07.000+00:00
         decisionRate: 0.7272727272727273
         mappedCount: 8
+        creditsafeColumn: CreditsafeId
         autoRemap: true
         universeName: My Universe
         lxidColumn: LXID
@@ -8735,6 +8870,7 @@ components:
         tryCount: 3
         taskSubmitTime: 2000-01-23T04:56:07.000+00:00
         processDuration: 1.51603
+        crunchbaseColumn: CrunchbaseId
         tickerExchangeColumn: TickerExch
         taskId: 31
         inputCount: 11
@@ -8814,6 +8950,16 @@ components:
           description: Header Name of the column in the input file for the type CRD,
             Central Registration Depository.
           example: CRD
+          nullable: true
+          type: string
+        creditsafeColumn:
+          description: the column name for type Creditsafe Identifier
+          example: CreditsafeId
+          nullable: true
+          type: string
+        crunchbaseColumn:
+          description: the column name for type Crunchbase Identifier
+          example: CrunchbaseId
           nullable: true
           type: string
         cusipColumn:
@@ -9112,6 +9258,7 @@ components:
         clientTickerRegion: GOOGL-US
         clientWkn: A0MU9T
         mapStatus: MAPPED
+        clientCrunchbase: 6101d973-de6b-4db7-8dc7-1b543451d80a
         clientUkch: CE012494
         clientGvkey: "107481"
         clientSedol: BYZ5YB6
@@ -9131,6 +9278,7 @@ components:
           Phone: 555-555-5555
           City: New York
         clientUrl: www.factset.com
+        clientCreditsafe: DE00001447
         clientMd: "823736553"
         clientTickerExchange: GOOGL-NAS
         entityId: 00456-E
@@ -9215,6 +9363,16 @@ components:
           description: Name as provided by the user for the type CRD - Central Registration
             Depository.
           example: "149722"
+          nullable: true
+          type: string
+        clientCreditsafe:
+          description: Creditsafe Identifier
+          example: DE00001447
+          nullable: true
+          type: string
+        clientCrunchbase:
+          description: Crunchbase Identifier
+          example: 6101d973-de6b-4db7-8dc7-1b543451d80a
           nullable: true
           type: string
         clientCusip:
@@ -10681,6 +10839,14 @@ components:
             `Central Registration Depository`.
           example: CRD
           type: string
+        creditsafeColumn:
+          description: the column name for type `Creditsafe Identifier`.
+          example: CreditsafeId
+          type: string
+        crunchbaseColumn:
+          description: the column name for type `Crunchbase Identifier`.
+          example: CrunchbaseId
+          type: string
         cusipColumn:
           description: Header Name of the column in the input file for the type `CUSIP`
           example: CUSIP
@@ -10951,7 +11117,9 @@ components:
         rssd: ""
         priority: HIGH
         sedol: B616C79
+        creditsafe: DE00001447
         url: www.tesla.com
+        crunchbase: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
         gvkey: ""
         spr: "562703"
         name: Tesla
@@ -11015,6 +11183,14 @@ components:
         crd:
           description: Name for the type CRD, Central Registration Depository
           example: ""
+          type: string
+        creditsafe:
+          description: Creditsafe Identifier
+          example: DE00001447
+          type: string
+        crunchbase:
+          description: Crunchbase Identifier
+          example: 9d94b6c1-8b80-4169-8fd5-115bee96cde0
           type: string
         cusip:
           description: Name for the type CUSIP.

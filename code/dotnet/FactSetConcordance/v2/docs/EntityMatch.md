@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **ClientCik** | **string** | Name of the column as provided by the user -  CIK, Edgar Central Index Keys | [optional] 
 **ClientCountry** | **string** | ISO2 country code specified in the request. | [optional] 
 **ClientCrd** | **string** | Name of the column as provided by the user -  CRD, Central Registration Depository | [optional] 
+**ClientCreditsafe** | **string** | Creditsafe Identifier | [optional] 
+**ClientCrunchbase** | **string** | Crunchbase Identifier | [optional] 
 **ClientCusip** | **string** | Name of the column as provided by the user -  CUSIP. | [optional] 
 **ClientEin** | **string** | Name of the column as provided by the user -  EmployerIdentificationNumber, EIN. | [optional] 
 **ClientFactsetId** | **string** | Name of the column as provided by the user -  FactSet Identifier, FactSet -E,-S,-R, -L Permanent Identifier. | [optional] 

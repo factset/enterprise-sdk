@@ -180,6 +180,8 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
     bic_column = "BICCode" # str | Header Name of the column in the input file for the type BICCode, `bank indentification code`.  (optional)
     cik_column = "CIK" # str | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys` (optional)
     crd_column = "CRD" # str | Header Name of the column in the input file for the type CRD, `Central Registration Depository`. (optional)
+    creditsafe_column = "CreditsafeId" # str | the column name for type `Creditsafe Identifier`. (optional)
+    crunchbase_column = "CrunchbaseId" # str | the column name for type `Crunchbase Identifier`. (optional)
     cusip_column = "CUSIP" # str | Header Name of the column in the input file for the type `CUSIP` (optional)
     ein_column = "EmployerIdentificationNumber" # str | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`. (optional)
     factset_id_column = "FactSetIdentifier" # str | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`. (optional)
@@ -222,7 +224,7 @@ with fds.sdk.FactSetConcordance.ApiClient(configuration) as api_client:
         # Input a file with names and attributes, creating a taskId.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bbg_figi_column=bbg_figi_column, bbg_ticker_column=bbg_ticker_column, bic_column=bic_column, cik_column=cik_column, crd_column=crd_column, cusip_column=cusip_column, ein_column=ein_column, factset_id_column=factset_id_column, fitch_column=fitch_column, gvkey_column=gvkey_column, gvkey_iid_column=gvkey_iid_column, isin_column=isin_column, jcn_column=jcn_column, lei_column=lei_column, lxid_column=lxid_column, md_column=md_column, red_code_column=red_code_column, rssd_column=rssd_column, sedol_column=sedol_column, spr_column=spr_column, ticker_column=ticker_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, additional_context_columns=additional_context_columns, auto_remap=auto_remap)
+        api_response = api_instance.get_entity_task_for_list(universe_id, task_name, input_file, client_id_column, name_column, country_column=country_column, url_column=url_column, state_column=state_column, priority_column=priority_column, bbg_figi_column=bbg_figi_column, bbg_ticker_column=bbg_ticker_column, bic_column=bic_column, cik_column=cik_column, crd_column=crd_column, creditsafe_column=creditsafe_column, crunchbase_column=crunchbase_column, cusip_column=cusip_column, ein_column=ein_column, factset_id_column=factset_id_column, fitch_column=fitch_column, gvkey_column=gvkey_column, gvkey_iid_column=gvkey_iid_column, isin_column=isin_column, jcn_column=jcn_column, lei_column=lei_column, lxid_column=lxid_column, md_column=md_column, red_code_column=red_code_column, rssd_column=rssd_column, sedol_column=sedol_column, spr_column=spr_column, ticker_column=ticker_column, ticker_exchange_column=ticker_exchange_column, ticker_region_column=ticker_region_column, ukch_column=ukch_column, valoren_column=valoren_column, wkn_column=wkn_column, include_entity_type=include_entity_type, exclude_entity_type=exclude_entity_type, include_entity_sub_type=include_entity_sub_type, exclude_entity_sub_type=exclude_entity_sub_type, additional_context_columns=additional_context_columns, auto_remap=auto_remap)
 
         pprint(api_response)
 
@@ -249,6 +251,8 @@ Name | Type | Description  | Notes
  **bic_column** | **str**| Header Name of the column in the input file for the type BICCode, &#x60;bank indentification code&#x60;.  | [optional]
  **cik_column** | **str**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional]
  **crd_column** | **str**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional]
+ **creditsafe_column** | **str**| the column name for type &#x60;Creditsafe Identifier&#x60;. | [optional]
+ **crunchbase_column** | **str**| the column name for type &#x60;Crunchbase Identifier&#x60;. | [optional]
  **cusip_column** | **str**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional]
  **ein_column** | **str**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional]
  **factset_id_column** | **str**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional]

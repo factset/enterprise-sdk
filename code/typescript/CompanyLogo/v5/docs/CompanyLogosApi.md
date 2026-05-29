@@ -1,10 +1,10 @@
 # companylogo.CompanyLogosApi
 
-All URIs are relative to *https://api.factset.com/wealth/v5*
+All URIs are relative to *https://api.factset.com/company-logo/v5*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postCompanyLogo**](CompanyLogosApi.md#postCompanyLogo) | **POST** /company/logo | Retrieves logos for one or more publicly traded companies.
+[**postCompanyLogo**](CompanyLogosApi.md#postCompanyLogo) | **POST** /logo/list | Retrieves logos for one or more publicly traded companies.
 
 
 

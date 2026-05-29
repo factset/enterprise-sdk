@@ -64,7 +64,7 @@ export default class CompanyLogosApi {
       let returnType = InlineResponse200;
 
       return this.apiClient.callApi(
-        '/company/logo', 'POST',
+        '/logo/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );

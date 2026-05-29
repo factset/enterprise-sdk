@@ -9,6 +9,8 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from fds.sdk.StreetAccountNews.model.burst_file_response import BurstFileResponse
+from fds.sdk.StreetAccountNews.model.burst_file_response_data import BurstFileResponseData
 from fds.sdk.StreetAccountNews.model.create_or_edit_view_body import CreateOrEditViewBody
 from fds.sdk.StreetAccountNews.model.create_or_edit_view_body_data import CreateOrEditViewBodyData
 from fds.sdk.StreetAccountNews.model.create_or_edit_view_tickers import CreateOrEditViewTickers

@@ -65,6 +65,8 @@ const opts = {
   'bic': TSLAUS66, // String | Input identifiers for the BICCode - Bank Indentification Code symbol Type.
   'cik': 1318605, // String | Input identifiers for the CIK - Edgar Central Index Keys symbol type.
   'crd': CRD, // String | Input identifiers for the CRD - Central Registration Depository symbol type.
+  'creditsafe': DE00001447, // String | Creditsafe Identifier
+  'crunchbase': 9d94b6c1-8b80-4169-8fd5-115bee96cde0, // String | Crunchbase Identifier
   'cusip': 88160R101, // String | Input identifiers for the CUSIP symbol type.
   'ein': 912197729, // String | Input identifiers for the EIN - Employer Identification Number symbol type.
   'factsetId': 006XY7-E, // String | Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type.
@@ -123,6 +125,8 @@ Name | Type | Description  | Notes
  **bic** | **String**| Input identifiers for the BICCode - Bank Indentification Code symbol Type. | [optional] 
  **cik** | **String**| Input identifiers for the CIK - Edgar Central Index Keys symbol type. | [optional] 
  **crd** | **String**| Input identifiers for the CRD - Central Registration Depository symbol type. | [optional] 
+ **creditsafe** | **String**| Creditsafe Identifier | [optional] 
+ **crunchbase** | **String**| Crunchbase Identifier | [optional] 
  **cusip** | **String**| Input identifiers for the CUSIP symbol type. | [optional] 
  **ein** | **String**| Input identifiers for the EIN - Employer Identification Number symbol type. | [optional] 
  **factsetId** | **String**| Input identifiers for the type FactSet Identifier - FactSet -E,-S,-R, -L Permanent Identifier symbol type. | [optional] 

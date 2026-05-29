@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Retrieves consensus estimates for a requested list of ids and fixed fiscal periods
 
-Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
+Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window. 
 
 ### Example
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 FactSet consensus estimates for fixed fiscal periods
 
-Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
+Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window. 
 
 ### Example
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 Retrieves consensus estimates for a requested list of ids and rolling fiscal periods.
 
-Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
+Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.&lt;/p&gt; 
 
 ### Example
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 Retrieves consensus estimates for a requested list of ids and rolling fiscal periods
 
-Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
+Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.&lt;/p&gt; 
 
 ### Example
 

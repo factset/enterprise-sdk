@@ -16,11 +16,11 @@
   },
   "servers": [
     {
-      "url": "https://api.factset.com/wealth/v5"
+      "url": "https://api.factset.com/company-logo/v5"
     }
   ],
   "paths": {
-    "/company/logo": {
+    "/logo/list": {
       "post": {
         "tags": [
           "Company logos"

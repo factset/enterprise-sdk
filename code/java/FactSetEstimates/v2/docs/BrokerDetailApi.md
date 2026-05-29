@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Estimates detail data for fixed fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods.
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods. The consensus window default is 100 day window.
 
 
 ### Example
@@ -130,6 +130,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+| **429** | Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. |  -  |
 | **500** | Internal Server Error. |  -  |
 
 
@@ -139,7 +140,7 @@ Name | Type | Description  | Notes
 
 Estimates detail data for fixed fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods.
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "fixed" fiscal periods. The consensus window default is 100 day window.
 
 
 ### Example
@@ -227,6 +228,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+| **429** | Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. |  -  |
 | **500** | Internal Server Error. |  -  |
 
 
@@ -236,7 +238,7 @@ Name | Type | Description  | Notes
 
 FactSet estimates detail data for rolling fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "rolling" fiscal periods.     
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "rolling" fiscal periods. The consensus window default is 100 day window.
 
 
 ### Example
@@ -349,6 +351,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+| **429** | Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. |  -  |
 | **500** | Internal Server Error. |  -  |
 
 
@@ -358,7 +361,7 @@ Name | Type | Description  | Notes
 
 FactSet estimates detail data for rolling fiscal periods
 
-Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "rolling" fiscal periods.
+Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for "rolling" fiscal periods. The consensus window default is 100 day window.
 
 
 ### Example
@@ -446,5 +449,6 @@ Name | Type | Description  | Notes
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
 | **415** | Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. |  -  |
+| **429** | Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. |  -  |
 | **500** | Internal Server Error. |  -  |
 

@@ -37,6 +37,7 @@ public class ConsensusApi {
     getFixedConsensusResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getFixedConsensusResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getFixedConsensusResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedConsensusResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getFixedConsensusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -47,6 +48,7 @@ public class ConsensusApi {
     getFixedConsensusForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getFixedConsensusForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getFixedConsensusForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedConsensusForListResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getFixedConsensusForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -57,6 +59,7 @@ public class ConsensusApi {
     getRollingConsensusResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getRollingConsensusResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getRollingConsensusResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRollingConsensusResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getRollingConsensusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -67,6 +70,7 @@ public class ConsensusApi {
     getRollingConsensusForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getRollingConsensusForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getRollingConsensusForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRollingConsensusForListResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getRollingConsensusForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -93,7 +97,7 @@ public class ConsensusApi {
 
   /**
    * Retrieves consensus estimates for a requested list of ids and fixed fiscal periods
-   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
+   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -113,6 +117,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -122,7 +127,7 @@ public class ConsensusApi {
 
   /**
    * Retrieves consensus estimates for a requested list of ids and fixed fiscal periods
-   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
+   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -142,6 +147,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -206,7 +212,7 @@ public class ConsensusApi {
   }
   /**
    * FactSet consensus estimates for fixed fiscal periods
-   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
+   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window. 
    * @param fixedConsensusRequest Request object for Estimate Data Items. (required)
    * @return ConsensusResponse
    * @throws ApiException if fails to make API call
@@ -218,6 +224,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -227,7 +234,7 @@ public class ConsensusApi {
 
   /**
    * FactSet consensus estimates for fixed fiscal periods
-   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. 
+   * Returns FactSet Estimates consensus data using fixed fiscal dates. For example, if the company&#39;s current unreported year is 12/2020, all data returned by formulas that specify as the period/report basis will be for 12/2005 regardless of what perspective dates (startDate/endDate) are used. The fixed dates are \&quot;locked\&quot; in time and all estimated values are for that explicit date. If you are requesting that the estimated periods can change with the perspective date, please use the rolling-consensus endpoint. The consensus window default is 100 day window. 
    * @param fixedConsensusRequest Request object for Estimate Data Items. (required)
    * @return ApiResponse&lt;ConsensusResponse&gt;
    * @throws ApiException if fails to make API call
@@ -239,6 +246,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -289,7 +297,7 @@ public class ConsensusApi {
   }
   /**
    * Retrieves consensus estimates for a requested list of ids and rolling fiscal periods.
-   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
+   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.&lt;/p&gt; 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -309,6 +317,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -318,7 +327,7 @@ public class ConsensusApi {
 
   /**
    * Retrieves consensus estimates for a requested list of ids and rolling fiscal periods.
-   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
+   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.&lt;/p&gt; 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -338,6 +347,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -402,7 +412,7 @@ public class ConsensusApi {
   }
   /**
    * Retrieves consensus estimates for a requested list of ids and rolling fiscal periods
-   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
+   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.&lt;/p&gt; 
    * @param rollingConsensusRequest Request object for Rolling Conensus estimates. (required)
    * @return ConsensusResponse
    * @throws ApiException if fails to make API call
@@ -414,6 +424,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -423,7 +434,7 @@ public class ConsensusApi {
 
   /**
    * Retrieves consensus estimates for a requested list of ids and rolling fiscal periods
-   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint.&lt;/p&gt; 
+   * Returns FactSet Estimates consensus data using rolling fiscal dates. &lt;p&gt;The rolling behavior causes fiscal year to automatically roll from one year to the next as the historical perspective date changes. The fiscal period rolls forward as of each period end. This endpoint is optimized to allow the request to simply include a relative fiscal period (e.g. use relativeFiscalStart integer 1 and periodicity ANN for next unreported fiscal year end), and then see what the consensus thought the \&quot;next fiscal year\&quot; estimates were through time as you \&quot;roll\&quot; back your perspective dates. This differs from locking down an absolute estimate period such as explicitly stating Fiscal Year 2019. This can be done in the fixed-consensus endpoint. The consensus window default is 100 day window.&lt;/p&gt; 
    * @param rollingConsensusRequest Request object for Rolling Conensus estimates. (required)
    * @return ApiResponse&lt;ConsensusResponse&gt;
    * @throws ApiException if fails to make API call
@@ -435,6 +446,7 @@ public class ConsensusApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */

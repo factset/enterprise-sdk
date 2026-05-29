@@ -1,0 +1,3149 @@
+openapi: 3.0.3
+info:
+  title: Private Equity & Venture Capital API
+  description: >
+    Comprehensive API for accessing private equity and venture capital data
+    including funds, general partners, transactions, and portfolio companies.
+  version: 1.0.0
+  contact:
+    name: FactSet Research Systems
+    email: api@factset.com
+    url: https://developer.factset.com/contact
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-pevc-api
+servers:
+  - url: https://api.factset.com/content/factset-pevc/v1
+    description: Production
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: Universe
+    description: Returns Entity Candidates and Matches for a single name and attributes.
+  - name: Funds
+    description: >-
+      Access detailed information on Private Equity and Venture Capital funds,
+      including fundraising history, cash flows, performance metrics, portfolio
+      holdings, and associated Limited Partners.
+  - name: General and Limited Partners
+    description: >-
+      Retrieve comprehensive data for General Partners (GP) and Limited Partners
+      (LP), including firm profiles, managed funds, key contacts, and
+      commitments.
+  - name: Transactions
+    description: >-
+      Detailed access to private transaction events like venture capital,
+      private equity, and M&A activity for portfolio companies, including
+      investment stage, amount, investors, and securities.
+  - name: Strategies
+    description: >-
+      Defines the investment strategy of a fund or General Partner, detailing
+      geographic, sector, instrument, and control criteria focus.
+  - name: IPOs
+    description: >-
+      Provides information on the Initial Public Offerings (IPOs) of portfolio
+      companies, including pricing, size, and status.
+paths:
+  /universe:
+    get:
+      summary: Returns Entity Candidates and Matches for a single name and attributes.
+      description: >
+        Finds the best candidate entities matching the given entity name.
+        Country code can also be supplied to narrow the search.
+
+
+        Returns a list of potential entity matches, along with a match
+        indicator, to assist in identifying the correct entity within the
+        FactSet universe.
+
+
+        **Max of 1 Name permitted in a single request.**
+      tags:
+        - Universe
+      operationId: getUniverse
+      parameters:
+        - $ref: '#/components/parameters/name'
+        - $ref: '#/components/parameters/country'
+        - $ref: '#/components/parameters/entityType'
+      responses:
+        '200':
+          description: Response containing Entity Match results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityMatchesResponse'
+              examples:
+                Entity Matches:
+                  $ref: '#/components/examples/resultOfEntityMatches'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /funds:
+    get:
+      summary: >-
+        Retrieve core profile and summary data for specified Private Equity or
+        Venture Capital Funds.
+      description: >-
+        Retrieves the main descriptive and profile information for one or more
+        Private Equity or Venture Capital funds identified by their FactSet
+        entity IDs. This includes key characteristics like fund status (e.g.,
+        Open, Closed), fund type (e.g., Venture, Buyout), vintage year, and
+        high-level strategy details.
+
+
+        Use the `/universe` endpoint, set the `entityType` parameter to `VEN`
+        (Venture Capital Fund), `PVF` (Private Equity Fund/Alt Investment), or
+        `FAF` (Family of Funds (Venture Capital/Private Equity)). Submit the
+        fund's name. The returned `entityId` is the required input value for
+        this endpoint.
+      operationId: getFund
+      tags:
+        - Funds
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundDetailsResponse'
+              examples:
+                Fund Details:
+                  $ref: '#/components/examples/resultOfFunds'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /funds/portfolio-companies:
+    get:
+      summary: >-
+        Retrieve the list of portfolio companies held by specified Private
+        Equity or Venture Capital Funds.
+      description: >-
+        Provides a list of **FactSet entity identifiers** for the portfolio
+        companies in which a specified fund has invested. This endpoint is key
+        for analyzing a fund's holdings and exposure to different companies in
+        the private market.
+
+
+        Use the `/universe` endpoint, set the `entityType` parameter to `VEN`
+        (Venture Capital Fund), `PVF` (Private Equity Fund/Alt Investment), or
+        `FAF` (Family of Funds (Venture Capital/Private Equity)). Submit the
+        fund's name. The returned `entityId` is the required input value for
+        this endpoint.
+      operationId: getFundPortfolioCompanies
+      tags:
+        - Funds
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundPortfolioCompaniesResponse'
+              examples:
+                Portfolio Companies:
+                  $ref: '#/components/examples/resultOfPortfolioCompanies'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /funds/fundraising:
+    get:
+      summary: >-
+        Retrieve the complete fundraising history for specified Private Equity
+        or Venture Capital Funds.
+      description: >-
+        Provides detailed information on the **fundraising lifecycle** of one or
+        more funds, including data on interim and **final closes**, the **total
+        amount raised** (fund size), and the as-reported currency for each
+        fundraising round.
+
+
+        Use the `/universe` endpoint, set the `entityType` parameter to `VEN`
+        (Venture Capital Fund), `PVF` (Private Equity Fund/Alt Investment), or
+        `FAF` (Family of Funds (Venture Capital/Private Equity)). Submit the
+        fund's name. The returned `entityId` is the required input value for
+        this endpoint.
+      operationId: getFundFundraising
+      tags:
+        - Funds
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundFundraisingResponse'
+              examples:
+                Fundraising:
+                  $ref: '#/components/examples/resultOfFundraising'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /funds/cashflows:
+    post:
+      summary: >-
+        Retrieve time-series cash flow data (contributions and distributions)
+        for specified funds.
+      description: >-
+        Provides **quarterly** cash flow data for one or more funds, including
+        **contributions** (capital calls) and **distributions** (payouts). This
+        raw data is fundamental for calculating net cash flows and performance
+        metrics like DPI, TVPI, and IRR.
+
+
+        Use the `/universe` endpoint, set the `entityType` parameter to `VEN`
+        (Venture Capital Fund), `PVF` (Private Equity Fund/Alt Investment), or
+        `FAF` (Family of Funds (Venture Capital/Private Equity)). Submit the
+        fund's name. The returned `entityId` is the required input value for
+        this endpoint.
+      operationId: getFundCashflows
+      tags:
+        - Funds
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FundCashflowsRequest'
+            examples:
+              Fund Cashflows request for multiple funds:
+                $ref: '#/components/examples/postFundCashflows'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundCashflowsResponse'
+              examples:
+                Cashflows:
+                  $ref: '#/components/examples/resultOfCashflows'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /general-partners:
+    get:
+      summary: >-
+        Retrieve core profile and summary data for specified General Partner
+        (GP) firms.
+      description: >-
+        Retrieves the primary descriptive and profile information for one or
+        more General Partner firms. This includes firm-level details such as the
+        **Asset Under Management (AUM)** and a high-level overview of their
+        **investment strategy** (e.g., target industry, geography).
+
+
+        Use the `/universe` endpoint and input the GP firm name, with
+        `entityType` set to `HOL`. Only use `entityId` values whose
+        `entityTypeCode` is `HOL` in your request.
+      operationId: getGP
+      tags:
+        - General and Limited Partners
+      parameters:
+        - $ref: '#/components/parameters/factsetGpEntityIds'
+        - $ref: '#/components/parameters/asOfDate'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GPDetailsResponse'
+              examples:
+                General Partner Details:
+                  $ref: '#/components/examples/resultOfGps'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /general-partners/funds:
+    get:
+      summary: >-
+        Retrieve the list of all Private Equity and Venture Capital Funds
+        managed by specified General Partners.
+      description: >-
+        Returns a list of all Private Equity and Venture Capital funds that are
+        actively or historically managed by the specified General Partner firms.
+        This provides a complete view of a GP's fund vintage and strategy
+        history.
+
+
+        Use the `/universe` endpoint and input the GP firm name, with
+        `entityType` set to `HOL`. Only use `entityId` values whose
+        `entityTypeCode` is `HOL` in your request.
+      operationId: getGPFunds
+      tags:
+        - General and Limited Partners
+      parameters:
+        - $ref: '#/components/parameters/factsetGpEntityIds'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GPFundsResponse'
+              examples:
+                General Partner Managed Funds:
+                  $ref: '#/components/examples/resultOfGpsFunds'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /limited-partners/funds:
+    get:
+      summary: >-
+        Retrieve the Limited Partners (LPs) and their capital commitments to
+        specific funds.
+      description: >-
+        Returns a list of **Limited Partners** (investors) associated with the
+        specified funds, along with details of their **capital commitments**
+        (investment amounts) and the **commit date**. This data is essential for
+        understanding a fund's LP base.
+
+
+        Use the `/universe` endpoint and input the fund's name, setting the
+        `entityType` to the most appropriate type (e.g., VEN, FAF, PVF).
+      operationId: getFundLimitedPartners
+      tags:
+        - General and Limited Partners
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FundLimitedPartnersResponse'
+              examples:
+                Limited Partners:
+                  $ref: '#/components/examples/resultOfLimitedPartners'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /transactions:
+    get:
+      summary: >-
+        Retrieve comprehensive details for a list of Private Equity or Venture
+        Capital transactions.
+      description: >-
+        Retrieves rich, fundamental data for one or more private investment
+        transactions, such as a **Venture Capital funding round** or a **Private
+        Equity buyout**. This includes the **deal size** (transaction amount),
+        **transaction date**, participating **investors**, **security type**
+        (e.g., common stock, preferred stock), and the round's **stage**.
+      operationId: getTransaction
+      tags:
+        - Transactions
+      parameters:
+        - $ref: '#/components/parameters/transactionIds'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionDetailsResponse'
+              examples:
+                Transaction Details:
+                  $ref: '#/components/examples/resultOfTransactions'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /transactions/search:
+    post:
+      summary: >-
+        Search and filter the universe of transactions by deal size, date range,
+        stage, and portfolio company.
+      description: >-
+        Allows users to query the universe of private transactions using a set
+        of powerful filters. Filters can include specific **portfolio
+        companies**, **investment stages** (e.g., Seed, Growth, Late),
+        **transaction date range**, and **minimum/maximum transaction amounts**
+        in USD.
+      operationId: searchTransactions
+      tags:
+        - Transactions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionSearchRequest'
+            examples:
+              Transaction search request:
+                $ref: '#/components/examples/postTransactionSearch'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionSearchResponse'
+              examples:
+                Transaction Search:
+                  $ref: '#/components/examples/resultOfTransactionsSearch'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /transactions/ma-activity:
+    get:
+      summary: >-
+        Retrieve detailed M&A advisory and investment information for specified
+        transactions.
+      description: >-
+        Provides specific details related to Mergers & Acquisitions (M&A)
+        activity for a given transaction. This includes information on M&A
+        **advisors** (e.g., financial, legal) and the specific **investments**
+        made by General Partner and Limited Partner investors in the context of
+        the M&A deal.
+      operationId: getTransactionMAActivity
+      tags:
+        - Transactions
+      parameters:
+        - $ref: '#/components/parameters/transactionIds'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionMaActivityResponse'
+              examples:
+                Transaction M&A Details:
+                  $ref: '#/components/examples/resultOfTransactionsMaActivity'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /ipos:
+    get:
+      summary: >-
+        Retrieve details of an Initial Public Offering (IPO) related to a
+        portfolio company exit.
+      description: >-
+        Provides comprehensive details on the **Initial Public Offering (IPO)**
+        process for portfolio companies, typically representing an exit for a
+        fund. Information includes the **IPO size**, **pricing**, date, and
+        other relevant capital markets data.
+
+
+        Use the `/transactions/ma-activity` endpoint to find fund deal ids for
+        your request.
+      operationId: getIPO
+      tags:
+        - IPOs
+      parameters:
+        - $ref: '#/components/parameters/dealIds'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IPODetailsResponse'
+              examples:
+                IPO Details:
+                  $ref: '#/components/examples/resultOfIpos'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /ipos/search:
+    post:
+      summary: >-
+        Search and filter the universe of portfolio company IPOs by status,
+        size, and date range.
+      description: >-
+        Enables filtering of the IPO universe by criteria such as **IPO status**
+        (e.g., Completed, Withdrawn), the **date range** of the IPO, and the
+        minimum or maximum **offering size** in USD.
+      operationId: searchIPOs
+      tags:
+        - IPOs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IPOSearchRequest'
+            examples:
+              IPO search request:
+                $ref: '#/components/examples/postIPOSearch'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IPOSearchResponse'
+              examples:
+                IPO Details:
+                  $ref: '#/components/examples/resultOfIposSearch'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /entities/strategies:
+    get:
+      summary: >-
+        Retrieve detailed investment strategy mandates for a specified fund or
+        General Partner.
+      description: >-
+        Provides a granular breakdown of the defined investment mandate for a
+        fund or General Partner (GP). The strategy is multi-faceted, covering
+        areas such as target **geographic exposure** (region, country, state),
+        preferred **industry/sector** focus, targeted **investment instruments**
+        (e.g., debt, equity, convertible notes), and **control criteria**.
+      operationId: getEntityStrategies
+      tags:
+        - Strategies
+      parameters:
+        - $ref: '#/components/parameters/ids'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityStrategiesResponse'
+              examples:
+                Entity Investment Strategies:
+                  $ref: '#/components/examples/resultOfEntityStrategies'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+          scopes: {}
+    FactSetApiKey:
+      type: http
+      scheme: basic
+  parameters:
+    ids:
+      name: ids
+      in: query
+      required: true
+      description: >-
+        A list of FactSet Permanent Entity Identifiers (FactSet IDs) for
+        **Private Equity and Venture Capital Funds**. These IDs are in the
+        format 'XXXXXX-E' and are the primary input for most fund-related
+        endpoints. These IDs can be retrieved from the /universe endpoint
+      schema:
+        type: array
+        minItems: 1
+        maxItems: 50
+        example:
+          - 001JYM-E
+          - 005GEM-E
+        items:
+          type: string
+      allowEmptyValue: false
+    factsetGpEntityIds:
+      name: ids
+      in: query
+      required: true
+      description: >-
+        A list of FactSet Permanent Entity Identifiers (FactSet IDs) for
+        **General Partner (GP) firms**. These IDs are used to identify the
+        management companies of the funds.
+      schema:
+        type: array
+        minItems: 1
+        maxItems: 50
+        example:
+          - 000BKX-E
+          - 000KCYH-E
+        items:
+          type: string
+    transactionIds:
+      name: ids
+      in: query
+      required: true
+      description: >-
+        A list of unique FactSet-generated identifiers for **Private Equity or
+        Venture Capital transactions**. These IDs link to a single investment
+        event, distinct from the main deal ID.
+      schema:
+        type: array
+        minItems: 1
+        maxItems: 50
+        example:
+          - 1000001
+          - 1000002
+        items:
+          type: integer
+    dealIds:
+      name: ids
+      in: query
+      required: true
+      description: >-
+        A list of unique FactSet-generated identifiers (Deal IDs) assigned to a
+        **Merger & Acquisition (M&A) or Venture Capital (VC) deal**. This ID
+        represents the main event being tracked.
+      schema:
+        type: array
+        minItems: 1
+        maxItems: 50
+        example:
+          - 410294
+          - 730294
+        items:
+          type: integer
+    asOfDate:
+      name: asOfDate
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+      description: >
+        The as-of date for the AUM data in **YYYY-MM-DD** format. Returns the
+        AUM value as of the specified date.
+
+
+        Note: 
+
+        - If omitted: The response will return the latest available AUM data.
+
+        - Future dates (T+1) are not accepted in this endpoint.
+      example: '2023-08-27'
+    name:
+      name: name
+      description: >
+        The proper name of a Private Equity/Venture Capital firm, Fund, or
+        Portfolio Company to be matched against the FactSet entity
+        universe.<br/>  <p>***max length** =  200 per request*</p>
+      in: query
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 200
+      required: true
+      example: Alto Pharmacy
+    country:
+      name: country
+      description: >-
+        The two-character ISO2 country code corresponding to the entity's
+        primary location. Providing this code helps to narrow the entity match
+        candidates, significantly improving the accuracy of the matching
+        algorithm. For a list of ISO2 Country codes, visit [OA
+        8754](https://my.apps.factset.com/oa/pages/8754).
+      in: query
+      schema:
+        type: string
+        maxLength: 2
+        minLength: 2
+      example: US
+    entityType:
+      name: entityType
+      description: "Three-character FactSet entity type code used to filter candidates in order to determine the final match result.\n  |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|\n  |---|---|---|---|\n  |PVT|Private Company|SUB|Subsidiary|\n  |HOL|Holding Company|JVT|Joint Venture|\n  |NPO|Non-Profit Organization|\n  \n  |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|\n  |---|---|---|---|\n  |FAF|\tFamily of Funds (Venture Capital/Private Equity)|PVF|Private Equity Fund / Alternative Investment|\n  |VEN|Venture Capital Fund|"
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+          maxLength: 3
+          minLength: 3
+          example: PVT
+  responses:
+    '400':
+      description: >-
+        Bad Request. This can occur for several reasons. Please review the
+        "message" for more details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/badRequestDateFormat'
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+            Bad Request - Read Timeout:
+              $ref: '#/components/examples/badRequestReadTimeout'
+    '401':
+      description: >-
+        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting
+        from. For more help, select the **Report Issue** in the top right corner
+        of this Developer Portal specification card and choose Connectivity 401
+        or 403 Responses.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Date Format:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was legal, but the server is refusing to respond.
+        Please reach out to FactSet Account Team for assistance with
+        authorization.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - forbidden:
+              $ref: '#/components/examples/forbidden'
+    '415':
+      description: >-
+        Unsupported Media Type. This error may be returned when the caller sends
+        a resource in a format that is not accepted by the server. This can be
+        fixed by ensuring that the Content-Type header is set to the correct
+        value. In this instance, "application/json" would be the appropriate
+        value.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request - Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '500':
+      description: Internal Server Error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+  schemas:
+    ErrorObjectResponse:
+      type: object
+      nullable: true
+      description: error
+      properties:
+        code:
+          description: status
+          type: string
+          example: GenericError
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+        detail:
+          description: Error details explanation
+          type: string
+          example: Validation Error
+    EntityMatchesResponse:
+      title: Entity Matches Response
+      description: >-
+        The response object containing the results of the Entity Match request,
+        which includes candidate entities and the final match decision.
+      type: object
+      properties:
+        data:
+          description: Candidate list of `Entity Match` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityMatch'
+    EntityMatch:
+      title: Entity Match
+      description: >
+        An individual object representing a potential or actual match for a
+        submitted entity name, providing the FactSet ID and related descriptive
+        attributes.
+      type: object
+      properties:
+        entityId:
+          description: >
+            The definitive **FactSet Permanent Entity Identifier** (FactSet ID)
+            of the entity matched, typically in the format 'XXXXXX-E'. This is
+            the key identifier used for subsequent data retrieval endpoints in
+            the API. For more detail, visit [FactSet Permanent Security
+            Identifier](https://oa.apps.factset.com/cms/oaAttachment/64c3213a-f415-4c27-a336-92c73a72deed/24881)
+          type: string
+          example: 0H3R4Y-E
+          nullable: true
+        entityName:
+          description: >-
+            The full, standardized legal name corresponding to the matched
+            entity as recorded in the FactSet database.
+          type: string
+          example: Alto Pharmacy LLC
+          nullable: true
+        countryCode:
+          description: >-
+            The two-character ISO 3166-1 alpha-2 country code corresponding to
+            the primary country of the matched entity.
+          type: string
+          example: US
+          nullable: true
+        entityTypeCode:
+          description: >-
+            Code representing the entity type of the matched entity. See the
+            related request parameter for a table of all Codes and their
+            respective descriptions.
+          type: string
+          example: PVT
+          nullable: true
+        matchFlag:
+          description: >-
+            A boolean flag indicating whether the `entityId` is a FactSet match
+            based on the input name and country. When `true`, the FactSet
+            `entityId` was confidently matched to the input name and country.
+            When `false`, the FactSet `entityId` could not be confidently
+            matched to the input name and country.
+          type: boolean
+          example: true
+          nullable: true
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Error Default Response
+      properties:
+        errors:
+          type: array
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: object
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          type: string
+          format: uuid
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code:
+          description: status
+          type: string
+          example: Bad Request
+        links:
+          description: The Endpoint path {package}/version/{endpoint}
+          type: object
+          properties:
+            about:
+              description: details.
+              type: string
+              example: /factset-pevc/v1/{endpoint}
+        title:
+          description: The plain text error message
+          type: string
+          example: Validation Error
+    FundDetailsResponse:
+      title: Fund Details Response
+      description: The response object containing the results of the Fund Detail request.
+      type: object
+      properties:
+        data:
+          description: List of `Fund Detail` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/FundDetail'
+    FundDetail:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Unique FactSet identifier for the fund used in request
+          nullable: true
+        factsetGpEntityId:
+          type: string
+          description: FactSet identifier for the general partner managing the fund
+          nullable: true
+        entityProfile:
+          type: string
+          description: Descriptive profile of the fund entity
+          nullable: true
+        fundStatus:
+          type: string
+          description: Current fund status
+          nullable: true
+        dates:
+          type: object
+          nullable: true
+          properties:
+            registrationDate:
+              type: string
+              format: date
+              nullable: false
+              description: The date on which it is filed in the registry
+            launchDate:
+              type: string
+              format: date
+              nullable: true
+              description: The date on which the fund was first opened to investors
+            liquidationDate:
+              type: string
+              format: date
+              nullable: true
+              description: The date at which all investments have been divested
+        financialInfo:
+          type: object
+          nullable: true
+          properties:
+            dryPowder:
+              type: number
+              nullable: true
+              description: >-
+                Returns the estimated dry powder of the local currency for the
+                specified fund
+            amountRaised:
+              type: number
+              nullable: true
+              description: >-
+                The amount raised by the fund as of respective open date. The
+                value is expressed in millions, in the reported currency.
+            amountRaisedUsd:
+              type: number
+              nullable: true
+              description: >-
+                The amount raised by the fund as of respective open date. The
+                value is expressed in U.S Dollars in millions, converted as of
+                the fund's open date.
+            currency:
+              type: string
+              nullable: true
+              description: Reported currency ISO code
+        investmentCriteria:
+          type: object
+          nullable: true
+          properties:
+            transactionMin:
+              type: number
+              nullable: true
+              description: Minimum amount the GP/fund invests in a transaction
+            transactionMax:
+              type: number
+              nullable: true
+              description: Maximum amount the GP/fund invests in a transaction
+            investmentMin:
+              type: number
+              nullable: true
+              description: >-
+                Minimum investment the GP/fund is looking to invest per
+                portco/transaction
+            investmentMax:
+              type: number
+              nullable: true
+              description: >-
+                Maximum investment the GP/fund is looking to invest per
+                portco/transaction
+            ebitdaMin:
+              type: number
+              nullable: true
+              description: >-
+                Minimum EBITDA the GP/fund is considering at an investee company
+                level to make the investment decision
+            ebitdaMax:
+              type: number
+              nullable: true
+              description: >-
+                Maximum EBITDA the GP/fund is considering at an investee company
+                level to make the investment decision
+            enterpriseValueMin:
+              type: number
+              nullable: true
+              description: >-
+                Minimum enterprise value GP/fund is considering at an investee
+                company level to make the investment decision
+            enterpriseValueMax:
+              type: number
+              nullable: true
+              description: >-
+                Maximum enterprise value GP/fund is considering at an investee
+                company level to make the investment decision
+            revenueMin:
+              type: number
+              nullable: true
+              description: >-
+                Minimum revenue the GP/fund is considering at an investee
+                company level to make the investment decision
+            revenueMax:
+              type: number
+              nullable: true
+              description: >-
+                Maximum revenue the GP/fund is considering at an investee
+                company level to make the investment decision
+        terms:
+          type: object
+          nullable: true
+          properties:
+            managementFee:
+              type: number
+              nullable: true
+              description: A fee charged to the LPs by the GP in percentage
+            preferredReturn:
+              type: number
+              nullable: true
+              description: >-
+                This is the minimum amount of return that is distributed to the
+                LPs until the GP or asset manager is eligible to deduct carried
+                interest. Value is expressed in percent of contributed net
+                capital
+            carriedInterest:
+              type: number
+              nullable: true
+              description: >-
+                A performance fee that the GP receives once the preferred return
+                has been determined
+            fundTermYears:
+              type: integer
+              nullable: true
+              description: The number of years the fund will officially be active
+            extensionYears:
+              type: integer
+              nullable: true
+              description: Indicates if the fund duration can be extended
+            yearsExtended:
+              type: integer
+              nullable: true
+              description: Number of years fund duration extended
+            registry:
+              type: string
+              nullable: true
+              description: Registry link of the fund where state fund was registered
+        features:
+          type: object
+          nullable: true
+          properties:
+            evergreenFund:
+              type: boolean
+              description: Whether the fund is evergreen (no fixed term)
+              nullable: true
+            esgFocus:
+              type: boolean
+              description: Whether the fund has ESG investment focus
+              nullable: true
+            subParticipation:
+              type: boolean
+              description: Whether sub-participation is allowed
+              nullable: true
+            coInvest:
+              type: boolean
+              description: Whether co-investment opportunities are offered
+              nullable: true
+            investmentPublic:
+              type: boolean
+              description: Whether the fund invests in public companies
+              nullable: true
+        strategyType:
+          type: string
+          description: Indicate the fund strategy type.
+          nullable: true
+          enum:
+            - Infrastructure/Proj Fin
+            - Fund of Funds
+            - Buyout
+            - MBO
+            - Secondary
+            - Real Estate
+            - Mezzanine
+            - LBO
+            - Debt
+            - Seed Stage
+            - Early Stage
+            - Later Stage
+        fundOfFundAllocation:
+          type: object
+          nullable: true
+          properties:
+            vcPercent:
+              type: number
+              nullable: true
+              description: Venture capital allocation percentage
+            pePercent:
+              type: number
+              nullable: true
+              description: Private equity allocation percentage
+            mezzaninePercent:
+              type: number
+              nullable: true
+              description: Mezzanine allocation percentage
+            debtPercent:
+              type: number
+              nullable: true
+              description: Debt allocation percentage
+            reitPercent:
+              type: number
+              nullable: true
+              description: REIT allocation percentage
+            secondaryFundPercent:
+              type: number
+              nullable: true
+              description: Secondary fund allocation percentage
+            infrastructurePercent:
+              type: number
+              nullable: true
+              description: Infrastructure allocation percentage
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    FundPortfolioCompaniesResponse:
+      title: Fund Portfolio Companies Response
+      description: >-
+        The response object containing the results of the Fund Portfolio
+        Companies request.
+      type: object
+      properties:
+        data:
+          description: List of `Fund Portfolio Company` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/FundPortfolioCompany'
+    FundPortfolioCompany:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Fund entity identifier used in request
+          nullable: true
+        portfolioCompanies:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/PortfolioCompany'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    FundFundraisingResponse:
+      title: Fund Fundraising Response
+      description: >-
+        The response object containing the results of the Fund Fundraising
+        request.
+      type: object
+      properties:
+        data:
+          description: List of `Fund Fundraising` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/FundFundraising'
+    FundFundraising:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Unique FactSet identifier for the fund used in request
+          nullable: true
+        fundraisingRounds:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/FundraisingRound'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    EntityStrategiesResponse:
+      title: Entity Strategies Response
+      description: >-
+        The response object containing the results of the Entity Strategy
+        request.
+      type: object
+      properties:
+        data:
+          description: List of `Entity Strategy` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityStrategy'
+    EntityStrategy:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Entity identifier used in request
+          nullable: true
+        isGp:
+          type: boolean
+          description: Whether entity is a GP
+          nullable: true
+        geographicFocus:
+          type: object
+          nullable: true
+          properties:
+            regions:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/RegionItem'
+            countries:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/CountryItem'
+            statesProvinces:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/StateProvinceItem'
+        sectorFocus:
+          type: object
+          nullable: true
+          properties:
+            sectors:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/SectorItem'
+            industries:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/IndustryItem'
+        investmentInstruments:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/InstrumentItem'
+        transactionStrategies:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/StrategyCodeItem'
+        controlCriteria:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ControlItem'
+        investorRoles:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/RoleItem'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    FundLimitedPartnersResponse:
+      title: Fund Limited Partners Response
+      description: >-
+        The response object containing the results of the Fund Limited Partner
+        request.
+      type: object
+      properties:
+        data:
+          description: List of `Fund Limited Partner` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/FundLimitedPartners'
+    FundLimitedPartners:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Fund entity identifier used in request
+          nullable: true
+        limitedPartners:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/LimitedPartner'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    FundCashflowsResponse:
+      title: Fund Cashflows Response
+      description: >-
+        The response object containing the results of the Fund Cashflows
+        request.
+      type: object
+      properties:
+        data:
+          description: List of `funds` with their respective `cashflows`.
+          type: array
+          items:
+            $ref: '#/components/schemas/Fund'
+    Fund:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Fund identifier used in request
+          nullable: true
+        cashflows:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/FundCashflow'
+          description: List of cashflow transactions for this fund
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    FundCashflow:
+      type: object
+      nullable: true
+      properties:
+        date:
+          type: string
+          format: date
+          description: Date the cashflow transaction occurred
+          nullable: true
+        cfType:
+          type: string
+          description: Cash flow type (CONTRIBUTION, DISTRIBUTION, NAV)
+          nullable: true
+        cfAmount:
+          type: number
+          description: Cash flow amount in reporting currency
+          nullable: true
+        cfAmountUsd:
+          type: number
+          description: Cash flow amount in USD
+          nullable: true
+        currency:
+          type: string
+          description: Reporting currency
+          nullable: true
+    TransactionMaActivityResponse:
+      title: Transaction M&A Activity Response
+      description: >-
+        The response object containing the results of the Transaction M&A
+        Activity request.
+      type: object
+      properties:
+        data:
+          description: List of `Transaction M&A Activity` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionMaActivity'
+    TransactionMaActivity:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: integer
+          description: Unique identifier of the respective transaction used in request
+          nullable: true
+        advisors:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/MaAdvisor'
+        investments:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/MaInvestment'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    IPOSearchResponse:
+      title: IPO Search Response
+      description: The response object containing the results of the IPO Search request.
+      type: object
+      properties:
+        data:
+          description: List of `IPO Summary` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/IPOSummary'
+    IPODetailsResponse:
+      title: IPO Details Response
+      description: The response object containing the results of the IPO Details request.
+      type: object
+      properties:
+        data:
+          description: List of `IPO Detail` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/IPODetail'
+    IPODetail:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: integer
+          description: Requested Deal ID
+          nullable: true
+        ipoId:
+          type: integer
+          description: IPO identifier associated with the pevc backed company
+          nullable: true
+        factsetPortCoEntityId:
+          type: string
+          description: Portfolio company identifier
+          nullable: true
+        portfolioCompanyName:
+          type: string
+          description: Portfolio company name
+          nullable: true
+        tickerSymbol:
+          type: string
+          nullable: true
+          description: Trading ticker symbol
+        tradeDate:
+          type: string
+          format: date
+          nullable: true
+          description: First trading date
+        closeDate:
+          type: string
+          format: date
+          nullable: true
+          description: IPO closing date
+        offerPrice:
+          type: number
+          nullable: true
+          description: IPO offer price
+        offerPriceUsd:
+          type: number
+          nullable: true
+          description: IPO offer price in USD
+        exchangeDate:
+          type: string
+          format: date
+          nullable: true
+          description: The exchange date used for conversion of the local to USD
+        ipoSize:
+          type: number
+          nullable: true
+          description: >-
+            Gross proceeds, including overallotment, expressed in millions of
+            the issuer's currency
+        currency:
+          type: string
+          description: ISO Currency of the Issuer (Portfolio Company)
+          nullable: true
+        ipoStatus:
+          type: string
+          description: Status of the IPO transaction
+          nullable: true
+          enum:
+            - Closed
+            - Announced
+            - Postponed
+            - Cancelled
+            - Priced
+            - Withdrawn
+            - In Registration
+        announcementDate:
+          type: string
+          format: date
+          nullable: true
+          description: IPO announcement date
+        pricingDate:
+          type: string
+          format: date
+          nullable: true
+          description: IPO pricing date
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    TransactionSearchResponse:
+      title: Transaction Search Response
+      description: >-
+        The response object containing the results of the Transaction Search
+        request.
+      type: object
+      properties:
+        data:
+          description: List of `Transaction Summary` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionSummary'
+    TransactionSummary:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Unique identifier of the issuer portfolio company in the request
+          nullable: true
+        transactionId:
+          type: integer
+          description: Unique identifier of the respective transaction
+          nullable: true
+        portfolioCompanyName:
+          type: string
+          description: Portfolio company name
+          nullable: true
+        announcementDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date transaction was announced
+        closeDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date transaction closed
+        totalAmountUsd:
+          type: number
+          nullable: true
+          description: Total transaction amount in USD
+        stage:
+          type: string
+          nullable: true
+          description: The stage type of the transaction
+        status:
+          type: string
+          description: Transaction status code
+          nullable: true
+        roundOfFunding:
+          type: string
+          nullable: true
+          description: Funding round designation
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    TransactionDetailsResponse:
+      title: Transaction Details Response
+      description: >-
+        The response object containing the results of the Transaction Details
+        request.
+      type: object
+      properties:
+        data:
+          description: List of `Transaction Detail` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionDetail'
+    TransactionDetail:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: integer
+          description: Unique identifier of the respective transaction used in request
+          nullable: true
+        factsetPortCoEntityId:
+          type: string
+          description: Portfolio company entity ID
+          nullable: true
+        portfolioCompanyName:
+          type: string
+          description: Portfolio company name
+          nullable: true
+        investmentType:
+          type: string
+          description: Investment type of the transaction
+          nullable: true
+        status:
+          type: string
+          description: Status of the transaction
+          nullable: true
+        announcementDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date transaction was announced
+        closeDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date transaction closed
+        financial:
+          type: object
+          nullable: true
+          properties:
+            totalAmount:
+              type: number
+              nullable: true
+              description: Total transaction amount in reporting currency
+            totalAmountUsd:
+              type: number
+              nullable: true
+              description: Total transaction amount in USD
+            cfTargetAmount:
+              type: number
+              nullable: true
+              description: Target amount for crowdfunding
+            currency:
+              type: string
+              description: Transaction currency
+              nullable: true
+            postMoneyValuation:
+              type: number
+              nullable: true
+              description: Post-money valuation
+            postMoneyValuationUsd:
+              type: number
+              nullable: true
+              description: Post-money valuation in USD
+            preMoneyValuation:
+              type: number
+              nullable: true
+              description: Pre-money valuation
+            preMoneyValuationUsd:
+              type: number
+              nullable: true
+              description: Pre-money valuation in USD
+        details:
+          type: object
+          nullable: true
+          properties:
+            roundOfFunding:
+              type: string
+              nullable: true
+              description: Funding round designation
+            stage:
+              type: string
+              nullable: true
+              description: The stage type of the transaction
+            numBackingInvestors:
+              type: integer
+              nullable: true
+              description: Number of investors in round
+            isAssumed:
+              type: boolean
+              description: Whether transaction details are assumed
+              nullable: true
+            synopsis:
+              type: string
+              nullable: true
+              description: Transaction synopsis
+            securityNote:
+              type: string
+              nullable: true
+              description: Security details and terms
+            securityCodesUsed:
+              type: array
+              nullable: true
+              description: Transaction security type
+              items:
+                type: string
+                enum:
+                  - Common Stock
+                  - Preferred Stock
+                  - Convertible/Exchangeable Bond
+                  - Warrant
+                  - Product
+                  - Mezzanine
+                  - SAFE
+        investors:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/TransactionInvestor'
+        securities:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/TransactionSecurity'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    GPFundsResponse:
+      title: General Partner Funds Response
+      description: >-
+        The response object containing the results of the General Partner Funds
+        request.
+      type: object
+      properties:
+        data:
+          description: List of `General Partner Fund` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/GPFund'
+    GPFund:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Unique FactSet identifier for the GP used in request
+          nullable: true
+        funds:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/FundSummary'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    GPDetailsResponse:
+      title: General Partner Details Response
+      description: >-
+        The response object containing the results of the General Partner
+        Details request.
+      type: object
+      properties:
+        data:
+          description: List of `General Partner Detail` objects.
+          type: array
+          items:
+            $ref: '#/components/schemas/GPDetail'
+    GPDetail:
+      type: object
+      nullable: true
+      properties:
+        requestId:
+          type: string
+          description: Unique FactSet identifier for the GP used in request
+          nullable: true
+        gpName:
+          type: string
+          description: General partner name
+          nullable: true
+        investmentCriteria:
+          type: object
+          nullable: true
+          properties:
+            transactionMin:
+              type: number
+              nullable: true
+              description: Minimum transaction size
+            transactionMax:
+              type: number
+              nullable: true
+              description: Maximum transaction size
+            investmentMin:
+              type: number
+              nullable: true
+              description: Minimum investment amount
+            investmentMax:
+              type: number
+              nullable: true
+              description: Maximum investment amount
+            ebitdaMin:
+              type: number
+              nullable: true
+              description: Minimum target company EBITDA
+            ebitdaMax:
+              type: number
+              nullable: true
+              description: Maximum target company EBITDA
+            enterpriseValueMin:
+              type: number
+              nullable: true
+              description: Minimum target company enterprise value
+            enterpriseValueMax:
+              type: number
+              nullable: true
+              description: Maximum target company enterprise value
+            revenueMin:
+              type: number
+              nullable: true
+              description: Minimum target company revenue
+            revenueMax:
+              type: number
+              nullable: true
+              description: Maximum target company revenue
+            currency:
+              type: string
+              nullable: true
+              description: Currency of portfolio investment criteria of the GP
+        features:
+          type: object
+          nullable: true
+          properties:
+            investStrategyAvailable:
+              type: boolean
+              description: Whether investment strategy information is available
+              nullable: true
+            investPublicCompanies:
+              type: boolean
+              description: Whether GP invests in public companies
+              nullable: true
+            esgFocus:
+              type: boolean
+              description: Whether GP has ESG investment focus
+              nullable: true
+        aum:
+          $ref: '#/components/schemas/AUMItem'
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    PortfolioCompany:
+      type: object
+      nullable: true
+      properties:
+        factsetEntityId:
+          type: string
+          description: FactSet identifier for the portfolio company
+          nullable: true
+        companyName:
+          type: string
+          description: Portfolio company name
+          nullable: true
+        investmentDate:
+          type: string
+          format: date
+          description: Date of initial investment
+          nullable: true
+        sector:
+          type: string
+          description: Primary sector classification
+          nullable: true
+    FundraisingRound:
+      type: object
+      nullable: true
+      properties:
+        fundraiseCloseCode:
+          type: string
+          description: Fundraising close type code
+          nullable: true
+          enum:
+            - Unknown Close
+            - First Close
+            - Tenth Close
+            - Second Close
+            - Third Close
+            - Fourth Close
+            - Fifth Close
+            - Sixth Close
+            - Seventh Close
+            - Eighth Close
+            - Ninth Close
+        closeDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date of the fundraising close
+        originalTargetAmount:
+          type: number
+          nullable: true
+          description: Minimum amount expected by the GP to raise for a fund
+        originalTargetAmountUsd:
+          type: number
+          nullable: true
+          description: >-
+            The amount of funds that the fund intends to raise. The value is
+            expressed in U.S. Dollars in millions. Target Amount reporting in a
+            currency other than U.S. Dollars are converted as of the original
+            target date.
+        revisedTargetAmount:
+          type: number
+          nullable: true
+          description: Revised target amount
+        revisedTargetAmountUsd:
+          type: number
+          nullable: true
+          description: >-
+            Refers to a change in the original target size or amount of funds
+            that the fund intends to raise. The value is expressed in U.S.
+            Dollars in millions. Revised Target Amount reporting in a currency
+            other than U.S. Dollars are converted as of the revised target date.
+        originalTargetDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date the GP expects the minimum target to be raised
+        revisedTargetDate:
+          type: string
+          format: date
+          nullable: true
+          description: Date the target amount is revised
+        targetMin:
+          type: number
+          nullable: true
+          description: Minimum fundraising target
+        targetMax:
+          type: number
+          nullable: true
+          description: Maximum fundraising target
+        minMaxTargetDate:
+          type: string
+          format: date
+          nullable: true
+          description: Target date for min/max range
+        fundraiseAmountRaised:
+          type: number
+          nullable: true
+          description: Amount raised in this close
+        finalClose:
+          type: boolean
+          description: Whether this is the final close
+          nullable: true
+        currency:
+          type: string
+          description: Currency of the amounts
+          nullable: true
+    LimitedPartner:
+      type: object
+      nullable: true
+      properties:
+        factsetLpEntityId:
+          type: string
+          description: FactSet identifier for the limited partner
+          nullable: true
+        lpName:
+          type: string
+          description: Limited partner name
+          nullable: true
+        commitDate:
+          type: string
+          format: date
+          description: Date of commitment
+          nullable: true
+        commitAmount:
+          type: number
+          description: Commitment amount in reporting currency
+          nullable: true
+        commitAmountUsd:
+          type: number
+          description: Commitment amount in USD
+          nullable: true
+        revisedCommit:
+          type: integer
+          nullable: true
+          description: Revised commitment amount if changed
+        currency:
+          type: string
+          description: Currency of the commitment
+          nullable: true
+        fundraiseCloseCode:
+          type: string
+          nullable: true
+          description: Associated fundraising close
+          enum:
+            - Unknown Close
+            - First Close
+            - Tenth Close
+            - Second Close
+            - Third Close
+            - Fourth Close
+            - Fifth Close
+            - Sixth Close
+            - Seventh Close
+            - Eighth Close
+            - Ninth Close
+    TransactionInvestor:
+      type: object
+      nullable: true
+      properties:
+        factsetInvestorEntityId:
+          type: string
+          description: Investor entity identifier
+          nullable: true
+        factsetFundEntityId:
+          type: string
+          nullable: true
+          description: Fund used for investment
+        amountInvested:
+          type: number
+          nullable: true
+          description: Amount invested in reporting currency
+        amountInvestedUsd:
+          type: number
+          nullable: true
+          description: Amount invested in USD
+        percentOfRound:
+          type: number
+          nullable: true
+          description: Percentage of round
+        isLead:
+          type: boolean
+          description: Whether investor is lead
+          nullable: true
+        fundNotKnown:
+          type: boolean
+          description: Whether fund is unknown
+          nullable: true
+        noFundUsed:
+          type: boolean
+          description: Whether no fund was used
+          nullable: true
+        factsetCrowdfundingEntityId:
+          type: string
+          nullable: true
+          description: >-
+            Unique identifier of the lead manager involved in the crowd funding
+            transaction
+    TransactionSecurity:
+      type: object
+      nullable: true
+      properties:
+        securityCode:
+          type: string
+          nullable: true
+          description: Transaction security type
+        amountInvested:
+          type: number
+          nullable: true
+          description: Amount for this security type
+        amountInvestedUsd:
+          type: number
+          nullable: true
+          description: Amount in USD
+        percentOfRound:
+          type: number
+          nullable: true
+          description: Percentage of round for this security
+        currency:
+          type: string
+          description: Currency of amounts
+          nullable: true
+    MaAdvisor:
+      type: object
+      nullable: true
+      properties:
+        factsetAdvisorEntityId:
+          type: string
+          description: FactSet Entity ID that specifies the advisor in the deal
+          nullable: true
+        advisorName:
+          type: string
+          description: Advisor firm name
+          nullable: true
+        factsetClientEntityId:
+          type: string
+          description: >-
+            FactSet Entity ID that specifies the client and if the client is
+            another advisor in the deal
+          nullable: true
+        clientType:
+          type: string
+          description: Client type (TARGET, BUYER)
+          nullable: true
+        professionalType:
+          type: string
+          description: Professional service type
+          nullable: true
+        factsetPersonEntityId:
+          type: string
+          nullable: true
+          description: >-
+            Unique identifier of the people involved in advising on the
+            transaction
+    MaInvestment:
+      type: object
+      nullable: true
+      properties:
+        factsetPortCoEntityId:
+          type: string
+          description: Factset portfolio company entity identifier
+          nullable: true
+        factsetInvestorEntityId:
+          type: string
+          description: Investor entity identifier
+          nullable: true
+        entryDate:
+          type: string
+          format: date
+          description: Investment entry date
+          nullable: true
+        exitDate:
+          type: string
+          format: date
+          nullable: true
+          description: Investment exit date
+        entryType:
+          type: string
+          nullable: true
+          description: Type of entry
+          enum:
+            - Private Placement
+            - Crowdfunding
+            - Accelerator/Incubator
+            - M&A
+            - Undisclosed Date
+            - Fund Management change
+            - Partial VC Exit
+            - AM Reorganization
+            - Corporate
+            - Capitalization
+            - Angel
+            - Secondary
+        exitType:
+          type: string
+          nullable: true
+          description: Type of exit
+          enum:
+            - Bankruptcy
+            - Fund Management Change
+            - IPO
+            - M&A
+            - Undisclosed(Full Portfolio Exit)
+            - Partial VC Exit
+            - Growth Secondary Buy-Out
+            - VC Recapitalization
+            - Undisclosed(Single Investor Exit)
+            - AM Reorganization
+            - Secondary Buyout
+            - Reverse Takeover
+            - Strategic M&A
+        dealId:
+          type: integer
+          nullable: true
+          description: Unique FactSet-generated identifier assigned to a M&A or VC deal
+        ipoId:
+          type: integer
+          nullable: true
+          description: IPO identifier associated with the pevc backed company
+        retainingStake:
+          type: boolean
+          description: Whether investor retains stake
+          nullable: true
+        investmentCategory:
+          type: integer
+          description: Categorizes the investment made. 1-Venture Capital, 0-Private Equity
+          nullable: true
+    IPOSummary:
+      type: object
+      nullable: true
+      properties:
+        ipoId:
+          type: integer
+          description: IPO identifier
+          nullable: true
+        factsetPortCoEntityId:
+          type: string
+          description: Portfolio company identifier
+          nullable: true
+        portfolioCompanyName:
+          type: string
+          description: Portfolio company name
+          nullable: true
+        tickerSymbol:
+          type: string
+          nullable: true
+          description: Trading ticker symbol
+        tradeDate:
+          type: string
+          format: date
+          nullable: true
+          description: First trading date
+        offerPriceUsd:
+          type: number
+          nullable: true
+          description: IPO offer price in USD
+        ipoSize:
+          type: number
+          nullable: true
+          description: >-
+            Gross proceeds, including overallotment, expressed in millions of
+            the issuer's currency
+        ipoStatus:
+          type: string
+          description: Status of the IPO transaction
+          nullable: true
+          enum:
+            - Closed
+            - Announced
+            - Postponed
+            - Cancelled
+            - Priced
+            - Withdrawn
+            - In Registration
+    FundSummary:
+      type: object
+      nullable: true
+      properties:
+        factsetFundEntityId:
+          type: string
+          description: Unique FactSet identifier for the fund
+          nullable: true
+        fundName:
+          type: string
+          description: Fund name
+          nullable: true
+        fundStatus:
+          type: string
+          description: Current fund status
+          nullable: true
+          enum:
+            - Raising
+            - Divesting
+            - Investing
+            - Liquidated
+        launchDate:
+          type: string
+          format: date
+          description: Fund launch date
+          nullable: true
+        amountRaisedUsd:
+          type: number
+          description: Amount raised in USD
+          nullable: true
+    AUMItem:
+      type: object
+      nullable: true
+      properties:
+        date:
+          type: string
+          format: date
+          description: AUM measurement date
+          nullable: true
+        amount:
+          type: number
+          description: AUM amount in reporting currency
+          nullable: true
+        amountUsd:
+          type: number
+          description: AUM amount in USD
+          nullable: true
+        currency:
+          type: string
+          description: Reporting currency
+          nullable: true
+    RegionItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    CountryItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    StateProvinceItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    SectorItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    IndustryItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    InstrumentItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    StrategyCodeItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    ControlItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    RoleItem:
+      type: object
+      nullable: true
+      properties:
+        code:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+    FundCashflowsRequest:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: object
+          required:
+            - ids
+          properties:
+            ids:
+              type: array
+              minItems: 1
+              maxItems: 50
+              description: >-
+                List of fund entity identifiers, which can be retrieved from the
+                /universe endpoint
+              items:
+                type: string
+            startDate:
+              type: string
+              format: date
+              description: >-
+                Specifies the start date for the requested date range, formatted
+                as YYYY-MM-DD. Future dates (T+1) are not accepted in this
+                endpoint.
+            endDate:
+              type: string
+              format: date
+              description: >-
+                Specifies the end date for the requested date range, formatted
+                as YYYY-MM-DD. Future dates (T+1) are not accepted in this
+                endpoint.
+            cfType:
+              type: string
+              description: Cash flow type filter
+              enum:
+                - CONTRIBUTION
+                - DISTRIBUTION
+                - NAV
+    TransactionSearchRequest:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: object
+          required:
+            - ids
+          properties:
+            ids:
+              type: array
+              minItems: 1
+              maxItems: 50
+              description: Filter by factset portfolio company entity identifiers
+              items:
+                type: string
+            status:
+              type: string
+              description: Status of the transaction
+              enum:
+                - Pending
+                - Cancelled
+                - Completed
+            stage:
+              type: string
+              description: The stage type code of the transaction
+              enum:
+                - Seed
+                - Early
+                - Late
+                - Recap
+            investmentType:
+              type: string
+              description: Investment type of the transaction
+              enum:
+                - Venture Capital
+                - Growth
+                - Corporate
+                - Capitalization
+                - Angel
+                - Crowdfunding
+                - Accelerator/Incubator
+                - Secondary
+                - Undisclosed Round
+            startDate:
+              type: string
+              format: date
+              description: Start date for announcement date filter
+            endDate:
+              type: string
+              format: date
+              description: End date for announcement date filter
+            minAmount:
+              type: number
+              description: Minimum transaction amount in USD
+            maxAmount:
+              type: number
+              description: Maximum transaction amount in USD
+    IPOSearchRequest:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: object
+          properties:
+            status:
+              type: string
+              description: IPO transaction status filter
+              enum:
+                - Closed
+                - Announced
+                - Postponed
+                - Cancelled
+                - Priced
+                - Withdrawn
+                - In Registration
+            startDate:
+              type: string
+              format: date
+              description: Start date for announcement date filter
+            endDate:
+              type: string
+              format: date
+              description: End date for announcement date filter
+            minSizeUsd:
+              type: number
+              description: Minimum IPO size in USD
+            maxSizeUsd:
+              type: number
+              description: Maximum IPO size in USD
+  examples:
+    postFundCashflows:
+      summary: Fund Cashflows request for multiple funds
+      description: Request cashflows for multiple funds with date range and type filter
+      value:
+        data:
+          ids:
+            - 001JYM-E
+            - 005GEM-E
+          startDate: '2009-12-31'
+          endDate: '2009-12-31'
+          cfType: DISTRIBUTION
+    postTransactionSearch:
+      summary: Transaction search request
+      description: Search transactions by portfolio company, stage, and date range
+      value:
+        data:
+          ids:
+            - 000C1D-E
+          status: Completed
+          stage: Seed
+          investmentType: Growth
+          startDate: '2023-01-01'
+          endDate: '2023-12-31'
+          minAmount: 10000000
+          maxAmount: 30000000
+    postIPOSearch:
+      summary: IPO search request
+      description: Search IPOs by status, date range, and size
+      value:
+        data:
+          status: Announced
+          startDate: '2024-01-01'
+          endDate: '2024-12-31'
+          minSizeUsd: 60000000
+          maxSizeUsd: 100000000
+    resultOfEntityMatches:
+      description: Entity Matches
+      value:
+        data:
+          - entityId: 0H3R4Y-E
+            entityName: Alto Pharmacy LLC
+            countryCode: US
+            entityTypeCode: PVT
+            matchFlag: true
+    resultOfFunds:
+      description: Fund Details
+      value:
+        data:
+          - requestId: 001JYM-E
+            factsetGpEntityId: 000BKX-E
+            entityProfile: Leading growth equity fund focused on technology
+            fundStatus: Raising
+            dates:
+              registrationDate: '2020-01-15'
+              launchDate: '2020-03-01'
+              liquidationDate: null
+            financialInfo:
+              dryPowder: 500000000
+              amountRaised: 1000000000
+              amountRaisedUsd: 1000000000
+              currency: USD
+            investmentCriteria:
+              transactionMin: 5000000
+              transactionMax: 50000000
+              investmentMin: 1000000
+              investmentMax: 25000000
+              ebitdaMin: 10000000
+              ebitdaMax: 100000000
+              enterpriseValueMin: 50000000
+              enterpriseValueMax: 500000000
+              revenueMin: 20000000
+              revenueMax: 200000000
+            terms:
+              managementFee: 2
+              preferredReturn: 8
+              carriedInterest: 20
+              fundTermYears: 10
+              extensionYears: 2
+              yearsExtended: 0
+              registry: Delaware
+            features:
+              evergreenFund: false
+              esgFocus: true
+              subParticipation: false
+              coInvest: true
+              investmentPublic: false
+            strategyType: Early Stage
+            fundOfFundAllocation:
+              vcPercent: 40
+              pePercent: 30
+              mezzaninePercent: 10
+              debtPercent: 5
+              reitPercent: 0
+              secondaryFundPercent: 10
+              infrastructurePercent: 5
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfPortfolioCompanies:
+      description: Portfolio Companies
+      value:
+        data:
+          - requestId: 001JYM-E
+            portfolioCompanies:
+              - factsetEntityId: TECH01-E
+                companyName: TechCo Inc
+                investmentDate: '2021-06-15'
+                sector: Technology
+              - factsetEntityId: HLTH02-E
+                companyName: HealthTech Corp
+                investmentDate: '2021-09-20'
+                sector: Healthcare
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfFundraising:
+      description: Fundraising
+      value:
+        data:
+          - requestId: 001JYM-E
+            fundraisingRounds:
+              - fundraiseCloseCode: First Close
+                closeDate: '2020-06-30'
+                originalTargetAmount: 750000000
+                originalTargetAmountUsd: 750000000
+                revisedTargetAmount: 1000000000
+                revisedTargetAmountUsd: 1000000000
+                originalTargetDate: '2020-05-31'
+                revisedTargetDate: '2020-06-30'
+                targetMin: 500000000
+                targetMax: 1000000000
+                minMaxTargetDate: '2020-06-30'
+                fundraiseAmountRaised: 600000000
+                finalClose: false
+                currency: USD
+              - fundraiseCloseCode: First Close
+                closeDate: '2020-12-31'
+                originalTargetAmount: 750000000
+                originalTargetAmountUsd: 750000000
+                revisedTargetAmount: 1000000000
+                revisedTargetAmountUsd: 1000000000
+                originalTargetDate: '2020-10-31'
+                revisedTargetDate: '2020-12-31'
+                targetMin: 500000000
+                targetMax: 1000000000
+                minMaxTargetDate: '2020-06-30'
+                fundraiseAmountRaised: 400000000
+                finalClose: true
+                currency: USD
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfLimitedPartners:
+      description: Limited Partners
+      value:
+        data:
+          - requestId: 001JYM-E
+            limitedPartners:
+              - factsetLpEntityId: PENS01-E
+                lpName: State Pension Fund
+                commitDate: '2020-06-30'
+                commitAmount: 100000000
+                commitAmountUsd: 100000000
+                revisedCommit: null
+                currency: USD
+                fundraiseCloseCode: First Close
+              - factsetLpEntityId: ENDW02-E
+                lpName: University Endowment
+                commitDate: '2020-12-31'
+                commitAmount: 50000000
+                commitAmountUsd: 50000000
+                revisedCommit: null
+                currency: USD
+                fundraiseCloseCode: First Close
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfCashflows:
+      description: Cashflow Data
+      value:
+        data:
+          - requestId: 001JYM-E
+            cashflows:
+              - date: '2009-12-31'
+                cfType: DISTRIBUTION
+                cfAmount: 50000000
+                cfAmountUsd: 50000000
+                currency: USD
+              - date: '2009-12-31'
+                cfType: CONTRIBUTION
+                cfAmount: 25000000
+                cfAmountUsd: 25000000
+                currency: USD
+            error: null
+          - requestId: 005GEM-E
+            cashflows:
+              - date: '2009-12-31'
+                cfType: DISTRIBUTION
+                cfAmount: 30000000
+                cfAmountUsd: 30000000
+                currency: USD
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfGps:
+      description: General Partner Details
+      value:
+        data:
+          - requestId: 000BKX-E
+            gpName: Premier Capital Partners
+            investmentCriteria:
+              transactionMin: 10000000
+              transactionMax: 100000000
+              investmentMin: 5000000
+              investmentMax: 50000000
+              enterpriseValueMin: 100000000
+              enterpriseValueMax: 1000000000
+              ebitdaMin: 20000000
+              ebitdaMax: 200000000
+              revenueMin: 50000000
+              revenueMax: 500000000
+              currency: USD
+            features:
+              investStrategyAvailable: true
+              investPublicCompanies: false
+              esgFocus: true
+            aum:
+              date: '2023-12-31'
+              amount: 5000000000
+              amountUsd: 5000000000
+              currency: USD
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfGpsFunds:
+      description: General Partner Managed Funds
+      value:
+        data:
+          - requestId: 000BKX-E
+            funds:
+              - factsetFundEntityId: 001JYM-E
+                fundName: Premier Growth Fund III
+                fundStatus: Raising
+                launchDate: '2020-03-01'
+                amountRaisedUsd: 1000000000
+              - factsetFundEntityId: 005GEM-E
+                fundName: Premier Growth Fund II
+                fundStatus: Investing
+                launchDate: '2017-01-15'
+                amountRaisedUsd: 750000000
+            error: null
+          - requestId: M7CLZV
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfTransactions:
+      description: Transaction Details
+      value:
+        data:
+          - requestId: 1000001
+            factsetPortCoEntityId: 000C1D-E
+            portfolioCompanyName: TechCo Inc
+            investmentType: Growth
+            status: Completed
+            announcementDate: '2024-01-15'
+            closeDate: '2024-02-28'
+            financial:
+              totalAmount: 50000000
+              totalAmountUsd: 50000000
+              cfTargetAmount: 60000000
+              currency: USD
+              postMoneyValuation: 200000000
+              postMoneyValuationUsd: 200000000
+              preMoneyValuation: 150000000
+              preMoneyValuationUsd: 150000000
+            details:
+              roundOfFunding: Series B
+              stage: Seed
+              numBackingInvestors: 5
+              isAssumed: false
+              synopsis: Growth capital investment to expand operations
+              securityNote: Preferred shares with liquidation preference
+              securityCodesUsed:
+                - Preferred Stock
+            investors:
+              - factsetInvestorEntityId: 000C5J-E
+                factsetFundEntityId: 001JYM-E
+                amountInvested: 20000000
+                amountInvestedUsd: 20000000
+                percentOfRound: 40
+                isLead: true
+                fundNotKnown: false
+                noFundUsed: false
+                factsetCrowdfundingEntityId: 0BM4TD-E
+              - factsetInvestorEntityId: 000C3H-E
+                factsetFundEntityId: 005GEM-E
+                amountInvested: 15000000
+                amountInvestedUsd: 15000000
+                percentOfRound: 30
+                isLead: false
+                fundNotKnown: false
+                noFundUsed: false
+                factsetCrowdfundingEntityId: null
+            securities:
+              - securityCode: Preferred Stock
+                amountInvested: 50000000
+                amountInvestedUsd: 50000000
+                percentOfRound: 100
+                currency: USD
+            error: null
+          - requestId: 9999999
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: 999999
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfTransactionsSearch:
+      description: Search Transaction
+      value:
+        data:
+          - requestId: 000C1D-E
+            transactionId: 1000001
+            portfolioCompanyName: TechCo Inc
+            announcementDate: '2023-06-15'
+            closeDate: '2023-07-30'
+            totalAmountUsd: 50000000
+            stage: Seed
+            status: Completed
+            roundOfFunding: Series B
+            error: null
+          - requestId: 000C1D-E
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfTransactionsMaActivity:
+      description: Transaction M&A Details
+      value:
+        data:
+          - requestId: 1000001
+            advisors:
+              - factsetAdvisorEntityId: 000FF4-E
+                advisorName: Investment Bank LLC
+                factsetClientEntityId: 0612BP-E
+                clientType: TARGET
+                professionalType: FINANCIAL
+                factsetPersonEntityId: 05LGCB-E
+            investments:
+              - factsetPortCoEntityId: 000C1D-E
+                factsetInvestorEntityId: 000C5J-E
+                entryDate: '2024-02-28'
+                exitDate: null
+                entryType: Undisclosed Date
+                exitType: IPO
+                dealId: 410294
+                ipoId: 26
+                retainingStake: true
+                investmentCategory: 1
+            error: null
+          - requestId: 9999999
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: 999999
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfIpos:
+      description: IPO Details
+      value:
+        data:
+          - requestId: 410294
+            ipoId: 26
+            factsetPortCoEntityId: PORT01-E
+            portfolioCompanyName: TechCo Inc
+            tickerSymbol: TECH
+            tradeDate: '2024-06-15'
+            closeDate: '2024-06-14'
+            offerPrice: 22
+            offerPriceUsd: 22
+            exchangeDate: '2024-06-15'
+            ipoSize: 920
+            currency: USD
+            ipoStatus: Announced
+            announcementDate: '2024-05-01'
+            pricingDate: '2024-06-14'
+            error: null
+          - requestId: 410293
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: 999999
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    resultOfIposSearch:
+      description: Search IPOs
+      value:
+        data:
+          - ipoId: 26
+            factsetPortCoEntityId: 000C1D-E
+            portfolioCompanyName: TechCo Inc
+            tickerSymbol: TECH
+            tradeDate: '2024-06-15'
+            offerPriceUsd: 22
+            ipoSize: 920
+            ipoStatus: Announced
+    resultOfEntityStrategies:
+      description: Entity Investment Strategies
+      value:
+        data:
+          - requestId: 001JYM-E
+            isGp: false
+            geographicFocus:
+              regions:
+                - code: NA
+                  description: North America
+                - code: EUR
+                  description: Europe
+              countries:
+                - code: US
+                  description: United States
+                - code: GB
+                  description: United Kingdom
+              statesProvinces:
+                - code: CA
+                  description: California
+                - code: NY
+                  description: New York
+            sectorFocus:
+              sectors:
+                - code: TECH
+                  description: Technology
+                - code: HEALTH
+                  description: Healthcare
+              industries:
+                - code: SOFTWARE
+                  description: Software
+                - code: BIOTECH
+                  description: Biotechnology
+            investmentInstruments:
+              - code: EQUITY
+                description: Common Equity
+              - code: PREF
+                description: Preferred Stock
+            transactionStrategies:
+              - code: GROWTH
+                description: Growth Capital
+              - code: BUYOUT
+                description: Leveraged Buyout
+            controlCriteria:
+              - code: MAJORITY
+                description: Majority Control
+              - code: BOARD
+                description: Board Representation
+            investorRoles:
+              - code: LEAD
+                description: Lead Investor
+              - code: CONINVEST
+                description: Co-Investor
+            error: null
+          - requestId: ABCDEF-E
+            error:
+              code: notFound
+              title: No data
+              detail: There's no data for this id.
+          - requestId: BADSYMBOL
+            error:
+              code: parameterError
+              title: Invalid id
+              detail: This is not a valid id.
+    badRequestDateFormat:
+      summary: Bad Request - Date Format
+      description: >-
+        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
+        date parameters. To resolve this, convert your date to YYYY-MM-DD.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Bad Request
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: >-
+              The date parameter must be in the following date format:
+              YYYY-MM-DD
+    badRequestRequiredParameter:
+      summary: Bad Request - Required Parameter Missing
+      description: >-
+        This error message occurs when the request does not include the required
+        parameters. Required parameters are indicated with a red asterisk symbol
+        in the specification file.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Bad Request
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: The parameter 'ids' is required and may not be empty.
+    badRequestMalformedJSON:
+      summary: Bad Request - Malformed JSON Request
+      description: >-
+        This error may be returned when the request body is specified as JSON.
+        But is not in proper JSON format.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Bad Request
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: Malformed JSON Request
+    badRequestReadTimeout:
+      summary: Bad Request - Read Timeout
+      description: >-
+        This error may be returned if it takes more than 29 seconds to hear back
+        from the data fetch service.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Bad Request
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: The request took too long. Try again with a smaller request.
+    unauthenticated:
+      summary: User Authentication Failed
+      description: >-
+        This occurs when a user is not properly authenticated or recognized by
+        the service. Please double-check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+        Report the Issue under 401 error for help with troubleshooting.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: User Authentication Failed
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: User Authentication Failed.
+    forbidden:
+      summary: Forbidden
+      description: >-
+        The USERNAME-SERIAL attempted to request the endpoint/ID which is not
+        authorized to access. The request was legal, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with
+        authorization.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Forbidden
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: >-
+              User is not authorized for the id requested, please reach out to
+              FactSet for support
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      description: >-
+        This bad request occurs when the media type passed in the request is not
+        supported. Currently, the APIs only support 'application/json'.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Unsupported Media Type
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: >-
+              text/html media type is not supported. Supported media types are
+              application/json.
+    notWritable:
+      summary: Internal Server Error - Not Writable
+      description: >-
+        This error may be returned when the server encounters an error writing
+        the JSON response.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Internal Server Error
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: Error writing JSON output
+    generalException:
+      summary: Internal Server Error - General Exception
+      description: >-
+        This is the most general error that can be returned to by the service.
+        Please `Report Issue` to FactSet.
+      value:
+        errors:
+          - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+            code: Internal Server Error
+            links:
+              about: /factset-pevc/v1/{endpoint}
+            title: Unexpected error

@@ -151,6 +151,8 @@ const opts = {
   'bicColumn': "bicColumn_example", // String | Header Name of the column in the input file for the type BICCode, `bank indentification code`. 
   'cikColumn': "cikColumn_example", // String | Header Name of the column in the input file for the type CIK, `Edgar Central Index Keys`
   'crdColumn': "crdColumn_example", // String | Header Name of the column in the input file for the type CRD, `Central Registration Depository`.
+  'creditsafeColumn': "creditsafeColumn_example", // String | the column name for type `Creditsafe Identifier`.
+  'crunchbaseColumn': "crunchbaseColumn_example", // String | the column name for type `Crunchbase Identifier`.
   'cusipColumn': "cusipColumn_example", // String | Header Name of the column in the input file for the type `CUSIP`
   'einColumn': "einColumn_example", // String | Header Name of the column in the input file for the type EIN, `EmployerIdentificationNumber`.
   'factsetIdColumn': "factsetIdColumn_example", // String | Header Name of the column in the input file for the type FactSet Identifier - `FactSet -E,-S,-R, -L Permanent Identifier`.
@@ -214,6 +216,8 @@ Name | Type | Description  | Notes
  **bicColumn** | **String**| Header Name of the column in the input file for the type BICCode, &#x60;bank indentification code&#x60;.  | [optional] 
  **cikColumn** | **String**| Header Name of the column in the input file for the type CIK, &#x60;Edgar Central Index Keys&#x60; | [optional] 
  **crdColumn** | **String**| Header Name of the column in the input file for the type CRD, &#x60;Central Registration Depository&#x60;. | [optional] 
+ **creditsafeColumn** | **String**| the column name for type &#x60;Creditsafe Identifier&#x60;. | [optional] 
+ **crunchbaseColumn** | **String**| the column name for type &#x60;Crunchbase Identifier&#x60;. | [optional] 
  **cusipColumn** | **String**| Header Name of the column in the input file for the type &#x60;CUSIP&#x60; | [optional] 
  **einColumn** | **String**| Header Name of the column in the input file for the type EIN, &#x60;EmployerIdentificationNumber&#x60;. | [optional] 
  **factsetIdColumn** | **String**| Header Name of the column in the input file for the type FactSet Identifier - &#x60;FactSet -E,-S,-R, -L Permanent Identifier&#x60;. | [optional] 

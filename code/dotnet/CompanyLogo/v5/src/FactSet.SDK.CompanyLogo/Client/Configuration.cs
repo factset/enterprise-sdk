@@ -33,7 +33,7 @@ namespace FactSet.SDK.CompanyLogo.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.40.0";
+        public const string Version = "0.41.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,8 +106,8 @@ namespace FactSet.SDK.CompanyLogo.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/CompanyLogo/0.40.0";
-            BasePath = "https://api.factset.com/wealth/v5";
+            UserAgent = "fds-sdk/dotnet/CompanyLogo/0.41.0";
+            BasePath = "https://api.factset.com/company-logo/v5";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -115,7 +115,7 @@ namespace FactSet.SDK.CompanyLogo.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://api.factset.com/wealth/v5"},
+                        {"url", "https://api.factset.com/company-logo/v5"},
                         {"description", "No description provided"},
                     }
                 }
@@ -133,7 +133,7 @@ namespace FactSet.SDK.CompanyLogo.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://api.factset.com/wealth/v5") : this()
+            string basePath = "https://api.factset.com/company-logo/v5") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -484,7 +484,7 @@ namespace FactSet.SDK.CompanyLogo.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 5.0.0\n";
-            report += "    SDK Package Version: 0.40.0\n";
+            report += "    SDK Package Version: 0.41.0\n";
 
             return report;
         }

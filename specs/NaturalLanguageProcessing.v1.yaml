@@ -8,7 +8,7 @@ info:
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
     email: api@factset.com
-  version: 1.4.0
+  version: 1.6.0
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0

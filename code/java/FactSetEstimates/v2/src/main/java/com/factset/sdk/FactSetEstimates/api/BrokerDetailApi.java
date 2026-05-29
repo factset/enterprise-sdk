@@ -37,6 +37,7 @@ public class BrokerDetailApi {
     getFixedDetailResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getFixedDetailResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getFixedDetailResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedDetailResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getFixedDetailResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -47,6 +48,7 @@ public class BrokerDetailApi {
     getFixedDetailForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getFixedDetailForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getFixedDetailForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getFixedDetailForListResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getFixedDetailForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -57,6 +59,7 @@ public class BrokerDetailApi {
     getRollingDetailResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getRollingDetailResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getRollingDetailResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRollingDetailResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getRollingDetailResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -67,6 +70,7 @@ public class BrokerDetailApi {
     getRollingDetailForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getRollingDetailForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getRollingDetailForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRollingDetailForListResponseTypeMap.put(429, new GenericType<ErrorResponse>(){});
     getRollingDetailForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
@@ -93,7 +97,7 @@ public class BrokerDetailApi {
 
   /**
    * Estimates detail data for fixed fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -117,6 +121,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -126,7 +131,7 @@ public class BrokerDetailApi {
 
   /**
    * Estimates detail data for fixed fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -150,6 +155,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -218,7 +224,7 @@ public class BrokerDetailApi {
   }
   /**
    * Estimates detail data for fixed fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param fixedDetailRequest Request object for Estimate Data Items. (required)
    * @return DetailResponse
    * @throws ApiException if fails to make API call
@@ -230,6 +236,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -239,7 +246,7 @@ public class BrokerDetailApi {
 
   /**
    * Estimates detail data for fixed fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. 
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param fixedDetailRequest Request object for Estimate Data Items. (required)
    * @return ApiResponse&lt;DetailResponse&gt;
    * @throws ApiException if fails to make API call
@@ -251,6 +258,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -301,7 +309,7 @@ public class BrokerDetailApi {
   }
   /**
    * FactSet estimates detail data for rolling fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -325,6 +333,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -334,7 +343,7 @@ public class BrokerDetailApi {
 
   /**
    * FactSet estimates detail data for rolling fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods.      
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
@@ -358,6 +367,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -426,7 +436,7 @@ public class BrokerDetailApi {
   }
   /**
    * FactSet estimates detail data for rolling fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param rollingDetailRequest Request object for Estimate Data Items. (required)
    * @return DetailResponse
    * @throws ApiException if fails to make API call
@@ -438,6 +448,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
@@ -447,7 +458,7 @@ public class BrokerDetailApi {
 
   /**
    * FactSet estimates detail data for rolling fiscal periods
-   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. 
+   * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param rollingDetailRequest Request object for Estimate Data Items. (required)
    * @return ApiResponse&lt;DetailResponse&gt;
    * @throws ApiException if fails to make API call
@@ -459,6 +470,7 @@ public class BrokerDetailApi {
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
        <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> Too Many Requests - The API rate limit of 4 million datapoints per minute has been exceeded, resulting in a 429 error. Please wait and check the &#x60;Retry-After&#x60; header before sending more requests. </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
