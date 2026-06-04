@@ -5,6 +5,8 @@ Order Search
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**alloc_account** | **str** | Allocation Account | [optional] 
+**alloc_volume** | **float** | Allocation Volume | [optional] 
 **id** | **int** | Unique identifier for the Order | [optional] 
 **basket_id** | **str** | Order Basket Id | [optional] 
 **parent_id** | **str** | Order Parent Id | [optional] 

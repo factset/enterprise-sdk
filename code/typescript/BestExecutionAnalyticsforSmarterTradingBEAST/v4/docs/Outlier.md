@@ -39,6 +39,8 @@ Name | Type | Description | Notes
 
 * `Child` (value: `"Child"`)
 
+* `Allocation` (value: `"Allocation"`)
+
 
 
 

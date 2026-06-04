@@ -11,7 +11,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Best Execution Analytics for Smarter Trading (BEAST) API
-  version: 4.0.0
+  version: 4.0.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/
@@ -7738,180 +7738,182 @@ paths:
         schema:
           items:
             enum:
-            - DateId
-            - Symbol
-            - Trader
-            - Broker
-            - Strategy
-            - Country
-            - Side
-            - Price
-            - ClosePrice
-            - VwapOpenClose
-            - VwapFfClose
-            - Currency
-            - ParentId
+            - All
+            - Default
+            - Algo
+            - AlgoWheel
             - BasketId
-            - Volume
-            - RefValue
-            - Status
-            - Note
-            - CompanyName
-            - FirstFillTime
-            - LastFillTime
-            - OrderEntryTimeUtc
-            - OpenPerfBps
-            - FirstFillMidPerfBps
-            - LastFillMidPerfBps
-            - ClosePerfBps
-            - VwapFfLfPerfBps
-            - Reversion5MinMidBps
-            - ParticipationRatePct
-            - MessageType
-            - MasterOrderId
-            - OrderId
-            - Reversion60MinMidBps
+            - BbgTicker
+            - Broker
             - ClientId
-            - SecurityId
+            - ClosePrice
+            - ClosePerfBps
+            - CompanyName
+            - CostEstimates
+            - Country
+            - CountryAlias
+            - Currency
+            - DateId
+            - Destination
+            - Destinationtype
+            - Direction
+            - ErrorCodes
+            - FillTimeUtc
+            - FirstFillMid
+            - FirstFillMidPerfBps
+            - FirstFillPreAsk
+            - FirstFillPreBid
+            - FirstFillPrice
+            - FirstFillPricePerfBps
+            - FirstFillTime
+            - FirstFillTimeStatus
+            - FxRate
+            - GrandParentId
+            - Id
+            - IntraOrderVolatility
+            - IntraOrderVolatilityBps
+            - Isin
+            - LastFillMid
+            - LastFillMidPerfBps
+            - LastFillPreAsk
+            - LastFillPreBid
+            - LastFillPrice
+            - LastFillTime
+            - LimitParticipationRatePct
             - LimitPrice
+            - LimitPwp01PerfBps
+            - LimitPwp01Price
+            - LimitPwp01Volume
+            - LimitPwp02PerfBps
+            - LimitPwp02Price
+            - LimitPwp02Volume
+            - LimitPwp03PerfBps
+            - LimitPwp03Price
+            - LimitPwp03Volume
+            - LimitPwp05PerfBps
+            - LimitPwp05Price
+            - LimitPwp05Volume
+            - LimitPwp10PerfBps
+            - LimitPwp10Price
+            - LimitPwp10Volume
+            - LimitPwp20PerfBps
+            - LimitPwp20Price
+            - LimitPwp20Volume
+            - LimitPwp50PerfBps
+            - LimitPwp50Price
+            - LimitPwp50Volume
+            - LimitPwp100PerfBps
+            - LimitPwp100Price
+            - LimitPwp100Volume
+            - LimitVwapFfClose
+            - LimitVwapFfClosePerfBps
+            - LimitVwapFfCloseVolume
+            - LimitVwapFfLf
+            - LimitVwapFfLfPerfBps
+            - LimitVwapFfLfVolume
+            - LimitVwapHighAvgPrice
+            - LimitVwapHighAvgPricePerfBps
+            - LimitVwapHighAvgPriceVolume
+            - LimitVwapLowAvgPrice
+            - LimitVwapLowAvgPricePerfBps
+            - LimitVwapLowAvgPriceVolume
+            - LimitVwapOpenClose
+            - LimitVwapOpenClosePerfBps
+            - LimitVwapOpenCloseVolume
+            - LimitVwapOrderEntryClose
+            - LimitVwapOrderEntryClosePerfBps
+            - LimitVwapOrderEntryCloseVolume
+            - MarketAdjustment
+            - MarketCap
+            - MarketSpreadCross
+            - MasterOrderId
+            - MessageType
+            - MultidayBenchmarks
+            - Note
+            - OpenPerfBps
+            - OpenPrice
+            - OrderId
+            - OrderEntryFillMid
+            - OrderEntryFillMidPerfBps
+            - OrderEntryPreAsk
+            - OrderEntryPreBid
+            - OrderEntryTimeUtc
             - OrderType
             - OrderVolume
-            - Venue
-            - FillTimeUtc
-            - Algo
-            - OpenPrice
-            - FirstFillMid
-            - LastFillMid
-            - VwapFfLf
-            - Value
-            - Reversion5MinMidPrice
-            - Reversion10MinMidPrice
-            - Reversion10MinMidBps
-            - Reversion15MinMidPrice
-            - Reversion15MinMidBps
-            - IntraOrderVolatility
-            - SpreadCross
-            - Pwp20Price
-            - Pwp20Volume
-            - Pwp20PerfBps
-            - Pwp10Price
-            - Pwp10Volume
-            - Pwp10PerfBps
+            - ParentCreationTimeUtc
+            - ParentId
+            - ParticipationRatePct
+            - Price
+            - ProcessedTime
+            - Pwp01PerfBps
+            - Pwp01Price
+            - Pwp01Volume
+            - Pwp02PerfBps
+            - Pwp02Price
+            - Pwp02Volume
+            - Pwp03PerfBps
+            - Pwp03Price
+            - Pwp03Volume
+            - Pwp05PerfBps
             - Pwp05Price
             - Pwp05Volume
-            - Pwp05PerfBps
-            - MarketAdjustment
-            - ErrorCodes
-            - ProcessedTime
+            - Pwp10PerfBps
+            - Pwp10Price
+            - Pwp10Volume
+            - Pwp20PerfBps
+            - Pwp20Price
+            - Pwp20Volume
+            - Pwp50PerfBps
+            - Pwp50Price
+            - Pwp50Volume
+            - Pwp100PerfBps
+            - Pwp100Price
+            - Pwp100Volume
+            - RefCurrency
+            - RefValue
+            - Region
+            - Reversion5MinMidBps
+            - Reversion5MinMidPrice
+            - Reversion10MinMidBps
+            - Reversion10MinMidPrice
+            - Reversion15MinMidBps
+            - Reversion15MinMidPrice
+            - Reversion60MinMidBps
+            - Reversion60MinMidPrice
+            - Sector
+            - SecurityId
+            - Side
+            - SpreadCross
+            - Status
+            - Strategy
+            - Symbol
+            - Synthetic
+            - Trader
             - Twas
             - TwasAskSize
             - TwasBidSize
-            - RefCurrency
-            - Region
-            - Destination
-            - Destinationtype
-            - VwapFfLfVolume
-            - LimitVwapFfLfVolume
-            - LimitVwapFfLf
-            - LimitVwapFfLfPerfBps
-            - IntraOrderVolatilityBps
-            - LimitParticipationRatePct
-            - MarketSpreadCross
-            - LimitPwp20Price
-            - LimitPwp20Volume
-            - LimitPwp20PerfBps
-            - LimitPwp10Price
-            - LimitPwp10Volume
-            - LimitPwp10PerfBps
-            - LimitPwp05Price
-            - LimitPwp05Volume
-            - LimitPwp05PerfBps
-            - FxRate
-            - ParentCreationTimeUtc
-            - Synthetic
-            - GrandParentId
-            - Isin
-            - Pwp01Price
-            - Pwp01Volume
-            - Pwp01PerfBps
-            - LimitPwp01Price
-            - LimitPwp01Volume
-            - LimitPwp01PerfBps
-            - Pwp02Price
-            - Pwp02Volume
-            - Pwp02PerfBps
-            - LimitPwp02Price
-            - LimitPwp02Volume
-            - LimitPwp02PerfBps
-            - Pwp03Price
-            - Pwp03Volume
-            - Pwp03PerfBps
-            - LimitPwp03Price
-            - LimitPwp03Volume
-            - LimitPwp03PerfBps
-            - Reversion60MinMidPrice
-            - LimitPwp50Price
-            - LimitPwp50Volume
-            - LimitPwp50PerfBps
-            - LimitPwp100Price
-            - LimitPwp100Volume
-            - LimitPwp100PerfBps
-            - Pwp50Price
-            - Pwp50Volume
-            - Pwp50PerfBps
-            - Pwp100Price
-            - Pwp100Volume
-            - Pwp100PerfBps
             - Udfmap
-            - VwapFfCloseVolume
+            - Value
+            - Venue
+            - Volume
+            - VwapFfClose
             - VwapFfClosePerfBps
-            - VwapOrderEntryClose
-            - VwapOrderEntryCloseVolume
-            - VwapOrderEntryClosePerfBps
-            - VwapOpenCloseVolume
-            - VwapOpenClosePerfBps
+            - VwapFfCloseVolume
+            - VwapFfLf
+            - VwapFfLfPerfBps
+            - VwapFfLfVolume
             - VwapHighAvgPrice
-            - VwapHighAvgPriceVolume
             - VwapHighAvgPricePerfBps
+            - VwapHighAvgPriceVolume
             - VwapLowAvgPrice
-            - VwapLowAvgPriceVolume
             - VwapLowAvgPricePerfBps
-            - LimitVwapFfClose
-            - LimitVwapFfCloseVolume
-            - LimitVwapFfClosePerfBps
-            - LimitVwapOrderEntryClose
-            - LimitVwapOrderEntryCloseVolume
-            - LimitVwapOrderEntryClosePerfBps
-            - LimitVwapOpenClose
-            - LimitVwapOpenCloseVolume
-            - LimitVwapOpenClosePerfBps
-            - LimitVwapHighAvgPrice
-            - LimitVwapHighAvgPriceVolume
-            - LimitVwapHighAvgPricePerfBps
-            - LimitVwapLowAvgPrice
-            - LimitVwapLowAvgPriceVolume
-            - LimitVwapLowAvgPricePerfBps
-            - AlgoWheel
-            - CountryAlias
-            - Direction
-            - OrderEntryFillMid
-            - FirstFillPrice
-            - FirstFillPreBid
-            - FirstFillPreAsk
-            - OrderEntryPreBid
-            - OrderEntryPreAsk
-            - LastFillPrice
-            - LastFillPreBid
-            - LastFillPreAsk
-            - BbgTicker
-            - CostEstimates
-            - FirstFillPricePerfBps
-            - FirstFillTimeStatus
-            - Id
-            - MarketCap
-            - OrderEntryFillMidPerfBps
-            - Sector
-            - MultidayBenchmarks
+            - VwapLowAvgPriceVolume
+            - VwapOpenClose
+            - VwapOpenClosePerfBps
+            - VwapOpenCloseVolume
+            - VwapOrderEntryClose
+            - VwapOrderEntryClosePerfBps
+            - VwapOrderEntryCloseVolume
             type: string
           type: array
         style: form
@@ -7936,6 +7938,7 @@ paths:
           - Undefined
           - Parent
           - Child
+          - Allocation
           type: string
         style: form
       - description: Maximum number of records to return per page. Default with max
@@ -7969,7 +7972,9 @@ paths:
               example:
                 data:
                   orders:
-                  - id: 7357257
+                  - allocAccount: ACCT-001
+                    allocVolume: 278784.01
+                    id: 7357257
                     basketId: Parent_Sell_2024-07-24
                     parentId: Parent_Sell_2024-07-24CMCSA US2024-07-24 14:36:28.18
                     orderId: Parent_Sell_2024-07-24CMCSA US2024-07-24 14:35:29.577$$
@@ -10547,6 +10552,7 @@ components:
           - Undefined
           - Parent
           - Child
+          - Allocation
           type: string
         metric:
           description: Metric
@@ -11939,6 +11945,7 @@ components:
           - Undefined
           - Parent
           - Child
+          - Allocation
           type: string
         relatedOrderId:
           description: Related Order Ids
@@ -13012,7 +13019,7 @@ components:
             noOfPages: noOfPages
             isEstimatedTotal: true
           orders:
-          - fxRate: 7.835035282970782
+          - fxRate: 0.4768402382624515
             costEstimates:
               orderLiquidity:
                 confidenceInterval: 2.7977867356748476
@@ -13042,247 +13049,249 @@ components:
                 costPerShareBps: 4.332304821875894
                 adjustedArrivalPerfBps: 4.8789878742268815
                 spreadCostPerShare: 9.386524999783381
-            limitPwp01Price: 8.863729185622827
-            tPlus5ClosePrice: 1.0502890910539986
-            limitPwp50PerfBps: 3.7814124730767915
-            pwp10Price: 3.0937452626664474
-            pwp01PerfBps: 7.740351818741173
-            pwp03PerfBps: 4.078845849666752
-            orderVolume: 6.027456183070403
-            pwp03Volume: 3.2588565619047607
-            orderEntryPreAsk: 6.173804034172511
-            pwp05PerfBps: 0.10263654006109402
-            vwapLowAvgPricePerfBps: 5.6644160867523485
-            limitVwapLowAvgPriceVolume: 3.209082285545927
+            limitPwp01Price: 9.254183946267839
+            tPlus5ClosePrice: 6.176386745020588
+            limitPwp50PerfBps: 3.111202833403195
+            pwp10Price: 7.143538047012306
+            pwp01PerfBps: 3.0205796992916243
+            pwp03PerfBps: 0.2025324113236393
+            orderVolume: 1.4658129805029452
+            pwp03Volume: 4.078845849666752
+            orderEntryPreAsk: 4.8789878742268815
+            pwp05PerfBps: 4.652396432933246
+            vwapLowAvgPricePerfBps: 1.5970080735609526
+            limitVwapLowAvgPriceVolume: 8.262795412896967
             tMinus4DateId: 2000-01-23
-            pwp10Volume: 7.143538047012306
+            pwp10Volume: 0.8851374739011653
             messageType: Undefined
-            limitVwapOrderEntryCloseVolume: 6.458262756685686
-            limitVwapFfLf: 7.933506881737151
-            lastFillPrice: 0.58919091925136
-            reversion15MinMidBps: 9.965781217890562
-            pwp50Volume: 6.628464275087742
+            limitVwapOrderEntryCloseVolume: 4.141296055235948
+            limitVwapFfLf: 5.507386964179881
+            lastFillPrice: 2.535258963197524
+            reversion15MinMidBps: 9.369310271410669
+            pwp50Volume: 4.258773108174356
             timeZone: timeZone
-            tMinus2OpenPerfBps: 5.573385265048522
-            vwapOpenClose: 2.027123023002322
-            limitVwapOrderEntryClosePerfBps: 8.276461147928103
-            limitVwapHighAvgPricePerfBps: 7.92839742024475
+            tMinus2OpenPerfBps: 3.0269458094096646
+            vwapOpenClose: 4.145608029883936
+            limitVwapOrderEntryClosePerfBps: 6.458262756685686
+            limitVwapHighAvgPricePerfBps: 9.402167524121316
             grandParentId: grandParentId
-            tMinus3OpenPrice: 8.250639315618633
-            marketSpreadCross: 6.073898085781152
-            tPlus3ClosePrice: 9.456612101333725
+            tMinus3OpenPrice: 7.273019311111276
+            marketSpreadCross: 8.251625748923757
+            tPlus3ClosePrice: 9.721723570087065
             basketId: basketId
-            tMinus1OpenPerfBps: 3.196820582978078
+            tMinus1OpenPerfBps: 5.296102445648278
             bbgTicker: bbgTicker
-            openPrice: 2.3021358869347655
-            firstFillPricePerfBps: 4.332304821875894
-            limitVwapFfClosePerfBps: 9.785002165136461
-            reversion10MinMidBps: 4.965218492984954
+            openPrice: 7.061401241503109
+            firstFillPricePerfBps: 2.7977867356748476
+            limitVwapFfClosePerfBps: 7.3718573971919445
+            reversion10MinMidBps: 5.025004791520295
             lastFillTime: lastFillTime
-            tPlus1ClosePerfBps: 0.7012260588964747
+            tPlus1ClosePerfBps: 7.3842318535314
             currency: currency
             tPlus3DateId: 2000-01-23
-            limitPwp03Price: 0.4182561061793122
-            tPlus1OpenPerfBps: 5.747795090145878
-            tPlus5ClosePerfBps: 2.0981949483881577
-            limitVwapHighAvgPrice: 7.726998920545485
-            tPlus4ClosePerfBps: 0.36062689002149373
+            limitPwp03Price: 5.299143560275359
+            tPlus1OpenPerfBps: 0.7012260588964747
+            tPlus5ClosePerfBps: 4.1661834558007
+            limitVwapHighAvgPrice: 7.92839742024475
+            tPlus4ClosePerfBps: 7.390706075830692
             clientId: clientId
-            firstFillPreAsk: 0.4833312865174044
-            lastFillMidPerfBps: 1.4894159098541704
-            pwp02Volume: 3.0576100241049344
-            tPlus2ClosePerfBps: 0.30134145536422907
-            tMinus1OpenPrice: 4.1661834558007
+            firstFillPreAsk: 0.35262192099236644
+            lastFillMidPerfBps: 6.84685269835264
+            pwp02Volume: 7.04836565559697
+            tPlus2ClosePerfBps: 0.4867146239815201
+            tMinus1OpenPrice: 2.026856458177285
             broker: broker
-            limitVwapOpenCloseVolume: 9.146339979307802
-            tPlus3ClosePerfBps: 7.88722683998926
-            limitPwp03Volume: 5.299143560275359
-            limitVwapFfLfVolume: 0.5199002018724985
-            tPlus2OpenPerfBps: 4.943637496515336
+            limitVwapOpenCloseVolume: 4.010300976654761
+            tPlus3ClosePerfBps: 6.918231485891953
+            limitPwp03Volume: 5.312489704336296
+            limitVwapFfLfVolume: 7.933506881737151
+            tPlus2OpenPerfBps: 0.30134145536422907
             tPlus4DateId: 2000-01-23
-            pwp20PerfBps: 3.353193347011243
-            pwp05Price: 7.058770351582356
-            vwapHighAvgPrice: 9.806951670467935
-            closePerfBps: 3.5571952270680973
-            spreadCross: 6.778324963048013
-            closePrice: 7.061401241503109
+            pwp20PerfBps: 3.0937452626664474
+            pwp05Price: 6.519180951018382
+            vwapHighAvgPrice: 1.3949519358941398
+            closePerfBps: 6.965117697638846
+            spreadCross: 6.878052220127876
+            closePrice: 9.301444243932576
             lastFillTimeUtc: lastFillTimeUtc
             algo: algo
-            tPlus3OpenPerfBps: 9.721723570087065
+            tPlus3OpenPerfBps: 7.88722683998926
             symbol: symbol
             country: country
-            tMinus3ClosePerfBps: 8.782449469456207
-            vwapFfLfPerfBps: 6.438423552598547
-            tPlus3OpenPrice: 0.4867146239815201
-            vwapHighAvgPricePerfBps: 1.3949519358941398
-            refValue: 9.301444243932576
-            tMinus1ClosePerfBps: 5.296102445648278
-            reversion5MinMidPrice: 6.84685269835264
+            tMinus3ClosePerfBps: 0.4008378390304357
+            vwapFfLfPerfBps: 3.5571952270680973
+            tPlus3OpenPrice: 9.456612101333725
+            vwapHighAvgPricePerfBps: 1.2555055362323109
+            refValue: 3.616076749251911
+            tMinus1ClosePerfBps: 3.8156682252305574
+            reversion5MinMidPrice: 7.457744773683766
             fillTimeUtc: fillTimeUtc
             destinationType: destinationType
-            vwapFfLfVolume: 9.702963800023566
+            vwapFfLfVolume: 0.5199002018724985
             sector: sector
-            firstFillMid: 4.145608029883936
-            pwp50Price: 0.2025324113236393
+            firstFillMid: 7.386281948385884
+            pwp50Price: 6.628464275087742
             tPlus2DateId: 2000-01-23
-            limitPrice: 5.637376656633329
-            orderEntryFillMid: 2.535258963197524
-            vwapFfClose: 3.616076749251911
-            vwapFfClosePerfBps: 1.0639121808530916
-            volume: 1.4658129805029452
-            limitPwp10Price: 0.43431398824148815
+            limitPrice: 2.3021358869347655
+            orderEntryFillMid: 6.173804034172511
+            vwapFfClose: 2.027123023002322
+            vwapFfClosePerfBps: 3.2841216543560217
+            volume: 5.962133916683182
+            limitPwp10Price: 2.9409642974827896
             timeZoneName: timeZoneName
-            limitPwp02Volume: 9.183123594773994
-            pwp50PerfBps: 4.258773108174356
-            limitVwapFfLfPerfBps: 5.507386964179881
-            limitPwp50Volume: 7.606863723092579
+            limitPwp02Volume: 8.761432466225475
+            pwp50PerfBps: 1.041444916118296
+            limitVwapFfLfPerfBps: 4.86315908102884
+            limitPwp50Volume: 3.7814124730767915
             region: region
-            tMinus2ClosePrice: 1.9626702727164813
-            tMinus5ClosePerfBps: 7.464202015255506
+            tMinus2ClosePrice: 5.573385265048522
+            tMinus5ClosePerfBps: 7.129168897240568
             venue: venue
-            limitPwp01PerfBps: 1.8268702177058116
+            limitPwp01PerfBps: 3.502657762086401
             destination: destination
-            tOpenPerfBps: 2.058822123984536
-            limitPwp20Price: 8.251625748923757
-            tMinus4OpenPerfBps: 4.432841187680573
-            duration: 6.878052220127876
-            reversion10MinMidPrice: 1.1730742509559433
-            tMinus1ClosePrice: 2.026856458177285
-            pwp05Volume: 6.519180951018382
-            limitPwp20PerfBps: 3.901545264248647
-            pwp03Price: 5.533258397034986
+            tOpenPerfBps: 6.4280627569296165
+            limitPwp20Price: 4.459605034958679
+            tMinus4OpenPerfBps: 3.5117904067536143
+            duration: 5.944895607614016
+            reversion10MinMidPrice: 4.965218492984954
+            tMinus1ClosePrice: 3.196820582978078
+            pwp05Volume: 0.10263654006109402
+            limitPwp20PerfBps: 0.43431398824148815
+            pwp03Price: 3.2588565619047607
             firstFillTimeStatus: firstFillTimeStatus
-            twasBidSize: 2.380090174313445
-            firstFillPreBid: 0.35262192099236644
-            vwapLowAvgPrice: 3.812761638325517
-            limitVwapHighAvgPriceVolume: 9.402167524121316
-            tPlus4ClosePrice: 0.11859130807119977
-            marketAdjustment: 9.132027271330688
+            twasBidSize: 3.804112695731078
+            firstFillPreBid: 7.203794749804894
+            vwapLowAvgPrice: 5.6644160867523485
+            limitVwapHighAvgPriceVolume: 1.7045651386993
+            tPlus4ClosePrice: 4.637509675190766
+            marketAdjustment: 0.8774076871421566
             masterOrderId: masterOrderId
-            limitPwp100Price: 3.111202833403195
-            twasAskSize: 3.1497903714250555
-            vwapFfCloseVolume: 6.966044574347761
+            limitPwp100Price: 9.897492629215506
+            twasAskSize: 2.380090174313445
+            vwapFfCloseVolume: 9.806951670467935
             freeSearch: freeSearch
-            pwp100Volume: 4.678947989005849
-            limitVwapOrderEntryClose: 4.010300976654761
+            pwp100Volume: 7.260521264802104
+            limitVwapOrderEntryClose: 8.276461147928103
             countryAlias: countryAlias
             orderType: orderType
-            tMinus2OpenPrice: 3.8156682252305574
+            tMinus2OpenPrice: 1.9626702727164813
             tPlus1DateId: 2000-01-23
             orderId: orderId
             companyName: companyName
-            limitPwp10PerfBps: 1.7325933120207193
+            limitPwp10PerfBps: 8.28965939814297
             errorCodes: errorCodes
-            pwp02PerfBps: 7.04836565559697
-            limitVwapFfClose: 3.2841216543560217
-            limitPwp01Volume: 9.254183946267839
-            limitParticipationRatePct: 4.86315908102884
+            pwp02PerfBps: 5.533258397034986
+            limitVwapFfClose: 9.785002165136461
+            limitPwp01Volume: 1.8268702177058116
+            limitParticipationRatePct: 6.073898085781152
             tDateId: 2000-01-23
-            lastFillMid: 1.0246457001441578
+            lastFillMid: 1.4894159098541704
             children:
             - null
             - null
-            price: 5.962133916683182
-            lastFillPreBid: 9.386524999783381
-            pwp20Volume: 6.704019297950036
-            vwapLowAvgPriceVolume: 1.5970080735609526
-            id: 0
-            reversion60MinMidBps: 6.683562403749608
-            tOpenPrice: 4.141296055235948
+            price: 5.637376656633329
+            lastFillPreBid: 0.58919091925136
+            pwp20Volume: 3.353193347011243
+            vwapLowAvgPriceVolume: 4.372688051310086
+            id: 6
+            reversion60MinMidBps: 8.762042012749001
+            tOpenPrice: 8.910869026866926
             udfmap: udfmap
-            tPlus5OpenPerfBps: 6.176386745020588
+            tPlus5OpenPerfBps: 2.0981949483881577
             tMinus1DateId: 2000-01-23
-            tMinus5ClosePrice: 9.721046668148785
-            limitPwp02Price: 3.502657762086401
-            vwapHighAvgPriceVolume: 1.2555055362323109
+            tMinus5ClosePrice: 2.922265432447957
+            limitPwp02Price: 9.183123594773994
+            vwapHighAvgPriceVolume: 3.812761638325517
             algoWheel: algoWheel
             status: status
-            tClosePerfBps: 6.4280627569296165
-            limitVwapOpenClose: 8.262795412896967
-            limitVwapFfCloseVolume: 7.3718573971919445
-            tPlus4OpenPerfBps: 4.637509675190766
-            limitPwp03PerfBps: 5.312489704336296
+            tClosePerfBps: 0.8411762798681321
+            limitVwapOpenClose: 2.9805393113464476
+            limitVwapFfCloseVolume: 7.726998920545485
+            tPlus4OpenPerfBps: 0.36062689002149373
+            limitPwp03PerfBps: 8.37823741034869
             orderEntryTimeUtc: orderEntryTimeUtc
             dateId: 2000-01-23
-            tPlus1OpenPrice: 0.8411762798681321
-            limitPwp100PerfBps: 5.877124706116695
-            tPlus4OpenPrice: 6.918231485891953
-            tMinus4OpenPrice: 0.4008378390304357
-            limitPwp100Volume: 9.897492629215506
-            openPerfBps: 1.2315135367772556
+            tPlus1OpenPrice: 2.9679475177256287
+            limitPwp100PerfBps: 7.835035282970782
+            tPlus4OpenPrice: 0.11859130807119977
+            tMinus4OpenPrice: 2.5524281586707875
+            limitPwp100Volume: 5.877124706116695
+            openPerfBps: 1.0246457001441578
             side: side
-            vwapOpenCloseVolume: 4.372688051310086
-            intraOrderVolatility: 8.762042012749001
-            limitPwp50Price: 8.37823741034869
+            vwapOpenCloseVolume: 5.7911894223693885
+            intraOrderVolatility: 9.018348186070783
+            limitPwp50Price: 7.606863723092579
             firstFillTimeUtc: firstFillTimeUtc
             parentId: parentId
-            limitVwapLowAvgPrice: 1.7045651386993
-            pwp02Price: 3.0205796992916243
-            limitPwp20Volume: 4.459605034958679
-            tClosePrice: 8.910869026866926
+            limitVwapLowAvgPrice: 4.4935252719377825
+            pwp02Price: 3.0576100241049344
+            limitPwp20Volume: 3.901545264248647
+            tClosePrice: 2.058822123984536
             tMinus2DateId: 2000-01-23
-            tMinus5OpenPrice: 5.726375546151009
-            tMinus4ClosePerfBps: 3.5117904067536143
-            pwp01Price: 4.652396432933246
-            firstFillMidPerfBps: 7.386281948385884
-            intraOrderVolatilityBps: 0.8774076871421566
-            vwapFfLf: 9.018348186070783
-            lastFillPreAsk: 2.7977867356748476
-            tMinus2ClosePerfBps: 3.0269458094096646
+            tMinus5OpenPrice: 9.721046668148785
+            tMinus4ClosePerfBps: 5.726375546151009
+            pwp01Price: 8.969578798196912
+            firstFillMidPerfBps: 1.2315135367772556
+            intraOrderVolatilityBps: 9.702963800023566
+            vwapFfLf: 6.438423552598547
+            lastFillPreAsk: 9.386524999783381
+            tMinus2ClosePerfBps: 8.250639315618633
             firstFillTime: firstFillTime
-            orderEntryPreBid: 4.8789878742268815
-            tMinus3ClosePrice: 7.273019311111276
-            tPlus1ClosePrice: 2.9679475177256287
-            tMinus3OpenPerfBps: 2.4669941706755685
-            marketCap: 3.804112695731078
-            tPlus2ClosePrice: 6.749525837406151
+            allocVolume: 0.8008281904610115
+            orderEntryPreBid: 6.966044574347761
+            tMinus3ClosePrice: 2.4669941706755685
+            tPlus1ClosePrice: 5.747795090145878
+            tMinus3OpenPerfBps: 8.782449469456207
+            marketCap: 8.675064425986758
+            tPlus2ClosePrice: 4.943637496515336
             parentCreationTimeUtc: parentCreationTimeUtc
             securityId: securityId
-            reversion5MinMidBps: 7.457744773683766
+            allocAccount: allocAccount
+            reversion5MinMidBps: 1.1730742509559433
             tMinus3DateId: 2000-01-23
             processedTime: processedTime
             synthetic: true
             tPlus5DateId: 2000-01-23
-            pwp20Price: 5.944895607614016
-            limitPwp10Volume: 2.9409642974827896
-            durationBinMin: 6.965117697638846
-            tPlus2OpenPrice: 7.3842318535314
-            durationBinSec: 1.284659006116532
-            vwapOrderEntryClosePerfBps: 5.974942028545841
-            vwapOrderEntryCloseVolume: 3.8008573585058016
-            limitPwp05Price: 8.28965939814297
-            reversion15MinMidPrice: 5.025004791520295
-            pwp01Volume: 8.969578798196912
-            limitPwp05Volume: 6.623518433804886
-            limitPwp05PerfBps: 4.573936264232251
+            pwp20Price: 6.704019297950036
+            limitPwp10Volume: 1.7325933120207193
+            durationBinMin: 1.284659006116532
+            tPlus2OpenPrice: 6.749525837406151
+            durationBinSec: 2.8841621266687802
+            vwapOrderEntryClosePerfBps: 3.8008573585058016
+            vwapOrderEntryCloseVolume: 1.0639121808530916
+            limitPwp05Price: 6.623518433804886
+            reversion15MinMidPrice: 9.965781217890562
+            pwp01Volume: 7.740351818741173
+            limitPwp05Volume: 4.573936264232251
+            limitPwp05PerfBps: 8.863729185622827
             note: note
-            limitVwapLowAvgPricePerfBps: 4.4935252719377825
-            twas: 0.4768402382624515
-            orderEntryFillMidPerfBps: 8.675064425986758
-            pwp100PerfBps: 7.260521264802104
-            pwp10PerfBps: 0.8851374739011653
-            limitPwp02PerfBps: 8.761432466225475
-            tMinus4ClosePrice: 2.5524281586707875
-            pwp100Price: 1.041444916118296
+            limitVwapLowAvgPricePerfBps: 3.209082285545927
+            twas: 3.1497903714250555
+            orderEntryFillMidPerfBps: 4.518309517874243
+            pwp100PerfBps: 9.132027271330688
+            pwp10PerfBps: 7.058770351582356
+            limitPwp02PerfBps: 0.4182561061793122
+            tMinus4ClosePrice: 4.432841187680573
+            pwp100Price: 4.678947989005849
             relatedOrderId:
             - relatedOrderId
             - relatedOrderId
-            limitVwapOpenClosePerfBps: 2.9805393113464476
-            value: 4.518309517874243
+            limitVwapOpenClosePerfBps: 9.146339979307802
+            value: 0.4833312865174044
             direction: direction
-            firstFillPrice: 7.203794749804894
+            firstFillPrice: 4.332304821875894
             trader: trader
-            tPlus5OpenPrice: 7.390706075830692
-            vwapOrderEntryClose: 5.7911894223693885
-            reversion60MinMidPrice: 9.369310271410669
-            participationRatePct: 2.8841621266687802
+            tPlus5OpenPrice: 1.0502890910539986
+            vwapOrderEntryClose: 5.974942028545841
+            reversion60MinMidPrice: 6.683562403749608
+            participationRatePct: 6.778324963048013
             tMinus5DateId: 2000-01-23
             compositeId: compositeId
             strategy: strategy
-            tMinus5OpenPerfBps: 2.922265432447957
+            tMinus5OpenPerfBps: 7.464202015255506
             isin: isin
             refCurrency: refCurrency
-          - fxRate: 7.835035282970782
+          - fxRate: 0.4768402382624515
             costEstimates:
               orderLiquidity:
                 confidenceInterval: 2.7977867356748476
@@ -13312,244 +13321,246 @@ components:
                 costPerShareBps: 4.332304821875894
                 adjustedArrivalPerfBps: 4.8789878742268815
                 spreadCostPerShare: 9.386524999783381
-            limitPwp01Price: 8.863729185622827
-            tPlus5ClosePrice: 1.0502890910539986
-            limitPwp50PerfBps: 3.7814124730767915
-            pwp10Price: 3.0937452626664474
-            pwp01PerfBps: 7.740351818741173
-            pwp03PerfBps: 4.078845849666752
-            orderVolume: 6.027456183070403
-            pwp03Volume: 3.2588565619047607
-            orderEntryPreAsk: 6.173804034172511
-            pwp05PerfBps: 0.10263654006109402
-            vwapLowAvgPricePerfBps: 5.6644160867523485
-            limitVwapLowAvgPriceVolume: 3.209082285545927
+            limitPwp01Price: 9.254183946267839
+            tPlus5ClosePrice: 6.176386745020588
+            limitPwp50PerfBps: 3.111202833403195
+            pwp10Price: 7.143538047012306
+            pwp01PerfBps: 3.0205796992916243
+            pwp03PerfBps: 0.2025324113236393
+            orderVolume: 1.4658129805029452
+            pwp03Volume: 4.078845849666752
+            orderEntryPreAsk: 4.8789878742268815
+            pwp05PerfBps: 4.652396432933246
+            vwapLowAvgPricePerfBps: 1.5970080735609526
+            limitVwapLowAvgPriceVolume: 8.262795412896967
             tMinus4DateId: 2000-01-23
-            pwp10Volume: 7.143538047012306
+            pwp10Volume: 0.8851374739011653
             messageType: Undefined
-            limitVwapOrderEntryCloseVolume: 6.458262756685686
-            limitVwapFfLf: 7.933506881737151
-            lastFillPrice: 0.58919091925136
-            reversion15MinMidBps: 9.965781217890562
-            pwp50Volume: 6.628464275087742
+            limitVwapOrderEntryCloseVolume: 4.141296055235948
+            limitVwapFfLf: 5.507386964179881
+            lastFillPrice: 2.535258963197524
+            reversion15MinMidBps: 9.369310271410669
+            pwp50Volume: 4.258773108174356
             timeZone: timeZone
-            tMinus2OpenPerfBps: 5.573385265048522
-            vwapOpenClose: 2.027123023002322
-            limitVwapOrderEntryClosePerfBps: 8.276461147928103
-            limitVwapHighAvgPricePerfBps: 7.92839742024475
+            tMinus2OpenPerfBps: 3.0269458094096646
+            vwapOpenClose: 4.145608029883936
+            limitVwapOrderEntryClosePerfBps: 6.458262756685686
+            limitVwapHighAvgPricePerfBps: 9.402167524121316
             grandParentId: grandParentId
-            tMinus3OpenPrice: 8.250639315618633
-            marketSpreadCross: 6.073898085781152
-            tPlus3ClosePrice: 9.456612101333725
+            tMinus3OpenPrice: 7.273019311111276
+            marketSpreadCross: 8.251625748923757
+            tPlus3ClosePrice: 9.721723570087065
             basketId: basketId
-            tMinus1OpenPerfBps: 3.196820582978078
+            tMinus1OpenPerfBps: 5.296102445648278
             bbgTicker: bbgTicker
-            openPrice: 2.3021358869347655
-            firstFillPricePerfBps: 4.332304821875894
-            limitVwapFfClosePerfBps: 9.785002165136461
-            reversion10MinMidBps: 4.965218492984954
+            openPrice: 7.061401241503109
+            firstFillPricePerfBps: 2.7977867356748476
+            limitVwapFfClosePerfBps: 7.3718573971919445
+            reversion10MinMidBps: 5.025004791520295
             lastFillTime: lastFillTime
-            tPlus1ClosePerfBps: 0.7012260588964747
+            tPlus1ClosePerfBps: 7.3842318535314
             currency: currency
             tPlus3DateId: 2000-01-23
-            limitPwp03Price: 0.4182561061793122
-            tPlus1OpenPerfBps: 5.747795090145878
-            tPlus5ClosePerfBps: 2.0981949483881577
-            limitVwapHighAvgPrice: 7.726998920545485
-            tPlus4ClosePerfBps: 0.36062689002149373
+            limitPwp03Price: 5.299143560275359
+            tPlus1OpenPerfBps: 0.7012260588964747
+            tPlus5ClosePerfBps: 4.1661834558007
+            limitVwapHighAvgPrice: 7.92839742024475
+            tPlus4ClosePerfBps: 7.390706075830692
             clientId: clientId
-            firstFillPreAsk: 0.4833312865174044
-            lastFillMidPerfBps: 1.4894159098541704
-            pwp02Volume: 3.0576100241049344
-            tPlus2ClosePerfBps: 0.30134145536422907
-            tMinus1OpenPrice: 4.1661834558007
+            firstFillPreAsk: 0.35262192099236644
+            lastFillMidPerfBps: 6.84685269835264
+            pwp02Volume: 7.04836565559697
+            tPlus2ClosePerfBps: 0.4867146239815201
+            tMinus1OpenPrice: 2.026856458177285
             broker: broker
-            limitVwapOpenCloseVolume: 9.146339979307802
-            tPlus3ClosePerfBps: 7.88722683998926
-            limitPwp03Volume: 5.299143560275359
-            limitVwapFfLfVolume: 0.5199002018724985
-            tPlus2OpenPerfBps: 4.943637496515336
+            limitVwapOpenCloseVolume: 4.010300976654761
+            tPlus3ClosePerfBps: 6.918231485891953
+            limitPwp03Volume: 5.312489704336296
+            limitVwapFfLfVolume: 7.933506881737151
+            tPlus2OpenPerfBps: 0.30134145536422907
             tPlus4DateId: 2000-01-23
-            pwp20PerfBps: 3.353193347011243
-            pwp05Price: 7.058770351582356
-            vwapHighAvgPrice: 9.806951670467935
-            closePerfBps: 3.5571952270680973
-            spreadCross: 6.778324963048013
-            closePrice: 7.061401241503109
+            pwp20PerfBps: 3.0937452626664474
+            pwp05Price: 6.519180951018382
+            vwapHighAvgPrice: 1.3949519358941398
+            closePerfBps: 6.965117697638846
+            spreadCross: 6.878052220127876
+            closePrice: 9.301444243932576
             lastFillTimeUtc: lastFillTimeUtc
             algo: algo
-            tPlus3OpenPerfBps: 9.721723570087065
+            tPlus3OpenPerfBps: 7.88722683998926
             symbol: symbol
             country: country
-            tMinus3ClosePerfBps: 8.782449469456207
-            vwapFfLfPerfBps: 6.438423552598547
-            tPlus3OpenPrice: 0.4867146239815201
-            vwapHighAvgPricePerfBps: 1.3949519358941398
-            refValue: 9.301444243932576
-            tMinus1ClosePerfBps: 5.296102445648278
-            reversion5MinMidPrice: 6.84685269835264
+            tMinus3ClosePerfBps: 0.4008378390304357
+            vwapFfLfPerfBps: 3.5571952270680973
+            tPlus3OpenPrice: 9.456612101333725
+            vwapHighAvgPricePerfBps: 1.2555055362323109
+            refValue: 3.616076749251911
+            tMinus1ClosePerfBps: 3.8156682252305574
+            reversion5MinMidPrice: 7.457744773683766
             fillTimeUtc: fillTimeUtc
             destinationType: destinationType
-            vwapFfLfVolume: 9.702963800023566
+            vwapFfLfVolume: 0.5199002018724985
             sector: sector
-            firstFillMid: 4.145608029883936
-            pwp50Price: 0.2025324113236393
+            firstFillMid: 7.386281948385884
+            pwp50Price: 6.628464275087742
             tPlus2DateId: 2000-01-23
-            limitPrice: 5.637376656633329
-            orderEntryFillMid: 2.535258963197524
-            vwapFfClose: 3.616076749251911
-            vwapFfClosePerfBps: 1.0639121808530916
-            volume: 1.4658129805029452
-            limitPwp10Price: 0.43431398824148815
+            limitPrice: 2.3021358869347655
+            orderEntryFillMid: 6.173804034172511
+            vwapFfClose: 2.027123023002322
+            vwapFfClosePerfBps: 3.2841216543560217
+            volume: 5.962133916683182
+            limitPwp10Price: 2.9409642974827896
             timeZoneName: timeZoneName
-            limitPwp02Volume: 9.183123594773994
-            pwp50PerfBps: 4.258773108174356
-            limitVwapFfLfPerfBps: 5.507386964179881
-            limitPwp50Volume: 7.606863723092579
+            limitPwp02Volume: 8.761432466225475
+            pwp50PerfBps: 1.041444916118296
+            limitVwapFfLfPerfBps: 4.86315908102884
+            limitPwp50Volume: 3.7814124730767915
             region: region
-            tMinus2ClosePrice: 1.9626702727164813
-            tMinus5ClosePerfBps: 7.464202015255506
+            tMinus2ClosePrice: 5.573385265048522
+            tMinus5ClosePerfBps: 7.129168897240568
             venue: venue
-            limitPwp01PerfBps: 1.8268702177058116
+            limitPwp01PerfBps: 3.502657762086401
             destination: destination
-            tOpenPerfBps: 2.058822123984536
-            limitPwp20Price: 8.251625748923757
-            tMinus4OpenPerfBps: 4.432841187680573
-            duration: 6.878052220127876
-            reversion10MinMidPrice: 1.1730742509559433
-            tMinus1ClosePrice: 2.026856458177285
-            pwp05Volume: 6.519180951018382
-            limitPwp20PerfBps: 3.901545264248647
-            pwp03Price: 5.533258397034986
+            tOpenPerfBps: 6.4280627569296165
+            limitPwp20Price: 4.459605034958679
+            tMinus4OpenPerfBps: 3.5117904067536143
+            duration: 5.944895607614016
+            reversion10MinMidPrice: 4.965218492984954
+            tMinus1ClosePrice: 3.196820582978078
+            pwp05Volume: 0.10263654006109402
+            limitPwp20PerfBps: 0.43431398824148815
+            pwp03Price: 3.2588565619047607
             firstFillTimeStatus: firstFillTimeStatus
-            twasBidSize: 2.380090174313445
-            firstFillPreBid: 0.35262192099236644
-            vwapLowAvgPrice: 3.812761638325517
-            limitVwapHighAvgPriceVolume: 9.402167524121316
-            tPlus4ClosePrice: 0.11859130807119977
-            marketAdjustment: 9.132027271330688
+            twasBidSize: 3.804112695731078
+            firstFillPreBid: 7.203794749804894
+            vwapLowAvgPrice: 5.6644160867523485
+            limitVwapHighAvgPriceVolume: 1.7045651386993
+            tPlus4ClosePrice: 4.637509675190766
+            marketAdjustment: 0.8774076871421566
             masterOrderId: masterOrderId
-            limitPwp100Price: 3.111202833403195
-            twasAskSize: 3.1497903714250555
-            vwapFfCloseVolume: 6.966044574347761
+            limitPwp100Price: 9.897492629215506
+            twasAskSize: 2.380090174313445
+            vwapFfCloseVolume: 9.806951670467935
             freeSearch: freeSearch
-            pwp100Volume: 4.678947989005849
-            limitVwapOrderEntryClose: 4.010300976654761
+            pwp100Volume: 7.260521264802104
+            limitVwapOrderEntryClose: 8.276461147928103
             countryAlias: countryAlias
             orderType: orderType
-            tMinus2OpenPrice: 3.8156682252305574
+            tMinus2OpenPrice: 1.9626702727164813
             tPlus1DateId: 2000-01-23
             orderId: orderId
             companyName: companyName
-            limitPwp10PerfBps: 1.7325933120207193
+            limitPwp10PerfBps: 8.28965939814297
             errorCodes: errorCodes
-            pwp02PerfBps: 7.04836565559697
-            limitVwapFfClose: 3.2841216543560217
-            limitPwp01Volume: 9.254183946267839
-            limitParticipationRatePct: 4.86315908102884
+            pwp02PerfBps: 5.533258397034986
+            limitVwapFfClose: 9.785002165136461
+            limitPwp01Volume: 1.8268702177058116
+            limitParticipationRatePct: 6.073898085781152
             tDateId: 2000-01-23
-            lastFillMid: 1.0246457001441578
+            lastFillMid: 1.4894159098541704
             children:
             - null
             - null
-            price: 5.962133916683182
-            lastFillPreBid: 9.386524999783381
-            pwp20Volume: 6.704019297950036
-            vwapLowAvgPriceVolume: 1.5970080735609526
-            id: 0
-            reversion60MinMidBps: 6.683562403749608
-            tOpenPrice: 4.141296055235948
+            price: 5.637376656633329
+            lastFillPreBid: 0.58919091925136
+            pwp20Volume: 3.353193347011243
+            vwapLowAvgPriceVolume: 4.372688051310086
+            id: 6
+            reversion60MinMidBps: 8.762042012749001
+            tOpenPrice: 8.910869026866926
             udfmap: udfmap
-            tPlus5OpenPerfBps: 6.176386745020588
+            tPlus5OpenPerfBps: 2.0981949483881577
             tMinus1DateId: 2000-01-23
-            tMinus5ClosePrice: 9.721046668148785
-            limitPwp02Price: 3.502657762086401
-            vwapHighAvgPriceVolume: 1.2555055362323109
+            tMinus5ClosePrice: 2.922265432447957
+            limitPwp02Price: 9.183123594773994
+            vwapHighAvgPriceVolume: 3.812761638325517
             algoWheel: algoWheel
             status: status
-            tClosePerfBps: 6.4280627569296165
-            limitVwapOpenClose: 8.262795412896967
-            limitVwapFfCloseVolume: 7.3718573971919445
-            tPlus4OpenPerfBps: 4.637509675190766
-            limitPwp03PerfBps: 5.312489704336296
+            tClosePerfBps: 0.8411762798681321
+            limitVwapOpenClose: 2.9805393113464476
+            limitVwapFfCloseVolume: 7.726998920545485
+            tPlus4OpenPerfBps: 0.36062689002149373
+            limitPwp03PerfBps: 8.37823741034869
             orderEntryTimeUtc: orderEntryTimeUtc
             dateId: 2000-01-23
-            tPlus1OpenPrice: 0.8411762798681321
-            limitPwp100PerfBps: 5.877124706116695
-            tPlus4OpenPrice: 6.918231485891953
-            tMinus4OpenPrice: 0.4008378390304357
-            limitPwp100Volume: 9.897492629215506
-            openPerfBps: 1.2315135367772556
+            tPlus1OpenPrice: 2.9679475177256287
+            limitPwp100PerfBps: 7.835035282970782
+            tPlus4OpenPrice: 0.11859130807119977
+            tMinus4OpenPrice: 2.5524281586707875
+            limitPwp100Volume: 5.877124706116695
+            openPerfBps: 1.0246457001441578
             side: side
-            vwapOpenCloseVolume: 4.372688051310086
-            intraOrderVolatility: 8.762042012749001
-            limitPwp50Price: 8.37823741034869
+            vwapOpenCloseVolume: 5.7911894223693885
+            intraOrderVolatility: 9.018348186070783
+            limitPwp50Price: 7.606863723092579
             firstFillTimeUtc: firstFillTimeUtc
             parentId: parentId
-            limitVwapLowAvgPrice: 1.7045651386993
-            pwp02Price: 3.0205796992916243
-            limitPwp20Volume: 4.459605034958679
-            tClosePrice: 8.910869026866926
+            limitVwapLowAvgPrice: 4.4935252719377825
+            pwp02Price: 3.0576100241049344
+            limitPwp20Volume: 3.901545264248647
+            tClosePrice: 2.058822123984536
             tMinus2DateId: 2000-01-23
-            tMinus5OpenPrice: 5.726375546151009
-            tMinus4ClosePerfBps: 3.5117904067536143
-            pwp01Price: 4.652396432933246
-            firstFillMidPerfBps: 7.386281948385884
-            intraOrderVolatilityBps: 0.8774076871421566
-            vwapFfLf: 9.018348186070783
-            lastFillPreAsk: 2.7977867356748476
-            tMinus2ClosePerfBps: 3.0269458094096646
+            tMinus5OpenPrice: 9.721046668148785
+            tMinus4ClosePerfBps: 5.726375546151009
+            pwp01Price: 8.969578798196912
+            firstFillMidPerfBps: 1.2315135367772556
+            intraOrderVolatilityBps: 9.702963800023566
+            vwapFfLf: 6.438423552598547
+            lastFillPreAsk: 9.386524999783381
+            tMinus2ClosePerfBps: 8.250639315618633
             firstFillTime: firstFillTime
-            orderEntryPreBid: 4.8789878742268815
-            tMinus3ClosePrice: 7.273019311111276
-            tPlus1ClosePrice: 2.9679475177256287
-            tMinus3OpenPerfBps: 2.4669941706755685
-            marketCap: 3.804112695731078
-            tPlus2ClosePrice: 6.749525837406151
+            allocVolume: 0.8008281904610115
+            orderEntryPreBid: 6.966044574347761
+            tMinus3ClosePrice: 2.4669941706755685
+            tPlus1ClosePrice: 5.747795090145878
+            tMinus3OpenPerfBps: 8.782449469456207
+            marketCap: 8.675064425986758
+            tPlus2ClosePrice: 4.943637496515336
             parentCreationTimeUtc: parentCreationTimeUtc
             securityId: securityId
-            reversion5MinMidBps: 7.457744773683766
+            allocAccount: allocAccount
+            reversion5MinMidBps: 1.1730742509559433
             tMinus3DateId: 2000-01-23
             processedTime: processedTime
             synthetic: true
             tPlus5DateId: 2000-01-23
-            pwp20Price: 5.944895607614016
-            limitPwp10Volume: 2.9409642974827896
-            durationBinMin: 6.965117697638846
-            tPlus2OpenPrice: 7.3842318535314
-            durationBinSec: 1.284659006116532
-            vwapOrderEntryClosePerfBps: 5.974942028545841
-            vwapOrderEntryCloseVolume: 3.8008573585058016
-            limitPwp05Price: 8.28965939814297
-            reversion15MinMidPrice: 5.025004791520295
-            pwp01Volume: 8.969578798196912
-            limitPwp05Volume: 6.623518433804886
-            limitPwp05PerfBps: 4.573936264232251
+            pwp20Price: 6.704019297950036
+            limitPwp10Volume: 1.7325933120207193
+            durationBinMin: 1.284659006116532
+            tPlus2OpenPrice: 6.749525837406151
+            durationBinSec: 2.8841621266687802
+            vwapOrderEntryClosePerfBps: 3.8008573585058016
+            vwapOrderEntryCloseVolume: 1.0639121808530916
+            limitPwp05Price: 6.623518433804886
+            reversion15MinMidPrice: 9.965781217890562
+            pwp01Volume: 7.740351818741173
+            limitPwp05Volume: 4.573936264232251
+            limitPwp05PerfBps: 8.863729185622827
             note: note
-            limitVwapLowAvgPricePerfBps: 4.4935252719377825
-            twas: 0.4768402382624515
-            orderEntryFillMidPerfBps: 8.675064425986758
-            pwp100PerfBps: 7.260521264802104
-            pwp10PerfBps: 0.8851374739011653
-            limitPwp02PerfBps: 8.761432466225475
-            tMinus4ClosePrice: 2.5524281586707875
-            pwp100Price: 1.041444916118296
+            limitVwapLowAvgPricePerfBps: 3.209082285545927
+            twas: 3.1497903714250555
+            orderEntryFillMidPerfBps: 4.518309517874243
+            pwp100PerfBps: 9.132027271330688
+            pwp10PerfBps: 7.058770351582356
+            limitPwp02PerfBps: 0.4182561061793122
+            tMinus4ClosePrice: 4.432841187680573
+            pwp100Price: 4.678947989005849
             relatedOrderId:
             - relatedOrderId
             - relatedOrderId
-            limitVwapOpenClosePerfBps: 2.9805393113464476
-            value: 4.518309517874243
+            limitVwapOpenClosePerfBps: 9.146339979307802
+            value: 0.4833312865174044
             direction: direction
-            firstFillPrice: 7.203794749804894
+            firstFillPrice: 4.332304821875894
             trader: trader
-            tPlus5OpenPrice: 7.390706075830692
-            vwapOrderEntryClose: 5.7911894223693885
-            reversion60MinMidPrice: 9.369310271410669
-            participationRatePct: 2.8841621266687802
+            tPlus5OpenPrice: 1.0502890910539986
+            vwapOrderEntryClose: 5.974942028545841
+            reversion60MinMidPrice: 6.683562403749608
+            participationRatePct: 6.778324963048013
             tMinus5DateId: 2000-01-23
             compositeId: compositeId
             strategy: strategy
-            tMinus5OpenPerfBps: 2.922265432447957
+            tMinus5OpenPerfBps: 7.464202015255506
             isin: isin
             refCurrency: refCurrency
       properties:
@@ -13566,7 +13577,7 @@ components:
           noOfPages: noOfPages
           isEstimatedTotal: true
         orders:
-        - fxRate: 7.835035282970782
+        - fxRate: 0.4768402382624515
           costEstimates:
             orderLiquidity:
               confidenceInterval: 2.7977867356748476
@@ -13596,247 +13607,249 @@ components:
               costPerShareBps: 4.332304821875894
               adjustedArrivalPerfBps: 4.8789878742268815
               spreadCostPerShare: 9.386524999783381
-          limitPwp01Price: 8.863729185622827
-          tPlus5ClosePrice: 1.0502890910539986
-          limitPwp50PerfBps: 3.7814124730767915
-          pwp10Price: 3.0937452626664474
-          pwp01PerfBps: 7.740351818741173
-          pwp03PerfBps: 4.078845849666752
-          orderVolume: 6.027456183070403
-          pwp03Volume: 3.2588565619047607
-          orderEntryPreAsk: 6.173804034172511
-          pwp05PerfBps: 0.10263654006109402
-          vwapLowAvgPricePerfBps: 5.6644160867523485
-          limitVwapLowAvgPriceVolume: 3.209082285545927
+          limitPwp01Price: 9.254183946267839
+          tPlus5ClosePrice: 6.176386745020588
+          limitPwp50PerfBps: 3.111202833403195
+          pwp10Price: 7.143538047012306
+          pwp01PerfBps: 3.0205796992916243
+          pwp03PerfBps: 0.2025324113236393
+          orderVolume: 1.4658129805029452
+          pwp03Volume: 4.078845849666752
+          orderEntryPreAsk: 4.8789878742268815
+          pwp05PerfBps: 4.652396432933246
+          vwapLowAvgPricePerfBps: 1.5970080735609526
+          limitVwapLowAvgPriceVolume: 8.262795412896967
           tMinus4DateId: 2000-01-23
-          pwp10Volume: 7.143538047012306
+          pwp10Volume: 0.8851374739011653
           messageType: Undefined
-          limitVwapOrderEntryCloseVolume: 6.458262756685686
-          limitVwapFfLf: 7.933506881737151
-          lastFillPrice: 0.58919091925136
-          reversion15MinMidBps: 9.965781217890562
-          pwp50Volume: 6.628464275087742
+          limitVwapOrderEntryCloseVolume: 4.141296055235948
+          limitVwapFfLf: 5.507386964179881
+          lastFillPrice: 2.535258963197524
+          reversion15MinMidBps: 9.369310271410669
+          pwp50Volume: 4.258773108174356
           timeZone: timeZone
-          tMinus2OpenPerfBps: 5.573385265048522
-          vwapOpenClose: 2.027123023002322
-          limitVwapOrderEntryClosePerfBps: 8.276461147928103
-          limitVwapHighAvgPricePerfBps: 7.92839742024475
+          tMinus2OpenPerfBps: 3.0269458094096646
+          vwapOpenClose: 4.145608029883936
+          limitVwapOrderEntryClosePerfBps: 6.458262756685686
+          limitVwapHighAvgPricePerfBps: 9.402167524121316
           grandParentId: grandParentId
-          tMinus3OpenPrice: 8.250639315618633
-          marketSpreadCross: 6.073898085781152
-          tPlus3ClosePrice: 9.456612101333725
+          tMinus3OpenPrice: 7.273019311111276
+          marketSpreadCross: 8.251625748923757
+          tPlus3ClosePrice: 9.721723570087065
           basketId: basketId
-          tMinus1OpenPerfBps: 3.196820582978078
+          tMinus1OpenPerfBps: 5.296102445648278
           bbgTicker: bbgTicker
-          openPrice: 2.3021358869347655
-          firstFillPricePerfBps: 4.332304821875894
-          limitVwapFfClosePerfBps: 9.785002165136461
-          reversion10MinMidBps: 4.965218492984954
+          openPrice: 7.061401241503109
+          firstFillPricePerfBps: 2.7977867356748476
+          limitVwapFfClosePerfBps: 7.3718573971919445
+          reversion10MinMidBps: 5.025004791520295
           lastFillTime: lastFillTime
-          tPlus1ClosePerfBps: 0.7012260588964747
+          tPlus1ClosePerfBps: 7.3842318535314
           currency: currency
           tPlus3DateId: 2000-01-23
-          limitPwp03Price: 0.4182561061793122
-          tPlus1OpenPerfBps: 5.747795090145878
-          tPlus5ClosePerfBps: 2.0981949483881577
-          limitVwapHighAvgPrice: 7.726998920545485
-          tPlus4ClosePerfBps: 0.36062689002149373
+          limitPwp03Price: 5.299143560275359
+          tPlus1OpenPerfBps: 0.7012260588964747
+          tPlus5ClosePerfBps: 4.1661834558007
+          limitVwapHighAvgPrice: 7.92839742024475
+          tPlus4ClosePerfBps: 7.390706075830692
           clientId: clientId
-          firstFillPreAsk: 0.4833312865174044
-          lastFillMidPerfBps: 1.4894159098541704
-          pwp02Volume: 3.0576100241049344
-          tPlus2ClosePerfBps: 0.30134145536422907
-          tMinus1OpenPrice: 4.1661834558007
+          firstFillPreAsk: 0.35262192099236644
+          lastFillMidPerfBps: 6.84685269835264
+          pwp02Volume: 7.04836565559697
+          tPlus2ClosePerfBps: 0.4867146239815201
+          tMinus1OpenPrice: 2.026856458177285
           broker: broker
-          limitVwapOpenCloseVolume: 9.146339979307802
-          tPlus3ClosePerfBps: 7.88722683998926
-          limitPwp03Volume: 5.299143560275359
-          limitVwapFfLfVolume: 0.5199002018724985
-          tPlus2OpenPerfBps: 4.943637496515336
+          limitVwapOpenCloseVolume: 4.010300976654761
+          tPlus3ClosePerfBps: 6.918231485891953
+          limitPwp03Volume: 5.312489704336296
+          limitVwapFfLfVolume: 7.933506881737151
+          tPlus2OpenPerfBps: 0.30134145536422907
           tPlus4DateId: 2000-01-23
-          pwp20PerfBps: 3.353193347011243
-          pwp05Price: 7.058770351582356
-          vwapHighAvgPrice: 9.806951670467935
-          closePerfBps: 3.5571952270680973
-          spreadCross: 6.778324963048013
-          closePrice: 7.061401241503109
+          pwp20PerfBps: 3.0937452626664474
+          pwp05Price: 6.519180951018382
+          vwapHighAvgPrice: 1.3949519358941398
+          closePerfBps: 6.965117697638846
+          spreadCross: 6.878052220127876
+          closePrice: 9.301444243932576
           lastFillTimeUtc: lastFillTimeUtc
           algo: algo
-          tPlus3OpenPerfBps: 9.721723570087065
+          tPlus3OpenPerfBps: 7.88722683998926
           symbol: symbol
           country: country
-          tMinus3ClosePerfBps: 8.782449469456207
-          vwapFfLfPerfBps: 6.438423552598547
-          tPlus3OpenPrice: 0.4867146239815201
-          vwapHighAvgPricePerfBps: 1.3949519358941398
-          refValue: 9.301444243932576
-          tMinus1ClosePerfBps: 5.296102445648278
-          reversion5MinMidPrice: 6.84685269835264
+          tMinus3ClosePerfBps: 0.4008378390304357
+          vwapFfLfPerfBps: 3.5571952270680973
+          tPlus3OpenPrice: 9.456612101333725
+          vwapHighAvgPricePerfBps: 1.2555055362323109
+          refValue: 3.616076749251911
+          tMinus1ClosePerfBps: 3.8156682252305574
+          reversion5MinMidPrice: 7.457744773683766
           fillTimeUtc: fillTimeUtc
           destinationType: destinationType
-          vwapFfLfVolume: 9.702963800023566
+          vwapFfLfVolume: 0.5199002018724985
           sector: sector
-          firstFillMid: 4.145608029883936
-          pwp50Price: 0.2025324113236393
+          firstFillMid: 7.386281948385884
+          pwp50Price: 6.628464275087742
           tPlus2DateId: 2000-01-23
-          limitPrice: 5.637376656633329
-          orderEntryFillMid: 2.535258963197524
-          vwapFfClose: 3.616076749251911
-          vwapFfClosePerfBps: 1.0639121808530916
-          volume: 1.4658129805029452
-          limitPwp10Price: 0.43431398824148815
+          limitPrice: 2.3021358869347655
+          orderEntryFillMid: 6.173804034172511
+          vwapFfClose: 2.027123023002322
+          vwapFfClosePerfBps: 3.2841216543560217
+          volume: 5.962133916683182
+          limitPwp10Price: 2.9409642974827896
           timeZoneName: timeZoneName
-          limitPwp02Volume: 9.183123594773994
-          pwp50PerfBps: 4.258773108174356
-          limitVwapFfLfPerfBps: 5.507386964179881
-          limitPwp50Volume: 7.606863723092579
+          limitPwp02Volume: 8.761432466225475
+          pwp50PerfBps: 1.041444916118296
+          limitVwapFfLfPerfBps: 4.86315908102884
+          limitPwp50Volume: 3.7814124730767915
           region: region
-          tMinus2ClosePrice: 1.9626702727164813
-          tMinus5ClosePerfBps: 7.464202015255506
+          tMinus2ClosePrice: 5.573385265048522
+          tMinus5ClosePerfBps: 7.129168897240568
           venue: venue
-          limitPwp01PerfBps: 1.8268702177058116
+          limitPwp01PerfBps: 3.502657762086401
           destination: destination
-          tOpenPerfBps: 2.058822123984536
-          limitPwp20Price: 8.251625748923757
-          tMinus4OpenPerfBps: 4.432841187680573
-          duration: 6.878052220127876
-          reversion10MinMidPrice: 1.1730742509559433
-          tMinus1ClosePrice: 2.026856458177285
-          pwp05Volume: 6.519180951018382
-          limitPwp20PerfBps: 3.901545264248647
-          pwp03Price: 5.533258397034986
+          tOpenPerfBps: 6.4280627569296165
+          limitPwp20Price: 4.459605034958679
+          tMinus4OpenPerfBps: 3.5117904067536143
+          duration: 5.944895607614016
+          reversion10MinMidPrice: 4.965218492984954
+          tMinus1ClosePrice: 3.196820582978078
+          pwp05Volume: 0.10263654006109402
+          limitPwp20PerfBps: 0.43431398824148815
+          pwp03Price: 3.2588565619047607
           firstFillTimeStatus: firstFillTimeStatus
-          twasBidSize: 2.380090174313445
-          firstFillPreBid: 0.35262192099236644
-          vwapLowAvgPrice: 3.812761638325517
-          limitVwapHighAvgPriceVolume: 9.402167524121316
-          tPlus4ClosePrice: 0.11859130807119977
-          marketAdjustment: 9.132027271330688
+          twasBidSize: 3.804112695731078
+          firstFillPreBid: 7.203794749804894
+          vwapLowAvgPrice: 5.6644160867523485
+          limitVwapHighAvgPriceVolume: 1.7045651386993
+          tPlus4ClosePrice: 4.637509675190766
+          marketAdjustment: 0.8774076871421566
           masterOrderId: masterOrderId
-          limitPwp100Price: 3.111202833403195
-          twasAskSize: 3.1497903714250555
-          vwapFfCloseVolume: 6.966044574347761
+          limitPwp100Price: 9.897492629215506
+          twasAskSize: 2.380090174313445
+          vwapFfCloseVolume: 9.806951670467935
           freeSearch: freeSearch
-          pwp100Volume: 4.678947989005849
-          limitVwapOrderEntryClose: 4.010300976654761
+          pwp100Volume: 7.260521264802104
+          limitVwapOrderEntryClose: 8.276461147928103
           countryAlias: countryAlias
           orderType: orderType
-          tMinus2OpenPrice: 3.8156682252305574
+          tMinus2OpenPrice: 1.9626702727164813
           tPlus1DateId: 2000-01-23
           orderId: orderId
           companyName: companyName
-          limitPwp10PerfBps: 1.7325933120207193
+          limitPwp10PerfBps: 8.28965939814297
           errorCodes: errorCodes
-          pwp02PerfBps: 7.04836565559697
-          limitVwapFfClose: 3.2841216543560217
-          limitPwp01Volume: 9.254183946267839
-          limitParticipationRatePct: 4.86315908102884
+          pwp02PerfBps: 5.533258397034986
+          limitVwapFfClose: 9.785002165136461
+          limitPwp01Volume: 1.8268702177058116
+          limitParticipationRatePct: 6.073898085781152
           tDateId: 2000-01-23
-          lastFillMid: 1.0246457001441578
+          lastFillMid: 1.4894159098541704
           children:
           - null
           - null
-          price: 5.962133916683182
-          lastFillPreBid: 9.386524999783381
-          pwp20Volume: 6.704019297950036
-          vwapLowAvgPriceVolume: 1.5970080735609526
-          id: 0
-          reversion60MinMidBps: 6.683562403749608
-          tOpenPrice: 4.141296055235948
+          price: 5.637376656633329
+          lastFillPreBid: 0.58919091925136
+          pwp20Volume: 3.353193347011243
+          vwapLowAvgPriceVolume: 4.372688051310086
+          id: 6
+          reversion60MinMidBps: 8.762042012749001
+          tOpenPrice: 8.910869026866926
           udfmap: udfmap
-          tPlus5OpenPerfBps: 6.176386745020588
+          tPlus5OpenPerfBps: 2.0981949483881577
           tMinus1DateId: 2000-01-23
-          tMinus5ClosePrice: 9.721046668148785
-          limitPwp02Price: 3.502657762086401
-          vwapHighAvgPriceVolume: 1.2555055362323109
+          tMinus5ClosePrice: 2.922265432447957
+          limitPwp02Price: 9.183123594773994
+          vwapHighAvgPriceVolume: 3.812761638325517
           algoWheel: algoWheel
           status: status
-          tClosePerfBps: 6.4280627569296165
-          limitVwapOpenClose: 8.262795412896967
-          limitVwapFfCloseVolume: 7.3718573971919445
-          tPlus4OpenPerfBps: 4.637509675190766
-          limitPwp03PerfBps: 5.312489704336296
+          tClosePerfBps: 0.8411762798681321
+          limitVwapOpenClose: 2.9805393113464476
+          limitVwapFfCloseVolume: 7.726998920545485
+          tPlus4OpenPerfBps: 0.36062689002149373
+          limitPwp03PerfBps: 8.37823741034869
           orderEntryTimeUtc: orderEntryTimeUtc
           dateId: 2000-01-23
-          tPlus1OpenPrice: 0.8411762798681321
-          limitPwp100PerfBps: 5.877124706116695
-          tPlus4OpenPrice: 6.918231485891953
-          tMinus4OpenPrice: 0.4008378390304357
-          limitPwp100Volume: 9.897492629215506
-          openPerfBps: 1.2315135367772556
+          tPlus1OpenPrice: 2.9679475177256287
+          limitPwp100PerfBps: 7.835035282970782
+          tPlus4OpenPrice: 0.11859130807119977
+          tMinus4OpenPrice: 2.5524281586707875
+          limitPwp100Volume: 5.877124706116695
+          openPerfBps: 1.0246457001441578
           side: side
-          vwapOpenCloseVolume: 4.372688051310086
-          intraOrderVolatility: 8.762042012749001
-          limitPwp50Price: 8.37823741034869
+          vwapOpenCloseVolume: 5.7911894223693885
+          intraOrderVolatility: 9.018348186070783
+          limitPwp50Price: 7.606863723092579
           firstFillTimeUtc: firstFillTimeUtc
           parentId: parentId
-          limitVwapLowAvgPrice: 1.7045651386993
-          pwp02Price: 3.0205796992916243
-          limitPwp20Volume: 4.459605034958679
-          tClosePrice: 8.910869026866926
+          limitVwapLowAvgPrice: 4.4935252719377825
+          pwp02Price: 3.0576100241049344
+          limitPwp20Volume: 3.901545264248647
+          tClosePrice: 2.058822123984536
           tMinus2DateId: 2000-01-23
-          tMinus5OpenPrice: 5.726375546151009
-          tMinus4ClosePerfBps: 3.5117904067536143
-          pwp01Price: 4.652396432933246
-          firstFillMidPerfBps: 7.386281948385884
-          intraOrderVolatilityBps: 0.8774076871421566
-          vwapFfLf: 9.018348186070783
-          lastFillPreAsk: 2.7977867356748476
-          tMinus2ClosePerfBps: 3.0269458094096646
+          tMinus5OpenPrice: 9.721046668148785
+          tMinus4ClosePerfBps: 5.726375546151009
+          pwp01Price: 8.969578798196912
+          firstFillMidPerfBps: 1.2315135367772556
+          intraOrderVolatilityBps: 9.702963800023566
+          vwapFfLf: 6.438423552598547
+          lastFillPreAsk: 9.386524999783381
+          tMinus2ClosePerfBps: 8.250639315618633
           firstFillTime: firstFillTime
-          orderEntryPreBid: 4.8789878742268815
-          tMinus3ClosePrice: 7.273019311111276
-          tPlus1ClosePrice: 2.9679475177256287
-          tMinus3OpenPerfBps: 2.4669941706755685
-          marketCap: 3.804112695731078
-          tPlus2ClosePrice: 6.749525837406151
+          allocVolume: 0.8008281904610115
+          orderEntryPreBid: 6.966044574347761
+          tMinus3ClosePrice: 2.4669941706755685
+          tPlus1ClosePrice: 5.747795090145878
+          tMinus3OpenPerfBps: 8.782449469456207
+          marketCap: 8.675064425986758
+          tPlus2ClosePrice: 4.943637496515336
           parentCreationTimeUtc: parentCreationTimeUtc
           securityId: securityId
-          reversion5MinMidBps: 7.457744773683766
+          allocAccount: allocAccount
+          reversion5MinMidBps: 1.1730742509559433
           tMinus3DateId: 2000-01-23
           processedTime: processedTime
           synthetic: true
           tPlus5DateId: 2000-01-23
-          pwp20Price: 5.944895607614016
-          limitPwp10Volume: 2.9409642974827896
-          durationBinMin: 6.965117697638846
-          tPlus2OpenPrice: 7.3842318535314
-          durationBinSec: 1.284659006116532
-          vwapOrderEntryClosePerfBps: 5.974942028545841
-          vwapOrderEntryCloseVolume: 3.8008573585058016
-          limitPwp05Price: 8.28965939814297
-          reversion15MinMidPrice: 5.025004791520295
-          pwp01Volume: 8.969578798196912
-          limitPwp05Volume: 6.623518433804886
-          limitPwp05PerfBps: 4.573936264232251
+          pwp20Price: 6.704019297950036
+          limitPwp10Volume: 1.7325933120207193
+          durationBinMin: 1.284659006116532
+          tPlus2OpenPrice: 6.749525837406151
+          durationBinSec: 2.8841621266687802
+          vwapOrderEntryClosePerfBps: 3.8008573585058016
+          vwapOrderEntryCloseVolume: 1.0639121808530916
+          limitPwp05Price: 6.623518433804886
+          reversion15MinMidPrice: 9.965781217890562
+          pwp01Volume: 7.740351818741173
+          limitPwp05Volume: 4.573936264232251
+          limitPwp05PerfBps: 8.863729185622827
           note: note
-          limitVwapLowAvgPricePerfBps: 4.4935252719377825
-          twas: 0.4768402382624515
-          orderEntryFillMidPerfBps: 8.675064425986758
-          pwp100PerfBps: 7.260521264802104
-          pwp10PerfBps: 0.8851374739011653
-          limitPwp02PerfBps: 8.761432466225475
-          tMinus4ClosePrice: 2.5524281586707875
-          pwp100Price: 1.041444916118296
+          limitVwapLowAvgPricePerfBps: 3.209082285545927
+          twas: 3.1497903714250555
+          orderEntryFillMidPerfBps: 4.518309517874243
+          pwp100PerfBps: 9.132027271330688
+          pwp10PerfBps: 7.058770351582356
+          limitPwp02PerfBps: 0.4182561061793122
+          tMinus4ClosePrice: 4.432841187680573
+          pwp100Price: 4.678947989005849
           relatedOrderId:
           - relatedOrderId
           - relatedOrderId
-          limitVwapOpenClosePerfBps: 2.9805393113464476
-          value: 4.518309517874243
+          limitVwapOpenClosePerfBps: 9.146339979307802
+          value: 0.4833312865174044
           direction: direction
-          firstFillPrice: 7.203794749804894
+          firstFillPrice: 4.332304821875894
           trader: trader
-          tPlus5OpenPrice: 7.390706075830692
-          vwapOrderEntryClose: 5.7911894223693885
-          reversion60MinMidPrice: 9.369310271410669
-          participationRatePct: 2.8841621266687802
+          tPlus5OpenPrice: 1.0502890910539986
+          vwapOrderEntryClose: 5.974942028545841
+          reversion60MinMidPrice: 6.683562403749608
+          participationRatePct: 6.778324963048013
           tMinus5DateId: 2000-01-23
           compositeId: compositeId
           strategy: strategy
-          tMinus5OpenPerfBps: 2.922265432447957
+          tMinus5OpenPerfBps: 7.464202015255506
           isin: isin
           refCurrency: refCurrency
-        - fxRate: 7.835035282970782
+        - fxRate: 0.4768402382624515
           costEstimates:
             orderLiquidity:
               confidenceInterval: 2.7977867356748476
@@ -13866,244 +13879,246 @@ components:
               costPerShareBps: 4.332304821875894
               adjustedArrivalPerfBps: 4.8789878742268815
               spreadCostPerShare: 9.386524999783381
-          limitPwp01Price: 8.863729185622827
-          tPlus5ClosePrice: 1.0502890910539986
-          limitPwp50PerfBps: 3.7814124730767915
-          pwp10Price: 3.0937452626664474
-          pwp01PerfBps: 7.740351818741173
-          pwp03PerfBps: 4.078845849666752
-          orderVolume: 6.027456183070403
-          pwp03Volume: 3.2588565619047607
-          orderEntryPreAsk: 6.173804034172511
-          pwp05PerfBps: 0.10263654006109402
-          vwapLowAvgPricePerfBps: 5.6644160867523485
-          limitVwapLowAvgPriceVolume: 3.209082285545927
+          limitPwp01Price: 9.254183946267839
+          tPlus5ClosePrice: 6.176386745020588
+          limitPwp50PerfBps: 3.111202833403195
+          pwp10Price: 7.143538047012306
+          pwp01PerfBps: 3.0205796992916243
+          pwp03PerfBps: 0.2025324113236393
+          orderVolume: 1.4658129805029452
+          pwp03Volume: 4.078845849666752
+          orderEntryPreAsk: 4.8789878742268815
+          pwp05PerfBps: 4.652396432933246
+          vwapLowAvgPricePerfBps: 1.5970080735609526
+          limitVwapLowAvgPriceVolume: 8.262795412896967
           tMinus4DateId: 2000-01-23
-          pwp10Volume: 7.143538047012306
+          pwp10Volume: 0.8851374739011653
           messageType: Undefined
-          limitVwapOrderEntryCloseVolume: 6.458262756685686
-          limitVwapFfLf: 7.933506881737151
-          lastFillPrice: 0.58919091925136
-          reversion15MinMidBps: 9.965781217890562
-          pwp50Volume: 6.628464275087742
+          limitVwapOrderEntryCloseVolume: 4.141296055235948
+          limitVwapFfLf: 5.507386964179881
+          lastFillPrice: 2.535258963197524
+          reversion15MinMidBps: 9.369310271410669
+          pwp50Volume: 4.258773108174356
           timeZone: timeZone
-          tMinus2OpenPerfBps: 5.573385265048522
-          vwapOpenClose: 2.027123023002322
-          limitVwapOrderEntryClosePerfBps: 8.276461147928103
-          limitVwapHighAvgPricePerfBps: 7.92839742024475
+          tMinus2OpenPerfBps: 3.0269458094096646
+          vwapOpenClose: 4.145608029883936
+          limitVwapOrderEntryClosePerfBps: 6.458262756685686
+          limitVwapHighAvgPricePerfBps: 9.402167524121316
           grandParentId: grandParentId
-          tMinus3OpenPrice: 8.250639315618633
-          marketSpreadCross: 6.073898085781152
-          tPlus3ClosePrice: 9.456612101333725
+          tMinus3OpenPrice: 7.273019311111276
+          marketSpreadCross: 8.251625748923757
+          tPlus3ClosePrice: 9.721723570087065
           basketId: basketId
-          tMinus1OpenPerfBps: 3.196820582978078
+          tMinus1OpenPerfBps: 5.296102445648278
           bbgTicker: bbgTicker
-          openPrice: 2.3021358869347655
-          firstFillPricePerfBps: 4.332304821875894
-          limitVwapFfClosePerfBps: 9.785002165136461
-          reversion10MinMidBps: 4.965218492984954
+          openPrice: 7.061401241503109
+          firstFillPricePerfBps: 2.7977867356748476
+          limitVwapFfClosePerfBps: 7.3718573971919445
+          reversion10MinMidBps: 5.025004791520295
           lastFillTime: lastFillTime
-          tPlus1ClosePerfBps: 0.7012260588964747
+          tPlus1ClosePerfBps: 7.3842318535314
           currency: currency
           tPlus3DateId: 2000-01-23
-          limitPwp03Price: 0.4182561061793122
-          tPlus1OpenPerfBps: 5.747795090145878
-          tPlus5ClosePerfBps: 2.0981949483881577
-          limitVwapHighAvgPrice: 7.726998920545485
-          tPlus4ClosePerfBps: 0.36062689002149373
+          limitPwp03Price: 5.299143560275359
+          tPlus1OpenPerfBps: 0.7012260588964747
+          tPlus5ClosePerfBps: 4.1661834558007
+          limitVwapHighAvgPrice: 7.92839742024475
+          tPlus4ClosePerfBps: 7.390706075830692
           clientId: clientId
-          firstFillPreAsk: 0.4833312865174044
-          lastFillMidPerfBps: 1.4894159098541704
-          pwp02Volume: 3.0576100241049344
-          tPlus2ClosePerfBps: 0.30134145536422907
-          tMinus1OpenPrice: 4.1661834558007
+          firstFillPreAsk: 0.35262192099236644
+          lastFillMidPerfBps: 6.84685269835264
+          pwp02Volume: 7.04836565559697
+          tPlus2ClosePerfBps: 0.4867146239815201
+          tMinus1OpenPrice: 2.026856458177285
           broker: broker
-          limitVwapOpenCloseVolume: 9.146339979307802
-          tPlus3ClosePerfBps: 7.88722683998926
-          limitPwp03Volume: 5.299143560275359
-          limitVwapFfLfVolume: 0.5199002018724985
-          tPlus2OpenPerfBps: 4.943637496515336
+          limitVwapOpenCloseVolume: 4.010300976654761
+          tPlus3ClosePerfBps: 6.918231485891953
+          limitPwp03Volume: 5.312489704336296
+          limitVwapFfLfVolume: 7.933506881737151
+          tPlus2OpenPerfBps: 0.30134145536422907
           tPlus4DateId: 2000-01-23
-          pwp20PerfBps: 3.353193347011243
-          pwp05Price: 7.058770351582356
-          vwapHighAvgPrice: 9.806951670467935
-          closePerfBps: 3.5571952270680973
-          spreadCross: 6.778324963048013
-          closePrice: 7.061401241503109
+          pwp20PerfBps: 3.0937452626664474
+          pwp05Price: 6.519180951018382
+          vwapHighAvgPrice: 1.3949519358941398
+          closePerfBps: 6.965117697638846
+          spreadCross: 6.878052220127876
+          closePrice: 9.301444243932576
           lastFillTimeUtc: lastFillTimeUtc
           algo: algo
-          tPlus3OpenPerfBps: 9.721723570087065
+          tPlus3OpenPerfBps: 7.88722683998926
           symbol: symbol
           country: country
-          tMinus3ClosePerfBps: 8.782449469456207
-          vwapFfLfPerfBps: 6.438423552598547
-          tPlus3OpenPrice: 0.4867146239815201
-          vwapHighAvgPricePerfBps: 1.3949519358941398
-          refValue: 9.301444243932576
-          tMinus1ClosePerfBps: 5.296102445648278
-          reversion5MinMidPrice: 6.84685269835264
+          tMinus3ClosePerfBps: 0.4008378390304357
+          vwapFfLfPerfBps: 3.5571952270680973
+          tPlus3OpenPrice: 9.456612101333725
+          vwapHighAvgPricePerfBps: 1.2555055362323109
+          refValue: 3.616076749251911
+          tMinus1ClosePerfBps: 3.8156682252305574
+          reversion5MinMidPrice: 7.457744773683766
           fillTimeUtc: fillTimeUtc
           destinationType: destinationType
-          vwapFfLfVolume: 9.702963800023566
+          vwapFfLfVolume: 0.5199002018724985
           sector: sector
-          firstFillMid: 4.145608029883936
-          pwp50Price: 0.2025324113236393
+          firstFillMid: 7.386281948385884
+          pwp50Price: 6.628464275087742
           tPlus2DateId: 2000-01-23
-          limitPrice: 5.637376656633329
-          orderEntryFillMid: 2.535258963197524
-          vwapFfClose: 3.616076749251911
-          vwapFfClosePerfBps: 1.0639121808530916
-          volume: 1.4658129805029452
-          limitPwp10Price: 0.43431398824148815
+          limitPrice: 2.3021358869347655
+          orderEntryFillMid: 6.173804034172511
+          vwapFfClose: 2.027123023002322
+          vwapFfClosePerfBps: 3.2841216543560217
+          volume: 5.962133916683182
+          limitPwp10Price: 2.9409642974827896
           timeZoneName: timeZoneName
-          limitPwp02Volume: 9.183123594773994
-          pwp50PerfBps: 4.258773108174356
-          limitVwapFfLfPerfBps: 5.507386964179881
-          limitPwp50Volume: 7.606863723092579
+          limitPwp02Volume: 8.761432466225475
+          pwp50PerfBps: 1.041444916118296
+          limitVwapFfLfPerfBps: 4.86315908102884
+          limitPwp50Volume: 3.7814124730767915
           region: region
-          tMinus2ClosePrice: 1.9626702727164813
-          tMinus5ClosePerfBps: 7.464202015255506
+          tMinus2ClosePrice: 5.573385265048522
+          tMinus5ClosePerfBps: 7.129168897240568
           venue: venue
-          limitPwp01PerfBps: 1.8268702177058116
+          limitPwp01PerfBps: 3.502657762086401
           destination: destination
-          tOpenPerfBps: 2.058822123984536
-          limitPwp20Price: 8.251625748923757
-          tMinus4OpenPerfBps: 4.432841187680573
-          duration: 6.878052220127876
-          reversion10MinMidPrice: 1.1730742509559433
-          tMinus1ClosePrice: 2.026856458177285
-          pwp05Volume: 6.519180951018382
-          limitPwp20PerfBps: 3.901545264248647
-          pwp03Price: 5.533258397034986
+          tOpenPerfBps: 6.4280627569296165
+          limitPwp20Price: 4.459605034958679
+          tMinus4OpenPerfBps: 3.5117904067536143
+          duration: 5.944895607614016
+          reversion10MinMidPrice: 4.965218492984954
+          tMinus1ClosePrice: 3.196820582978078
+          pwp05Volume: 0.10263654006109402
+          limitPwp20PerfBps: 0.43431398824148815
+          pwp03Price: 3.2588565619047607
           firstFillTimeStatus: firstFillTimeStatus
-          twasBidSize: 2.380090174313445
-          firstFillPreBid: 0.35262192099236644
-          vwapLowAvgPrice: 3.812761638325517
-          limitVwapHighAvgPriceVolume: 9.402167524121316
-          tPlus4ClosePrice: 0.11859130807119977
-          marketAdjustment: 9.132027271330688
+          twasBidSize: 3.804112695731078
+          firstFillPreBid: 7.203794749804894
+          vwapLowAvgPrice: 5.6644160867523485
+          limitVwapHighAvgPriceVolume: 1.7045651386993
+          tPlus4ClosePrice: 4.637509675190766
+          marketAdjustment: 0.8774076871421566
           masterOrderId: masterOrderId
-          limitPwp100Price: 3.111202833403195
-          twasAskSize: 3.1497903714250555
-          vwapFfCloseVolume: 6.966044574347761
+          limitPwp100Price: 9.897492629215506
+          twasAskSize: 2.380090174313445
+          vwapFfCloseVolume: 9.806951670467935
           freeSearch: freeSearch
-          pwp100Volume: 4.678947989005849
-          limitVwapOrderEntryClose: 4.010300976654761
+          pwp100Volume: 7.260521264802104
+          limitVwapOrderEntryClose: 8.276461147928103
           countryAlias: countryAlias
           orderType: orderType
-          tMinus2OpenPrice: 3.8156682252305574
+          tMinus2OpenPrice: 1.9626702727164813
           tPlus1DateId: 2000-01-23
           orderId: orderId
           companyName: companyName
-          limitPwp10PerfBps: 1.7325933120207193
+          limitPwp10PerfBps: 8.28965939814297
           errorCodes: errorCodes
-          pwp02PerfBps: 7.04836565559697
-          limitVwapFfClose: 3.2841216543560217
-          limitPwp01Volume: 9.254183946267839
-          limitParticipationRatePct: 4.86315908102884
+          pwp02PerfBps: 5.533258397034986
+          limitVwapFfClose: 9.785002165136461
+          limitPwp01Volume: 1.8268702177058116
+          limitParticipationRatePct: 6.073898085781152
           tDateId: 2000-01-23
-          lastFillMid: 1.0246457001441578
+          lastFillMid: 1.4894159098541704
           children:
           - null
           - null
-          price: 5.962133916683182
-          lastFillPreBid: 9.386524999783381
-          pwp20Volume: 6.704019297950036
-          vwapLowAvgPriceVolume: 1.5970080735609526
-          id: 0
-          reversion60MinMidBps: 6.683562403749608
-          tOpenPrice: 4.141296055235948
+          price: 5.637376656633329
+          lastFillPreBid: 0.58919091925136
+          pwp20Volume: 3.353193347011243
+          vwapLowAvgPriceVolume: 4.372688051310086
+          id: 6
+          reversion60MinMidBps: 8.762042012749001
+          tOpenPrice: 8.910869026866926
           udfmap: udfmap
-          tPlus5OpenPerfBps: 6.176386745020588
+          tPlus5OpenPerfBps: 2.0981949483881577
           tMinus1DateId: 2000-01-23
-          tMinus5ClosePrice: 9.721046668148785
-          limitPwp02Price: 3.502657762086401
-          vwapHighAvgPriceVolume: 1.2555055362323109
+          tMinus5ClosePrice: 2.922265432447957
+          limitPwp02Price: 9.183123594773994
+          vwapHighAvgPriceVolume: 3.812761638325517
           algoWheel: algoWheel
           status: status
-          tClosePerfBps: 6.4280627569296165
-          limitVwapOpenClose: 8.262795412896967
-          limitVwapFfCloseVolume: 7.3718573971919445
-          tPlus4OpenPerfBps: 4.637509675190766
-          limitPwp03PerfBps: 5.312489704336296
+          tClosePerfBps: 0.8411762798681321
+          limitVwapOpenClose: 2.9805393113464476
+          limitVwapFfCloseVolume: 7.726998920545485
+          tPlus4OpenPerfBps: 0.36062689002149373
+          limitPwp03PerfBps: 8.37823741034869
           orderEntryTimeUtc: orderEntryTimeUtc
           dateId: 2000-01-23
-          tPlus1OpenPrice: 0.8411762798681321
-          limitPwp100PerfBps: 5.877124706116695
-          tPlus4OpenPrice: 6.918231485891953
-          tMinus4OpenPrice: 0.4008378390304357
-          limitPwp100Volume: 9.897492629215506
-          openPerfBps: 1.2315135367772556
+          tPlus1OpenPrice: 2.9679475177256287
+          limitPwp100PerfBps: 7.835035282970782
+          tPlus4OpenPrice: 0.11859130807119977
+          tMinus4OpenPrice: 2.5524281586707875
+          limitPwp100Volume: 5.877124706116695
+          openPerfBps: 1.0246457001441578
           side: side
-          vwapOpenCloseVolume: 4.372688051310086
-          intraOrderVolatility: 8.762042012749001
-          limitPwp50Price: 8.37823741034869
+          vwapOpenCloseVolume: 5.7911894223693885
+          intraOrderVolatility: 9.018348186070783
+          limitPwp50Price: 7.606863723092579
           firstFillTimeUtc: firstFillTimeUtc
           parentId: parentId
-          limitVwapLowAvgPrice: 1.7045651386993
-          pwp02Price: 3.0205796992916243
-          limitPwp20Volume: 4.459605034958679
-          tClosePrice: 8.910869026866926
+          limitVwapLowAvgPrice: 4.4935252719377825
+          pwp02Price: 3.0576100241049344
+          limitPwp20Volume: 3.901545264248647
+          tClosePrice: 2.058822123984536
           tMinus2DateId: 2000-01-23
-          tMinus5OpenPrice: 5.726375546151009
-          tMinus4ClosePerfBps: 3.5117904067536143
-          pwp01Price: 4.652396432933246
-          firstFillMidPerfBps: 7.386281948385884
-          intraOrderVolatilityBps: 0.8774076871421566
-          vwapFfLf: 9.018348186070783
-          lastFillPreAsk: 2.7977867356748476
-          tMinus2ClosePerfBps: 3.0269458094096646
+          tMinus5OpenPrice: 9.721046668148785
+          tMinus4ClosePerfBps: 5.726375546151009
+          pwp01Price: 8.969578798196912
+          firstFillMidPerfBps: 1.2315135367772556
+          intraOrderVolatilityBps: 9.702963800023566
+          vwapFfLf: 6.438423552598547
+          lastFillPreAsk: 9.386524999783381
+          tMinus2ClosePerfBps: 8.250639315618633
           firstFillTime: firstFillTime
-          orderEntryPreBid: 4.8789878742268815
-          tMinus3ClosePrice: 7.273019311111276
-          tPlus1ClosePrice: 2.9679475177256287
-          tMinus3OpenPerfBps: 2.4669941706755685
-          marketCap: 3.804112695731078
-          tPlus2ClosePrice: 6.749525837406151
+          allocVolume: 0.8008281904610115
+          orderEntryPreBid: 6.966044574347761
+          tMinus3ClosePrice: 2.4669941706755685
+          tPlus1ClosePrice: 5.747795090145878
+          tMinus3OpenPerfBps: 8.782449469456207
+          marketCap: 8.675064425986758
+          tPlus2ClosePrice: 4.943637496515336
           parentCreationTimeUtc: parentCreationTimeUtc
           securityId: securityId
-          reversion5MinMidBps: 7.457744773683766
+          allocAccount: allocAccount
+          reversion5MinMidBps: 1.1730742509559433
           tMinus3DateId: 2000-01-23
           processedTime: processedTime
           synthetic: true
           tPlus5DateId: 2000-01-23
-          pwp20Price: 5.944895607614016
-          limitPwp10Volume: 2.9409642974827896
-          durationBinMin: 6.965117697638846
-          tPlus2OpenPrice: 7.3842318535314
-          durationBinSec: 1.284659006116532
-          vwapOrderEntryClosePerfBps: 5.974942028545841
-          vwapOrderEntryCloseVolume: 3.8008573585058016
-          limitPwp05Price: 8.28965939814297
-          reversion15MinMidPrice: 5.025004791520295
-          pwp01Volume: 8.969578798196912
-          limitPwp05Volume: 6.623518433804886
-          limitPwp05PerfBps: 4.573936264232251
+          pwp20Price: 6.704019297950036
+          limitPwp10Volume: 1.7325933120207193
+          durationBinMin: 1.284659006116532
+          tPlus2OpenPrice: 6.749525837406151
+          durationBinSec: 2.8841621266687802
+          vwapOrderEntryClosePerfBps: 3.8008573585058016
+          vwapOrderEntryCloseVolume: 1.0639121808530916
+          limitPwp05Price: 6.623518433804886
+          reversion15MinMidPrice: 9.965781217890562
+          pwp01Volume: 7.740351818741173
+          limitPwp05Volume: 4.573936264232251
+          limitPwp05PerfBps: 8.863729185622827
           note: note
-          limitVwapLowAvgPricePerfBps: 4.4935252719377825
-          twas: 0.4768402382624515
-          orderEntryFillMidPerfBps: 8.675064425986758
-          pwp100PerfBps: 7.260521264802104
-          pwp10PerfBps: 0.8851374739011653
-          limitPwp02PerfBps: 8.761432466225475
-          tMinus4ClosePrice: 2.5524281586707875
-          pwp100Price: 1.041444916118296
+          limitVwapLowAvgPricePerfBps: 3.209082285545927
+          twas: 3.1497903714250555
+          orderEntryFillMidPerfBps: 4.518309517874243
+          pwp100PerfBps: 9.132027271330688
+          pwp10PerfBps: 7.058770351582356
+          limitPwp02PerfBps: 0.4182561061793122
+          tMinus4ClosePrice: 4.432841187680573
+          pwp100Price: 4.678947989005849
           relatedOrderId:
           - relatedOrderId
           - relatedOrderId
-          limitVwapOpenClosePerfBps: 2.9805393113464476
-          value: 4.518309517874243
+          limitVwapOpenClosePerfBps: 9.146339979307802
+          value: 0.4833312865174044
           direction: direction
-          firstFillPrice: 7.203794749804894
+          firstFillPrice: 4.332304821875894
           trader: trader
-          tPlus5OpenPrice: 7.390706075830692
-          vwapOrderEntryClose: 5.7911894223693885
-          reversion60MinMidPrice: 9.369310271410669
-          participationRatePct: 2.8841621266687802
+          tPlus5OpenPrice: 1.0502890910539986
+          vwapOrderEntryClose: 5.974942028545841
+          reversion60MinMidPrice: 6.683562403749608
+          participationRatePct: 6.778324963048013
           tMinus5DateId: 2000-01-23
           compositeId: compositeId
           strategy: strategy
-          tMinus5OpenPerfBps: 2.922265432447957
+          tMinus5OpenPerfBps: 7.464202015255506
           isin: isin
           refCurrency: refCurrency
       properties:
@@ -14135,7 +14150,7 @@ components:
     OrderSearch:
       description: Order Search
       example:
-        fxRate: 7.835035282970782
+        fxRate: 0.4768402382624515
         costEstimates:
           orderLiquidity:
             confidenceInterval: 2.7977867356748476
@@ -14165,247 +14180,256 @@ components:
             costPerShareBps: 4.332304821875894
             adjustedArrivalPerfBps: 4.8789878742268815
             spreadCostPerShare: 9.386524999783381
-        limitPwp01Price: 8.863729185622827
-        tPlus5ClosePrice: 1.0502890910539986
-        limitPwp50PerfBps: 3.7814124730767915
-        pwp10Price: 3.0937452626664474
-        pwp01PerfBps: 7.740351818741173
-        pwp03PerfBps: 4.078845849666752
-        orderVolume: 6.027456183070403
-        pwp03Volume: 3.2588565619047607
-        orderEntryPreAsk: 6.173804034172511
-        pwp05PerfBps: 0.10263654006109402
-        vwapLowAvgPricePerfBps: 5.6644160867523485
-        limitVwapLowAvgPriceVolume: 3.209082285545927
+        limitPwp01Price: 9.254183946267839
+        tPlus5ClosePrice: 6.176386745020588
+        limitPwp50PerfBps: 3.111202833403195
+        pwp10Price: 7.143538047012306
+        pwp01PerfBps: 3.0205796992916243
+        pwp03PerfBps: 0.2025324113236393
+        orderVolume: 1.4658129805029452
+        pwp03Volume: 4.078845849666752
+        orderEntryPreAsk: 4.8789878742268815
+        pwp05PerfBps: 4.652396432933246
+        vwapLowAvgPricePerfBps: 1.5970080735609526
+        limitVwapLowAvgPriceVolume: 8.262795412896967
         tMinus4DateId: 2000-01-23
-        pwp10Volume: 7.143538047012306
+        pwp10Volume: 0.8851374739011653
         messageType: Undefined
-        limitVwapOrderEntryCloseVolume: 6.458262756685686
-        limitVwapFfLf: 7.933506881737151
-        lastFillPrice: 0.58919091925136
-        reversion15MinMidBps: 9.965781217890562
-        pwp50Volume: 6.628464275087742
+        limitVwapOrderEntryCloseVolume: 4.141296055235948
+        limitVwapFfLf: 5.507386964179881
+        lastFillPrice: 2.535258963197524
+        reversion15MinMidBps: 9.369310271410669
+        pwp50Volume: 4.258773108174356
         timeZone: timeZone
-        tMinus2OpenPerfBps: 5.573385265048522
-        vwapOpenClose: 2.027123023002322
-        limitVwapOrderEntryClosePerfBps: 8.276461147928103
-        limitVwapHighAvgPricePerfBps: 7.92839742024475
+        tMinus2OpenPerfBps: 3.0269458094096646
+        vwapOpenClose: 4.145608029883936
+        limitVwapOrderEntryClosePerfBps: 6.458262756685686
+        limitVwapHighAvgPricePerfBps: 9.402167524121316
         grandParentId: grandParentId
-        tMinus3OpenPrice: 8.250639315618633
-        marketSpreadCross: 6.073898085781152
-        tPlus3ClosePrice: 9.456612101333725
+        tMinus3OpenPrice: 7.273019311111276
+        marketSpreadCross: 8.251625748923757
+        tPlus3ClosePrice: 9.721723570087065
         basketId: basketId
-        tMinus1OpenPerfBps: 3.196820582978078
+        tMinus1OpenPerfBps: 5.296102445648278
         bbgTicker: bbgTicker
-        openPrice: 2.3021358869347655
-        firstFillPricePerfBps: 4.332304821875894
-        limitVwapFfClosePerfBps: 9.785002165136461
-        reversion10MinMidBps: 4.965218492984954
+        openPrice: 7.061401241503109
+        firstFillPricePerfBps: 2.7977867356748476
+        limitVwapFfClosePerfBps: 7.3718573971919445
+        reversion10MinMidBps: 5.025004791520295
         lastFillTime: lastFillTime
-        tPlus1ClosePerfBps: 0.7012260588964747
+        tPlus1ClosePerfBps: 7.3842318535314
         currency: currency
         tPlus3DateId: 2000-01-23
-        limitPwp03Price: 0.4182561061793122
-        tPlus1OpenPerfBps: 5.747795090145878
-        tPlus5ClosePerfBps: 2.0981949483881577
-        limitVwapHighAvgPrice: 7.726998920545485
-        tPlus4ClosePerfBps: 0.36062689002149373
+        limitPwp03Price: 5.299143560275359
+        tPlus1OpenPerfBps: 0.7012260588964747
+        tPlus5ClosePerfBps: 4.1661834558007
+        limitVwapHighAvgPrice: 7.92839742024475
+        tPlus4ClosePerfBps: 7.390706075830692
         clientId: clientId
-        firstFillPreAsk: 0.4833312865174044
-        lastFillMidPerfBps: 1.4894159098541704
-        pwp02Volume: 3.0576100241049344
-        tPlus2ClosePerfBps: 0.30134145536422907
-        tMinus1OpenPrice: 4.1661834558007
+        firstFillPreAsk: 0.35262192099236644
+        lastFillMidPerfBps: 6.84685269835264
+        pwp02Volume: 7.04836565559697
+        tPlus2ClosePerfBps: 0.4867146239815201
+        tMinus1OpenPrice: 2.026856458177285
         broker: broker
-        limitVwapOpenCloseVolume: 9.146339979307802
-        tPlus3ClosePerfBps: 7.88722683998926
-        limitPwp03Volume: 5.299143560275359
-        limitVwapFfLfVolume: 0.5199002018724985
-        tPlus2OpenPerfBps: 4.943637496515336
+        limitVwapOpenCloseVolume: 4.010300976654761
+        tPlus3ClosePerfBps: 6.918231485891953
+        limitPwp03Volume: 5.312489704336296
+        limitVwapFfLfVolume: 7.933506881737151
+        tPlus2OpenPerfBps: 0.30134145536422907
         tPlus4DateId: 2000-01-23
-        pwp20PerfBps: 3.353193347011243
-        pwp05Price: 7.058770351582356
-        vwapHighAvgPrice: 9.806951670467935
-        closePerfBps: 3.5571952270680973
-        spreadCross: 6.778324963048013
-        closePrice: 7.061401241503109
+        pwp20PerfBps: 3.0937452626664474
+        pwp05Price: 6.519180951018382
+        vwapHighAvgPrice: 1.3949519358941398
+        closePerfBps: 6.965117697638846
+        spreadCross: 6.878052220127876
+        closePrice: 9.301444243932576
         lastFillTimeUtc: lastFillTimeUtc
         algo: algo
-        tPlus3OpenPerfBps: 9.721723570087065
+        tPlus3OpenPerfBps: 7.88722683998926
         symbol: symbol
         country: country
-        tMinus3ClosePerfBps: 8.782449469456207
-        vwapFfLfPerfBps: 6.438423552598547
-        tPlus3OpenPrice: 0.4867146239815201
-        vwapHighAvgPricePerfBps: 1.3949519358941398
-        refValue: 9.301444243932576
-        tMinus1ClosePerfBps: 5.296102445648278
-        reversion5MinMidPrice: 6.84685269835264
+        tMinus3ClosePerfBps: 0.4008378390304357
+        vwapFfLfPerfBps: 3.5571952270680973
+        tPlus3OpenPrice: 9.456612101333725
+        vwapHighAvgPricePerfBps: 1.2555055362323109
+        refValue: 3.616076749251911
+        tMinus1ClosePerfBps: 3.8156682252305574
+        reversion5MinMidPrice: 7.457744773683766
         fillTimeUtc: fillTimeUtc
         destinationType: destinationType
-        vwapFfLfVolume: 9.702963800023566
+        vwapFfLfVolume: 0.5199002018724985
         sector: sector
-        firstFillMid: 4.145608029883936
-        pwp50Price: 0.2025324113236393
+        firstFillMid: 7.386281948385884
+        pwp50Price: 6.628464275087742
         tPlus2DateId: 2000-01-23
-        limitPrice: 5.637376656633329
-        orderEntryFillMid: 2.535258963197524
-        vwapFfClose: 3.616076749251911
-        vwapFfClosePerfBps: 1.0639121808530916
-        volume: 1.4658129805029452
-        limitPwp10Price: 0.43431398824148815
+        limitPrice: 2.3021358869347655
+        orderEntryFillMid: 6.173804034172511
+        vwapFfClose: 2.027123023002322
+        vwapFfClosePerfBps: 3.2841216543560217
+        volume: 5.962133916683182
+        limitPwp10Price: 2.9409642974827896
         timeZoneName: timeZoneName
-        limitPwp02Volume: 9.183123594773994
-        pwp50PerfBps: 4.258773108174356
-        limitVwapFfLfPerfBps: 5.507386964179881
-        limitPwp50Volume: 7.606863723092579
+        limitPwp02Volume: 8.761432466225475
+        pwp50PerfBps: 1.041444916118296
+        limitVwapFfLfPerfBps: 4.86315908102884
+        limitPwp50Volume: 3.7814124730767915
         region: region
-        tMinus2ClosePrice: 1.9626702727164813
-        tMinus5ClosePerfBps: 7.464202015255506
+        tMinus2ClosePrice: 5.573385265048522
+        tMinus5ClosePerfBps: 7.129168897240568
         venue: venue
-        limitPwp01PerfBps: 1.8268702177058116
+        limitPwp01PerfBps: 3.502657762086401
         destination: destination
-        tOpenPerfBps: 2.058822123984536
-        limitPwp20Price: 8.251625748923757
-        tMinus4OpenPerfBps: 4.432841187680573
-        duration: 6.878052220127876
-        reversion10MinMidPrice: 1.1730742509559433
-        tMinus1ClosePrice: 2.026856458177285
-        pwp05Volume: 6.519180951018382
-        limitPwp20PerfBps: 3.901545264248647
-        pwp03Price: 5.533258397034986
+        tOpenPerfBps: 6.4280627569296165
+        limitPwp20Price: 4.459605034958679
+        tMinus4OpenPerfBps: 3.5117904067536143
+        duration: 5.944895607614016
+        reversion10MinMidPrice: 4.965218492984954
+        tMinus1ClosePrice: 3.196820582978078
+        pwp05Volume: 0.10263654006109402
+        limitPwp20PerfBps: 0.43431398824148815
+        pwp03Price: 3.2588565619047607
         firstFillTimeStatus: firstFillTimeStatus
-        twasBidSize: 2.380090174313445
-        firstFillPreBid: 0.35262192099236644
-        vwapLowAvgPrice: 3.812761638325517
-        limitVwapHighAvgPriceVolume: 9.402167524121316
-        tPlus4ClosePrice: 0.11859130807119977
-        marketAdjustment: 9.132027271330688
+        twasBidSize: 3.804112695731078
+        firstFillPreBid: 7.203794749804894
+        vwapLowAvgPrice: 5.6644160867523485
+        limitVwapHighAvgPriceVolume: 1.7045651386993
+        tPlus4ClosePrice: 4.637509675190766
+        marketAdjustment: 0.8774076871421566
         masterOrderId: masterOrderId
-        limitPwp100Price: 3.111202833403195
-        twasAskSize: 3.1497903714250555
-        vwapFfCloseVolume: 6.966044574347761
+        limitPwp100Price: 9.897492629215506
+        twasAskSize: 2.380090174313445
+        vwapFfCloseVolume: 9.806951670467935
         freeSearch: freeSearch
-        pwp100Volume: 4.678947989005849
-        limitVwapOrderEntryClose: 4.010300976654761
+        pwp100Volume: 7.260521264802104
+        limitVwapOrderEntryClose: 8.276461147928103
         countryAlias: countryAlias
         orderType: orderType
-        tMinus2OpenPrice: 3.8156682252305574
+        tMinus2OpenPrice: 1.9626702727164813
         tPlus1DateId: 2000-01-23
         orderId: orderId
         companyName: companyName
-        limitPwp10PerfBps: 1.7325933120207193
+        limitPwp10PerfBps: 8.28965939814297
         errorCodes: errorCodes
-        pwp02PerfBps: 7.04836565559697
-        limitVwapFfClose: 3.2841216543560217
-        limitPwp01Volume: 9.254183946267839
-        limitParticipationRatePct: 4.86315908102884
+        pwp02PerfBps: 5.533258397034986
+        limitVwapFfClose: 9.785002165136461
+        limitPwp01Volume: 1.8268702177058116
+        limitParticipationRatePct: 6.073898085781152
         tDateId: 2000-01-23
-        lastFillMid: 1.0246457001441578
+        lastFillMid: 1.4894159098541704
         children:
         - null
         - null
-        price: 5.962133916683182
-        lastFillPreBid: 9.386524999783381
-        pwp20Volume: 6.704019297950036
-        vwapLowAvgPriceVolume: 1.5970080735609526
-        id: 0
-        reversion60MinMidBps: 6.683562403749608
-        tOpenPrice: 4.141296055235948
+        price: 5.637376656633329
+        lastFillPreBid: 0.58919091925136
+        pwp20Volume: 3.353193347011243
+        vwapLowAvgPriceVolume: 4.372688051310086
+        id: 6
+        reversion60MinMidBps: 8.762042012749001
+        tOpenPrice: 8.910869026866926
         udfmap: udfmap
-        tPlus5OpenPerfBps: 6.176386745020588
+        tPlus5OpenPerfBps: 2.0981949483881577
         tMinus1DateId: 2000-01-23
-        tMinus5ClosePrice: 9.721046668148785
-        limitPwp02Price: 3.502657762086401
-        vwapHighAvgPriceVolume: 1.2555055362323109
+        tMinus5ClosePrice: 2.922265432447957
+        limitPwp02Price: 9.183123594773994
+        vwapHighAvgPriceVolume: 3.812761638325517
         algoWheel: algoWheel
         status: status
-        tClosePerfBps: 6.4280627569296165
-        limitVwapOpenClose: 8.262795412896967
-        limitVwapFfCloseVolume: 7.3718573971919445
-        tPlus4OpenPerfBps: 4.637509675190766
-        limitPwp03PerfBps: 5.312489704336296
+        tClosePerfBps: 0.8411762798681321
+        limitVwapOpenClose: 2.9805393113464476
+        limitVwapFfCloseVolume: 7.726998920545485
+        tPlus4OpenPerfBps: 0.36062689002149373
+        limitPwp03PerfBps: 8.37823741034869
         orderEntryTimeUtc: orderEntryTimeUtc
         dateId: 2000-01-23
-        tPlus1OpenPrice: 0.8411762798681321
-        limitPwp100PerfBps: 5.877124706116695
-        tPlus4OpenPrice: 6.918231485891953
-        tMinus4OpenPrice: 0.4008378390304357
-        limitPwp100Volume: 9.897492629215506
-        openPerfBps: 1.2315135367772556
+        tPlus1OpenPrice: 2.9679475177256287
+        limitPwp100PerfBps: 7.835035282970782
+        tPlus4OpenPrice: 0.11859130807119977
+        tMinus4OpenPrice: 2.5524281586707875
+        limitPwp100Volume: 5.877124706116695
+        openPerfBps: 1.0246457001441578
         side: side
-        vwapOpenCloseVolume: 4.372688051310086
-        intraOrderVolatility: 8.762042012749001
-        limitPwp50Price: 8.37823741034869
+        vwapOpenCloseVolume: 5.7911894223693885
+        intraOrderVolatility: 9.018348186070783
+        limitPwp50Price: 7.606863723092579
         firstFillTimeUtc: firstFillTimeUtc
         parentId: parentId
-        limitVwapLowAvgPrice: 1.7045651386993
-        pwp02Price: 3.0205796992916243
-        limitPwp20Volume: 4.459605034958679
-        tClosePrice: 8.910869026866926
+        limitVwapLowAvgPrice: 4.4935252719377825
+        pwp02Price: 3.0576100241049344
+        limitPwp20Volume: 3.901545264248647
+        tClosePrice: 2.058822123984536
         tMinus2DateId: 2000-01-23
-        tMinus5OpenPrice: 5.726375546151009
-        tMinus4ClosePerfBps: 3.5117904067536143
-        pwp01Price: 4.652396432933246
-        firstFillMidPerfBps: 7.386281948385884
-        intraOrderVolatilityBps: 0.8774076871421566
-        vwapFfLf: 9.018348186070783
-        lastFillPreAsk: 2.7977867356748476
-        tMinus2ClosePerfBps: 3.0269458094096646
+        tMinus5OpenPrice: 9.721046668148785
+        tMinus4ClosePerfBps: 5.726375546151009
+        pwp01Price: 8.969578798196912
+        firstFillMidPerfBps: 1.2315135367772556
+        intraOrderVolatilityBps: 9.702963800023566
+        vwapFfLf: 6.438423552598547
+        lastFillPreAsk: 9.386524999783381
+        tMinus2ClosePerfBps: 8.250639315618633
         firstFillTime: firstFillTime
-        orderEntryPreBid: 4.8789878742268815
-        tMinus3ClosePrice: 7.273019311111276
-        tPlus1ClosePrice: 2.9679475177256287
-        tMinus3OpenPerfBps: 2.4669941706755685
-        marketCap: 3.804112695731078
-        tPlus2ClosePrice: 6.749525837406151
+        allocVolume: 0.8008281904610115
+        orderEntryPreBid: 6.966044574347761
+        tMinus3ClosePrice: 2.4669941706755685
+        tPlus1ClosePrice: 5.747795090145878
+        tMinus3OpenPerfBps: 8.782449469456207
+        marketCap: 8.675064425986758
+        tPlus2ClosePrice: 4.943637496515336
         parentCreationTimeUtc: parentCreationTimeUtc
         securityId: securityId
-        reversion5MinMidBps: 7.457744773683766
+        allocAccount: allocAccount
+        reversion5MinMidBps: 1.1730742509559433
         tMinus3DateId: 2000-01-23
         processedTime: processedTime
         synthetic: true
         tPlus5DateId: 2000-01-23
-        pwp20Price: 5.944895607614016
-        limitPwp10Volume: 2.9409642974827896
-        durationBinMin: 6.965117697638846
-        tPlus2OpenPrice: 7.3842318535314
-        durationBinSec: 1.284659006116532
-        vwapOrderEntryClosePerfBps: 5.974942028545841
-        vwapOrderEntryCloseVolume: 3.8008573585058016
-        limitPwp05Price: 8.28965939814297
-        reversion15MinMidPrice: 5.025004791520295
-        pwp01Volume: 8.969578798196912
-        limitPwp05Volume: 6.623518433804886
-        limitPwp05PerfBps: 4.573936264232251
+        pwp20Price: 6.704019297950036
+        limitPwp10Volume: 1.7325933120207193
+        durationBinMin: 1.284659006116532
+        tPlus2OpenPrice: 6.749525837406151
+        durationBinSec: 2.8841621266687802
+        vwapOrderEntryClosePerfBps: 3.8008573585058016
+        vwapOrderEntryCloseVolume: 1.0639121808530916
+        limitPwp05Price: 6.623518433804886
+        reversion15MinMidPrice: 9.965781217890562
+        pwp01Volume: 7.740351818741173
+        limitPwp05Volume: 4.573936264232251
+        limitPwp05PerfBps: 8.863729185622827
         note: note
-        limitVwapLowAvgPricePerfBps: 4.4935252719377825
-        twas: 0.4768402382624515
-        orderEntryFillMidPerfBps: 8.675064425986758
-        pwp100PerfBps: 7.260521264802104
-        pwp10PerfBps: 0.8851374739011653
-        limitPwp02PerfBps: 8.761432466225475
-        tMinus4ClosePrice: 2.5524281586707875
-        pwp100Price: 1.041444916118296
+        limitVwapLowAvgPricePerfBps: 3.209082285545927
+        twas: 3.1497903714250555
+        orderEntryFillMidPerfBps: 4.518309517874243
+        pwp100PerfBps: 9.132027271330688
+        pwp10PerfBps: 7.058770351582356
+        limitPwp02PerfBps: 0.4182561061793122
+        tMinus4ClosePrice: 4.432841187680573
+        pwp100Price: 4.678947989005849
         relatedOrderId:
         - relatedOrderId
         - relatedOrderId
-        limitVwapOpenClosePerfBps: 2.9805393113464476
-        value: 4.518309517874243
+        limitVwapOpenClosePerfBps: 9.146339979307802
+        value: 0.4833312865174044
         direction: direction
-        firstFillPrice: 7.203794749804894
+        firstFillPrice: 4.332304821875894
         trader: trader
-        tPlus5OpenPrice: 7.390706075830692
-        vwapOrderEntryClose: 5.7911894223693885
-        reversion60MinMidPrice: 9.369310271410669
-        participationRatePct: 2.8841621266687802
+        tPlus5OpenPrice: 1.0502890910539986
+        vwapOrderEntryClose: 5.974942028545841
+        reversion60MinMidPrice: 6.683562403749608
+        participationRatePct: 6.778324963048013
         tMinus5DateId: 2000-01-23
         compositeId: compositeId
         strategy: strategy
-        tMinus5OpenPerfBps: 2.922265432447957
+        tMinus5OpenPerfBps: 7.464202015255506
         isin: isin
         refCurrency: refCurrency
       properties:
+        allocAccount:
+          description: Allocation Account
+          type: string
+        allocVolume:
+          description: Allocation Volume
+          format: double
+          type: number
         id:
           description: Unique identifier for the Order
           format: int64
@@ -14901,6 +14925,7 @@ components:
           - Undefined
           - Parent
           - Child
+          - Allocation
           type: string
         relatedOrderId:
           description: Related Order Ids

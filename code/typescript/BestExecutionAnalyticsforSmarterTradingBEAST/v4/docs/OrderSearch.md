@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allocAccount** | **String** | Allocation Account | [optional] 
+**allocVolume** | **Number** | Allocation Volume | [optional] 
 **id** | **Number** | Unique identifier for the Order | [optional] 
 **basketId** | **String** | Order Basket Id | [optional] 
 **parentId** | **String** | Order Parent Id | [optional] 
@@ -253,6 +255,8 @@ Name | Type | Description | Notes
 * `Parent` (value: `"Parent"`)
 
 * `Child` (value: `"Child"`)
+
+* `Allocation` (value: `"Allocation"`)
 
 
 

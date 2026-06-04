@@ -8,6 +8,8 @@ Order Search
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**allocAccount** | **String** | Allocation Account |  [optional]
+**allocVolume** | **Double** | Allocation Volume |  [optional]
 **id** | **Long** | Unique identifier for the Order |  [optional]
 **basketId** | **String** | Order Basket Id |  [optional]
 **parentId** | **String** | Order Parent Id |  [optional]
@@ -256,6 +258,7 @@ Name | Value
 UNDEFINED | &quot;Undefined&quot;
 PARENT | &quot;Parent&quot;
 CHILD | &quot;Child&quot;
+ALLOCATION | &quot;Allocation&quot;
 
 
 ## Implemented Interfaces

@@ -41,6 +41,7 @@ Name | Value
 UNDEFINED | &quot;Undefined&quot;
 PARENT | &quot;Parent&quot;
 CHILD | &quot;Child&quot;
+ALLOCATION | &quot;Allocation&quot;
 
 
 ## Implemented Interfaces
