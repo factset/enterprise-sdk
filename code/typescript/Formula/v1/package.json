@@ -17,6 +17,9 @@
     "url": "https://github.com/factset/enterprise-sdk.git",
     "directory": "code/typescript/Formula/v1"
   },
+  "bugs": {
+    "url": "https://github.com/factset/enterprise-sdk/issues"
+  },
   "engines": {
     "node": ">=18"
   },
