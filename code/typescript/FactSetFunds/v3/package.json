@@ -12,6 +12,9 @@
     "test": "mocha --require @babel/register --recursive"
   },
   "homepage": "https://developer.factset.com/",
+  "bugs": {
+    "url": "https://github.com/factset/enterprise-sdk/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/factset/enterprise-sdk.git",
