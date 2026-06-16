@@ -891,7 +891,7 @@ Name | Type | Description  | Notes
 
 Get Top 10 Holdings
 
-Returns the top 10 holdings for the requested fund or ETF.
+Returns the top 10 holdings for the requested fund or ETF. The ETF holdings are returned on a daily basis where available.
 
 ### Example
 
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 
 Get Top 10 Holdings
 
-Returns the top 10 holdings for a list of funds or ETFs.
+Returns the top 10 holdings for a list of funds or ETFs. The ETF holdings are returned on a daily basis where available.
 
 ### Example
 

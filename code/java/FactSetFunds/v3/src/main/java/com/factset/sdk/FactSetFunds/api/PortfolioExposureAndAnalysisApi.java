@@ -926,7 +926,7 @@ public class PortfolioExposureAndAnalysisApi {
   }
   /**
    * Get Top 10 Holdings
-   * Returns the top 10 holdings for the requested fund or ETF.
+   * Returns the top 10 holdings for the requested fund or ETF. The ETF holdings are returned on a daily basis where available.
    * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***IDs limit** &#x3D;  10 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
    * @return TopHoldingsResponse
    * @throws ApiException if fails to make API call
@@ -949,7 +949,7 @@ public class PortfolioExposureAndAnalysisApi {
 
   /**
    * Get Top 10 Holdings
-   * Returns the top 10 holdings for the requested fund or ETF.
+   * Returns the top 10 holdings for the requested fund or ETF. The ETF holdings are returned on a daily basis where available.
    * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***IDs limit** &#x3D;  10 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
    * @return ApiResponse&lt;TopHoldingsResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1014,7 +1014,7 @@ public class PortfolioExposureAndAnalysisApi {
   }
   /**
    * Get Top 10 Holdings
-   * Returns the top 10 holdings for a list of funds or ETFs.
+   * Returns the top 10 holdings for a list of funds or ETFs. The ETF holdings are returned on a daily basis where available.
    * @param topHoldingsRequest  (required)
    * @return TopHoldingsResponse
    * @throws ApiException if fails to make API call
@@ -1037,7 +1037,7 @@ public class PortfolioExposureAndAnalysisApi {
 
   /**
    * Get Top 10 Holdings
-   * Returns the top 10 holdings for a list of funds or ETFs.
+   * Returns the top 10 holdings for a list of funds or ETFs. The ETF holdings are returned on a daily basis where available.
    * @param topHoldingsRequest  (required)
    * @return ApiResponse&lt;TopHoldingsResponse&gt;
    * @throws ApiException if fails to make API call

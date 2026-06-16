@@ -665,7 +665,7 @@ class SummarySegmentsAndStatsApi(object):
         Keyword Args:
             start_date (date): The start date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint.. [optional]
             end_date (date): The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint. [optional]
-            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **MTD**: Month-To-Date - **M**: Monthly, based on the last trading day of the month - **CQTD**: Calendar Quarter-to-Date - **CQ**: Calendar Quarterly - **CYTD**: Calendar Year-to-Date - **CY**: Calendar Yearly. [optional]
+            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **M**: Monthly, based on the last trading day of the month - **CQ**: Calendar Quarterly - **CY**: Calendar Yearly. [optional]
             currency (str): The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470). [optional] if omitted the server will use the default value of "USD"
             data_type (NavDataType): The Data Type of the NAV expressed as Raw or Rolled values.. [optional]
             pagination_limit (int): The maximum number of records to return. The default is 20.. [optional] if omitted the server will use the default value of 20
@@ -719,7 +719,7 @@ class SummarySegmentsAndStatsApi(object):
         Keyword Args:
             start_date (date): The start date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint.. [optional]
             end_date (date): The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint. [optional]
-            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **MTD**: Month-To-Date - **M**: Monthly, based on the last trading day of the month - **CQTD**: Calendar Quarter-to-Date - **CQ**: Calendar Quarterly - **CYTD**: Calendar Year-to-Date - **CY**: Calendar Yearly. [optional]
+            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **M**: Monthly, based on the last trading day of the month - **CQ**: Calendar Quarterly - **CY**: Calendar Yearly. [optional]
             currency (str): The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470). [optional] if omitted the server will use the default value of "USD"
             data_type (NavDataType): The Data Type of the NAV expressed as Raw or Rolled values.. [optional]
             pagination_limit (int): The maximum number of records to return. The default is 20.. [optional] if omitted the server will use the default value of 20
@@ -777,7 +777,7 @@ class SummarySegmentsAndStatsApi(object):
         Keyword Args:
             start_date (date): The start date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint.. [optional]
             end_date (date): The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint. [optional]
-            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **MTD**: Month-To-Date - **M**: Monthly, based on the last trading day of the month - **CQTD**: Calendar Quarter-to-Date - **CQ**: Calendar Quarterly - **CYTD**: Calendar Year-to-Date - **CY**: Calendar Yearly. [optional]
+            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **M**: Monthly, based on the last trading day of the month - **CQ**: Calendar Quarterly - **CY**: Calendar Yearly. [optional]
             currency (str): The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470). [optional] if omitted the server will use the default value of "USD"
             data_type (NavDataType): The Data Type of the NAV expressed as Raw or Rolled values.. [optional]
             pagination_limit (int): The maximum number of records to return. The default is 20.. [optional] if omitted the server will use the default value of 20
@@ -830,7 +830,7 @@ class SummarySegmentsAndStatsApi(object):
         Keyword Args:
             start_date (date): The start date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint.. [optional]
             end_date (date): The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint. [optional]
-            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **MTD**: Month-To-Date - **M**: Monthly, based on the last trading day of the month - **CQTD**: Calendar Quarter-to-Date - **CQ**: Calendar Quarterly - **CYTD**: Calendar Year-to-Date - **CY**: Calendar Yearly. [optional]
+            frequency (FrequencyAum): Controls the display frequency of the data returned. Supported values are: - **M**: Monthly, based on the last trading day of the month - **CQ**: Calendar Quarterly - **CY**: Calendar Yearly. [optional]
             currency (str): The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470). [optional] if omitted the server will use the default value of "USD"
             data_type (NavDataType): The Data Type of the NAV expressed as Raw or Rolled values.. [optional]
             pagination_limit (int): The maximum number of records to return. The default is 20.. [optional] if omitted the server will use the default value of 20

@@ -27,19 +27,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Controls the display frequency of the data returned.   * **MTD** &#x3D; Month-To-Date   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **CQTD** &#x3D; Calendar Quarter-to-Date   * **CQ** &#x3D; Calendar Quarterly   * **CYTD** &#x3D; Calendar Year-to-Date   * **CY** &#x3D; Calendar Yearly 
+ * Controls the display frequency of the data returned.   * **M** &#x3D; Monthly, based on the last trading day of the         month.   * **CQ** &#x3D; Calendar Quarterly   * **CY** &#x3D; Calendar Yearly 
  */
 public enum FrequencyAum {
   
-  MTD("MTD"),
-  
   M("M"),
   
-  CQTD("CQTD"),
-  
   CQ("CQ"),
-  
-  CYTD("CYTD"),
   
   CY("CY");
 

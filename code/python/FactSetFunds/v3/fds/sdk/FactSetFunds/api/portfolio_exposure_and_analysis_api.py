@@ -2356,7 +2356,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> TopHoldingsResponse:
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for the requested fund or ETF.  # noqa: E501
+        Returns the top 10 holdings for the requested fund or ETF. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -2403,7 +2403,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> typing.Tuple[TopHoldingsResponse, int, typing.MutableMapping]:
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for the requested fund or ETF.  # noqa: E501
+        Returns the top 10 holdings for the requested fund or ETF. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -2454,7 +2454,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> "ApplyResult[TopHoldingsResponse]":
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for the requested fund or ETF.  # noqa: E501
+        Returns the top 10 holdings for the requested fund or ETF. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -2500,7 +2500,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> "ApplyResult[typing.Tuple[TopHoldingsResponse, int, typing.MutableMapping]]":
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for the requested fund or ETF.  # noqa: E501
+        Returns the top 10 holdings for the requested fund or ETF. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:
@@ -2547,7 +2547,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> TopHoldingsResponse:
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for a list of funds or ETFs.  # noqa: E501
+        Returns the top 10 holdings for a list of funds or ETFs. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -2594,7 +2594,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> typing.Tuple[TopHoldingsResponse, int, typing.MutableMapping]:
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for a list of funds or ETFs.  # noqa: E501
+        Returns the top 10 holdings for a list of funds or ETFs. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -2645,7 +2645,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> "ApplyResult[TopHoldingsResponse]":
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for a list of funds or ETFs.  # noqa: E501
+        Returns the top 10 holdings for a list of funds or ETFs. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -2691,7 +2691,7 @@ class PortfolioExposureAndAnalysisApi(object):
     ) -> "ApplyResult[typing.Tuple[TopHoldingsResponse, int, typing.MutableMapping]]":
         """Get Top 10 Holdings  # noqa: E501
 
-        Returns the top 10 holdings for a list of funds or ETFs.  # noqa: E501
+        Returns the top 10 holdings for a list of funds or ETFs. The ETF holdings are returned on a daily basis where available.  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

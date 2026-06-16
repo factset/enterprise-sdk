@@ -54,7 +54,7 @@ export default class SummarySegmentsAndStatsApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate The start date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint.
      * @param {Date} opts.endDate The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint
-     * @param {module:model/FrequencyAum} opts.frequency Controls the display frequency of the data returned. Supported values are: - **MTD**: Month-To-Date - **M**: Monthly, based on the last trading day of the month - **CQTD**: Calendar Quarter-to-Date - **CQ**: Calendar Quarterly - **CYTD**: Calendar Year-to-Date - **CY**: Calendar Yearly
+     * @param {module:model/FrequencyAum} opts.frequency Controls the display frequency of the data returned. Supported values are: - **M**: Monthly, based on the last trading day of the month - **CQ**: Calendar Quarterly - **CY**: Calendar Yearly
      * @param {String} opts.currency The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470) (default to 'USD')
      * @param {module:model/NavDataType} opts.dataType The Data Type of the NAV expressed as Raw or Rolled values.
      * @param {Number} opts.paginationLimit The maximum number of records to return. The default is 20. (default to 20)
@@ -107,7 +107,7 @@ export default class SummarySegmentsAndStatsApi {
      * @param {Object} opts Optional parameters
      * @param {Date} opts.startDate The start date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint.
      * @param {Date} opts.endDate The end date requested for a given date range in YYYY-MM-DD format. If left blank, the API will default to previous close.Future dates (T+1) are not accepted in this endpoint
-     * @param {module:model/FrequencyAum} opts.frequency Controls the display frequency of the data returned. Supported values are: - **MTD**: Month-To-Date - **M**: Monthly, based on the last trading day of the month - **CQTD**: Calendar Quarter-to-Date - **CQ**: Calendar Quarterly - **CYTD**: Calendar Year-to-Date - **CY**: Calendar Yearly
+     * @param {module:model/FrequencyAum} opts.frequency Controls the display frequency of the data returned. Supported values are: - **M**: Monthly, based on the last trading day of the month - **CQ**: Calendar Quarterly - **CY**: Calendar Yearly
      * @param {String} opts.currency The ISO3 currency control for the requested fund. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470) (default to 'USD')
      * @param {module:model/NavDataType} opts.dataType The Data Type of the NAV expressed as Raw or Rolled values.
      * @param {Number} opts.paginationLimit The maximum number of records to return. The default is 20. (default to 20)

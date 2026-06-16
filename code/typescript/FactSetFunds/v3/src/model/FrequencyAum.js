@@ -20,13 +20,6 @@ import ApiClient from '../ApiClient';
 export default class FrequencyAum {
     
         /**
-         * value: "MTD"
-         * @const
-         */
-        "MTD" = "MTD";
-
-    
-        /**
          * value: "M"
          * @const
          */
@@ -34,24 +27,10 @@ export default class FrequencyAum {
 
     
         /**
-         * value: "CQTD"
-         * @const
-         */
-        "CQTD" = "CQTD";
-
-    
-        /**
          * value: "CQ"
          * @const
          */
         "CQ" = "CQ";
-
-    
-        /**
-         * value: "CYTD"
-         * @const
-         */
-        "CYTD" = "CYTD";
 
     
         /**

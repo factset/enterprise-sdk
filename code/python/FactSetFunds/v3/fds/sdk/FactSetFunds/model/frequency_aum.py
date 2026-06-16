@@ -53,11 +53,8 @@ class FrequencyAum(ModelSimple):
 
     allowed_values = {
         ('value',): {
-            'MTD': "MTD",
             'M': "M",
-            'CQTD': "CQTD",
             'CQ': "CQ",
-            'CYTD': "CYTD",
             'CY': "CY",
 
 
@@ -112,10 +109,10 @@ class FrequencyAum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["MTD", "M", "CQTD", "CQ", "CYTD", "CY", ]  # noqa: E501
+            args[0] (str): Controls the display frequency of the data returned.   * **M** = Monthly, based on the last trading day of the         month.   * **CQ** = Calendar Quarterly   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["M", "CQ", "CY", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["MTD", "M", "CQTD", "CQ", "CYTD", "CY", ]  # noqa: E501
+            value (str): Controls the display frequency of the data returned.   * **M** = Monthly, based on the last trading day of the         month.   * **CQ** = Calendar Quarterly   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["M", "CQ", "CY", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -198,10 +195,10 @@ class FrequencyAum(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["MTD", "M", "CQTD", "CQ", "CYTD", "CY", ]  # noqa: E501
+            args[0] (str): Controls the display frequency of the data returned.   * **M** = Monthly, based on the last trading day of the         month.   * **CQ** = Calendar Quarterly   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["M", "CQ", "CY", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["MTD", "M", "CQTD", "CQ", "CYTD", "CY", ]  # noqa: E501
+            value (str): Controls the display frequency of the data returned.   * **M** = Monthly, based on the last trading day of the         month.   * **CQ** = Calendar Quarterly   * **CY** = Calendar Yearly . if omitted defaults to "M", must be one of ["M", "CQ", "CY", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

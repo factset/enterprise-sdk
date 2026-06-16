@@ -1969,7 +1969,9 @@ paths:
         - Portfolio Exposure and Analysis
       summary: Get Top 10 Holdings
       operationId: getTop10Holdings
-      description: Returns the top 10 holdings for the requested fund or ETF.
+      description: >-
+        Returns the top 10 holdings for the requested fund or ETF. The ETF
+        holdings are returned on a daily basis where available.
       parameters:
         - $ref: '#/components/parameters/ids'
       responses:
@@ -2001,7 +2003,9 @@ paths:
         - Portfolio Exposure and Analysis
       summary: Get Top 10 Holdings
       operationId: getTop10HoldingsForList
-      description: Returns the top 10 holdings for a list of funds or ETFs.
+      description: >-
+        Returns the top 10 holdings for a list of funds or ETFs. The ETF
+        holdings are returned on a daily basis where available.
       requestBody:
         required: true
         content:
@@ -5652,20 +5656,14 @@ components:
     FrequencyAum:
       type: string
       enum:
-        - MTD
         - M
-        - CQTD
         - CQ
-        - CYTD
         - CY
       default: M
       description: |
         Controls the display frequency of the data returned.
-          * **MTD** = Month-To-Date
-          * **M** = Monthly, based on the last trading day of the month.
-          * **CQTD** = Calendar Quarter-to-Date
+          * **M** = Monthly, based on the last trading day of the         month.
           * **CQ** = Calendar Quarterly
-          * **CYTD** = Calendar Year-to-Date
           * **CY** = Calendar Yearly
       example: M
     StructureType:
@@ -7084,15 +7082,9 @@ components:
         Controls the display frequency of the data returned. Supported values
         are:
 
-        - **MTD**: Month-To-Date
-
         - **M**: Monthly, based on the last trading day of the month
 
-        - **CQTD**: Calendar Quarter-to-Date
-
         - **CQ**: Calendar Quarterly
-
-        - **CYTD**: Calendar Year-to-Date
 
         - **CY**: Calendar Yearly
       example: M

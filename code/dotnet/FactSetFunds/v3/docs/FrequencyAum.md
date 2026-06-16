@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetFunds.Model.FrequencyAum
-Controls the display frequency of the data returned.   * **MTD** = Month-To-Date   * **M** = Monthly, based on the last trading day of the month.   * **CQTD** = Calendar Quarter-to-Date   * **CQ** = Calendar Quarterly   * **CYTD** = Calendar Year-to-Date   * **CY** = Calendar Yearly 
+Controls the display frequency of the data returned.   * **M** = Monthly, based on the last trading day of the         month.   * **CQ** = Calendar Quarterly   * **CY** = Calendar Yearly 
 
 ## Properties
 

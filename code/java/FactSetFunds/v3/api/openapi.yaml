@@ -2305,11 +2305,8 @@ paths:
         style: form
       - description: |-
           Controls the display frequency of the data returned. Supported values are:
-          - **MTD**: Month-To-Date
           - **M**: Monthly, based on the last trading day of the month
-          - **CQTD**: Calendar Quarter-to-Date
           - **CQ**: Calendar Quarterly
-          - **CYTD**: Calendar Year-to-Date
           - **CY**: Calendar Yearly
         example: M
         explode: true
@@ -5944,7 +5941,8 @@ paths:
       x-accepts: application/json
   /holdings/top-10:
     get:
-      description: Returns the top 10 holdings for the requested fund or ETF.
+      description: Returns the top 10 holdings for the requested fund or ETF. The
+        ETF holdings are returned on a daily basis where available.
       operationId: getTop10Holdings
       parameters:
       - description: The requested fund identifier. FactSet Identifiers, tickers,
@@ -6080,7 +6078,8 @@ paths:
       - Portfolio Exposure and Analysis
       x-accepts: application/json
     post:
-      description: Returns the top 10 holdings for a list of funds or ETFs.
+      description: Returns the top 10 holdings for a list of funds or ETFs. The ETF
+        holdings are returned on a daily basis where available.
       operationId: getTop10HoldingsForList
       requestBody:
         content:
@@ -8708,11 +8707,8 @@ components:
     frequencyAum:
       description: |-
         Controls the display frequency of the data returned. Supported values are:
-        - **MTD**: Month-To-Date
         - **M**: Monthly, based on the last trading day of the month
-        - **CQTD**: Calendar Quarter-to-Date
         - **CQ**: Calendar Quarterly
-        - **CYTD**: Calendar Year-to-Date
         - **CY**: Calendar Yearly
       example: M
       explode: true
@@ -11521,18 +11517,12 @@ components:
       default: M
       description: |
         Controls the display frequency of the data returned.
-          * **MTD** = Month-To-Date
-          * **M** = Monthly, based on the last trading day of the month.
-          * **CQTD** = Calendar Quarter-to-Date
+          * **M** = Monthly, based on the last trading day of the         month.
           * **CQ** = Calendar Quarterly
-          * **CYTD** = Calendar Year-to-Date
           * **CY** = Calendar Yearly
       enum:
-      - MTD
       - M
-      - CQTD
       - CQ
-      - CYTD
       - CY
       example: M
       type: string

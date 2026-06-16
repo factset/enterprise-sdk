@@ -27,47 +27,29 @@ using OpenAPIDateConverter = FactSet.SDK.FactSetFunds.Client.OpenAPIDateConverte
 namespace FactSet.SDK.FactSetFunds.Model
 {
     /// <summary>
-    /// Controls the display frequency of the data returned.   * **MTD** &#x3D; Month-To-Date   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **CQTD** &#x3D; Calendar Quarter-to-Date   * **CQ** &#x3D; Calendar Quarterly   * **CYTD** &#x3D; Calendar Year-to-Date   * **CY** &#x3D; Calendar Yearly 
+    /// Controls the display frequency of the data returned.   * **M** &#x3D; Monthly, based on the last trading day of the         month.   * **CQ** &#x3D; Calendar Quarterly   * **CY** &#x3D; Calendar Yearly 
     /// </summary>
-    /// <value>Controls the display frequency of the data returned.   * **MTD** &#x3D; Month-To-Date   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **CQTD** &#x3D; Calendar Quarter-to-Date   * **CQ** &#x3D; Calendar Quarterly   * **CYTD** &#x3D; Calendar Year-to-Date   * **CY** &#x3D; Calendar Yearly </value>
+    /// <value>Controls the display frequency of the data returned.   * **M** &#x3D; Monthly, based on the last trading day of the         month.   * **CQ** &#x3D; Calendar Quarterly   * **CY** &#x3D; Calendar Yearly </value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum FrequencyAum
     {
         /// <summary>
-        /// Enum MTD for value: MTD
-        /// </summary>
-        [EnumMember(Value = "MTD")]
-        MTD = 1,
-
-        /// <summary>
         /// Enum M for value: M
         /// </summary>
         [EnumMember(Value = "M")]
-        M = 2,
-
-        /// <summary>
-        /// Enum CQTD for value: CQTD
-        /// </summary>
-        [EnumMember(Value = "CQTD")]
-        CQTD = 3,
+        M = 1,
 
         /// <summary>
         /// Enum CQ for value: CQ
         /// </summary>
         [EnumMember(Value = "CQ")]
-        CQ = 4,
-
-        /// <summary>
-        /// Enum CYTD for value: CYTD
-        /// </summary>
-        [EnumMember(Value = "CYTD")]
-        CYTD = 5,
+        CQ = 2,
 
         /// <summary>
         /// Enum CY for value: CY
         /// </summary>
         [EnumMember(Value = "CY")]
-        CY = 6
+        CY = 3
 
     }
 
