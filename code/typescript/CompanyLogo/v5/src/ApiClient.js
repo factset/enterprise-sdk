@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/CompanyLogo/0.41.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/CompanyLogo/0.41.1 (${process.platform}; node ${process.version})`
         };
 
         /**

@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-streetaccountnews",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "StreetAccount News client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/streetaccount-news-api#report-issue"
+  }
 }

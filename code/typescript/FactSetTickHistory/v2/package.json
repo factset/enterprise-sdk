@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsettickhistory",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "FactSet Tick History client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/factset-tick-history-api#report-issue"
+  }
 }

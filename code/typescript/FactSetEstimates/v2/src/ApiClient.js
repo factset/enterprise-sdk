@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/FactSetEstimates/4.3.1 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/FactSetEstimates/4.3.2 (${process.platform}; node ${process.version})`
         };
 
         /**

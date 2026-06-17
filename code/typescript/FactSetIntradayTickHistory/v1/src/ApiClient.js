@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/FactSetIntradayTickHistory/0.22.1 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/FactSetIntradayTickHistory/0.22.2 (${process.platform}; node ${process.version})`
         };
 
         /**

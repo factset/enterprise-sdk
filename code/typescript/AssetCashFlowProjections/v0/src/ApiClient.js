@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/AssetCashFlowProjections/0.14.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/AssetCashFlowProjections/0.14.1 (${process.platform}; node ${process.version})`
         };
 
         /**

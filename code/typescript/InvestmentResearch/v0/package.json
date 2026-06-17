@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-investmentresearch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Investment Research client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/investment-research-api#report-issue"
+  }
 }

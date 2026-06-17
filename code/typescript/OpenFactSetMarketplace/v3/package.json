@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-openfactsetmarketplace",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Open:FactSet Marketplace client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/openfactset-marketplace-api#report-issue"
+  }
 }

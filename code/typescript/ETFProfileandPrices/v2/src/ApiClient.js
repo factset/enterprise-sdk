@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/ETFProfileandPrices/0.11.1 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/ETFProfileandPrices/0.11.2 (${process.platform}; node ${process.version})`
         };
 
         /**

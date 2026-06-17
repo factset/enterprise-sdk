@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/IssueTracker/0.6.1 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/IssueTracker/0.6.2 (${process.platform}; node ${process.version})`
         };
 
         /**

@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/NaturalLanguageProcessing/0.24.2 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/NaturalLanguageProcessing/0.24.3 (${process.platform}; node ${process.version})`
         };
 
         /**

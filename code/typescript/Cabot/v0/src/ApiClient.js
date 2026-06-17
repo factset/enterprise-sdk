@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/Cabot/0.13.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/Cabot/0.13.1 (${process.platform}; node ${process.version})`
         };
 
         /**

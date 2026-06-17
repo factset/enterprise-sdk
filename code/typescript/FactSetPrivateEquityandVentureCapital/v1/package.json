@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsetprivateequityandventurecapital",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FactSet Private Equity and Venture Capital client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/factset-pevc-api#report-issue"
+  }
 }

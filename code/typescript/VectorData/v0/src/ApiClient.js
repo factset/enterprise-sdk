@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/VectorData/0.0.4 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/VectorData/0.0.5 (${process.platform}; node ${process.version})`
         };
 
         /**

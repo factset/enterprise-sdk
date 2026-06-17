@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/AnalyticsDatastore/0.24.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/AnalyticsDatastore/0.24.1 (${process.platform}; node ${process.version})`
         };
 
         /**

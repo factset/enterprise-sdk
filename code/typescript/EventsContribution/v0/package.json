@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-eventscontribution",
-  "version": "0.21.1",
+  "version": "0.21.2",
   "description": "Events Contribution client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/events-contribution-api#report-issue"
+  }
 }

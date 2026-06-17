@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-fixedincomeanalyticsbatcher",
-  "version": "0.22.2",
+  "version": "0.22.3",
   "description": "Fixed Income Analytics Batcher client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/fixed-income-analytics-batcher-api#report-issue"
+  }
 }

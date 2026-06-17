@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/Publisher/0.41.1 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/Publisher/0.41.2 (${process.platform}; node ${process.version})`
         };
 
         /**

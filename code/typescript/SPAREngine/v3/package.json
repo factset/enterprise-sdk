@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-sparengine",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Style Performance and Risk Analysis (SPAR) Engine client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/spar-engine-api#report-issue"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-bestexecutionanalyticsforsmartertradingbeast",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Best Execution Analytics for Smarter Trading (BEAST) client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/#report-issue"
+  }
 }

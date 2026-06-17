@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/BestExecutionAnalyticsforSmarterTradingBEAST/0.4.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/BestExecutionAnalyticsforSmarterTradingBEAST/0.4.1 (${process.platform}; node ${process.version})`
         };
 
         /**

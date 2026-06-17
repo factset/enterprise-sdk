@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-realtimenews",
-  "version": "0.20.1",
+  "version": "0.20.2",
   "description": "Real-Time News client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/#report-issue"
+  }
 }
