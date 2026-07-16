@@ -132,7 +132,7 @@ components:
         **Example: "8" from acta_v1: [8],**
 
 
-        QFL:- Enter the sequence number associated with the qfl schema 
+        QFL:- Enter the sequence number associated with the qfl schema
 
 
         **Note:** Please pass sequence parameter only while passing the schema
@@ -362,7 +362,7 @@ components:
         is EstimatedTotal:
           description: >-
             Boolean value that represents whether the total count of files
-            returned is exact or an estimate. This is defaulted to  False as the
+            returned is exact or an estimate. This is defaulted to False as the
             API should always return the exact count
           type: boolean
         limit:

@@ -49,11 +49,15 @@ paths:
         schema:
           type: string
         style: form
-      - description: "Version number of a schema\n\nPlease enter the sequence number\
-          \ associated with the schema passed in the request\n**Example: \"8\" from\
-          \ acta_v1: [8],**\n\nQFL:- Enter the sequence number associated with the\
-          \ qfl schema \n\n**Note:** Please pass sequence parameter only while passing\
-          \ the schema parameter in the request"
+      - description: |-
+          Version number of a schema
+
+          Please enter the sequence number associated with the schema passed in the request
+          **Example: "8" from acta_v1: [8],**
+
+          QFL:- Enter the sequence number associated with the qfl schema
+
+          **Note:** Please pass sequence parameter only while passing the schema parameter in the request
         explode: true
         in: query
         name: sequence
@@ -287,11 +291,15 @@ components:
         type: string
       style: form
     sequence:
-      description: "Version number of a schema\n\nPlease enter the sequence number\
-        \ associated with the schema passed in the request\n**Example: \"8\" from\
-        \ acta_v1: [8],**\n\nQFL:- Enter the sequence number associated with the qfl\
-        \ schema \n\n**Note:** Please pass sequence parameter only while passing the\
-        \ schema parameter in the request"
+      description: |-
+        Version number of a schema
+
+        Please enter the sequence number associated with the schema passed in the request
+        **Example: "8" from acta_v1: [8],**
+
+        QFL:- Enter the sequence number associated with the qfl schema
+
+        **Note:** Please pass sequence parameter only while passing the schema parameter in the request
       explode: true
       in: query
       name: sequence
@@ -556,7 +564,7 @@ components:
           type: integer
         is EstimatedTotal:
           description: Boolean value that represents whether the total count of files
-            returned is exact or an estimate. This is defaulted to  False as the API
+            returned is exact or an estimate. This is defaulted to False as the API
             should always return the exact count
           type: boolean
         limit:

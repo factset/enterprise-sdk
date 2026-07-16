@@ -1,0 +1,448 @@
+package com.factset.sdk.FactSetRBICS.api;
+
+import com.factset.sdk.FactSetRBICS.ApiException;
+import com.factset.sdk.FactSetRBICS.ApiClient;
+import com.factset.sdk.FactSetRBICS.ApiResponse;
+import com.factset.sdk.FactSetRBICS.Configuration;
+import com.factset.sdk.FactSetRBICS.Pair;
+
+import jakarta.ws.rs.core.GenericType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import com.factset.sdk.FactSetRBICS.models.EntityFocusRequest;
+import com.factset.sdk.FactSetRBICS.models.EntityFocusResponse;
+import com.factset.sdk.FactSetRBICS.models.EntityRequest;
+import com.factset.sdk.FactSetRBICS.models.EntityResponse;
+import com.factset.sdk.FactSetRBICS.models.ErrorResponse;
+import com.factset.sdk.FactSetRBICS.models.ErrorsResponse;
+import java.time.LocalDate;
+
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
+public class EntityApi {
+  private ApiClient apiClient;
+
+  public EntityApi() {
+    this(Configuration.getDefaultApiClient());
+  }
+
+  public EntityApi(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+  
+  private static final Map<Integer, GenericType> getRbicsEntityFocusResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsEntityFocusResponseTypeMap.put(200, new GenericType<EntityFocusResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> getRbicsEntityFocusForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsEntityFocusForListResponseTypeMap.put(200, new GenericType<EntityFocusResponse>(){});
+    getRbicsEntityFocusForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusForListResponseTypeMap.put(415, new GenericType<ErrorResponse>(){});
+    getRbicsEntityFocusForListResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> getRbicsEntityRevenueResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsEntityRevenueResponseTypeMap.put(200, new GenericType<EntityResponse>(){});
+    getRbicsEntityRevenueResponseTypeMap.put(400, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueResponseTypeMap.put(401, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueResponseTypeMap.put(403, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueResponseTypeMap.put(415, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueResponseTypeMap.put(500, new GenericType<ErrorsResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> getRbicsEntityRevenueForListResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getRbicsEntityRevenueForListResponseTypeMap.put(200, new GenericType<EntityResponse>(){});
+    getRbicsEntityRevenueForListResponseTypeMap.put(400, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueForListResponseTypeMap.put(401, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueForListResponseTypeMap.put(403, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueForListResponseTypeMap.put(415, new GenericType<ErrorsResponse>(){});
+    getRbicsEntityRevenueForListResponseTypeMap.put(500, new GenericType<ErrorsResponse>(){});
+  }
+
+  
+
+
+  /**
+   * Get the API client
+   *
+   * @return API client
+   */
+  public ApiClient getApiClient() {
+    return apiClient;
+  }
+
+  /**
+   * Set the API client
+   *
+   * @param apiClient an instance of API client
+   */
+  public void setApiClient(ApiClient apiClient) {
+    this.apiClient = apiClient;
+  }
+
+  /**
+   * Get RBICS classification for the Focus industry
+   * Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.    RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API. 
+   * @param ids List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;  (required)
+   * @param date Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)
+   * @param levels List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** (optional)
+   * @param includeNames Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. (optional, default to true)
+   * @return EntityFocusResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response producing an array of Entity Focus Objects </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public EntityFocusResponse getRbicsEntityFocus(java.util.List<String> ids, String date, java.util.Set<Integer> levels, Boolean includeNames) throws ApiException {
+    return getRbicsEntityFocusWithHttpInfo(ids, date, levels, includeNames).getData();
+  }
+
+  /**
+   * Get RBICS classification for the Focus industry
+   * Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.    RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API. 
+   * @param ids List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;  (required)
+   * @param date Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional)
+   * @param levels List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.** (optional)
+   * @param includeNames Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. (optional, default to true)
+   * @return ApiResponse&lt;EntityFocusResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response producing an array of Entity Focus Objects </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<EntityFocusResponse> getRbicsEntityFocusWithHttpInfo(java.util.List<String> ids, String date, java.util.Set<Integer> levels, Boolean includeNames) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'ids' is set
+    if (ids == null) {
+      throw new ApiException(400, "Missing the required parameter 'ids' when calling getRbicsEntityFocus");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-rbics/v1/entity-focus";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "levels", levels));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeNames", includeNames));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        EntityFocusResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityApi.getRbicsEntityFocus", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getRbicsEntityFocusResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Get RBICS classification for the Focus industry
+   * Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.    RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API. 
+   * @param entityFocusRequest Request Body to request a list of RBICS Entity Focus objects. (required)
+   * @return EntityFocusResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response producing an array of Entity Focus Objects </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public EntityFocusResponse getRbicsEntityFocusForList(EntityFocusRequest entityFocusRequest) throws ApiException {
+    return getRbicsEntityFocusForListWithHttpInfo(entityFocusRequest).getData();
+  }
+
+  /**
+   * Get RBICS classification for the Focus industry
+   * Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.    RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.    The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API. 
+   * @param entityFocusRequest Request Body to request a list of RBICS Entity Focus objects. (required)
+   * @return ApiResponse&lt;EntityFocusResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful Response producing an array of Entity Focus Objects </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, \&quot;application/json\&quot; would be the appropriate value. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<EntityFocusResponse> getRbicsEntityFocusForListWithHttpInfo(EntityFocusRequest entityFocusRequest) throws ApiException {
+    Object localVarPostBody = entityFocusRequest;
+    
+    // verify the required parameter 'entityFocusRequest' is set
+    if (entityFocusRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'entityFocusRequest' when calling getRbicsEntityFocusForList");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-rbics/v1/entity-focus";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        EntityFocusResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityApi.getRbicsEntityFocusForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getRbicsEntityFocusForListResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Get a company&#39;s revenue breakdown by RBICS classification.
+   * Access a comprehensive, hierarchical breakdown of a company&#39;s revenue according to each RBICS industry classification. This endpoint aligns a company&#39;s reported business segment revenues with the complete, multi-level RBICS taxonomy, offering the percentage of total revenue attributed to each industry.  For Mutual Funds and ETFs we only have data from L1-L4 and requires additional access to get this data. Note that, the response time can exceed 20+ seconds when querying for more than one year of data.  As such we do not recommend requesting for more than 1 ID at a time for history.   Use the &#x60;level&#x60; parameter to control the depth of the returned taxonomy, from Economy (L1) down to Sub-Industry (L6). 
+   * @param ids List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;  (required)
+   * @param startDate Specifies the start date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and forward. The &#x60;startDate&#x60; must be equal to or before the &#x60;endDate&#x60;. Future dates (T+1) are not accepted in this endpoint.  Note:  - If omitted while &#x60;endDate&#x60; is specified: Data will be fetched from the earliest available record up to the specified end date. - If both &#x60;startDate&#x60; and &#x60;endDate&#x60; are omitted: The response will return the latest available data.  (optional)
+   * @param endDate Specifies the end date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and earlier. The &#x60;endDate&#x60; must be equal to or after the &#x60;startDate&#x60;. Future dates (T+1) are not accepted in this endpoint.  Note: - If omitted (with &#x60;startDate&#x60; specified): Data will be returned from the specified start date up to the most recent available date. - If both &#x60;startDate&#x60; and &#x60;endDate&#x60; are omitted: The response will return the latest available data.  (optional)
+   * @param level Specifies the deepest level of the RBICS taxonomy to be included in the revenue breakdown. The response will include all levels from 1 up to the specified level. For example, a value of &#39;3&#39; will return revenue percentages for Economy (L1), Sector (L2), and Sub-Sector (L3). The default behavior is to return all 6 levels.   |Level|Description|Number of Groups|   |---|---|---|   |1|Economy|14|   |2|Sector|37|   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Industry|901|   |6|Sub-Industry|1629|  (optional)
+   * @return EntityResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful response returning a company&#39;s revenue breakdown by RBICS classification. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public EntityResponse getRbicsEntityRevenue(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Integer level) throws ApiException {
+    return getRbicsEntityRevenueWithHttpInfo(ids, startDate, endDate, level).getData();
+  }
+
+  /**
+   * Get a company&#39;s revenue breakdown by RBICS classification.
+   * Access a comprehensive, hierarchical breakdown of a company&#39;s revenue according to each RBICS industry classification. This endpoint aligns a company&#39;s reported business segment revenues with the complete, multi-level RBICS taxonomy, offering the percentage of total revenue attributed to each industry.  For Mutual Funds and ETFs we only have data from L1-L4 and requires additional access to get this data. Note that, the response time can exceed 20+ seconds when querying for more than one year of data.  As such we do not recommend requesting for more than 1 ID at a time for history.   Use the &#x60;level&#x60; parameter to control the depth of the returned taxonomy, from Economy (L1) down to Sub-Industry (L6). 
+   * @param ids List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.&lt;p&gt;**ids limit &#x3D; 2500 per request**&lt;/p&gt;    Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;  (required)
+   * @param startDate Specifies the start date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and forward. The &#x60;startDate&#x60; must be equal to or before the &#x60;endDate&#x60;. Future dates (T+1) are not accepted in this endpoint.  Note:  - If omitted while &#x60;endDate&#x60; is specified: Data will be fetched from the earliest available record up to the specified end date. - If both &#x60;startDate&#x60; and &#x60;endDate&#x60; are omitted: The response will return the latest available data.  (optional)
+   * @param endDate Specifies the end date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and earlier. The &#x60;endDate&#x60; must be equal to or after the &#x60;startDate&#x60;. Future dates (T+1) are not accepted in this endpoint.  Note: - If omitted (with &#x60;startDate&#x60; specified): Data will be returned from the specified start date up to the most recent available date. - If both &#x60;startDate&#x60; and &#x60;endDate&#x60; are omitted: The response will return the latest available data.  (optional)
+   * @param level Specifies the deepest level of the RBICS taxonomy to be included in the revenue breakdown. The response will include all levels from 1 up to the specified level. For example, a value of &#39;3&#39; will return revenue percentages for Economy (L1), Sector (L2), and Sub-Sector (L3). The default behavior is to return all 6 levels.   |Level|Description|Number of Groups|   |---|---|---|   |1|Economy|14|   |2|Sector|37|   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Industry|901|   |6|Sub-Industry|1629|  (optional)
+   * @return ApiResponse&lt;EntityResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful response returning a company&#39;s revenue breakdown by RBICS classification. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<EntityResponse> getRbicsEntityRevenueWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Integer level) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'ids' is set
+    if (ids == null) {
+      throw new ApiException(400, "Missing the required parameter 'ids' when calling getRbicsEntityRevenue");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-rbics/v1/entity/revenue";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "level", level));
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        EntityResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityApi.getRbicsEntityRevenue", localVarPath, "GET", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getRbicsEntityRevenueResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Get a company&#39;s revenue breakdown by RBICS classification.
+   * Access a comprehensive, hierarchical breakdown of a company&#39;s revenue according to each RBICS industry classification. This endpoint aligns a company&#39;s reported business segment revenues with the complete, multi-level RBICS taxonomy, offering the percentage of total revenue attributed to each industry.  For Mutual Funds and ETFs we only have data from L1-L4 and requires additional access to get this data. Note that, the response time can exceed 20+ seconds when querying for more than one year of data.  As such we do not recommend requesting for more than 1 ID at a time for history.  Use the &#x60;level&#x60; parameter to control the depth of the returned taxonomy, from Economy (L1) down to Sub-Industry (L6). Use the POST method for large lists of identifiers. 
+   * @param entityRequest Request Body to request a list of Entity Revenue objects. (required)
+   * @return EntityResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful response returning a company&#39;s revenue breakdown by RBICS classification. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public EntityResponse getRbicsEntityRevenueForList(EntityRequest entityRequest) throws ApiException {
+    return getRbicsEntityRevenueForListWithHttpInfo(entityRequest).getData();
+  }
+
+  /**
+   * Get a company&#39;s revenue breakdown by RBICS classification.
+   * Access a comprehensive, hierarchical breakdown of a company&#39;s revenue according to each RBICS industry classification. This endpoint aligns a company&#39;s reported business segment revenues with the complete, multi-level RBICS taxonomy, offering the percentage of total revenue attributed to each industry.  For Mutual Funds and ETFs we only have data from L1-L4 and requires additional access to get this data. Note that, the response time can exceed 20+ seconds when querying for more than one year of data.  As such we do not recommend requesting for more than 1 ID at a time for history.  Use the &#x60;level&#x60; parameter to control the depth of the returned taxonomy, from Economy (L1) down to Sub-Industry (L6). Use the POST method for large lists of identifiers. 
+   * @param entityRequest Request Body to request a list of Entity Revenue objects. (required)
+   * @return ApiResponse&lt;EntityResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Successful response returning a company&#39;s revenue breakdown by RBICS classification. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<EntityResponse> getRbicsEntityRevenueForListWithHttpInfo(EntityRequest entityRequest) throws ApiException {
+    Object localVarPostBody = entityRequest;
+    
+    // verify the required parameter 'entityRequest' is set
+    if (entityRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'entityRequest' when calling getRbicsEntityRevenueForList");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/factset-rbics/v1/entity/revenue";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        EntityResponse
+      
+    > apiResponse = apiClient.invokeAPI("EntityApi.getRbicsEntityRevenueForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getRbicsEntityRevenueForListResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+}

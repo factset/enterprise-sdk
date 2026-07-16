@@ -91,11 +91,11 @@ public class Pagination implements Serializable {
   }
 
    /**
-   * Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count
+   * Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to “False” as the API should always return the exact count
    * @return isEstimatedTotal
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count")
+  @ApiModelProperty(value = "Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to “False” as the API should always return the exact count")
   @JsonProperty(JSON_PROPERTY_IS_ESTIMATED_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -356,7 +356,7 @@ components:
         is EstimatedTotal:
           description: >-
             Boolean value that represents whether the total count of files
-            returned is exact or an estimate. This is defaulted to  “False” as
+            returned is exact or an estimate. This is defaulted to “False” as
             the API should always return the exact count
           type: boolean
         limit:

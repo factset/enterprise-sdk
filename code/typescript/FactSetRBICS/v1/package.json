@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsetrbics",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "FactSet RBICS client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -36,5 +36,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://developer.factset.com/api-catalog/factset-rbics-api#report-issue"
+  }
 }

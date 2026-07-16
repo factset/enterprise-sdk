@@ -3,37 +3,47 @@ info:
   contact:
     email: api@factset.com
     name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: |
     FactSet Revere Business Industry Classification System (RBICS) is a comprehensive structured taxonomy to classify companies by what they primarily do. It delivers a granular view for investors by classifying companies using a bottom-up approach according to the products and services they provide. By combining this approach with a top-level grouping based on companies' behavior similarities and stock co-movement, FactSet RBICS delivers unprecedented precision for 1,400+ sector groups.
 
-    RBICS Focus is a six level classification which highlights the companys main business. It is based on the company business line/s that stand for majority of a the revenue that the company generates. Updated monthly. For more details, visit [Online Assitant Page #20710](https://oa.apps.factset.com/pages/20710).<p><b>Rate limit is set to 40 requests per second</b>.</p>
+    RBICS Focus is a six level classification which highlights the companys main business. It is based on the company business line/s that stand for majority of a the revenue that the company generates. Updated monthly. For more details, visit [Online Assistant Page #20710](https://oa.apps.factset.com/pages/20710).<p><b>Rate limit is set to 10 requests per second</b>.</p>
   license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
-  title: FactSet RIBCS
-  version: 1.1.0
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet RBICS
+  version: 1.4.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-rbics-api
 servers:
 - url: https://api.factset.com/content
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- description: Fetches the full 6 level classification taxonomy for a list of ids
-    and a date.
-  name: Entity Focus
-- description: Fetches the full RBICS Taxonomy Structure, ids, and descriptions
+- description: Retrieve RBICS classifications for companies. Includes either the primary
+    'Focus' classification or a comprehensive revenue breakdown across all relevant
+    RBICS industries.
+  name: Entity
+- description: Screen for companies based on their RBICS classification. Includes
+    endpoints to find companies with a specific 'Focus' or to find all companies with
+    revenue exposure to an industry.
+  name: Industry
+- description: Fetches the full RBICS Taxonomy Structure, including industry IDs,
+    names, and historical changes.
   name: Structure
+- description: Fetches a company's associated tradeNames and product lines.
+  name: TradeNames
 paths:
   /factset-rbics/v1/entity-focus:
     get:
-      description: "Gets RBICS classifications for the Focus industry for a short\
-        \ list of companies. Full history is included if _date_ parameter is not specified.\n\
-        \  \n  RBICS Focus offers a single-sector mapping of about 48,000 of the most\
-        \ liquid and publicly-traded companies based on their primary lines of business;\
-        \ it uses revenues as the key factor in determining a company’s primary line\
-        \ of business, by mapping a company to the lowest-level sector from which\
-        \ it derives 50% or more of its revenues.\n\n  The RBICS Extended Universe\
-        \ – Industry Group is not currently supported through the RBICS API. \n"
+      description: |
+        Gets RBICS classifications for the Focus industry for a short list of companies. Full history is included if _date_ parameter is not specified.
+
+          RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.
+
+          The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.
       operationId: getRbicsEntityFocus
       parameters:
       - description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange,\
@@ -108,7 +118,7 @@ paths:
                 RBICS Classifications for Single Id with Names:
                   $ref: '#/components/examples/rbicsAllLevels'
               schema:
-                $ref: '#/components/schemas/entityFocusResponse'
+                $ref: '#/components/schemas/EntityFocusResponse'
           description: Successful Response producing an array of Entity Focus Objects
         "400":
           content:
@@ -125,7 +135,7 @@ paths:
                 Bad Request - Read Timeout:
                   $ref: '#/components/examples/badRequestReadTimeout'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. This can occur for several reasons. Please review
             the "message" for more details.
         "401":
@@ -135,7 +145,7 @@ paths:
                 Bad Request - Date Format:
                   $ref: '#/components/examples/unauthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the **Report Issue** in the top right corner
@@ -148,7 +158,7 @@ paths:
                 Bad Request - forbidden:
                   $ref: '#/components/examples/forbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -160,7 +170,7 @@ paths:
                 Bad Request - Unsupported Media Type:
                   $ref: '#/components/examples/unsupportedMediaType'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Unsupported Media Type. This error may be returned when the
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
@@ -174,22 +184,19 @@ paths:
                 Internal Server Error - General Exception:
                   $ref: '#/components/examples/generalException'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error.
       summary: Get RBICS classification for the Focus industry
       tags:
-      - Entity Focus
+      - Entity
       x-accepts: application/json
     post:
-      description: "Gets RBICS classifications for the Focus industry for a long list\
-        \ of companies. Full history is included if _date_ parameter is not specified.\n\
-        \          \n  RBICS Focus offers a single-sector mapping of about 48,000\
-        \ of the most liquid and publicly-traded companies based on their primary\
-        \ lines of business; it uses revenues as the key factor in determining a company’\
-        s primary line of business, by mapping a company to the lowest-level sector\
-        \ from which it derives 50% or more of its revenues.\n\n  The RBICS Extended\
-        \ Universe – Industry Group is not currently supported through the RBICS API.\
-        \ \n"
+      description: |
+        Gets RBICS classifications for the Focus industry for a long list of companies. Full history is included if _date_ parameter is not specified.
+
+          RBICS Focus offers a single-sector mapping of about 48,000 of the most liquid and publicly-traded companies based on their primary lines of business; it uses revenues as the key factor in determining a company’s primary line of business, by mapping a company to the lowest-level sector from which it derives 50% or more of its revenues.
+
+          The RBICS Extended Universe – Industry Group is not currently supported through the RBICS API.
       operationId: getRbicsEntityFocusForList
       requestBody:
         content:
@@ -198,7 +205,7 @@ paths:
               rbicsEntityFocusRequest:
                 $ref: '#/components/examples/rbicsEntityFocusRequest'
             schema:
-              $ref: '#/components/schemas/entityFocusRequest'
+              $ref: '#/components/schemas/EntityFocusRequest'
         description: Request Body to request a list of RBICS Entity Focus objects.
         required: true
       responses:
@@ -209,11 +216,740 @@ paths:
                 RBICS Classifications for Single Id with Names:
                   $ref: '#/components/examples/rbicsAllLevels'
               schema:
-                $ref: '#/components/schemas/entityFocusResponse'
+                $ref: '#/components/schemas/EntityFocusResponse'
           description: Successful Response producing an array of Entity Focus Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
       summary: Get RBICS classification for the Focus industry
       tags:
-      - Entity Focus
+      - Entity
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-rbics/v1/entity/revenue:
+    get:
+      description: "Access a comprehensive, hierarchical breakdown of a company's\
+        \ revenue according to each RBICS industry classification. This endpoint aligns\
+        \ a company's reported business segment revenues with the complete, multi-level\
+        \ RBICS taxonomy, offering the percentage of total revenue attributed to each\
+        \ industry.\n\nFor Mutual Funds and ETFs we only have data from L1-L4 and\
+        \ requires additional access to get this data. Note that, the response time\
+        \ can exceed 20+ seconds when querying for more than one year of data.  As\
+        \ such we do not recommend requesting for more than 1 ID at a time for history.\n\
+        \ \nUse the `level` parameter to control the depth of the returned taxonomy,\
+        \ from Economy (L1) down to Sub-Industry (L6).\n"
+      operationId: getRbicsEntityRevenue
+      parameters:
+      - description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange,\
+          \ Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such\
+          \ as -R, -L, or -E.<p>**ids limit = 2500 per request**</p> \n  Make note,\
+          \ GET Method URL request lines are also limited to a total length of 8192\
+          \ bytes (8KB). In cases where the service allows for thousands of ids, which\
+          \ may lead to exceeding this request line limit of 8KB, its advised for\
+          \ any requests with large request lines to be requested through the respective\
+          \ \"POST\" method.</p>\n"
+        example:
+        - AAPL-US
+        - 0FPWZZ-E
+        - TSLA-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            example: IBM-US
+            type: string
+          maxItems: 2500
+          minItems: 1
+          type: array
+        style: form
+      - description: "Specifies the start date for the requested date range, formatted\
+          \ as **YYYY-MM-DD**. The data returned will be reflective of the classifications\
+          \ or revenue data as of this date and forward. The `startDate` must be equal\
+          \ to or before the `endDate`. Future dates (T+1) are not accepted in this\
+          \ endpoint.\n\nNote: \n- If omitted while `endDate` is specified: Data will\
+          \ be fetched from the earliest available record up to the specified end\
+          \ date.\n- If both `startDate` and `endDate` are omitted: The response will\
+          \ return the latest available data.\n"
+        example: 2021-08-27
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          Specifies the end date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and earlier. The `endDate` must be equal to or after the `startDate`. Future dates (T+1) are not accepted in this endpoint.
+
+          Note:
+          - If omitted (with `startDate` specified): Data will be returned from the specified start date up to the most recent available date.
+          - If both `startDate` and `endDate` are omitted: The response will return the latest available data.
+        example: 2022-08-27
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          Specifies the deepest level of the RBICS taxonomy to be included in the revenue breakdown. The response will include all levels from 1 up to the specified level. For example, a value of '3' will return revenue percentages for Economy (L1), Sector (L2), and Sub-Sector (L3). The default behavior is to return all 6 levels.
+            |Level|Description|Number of Groups|
+            |---|---|---|
+            |1|Economy|14|
+            |2|Sector|37|
+            |3|Sub-Sector|109|
+            |4|Industry Group|366|
+            |5|Industry|901|
+            |6|Sub-Industry|1629|
+        example: 6
+        explode: true
+        in: query
+        name: level
+        required: false
+        schema:
+          maximum: 6
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Entity revenue response:
+                  $ref: '#/components/examples/EntitiesResponse'
+              schema:
+                $ref: '#/components/schemas/EntityResponse'
+          description: Successful response returning a company's revenue breakdown
+            by RBICS classification.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/UnsupportedDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Internal Server Error
+      summary: Get a company's revenue breakdown by RBICS classification.
+      tags:
+      - Entity
+      x-accepts: application/json
+    post:
+      description: |
+        Access a comprehensive, hierarchical breakdown of a company's revenue according to each RBICS industry classification. This endpoint aligns a company's reported business segment revenues with the complete, multi-level RBICS taxonomy, offering the percentage of total revenue attributed to each industry.
+
+        For Mutual Funds and ETFs we only have data from L1-L4 and requires additional access to get this data. Note that, the response time can exceed 20+ seconds when querying for more than one year of data.  As such we do not recommend requesting for more than 1 ID at a time for history.
+
+        Use the `level` parameter to control the depth of the returned taxonomy, from Economy (L1) down to Sub-Industry (L6). Use the POST method for large lists of identifiers.
+      operationId: getRbicsEntityRevenueForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Entity Revenue Request:
+                $ref: '#/components/examples/rbicsEntityRequest'
+            schema:
+              $ref: '#/components/schemas/EntityRequest'
+        description: Request Body to request a list of Entity Revenue objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Entity revenue response:
+                  $ref: '#/components/examples/EntitiesResponse'
+              schema:
+                $ref: '#/components/schemas/EntityResponse'
+          description: Successful response returning a company's revenue breakdown
+            by RBICS classification.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/UnsupportedDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Internal Server Error
+      summary: Get a company's revenue breakdown by RBICS classification.
+      tags:
+      - Entity
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-rbics/v1/industry/focus:
+    get:
+      description: |
+        Identify all companies whose primary business falls within a specific RBICS industry. This endpoint screens your universe based on the RBICS Focus classification.
+
+         A company's Focus is the lowest-level (Level 6) RBICS sub-industry from which it derives 50% or more of its annual revenue.
+
+         Provide a list of one or more RBICS IDs (up to Level 6) to retrieve the list of companies whose primary business line falls within those sectors. A complete list of valid RBICS IDs can be retrieved using the `/structure` endpoints. Use the `startDate` and `endDate` parameters to screen for companies that held this classification during a specific historical period.
+      operationId: getRbicsIndustryFocus
+      parameters:
+      - description: |
+          A list of RBICS industry classification identifiers. These are used to filter the results to specific industries. IDs can range from Level 1 (Economy) to Level 6 (Sub-Industry). A complete list of valid RBICS IDs can be retrieved using the `/structure` endpoints.
+        example:
+        - "101010000000"
+        - "55"
+        explode: false
+        in: query
+        name: rbicsIds
+        required: true
+        schema:
+          items:
+            maxLength: 12
+            minLength: 2
+            type: string
+          maxItems: 2500
+          type: array
+        style: form
+      - description: "Specifies the start date for the requested date range, formatted\
+          \ as **YYYY-MM-DD**. The data returned will be reflective of the classifications\
+          \ or revenue data as of this date and forward. The `startDate` must be equal\
+          \ to or before the `endDate`. Future dates (T+1) are not accepted in this\
+          \ endpoint.\n\nNote: \n- If omitted while `endDate` is specified: Data will\
+          \ be fetched from the earliest available record up to the specified end\
+          \ date.\n- If both `startDate` and `endDate` are omitted: The response will\
+          \ return the latest available data.\n"
+        example: 2021-08-27
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          Specifies the end date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and earlier. The `endDate` must be equal to or after the `startDate`. Future dates (T+1) are not accepted in this endpoint.
+
+          Note:
+          - If omitted (with `startDate` specified): Data will be returned from the specified start date up to the most recent available date.
+          - If both `startDate` and `endDate` are omitted: The response will return the latest available data.
+        example: 2022-08-27
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Industry Focus response:
+                  $ref: '#/components/examples/IndustriesFocusResponse'
+              schema:
+                $ref: '#/components/schemas/IndustryFocusResponse'
+          description: Successful response returning a list of companies with a specific
+            RBICS Focus classification.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/UnsupportedDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Internal Server Error
+      summary: Get the list of companies with a specific RBICS Focus classification.
+      tags:
+      - Industry
+      x-accepts: application/json
+    post:
+      description: |
+        Identify all companies whose primary business falls within a specific RBICS industry. This endpoint screens your universe based on the RBICS Focus classification.
+
+        A company's Focus is the lowest-level (Level 6) RBICS sub-industry from which it derives 50% or more of its annual revenue.
+
+        Provide a list of one or more RBICS IDs (up to Level 6) to retrieve the list of companies whose primary business line falls within those sectors. Use the `startDate` and `endDate` parameters to screen for companies that held this classification during a specific historical period.
+      operationId: getRbicsIndustryFocusForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Industry Focus Request:
+                $ref: '#/components/examples/rbicsIndustryFocusRequest'
+            schema:
+              $ref: '#/components/schemas/IndustryRequest'
+        description: Request Body to request a list of Industry Focus objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Industry Focus response:
+                  $ref: '#/components/examples/IndustriesFocusResponse'
+              schema:
+                $ref: '#/components/schemas/IndustryFocusResponse'
+          description: Successful response returning a list of companies with a specific
+            RBICS Focus classification.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/UnsupportedDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Internal Server Error
+      summary: Get the list of companies with a specific Industry Focus classification.
+      tags:
+      - Industry
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-rbics/v1/industry/revenue:
+    get:
+      description: |
+        Screen for companies with revenue exposure to a specific RBICS Level 6 Sub-Industry. This endpoint identifies all companies that derive revenue from a specified sub-industry and returns the percentage of their total revenue attributable to that industry.
+        This is a powerful tool for understanding the competitive landscape and supply chains at a granular level, beyond a company's primary classification.
+        **Note:** The `rbicsIds` parameter for this endpoint must be a valid Level 6 Sub-Industry ID. Use the `startDate` and `endDate` parameters to control the time period for the underlying revenue reports.
+      operationId: getRbicsIndustryRevenue
+      parameters:
+      - description: |
+          List of RBICS Level 6 Sub-Industry IDs to screen for companies by revenue exposure. **Note:** Only Level 6 IDs are supported for this endpoint. A complete list of valid Level 6 IDs can be retrieved using the `/structure` endpoints.
+        example:
+        - "551515453010"
+        explode: false
+        in: query
+        name: rbicsIds
+        required: true
+        schema:
+          items:
+            maxLength: 12
+            minLength: 12
+            type: string
+          maxItems: 2500
+          type: array
+        style: form
+      - description: "Specifies the start date for the requested date range, formatted\
+          \ as **YYYY-MM-DD**. The data returned will be reflective of the classifications\
+          \ or revenue data as of this date and forward. The `startDate` must be equal\
+          \ to or before the `endDate`. Future dates (T+1) are not accepted in this\
+          \ endpoint.\n\nNote: \n- If omitted while `endDate` is specified: Data will\
+          \ be fetched from the earliest available record up to the specified end\
+          \ date.\n- If both `startDate` and `endDate` are omitted: The response will\
+          \ return the latest available data.\n"
+        example: 2021-08-27
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          Specifies the end date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and earlier. The `endDate` must be equal to or after the `startDate`. Future dates (T+1) are not accepted in this endpoint.
+
+          Note:
+          - If omitted (with `startDate` specified): Data will be returned from the specified start date up to the most recent available date.
+          - If both `startDate` and `endDate` are omitted: The response will return the latest available data.
+        example: 2022-08-27
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Industry revenue response:
+                  $ref: '#/components/examples/IndustriesRevenueResponse'
+              schema:
+                $ref: '#/components/schemas/IndustryRevenueResponse'
+          description: Successful response returning a list of companies and their
+            revenue exposure to the requested RBICS Level 6 Sub-Industry.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/UnsupportedDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Internal Server Error
+      summary: Get companies and their revenue exposure to a specific RBICS L6 Sub-Industry.
+      tags:
+      - Industry
+      x-accepts: application/json
+    post:
+      description: |
+        Screen for companies with revenue exposure to a specific RBICS Level 6 Sub-Industry. This endpoint identifies all companies that derive revenue from a specified sub-industry and returns the percentage of their total revenue attributable to that industry.
+        This is a powerful tool for understanding the competitive landscape and supply chains at a granular level, beyond a company's primary classification.
+        **Note:** The `rbicsIds` parameter for this endpoint must be a valid Level 6 Sub-Industry ID. Use the `startDate` and `endDate` parameters to control the time period for the underlying revenue reports. Use the POST method for large lists of `rbicsIds`.
+      operationId: getRbicsIndustryRevenueForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Industry Revenue Request:
+                $ref: '#/components/examples/rbicsIndustryRevenueRequest'
+            schema:
+              $ref: '#/components/schemas/IndustryRevenueRequest'
+        description: Request Body to screen for companies with revenue exposure to
+          a specific RBICS L6 Sub-Industry.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Industry revenue response:
+                  $ref: '#/components/examples/IndustriesRevenueResponse'
+              schema:
+                $ref: '#/components/schemas/IndustryRevenueResponse'
+          description: Successful response returning a list of companies and their
+            revenue exposure to the requested RBICS Level 6 Sub-Industry.
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/UnsupportedDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Internal Server Error
+      summary: Get companies and their revenue exposure to a specific RBICS L6 Sub-Industry.
+      tags:
+      - Industry
       x-contentType: application/json
       x-accepts: application/json
   /factset-rbics/v1/structure:
@@ -227,7 +963,7 @@ paths:
       operationId: getRbicsStructure
       parameters:
       - description: |
-          RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.
+          RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested, or to screen for companies by industry.
         example:
         - "101010000000"
         - "55"
@@ -247,11 +983,11 @@ paths:
           RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
             |Level|Description|Number of Groups|
             |---|---|---|
-            |1|Economomy|14|
-            |2|Sector|37
+            |1|Economy|14|
+            |2|Sector|37|
             |3|Sub-Sector|109|
             |4|Industry Group|366|
-            |5|Inudstry|901|
+            |5|Industry|901|
             |6|Sub-Industry|1629|
         example: 1
         explode: false
@@ -292,7 +1028,7 @@ paths:
                 RBICS Classifications for Single Level with Names:
                   $ref: '#/components/examples/rbicsStructureLevel'
               schema:
-                $ref: '#/components/schemas/structureResponse'
+                $ref: '#/components/schemas/StructureResponse'
           description: Successful Response producing an array of Entity Focus Objects
         "400":
           content:
@@ -309,7 +1045,7 @@ paths:
                 Bad Request - Read Timeout:
                   $ref: '#/components/examples/badRequestReadTimeout'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. This can occur for several reasons. Please review
             the "message" for more details.
         "401":
@@ -319,7 +1055,7 @@ paths:
                 Bad Request - Date Format:
                   $ref: '#/components/examples/unauthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the **Report Issue** in the top right corner
@@ -332,7 +1068,7 @@ paths:
                 Bad Request - forbidden:
                   $ref: '#/components/examples/forbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -344,7 +1080,7 @@ paths:
                 Bad Request - Unsupported Media Type:
                   $ref: '#/components/examples/unsupportedMediaType'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Unsupported Media Type. This error may be returned when the
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
@@ -358,7 +1094,7 @@ paths:
                 Internal Server Error - General Exception:
                   $ref: '#/components/examples/generalException'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error.
       summary: Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
       tags:
@@ -375,7 +1111,7 @@ paths:
               Structure Request:
                 $ref: '#/components/examples/rbicsStructureRequest'
             schema:
-              $ref: '#/components/schemas/structureRequest'
+              $ref: '#/components/schemas/StructureRequest'
         description: Request Body to request a list of RBICS Structure objects.
         required: true
       responses:
@@ -386,7 +1122,7 @@ paths:
                 RBICS Classifications for Single Level with Names:
                   $ref: '#/components/examples/rbicsStructureLevel'
               schema:
-                $ref: '#/components/schemas/structureResponse'
+                $ref: '#/components/schemas/StructureResponse'
           description: Successful Response producing an array of RBICS Structure Objects
         "400":
           content:
@@ -403,7 +1139,7 @@ paths:
                 Bad Request - Read Timeout:
                   $ref: '#/components/examples/badRequestReadTimeout'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request. This can occur for several reasons. Please review
             the "message" for more details.
         "401":
@@ -413,7 +1149,7 @@ paths:
                 Bad Request - Date Format:
                   $ref: '#/components/examples/unauthenticated'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
             have successfully generated an API KEY for the IP range you are connecting
             from. For more help, select the **Report Issue** in the top right corner
@@ -426,7 +1162,7 @@ paths:
                 Bad Request - forbidden:
                   $ref: '#/components/examples/forbidden'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: The USERNAME-SERIAL attempted to request the endpoint is not
             authorized to access. The request was a legal request, but the server
             is refusing to respond. Please reach out to FactSet Account Team for assistance
@@ -438,7 +1174,7 @@ paths:
                 Bad Request - Unsupported Media Type:
                   $ref: '#/components/examples/unsupportedMediaType'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Unsupported Media Type. This error may be returned when the
             caller sends a resource in a format that is not accepted by the server.
             This can be fixed by ensuring that Content-Type header is set to the correct
@@ -452,11 +1188,100 @@ paths:
                 Internal Server Error - General Exception:
                   $ref: '#/components/examples/generalException'
               schema:
-                $ref: '#/components/schemas/errorResponse'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error.
       summary: Get the full RBICS Taxonomy Structure Ids, Names, and effective periods.
       tags:
       - Structure
+      x-contentType: application/json
+      x-accepts: application/json
+  /factset-rbics/v1/trade-names:
+    post:
+      description: "RBICS with TradeNames maps over 260,000 products, services and\
+        \ brands (a.k.a. TradeNames) to the granular sectors of the FactSet Revere\
+        \ Business Industry Classification System taxonomy, resulting in a multi-sector\
+        \ participation map for each company. \n\nWhereas RBICS with Revenue offers\
+        \ quantified multi-sector exposure based on a company’s segment disclosures,\
+        \ RBICS with TradeNames provides a comprehensive view of sector participation\
+        \ at the product level.\n"
+      operationId: getTradeNamesForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Structure Request:
+                $ref: '#/components/examples/rbicsTradeNameRequest'
+            schema:
+              $ref: '#/components/schemas/TradeNamesRequest'
+        description: Request Body to request a list of tradeName objects.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                RBICS TradeNames:
+                  $ref: '#/components/examples/rbicsTradeNames'
+                RBICS TradeNames multiple L6:
+                  $ref: '#/components/examples/rbicsTradeNamesMultiple'
+              schema:
+                $ref: '#/components/schemas/TradeNamesResponse'
+          description: Successful Response producing an array of RBICS Tradename Objects
+        "400":
+          content:
+            application/json:
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Bad request.
+        "401":
+          content:
+            application/json:
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the Report Issue in the top right corner of
+            this Developer Portal specification card and choose Connectivity 401 or
+            403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/UnsupportedDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+              schema:
+                $ref: '#/components/schemas/ErrorsResponse'
+          description: Internal Server Error
+      summary: Get a company's associated tradeNames and product lines.
+      tags:
+      - TradeNames
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -543,6 +1368,126 @@ components:
           l6Description: Integrated cellular communications devices with features
             such as advanced messaging, built-in camera and/or video recorder, web
             browsing, multimedia playback.
+    IndustriesFocusResponse:
+      description: Fetch the RBICS Industry Classifications Ids for all the companies
+        in a specific industry.
+      summary: Industry Focus response
+      value:
+        data:
+        - fsymId: 00FL9B-E
+          requestId: "20"
+          companyName: Arcimoto, Inc.
+          date: 2021-08-27
+          ticker: FUV-US
+          l1Id: 20
+          l1Name: Consumer Cyclicals
+          l2Id: 2020
+          l2Name: Consumer Vehicles and Parts
+          l3Id: 202010
+          l3Name: Consumer Vehicles and Parts
+          l4Id: 20201015
+          l4Name: Consumer Vehicle Manufacturing
+          l5Id: 2020101510
+          l5Name: Car Manufacturers
+          l6Id: 202010000000
+          l6Name: Alternative Energy Car Manufacturers
+          error: null
+        - requestId: M7CLZV
+          error:
+            code: notFound
+            title: No data
+            detail: There's no data for this id.
+        - requestId: BADSYMBOL
+          error:
+            code: parameterError
+            title: Invalid id
+            detail: This is not a valid id.
+    IndustriesRevenueResponse:
+      description: Response listing a company and its percentage of revenue exposure
+        to a requested RBICS L6 industry.
+      summary: Industry Revenue response
+      value:
+        data:
+        - fsymId: 06Y1MJ-E
+          requestId: "551515453010"
+          companyName: Alpha Professional Holdings Ltd.
+          asOfDate: 2021-04-15
+          periodEndDate: 2020-03-31
+          totalPercent: 79.323329
+          l6Id: 551515000000
+          l6Name: Smart Phone Manufacturing
+          error: null
+        - requestId: M7CLZV
+          error:
+            code: notFound
+            title: No data
+            detail: There's no data for this id.
+        - requestId: BADSYMBOL
+          error:
+            code: parameterError
+            title: Invalid id
+            detail: This is not a valid id.
+    EntitiesResponse:
+      summary: Entity revenue response
+      value:
+        data:
+        - fsymId: 000KYG-E
+          requestId: GE-US
+          date: 2025-08-29
+          l1:
+          - l1Name: Finance
+            revenuePercent: 6.05
+            l2:
+            - l2Name: Insurance
+              revenuePercent: 6.05
+              l3:
+              - l3Name: Insurance
+                revenuePercent: 6.05
+                l4:
+                - l4Name: Diversified Insurance
+                  revenuePercent: 6.05
+                  l5:
+                  - l5Name: Diversified Insurance
+                    revenuePercent: 6.05
+                    l6:
+                    - l6Name: Diversified Insurance
+                      revenuePercent: 6.05
+          - l1Name: Industrials
+            revenuePercent: 93.95
+            l2:
+            - l2Name: Industrial Manufacturing
+              revenuePercent: 93.95
+              l3:
+              - l3Name: Aerospace and Defense Manufacturing
+                revenuePercent: 93.95
+                l4:
+                - l4Name: Aerospace Equipment
+                  revenuePercent: 69.46
+                  l5:
+                  - l5Name: Aviation Equipment
+                    revenuePercent: 69.46
+                    l6:
+                    - l6Name: Aircraft Engine and Engine Parts Makers
+                      revenuePercent: 69.46
+                - l4Name: Defense Manufacturing
+                  revenuePercent: 24.49
+                  l5:
+                  - l5Name: Other Defense Manufacturing
+                    revenuePercent: 24.49
+                    l6:
+                    - l6Name: Advanced Combat and Support Parts Manufacturing
+                      revenuePercent: 24.49
+          error: null
+        - requestId: M7CLZV
+          error:
+            code: notFound
+            title: No data
+            detail: There's no data for this id.
+        - requestId: BADSYMBOL
+          error:
+            code: parameterError
+            title: Invalid id
+            detail: 'This is not a valid id.  '
     rbicsStructureLevel:
       description: Fetch the Full RBICS Taxonomy Structure based on the levels requested.
         Names and description optionally included in the response.
@@ -553,6 +1498,150 @@ components:
           endDate: null
           rbicsId: "10"
           name: Business Services
+    rbicsTradeNames:
+      description: TradeNames
+      summary: TradeNames
+      value:
+        data:
+        - asOfDate: 2024-12-31
+          factsetEntityId: 000C7F-E
+          requestId: AAPL-US
+          tradeNames:
+          - tradeId: "100000191"
+            productId: 99996362
+            productName: iPhone
+            shortProductName: iPhone
+            l6Id: 501515151520
+            l6Name: Smart Phone Manufacturing
+            startDate: 2021-08-30
+            endDate: 2025-03-31
+          - tradeId: "100000192"
+            productId: 99996363
+            productName: iPad
+            shortProductName: iPad
+            l6Id: 501515151521
+            l6Name: Portable Computer Systems
+            startDate: 2022-04-30
+            endDate: 2025-05-31
+          - tradeId: "100000193"
+            productId: 99996364
+            productName: Mac
+            shortProductName: Mac
+            l6Id: 501515151521
+            l6Name: Portable Computer Systems
+            startDate: 2021-03-30
+            endDate: 2025-09-29
+          - tradeId: "100000194"
+            productId: 99996365
+            productName: Apple Watch
+            shortProductName: Apple Watch
+            l6Id: 501515151522
+            l6Name: Wearable Technology
+            startDate: 2021-08-30
+            endDate: null
+          error: null
+        - requestId: M7CLZV
+          error:
+            code: notFound
+            title: No data
+            detail: There's no data for this id.
+        - requestId: BADSYMBOL
+          error:
+            code: parameterError
+            title: Invalid id
+            detail: This is not a valid id.
+    rbicsTradeNamesMultiple:
+      description: TradeNames with multiple L6 mapping
+      summary: TradeNames with multiple L6 mapping
+      value:
+        data:
+        - asOfDate: 2024-12-31
+          factsetEntityId: 000C7F-E
+          requestId: AAPL-US
+          tradeNames:
+          - tradeId: "100000191"
+            productId: 99996362
+            productName: iPhone
+            shortProductName: iPhone
+            l6Id: 501515151520
+            l6Name: Smart Phone Manufacturing
+            startDate: 2021-08-30
+            endDate: 2025-03-31
+          - tradeId: "100000191"
+            productId: 96396720
+            productName: Apple - AppleCare
+            shortProductName: Apple - AppleCare
+            l6Id: 201515141639
+            l6Name: Technology Equipment Support and Installation
+            startDate: 2021-08-30
+            endDate: 2025-03-31
+          - tradeId: "100000192"
+            productId: 99996372
+            productName: Apple - App Store
+            shortProductName: Apple - App Store
+            l6Id: 501515151385
+            l6Name: Computer and Software Stores
+            startDate: 2022-04-30
+            endDate: 2025-05-31
+          - tradeId: "100000193"
+            productId: 99996363
+            productName: Apple - Apple Store
+            shortProductName: Apple - Apple Store
+            l6Id: 501515151194
+            l6Name: Consumer Electronics Stores
+            startDate: 2022-04-30
+            endDate: 2025-05-31
+          - tradeId: "100000194"
+            productId: 99996363
+            productName: Apple - Apple Store
+            shortProductName: Apple - Apple Store
+            l6Id: 501515151510
+            l6Name: Internet Electronics Retail
+            startDate: 2022-04-30
+            endDate: 2025-05-31
+          - tradeId: "100000191"
+            productId: 99996362
+            productName: Apple - AppleCare
+            shortProductName: Apple - AppleCare
+            l6Id: 501515151520
+            l6Name: Consumer Electronics Repair Services
+            startDate: 2021-08-30
+            endDate: 2025-03-31
+          - tradeId: "100000191"
+            productId: 99996362
+            productName: Apple - Self Service Repair
+            shortProductName: Apple - Self Service Repair
+            l6Id: 501515151520
+            l6Name: Consumer Electronics Repair Services
+            startDate: 2021-08-30
+            endDate: 2025-03-31
+          - tradeId: "100000193"
+            productId: 99996364
+            productName: Mac
+            shortProductName: Mac
+            l6Id: 501515151521
+            l6Name: Portable Computer Systems
+            startDate: 2021-03-30
+            endDate: 2025-09-29
+          - tradeId: "100000194"
+            productId: 99996365
+            productName: Apple Watch
+            shortProductName: Apple Watch
+            l6Id: 501515151522
+            l6Name: Wearable Technology
+            startDate: 2021-08-30
+            endDate: null
+          error: null
+        - requestId: M7CLZV
+          error:
+            code: notFound
+            title: No data
+            detail: There's no data for this id.
+        - requestId: BADSYMBOL
+          error:
+            code: parameterError
+            title: Invalid id
+            detail: This is not a valid id.
     rbicsEntityFocusRequest:
       description: Request Body to request a list of RBICS Entity Focus objects.
       summary: Entity Focus Request
@@ -577,13 +1666,49 @@ components:
         level: 3
         includeNames: true
         date: 2020-09-30
+    rbicsEntityRequest:
+      description: Request Body to request entity revenue.
+      summary: Entity Revenue Request
+      value:
+        ids:
+        - GE-US
+        - 0FPWZZ-E
+        startDate: 2021-08-27
+        endDate: 2022-08-27
+        level: 6
+    rbicsIndustryFocusRequest:
+      description: Request Body to request industry focus or revenue.
+      summary: Industry Focus or Revenue Request
+      value:
+        rbicsIds:
+        - "101010000000"
+        - "55"
+        startDate: 2021-08-27
+        endDate: 2022-08-27
+    rbicsIndustryRevenueRequest:
+      description: Request Body to request industry focus or revenue.
+      summary: Industry Focus or Revenue Request
+      value:
+        rbicsIds:
+        - "101010000000"
+        - "551020402010"
+        startDate: 2021-08-27
+        endDate: 2022-08-27
+    rbicsTradeNameRequest:
+      description: Request Body to request tradeNames.
+      summary: Tradename Request
+      value:
+        data:
+          ids:
+          - AAPL-US
+          asOfDate: 2024-12-31
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
       summary: Bad Request - Date Format
       value:
         status: Bad Request
-        timestamp: 2020-07-02 11:52:36.464
+        timestamp: 2020-07-02T11:52:36.464Z
         path: /factset-rbics/v1/{endpoint}
         message: 'The date parameter must be in the following date format: YYYY-MM-DD'
         subErrors: null
@@ -594,7 +1719,7 @@ components:
       summary: Bad Request - Required Parameter Missing
       value:
         status: Bad Request
-        timestamp: 2020-06-30 13:22:09.053
+        timestamp: 2020-06-30T13:22:09.053Z
         path: /factset-rbics/v1/{endpoint}
         message: The parameter 'ids' is required and may not be empty.
         subErrors: null
@@ -603,7 +1728,7 @@ components:
       summary: Bad Request - Passing Invalid Parameter
       value:
         status: Bad Request
-        timestamp: 2020-07-23 11:03:40.765
+        timestamp: 2020-07-23T11:03:40.765Z
         path: /factset-rbics/v1/{endpoint}
         message: 'Invalid Parameter (s): fakeParameter. Please modify your request
           to use parameters outlined in the specification for this endpoint.'
@@ -614,7 +1739,7 @@ components:
       summary: Bad Request - Malformed JSON Request
       value:
         status: Bad Request
-        timestamp: 2020-07-02 11:59:09.649
+        timestamp: 2020-07-02T11:59:09.649Z
         path: /factset-rbics/v1/{endpoint}
         message: Malformed JSON Request
         subErrors: null
@@ -624,7 +1749,7 @@ components:
       summary: Bad Request - Read Timeout
       value:
         status: Bad Request
-        timestamp: 2020-07-02 16:18:38.949
+        timestamp: 2020-07-02T16:18:38.949Z
         path: /factset-rbics/v1/{endpoint}
         message: The request took too long. Try again with a smaller request.
         subErrors: null
@@ -636,7 +1761,7 @@ components:
       summary: User Authentication Failed
       value:
         status: User Authentication Failed
-        timestamp: 2020-07-02 16:08:07.945
+        timestamp: 2020-07-02T16:08:07.945Z
         path: /factset-rbics/v1/{endpoint}
         message: User Authentication Failed.
         subErrors: null
@@ -648,7 +1773,7 @@ components:
       summary: Forbidden
       value:
         status: Forbidden
-        timestamp: 2020-07-02 17:21:52.197
+        timestamp: 2020-07-02T17:21:52.197Z
         path: /factset-rbics/v1/{endpoint}
         message: User is not authorized for the id requested, please reach out to
           FactSet for support
@@ -659,7 +1784,7 @@ components:
       summary: Unsupported Media Type
       value:
         status: Unsupported Media Type
-        timestamp: 2020-07-02 09:42:27.237
+        timestamp: 2020-07-02T09:42:27.237Z
         path: /factset-rbics/v1/{endpoint}
         message: text/html media type is not supported. Supported media types are
           application/json.
@@ -670,7 +1795,7 @@ components:
       summary: Internal Server Error - Not Writable
       value:
         status: Internal Server Error
-        timestamp: 2020-07-02 09:48:29.18
+        timestamp: 2020-07-02T09:48:29.18Z
         path: /factset-rbics/v1/{endpoint}
         message: Error writing JSON output
         subErrors: null
@@ -680,10 +1805,51 @@ components:
       summary: Internal Server Error - General Exception
       value:
         status: Internal Server Error
-        timestamp: 2020-07-02 10:36:01.944
+        timestamp: 2020-07-02T10:36:01.944Z
         path: /factset-rbics/v1/{endpoint}
         message: Unexpected error
         subErrors: null
+    ErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Bad Request
+          title: Not a valid parameter
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+          detail: 'The date parameter must be in the following date format: YYYY-MM-DD'
+    AuthErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Not Authenticated
+          title: Unauthenticated USERNAME-SERIAL.
+          id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+          detail: User is not authenticated properly
+    AuthorizationErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Forbidden
+          title: USERNAME-SERIAL does not have permission.
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+          detail: User is not authorized for this endpoint
+    ServerErrorDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Internal Server Error
+          title: An unexpected error happened.
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+          detail: The service you have requested has encountered an error
+    UnsupportedDetails:
+      summary: Sample Error Response
+      value:
+        errors:
+        - code: Unsupported Media Type
+          title: Provided media type is not supported
+          id: 7af3d86ca5954503b9244f2620fcf5eb
+          detail: text/html media type is not supported. Supported media types are
+            application/json.
   parameters:
     ids:
       description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange,\
@@ -712,7 +1878,7 @@ components:
       style: form
     rbicsIds:
       description: |
-        RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.
+        RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested, or to screen for companies by industry.
       example:
       - "101010000000"
       - "55"
@@ -727,6 +1893,75 @@ components:
           type: string
         maxItems: 2500
         type: array
+      style: form
+    rbicsIndustryIds:
+      description: |
+        A list of RBICS industry classification identifiers. These are used to filter the results to specific industries. IDs can range from Level 1 (Economy) to Level 6 (Sub-Industry). A complete list of valid RBICS IDs can be retrieved using the `/structure` endpoints.
+      example:
+      - "101010000000"
+      - "55"
+      explode: false
+      in: query
+      name: rbicsIds
+      required: true
+      schema:
+        items:
+          maxLength: 12
+          minLength: 2
+          type: string
+        maxItems: 2500
+        type: array
+      style: form
+    rbicsL6Ids:
+      description: |
+        List of RBICS Level 6 Sub-Industry IDs to screen for companies by revenue exposure. **Note:** Only Level 6 IDs are supported for this endpoint. A complete list of valid Level 6 IDs can be retrieved using the `/structure` endpoints.
+      example:
+      - "551515453010"
+      explode: false
+      in: query
+      name: rbicsIds
+      required: true
+      schema:
+        items:
+          maxLength: 12
+          minLength: 12
+          type: string
+        maxItems: 2500
+        type: array
+      style: form
+    startDate:
+      description: "Specifies the start date for the requested date range, formatted\
+        \ as **YYYY-MM-DD**. The data returned will be reflective of the classifications\
+        \ or revenue data as of this date and forward. The `startDate` must be equal\
+        \ to or before the `endDate`. Future dates (T+1) are not accepted in this\
+        \ endpoint.\n\nNote: \n- If omitted while `endDate` is specified: Data will\
+        \ be fetched from the earliest available record up to the specified end date.\n\
+        - If both `startDate` and `endDate` are omitted: The response will return\
+        \ the latest available data.\n"
+      example: 2021-08-27
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        format: date
+        type: string
+      style: form
+    endDate:
+      description: |
+        Specifies the end date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and earlier. The `endDate` must be equal to or after the `startDate`. Future dates (T+1) are not accepted in this endpoint.
+
+        Note:
+        - If omitted (with `startDate` specified): Data will be returned from the specified start date up to the most recent available date.
+        - If both `startDate` and `endDate` are omitted: The response will return the latest available data.
+      example: 2022-08-27
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        format: date
+        type: string
       style: form
     date:
       description: Effective date for data expressed in YYYY-MM-DD format. If no date
@@ -771,16 +2006,37 @@ components:
         default: true
         type: boolean
       style: form
+    level:
+      description: |
+        Specifies the deepest level of the RBICS taxonomy to be included in the revenue breakdown. The response will include all levels from 1 up to the specified level. For example, a value of '3' will return revenue percentages for Economy (L1), Sector (L2), and Sub-Sector (L3). The default behavior is to return all 6 levels.
+          |Level|Description|Number of Groups|
+          |---|---|---|
+          |1|Economy|14|
+          |2|Sector|37|
+          |3|Sub-Sector|109|
+          |4|Industry Group|366|
+          |5|Industry|901|
+          |6|Sub-Industry|1629|
+      example: 6
+      explode: true
+      in: query
+      name: level
+      required: false
+      schema:
+        maximum: 6
+        minimum: 1
+        type: integer
+      style: form
     levelStructure:
       description: |
         RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
           |Level|Description|Number of Groups|
           |---|---|---|
-          |1|Economomy|14|
-          |2|Sector|37
+          |1|Economy|14|
+          |2|Sector|37|
           |3|Sub-Sector|109|
           |4|Industry Group|366|
-          |5|Inudstry|901|
+          |5|Industry|901|
           |6|Sub-Industry|1629|
       example: 1
       explode: false
@@ -808,7 +2064,7 @@ components:
             Bad Request - Read Timeout:
               $ref: '#/components/examples/badRequestReadTimeout'
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
       description: Bad Request. This can occur for several reasons. Please review
         the "message" for more details.
     "401":
@@ -818,7 +2074,7 @@ components:
             Bad Request - Date Format:
               $ref: '#/components/examples/unauthenticated'
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
       description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
         successfully generated an API KEY for the IP range you are connecting from.
         For more help, select the **Report Issue** in the top right corner of this
@@ -830,7 +2086,7 @@ components:
             Bad Request - forbidden:
               $ref: '#/components/examples/forbidden'
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
         to access. The request was a legal request, but the server is refusing to
         respond. Please reach out to FactSet Account Team for assistance with authorization.
@@ -841,7 +2097,7 @@ components:
             Bad Request - Unsupported Media Type:
               $ref: '#/components/examples/unsupportedMediaType'
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
       description: Unsupported Media Type. This error may be returned when the caller
         sends a resource in a format that is not accepted by the server. This can
         be fixed by ensuring that Content-Type header is set to the correct value.
@@ -855,11 +2111,93 @@ components:
             Internal Server Error - General Exception:
               $ref: '#/components/examples/generalException'
           schema:
-            $ref: '#/components/schemas/errorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
       description: Internal Server Error.
+    "400Response":
+      content:
+        application/json:
+          examples:
+            default400ResponseExample:
+              $ref: '#/components/examples/ErrorDetails'
+          schema:
+            $ref: '#/components/schemas/ErrorsResponse'
+      description: Bad request.
+    "401Response":
+      content:
+        application/json:
+          examples:
+            default401ResponseExample:
+              $ref: '#/components/examples/AuthErrorDetails'
+          schema:
+            $ref: '#/components/schemas/ErrorsResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the Report Issue in the top right corner of this Developer
+        Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403Response":
+      content:
+        application/json:
+          examples:
+            default403ResponseExample:
+              $ref: '#/components/examples/AuthorizationErrorDetails'
+          schema:
+            $ref: '#/components/schemas/ErrorsResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "500Response":
+      content:
+        application/json:
+          examples:
+            default500ResponseExample:
+              $ref: '#/components/examples/ServerErrorDetails'
+          schema:
+            $ref: '#/components/schemas/ErrorsResponse'
+      description: Internal Server Error
+    "415Response":
+      content:
+        application/json:
+          examples:
+            default500ResponseExample:
+              $ref: '#/components/examples/UnsupportedDetails'
+          schema:
+            $ref: '#/components/schemas/ErrorsResponse'
+      description: Unsupported Media Type
   schemas:
-    entityFocusRequest:
+    ErrorObjectResponse:
+      description: error
+      example:
+        code: GenericError
+        detail: Validation Error
+        title: Validation Error
+      nullable: true
+      properties:
+        code:
+          description: status
+          example: GenericError
+          type: string
+        title:
+          description: The plain text error message
+          example: Validation Error
+          type: string
+        detail:
+          description: Error details explanation
+          example: Validation Error
+          type: string
+      type: object
+    EntityFocusRequest:
       description: Entity Focus Request Body
+      example:
+        date: 2020-09-30T00:00:00.000+0000
+        includeNames: true
+        ids:
+        - FDS-US
+        - 0FPWZZ-E
+        - TSLA-US
+        levels:
+        - 1
+        - 3
+        - 6
       properties:
         ids:
           description: |
@@ -878,6 +2216,7 @@ components:
           description: |
             Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
           example: 2020-09-30
+          format: date
           type: string
         levels:
           description: |
@@ -887,13 +2226,13 @@ components:
           - 3
           - 6
           items:
-            maxItems: 6
             maximum: 6
-            minItems: 0
             minimum: 1
             type: integer
-            uniqueItems: true
+          maxItems: 6
+          minItems: 0
           type: array
+          uniqueItems: true
         includeNames:
           default: true
           description: |
@@ -902,33 +2241,33 @@ components:
           type: boolean
       title: Entity Focus Request
       type: object
-    entityFocusResponse:
+    EntityFocusResponse:
       description: Entity Focus Response
       example:
         data:
         - requestId: AAPL
           fsymId: 000C7F-E
-          firstDate: 2008-08-26T00:00:00.000
-          lastDate: 2016-09-07T14:00:00.000
+          firstDate: 2008-08-26T00:00:00Z
+          lastDate: 2016-09-07T14:00:00Z
         - requestId: AAPL
           fsymId: 000C7F-E
-          firstDate: 2008-08-26T00:00:00.000
-          lastDate: 2016-09-07T14:00:00.000
+          firstDate: 2008-08-26T00:00:00Z
+          lastDate: 2016-09-07T14:00:00Z
       properties:
         data:
           description: Array of Entity Focus Objects
           items:
-            $ref: '#/components/schemas/entityFocus'
+            $ref: '#/components/schemas/EntityFocus'
           type: array
       title: Entity Focus Response
       type: object
-    entityFocus:
+    EntityFocus:
       additionalProperties: true
       example:
         requestId: AAPL
         fsymId: 000C7F-E
-        firstDate: 2008-08-26T00:00:00.000
-        lastDate: 2016-09-07T14:00:00.000
+        firstDate: 2008-08-26T00:00:00Z
+        lastDate: 2016-09-07T14:00:00Z
       properties:
         requestId:
           description: Company identifier used in request.
@@ -941,14 +2280,14 @@ components:
           type: string
         firstDate:
           description: First date of the classification.
-          example: 2008-08-26T00:00:00.000
-          format: datetime
+          example: 2008-08-26T00:00:00Z
+          format: date-time
           nullable: true
           type: string
         lastDate:
           description: Date when the classification became no longer valid.
-          example: 2016-09-07T14:00:00.000
-          format: datetime
+          example: 2016-09-07T14:00:00Z
+          format: date-time
           nullable: true
           type: string
       required:
@@ -958,8 +2297,242 @@ components:
       - requestId
       title: Entity Focus
       type: object
-    structureRequest:
+    TradeNamesRequest:
+      description: TradeNames Request Body
+      example:
+        data:
+          ids:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          asOfDate: 2020-09-30T00:00:00.000+0000
+      properties:
+        data:
+          $ref: '#/components/schemas/TradeNamesRequestBody'
+      required:
+      - data
+      title: tradeNames Request
+      type: object
+    TradeNamesRequestBody:
+      description: TradeNames Request Body
+      example:
+        ids:
+        - FDS-US
+        - 0FPWZZ-E
+        - TSLA-US
+        asOfDate: 2020-09-30T00:00:00.000+0000
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 500.
+          example:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 500
+          minItems: 1
+          title: ids
+          type: array
+        asOfDate:
+          description: |
+            Effective date for data expressed in YYYY-MM-DD format. This means the as of date will be in between the start and end date returned. Note that it's possible the end date returned can be null, meaning the tradeName is still active. If no date is requested, the default behavior is to return the latest active data.
+          example: 2020-09-30
+          format: date
+          type: string
+      required:
+      - ids
+      title: tradeNames Request
+      type: object
+    TradeNamesResponse:
+      description: TradeNames Response
+      example:
+        data:
+        - tradeNames:
+          - productId: 99996362
+            shortProductName: iPhone
+            l6Id: 501515151520
+            endDate: 2024-12-31T00:00:00.000+0000
+            l6Name: Smart Phone Manufacturing
+            tradeId: "100000191"
+            productName: iPhone
+            startDate: 2021-12-31T00:00:00.000+0000
+          - productId: 99996362
+            shortProductName: iPhone
+            l6Id: 501515151520
+            endDate: 2024-12-31T00:00:00.000+0000
+            l6Name: Smart Phone Manufacturing
+            tradeId: "100000191"
+            productName: iPhone
+            startDate: 2021-12-31T00:00:00.000+0000
+          factsetEntityId: 000C7F-E
+          requestId: AAPL-US
+          asOfDate: 2024-12-31T00:00:00.000+0000
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+        - tradeNames:
+          - productId: 99996362
+            shortProductName: iPhone
+            l6Id: 501515151520
+            endDate: 2024-12-31T00:00:00.000+0000
+            l6Name: Smart Phone Manufacturing
+            tradeId: "100000191"
+            productName: iPhone
+            startDate: 2021-12-31T00:00:00.000+0000
+          - productId: 99996362
+            shortProductName: iPhone
+            l6Id: 501515151520
+            endDate: 2024-12-31T00:00:00.000+0000
+            l6Name: Smart Phone Manufacturing
+            tradeId: "100000191"
+            productName: iPhone
+            startDate: 2021-12-31T00:00:00.000+0000
+          factsetEntityId: 000C7F-E
+          requestId: AAPL-US
+          asOfDate: 2024-12-31T00:00:00.000+0000
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+      properties:
+        data:
+          description: Array of Tradename Objects
+          items:
+            $ref: '#/components/schemas/TradeName'
+          type: array
+      title: TradeNames Response
+      type: object
+    TradeName:
+      additionalProperties: true
+      example:
+        tradeNames:
+        - productId: 99996362
+          shortProductName: iPhone
+          l6Id: 501515151520
+          endDate: 2024-12-31T00:00:00.000+0000
+          l6Name: Smart Phone Manufacturing
+          tradeId: "100000191"
+          productName: iPhone
+          startDate: 2021-12-31T00:00:00.000+0000
+        - productId: 99996362
+          shortProductName: iPhone
+          l6Id: 501515151520
+          endDate: 2024-12-31T00:00:00.000+0000
+          l6Name: Smart Phone Manufacturing
+          tradeId: "100000191"
+          productName: iPhone
+          startDate: 2021-12-31T00:00:00.000+0000
+        factsetEntityId: 000C7F-E
+        requestId: AAPL-US
+        asOfDate: 2024-12-31T00:00:00.000+0000
+        error:
+          code: GenericError
+          detail: Validation Error
+          title: Validation Error
+      properties:
+        asOfDate:
+          description: Date of the tradeName data snapshot (YYYY-MM-DD)
+          example: 2024-12-31
+          format: date
+          nullable: true
+          type: string
+        factsetEntityId:
+          description: FactSet Entity Identifier
+          example: 000C7F-E
+          nullable: true
+          type: string
+        requestId:
+          description: Original identifier from request (ticker, CUSIP, entity ID,
+            etc.)
+          example: AAPL-US
+          nullable: true
+          type: string
+        tradeNames:
+          description: List of tradeNames for the entity on this date
+          items:
+            $ref: '#/components/schemas/TradeNames'
+          nullable: true
+          type: array
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+      title: TradeNames
+      type: object
+    TradeNames:
+      example:
+        productId: 99996362
+        shortProductName: iPhone
+        l6Id: 501515151520
+        endDate: 2024-12-31T00:00:00.000+0000
+        l6Name: Smart Phone Manufacturing
+        tradeId: "100000191"
+        productName: iPhone
+        startDate: 2021-12-31T00:00:00.000+0000
+      nullable: true
+      properties:
+        tradeId:
+          description: Unique identifier for the product participation mapping
+          example: "100000191"
+          nullable: true
+          type: string
+        productId:
+          description: Unique identifier for the product
+          example: 99996362
+          format: int64
+          nullable: true
+          type: integer
+        productName:
+          description: "Full name of the product/tradeName/brand. An asterisk (*)\
+            \ suffix indicates \nan in-licensing agreement.\n"
+          example: iPhone
+          nullable: true
+          type: string
+        shortProductName:
+          description: Shortened product name with extraneous company metadata removed
+          example: iPhone
+          nullable: true
+          type: string
+        l6Id:
+          description: Unique identifier for the RBICS Level 6 sector to which the
+            product is assigned
+          example: 501515151520
+          nullable: true
+          type: number
+        l6Name:
+          description: The descriptive name for the Level 6 sector classification
+          example: Smart Phone Manufacturing
+          nullable: true
+          type: string
+        startDate:
+          description: Date the record was first published
+          example: 2021-12-31
+          format: date
+          nullable: true
+          type: string
+        endDate:
+          description: Date the record was terminated. The end date may sometimes
+            be null, indicating that the tradeName is currently active.
+          example: 2024-12-31
+          format: date
+          nullable: true
+          type: string
+      required:
+      - productId
+      - productName
+      - shortProductName
+      - tradeId
+      type: object
+    StructureRequest:
       description: Structure Request Body
+      example:
+        date: 2020-09-30T00:00:00.000+0000
+        rbicsIds:
+        - "101010000000"
+        - "55"
+        includeNames: true
+        level: 3
       properties:
         rbicsIds:
           description: |
@@ -979,11 +2552,11 @@ components:
             RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
               |Level|Description|Number of Groups|
               |---|---|---|
-              |1|Economomy|14|
-              |2|Sector|37
+              |1|Economy|14|
+              |2|Sector|37|
               |3|Sub-Sector|109|
               |4|Industry Group|366|
-              |5|Inudstry|901|
+              |5|Industry|901|
               |6|Sub-Industry|1629|
           example: 3
           maximum: 6
@@ -999,33 +2572,34 @@ components:
           description: |
             Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
           example: 2020-09-30
+          format: date
           type: string
       title: Structure Request
       type: object
-    structureResponse:
+    StructureResponse:
       description: Structure Response Array
       example:
         data:
         - rbicsId: "101010101010"
-          firstDate: 1945-01-01T00:00:00.000
-          lastDate: lastDate
+          firstDate: 1945-01-01T00:00:00Z
+          lastDate: 2000-01-23T04:56:07.000+00:00
         - rbicsId: "101010101010"
-          firstDate: 1945-01-01T00:00:00.000
-          lastDate: lastDate
+          firstDate: 1945-01-01T00:00:00Z
+          lastDate: 2000-01-23T04:56:07.000+00:00
       properties:
         data:
           description: Array of Structure Objects
           items:
-            $ref: '#/components/schemas/structure'
+            $ref: '#/components/schemas/Structure'
           type: array
       title: Structure Response
       type: object
-    structure:
+    Structure:
       additionalProperties: true
       example:
         rbicsId: "101010101010"
-        firstDate: 1945-01-01T00:00:00.000
-        lastDate: lastDate
+        firstDate: 1945-01-01T00:00:00Z
+        lastDate: 2000-01-23T04:56:07.000+00:00
       properties:
         rbicsId:
           description: RBICS Code for the classification.
@@ -1034,19 +2608,19 @@ components:
           type: string
         firstDate:
           description: First date of the classification.
-          example: 1945-01-01T00:00:00.000
-          format: datetime
+          example: 1945-01-01T00:00:00Z
+          format: date-time
           nullable: true
           type: string
         lastDate:
           description: Date when the classification became no longer valid. If `null`,
             the classification is still valid.
-          format: datetime
+          format: date-time
           nullable: true
           type: string
       title: Structure
       type: object
-    ids:
+    Ids:
       description: |
         Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 2500.
       example:
@@ -1059,7 +2633,20 @@ components:
       minItems: 1
       title: ids
       type: array
-    rbicsIds:
+    TradeNamesIds:
+      description: |
+        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 500.
+      example:
+      - FDS-US
+      - 0FPWZZ-E
+      - TSLA-US
+      items:
+        type: string
+      maxItems: 500
+      minItems: 1
+      title: ids
+      type: array
+    RbicsIds:
       description: |
         RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.
       example:
@@ -1072,12 +2659,84 @@ components:
       maxItems: 2500
       title: ids
       type: array
-    date:
+    RbicsIndustryIds:
+      description: A list of RBICS industry classification identifiers. These are
+        used to filter the results to specific industries. IDs can range from Level
+        1 (Economy) to Level 6 (Sub-Industry). A complete list of valid RBICS IDs
+        can be retrieved using the `/structure` endpoints.
+      example:
+      - "101010000000"
+      - "55"
+      items:
+        maxLength: 12
+        minLength: 2
+        type: string
+      maxItems: 2500
+      title: rbicsIds
+      type: array
+    RbicsL6Ids:
+      description: 'RBICS Level 6 Sub-Industry ID Filter. **Note**: Only Level 6 IDs
+        are supported for this endpoint. A complete list of valid Level 6 IDs can
+        be retrieved using the `/structure` endpoints.'
+      example:
+      - "551515453010"
+      items:
+        maxLength: 12
+        minLength: 12
+        type: string
+      maxItems: 2500
+      title: rbicsL6Ids
+      type: array
+    StartDate:
+      description: 'Specifies the start date for the requested date range, formatted
+        as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+        or revenue data as of this date and forward. The `startDate` must be equal
+        to or before the `endDate`. Future dates (T+1) are not accepted in this endpoint.
+        <br> Note: <br> - If omitted while `endDate` is specified: Data will be fetched
+        from the earliest available record up to the specified end date. <br> - If
+        both `startDate` and `endDate` are omitted: The response will return the latest
+        available data.'
+      example: 2021-08-27
+      format: date
+      title: startDate
+      type: string
+    EndDate:
+      description: 'Specifies the end date for the requested date range, formatted
+        as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+        or revenue data as of this date and earlier. The `endDate` must be equal to
+        or after the `startDate`. Future dates (T+1) are not accepted in this endpoint.
+        <br> Note: <br> - If omitted (with `startDate` specified): Data will be returned
+        from the specified start date up to the most recent available date. <br> -
+        If both `startDate` and `endDate` are omitted: The response will return the
+        latest available data.'
+      example: 2021-08-27
+      format: date
+      title: endDate
+      type: string
+    Level:
+      description: Specifies the deepest level of the RBICS taxonomy to be included
+        in the revenue breakdown. The response will include all levels from 1 up to
+        the specified level. For example, a value of '3' will return revenue percentages
+        for Economy (L1), Sector (L2), and Sub-Sector (L3). The default behavior is
+        to return all 6 levels.
+      example: 6
+      maximum: 6
+      minimum: 1
+      title: level
+      type: integer
+    EffectiveDate:
       description: |
         Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity.
       example: 2020-09-30
+      format: date
       type: string
-    levels:
+    AsOfDate:
+      description: |
+        Effective date for data expressed in YYYY-MM-DD format. This means the as of date will be in between the start and end date returned. Note that it's possible the end date returned can be null, meaning the tradeName is still active. If no date is requested, the default behavior is to return the latest active data.
+      example: 2020-09-30
+      format: date
+      type: string
+    Levels:
       description: |
         List of RBICS industry levels to include in the response. **By default if left blank, all levels are returned.**
       example:
@@ -1085,35 +2744,1889 @@ components:
       - 3
       - 6
       items:
-        maxItems: 6
         maximum: 6
-        minItems: 0
         minimum: 1
         type: integer
-        uniqueItems: true
+      maxItems: 6
+      minItems: 0
       type: array
-    levelStructure:
+      uniqueItems: true
+    LevelStructure:
       description: |
         RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.
           |Level|Description|Number of Groups|
           |---|---|---|
-          |1|Economomy|14|
-          |2|Sector|37
+          |1|Economy|14|
+          |2|Sector|37|
           |3|Sub-Sector|109|
           |4|Industry Group|366|
-          |5|Inudstry|901|
+          |5|Industry|901|
           |6|Sub-Industry|1629|
       example: 3
       maximum: 6
       minimum: 1
       type: integer
-    includeNames:
+    IncludeNames:
       default: true
       description: |
         Option to include or exclude industry Names and the L6 Description. True = Include Names; False = Exclude Names.
       example: true
       type: boolean
-    errorResponse:
+    IndustryRequest:
+      description: Industry Request Body
+      example:
+        rbicsIds:
+        - "101010000000"
+        - "55"
+        endDate: 2021-08-27T00:00:00.000+0000
+        startDate: 2021-08-27T00:00:00.000+0000
+      properties:
+        rbicsIds:
+          description: A list of RBICS industry classification identifiers. These
+            are used to filter the results to specific industries. IDs can range from
+            Level 1 (Economy) to Level 6 (Sub-Industry). A complete list of valid
+            RBICS IDs can be retrieved using the `/structure` endpoints.
+          example:
+          - "101010000000"
+          - "55"
+          items:
+            maxLength: 12
+            minLength: 2
+            type: string
+          maxItems: 2500
+          title: rbicsIds
+          type: array
+        startDate:
+          description: 'Specifies the start date for the requested date range, formatted
+            as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+            or revenue data as of this date and forward. The `startDate` must be equal
+            to or before the `endDate`. Future dates (T+1) are not accepted in this
+            endpoint. <br> Note: <br> - If omitted while `endDate` is specified: Data
+            will be fetched from the earliest available record up to the specified
+            end date. <br> - If both `startDate` and `endDate` are omitted: The response
+            will return the latest available data.'
+          example: 2021-08-27
+          format: date
+          title: startDate
+          type: string
+        endDate:
+          description: 'Specifies the end date for the requested date range, formatted
+            as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+            or revenue data as of this date and earlier. The `endDate` must be equal
+            to or after the `startDate`. Future dates (T+1) are not accepted in this
+            endpoint. <br> Note: <br> - If omitted (with `startDate` specified): Data
+            will be returned from the specified start date up to the most recent available
+            date. <br> - If both `startDate` and `endDate` are omitted: The response
+            will return the latest available data.'
+          example: 2021-08-27
+          format: date
+          title: endDate
+          type: string
+      required:
+      - rbicsIds
+      title: Industry Request
+      type: object
+    IndustryRevenueRequest:
+      description: Industry Revenue Request Body
+      example:
+        rbicsIds:
+        - "551515453010"
+        endDate: 2021-08-27T00:00:00.000+0000
+        startDate: 2021-08-27T00:00:00.000+0000
+      properties:
+        rbicsIds:
+          description: 'RBICS Level 6 Sub-Industry ID Filter. **Note**: Only Level
+            6 IDs are supported for this endpoint. A complete list of valid Level
+            6 IDs can be retrieved using the `/structure` endpoints.'
+          example:
+          - "551515453010"
+          items:
+            maxLength: 12
+            minLength: 12
+            type: string
+          maxItems: 2500
+          title: rbicsL6Ids
+          type: array
+        startDate:
+          description: 'Specifies the start date for the requested date range, formatted
+            as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+            or revenue data as of this date and forward. The `startDate` must be equal
+            to or before the `endDate`. Future dates (T+1) are not accepted in this
+            endpoint. <br> Note: <br> - If omitted while `endDate` is specified: Data
+            will be fetched from the earliest available record up to the specified
+            end date. <br> - If both `startDate` and `endDate` are omitted: The response
+            will return the latest available data.'
+          example: 2021-08-27
+          format: date
+          title: startDate
+          type: string
+        endDate:
+          description: 'Specifies the end date for the requested date range, formatted
+            as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+            or revenue data as of this date and earlier. The `endDate` must be equal
+            to or after the `startDate`. Future dates (T+1) are not accepted in this
+            endpoint. <br> Note: <br> - If omitted (with `startDate` specified): Data
+            will be returned from the specified start date up to the most recent available
+            date. <br> - If both `startDate` and `endDate` are omitted: The response
+            will return the latest available data.'
+          example: 2021-08-27
+          format: date
+          title: endDate
+          type: string
+      required:
+      - rbicsIds
+      title: Industry Revenue Request
+      type: object
+    IndustryFocusResponse:
+      example:
+        data:
+        - date: 2021-08-27T00:00:00.000+0000
+          l2Name: Consumer Vehicles and Parts
+          ticker: FUV-US
+          fsymId: 000KYG-E
+          companyName: Arcimoto, Inc.
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+          l3Name: Consumer Vehicles and Parts
+          l5Name: Car Manufacturers
+          l2Id: 2020
+          l1Id: 20
+          l1Name: Consumer Cyclicals
+          l4Id: 20201015
+          l3Id: 202010
+          l6Id: 202010000000
+          l5Id: 2020101510
+          requestId: "20"
+          l6Name: Alternative Energy Car Manufacturers
+          l4Name: Consumer Vehicle Manufacturing
+        - date: 2021-08-27T00:00:00.000+0000
+          l2Name: Consumer Vehicles and Parts
+          ticker: FUV-US
+          fsymId: 000KYG-E
+          companyName: Arcimoto, Inc.
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+          l3Name: Consumer Vehicles and Parts
+          l5Name: Car Manufacturers
+          l2Id: 2020
+          l1Id: 20
+          l1Name: Consumer Cyclicals
+          l4Id: 20201015
+          l3Id: 202010
+          l6Id: 202010000000
+          l5Id: 2020101510
+          requestId: "20"
+          l6Name: Alternative Energy Car Manufacturers
+          l4Name: Consumer Vehicle Manufacturing
+      properties:
+        data:
+          description: Array of Industry Objects
+          items:
+            $ref: '#/components/schemas/Industries'
+          type: array
+      title: Industry Focus Response
+      type: object
+    Industries:
+      example:
+        date: 2021-08-27T00:00:00.000+0000
+        l2Name: Consumer Vehicles and Parts
+        ticker: FUV-US
+        fsymId: 000KYG-E
+        companyName: Arcimoto, Inc.
+        error:
+          code: GenericError
+          detail: Validation Error
+          title: Validation Error
+        l3Name: Consumer Vehicles and Parts
+        l5Name: Car Manufacturers
+        l2Id: 2020
+        l1Id: 20
+        l1Name: Consumer Cyclicals
+        l4Id: 20201015
+        l3Id: 202010
+        l6Id: 202010000000
+        l5Id: 2020101510
+        requestId: "20"
+        l6Name: Alternative Energy Car Manufacturers
+        l4Name: Consumer Vehicle Manufacturing
+      properties:
+        fsymId:
+          description: FactSet Permanent Entity Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -E suffix (XXXXXX-E).
+          example: 000KYG-E
+          nullable: true
+          type: string
+        requestId:
+          description: The RBICS industry classification identifier submitted in the
+            request.
+          example: "20"
+          type: string
+        companyName:
+          description: The official legal name of the company. This provides a human-readable
+            identifier for the entity.
+          example: Arcimoto, Inc.
+          nullable: true
+          type: string
+        date:
+          description: The specific date on which the company held the specified RBICS
+            Focus classification.
+          example: 2021-08-27
+          format: date
+          nullable: true
+          type: string
+        ticker:
+          description: The primary stock ticker symbol of the company.
+          example: FUV-US
+          type: string
+        l1Id:
+          description: The RBICS ID for the Level 1 (Economy) classification.
+          example: 20
+          nullable: true
+          type: number
+        l1Name:
+          description: The descriptive name for the Level 1 (Economy) classification.
+          example: Consumer Cyclicals
+          nullable: true
+          type: string
+        l2Id:
+          description: The RBICS ID for the Level 2 (Sector) classification.
+          example: 2020
+          nullable: true
+          type: number
+        l2Name:
+          description: The descriptive name for the Level 2 (Sector) classification.
+          example: Consumer Vehicles and Parts
+          nullable: true
+          type: string
+        l3Id:
+          description: The RBICS ID for the Level 3 (Sub-Sector) classification.
+          example: 202010
+          nullable: true
+          type: number
+        l3Name:
+          description: The descriptive name for the Level 3 (Sub-Sector) classification.
+          example: Consumer Vehicles and Parts
+          nullable: true
+          type: string
+        l4Id:
+          description: The RBICS ID for the Level 4 (Industry Group) classification.
+          example: 20201015
+          nullable: true
+          type: number
+        l4Name:
+          description: The descriptive name for the Level 4 (Industry Group) classification.
+          example: Consumer Vehicle Manufacturing
+          nullable: true
+          type: string
+        l5Id:
+          description: The RBICS ID for the Level 5 (Industry) classification.
+          example: 2020101510
+          nullable: true
+          type: number
+        l5Name:
+          description: The descriptive name for the Level 5 (Industry) classification.
+          example: Car Manufacturers
+          nullable: true
+          type: string
+        l6Id:
+          description: The RBICS ID for the Level 6 (Sub-Industry) classification.
+          example: 202010000000
+          nullable: true
+          type: number
+        l6Name:
+          description: The descriptive name for the Level 6 (Sub-Industry) classification.
+          example: Alternative Energy Car Manufacturers
+          nullable: true
+          type: string
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+      title: Industry Object
+      type: object
+    IndustryRevenueResponse:
+      example:
+        data:
+        - l6Id: 551515000000
+          requestId: "551515453010"
+          fsymId: 06Y1MJ-E
+          companyName: Alpha Professional Holdings Ltd.
+          asOfDate: 2021-04-15T00:00:00.000+0000
+          totalPercent: 79.323329
+          l6Name: Smart Phone Manufacturing
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+          periodEndDate: 2020-03-31T00:00:00.000+0000
+        - l6Id: 551515000000
+          requestId: "551515453010"
+          fsymId: 06Y1MJ-E
+          companyName: Alpha Professional Holdings Ltd.
+          asOfDate: 2021-04-15T00:00:00.000+0000
+          totalPercent: 79.323329
+          l6Name: Smart Phone Manufacturing
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+          periodEndDate: 2020-03-31T00:00:00.000+0000
+      properties:
+        data:
+          description: Array of Industry Revenue Objects
+          items:
+            $ref: '#/components/schemas/IndustriesRevenue'
+          type: array
+      title: Industry Revenue Response
+      type: object
+    IndustriesRevenue:
+      example:
+        l6Id: 551515000000
+        requestId: "551515453010"
+        fsymId: 06Y1MJ-E
+        companyName: Alpha Professional Holdings Ltd.
+        asOfDate: 2021-04-15T00:00:00.000+0000
+        totalPercent: 79.323329
+        l6Name: Smart Phone Manufacturing
+        error:
+          code: GenericError
+          detail: Validation Error
+          title: Validation Error
+        periodEndDate: 2020-03-31T00:00:00.000+0000
+      properties:
+        fsymId:
+          description: FactSet Permanent Entity Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -E suffix (XXXXXX-E).
+          example: 06Y1MJ-E
+          nullable: true
+          type: string
+        requestId:
+          description: The RBICS Level 6 Sub-Industry identifier submitted in the
+            request.
+          example: "551515453010"
+          type: string
+        companyName:
+          description: The official legal name of the company. This provides a human-readable
+            identifier for the entity.
+          example: Alpha Professional Holdings Ltd.
+          nullable: true
+          type: string
+        asOfDate:
+          description: The date of the company's financial report or filing from which
+            the revenue data was sourced.
+          example: 2021-04-15
+          format: date
+          nullable: true
+          type: string
+        periodEndDate:
+          description: The end date of the fiscal period (e.g., quarter or year) to
+            which the reported revenue corresponds.
+          example: 2020-03-31
+          format: date
+          nullable: true
+          type: string
+        totalPercent:
+          description: The percentage of the company's total revenue that is attributable
+            to the specified sector, based on the most recent reported data within
+            the requested time frame.
+          example: 79.323329
+          type: number
+        l6Id:
+          description: The RBICS ID for the Level 6 (Sub-Industry) classification
+            to which the revenue is attributed. This is the most granular level in
+            the RBICS hierarchy.
+          example: 551515000000
+          nullable: true
+          type: number
+        l6Name:
+          description: The descriptive name for the Level 6 (Sub-Industry) classification.
+          example: Smart Phone Manufacturing
+          nullable: true
+          type: string
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+      title: Industry Revenue Object
+      type: object
+    EntityRequest:
+      description: Entity Revenue Request Body
+      example:
+        endDate: 2021-08-27T00:00:00.000+0000
+        level: 6
+        ids:
+        - FDS-US
+        - 0FPWZZ-E
+        - TSLA-US
+        startDate: 2021-08-27T00:00:00.000+0000
+      properties:
+        ids:
+          description: |
+            Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. Max Ids of 2500.
+          example:
+          - FDS-US
+          - 0FPWZZ-E
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 2500
+          minItems: 1
+          title: ids
+          type: array
+        startDate:
+          description: 'Specifies the start date for the requested date range, formatted
+            as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+            or revenue data as of this date and forward. The `startDate` must be equal
+            to or before the `endDate`. Future dates (T+1) are not accepted in this
+            endpoint. <br> Note: <br> - If omitted while `endDate` is specified: Data
+            will be fetched from the earliest available record up to the specified
+            end date. <br> - If both `startDate` and `endDate` are omitted: The response
+            will return the latest available data.'
+          example: 2021-08-27
+          format: date
+          title: startDate
+          type: string
+        endDate:
+          description: 'Specifies the end date for the requested date range, formatted
+            as **YYYY-MM-DD**. The data returned will be reflective of the classifications
+            or revenue data as of this date and earlier. The `endDate` must be equal
+            to or after the `startDate`. Future dates (T+1) are not accepted in this
+            endpoint. <br> Note: <br> - If omitted (with `startDate` specified): Data
+            will be returned from the specified start date up to the most recent available
+            date. <br> - If both `startDate` and `endDate` are omitted: The response
+            will return the latest available data.'
+          example: 2021-08-27
+          format: date
+          title: endDate
+          type: string
+        level:
+          description: Specifies the deepest level of the RBICS taxonomy to be included
+            in the revenue breakdown. The response will include all levels from 1
+            up to the specified level. For example, a value of '3' will return revenue
+            percentages for Economy (L1), Sector (L2), and Sub-Sector (L3). The default
+            behavior is to return all 6 levels.
+          example: 6
+          maximum: 6
+          minimum: 1
+          title: level
+          type: integer
+      required:
+      - ids
+      title: Entity Revenue Request
+      type: object
+    EntityResponse:
+      example:
+        data:
+        - date: 2025-08-29T00:00:00.000+0000
+          l1:
+          - l1Name: Technology
+            revenuePercent: 75.41
+            l2:
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+          - l1Name: Technology
+            revenuePercent: 75.41
+            l2:
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+          requestId: GE-US
+          fsymId: 000KYG-E
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+        - date: 2025-08-29T00:00:00.000+0000
+          l1:
+          - l1Name: Technology
+            revenuePercent: 75.41
+            l2:
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+          - l1Name: Technology
+            revenuePercent: 75.41
+            l2:
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+            - l2Name: Hardware
+              revenuePercent: 75.41
+              l3:
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+              - revenuePercent: 75.41
+                l4:
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                - revenuePercent: 75.41
+                  l5:
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6:
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    - revenuePercent: 75.41
+                      l6Name: Smart Phone Manufacturing
+                    l5Name: Smart Phone Manufacturing
+                  l4Name: Wireless Mobile Equipment
+                l3Name: Communications Equipment
+          requestId: GE-US
+          fsymId: 000KYG-E
+          error:
+            code: GenericError
+            detail: Validation Error
+            title: Validation Error
+      properties:
+        data:
+          description: Array of Entity Objects
+          items:
+            $ref: '#/components/schemas/Entities'
+          type: array
+      title: Entity Revenue Response
+      type: object
+    Entities:
+      example:
+        date: 2025-08-29T00:00:00.000+0000
+        l1:
+        - l1Name: Technology
+          revenuePercent: 75.41
+          l2:
+          - l2Name: Hardware
+            revenuePercent: 75.41
+            l3:
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+          - l2Name: Hardware
+            revenuePercent: 75.41
+            l3:
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+        - l1Name: Technology
+          revenuePercent: 75.41
+          l2:
+          - l2Name: Hardware
+            revenuePercent: 75.41
+            l3:
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+          - l2Name: Hardware
+            revenuePercent: 75.41
+            l3:
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+            - revenuePercent: 75.41
+              l4:
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              - revenuePercent: 75.41
+                l5:
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6:
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  - revenuePercent: 75.41
+                    l6Name: Smart Phone Manufacturing
+                  l5Name: Smart Phone Manufacturing
+                l4Name: Wireless Mobile Equipment
+              l3Name: Communications Equipment
+        requestId: GE-US
+        fsymId: 000KYG-E
+        error:
+          code: GenericError
+          detail: Validation Error
+          title: Validation Error
+      properties:
+        fsymId:
+          description: FactSet Permanent Entity Identifier. Six alpha-numeric characters,
+            excluding vowels, with an -E suffix (XXXXXX-E).
+          example: 000KYG-E
+          nullable: true
+          type: string
+        requestId:
+          description: The company identifier submitted in the request, which corresponds
+            to the returned revenue breakdown.
+          example: GE-US
+          type: string
+        date:
+          description: Effective date for data expressed in YYYY-MM-DD format.
+          example: 2025-08-29
+          format: date
+          nullable: true
+          type: string
+        l1:
+          items:
+            $ref: '#/components/schemas/Economy'
+          type: array
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+      title: Entity Object
+      type: object
+    RevenuePercent:
+      description: Represents the percentage proportion of the company's total revenue
+        that is generated from a specific sector or industry.
+      example: 75.41
+      type: number
+    Economy:
+      example:
+        l1Name: Technology
+        revenuePercent: 75.41
+        l2:
+        - l2Name: Hardware
+          revenuePercent: 75.41
+          l3:
+          - revenuePercent: 75.41
+            l4:
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            l3Name: Communications Equipment
+          - revenuePercent: 75.41
+            l4:
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            l3Name: Communications Equipment
+        - l2Name: Hardware
+          revenuePercent: 75.41
+          l3:
+          - revenuePercent: 75.41
+            l4:
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            l3Name: Communications Equipment
+          - revenuePercent: 75.41
+            l4:
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            - revenuePercent: 75.41
+              l5:
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6:
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                - revenuePercent: 75.41
+                  l6Name: Smart Phone Manufacturing
+                l5Name: Smart Phone Manufacturing
+              l4Name: Wireless Mobile Equipment
+            l3Name: Communications Equipment
+      properties:
+        l1Name:
+          description: The name of the RBICS Level 1 (Economy) classification. This
+            is the highest level of the taxonomy.
+          example: Technology
+          type: string
+        revenuePercent:
+          description: Represents the percentage proportion of the company's total
+            revenue that is generated from a specific sector or industry.
+          example: 75.41
+          type: number
+        l2:
+          items:
+            $ref: '#/components/schemas/Sector'
+          type: array
+      title: Economy Object
+      type: object
+    Sector:
+      example:
+        l2Name: Hardware
+        revenuePercent: 75.41
+        l3:
+        - revenuePercent: 75.41
+          l4:
+          - revenuePercent: 75.41
+            l5:
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            l4Name: Wireless Mobile Equipment
+          - revenuePercent: 75.41
+            l5:
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            l4Name: Wireless Mobile Equipment
+          l3Name: Communications Equipment
+        - revenuePercent: 75.41
+          l4:
+          - revenuePercent: 75.41
+            l5:
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            l4Name: Wireless Mobile Equipment
+          - revenuePercent: 75.41
+            l5:
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6:
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              - revenuePercent: 75.41
+                l6Name: Smart Phone Manufacturing
+              l5Name: Smart Phone Manufacturing
+            l4Name: Wireless Mobile Equipment
+          l3Name: Communications Equipment
+      properties:
+        l2Name:
+          description: The name of the RBICS Level 2 (Sector) classification.
+          example: Hardware
+          type: string
+        revenuePercent:
+          description: Represents the percentage proportion of the company's total
+            revenue that is generated from a specific sector or industry.
+          example: 75.41
+          type: number
+        l3:
+          items:
+            $ref: '#/components/schemas/SubSector'
+          type: array
+      title: Sector Object
+      type: object
+    SubSector:
+      example:
+        revenuePercent: 75.41
+        l4:
+        - revenuePercent: 75.41
+          l5:
+          - revenuePercent: 75.41
+            l6:
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            l5Name: Smart Phone Manufacturing
+          - revenuePercent: 75.41
+            l6:
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            l5Name: Smart Phone Manufacturing
+          l4Name: Wireless Mobile Equipment
+        - revenuePercent: 75.41
+          l5:
+          - revenuePercent: 75.41
+            l6:
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            l5Name: Smart Phone Manufacturing
+          - revenuePercent: 75.41
+            l6:
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            - revenuePercent: 75.41
+              l6Name: Smart Phone Manufacturing
+            l5Name: Smart Phone Manufacturing
+          l4Name: Wireless Mobile Equipment
+        l3Name: Communications Equipment
+      properties:
+        l3Name:
+          description: The name of the RBICS Level 3 (Sub-Sector) classification.
+          example: Communications Equipment
+          type: string
+        revenuePercent:
+          description: Represents the percentage proportion of the company's total
+            revenue that is generated from a specific sector or industry.
+          example: 75.41
+          type: number
+        l4:
+          items:
+            $ref: '#/components/schemas/IndustryGroup'
+          type: array
+      title: Sub-Sector Object
+      type: object
+    IndustryGroup:
+      example:
+        revenuePercent: 75.41
+        l5:
+        - revenuePercent: 75.41
+          l6:
+          - revenuePercent: 75.41
+            l6Name: Smart Phone Manufacturing
+          - revenuePercent: 75.41
+            l6Name: Smart Phone Manufacturing
+          l5Name: Smart Phone Manufacturing
+        - revenuePercent: 75.41
+          l6:
+          - revenuePercent: 75.41
+            l6Name: Smart Phone Manufacturing
+          - revenuePercent: 75.41
+            l6Name: Smart Phone Manufacturing
+          l5Name: Smart Phone Manufacturing
+        l4Name: Wireless Mobile Equipment
+      properties:
+        l4Name:
+          description: The name of the RBICS Level 4 (Industry Group) classification.
+          example: Wireless Mobile Equipment
+          type: string
+        revenuePercent:
+          description: Represents the percentage proportion of the company's total
+            revenue that is generated from a specific sector or industry.
+          example: 75.41
+          type: number
+        l5:
+          items:
+            $ref: '#/components/schemas/Industry'
+          type: array
+      title: Industry-Group Object
+      type: object
+    Industry:
+      example:
+        revenuePercent: 75.41
+        l6:
+        - revenuePercent: 75.41
+          l6Name: Smart Phone Manufacturing
+        - revenuePercent: 75.41
+          l6Name: Smart Phone Manufacturing
+        l5Name: Smart Phone Manufacturing
+      properties:
+        l5Name:
+          description: The name of the RBICS Level 5 (Industry) classification.
+          example: Smart Phone Manufacturing
+          type: string
+        revenuePercent:
+          description: Represents the percentage proportion of the company's total
+            revenue that is generated from a specific sector or industry.
+          example: 75.41
+          type: number
+        l6:
+          items:
+            $ref: '#/components/schemas/SubIndustry'
+          type: array
+      title: Industry Object
+      type: object
+    SubIndustry:
+      example:
+        revenuePercent: 75.41
+        l6Name: Smart Phone Manufacturing
+      properties:
+        l6Name:
+          description: The name of the RBICS Level 6 (Sub-Industry) classification.
+            This is the most detailed and granular level in the RBICS taxonomy.
+          example: Smart Phone Manufacturing
+          type: string
+        revenuePercent:
+          description: Represents the percentage proportion of the company's total
+            revenue that is generated from a specific sector or industry.
+          example: 75.41
+          type: number
+      type: object
+    ErrorResponse:
       description: error description
       properties:
         status:
@@ -1122,6 +4635,7 @@ components:
           type: string
         timestamp:
           description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
+          example: 2019-11-01T11:09:41.918Z
           format: date-time
           type: string
         path:
@@ -1133,11 +4647,37 @@ components:
           example: Validation Error
           type: string
         subErrors:
-          $ref: '#/components/schemas/errorResponse_subErrors'
+          $ref: '#/components/schemas/ErrorResponse_subErrors'
       title: Error Response
       type: object
-    errorResponse_subErrors:
+    ErrorsResponse:
+      description: Error Response Object
+      properties:
+        errors:
+          description: Errors Array Object
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      type: object
+    Error:
+      description: Error Example Object
+      properties:
+        code:
+          description: Specifies the error code.
+          type: string
+        title:
+          description: Specifies the error message
+          type: string
+        id:
+          description: Specifies the id.
+          type: string
+        detail:
+          description: Specifies the error message in detail.
+          type: string
+      type: object
+    ErrorResponse_subErrors:
       description: subErrors related to the error message. Null if not applicable.
+      nullable: true
       properties:
         object:
           description: the operation ID

@@ -36,7 +36,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ListSchemas</returns>
         ListSchemas GetV1ListSchemas(string schema = default(string), int? sequence = default(int?));
 
@@ -48,7 +48,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ApiResponse of ListSchemas</returns>
         ApiResponse<ListSchemas> GetV1ListSchemasWithHttpInfo(string schema = default(string), int? sequence = default(int?));
         #endregion Synchronous Operations
@@ -68,7 +68,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSchemas</returns>
         System.Threading.Tasks.Task<ListSchemas> GetV1ListSchemasAsync(string schema = default(string), int? sequence = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -81,7 +81,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </remarks>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSchemas)</returns>
         System.Threading.Tasks.Task<ApiResponse<ListSchemas>> GetV1ListSchemasWithHttpInfoAsync(string schema = default(string), int? sequence = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -225,7 +225,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ListSchemas</returns>
         public ListSchemas GetV1ListSchemas(string schema = default(string), int? sequence = default(int?))
         {
@@ -238,7 +238,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <returns>ApiResponse of ListSchemas</returns>
         public ApiResponse<ListSchemas> GetV1ListSchemasWithHttpInfo(string schema = default(string), int? sequence = default(int?))
         {
@@ -314,7 +314,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSchemas</returns>
         public async System.Threading.Tasks.Task<ListSchemas>GetV1ListSchemasAsync(string schema = default(string), int? sequence = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -328,7 +328,7 @@ namespace FactSet.SDK.StandardDatafeed.Api
         /// </summary>
         /// <exception cref="FactSet.SDK.StandardDatafeed.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schema">schema name&lt;/p&gt; &lt;/p&gt; **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1**  (optional)</param>
-        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
+        /// <param name="sequence">Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \&quot;8\&quot; from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSchemas)</returns>
 

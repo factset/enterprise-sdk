@@ -74,7 +74,7 @@ class Pagination {
 Pagination.prototype['total'] = undefined;
 
 /**
- * Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  False as the API should always return the exact count
+ * Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to False as the API should always return the exact count
  * @member {Boolean} is EstimatedTotal
  */
 Pagination.prototype['is EstimatedTotal'] = undefined;

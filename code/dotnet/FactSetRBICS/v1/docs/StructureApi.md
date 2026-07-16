@@ -61,8 +61,8 @@ namespace Example
 
             var apiInstance = new StructureApi(config);
 
-            var rbicsIds = new List<string>(); // List<string> | RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.  (optional) 
-            var level = 1;  // int? | RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |- --|- --|- --|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629|  (optional) 
+            var rbicsIds = new List<string>(); // List<string> | RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested, or to screen for companies by industry.  (optional) 
+            var level = 1;  // int? | RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, '3' returns all levels 1,2 and 3. To request all levels, request level=6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |- --|- --|- --|   |1|Economy|14|   |2|Sector|37|   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Industry|901|   |6|Sub-Industry|1629|  (optional) 
             var includeNames = true;  // bool? | Option to include or exclude industry Names and the L6 Description. true = Include Names; false = Exclude Names. (optional)  (default to true)
             var date = "2017-07-24";  // string | Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. (optional) 
 
@@ -87,8 +87,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rbicsIds** | [**List&lt;string&gt;**](string.md)| RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested.  | [optional] 
- **level** | **int?**| RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, &#39;3&#39; returns all levels 1,2 and 3. To request all levels, request level&#x3D;6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |- --|- --|- --|   |1|Economomy|14|   |2|Sector|37   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Inudstry|901|   |6|Sub-Industry|1629|  | [optional] 
+ **rbicsIds** | [**List&lt;string&gt;**](string.md)| RBICS Taxonomy Id Filter. Use to lookup the structure details for the Id requested, or to screen for companies by industry.  | [optional] 
+ **level** | **int?**| RBICS industry levels to include in the response. All levels from 1-N will be returned. For example, &#39;3&#39; returns all levels 1,2 and 3. To request all levels, request level&#x3D;6. Level 1 is returned by default.   |Level|Description|Number of Groups|   |- --|- --|- --|   |1|Economy|14|   |2|Sector|37|   |3|Sub-Sector|109|   |4|Industry Group|366|   |5|Industry|901|   |6|Sub-Industry|1629|  | [optional] 
  **includeNames** | **bool?**| Option to include or exclude industry Names and the L6 Description. true &#x3D; Include Names; false &#x3D; Exclude Names. | [optional] [default to true]
  **date** | **string**| Effective date for data expressed in YYYY-MM-DD format. If no date is requested, the default behavior is to return the full history for the requested entity. | [optional] 
 

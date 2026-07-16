@@ -35,7 +35,7 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         /// Initializes a new instance of the <see cref="Pagination" /> class.
         /// </summary>
         /// <param name="total">Total number of files the API returns for a particular query.</param>
-        /// <param name="isEstimatedTotal">Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count.</param>
+        /// <param name="isEstimatedTotal">Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to “False” as the API should always return the exact count.</param>
         /// <param name="limit">Number of results returned per page.</param>
         /// <param name="offset">The flag indicating the position in the results array if additional results are available beyond the default value or the value in paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retreieve subsequent results.</param>
         public Pagination(int total = default(int), bool isEstimatedTotal = default(bool), int limit = default(int), int offset = default(int))
@@ -54,9 +54,9 @@ namespace FactSet.SDK.FactSetTickHistory.Model
         public int Total { get; set; }
 
         /// <summary>
-        /// Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count
+        /// Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to “False” as the API should always return the exact count
         /// </summary>
-        /// <value>Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to  “False” as the API should always return the exact count</value>
+        /// <value>Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to “False” as the API should always return the exact count</value>
         [DataMember(Name = "is EstimatedTotal", EmitDefaultValue = true)]
         public bool IsEstimatedTotal { get; set; }
 

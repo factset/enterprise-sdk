@@ -40,7 +40,7 @@ export default class SchemaApi {
      * <a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema & sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
      * @param {Object} opts Optional parameters
      * @param {String} opts.schema schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1** 
-     * @param {Number} opts.sequence Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request
+     * @param {Number} opts.sequence Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ListSchemas} and HTTP response
      */
     getV1ListSchemasWithHttpInfo(opts) {
@@ -77,7 +77,7 @@ export default class SchemaApi {
      * <a href=https://api.factset.com/bulk-documents/sdf/v1/list-schemas>List-Schemas</a> helper end point provides the list of schemas subscribed by the client and their corresponding sequences if no query parameters are passed in the request.   If schema & sequence number (version number of schema) are passed in the request, this endpoint provides a downloadable presigned url containing the schema information.
      * @param {Object} opts Optional parameters
      * @param {String} opts.schema schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1** 
-     * @param {Number} opts.sequence Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request
+     * @param {Number} opts.sequence Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request
      * @return { Promise.< module:model/ListSchemas > } a Promise, with data of type {@link module:model/ListSchemas }
      */
     getV1ListSchemas(opts) {

@@ -113,7 +113,7 @@ public class SchemaApiExample {
 
         SchemaApi apiInstance = new SchemaApi(defaultClient);
         String schema = "schema_example"; // String | schema name</p> </p> **Example: acta_v1, fgp_v1, yn_v1**  QFL:- To query QFL data, please use value:   **qfl_v1** 
-        Integer sequence = 56; // Integer | Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema   **Note:** Please pass sequence parameter only while passing the schema parameter in the request
+        Integer sequence = 56; // Integer | Version number of a schema  Please enter the sequence number associated with the schema passed in the request **Example: \"8\" from acta_v1: [8],**  QFL:- Enter the sequence number associated with the qfl schema  **Note:** Please pass sequence parameter only while passing the schema parameter in the request
         try {
             ListSchemas result = apiInstance.getV1ListSchemas(schema, sequence);
             System.out.println(result);

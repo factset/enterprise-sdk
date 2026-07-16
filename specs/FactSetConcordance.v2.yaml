@@ -3497,7 +3497,7 @@ components:
               clientCusip: null
               clientEin: null
               clientFitch: null
-              clientId: '1004_1'
+              clientId: 10041
               clientIsin: null
               clientLei: null
               clientMd: null
@@ -3539,7 +3539,7 @@ components:
               clientCusip: null
               clientEin: null
               clientFitch: null
-              clientId: '1004_2'
+              clientId: 10042
               clientIsin: null
               clientLei: null
               clientMd: null

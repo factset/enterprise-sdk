@@ -1,0 +1,13 @@
+# FactSet.SDK.FactSetRBICS.Model.IndustryRequest
+Industry Request Body
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**RbicsIds** | **List&lt;string&gt;** | A list of RBICS industry classification identifiers. These are used to filter the results to specific industries. IDs can range from Level 1 (Economy) to Level 6 (Sub-Industry). A complete list of valid RBICS IDs can be retrieved using the &#x60;/structure&#x60; endpoints. | 
+**StartDate** | **DateTime** | Specifies the start date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and forward. The &#x60;startDate&#x60; must be equal to or before the &#x60;endDate&#x60;. Future dates (T+1) are not accepted in this endpoint. &lt;br&gt; Note: &lt;br&gt; - If omitted while &#x60;endDate&#x60; is specified: Data will be fetched from the earliest available record up to the specified end date. &lt;br&gt; - If both &#x60;startDate&#x60; and &#x60;endDate&#x60; are omitted: The response will return the latest available data. | [optional] 
+**EndDate** | **DateTime** | Specifies the end date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and earlier. The &#x60;endDate&#x60; must be equal to or after the &#x60;startDate&#x60;. Future dates (T+1) are not accepted in this endpoint. &lt;br&gt; Note: &lt;br&gt; - If omitted (with &#x60;startDate&#x60; specified): Data will be returned from the specified start date up to the most recent available date. &lt;br&gt; - If both &#x60;startDate&#x60; and &#x60;endDate&#x60; are omitted: The response will return the latest available data. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
