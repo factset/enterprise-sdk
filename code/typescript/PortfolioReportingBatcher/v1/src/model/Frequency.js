@@ -41,6 +41,20 @@ export default class Frequency {
 
     
         /**
+         * value: "quarterly"
+         * @const
+         */
+        "quarterly" = "quarterly";
+
+    
+        /**
+         * value: "annually"
+         * @const
+         */
+        "annually" = "annually";
+
+    
+        /**
          * value: "single"
          * @const
          */

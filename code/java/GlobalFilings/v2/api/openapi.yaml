@@ -17,7 +17,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Global Filings API
-  version: 2.2.1
+  version: 2.2.2
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/global-filings-api
@@ -36,8 +36,8 @@ tags:
 paths:
   /search:
     get:
-      description: Returns the filings documents within FactSet coverage along with
-        other response fields.
+      description: |
+        Returns the filings documents within FactSet coverage along with other response fields. Upon request, this endpoint can fetch up to 10,000 documents.
       operationId: getFilings
       parameters:
       - description: "Requested symbols or securities.  This is a comma-separated\
@@ -718,10 +718,14 @@ paths:
                       description: BSE India Company Announcements
                     - source: SGX
                       description: Singapore Exchange Real-Time
+                    - source: SGXD
+                      description: Singapore Exchange Delayed
                     - source: RNS
                       description: LSE Regulatory News Service - Real-Time
                     - source: RNSD
                       description: LSE Regulatory News Service - Delayed
+                    - source: OBS
+                      description: Oslo Bors
               schema:
                 $ref: '#/components/schemas/SourceResponse'
           description: Success

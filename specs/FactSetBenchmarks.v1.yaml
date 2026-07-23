@@ -1,17 +1,14 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  version: 1.11.0
-  title: FactSet Benchmarks API
+  version: '1.11.0'
+  title: 'FactSet Benchmarks API'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-  description: >
-    FactSet Benchmarks API gives access to Index Constituents, Prices, Returns,
-    and Ratios. For a sample list of identifiers, use the /metrics endpoint.
-    Equity Only - Fixed Income Benchmark support coming soon.
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+  description: "FactSet Benchmarks API gives access to Index Constituents, Prices, Returns, and Ratios. For a sample list of identifiers, use the /metrics endpoint. Equity Only - Fixed Income Benchmark support coming soon.\n"
 servers:
-  - url: https://api.factset.com/content
-    description: Production
+  - url: 'https://api.factset.com/content'
+    description: 'Production'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
@@ -19,15 +16,10 @@ paths:
   /factset-benchmarks/v1/constituents:
     get:
       tags:
-        - Benchmark Constituents
-      summary: >-
-        Returns the requested Benchmark Constituents and respective Weights,
-        Price and Market Value.
-      operationId: getBenchmarkConstituents
-      description: >
-        Returns the requested Benchmark Constituents and respective Weights,
-        Price and Market Value. You must be authorized for the `ids` requested.
-        Use the helper endpoint **/id-list** for valid identifiers.  
+        - 'Benchmark Constituents'
+      summary: 'Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.'
+      operationId: 'getBenchmarkConstituents'
+      description: "Returns the requested Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested. Use the helper endpoint **/id-list** for valid identifiers.  \n"
       parameters:
         - $ref: '#/components/parameters/constituentIds'
         - $ref: '#/components/parameters/requestedDate'
@@ -35,7 +27,7 @@ paths:
         - $ref: '#/components/parameters/regionCalendar'
       responses:
         '200':
-          description: Benchmark data items
+          description: 'Benchmark data items'
           content:
             application/json:
               schema:
@@ -55,18 +47,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Benchmark Constituents
-      summary: >-
-        Returns the requested Benchmark Constituents and respective Weights,
-        Price and Market Value.
-      description: >
-        Returns the requested Benchmark Constituents and respective Weights,
-        Price and Market Value. You must be authorized for the `ids` requested.
-        Use the helper endpoint **/id-list** for valid identifiers.
-      operationId: getBenchmarkConstituentsForList
+        - 'Benchmark Constituents'
+      summary: 'Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.'
+      description: "Returns the requested Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested. Use the helper endpoint **/id-list** for valid identifiers.\n"
+      operationId: 'getBenchmarkConstituentsForList'
       requestBody:
         required: true
-        description: Requests Benchmark Constituents for the given identifier and date.
+        description: 'Requests Benchmark Constituents for the given identifier and date.'
         content:
           application/json:
             schema:
@@ -76,7 +63,7 @@ paths:
                 $ref: '#/components/examples/constituentRequest'
       responses:
         '200':
-          description: Benchmark data items
+          description: 'Benchmark data items'
           content:
             application/json:
               schema:
@@ -97,22 +84,17 @@ paths:
   /factset-benchmarks/v1/fixed-income-constituents:
     get:
       tags:
-        - Benchmark Constituents
-      summary: >-
-        Returns the requested Fixed Income Benchmark Constituents and respective
-        Weights, Price and Market Value.
-      operationId: getFIBenchmarkConstituents
-      description: >
-        Returns the requested Fixed Income Benchmark Constituents and respective
-        Weights, Price and Market Value. You must be authorized for the `ids`
-        requested.
+        - 'Benchmark Constituents'
+      summary: 'Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value.'
+      operationId: 'getFIBenchmarkConstituents'
+      description: "Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested.\n"
       parameters:
         - $ref: '#/components/parameters/fIConstituentIds'
         - $ref: '#/components/parameters/requestedDate'
         - $ref: '#/components/parameters/currency'
       responses:
         '200':
-          description: Fixed Income Constituent data items
+          description: 'Fixed Income Constituent data items'
           content:
             application/json:
               schema:
@@ -132,20 +114,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Benchmark Constituents
-      summary: >-
-        Returns the requested Benchmark Constituents and respective Weights,
-        Price and Market Value.
-      description: >
-        Returns the requested Fixed Income Benchmark Constituents and respective
-        Weights, Price and Market Value. You must be authorized for the `ids`
-        requested.
-      operationId: getFIBenchmarkConstituentsForList
+        - 'Benchmark Constituents'
+      summary: 'Returns the requested Benchmark Constituents and respective Weights, Price and Market Value.'
+      description: "Returns the requested Fixed Income Benchmark Constituents and respective Weights, Price and Market Value. You must be authorized for the `ids` requested.\n"
+      operationId: 'getFIBenchmarkConstituentsForList'
       requestBody:
         required: true
-        description: >-
-          Requests Fixed Income Benchmark Constituents for the given identifier
-          and date.
+        description: 'Requests Fixed Income Benchmark Constituents for the given identifier and date.'
         content:
           application/json:
             schema:
@@ -155,7 +130,7 @@ paths:
                 $ref: '#/components/examples/fixedIncomeConstituentsRequest'
       responses:
         '200':
-          description: Fixed Income Constituent data items
+          description: 'Fixed Income Constituent data items'
           content:
             application/json:
               schema:
@@ -175,17 +150,11 @@ paths:
           $ref: '#/components/responses/500'
   /factset-benchmarks/v1/index-snapshot:
     get:
-      summary: >-
-        Index Level Prices, Returns, and related information as of a single
-        date.
-      operationId: getIndexSnapshot
+      summary: 'Index Level Prices, Returns, and related information as of a single date.'
+      operationId: 'getIndexSnapshot'
       tags:
-        - Index Level
-      description: >
-        Retrieves Index Level Prices and Returns information as of a specific
-        date. Simply submit a valid Benchmark ID (you can use the /id-list
-        endpoint for a sample list of ids), and date and retrieve Index Level
-        Prices, Returns, and related information.
+        - 'Index Level'
+      description: "Retrieves Index Level Prices and Returns information as of a specific date. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information.\n"
       parameters:
         - $ref: '#/components/parameters/indexIds'
         - $ref: '#/components/parameters/requestedDate'
@@ -194,9 +163,7 @@ paths:
         - $ref: '#/components/parameters/regionCalendar'
       responses:
         '200':
-          description: >-
-            An array of Index Level Prices and Returns information as of a
-            single date
+          description: 'An array of Index Level Prices and Returns information as of a single date'
           content:
             application/json:
               schema:
@@ -215,22 +182,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Retrieves the Index Level Snapshot of Prices and Returns information for
-        a given identifier and single date.
-      operationId: getIndexSnapshotForList
+      summary: 'Retrieves the Index Level Snapshot of Prices and Returns information for a given identifier and single date.'
+      operationId: 'getIndexSnapshotForList'
       tags:
-        - Index Level
-      description: >
-        Retrieves Index Level Prices and Returns information as aligned with
-        FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark
-        ID (you can use the /id-list endpoint for a sample list of ids), and
-        date and retrieve Index Level Prices, Returns, and related information.
+        - 'Index Level'
+      description: "Retrieves Index Level Prices and Returns information as aligned with FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information.\n"
       requestBody:
         required: true
-        description: >-
-          Requests the Index Level Snapshot for a requested list of identifiers
-          and specified date.
+        description: 'Requests the Index Level Snapshot for a requested list of identifiers and specified date.'
         content:
           application/json:
             schema:
@@ -240,9 +199,7 @@ paths:
                 $ref: '#/components/examples/indexSnapshotRequestBody'
       responses:
         '200':
-          description: >-
-            An array of Index Level Prices and Returns information as of a
-            single date.
+          description: 'An array of Index Level Prices and Returns information as of a single date.'
           content:
             application/json:
               schema:
@@ -262,17 +219,11 @@ paths:
           $ref: '#/components/responses/500'
   /factset-benchmarks/v1/index-history:
     get:
-      summary: >-
-        Retrieves Index Level Prices and Returns information for a list of
-        identifiers and historical date range.
-      operationId: getIndexHistory
+      summary: 'Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.'
+      operationId: 'getIndexHistory'
       tags:
-        - Index Level
-      description: >
-        Retrieves Index Level Prices and Returns information as of a date range
-        requested. Simply submit a valid Benchmark ID (you can use the /id-list
-        endpoint for a sample list of ids), and date range to retrieve Index
-        Level Prices, Returns, and related information.
+        - 'Index Level'
+      description: "Retrieves Index Level Prices and Returns information as of a date range requested. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date range to retrieve Index Level Prices, Returns, and related information.\n"
       parameters:
         - $ref: '#/components/parameters/indexIds'
         - $ref: '#/components/parameters/startDate'
@@ -285,9 +236,7 @@ paths:
         - $ref: '#/components/parameters/impliedDate'
       responses:
         '200':
-          description: >-
-            An array of Index Level Prices and Returns information for a
-            requested date range.
+          description: 'An array of Index Level Prices and Returns information for a requested date range.'
           content:
             application/json:
               schema:
@@ -306,22 +255,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Retrieves Index Level Prices and Returns information for a list of
-        identifiers and historical date range.
-      operationId: getIndexHistoryForList
+      summary: 'Retrieves Index Level Prices and Returns information for a list of identifiers and historical date range.'
+      operationId: 'getIndexHistoryForList'
       tags:
-        - Index Level
-      description: >
-        Retrieves Index Level Prices and Returns information as aligned with
-        FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark
-        ID (you can use the /id-list endpoint for a sample list of ids), and
-        date and retrieve Index Level Prices, Returns, and related information.
+        - 'Index Level'
+      description: "Retrieves Index Level Prices and Returns information as aligned with FactSet's Benchmark Data Feed solution. Simply submit a valid Benchmark ID (you can use the /id-list endpoint for a sample list of ids), and date and retrieve Index Level Prices, Returns, and related information.\n"
       requestBody:
         required: true
-        description: >-
-          Requests Index Level History Prices and Returns for a list of
-          identifiers and specified date range.
+        description: 'Requests Index Level History Prices and Returns for a list of identifiers and specified date range.'
         content:
           application/json:
             schema:
@@ -331,9 +272,7 @@ paths:
                 $ref: '#/components/examples/indexHistoryRequestBody'
       responses:
         '200':
-          description: >-
-            An array of Index Level Prices and Returns information for a
-            requested date range.
+          description: 'An array of Index Level Prices and Returns information for a requested date range.'
           content:
             application/json:
               schema:
@@ -353,22 +292,11 @@ paths:
           $ref: '#/components/responses/500'
   /factset-benchmarks/v1/index-returns:
     get:
-      summary: >-
-        Retrieves cumulative index returns over a specified date range for a
-        list of benchmark identifiers via query parameters
-      operationId: getIndexReturns
+      summary: 'Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via query parameters'
+      operationId: 'getIndexReturns'
       tags:
-        - Index Level
-      description: >
-        Returns aggregated (cumulative) index returns for each requested
-        benchmark across the specified date range. Unlike `/index-history`,
-        which provides full time-series data (prices, levels, constituents, and
-        frequency-based observations), this endpoint is returns-focused and does
-        not return a time series or support frequency parameters. Each benchmark
-        produces a single cumulative return value for the entire date window,
-        rather than a series of observations. The data is aligned with FactSet
-        Benchmark Data Feed. Submit benchmark identifiers and a date range to
-        retrieve cumulative return metrics for the period.
+        - 'Index Level'
+      description: "Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period.\n"
       parameters:
         - $ref: '#/components/parameters/indexIds'
         - $ref: '#/components/parameters/startDateRequired'
@@ -380,7 +308,7 @@ paths:
         - $ref: '#/components/parameters/impliedDate'
       responses:
         '200':
-          description: An array of Index Returns information for a requested date range.
+          description: 'An array of Index Returns information for a requested date range.'
           content:
             application/json:
               schema:
@@ -399,34 +327,21 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Retrieves cumulative index returns over a specified date range for a
-        list of benchmark identifiers via JSON Request body
-      operationId: getIndexReturnsForList
+      summary: 'Retrieves cumulative index returns over a specified date range for a list of benchmark identifiers via JSON Request body'
+      operationId: 'getIndexReturnsForList'
       tags:
-        - Index Level
-      description: >
-        Returns aggregated (cumulative) index returns for each requested
-        benchmark across the specified date range. Unlike `/index-history`,
-        which provides full time-series data (prices, levels, constituents, and
-        frequency-based observations), this endpoint is returns-focused and does
-        not return a time series or support frequency parameters. Each benchmark
-        produces a single cumulative return value for the entire date window,
-        rather than a series of observations. The data is aligned with FactSet
-        Benchmark Data Feed. Submit benchmark identifiers and a date range to
-        retrieve cumulative return metrics for the period.
+        - 'Index Level'
+      description: "Returns aggregated (cumulative) index returns for each requested benchmark across the specified date range. Unlike `/index-history`, which provides full time-series data (prices, levels, constituents, and frequency-based observations), this endpoint is returns-focused and does not return a time series or support frequency parameters. Each benchmark produces a single cumulative return value for the entire date window, rather than a series of observations. The data is aligned with FactSet Benchmark Data Feed. Submit benchmark identifiers and a date range to retrieve cumulative return metrics for the period.\n"
       requestBody:
         required: true
-        description: >-
-          Requests Index Returns for a list of identifiers and specified date
-          range.
+        description: 'Requests Index Returns for a list of identifiers and specified date range.'
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/indexReturnsRequest'
       responses:
         '200':
-          description: An array of Index Returns information for a requested date range.
+          description: 'An array of Index Returns information for a requested date range.'
           content:
             application/json:
               schema:
@@ -447,20 +362,10 @@ paths:
   /factset-benchmarks/v1/ratios:
     get:
       tags:
-        - Index Level
-      summary: Returns the aggregated ratios of a requested benchmark
-      operationId: getBenchmarkRatios
-      description: >
-        Retrieves the index level ratios for a requested benchmark. Ratios
-        supported are expressed through metrics parameter, and include
-        Categories of Profitability, Valuation, Coverage, and Leverage. <p>
-        Using FactSet Market Aggregates, the service combines fundamental,
-        estimates, and pricing content to derive ratios and per share values for
-        global equity market indexes and commercial benchmark vendors. The
-        constituents of the index are fetched on rolling basis over time period
-        requested, and then the metric requested is aggregated up to the index
-        level. To learn more about FMA, visit [OA
-        15778](https://my.apps.factset.com/oa/pages/15778).</p>
+        - 'Index Level'
+      summary: 'Returns the aggregated ratios of a requested benchmark'
+      operationId: 'getBenchmarkRatios'
+      description: "Retrieves the index level ratios for a requested benchmark. Ratios supported are expressed through metrics parameter, and include Categories of Profitability, Valuation, Coverage, and Leverage. <p> Using FactSet Market Aggregates, the service combines fundamental, estimates, and pricing content to derive ratios and per share values for global equity market indexes and commercial benchmark vendors. The constituents of the index are fetched on rolling basis over time period requested, and then the metric requested is aggregated up to the index level. To learn more about FMA, visit [OA 15778](https://my.apps.factset.com/oa/pages/15778).</p>\n"
       parameters:
         - $ref: '#/components/parameters/indexIds'
         - $ref: '#/components/parameters/metrics'
@@ -471,7 +376,7 @@ paths:
         - $ref: '#/components/parameters/currency'
       responses:
         '200':
-          description: Benchmark Ratio data items
+          description: 'Benchmark Ratio data items'
           content:
             application/json:
               schema:
@@ -491,23 +396,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Index Level
-      summary: Returns the aggregated ratios of a requested benchmark
-      description: >
-        Retrieves the index level ratios for a requested benchmark. Ratios
-        supported are expressed through metrics parameter, and include
-        Categories of Profitability, Valuation, Coverage, and Leverage. <p>
-        Using FactSet Market Aggregates, the service combines FactSet
-        Fundamental, FactSet Estimates, and FactSet Pricing content to derive
-        ratios and per share values for global equity market indexes and
-        commercial benchmark vendors. The constituents of the index are fetched
-        on rolling basis over time period requested, and then the metric
-        requested is aggregated up to the index level. To learn more about FMA,
-        visit [OA 15778](https://my.apps.factset.com/oa/pages/15778).</p>
-      operationId: getBenchmarkRatiosForList
+        - 'Index Level'
+      summary: 'Returns the aggregated ratios of a requested benchmark'
+      description: "Retrieves the index level ratios for a requested benchmark. Ratios supported are expressed through metrics parameter, and include Categories of Profitability, Valuation, Coverage, and Leverage. <p> Using FactSet Market Aggregates, the service combines FactSet Fundamental, FactSet Estimates, and FactSet Pricing content to derive ratios and per share values for global equity market indexes and commercial benchmark vendors. The constituents of the index are fetched on rolling basis over time period requested, and then the metric requested is aggregated up to the index level. To learn more about FMA, visit [OA 15778](https://my.apps.factset.com/oa/pages/15778).</p>\n"
+      operationId: 'getBenchmarkRatiosForList'
       requestBody:
         required: true
-        description: Requests benchmark ratios for a given id
+        description: 'Requests benchmark ratios for a given id'
         content:
           application/json:
             schema:
@@ -517,7 +412,7 @@ paths:
                 $ref: '#/components/examples/allRatiosRequest'
       responses:
         '200':
-          description: Benchmark Ratio Response Items
+          description: 'Benchmark Ratio Response Items'
           content:
             application/json:
               schema:
@@ -537,27 +432,16 @@ paths:
           $ref: '#/components/responses/500'
   /factset-benchmarks/v1/id-list:
     get:
-      summary: >-
-        Returns a sample list of Benchmark Identifiers and the benchmark
-        categorization to use in other Benchmark API endpoints.
-      operationId: getBenchmarkIds
+      summary: 'Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.'
+      operationId: 'getBenchmarkIds'
       tags:
-        - Helper
-      description: >-
-        Returns a **sample** list of Benchmark Identifiers to use in other
-        Benchmark API endpoints. This is a supporting API to be use alongside
-        the other Benchmark API endpoints. For example, use the fsymID value
-        returned in this response as the input to your `ids` parameter in the
-        /constituents endpoint to return constituents for that id.<p> *This is
-        not the full list of benchmark ids allowed in this service, but rather a
-        representation of the most commonly requested. For complete assistance
-        with ID lookup or concordance services, please reach out to FactSet
-        Support. *</p>
+        - 'Helper'
+      description: 'Returns a **sample** list of Benchmark Identifiers to use in other Benchmark API endpoints. This is a supporting API to be use alongside the other Benchmark API endpoints. For example, use the fsymID value returned in this response as the input to your `ids` parameter in the /constituents endpoint to return constituents for that id.<p> *This is not the full list of benchmark ids allowed in this service, but rather a representation of the most commonly requested. For complete assistance with ID lookup or concordance services, please reach out to FactSet Support. *</p>'
       parameters:
         - $ref: '#/components/parameters/familyFilter'
       responses:
         '200':
-          description: List of sample Benchmark Ids
+          description: 'List of sample Benchmark Ids'
           content:
             application/json:
               schema:
@@ -576,27 +460,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Returns a sample list of Benchmark Identifiers and the benchmark
-        categorization to use in other Benchmark API endpoints.
-      operationId: getBenchmarkIdsForList
+      summary: 'Returns a sample list of Benchmark Identifiers and the benchmark categorization to use in other Benchmark API endpoints.'
+      operationId: 'getBenchmarkIdsForList'
       tags:
-        - Helper
-      description: >-
-        Returns a **sample** list of Benchmark Identifiers to use in other
-        Benchmark API endpoints. This is a supporting API to be use alongside
-        the other Benchmark API endpoints. For example, use the fsymID value
-        returned in this response as the input to your `ids` parameter in the
-        /constituents endpoint to return constituents for that id.<p> *This is
-        not the full list of benchmark ids allowed in this service, but rather a
-        representation of the most commonly requested. For complete assistance
-        with ID lookup or concordance services, please reach out to FactSet
-        Support.*</p>
+        - 'Helper'
+      description: 'Returns a **sample** list of Benchmark Identifiers to use in other Benchmark API endpoints. This is a supporting API to be use alongside the other Benchmark API endpoints. For example, use the fsymID value returned in this response as the input to your `ids` parameter in the /constituents endpoint to return constituents for that id.<p> *This is not the full list of benchmark ids allowed in this service, but rather a representation of the most commonly requested. For complete assistance with ID lookup or concordance services, please reach out to FactSet Support.*</p>'
       requestBody:
         required: true
-        description: >-
-          Requests a sample list of identifiers that can be used in other
-          Benchmarks API endpoints.
+        description: 'Requests a sample list of identifiers that can be used in other Benchmarks API endpoints.'
         content:
           application/json:
             schema:
@@ -606,7 +477,7 @@ paths:
                 $ref: '#/components/examples/idListRequest'
       responses:
         '200':
-          description: List of sample Benchmark Ids
+          description: 'List of sample Benchmark Ids'
           content:
             application/json:
               schema:
@@ -627,477 +498,268 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   parameters:
     constituentIds:
-      name: ids
-      in: query
+      name: 'ids'
+      in: 'query'
       required: true
       explode: false
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 1
-      example: SP50
-      description: >-
-        Benchmark Identifiers. Reference the helper endpoint **/id-list** to get
-        a sample list of  valid identifiers. You must be authorized for the
-        `ids` requested, otherwise you will receive an error. <p>***ids limit**
-        =  1 per request*</p>
+      example: 'SP50'
+      description: 'Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>'
     fIConstituentIds:
-      name: ids
-      in: query
+      name: 'ids'
+      in: 'query'
       required: true
       explode: false
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 1
-      example: LHMN0001
-      description: >-
-        Fixed Income Benchmark Identifiers. You must be authorized for the `ids`
-        requested, otherwise you will receive an error. <p>***ids limit** =  1
-        per request*</p>
+      example: 'LHMN0001'
+      description: 'Fixed Income Benchmark Identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error. <p>***ids limit** =  1 per request*</p>'
     indexIds:
-      name: ids
-      in: query
+      name: 'ids'
+      in: 'query'
       required: true
       explode: false
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 500
-      example: SP50
-      description: >-
-        Benchmark Identifiers. Reference the helper endpoint **/id-list** to get
-        a sample list of  valid identifiers. <p>***ids limit** =  500 per
-        request*</p> *<p>Make note, GET Method URL request lines are also
-        limited to a total length of 8192 bytes (8KB). In cases where the
-        service allows for thousands of ids, which may lead to exceeding this
-        request line limit of 8KB, its advised for any requests with large
-        request lines to be requested through the respective "POST" method.</p>*
+      example: 'SP50'
+      description: 'Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. <p>***ids limit** =  500 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*'
     requestedDate:
-      name: date
-      in: query
+      name: 'date'
+      in: 'query'
       required: false
       schema:
-        type: string
-      description: Date of holding expressed in YYYY-MM-DD format.
+        type: 'string'
+      description: 'Date of holding expressed in YYYY-MM-DD format.'
     startDate:
-      name: startDate
-      in: query
+      name: 'startDate'
+      in: 'query'
       required: false
       schema:
-        type: string
-      description: Requested start date expressed in YYYY-MM-DD format.
+        type: 'string'
+      description: 'Requested start date expressed in YYYY-MM-DD format.'
     endDate:
-      name: endDate
-      in: query
+      name: 'endDate'
+      in: 'query'
       required: false
       schema:
-        type: string
-      description: Requested End Date for Range expressed in YYYY-MM-DD format.
+        type: 'string'
+      description: 'Requested End Date for Range expressed in YYYY-MM-DD format.'
     startDateRequired:
-      name: startDate
-      in: query
+      name: 'startDate'
+      in: 'query'
       required: true
       schema:
-        type: string
-        format: date
-      description: Requested start date expressed in YYYY-MM-DD format.
+        type: 'string'
+        format: 'date'
+      description: 'Requested start date expressed in YYYY-MM-DD format.'
     endDateRequired:
-      name: endDate
-      in: query
+      name: 'endDate'
+      in: 'query'
       required: true
       schema:
-        type: string
-        format: date
-      description: Requested End Date for Range expressed in YYYY-MM-DD format.
+        type: 'string'
+        format: 'date'
+      description: 'Requested End Date for Range expressed in YYYY-MM-DD format.'
     returnType:
-      name: returnType
-      in: query
+      name: 'returnType'
+      in: 'query'
       required: false
       schema:
-        type: string
+        type: 'string'
         enum:
-          - GROSS
-          - NET
-        default: GROSS
-      description: >-
-        The return type adjustment used in returns response items. Adjustment
-        can be made for GROSS and NET dividends that will be included in the
-        return calculation. The service will default to GROSS.
+          - 'GROSS'
+          - 'NET'
+        default: 'GROSS'
+      description: 'The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.'
     hedgeType:
-      name: hedgeType
-      in: query
+      name: 'hedgeType'
+      in: 'query'
       required: false
       schema:
-        type: string
+        type: 'string'
         enum:
-          - UNHEDGED
-          - HEDGED
-        default: UNHEDGED
-      description: >-
-        The hedge type adjustment used in returns response items. Adjustment can
-        be made for HEDGED and UNHEDGED values that will be included in the
-        return calculation. The service will default to UNHEDGED.
+          - 'UNHEDGED'
+          - 'HEDGED'
+        default: 'UNHEDGED'
+      description: 'The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.'
     impliedDate:
-      name: impliedDate
-      in: query
+      name: 'impliedDate'
+      in: 'query'
       required: false
       schema:
-        type: string
+        type: 'string'
         enum:
           - 'Y'
           - 'N'
         default: 'N'
-      description: >-
-        This parameter controls the **date** returned in the date field. The
-        default value is **N**. By default, the date field returns the actual
-        date of the observation. This means it will repeat values for weekends
-        and holidays. If  set to **Y**, the date field will return the implied
-        date of the observation, making all the dates unique.
+      description: 'This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.'
     calendar:
-      name: calendar
-      in: query
+      name: 'calendar'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - FIVEDAY
-          - SEVENDAY
-        default: FIVEDAY
-      description: Calendar of data returned. SEVENDAY includes weekends.
-      example: FIVEDAY
+          - 'FIVEDAY'
+          - 'SEVENDAY'
+        default: 'FIVEDAY'
+      description: 'Calendar of data returned. SEVENDAY includes weekends.'
+      example: 'FIVEDAY'
     regionCalendar:
-      name: calendar
-      in: query
+      name: 'calendar'
+      in: 'query'
       schema:
-        type: string
-        default: FIVEDAY
-      description: >-
-        Calendar of data returned. The default value is FIVEDAY which displays
-        Monday through Friday, regardless of whether there were trading
-        holidays.
+        type: 'string'
+        default: 'FIVEDAY'
+      description: 'Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.'
       required: false
       examples:
         fiveday:
-          summary: FIVEDAY
-          description: >-
-            Displays Monday through Friday, regardless of whether there were
-            trading holidays. This is the default for `calendar`.
-          value: FIVEDAY
+          summary: 'FIVEDAY'
+          description: 'Displays Monday through Friday, regardless of whether there were trading holidays. This is the default for `calendar`.'
+          value: 'FIVEDAY'
         sevenday:
-          summary: SEVENDAY
-          description: Displays Monday through Sunday.
-          value: SEVENDAY
+          summary: 'SEVENDAY'
+          description: 'Displays Monday through Sunday.'
+          value: 'SEVENDAY'
         region:
-          summary: Region Specific
-          description: >-
-            The calendar of a specific region. The example shown here 'NAY' is
-            for the UNITED STATES calendar. You can find the calendar codes for
-            regions on [Online Assistant Page
-            16610](https://my.apps.factset.com/oa/pages/16610#country).
-          value: NAY
+          summary: 'Region Specific'
+          description: 'The calendar of a specific region. The example shown here ''NAY'' is for the UNITED STATES calendar. You can find the calendar codes for regions on [Online Assistant Page 16610](https://my.apps.factset.com/oa/pages/16610#country).'
+          value: 'NAY'
     currency:
-      name: currency
-      in: query
+      name: 'currency'
+      in: 'query'
       required: false
       schema:
-        type: string
-      description: >-
-        Currency for response.  Currency code (ISO 4217). For a list of currency
-        codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+        type: 'string'
+      description: 'Currency for response.  Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).'
     frequency:
-      name: frequency
-      in: query
+      name: 'frequency'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - D
-          - W
-          - M
-          - AM
-          - CQ
-          - AY
-          - CY
-        default: D
-      description: |
-        Controls the display frequency of the data returned.
-          * **D** = Daily
-          * **W** = Weekly, based on the last day of the week of the start date.
-          * **M** = Monthly, based on the last trading day of the month.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-          * **AY** = Actual Annual, based on the start date.
-          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
+          - 'D'
+          - 'W'
+          - 'M'
+          - 'AM'
+          - 'CQ'
+          - 'AY'
+          - 'CY'
+        default: 'D'
+      description: "Controls the display frequency of the data returned.\n  * **D** = Daily\n  * **W** = Weekly, based on the last day of the week of the start date.\n  * **M** = Monthly, based on the last trading day of the month.\n  * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n  * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).\n  * **AY** = Actual Annual, based on the start date.\n  * **CY** = Calendar Annual, based on the last trading day of the calendar year.\n"
       examples:
         Daily:
-          summary: D - Daily frequency display based on trading calendar
-          value: D
+          summary: 'D - Daily frequency display based on trading calendar'
+          value: 'D'
         Weekly:
-          summary: W - Weekly - based on the last day of the week of the start date
-          value: W
+          summary: 'W - Weekly - based on the last day of the week of the start date'
+          value: 'W'
         Monthly:
-          summary: M - Monthly - based on the last trading day of the month.
-          value: M
+          summary: 'M - Monthly - based on the last trading day of the month.'
+          value: 'M'
         Actual Month:
-          summary: >-
-            AM - Actual Month - based on the startDate (e.g., if the start date
-            is June 16, data is displayed for June 16, May 16, April 16 etc.).
-          value: AM
+          summary: 'AM - Actual Month - based on the startDate (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).'
+          value: 'AM'
         Calendar Quarterly:
-          summary: >-
-            CQ - Calendar Quarterly - based on the last day of the week of the
-            startDate
-          value: CQ
+          summary: 'CQ - Calendar Quarterly - based on the last day of the week of the startDate'
+          value: 'CQ'
         Actual Annual:
-          summary: AY - Actual Annual - based on the startDate
-          value: AY
+          summary: 'AY - Actual Annual - based on the startDate'
+          value: 'AY'
         Calendar Annual:
-          summary: >-
-            CY - Calendar Annual - based on the last trading day of the calendar
-            year.
-          value: CY
+          summary: 'CY - Calendar Annual - based on the last trading day of the calendar year.'
+          value: 'CY'
     periodicity:
-      name: periodicity
-      in: query
+      name: 'periodicity'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - LTM
-          - LTMA
-          - STMA
-          - NTMA
+          - 'LTM'
+          - 'LTMA'
+          - 'STMA'
+          - 'NTMA'
           - '0'
           - '1'
           - '2'
-          - QTR
-        default: LTM
+          - 'QTR'
+        default: 'LTM'
       required: false
-      description: >
-        The calculation periodicity for the aggregated period. **Note** - Not
-        all periodicities are supported for each metric, depending on the type
-        of ratio. LTM is set as default and supported for all metrics. See
-        Metrics Parameter for additional detail on which periodicities are
-        available per metric.
-
-        |Periodicity| Description|
-
-        |:---|:---|
-
-        |LTM| Last Twelve Months
-
-        |LTMA| Last Twelve Months using Broker Actuals for Estimated Items
-
-        |STMA| Second Twelve Month Forward
-
-        |NTMA| 12 Month Forward
-
-        |0| Latest Reported Calendar Year
-
-        |1| Current Unreported Year
-
-        |2| Following Year
-
-        |QTR| Quarterly - Reported by companies
+      description: "The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric.\n|Periodicity| Description|\n|:---|:---|\n|LTM| Last Twelve Months\n|LTMA| Last Twelve Months using Broker Actuals for Estimated Items\n|STMA| Second Twelve Month Forward\n|NTMA| 12 Month Forward\n|0| Latest Reported Calendar Year\n|1| Current Unreported Year\n|2| Following Year\n|QTR| Quarterly - Reported by companies\n"
     metrics:
-      name: metrics
-      in: query
+      name: 'metrics'
+      in: 'query'
       required: true
       explode: false
-      description: >
-        Requested List of  FactSet Market Aggregates (FMA) or ratios. provided
-        the below complete metrics list.
-
-        |metric item|Description|category|periodicity
-
-        |:---|:---|:---|:---|
-
-        |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR,
-        0, 1, 2
-
-        |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR
-
-        |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1,
-        2
-
-        |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR,
-        0, 1, 2
-
-        |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM,
-        QTR, 0, 1, 2
-
-        |ROA|Return on Assets|Profitability (%)|LTM
-
-        |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2
-
-        |ROIC|Return on Invested Capital|Profitability (%)| LTM
-
-        |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR
-
-        |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
-
-        |PEX|Price/Earnings (excl negatives)|Valuation|LTM
-
-        |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
-
-        |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM
-
-        |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2
-
-        |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM
-
-        |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM
-
-        |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM
-
-        |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM
-
-        |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM
-
-        |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM
-
-        |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM
-
-        |NDEBT_FFO|Net Debt/FFO|Coverage|LTM
-
-        |LTD_FFO|LT Debt/FFO|Coverage|LTM
-
-        |FCF_DEBT|FCF/Total Debt|Coverage|LTM
-
-        |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM
-
-        |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM
-
-        |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM
-
-        |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM
-
-        |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM
-
-        |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM
-
-        |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM
-
-        |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM
-
-        |<p>***metrics limit** =  38 per request*</p>
-
-        *<p>Make note, GET Method URL request lines are also limited to a total
-
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands
-
-        of ids, which may lead to exceeding this request line limit of 8KB, its
-
-        advised for any requests with large request lines to be requested
-        through
-
-        the respective "POST" method.</p>*
+      description: "Requested List of  FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list.\n|metric item|Description|category|periodicity\n|:---|:---|:---|:---|\n|GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR\n|NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|ROA|Return on Assets|Profitability (%)|LTM\n|ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2\n|ROIC|Return on Invested Capital|Profitability (%)| LTM\n|FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR\n|PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|PEX|Price/Earnings (excl negatives)|Valuation|LTM\n|PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM\n|PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2\n|NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM\n|DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM\n|DEBT_EBIT|Total Debt/EBIT|Coverage|LTM\n|EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM\n|EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM\n|OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM\n|LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM\n|NDEBT_FFO|Net Debt/FFO|Coverage|LTM\n|LTD_FFO|LT Debt/FFO|Coverage|LTM\n|FCF_DEBT|FCF/Total Debt|Coverage|LTM\n|OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM\n|LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM\n|LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM\n|LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM\n|DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM\n|DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM\n|NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM\n|DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM\n|<p>***metrics limit** =  38 per request*</p>\n*<p>Make note, GET Method URL request lines are also limited to a total\nlength of 8192 bytes (8KB). In cases where the service allows for thousands\nof ids, which may lead to exceeding this request line limit of 8KB, its\nadvised for any requests with large request lines to be requested through\nthe respective \"POST\" method.</p>*\n"
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         example:
-          - PEX
-          - LTD_EQ
-          - DEBT_EQ
+          - 'PEX'
+          - 'LTD_EQ'
+          - 'DEBT_EQ'
         minItems: 1
         maxItems: 38
       examples:
         Single Metric:
-          summary: LTD_EQ
+          summary: 'LTD_EQ'
           value:
-            - LTD_EQ
+            - 'LTD_EQ'
         Multiple Metrics:
-          summary: PEX, LTD_EQ, DEBT_EQ
+          summary: 'PEX, LTD_EQ, DEBT_EQ'
           value:
-            - PEX
-            - LTD_EQ
-            - DEBT_EQ
+            - 'PEX'
+            - 'LTD_EQ'
+            - 'DEBT_EQ'
     familyFilter:
-      name: familyFilter
-      in: query
+      name: 'familyFilter'
+      in: 'query'
       required: false
-      description: >
-        Highest Level Filter to search by common Benchmark Families, such as
-        S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For
-        further filtering, use the response items such as the
-        categoryDescription field. Leave blank if you wish to see a full sample
-        list of ids. requested-
-
-        * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as
-        Hang Seng Index (HSI-HKX)
-
-        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans
-
-        * **FACTSET MARKET INDICES** - Regional and Country Indices defined by
-        FactSet
-
-        * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European,
-        GWA, JSE, Multinationals, and Style indices
-
-        * **GLOBAL INDICES** - A mix of major indices across the globe
-
-        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy,
-        Emerging, Developed, US
-
-        * **RUSSELL** - US, Global, and Nomura
-
-        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging,
-        TSX
-
-        * **STOXX** - Total Market, Europe, and Nordic
-
-        * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
-
-        * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
-
-        * **BLOOMBERG** - Global, Regional, US, Europe, Maturity, Ratings
+      description: "Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-\n* **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)\n* **DOW JONES** - Dow Jones Global, Regions, Countries, Titans\n* **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet\n* **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices\n* **GLOBAL INDICES** - A mix of major indices across the globe\n* **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US\n* **RUSSELL** - US, Global, and Nomura\n* **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX\n* **STOXX** - Total Market, Europe, and Nordic\n* **TOPIX** - Topix Indices, such as TOPIX 500 (182301)\n* **MORNINGSTAR** - Global, Regional, Country, and Sector indicies\n* **BLOOMBERG** - Global, Regional, US, Europe, Maturity, Ratings\n"
       schema:
-        type: string
+        type: 'string'
         enum:
-          - CHINA_HK_INDICES
-          - DOW_JONES
-          - FACTSET_MARKET_INDICES
-          - FTSE
-          - GLOBAL_INDICES
-          - MSCI
-          - RUSSELL
-          - SP
-          - STOXX
-          - TOPIX
-          - MORNINGSTAR
-          - BLOOMBERG
+          - 'CHINA_HK_INDICES'
+          - 'DOW_JONES'
+          - 'FACTSET_MARKET_INDICES'
+          - 'FTSE'
+          - 'GLOBAL_INDICES'
+          - 'MSCI'
+          - 'RUSSELL'
+          - 'SP'
+          - 'STOXX'
+          - 'TOPIX'
+          - 'MORNINGSTAR'
+          - 'BLOOMBERG'
   schemas:
     benchmarkConstituentsRequest:
-      type: object
-      title: Benchmark Constituents Request
+      type: 'object'
+      title: 'Benchmark Constituents Request'
       properties:
         ids:
           $ref: '#/components/schemas/constituentIds'
@@ -1108,91 +770,83 @@ components:
         calendar:
           $ref: '#/components/schemas/regionCalendar'
       required:
-        - ids
+        - 'ids'
     benchmarkConstituentsResponse:
-      title: Benchmark Constituents Response
-      type: object
+      title: 'Benchmark Constituents Response'
+      type: 'object'
       properties:
         data:
-          description: >
-            Array of metric objects representing the metrics that can be
-            requested
-
-            from the estimates APIs.
-          type: array
+          description: "Array of metric objects representing the metrics that can be requested\nfrom the estimates APIs.\n"
+          type: 'array'
           items:
             $ref: '#/components/schemas/benchmarkConstituent'
     benchmarkConstituent:
-      title: Benchmark Constituent
-      type: object
+      title: 'Benchmark Constituent'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: Benchmark Id
-          example: SPY-US
+          type: 'string'
+          description: 'Benchmark Id'
+          example: 'SPY-US'
           nullable: true
         date:
-          description: Date of weight and shares.
-          type: string
-          format: date
+          description: 'Date of weight and shares.'
+          type: 'string'
+          format: 'date'
           example: '2020-07-01'
           nullable: true
         fsymSecurityId:
-          description: >-
-            FactSet Security Identifier (-S). If Cash or Generic Id holding,
-            response will just pass through generic id (e.g. CASH_USD).
-          type: string
-          example: TKPJVY-S
+          description: 'FactSet Security Identifier (-S). If Cash or Generic Id holding, response will just pass through generic id (e.g. CASH_USD).'
+          type: 'string'
+          example: 'TKPJVY-S'
           nullable: true
         fsymRegionalId:
-          description: >-
-            FactSet Regional Identifier (-R). If Cash or Generic Id holding,
-            response will just pass through generic id (e.g. CASH_USD).
-          type: string
-          example: F07Q7W-R
+          description: 'FactSet Regional Identifier (-R). If Cash or Generic Id holding, response will just pass through generic id (e.g. CASH_USD).'
+          type: 'string'
+          example: 'F07Q7W-R'
           nullable: true
         currency:
-          description: Currency code for prices.
-          type: string
-          example: USD
+          description: 'Currency code for prices.'
+          type: 'string'
+          example: 'USD'
           nullable: true
         weightClose:
-          description: Weight of Security in benchmark (percent).
-          type: number
-          format: double
+          description: 'Weight of Security in benchmark (percent).'
+          type: 'number'
+          format: 'double'
           example: 0.085717610340781
           nullable: true
         adjHolding:
-          description: Shares held adjusted. Units in Millions.
-          type: number
-          format: double
+          description: 'Shares held adjusted. Units in Millions.'
+          type: 'number'
+          format: 'double'
           example: 0.884722
           nullable: true
         unadjHolding:
-          description: Shares held unadjusted. Units in Millions.
-          type: number
-          format: double
+          description: 'Shares held unadjusted. Units in Millions.'
+          type: 'number'
+          format: 'double'
           example: 0.884722
           nullable: true
         price:
-          description: Price of shares held.
-          type: number
-          format: double
+          description: 'Price of shares held.'
+          type: 'number'
+          format: 'double'
           example: 267.97
           nullable: true
         adjMarketValue:
-          description: Market value adjusted. Market Value represented in Millions.
-          type: number
-          format: double
+          description: 'Market value adjusted. Market Value represented in Millions.'
+          type: 'number'
+          format: 'double'
           example: 237.07895434
           nullable: true
         requestId:
-          type: string
-          description: Identifier specified in the request
-          example: SPY-US
+          type: 'string'
+          description: 'Identifier specified in the request'
+          example: 'SPY-US'
     fixedIncomeBenchmarkConstituentsRequest:
-      type: object
-      title: Fixed Income Benchmark Constituents Request
+      type: 'object'
+      title: 'Fixed Income Benchmark Constituents Request'
       properties:
         ids:
           $ref: '#/components/schemas/fIConstituentIds'
@@ -1201,71 +855,67 @@ components:
         currency:
           $ref: '#/components/schemas/currency'
       required:
-        - ids
+        - 'ids'
     fixedIncomeBenchmarkConstituentsResponse:
-      title: Fixed Income Benchmark Constituents Response
-      type: object
+      title: 'Fixed Income Benchmark Constituents Response'
+      type: 'object'
       properties:
         data:
-          description: >
-            Array of metric objects representing the metrics that can be
-            requested
-
-            from the estimates APIs.
-          type: array
+          description: "Array of metric objects representing the metrics that can be requested\nfrom the estimates APIs.\n"
+          type: 'array'
           items:
             $ref: '#/components/schemas/fixedIncomeBenchmarkConstituent'
     fixedIncomeBenchmarkConstituent:
-      title: Benchmark Constituent
-      type: object
+      title: 'Benchmark Constituent'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: Benchmark Id
-          example: LHMN0001
+          type: 'string'
+          description: 'Benchmark Id'
+          example: 'LHMN0001'
           nullable: true
         date:
-          description: Date of weight and shares.
-          type: string
-          format: date
+          description: 'Date of weight and shares.'
+          type: 'string'
+          format: 'date'
           example: '2021-04-12'
           nullable: true
         fsymSecurityId:
-          description: FactSet Security Identifier (-S).
-          type: string
-          example: FV4SC0-S
+          description: 'FactSet Security Identifier (-S).'
+          type: 'string'
+          example: 'FV4SC0-S'
           nullable: true
         weightClose:
-          description: Weight of Security in benchmark (percent).
-          type: number
-          format: double
+          description: 'Weight of Security in benchmark (percent).'
+          type: 'number'
+          format: 'double'
           example: 0.00303380596473456
           nullable: true
         amountOutstanding:
-          description: Amount Outstanding for the Fixed Income Security.
-          type: number
-          format: double
+          description: 'Amount Outstanding for the Fixed Income Security.'
+          type: 'number'
+          format: 'double'
           example: 700000
           nullable: true
         price:
-          description: Fixed Income Price of security held.
-          type: number
-          format: double
+          description: 'Fixed Income Price of security held.'
+          type: 'number'
+          format: 'double'
           example: 106.976
           nullable: true
         adjMarketValue:
-          description: Market value adjusted. Market Value represented in Millions.
-          type: number
-          format: double
+          description: 'Market value adjusted. Market Value represented in Millions.'
+          type: 'number'
+          format: 'double'
           example: 757.233375
           nullable: true
         requestId:
-          type: string
-          description: Identifier specified in the request
-          example: LHMN0001
+          type: 'string'
+          description: 'Identifier specified in the request'
+          example: 'LHMN0001'
     indexSnapshotRequest:
-      type: object
-      title: Index Snapshot Request
+      type: 'object'
+      title: 'Index Snapshot Request'
       properties:
         ids:
           $ref: '#/components/schemas/indexIds'
@@ -1278,135 +928,118 @@ components:
         calendar:
           $ref: '#/components/schemas/regionCalendar'
       required:
-        - ids
+        - 'ids'
     indexSnapshotResponse:
-      title: Index Snapshot Response
-      type: object
+      title: 'Index Snapshot Response'
+      type: 'object'
       properties:
         data:
-          description: |
-            Array of index snapshot response objects.
-          type: array
+          description: "Array of index snapshot response objects.\n"
+          type: 'array'
           items:
             $ref: '#/components/schemas/indexSnapshot'
     indexSnapshot:
-      title: Index Snapshot Object
-      type: object
+      title: 'Index Snapshot Object'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Requested Identifier. Must be a valid Benchmark Identifier
-            recognized by FactSet.
-          example: SP50
+          type: 'string'
+          description: 'Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.'
+          example: 'SP50'
           nullable: true
         date:
-          description: >-
-            The respective date for values as of the date requested in
-            YYYY-MM-DD format.
-          type: string
-          format: date
+          description: 'The respective date for values as of the date requested in YYYY-MM-DD format.'
+          type: 'string'
+          format: 'date'
           example: '2020-07-01'
           nullable: true
         inceptionDate:
-          description: The inception date of the requested index in YYYY-MM-DD format.
-          type: string
-          format: date
+          description: 'The inception date of the requested index in YYYY-MM-DD format.'
+          type: 'string'
+          format: 'date'
           example: '1988-01-04'
           nullable: true
         name:
-          description: Proper Name of Index.
-          type: string
-          example: S&P 500
+          description: 'Proper Name of Index.'
+          type: 'string'
+          example: 'S&P 500'
           nullable: true
         constituentNumber:
-          description: The total number of constituents as of the date requested.
-          type: integer
+          description: 'The total number of constituents as of the date requested.'
+          type: 'integer'
           example: 502
           nullable: true
         currency:
-          description: >-
-            Currency Code used in adjustments. If no Currency was requested, the
-            service will default to the local Calendar.
-          type: string
-          example: USD
+          description: 'Currency Code used in adjustments. If no Currency was requested, the service will default to the local Calendar.'
+          type: 'string'
+          example: 'USD'
           nullable: true
         marketValue:
-          description: >-
-            Index Level Market Capitalization as of the date requested expressed
-            in millions.
-          type: number
-          format: double
+          description: 'Index Level Market Capitalization as of the date requested expressed in millions.'
+          type: 'number'
+          format: 'double'
           example: 27696158.012077
           nullable: true
         price:
-          description: Index Level Price
-          type: number
-          format: double
+          description: 'Index Level Price'
+          type: 'number'
+          format: 'double'
           example: 3349.15600690205
           nullable: true
         priceReturnPercent1D:
-          description: Index Level Price - 1 Day percent change
-          type: number
-          format: double
+          description: 'Index Level Price - 1 Day percent change'
+          type: 'number'
+          format: 'double'
           example: 0.642620385795123
           nullable: true
         priceReturnPercentQTD:
-          description: Index Level Price - Quarter-to-Date percent change
-          type: number
-          format: double
+          description: 'Index Level Price - Quarter-to-Date percent change'
+          type: 'number'
+          format: 'double'
           example: 8.02735451465131
           nullable: true
         priceReturnPercentYTD:
-          description: Index Level Price - Year-to-Date percent change
-          type: number
-          format: double
+          description: 'Index Level Price - Year-to-Date percent change'
+          type: 'number'
+          format: 'double'
           example: 3.66394447660916
           nullable: true
         totalReturnLevel:
-          description: >-
-            Index Level Total Return Amount. (Gross or Net depends on requested
-            returnType)
-          type: number
-          format: double
+          description: 'Index Level Total Return Amount. (Gross or Net depends on requested returnType)'
+          type: 'number'
+          format: 'double'
           example: 6870.86168040129
           nullable: true
         totalReturnPercent1D:
-          description: >-
-            Index Level Total Return - 1 Day percent change. (Gross or Net
-            depends on requested returnType)
-          type: number
-          format: double
+          description: 'Index Level Total Return - 1 Day percent change. (Gross or Net depends on requested returnType)'
+          type: 'number'
+          format: 'double'
           example: 0.653957589855003
           nullable: true
         totalReturnPercentQTD:
-          description: >-
-            Index Level Total Return - Quarter-to-Date percent change. (Gross or
-            Net depends on requested returnType)
-          type: number
-          format: double
+          description: 'Index Level Total Return - Quarter-to-Date percent change. (Gross or Net depends on requested returnType)'
+          type: 'number'
+          format: 'double'
           example: 8.17415047623613
           nullable: true
         totalReturnPercentYTD:
-          description: >-
-            Index Level Total Return - Year-to-Date percent change. (Gross or
-            Net depends on requested returnType)
-          type: number
-          format: double
+          description: 'Index Level Total Return - Year-to-Date percent change. (Gross or Net depends on requested returnType)'
+          type: 'number'
+          format: 'double'
           example: 4.84152796547426
           nullable: true
         returnType:
-          description: The requested Return Type - GROSS or NET
-          type: string
-          example: GROSS
+          description: 'The requested Return Type - GROSS or NET'
+          type: 'string'
+          example: 'GROSS'
           nullable: true
         requestId:
-          type: string
-          description: Benchmark Identifier specified in the request
-          example: SP50
+          type: 'string'
+          description: 'Benchmark Identifier specified in the request'
+          example: 'SP50'
     indexHistoryRequest:
-      type: object
-      title: Index History Request
+      type: 'object'
+      title: 'Index History Request'
       properties:
         ids:
           $ref: '#/components/schemas/indexIds'
@@ -1427,10 +1060,10 @@ components:
         impliedDate:
           $ref: '#/components/schemas/impliedDate'
       required:
-        - ids
+        - 'ids'
     indexReturnsRequest:
-      type: object
-      title: Index Returns Request
+      type: 'object'
+      title: 'Index Returns Request'
       properties:
         ids:
           $ref: '#/components/schemas/indexIds'
@@ -1449,182 +1082,159 @@ components:
         impliedDate:
           $ref: '#/components/schemas/impliedDate'
       required:
-        - ids
-        - startDate
-        - endDate
+        - 'ids'
+        - 'startDate'
+        - 'endDate'
     indexHistoryResponse:
-      title: Index History Response
-      type: object
+      title: 'Index History Response'
+      type: 'object'
       properties:
         data:
-          description: |
-            Array of Index History response objects.
-          type: array
+          description: "Array of Index History response objects.\n"
+          type: 'array'
           items:
             $ref: '#/components/schemas/indexHistory'
     indexHistory:
-      title: Index History Object
-      type: object
+      title: 'Index History Object'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Requested Identifier. Must be a valid Benchmark Identifier
-            recognized by FactSet.
-          example: SP50
+          type: 'string'
+          description: 'Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.'
+          example: 'SP50'
           nullable: true
         date:
-          description: >-
-            The respective date for values as of the date requested in
-            YYYY-MM-DD format.
-          type: string
-          format: date
+          description: 'The respective date for values as of the date requested in YYYY-MM-DD format.'
+          type: 'string'
+          format: 'date'
           example: '2020-07-01'
           nullable: true
         inceptionDate:
-          description: The inception date of the requested index in YYYY-MM-DD format.
-          type: string
-          format: date
+          description: 'The inception date of the requested index in YYYY-MM-DD format.'
+          type: 'string'
+          format: 'date'
           example: '1988-01-04'
           nullable: true
         name:
-          description: Proper Name of Index.
-          type: string
-          example: S&P 500
+          description: 'Proper Name of Index.'
+          type: 'string'
+          example: 'S&P 500'
           nullable: true
         constituentNumber:
-          description: The total number of constituents as of the date requested.
-          type: integer
+          description: 'The total number of constituents as of the date requested.'
+          type: 'integer'
           example: 502
           nullable: true
         currency:
-          description: >-
-            Currency Code used in adjustments. If no Currency was requested, the
-            service will default to LOCAL ('LOC').
-          type: string
-          example: USD
+          description: 'Currency Code used in adjustments. If no Currency was requested, the service will default to LOCAL (''LOC'').'
+          type: 'string'
+          example: 'USD'
           nullable: true
         marketValue:
-          description: >-
-            Index Level Market Capitalization as of the date requested expressed
-            in millions.
-          type: number
-          format: double
+          description: 'Index Level Market Capitalization as of the date requested expressed in millions.'
+          type: 'number'
+          format: 'double'
           example: 27696158.012077
           nullable: true
         price:
-          description: Index Level Price
-          type: number
-          format: double
+          description: 'Index Level Price'
+          type: 'number'
+          format: 'double'
           example: 3349.15600690205
           nullable: true
         priceReturnPercent:
-          description: Index Level Price Percent Change
-          type: number
-          format: double
+          description: 'Index Level Price Percent Change'
+          type: 'number'
+          format: 'double'
           example: 0.642620385795123
           nullable: true
         totalReturnLevel:
-          description: Index Level Total Return Amount
-          type: number
-          format: double
+          description: 'Index Level Total Return Amount'
+          type: 'number'
+          format: 'double'
           example: 6870.86168040129
           nullable: true
         totalReturnPercent:
-          description: Index Level Total Return Percent Change
-          type: number
-          format: double
+          description: 'Index Level Total Return Percent Change'
+          type: 'number'
+          format: 'double'
           example: 0.653957589855003
           nullable: true
         returnType:
-          description: The requested Return Type - GROSS or NET
-          type: string
-          example: GROSS
+          description: 'The requested Return Type - GROSS or NET'
+          type: 'string'
+          example: 'GROSS'
           nullable: true
         hedgeType:
-          description: The requested Hedge Type - HEDGED or UNHEDGED
-          type: string
-          example: UNHEDGED
+          description: 'The requested Hedge Type - HEDGED or UNHEDGED'
+          type: 'string'
+          example: 'UNHEDGED'
           nullable: true
         requestId:
-          type: string
-          description: Benchmark Identifier specified in the request
-          example: SP50
+          type: 'string'
+          description: 'Benchmark Identifier specified in the request'
+          example: 'SP50'
         observationDate:
-          description: >-
-            This field will always return the date of the data that was actually
-            returned.
-          type: string
+          description: 'This field will always return the date of the data that was actually returned.'
+          type: 'string'
           example: '2020-07-21'
           nullable: true
     indexReturnsResponse:
-      title: Index Returns Response
-      type: object
+      title: 'Index Returns Response'
+      type: 'object'
       properties:
         data:
-          description: |
-            Array of Index Returns response objects.
-          type: array
+          description: "Array of Index Returns response objects.\n"
+          type: 'array'
           items:
             $ref: '#/components/schemas/indexReturns'
     indexReturns:
-      title: Index Returns Object
-      type: object
+      title: 'Index Returns Object'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Requested Identifier. Must be a valid Benchmark Identifier
-            recognized by FactSet.
-          example: SP50
+          type: 'string'
+          description: 'Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.'
+          example: 'SP50'
         inceptionDate:
-          description: The inception date of the requested index in YYYY-MM-DD format.
-          type: string
-          format: date
+          description: 'The inception date of the requested index in YYYY-MM-DD format.'
+          type: 'string'
+          format: 'date'
           example: '1988-01-04'
           nullable: true
         name:
-          description: Proper Name of Index.
-          type: string
-          example: S&P 500
+          description: 'Proper Name of Index.'
+          type: 'string'
+          example: 'S&P 500'
           nullable: true
         currency:
-          description: >-
-            Currency Code used in adjustments. If no Currency was requested, the
-            service will default to LOCAL ('LOC'). Currency code (ISO 4217). For
-            a list of currency codes, see [OA Page
-            1470](https://my.apps.factset.com/oa/pages/1470).
-          type: string
-          example: USD
+          description: 'Currency Code used in adjustments. If no Currency was requested, the service will default to LOCAL (''LOC''). Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).'
+          type: 'string'
+          example: 'USD'
           nullable: true
         totalReturnPercent:
-          description: >-
-            Cumulative total return (%) for the index over the specified date
-            range, calculated as ((startDate level / endDate level) - 1) * 100
-            using total return index levels. Returns a single aggregated value
-            per benchmark. Dates are inclusive and based on closing levels;
-            non-trading days use the nearest available trading date.
-          type: number
-          format: double
+          description: 'Cumulative total return (%) for the index over the specified date range, calculated as ((startDate level / endDate level) - 1) * 100 using total return index levels. Returns a single aggregated value per benchmark. Dates are inclusive and based on closing levels; non-trading days use the nearest available trading date.'
+          type: 'number'
+          format: 'double'
           example: 0.653957589855003
           nullable: true
         returnType:
-          description: The requested Return Type - GROSS or NET
-          type: string
-          example: GROSS
+          description: 'The requested Return Type - GROSS or NET'
+          type: 'string'
+          example: 'GROSS'
           nullable: true
         hedgeType:
-          description: The requested Hedge Type - HEDGED or UNHEDGED
-          type: string
-          example: UNHEDGED
+          description: 'The requested Hedge Type - HEDGED or UNHEDGED'
+          type: 'string'
+          example: 'UNHEDGED'
           nullable: true
         requestId:
-          type: string
-          description: Benchmark Identifier specified in the request
-          example: SP50
+          type: 'string'
+          description: 'Benchmark Identifier specified in the request'
+          example: 'SP50'
     benchmarkRatiosRequest:
-      type: object
-      title: Benchamrk Ratios Request
+      type: 'object'
+      title: 'Benchamrk Ratios Request'
       properties:
         ids:
           $ref: '#/components/schemas/indexIds'
@@ -1641,481 +1251,296 @@ components:
         currency:
           $ref: '#/components/schemas/currency'
       required:
-        - ids
-        - metrics
+        - 'ids'
+        - 'metrics'
     benchmarkRatiosResponse:
-      title: Benchmark Ratios Response
-      type: object
+      title: 'Benchmark Ratios Response'
+      type: 'object'
       properties:
         data:
-          description: |
-            Array of Index History response objects.
-          type: array
+          description: "Array of Index History response objects.\n"
+          type: 'array'
           items:
             $ref: '#/components/schemas/benchmarkRatios'
     benchmarkRatios:
-      title: Benchmark Ratios Object
-      type: object
+      title: 'Benchmark Ratios Object'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Requested Identifier. Must be a valid Benchmark Identifier
-            recognized by FactSet.
-          example: SP50
+          type: 'string'
+          description: 'Requested Identifier. Must be a valid Benchmark Identifier recognized by FactSet.'
+          example: 'SP50'
           nullable: true
         date:
-          description: >-
-            The respective date for values as of the date requested in
-            YYYY-MM-DD format.
-          type: string
-          format: date
+          description: 'The respective date for values as of the date requested in YYYY-MM-DD format.'
+          type: 'string'
+          format: 'date'
           example: '2020-12-31'
           nullable: true
         name:
-          description: Proper Name of Index.
-          type: string
-          example: S&P 500
+          description: 'Proper Name of Index.'
+          type: 'string'
+          example: 'S&P 500'
           nullable: true
         requestId:
-          type: string
-          description: Benchmark Identifier specified in the request.
-          example: SP50
+          type: 'string'
+          description: 'Benchmark Identifier specified in the request.'
+          example: 'SP50'
         metric:
-          type: string
-          description: Metric requested
-          example: GROSS_MARGIN
+          type: 'string'
+          description: 'Metric requested'
+          example: 'GROSS_MARGIN'
           nullable: true
         periodicity:
-          type: string
-          description: The periodicity submitted in the request.
-          example: LTM
+          type: 'string'
+          description: 'The periodicity submitted in the request.'
+          example: 'LTM'
           nullable: true
         currency:
-          type: string
-          description: The currency submitted in the request.
-          example: USD
+          type: 'string'
+          description: 'The currency submitted in the request.'
+          example: 'USD'
           nullable: true
         value:
-          type: number
-          format: double
-          description: Ratio value based on the metric requested.
+          type: 'number'
+          format: 'double'
+          description: 'Ratio value based on the metric requested.'
           example: 35.4094680290153
           nullable: true
     benchmarkIdListRequest:
-      type: object
-      title: Benchmark Id List Request
+      type: 'object'
+      title: 'Benchmark Id List Request'
       properties:
         familyFilter:
           $ref: '#/components/schemas/familyFilter'
     benchmarkIdListResponse:
-      title: Benchmark Id List Response
-      type: object
+      title: 'Benchmark Id List Response'
+      type: 'object'
       properties:
         data:
-          description: |
-            Array of Benchmark Ids and their respective categorizations.
-          type: array
+          description: "Array of Benchmark Ids and their respective categorizations.\n"
+          type: 'array'
           items:
             $ref: '#/components/schemas/benchmarkIdList'
     benchmarkIdList:
-      title: Benchmark Id List Object
-      type: object
+      title: 'Benchmark Id List Object'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: Benchmark Id
+          type: 'string'
+          description: 'Benchmark Id'
           example: '990100'
           nullable: true
         name:
-          type: string
-          description: Name of the Benchmark ID
-          example: MSCI World Index
+          type: 'string'
+          description: 'Name of the Benchmark ID'
+          example: 'MSCI World Index'
           nullable: true
         familyName:
-          type: string
-          description: Name of the Benchmarks Family
-          example: MSCI
+          type: 'string'
+          description: 'Name of the Benchmarks Family'
+          example: 'MSCI'
           nullable: true
         market:
-          type: string
-          description: Market grouping related to the Benchmark Family
-          example: Developed
+          type: 'string'
+          description: 'Market grouping related to the Benchmark Family'
+          example: 'Developed'
           nullable: true
         categoryDescription:
-          type: string
-          description: Extended name or description of Benchmark Family & Market
-          example: International Indices
+          type: 'string'
+          description: 'Extended name or description of Benchmark Family & Market'
+          example: 'International Indices'
           nullable: true
     constituentIds:
-      title: Constituent Ids
-      type: array
+      title: 'Constituent Ids'
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 1
-      description: >-
-        Benchmark Identifiers. Reference the helper endpoint **/id-list** to get
-        a sample list of  valid identifiers. You must be authorized for the
-        `ids` requested, otherwise you will receive an error.
+      description: 'Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error.'
       example:
-        - SP50
+        - 'SP50'
     fIConstituentIds:
-      title: Fixed Income Constituent Ids
-      type: array
+      title: 'Fixed Income Constituent Ids'
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 1
-      description: >-
-        Fixed Income Benchmark Identifiers. Reference the helper endpoint
-        **/id-list** to get a sample list of  valid identifiers. You must be
-        authorized for the `ids` requested, otherwise you will receive an error.
+      description: 'Fixed Income Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers. You must be authorized for the `ids` requested, otherwise you will receive an error.'
       example:
-        - LHMN0001
+        - 'LHMN0001'
     indexIds:
-      title: Index Ids
-      type: array
+      title: 'Index Ids'
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 500
-      description: >-
-        Benchmark Identifiers. Reference the helper endpoint **/id-list** to get
-        a sample list of  valid identifiers.
+      description: 'Benchmark Identifiers. Reference the helper endpoint **/id-list** to get a sample list of  valid identifiers.'
       example:
-        - SP50
+        - 'SP50'
     requestedDate:
-      title: Date
-      type: string
-      description: Date of holding expressed in YYYY-MM-DD format.
+      title: 'Date'
+      type: 'string'
+      description: 'Date of holding expressed in YYYY-MM-DD format.'
       example: '2020-08-06'
     startDate:
-      title: Start Date
-      type: string
-      description: Requested start date expressed in YYYY-MM-DD format.
+      title: 'Start Date'
+      type: 'string'
+      description: 'Requested start date expressed in YYYY-MM-DD format.'
       example: '2018-12-31'
     endDate:
-      title: End Date
-      type: string
-      description: Requested end date for Range expressed in YYYY-MM-DD format.
+      title: 'End Date'
+      type: 'string'
+      description: 'Requested end date for Range expressed in YYYY-MM-DD format.'
       example: '2019-12-31'
     returnType:
-      title: Return Type
-      type: string
+      title: 'Return Type'
+      type: 'string'
       enum:
-        - GROSS
-        - NET
-      default: GROSS
-      description: >-
-        The return type adjustment used in returns response items. Adjustment
-        can be made for GROSS and NET dividends that will be included in the
-        return calculation. The service will default to GROSS.
-      example: GROSS
+        - 'GROSS'
+        - 'NET'
+      default: 'GROSS'
+      description: 'The return type adjustment used in returns response items. Adjustment can be made for GROSS and NET dividends that will be included in the return calculation. The service will default to GROSS.'
+      example: 'GROSS'
     hedgeType:
-      title: Hedge Type
-      type: string
+      title: 'Hedge Type'
+      type: 'string'
       enum:
-        - UNHEDGED
-        - HEDGED
-      default: UNHEDGED
-      description: >-
-        The hedge type adjustment used in returns response items. Adjustment can
-        be made for HEDGED and UNHEDGED values that will be included in the
-        return calculation. The service will default to UNHEDGED.
-      example: UNHEDGED
+        - 'UNHEDGED'
+        - 'HEDGED'
+      default: 'UNHEDGED'
+      description: 'The hedge type adjustment used in returns response items. Adjustment can be made for HEDGED and UNHEDGED values that will be included in the return calculation. The service will default to UNHEDGED.'
+      example: 'UNHEDGED'
     impliedDate:
-      title: Implied Date
-      type: string
+      title: 'Implied Date'
+      type: 'string'
       enum:
         - 'Y'
         - 'N'
       default: 'N'
-      description: >-
-        This parameter controls the **date** returned in the date field. The
-        default value is **N**. By default, the date field returns the actual
-        date of the observation. This means it will repeat values for weekends
-        and holidays. If  set to **Y**, the date field will return the implied
-        date of the observation, making all the dates unique.
+      description: 'This parameter controls the **date** returned in the date field. The default value is **N**. By default, the date field returns the actual date of the observation. This means it will repeat values for weekends and holidays. If  set to **Y**, the date field will return the implied date of the observation, making all the dates unique.'
     calendar:
-      title: Calendar
-      type: string
+      title: 'Calendar'
+      type: 'string'
       enum:
-        - FIVEDAY
-        - SEVENDAY
-      default: FIVEDAY
-      description: Calendar of data returned. SEVENDAY includes weekends.
-      example: FIVEDAY
+        - 'FIVEDAY'
+        - 'SEVENDAY'
+      default: 'FIVEDAY'
+      description: 'Calendar of data returned. SEVENDAY includes weekends.'
+      example: 'FIVEDAY'
     regionCalendar:
-      title: Calendar
-      type: string
-      default: FIVEDAY
-      description: >-
-        Calendar of data returned. The default value is FIVEDAY which displays
-        Monday through Friday, regardless of whether there were trading
-        holidays.
-      example: FIVEDAY
+      title: 'Calendar'
+      type: 'string'
+      default: 'FIVEDAY'
+      description: 'Calendar of data returned. The default value is FIVEDAY which displays Monday through Friday, regardless of whether there were trading holidays.'
+      example: 'FIVEDAY'
     currency:
-      title: Currency
-      type: string
-      description: >-
-        Currency for response. Currency code (ISO 4217). For a list of currency
-        codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
-      example: USD
+      title: 'Currency'
+      type: 'string'
+      description: 'Currency for response. Currency code (ISO 4217). For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).'
+      example: 'USD'
     frequency:
-      title: Frequency
-      type: string
+      title: 'Frequency'
+      type: 'string'
       enum:
-        - D
-        - W
-        - M
-        - AM
-        - CQ
-        - AY
-        - CY
-      default: CY
-      description: |
-        Controls the display frequency of the data returned.
-          * **D** = Daily
-          * **W** = Weekly, based on the last day of the week of the start date.
-          * **M** = Monthly, based on the last trading day of the month.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.). 
-          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-          * **AY** = Actual Annual, based on the start date.
-          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
-      example: CY
+        - 'D'
+        - 'W'
+        - 'M'
+        - 'AM'
+        - 'CQ'
+        - 'AY'
+        - 'CY'
+      default: 'CY'
+      description: "Controls the display frequency of the data returned.\n  * **D** = Daily\n  * **W** = Weekly, based on the last day of the week of the start date.\n  * **M** = Monthly, based on the last trading day of the month.\n  * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.). \n  * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).\n  * **AY** = Actual Annual, based on the start date.\n  * **CY** = Calendar Annual, based on the last trading day of the calendar year.\n"
+      example: 'CY'
     metrics:
-      title: Metrics
-      type: array
-      description: >
-        Requested List of FactSet Market Aggregates (FMA) or ratios. provided
-        the below complete metrics list.
-
-        |metric item|Description|category|periodicity
-
-        |:---|:---|:---|:---|
-
-        |GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR,
-        0, 1, 2
-
-        |OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR
-
-        |NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1,
-        2
-
-        |EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR,
-        0, 1, 2
-
-        |EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM,
-        QTR, 0, 1, 2
-
-        |ROA|Return on Assets|Profitability (%)|LTM
-
-        |ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2
-
-        |ROIC|Return on Invested Capital|Profitability (%)| LTM
-
-        |FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR
-
-        |PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
-
-        |PEX|Price/Earnings (excl negatives)|Valuation|LTM
-
-        |PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2
-
-        |PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM
-
-        |PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2
-
-        |NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2
-
-        |NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM
-
-        |DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM
-
-        |DEBT_EBIT|Total Debt/EBIT|Coverage|LTM
-
-        |EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM
-
-        |EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM
-
-        |OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM
-
-        |LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM
-
-        |NDEBT_FFO|Net Debt/FFO|Coverage|LTM
-
-        |LTD_FFO|LT Debt/FFO|Coverage|LTM
-
-        |FCF_DEBT|FCF/Total Debt|Coverage|LTM
-
-        |OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM
-
-        |LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM
-
-        |LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM
-
-        |LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM
-
-        |DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM
-
-        |DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM
-
-        |NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM
-
-        |DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM
+      title: 'Metrics'
+      type: 'array'
+      description: "Requested List of FactSet Market Aggregates (FMA) or ratios. provided the below complete metrics list.\n|metric item|Description|category|periodicity\n|:---|:---|:---|:---|\n|GROSS_MARGIN|Gross Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|OPER_INC_SALES|Operating Margin|Profitability (%)|LTM, QTR\n|NET_MGN|Net Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|EBIT_MARGIN|EBIT Margin|Profitability (%)| NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|EBITDA_MARGIN|EBITDA Margin|Profitability (%)|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|ROA|Return on Assets|Profitability (%)|LTM\n|ROE|Return on Equity|Profitability (%)|NTMA, LTMA, LTM, 0, 1, 2\n|ROIC|Return on Invested Capital|Profitability (%)| LTM\n|FCF_MGN|Free Cash Flow Margin|Profitability (%)|LTM, QTR\n|PE|Price/Earnings|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|PEX|Price/Earnings (excl negatives)|Valuation|LTM\n|PSALES|Price/Sales|Valuation|NTMA, LTMA, STMA, LTM, QTR, 0, 1, 2\n|PBK|Price/Book Value|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|PCF|Price/Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|PCFX|Price/Cash Flow (excl negatives)|Valuation|LTM\n|PFCF|Price/Free Cash Flow|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|EVAL_EBIT|Enterprise Value/EBIT|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|EVAL_EBITDA|Enterprise Value/EBITDA|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|EVAL_SALES|Enterprise Value/Sales|Valuation|NTMA, LTMA, LTM, 0, 1, 2\n|NDEBT_EBITDA|Net Debt/EBITDA|Coverage|NTMA, LTMA, LTM, 0, 1, 2\n|NDEBT_EBITDA_MIN_CAPEX|Net Debt/(EBITDA-Capex)|Coverage|LTM\n|DEBT_EBITDA|Total Debt/EBITDA|Coverage|LTM\n|DEBT_EBIT|Total Debt/EBIT|Coverage|LTM\n|EBIT_INT_EXP|EBIT/Interest Expense (Int. Coverage)|Coverage|LTM\n|EBITDA_INT_EXP|EBITDA/Interest Expense|Coverage|LTM\n|OPER_CF_INT_EXP|CFO/Interest Expense|Coverage|LTM\n|LTD_EBITDA|LT Debt/EBITDA|Coverage|LTM\n|NDEBT_FFO|Net Debt/FFO|Coverage|LTM\n|LTD_FFO|LT Debt/FFO|Coverage|LTM\n|FCF_DEBT|FCF/Total Debt|Coverage|LTM\n|OPER_CF_DEBT|CFO/Total Debt|Coverage|LTM\n|LTD_EQ|LT Debt/Total Equity|Leverage(%)|LTM\n|LTD_TCAP|LT Debt/Total Capital|Leverage(%)|LTM\n|LTD_ASSETS|LT Debt/Total Assets|Leverage(%)|LTM\n|DEBT_ASSETS|Total Debt/Total Assets|Leverage(%)|LTM\n|DEBT_EQ|Total Debt/Total Equity|Leverage(%)|LTM\n|NDEBT_TCAP|Net Debt/Total Capital|Leverage(%)|LTM\n|DEBT_TCAP|Total Debt/Total Capital|Leverage(%)|LTM\n"
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 38
       example:
-        - PE
+        - 'PE'
     periodicity:
-      title: Periodicity
-      type: string
-      description: >
-        The calculation periodicity for the aggregated period. **Note** - Not
-        all periodicities are supported for each metric, depending on the type
-        of ratio. LTM is set as default and supported for all metrics. See
-        Metrics Parameter for additional detail on which periodicities are
-        available per metric.
-
-        |Periodicity|Description|
-
-        |:---|:---|
-
-        |LTM|Last Twelve Months
-
-        |LTMA|Last Twelve Months using Broker Actuals for Estimated Items
-
-        |STMA| Second Twelve Month Forward
-
-        |NTMA| 12 Month Forward
-
-        |0| Latest Reported Calendar Year
-
-        |1| Current Unreported Year
-
-        |2| Following Year
-
-        |QTR| Quarterly - Reported by companies
+      title: 'Periodicity'
+      type: 'string'
+      description: "The calculation periodicity for the aggregated period. **Note** - Not all periodicities are supported for each metric, depending on the type of ratio. LTM is set as default and supported for all metrics. See Metrics Parameter for additional detail on which periodicities are available per metric.\n|Periodicity|Description|\n|:---|:---|\n|LTM|Last Twelve Months\n|LTMA|Last Twelve Months using Broker Actuals for Estimated Items\n|STMA| Second Twelve Month Forward\n|NTMA| 12 Month Forward\n|0| Latest Reported Calendar Year\n|1| Current Unreported Year\n|2| Following Year\n|QTR| Quarterly - Reported by companies\n"
       enum:
-        - LTM
-        - LTMA
-        - STMA
-        - NTMA
+        - 'LTM'
+        - 'LTMA'
+        - 'STMA'
+        - 'NTMA'
         - '0'
         - '1'
         - '2'
-        - QTR
-      default: LTM
-      example: LTM
+        - 'QTR'
+      default: 'LTM'
+      example: 'LTM'
     familyFilter:
-      title: Family Filter
-      description: >
-        Highest Level Filter to search by common Benchmark Families, such as
-        S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For
-        further filtering, use the response items such as the
-        categoryDescription field. Leave blank if you wish to see a full sample
-        list of ids. requested-
-
-        * **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as
-        Hang Seng Index (HSI-HKX)
-
-        * **DOW JONES** - Dow Jones Global, Regions, Countries, Titans
-
-        * **FACTSET MARKET INDICES** - Regional and Country Indices defined by
-        FactSet
-
-        * **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European,
-        GWA, JSE, Multinationals, and Style indices
-
-        * **GLOBAL INDICES** - A mix of major indices across the globe
-
-        * **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy,
-        Emerging, Developed, US
-
-        * **RUSSELL** - US, Global, and Nomura
-
-        * **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging,
-        TSX
-
-        * **STOXX** - Total Market, Europe, and Nordic
-
-        * **TOPIX** - Topix Indices, such as TOPIX 500 (182301)
-
-        * **MORNINGSTAR** - Global, Regional, Country, and Sector indicies
-
-        * **BLOOMBERG** - Global, Regional, US, Europe, Maturity, Ratings
-      type: string
+      title: 'Family Filter'
+      description: "Highest Level Filter to search by common Benchmark Families, such as S&P, MSCI, or Russell. This will retrieve all related benchmark ids. For further filtering, use the response items such as the categoryDescription field. Leave blank if you wish to see a full sample list of ids. requested-\n* **CHINA & HK INDICES** - Major Hong Kong and China Indices, such as Hang Seng Index (HSI-HKX)\n* **DOW JONES** - Dow Jones Global, Regions, Countries, Titans\n* **FACTSET MARKET INDICES** - Regional and Country Indices defined by FactSet\n* **FTSE** - FTSE Global, UK, Global All Cap, World, Xinhua, European, GWA, JSE, Multinationals, and Style indices\n* **GLOBAL INDICES** - A mix of major indices across the globe\n* **MSCI** - MSCI All Country, Asia Pacific, Thematic & Strategy, Emerging, Developed, US\n* **RUSSELL** - US, Global, and Nomura\n* **S&P** - US, ASX, Select Industry, BMI, Global, Thematic, Emerging, TSX\n* **STOXX** - Total Market, Europe, and Nordic\n* **TOPIX** - Topix Indices, such as TOPIX 500 (182301)\n* **MORNINGSTAR** - Global, Regional, Country, and Sector indicies\n* **BLOOMBERG** - Global, Regional, US, Europe, Maturity, Ratings\n"
+      type: 'string'
       enum:
-        - CHINA_HK_INDICES
-        - DOW_JONES
-        - FACTSET_MARKET_INDICES
-        - FTSE
-        - GLOBAL_INDICES
-        - MSCI
-        - RUSSELL
-        - SP
-        - STOXX
-        - TOPIX
-        - MORNINGSTAR
-        - BLOOMBERG
-      example: MSCI
+        - 'CHINA_HK_INDICES'
+        - 'DOW_JONES'
+        - 'FACTSET_MARKET_INDICES'
+        - 'FTSE'
+        - 'GLOBAL_INDICES'
+        - 'MSCI'
+        - 'RUSSELL'
+        - 'SP'
+        - 'STOXX'
+        - 'TOPIX'
+        - 'MORNINGSTAR'
+        - 'BLOOMBERG'
+      example: 'MSCI'
     errorResponse:
-      type: object
-      title: Error Response
+      type: 'object'
+      title: 'Error Response'
       properties:
         status:
-          description: status
-          type: string
-          example: Bad Request
+          description: 'status'
+          type: 'string'
+          example: 'Bad Request'
         timestamp:
-          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
-          type: string
+          description: 'timestamp in YYYY-MM-DD HH:MM:SS.SSS'
+          type: 'string'
           example: '2019-11-01 11:09:41.918'
-          format: date-time
+          format: 'date-time'
         path:
-          description: The Endpoint path {package}/version/{endpoint}
-          type: string
-          example: /factset-benchmarks/v1/{endpoint}
+          description: 'The Endpoint path {package}/version/{endpoint}'
+          type: 'string'
+          example: '/factset-benchmarks/v1/{endpoint}'
         message:
-          description: The plain text error message
-          type: string
-          example: Validation Error
+          description: 'The plain text error message'
+          type: 'string'
+          example: 'Validation Error'
         subErrors:
-          description: subErrors related to the error message. Null if not applicable.
-          type: object
+          description: 'subErrors related to the error message. Null if not applicable.'
+          type: 'object'
           properties:
             object:
-              description: the operation ID
-              type: string
+              description: 'the operation ID'
+              type: 'string'
             field:
-              description: Parameter Field Name
-              type: string
+              description: 'Parameter Field Name'
+              type: 'string'
             message:
-              description: Error message
-              type: string
+              description: 'Error message'
+              type: 'string'
             rejectedValue:
-              description: Rejected Values in an Array
-              type: array
+              description: 'Rejected Values in an Array'
+              type: 'array'
               items:
-                type: string
+                type: 'string'
   responses:
     '400':
-      description: >-
-        Bad Request. This can occur for several reasons. Please review the
-        "message" for more details.
+      description: 'Bad Request. This can occur for several reasons. Please review the "message" for more details.'
       content:
         application/json:
           schema:
@@ -2136,12 +1561,7 @@ components:
             Bad Request - Read Timeout:
               $ref: '#/components/examples/badRequestReadTimeout'
     '401':
-      description: >-
-        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
-        from. For more help, select the **Report Issue** in the top right corner
-        of this Developer Portal specification card and choose Connectivity 401
-        or 403 Responses.
+      description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
       content:
         application/json:
           schema:
@@ -2150,11 +1570,7 @@ components:
             Bad Request - Date Format:
               $ref: '#/components/examples/unauthenticated'
     '403':
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       content:
         application/json:
           schema:
@@ -2163,11 +1579,7 @@ components:
             Bad Request - forbidden:
               $ref: '#/components/examples/forbidden'
     '415':
-      description: >-
-        Unsupported Media Type. This error may be returned when the caller sends
-        a resource in a format that is not accepted by the server. This can be
-        fixed by ensuring that Content-Type header is set to the correct value.
-        In this instance, "application/json" would be the appropriate value.
+      description: 'Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, "application/json" would be the appropriate value.'
       content:
         application/json:
           schema:
@@ -2176,7 +1588,7 @@ components:
             Bad Request - Unsupported Media Type:
               $ref: '#/components/examples/unsupportedMediaType'
     '500':
-      description: Internal Server Error.
+      description: 'Internal Server Error.'
       content:
         application/json:
           schema:
@@ -2188,860 +1600,800 @@ components:
               $ref: '#/components/examples/generalException'
   examples:
     constituentRequest:
-      description: Benchmark Constituent Request
+      description: 'Benchmark Constituent Request'
       value:
         ids:
-          - SP50
+          - 'SP50'
         date: '2020-08-06'
-        currency: USD
-        calendar: FIVEDAY
+        currency: 'USD'
+        calendar: 'FIVEDAY'
     resultofBenchmarkIDSPY-US:
-      summary: >-
-        Result of Benchmark Constituent Id SPY-US (only first 10 records for
-        example purpose).
-      description: >
-        This is the list of all constituents that make up the SPDR S&P 500 ETF
-        (SPY-US) as of 2020-07-01. The ETF is used as a proxy for S&P 500
-        Benchmark. To limit the response size of specification file, only first
-        10 items are shown.
+      summary: 'Result of Benchmark Constituent Id SPY-US (only first 10 records for example purpose).'
+      description: "This is the list of all constituents that make up the SPDR S&P 500 ETF (SPY-US) as of 2020-07-01. The ETF is used as a proxy for S&P 500 Benchmark. To limit the response size of specification file, only first 10 items are shown.\n"
       value:
         data:
           - adjHolding: 0.89521
             adjMarketValue: 304.908526
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: F07Q7W-R
-            fsymSecurityId: TKPJVY-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'F07Q7W-R'
+            fsymSecurityId: 'TKPJVY-S'
             price: 340.6
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 0.89521
             weightClose: 0.092687242574555
           - adjHolding: 15.456894
             adjMarketValue: 1168.69575534
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: MKC1SV-R
-            fsymSecurityId: K6TLGQ-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'MKC1SV-R'
+            fsymSecurityId: 'K6TLGQ-S'
             price: 75.61
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 15.456894
             weightClose: 0.355264539145919
           - adjHolding: 3.212757
             adjMarketValue: 277.35731181
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: RFPMVX-R
-            fsymSecurityId: C8QZP6-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'RFPMVX-R'
+            fsymSecurityId: 'C8QZP6-S'
             price: 86.33
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 3.212757
             weightClose: 0.084312120677006
           - adjHolding: 1.164754
             adjMarketValue: 156.34492942
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: JWH12W-R
-            fsymSecurityId: TLPSG8-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'JWH12W-R'
+            fsymSecurityId: 'TLPSG8-S'
             price: 134.23
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 1.164754
             weightClose: 0.047526320724968
           - adjHolding: 6.780214
             adjMarketValue: 178.18402392
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: LY653H-R
-            fsymSecurityId: Q0KPX4-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'LY653H-R'
+            fsymSecurityId: 'Q0KPX4-S'
             price: 26.28
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 6.780214
             weightClose: 0.0541650509569
           - adjHolding: 5.847468
             adjMarketValue: 261.14792088
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: FS32CR-R
-            fsymSecurityId: D1QS87-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'FS32CR-R'
+            fsymSecurityId: 'D1QS87-S'
             price: 44.66
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 5.847468
             weightClose: 0.079384728948003
           - adjHolding: 0.874856
             adjMarketValue: 256.8139788
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: CN7T72-R
-            fsymSecurityId: C0SZHB-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'CN7T72-R'
+            fsymSecurityId: 'C0SZHB-S'
             price: 293.55
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 0.874856
             weightClose: 0.078067280905002
           - adjHolding: 3.484578
             adjMarketValue: 242.178171
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: X0N4MP-R
-            fsymSecurityId: D506QF-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'X0N4MP-R'
+            fsymSecurityId: 'D506QF-S'
             price: 69.5
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 3.484578
             weightClose: 0.073618232904839
           - adjHolding: 0.90688
             adjMarketValue: 539.5210496
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: V9977J-R
-            fsymSecurityId: JPYYTB-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'V9977J-R'
+            fsymSecurityId: 'JPYYTB-S'
             price: 594.92
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 0.90688
             weightClose: 0.164005641476728
           - adjHolding: 2.505859
             adjMarketValue: 855.62555555
-            currency: USD
+            currency: 'USD'
             date: '2021-03-08'
-            fsymId: SPY-US
-            fsymRegionalId: KC6WDM-R
-            fsymSecurityId: BV8916-S
+            fsymId: 'SPY-US'
+            fsymRegionalId: 'KC6WDM-R'
+            fsymSecurityId: 'BV8916-S'
             price: 341.45
-            requestId: SPY-US
+            requestId: 'SPY-US'
             unadjHolding: 2.505859
             weightClose: 0.260096280220945
     resultofBenchmarkID-TOPIX:
-      summary: The list of Benchmark Ids under the family TOPIX
-      description: >-
-        Result of requesting a sample list of using familyFilter set to TOPIX.
-        Each fsymId represents a unique Benchmark Id that can be used in other
-        benchmark endpoints.
+      summary: 'The list of Benchmark Ids under the family TOPIX'
+      description: 'Result of requesting a sample list of using familyFilter set to TOPIX. Each fsymId represents a unique Benchmark Id that can be used in other benchmark endpoints.'
       value:
         data:
           - fsymId: '180511'
-            name: Tokyo Stock Exchange 2nd Section
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'Tokyo Stock Exchange 2nd Section'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '152470'
-            name: Tokyo Stock Exchange Mothers
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'Tokyo Stock Exchange Mothers'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '152471'
-            name: Tokyo Stock Exchange REIT
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'Tokyo Stock Exchange REIT'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '180460'
-            name: TOPIX
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '182297'
-            name: TOPIX 100
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX 100'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '152469'
-            name: TOPIX 1000
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX 1000'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '182301'
-            name: TOPIX 500
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX 500'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '182295'
-            name: TOPIX Core 30
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX Core 30'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '182296'
-            name: TOPIX Large 70
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX Large 70'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '180710'
-            name: TOPIX Large Cap
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX Large Cap'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '182300'
-            name: TOPIX Mid 400
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX Mid 400'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '180711'
-            name: TOPIX Mid Cap
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX Mid Cap'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '182302'
-            name: TOPIX Small
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX Small'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
           - fsymId: '180712'
-            name: TOPIX Small Cap
-            familyName: TOPIX
-            market: TOPIX Indices
-            categoryDescription: TOPIX Indices
+            name: 'TOPIX Small Cap'
+            familyName: 'TOPIX'
+            market: 'TOPIX Indices'
+            categoryDescription: 'TOPIX Indices'
     idListRequest:
-      summary: Id List Request
-      description: >-
-        Result of requesting a sample list of using familyFilter set to TOPIX.
-        Each fsymId represents a unique Benchmark Id that can be used in other
-        benchmark endpoints.
+      summary: 'Id List Request'
+      description: 'Result of requesting a sample list of using familyFilter set to TOPIX. Each fsymId represents a unique Benchmark Id that can be used in other benchmark endpoints.'
       value:
-        familyFilter: TOPIX
+        familyFilter: 'TOPIX'
     resultofFixedIncomeConstituents:
-      summary: Fixed Income Constituents Response
-      description: Fixed Income Constituents for 'SP50' as of 2020-08-06
+      summary: 'Fixed Income Constituents Response'
+      description: 'Fixed Income Constituents for ''SP50'' as of 2020-08-06'
       value:
         data:
-          - fsymId: SP50
+          - fsymId: 'SP50'
             date: '2020-08-06'
-            fsymSecurityId: PJNLKG-S
+            fsymSecurityId: 'PJNLKG-S'
             weightClose: 0.0917345946283279
             amountOutstanding: null
             price: 35.41
             adjMarketValue: 25407
-            requestId: SP50
+            requestId: 'SP50'
     fixedIncomeConstituentsRequest:
-      summary: Fixed Income Constituents Request
-      description: |
-        Fixed Income Constituents for 'SP50' as of 2020-08-06
+      summary: 'Fixed Income Constituents Request'
+      description: "Fixed Income Constituents for 'SP50' as of 2020-08-06\n"
       value:
         ids:
-          - SP50
+          - 'SP50'
         date: '2021-04-12'
-        currency: USD
+        currency: 'USD'
     resultofIndexSnapshotMultiple:
-      summary: Index Snapshot Response
-      description: The Price and Returns of S&P 500 and Russell 3000 as of 2020-08-06
+      summary: 'Index Snapshot Response'
+      description: 'The Price and Returns of S&P 500 and Russell 3000 as of 2020-08-06'
       value:
         data:
           - constituentNumber: 505
-            currency: LOCAL
+            currency: 'LOCAL'
             date: '2020-08-06'
             inceptionDate: '1988-01-04'
-            fsymId: SP50
+            fsymId: 'SP50'
             marketValue: 27696158.012077
-            name: S&P 500
+            name: 'S&P 500'
             price: 3349.15600690205
             priceReturnPercent1D: 0.642620385795123
             priceReturnPercentQTD: 8.02735451465131
             priceReturnPercentYTD: 3.66394447660916
-            requestId: SP50
-            returnType: GROSS
+            requestId: 'SP50'
+            returnType: 'GROSS'
             totalReturnLevel: 6870.86168040129
             totalReturnPercent1D: 0.653957589855003
             totalReturnPercentQTD: 8.17415047623613
             totalReturnPercentYTD: 4.84152796547426
           - constituentNumber: 3000
-            currency: LOCAL
+            currency: 'LOCAL'
             date: '2020-08-06'
             inceptionDate: '1978-12-29'
-            fsymId: R.3000
+            fsymId: 'R.3000'
             marketValue: 32954409.7735481
-            name: Russell 3000
+            name: 'Russell 3000'
             price: 3596.989378
             priceReturnPercent1D: 0.502392266457519
             priceReturnPercentQTD: 8.22378331718046
             priceReturnPercentYTD: 3.47683663855225
-            requestId: R.3000
-            returnType: GROSS
+            requestId: 'R.3000'
+            returnType: 'GROSS'
             totalReturnLevel: 10597.086657
             totalReturnPercent1D: 0.513265793869122
             totalReturnPercentQTD: 8.35826463942657
             totalReturnPercentYTD: 4.59191053652597
     indexSnapshotRequestBody:
-      summary: Index Snapshot Request
-      description: Index Snapshot Request of SP50 as of 2020-08-06
+      summary: 'Index Snapshot Request'
+      description: 'Index Snapshot Request of SP50 as of 2020-08-06'
       value:
         ids:
-          - SP50
+          - 'SP50'
         date: '2020-08-06'
-        returnType: GROSS
-        currency: USD
-        calendar: FIVEDAY
+        returnType: 'GROSS'
+        currency: 'USD'
+        calendar: 'FIVEDAY'
     resultofIndexHistoryMultiple:
-      summary: Index History Response
-      description: Index History for the 'SP50' from 2018-12-31 to 2019-12-31
+      summary: 'Index History Response'
+      description: 'Index History for the ''SP50'' from 2018-12-31 to 2019-12-31'
       value:
         data:
-          - fsymId: SP50
+          - fsymId: 'SP50'
             date: '2018-12-31'
             inceptionDate: '1988-01-04'
-            name: S&P 500
+            name: 'S&P 500'
             constituentNumber: 505
-            currency: USD
+            currency: 'USD'
             marketValue: 21026901.6340513
             price: 2506.84718262722
             priceReturnPercent: -6.23738345882681
             totalReturnLevel: 4984.21723228551
             totalReturnPercent: -4.38434932977296
-            returnType: GROSS
-            hedgeType: UNHEDGED
-            requestId: SP50
+            returnType: 'GROSS'
+            hedgeType: 'UNHEDGED'
+            requestId: 'SP50'
             observationDate: '2018-12-31'
-          - fsymId: SP50
+          - fsymId: 'SP50'
             date: '2019-12-31'
             inceptionDate: '1988-01-04'
-            name: S&P 500
+            name: 'S&P 500'
             constituentNumber: 505
-            currency: USD
+            currency: 'USD'
             marketValue: 26759686.7868843
             price: 3230.78195009043
             priceReturnPercent: 28.878296709914
             totalReturnLevel: 6553.56881355636
             totalReturnPercent: 31.4864201966418
-            returnType: GROSS
-            hedgeType: UNHEDGED
-            requestId: SP50
+            returnType: 'GROSS'
+            hedgeType: 'UNHEDGED'
+            requestId: 'SP50'
             observationDate: '2019-12-31'
     resultofIndexReturns:
-      summary: Cumulative Index Returns Response of SP50
-      description: Index Returns for 'SP50' derived from historical data
+      summary: 'Cumulative Index Returns Response of SP50'
+      description: 'Index Returns for ''SP50'' derived from historical data'
       value:
         data:
-          - fsymId: SP50
+          - fsymId: 'SP50'
             inceptionDate: '1988-01-04'
-            name: S&P 500
-            currency: USD
+            name: 'S&P 500'
+            currency: 'USD'
             totalReturnPercent: -4.38434932977296
-            returnType: GROSS
-            hedgeType: UNHEDGED
-            requestId: SP50
+            returnType: 'GROSS'
+            hedgeType: 'UNHEDGED'
+            requestId: 'SP50'
     indexHistoryRequestBody:
-      summary: Index History Request
-      description: Index History Request for the 'SP50' from 2018-12-31 to 2019-12-31
+      summary: 'Index History Request'
+      description: 'Index History Request for the ''SP50'' from 2018-12-31 to 2019-12-31'
       value:
         ids:
-          - SP50
+          - 'SP50'
         startDate: '2018-12-31'
         endDate: '2019-12-31'
-        frequency: CY
-        returnType: GROSS
-        hedgeType: UNHEDGED
-        currency: USD
-        calendar: FIVEDAY
+        frequency: 'CY'
+        returnType: 'GROSS'
+        hedgeType: 'UNHEDGED'
+        currency: 'USD'
+        calendar: 'FIVEDAY'
         impliedDate: 'N'
     allRatiosRequest:
-      summary: >-
-        Requesting all available index level ratios for S&P 500 on LTM basis as
-        of latest calendar year end
-      description: >
-        Requesting all available index level ratios for S&P 500 on LTM basis as
-        of latest calendar year end
+      summary: 'Requesting all available index level ratios for S&P 500 on LTM basis as of latest calendar year end'
+      description: "Requesting all available index level ratios for S&P 500 on LTM basis as of latest calendar year end\n"
       value:
         ids:
-          - SP50
-        periodicity: LTM
+          - 'SP50'
+        periodicity: 'LTM'
         metrics:
-          - GROSS_MARGIN
-          - OPER_INC_SALES
-          - NET_MGN
-          - EBIT_MARGIN
-          - EBITDA_MARGIN
-          - ROA
-          - ROE
-          - ROIC
-          - FCF_MGN
-          - PE
-          - PEX
-          - PSALES
-          - PBK
-          - PCF
-          - PCFX
-          - PFCF
-          - EVAL_EBIT
-          - EVAL_EBITDA
-          - EVAL_SALES
-          - NDEBT_EBITDA
-          - NDEBT_EBITDA_MIN_CAPEX
-          - DEBT_EBITDA
-          - DEBT_EBIT
-          - EBIT_INT_EXP
-          - EBITDA_INT_EXP
-          - OPER_CF_INT_EXP
-          - LTD_EBITDA
-          - NDEBT_FFO
-          - LTD_FFO
-          - FCF_DEBT
-          - OPER_CF_DEBT
-          - LTD_EQ
-          - LTD_TCAP
-          - LTD_ASSETS
-          - DEBT_ASSETS
-          - DEBT_EQ
-          - NDEBT_TCAP
-          - DEBT_TCAP
-        frequency: CY
+          - 'GROSS_MARGIN'
+          - 'OPER_INC_SALES'
+          - 'NET_MGN'
+          - 'EBIT_MARGIN'
+          - 'EBITDA_MARGIN'
+          - 'ROA'
+          - 'ROE'
+          - 'ROIC'
+          - 'FCF_MGN'
+          - 'PE'
+          - 'PEX'
+          - 'PSALES'
+          - 'PBK'
+          - 'PCF'
+          - 'PCFX'
+          - 'PFCF'
+          - 'EVAL_EBIT'
+          - 'EVAL_EBITDA'
+          - 'EVAL_SALES'
+          - 'NDEBT_EBITDA'
+          - 'NDEBT_EBITDA_MIN_CAPEX'
+          - 'DEBT_EBITDA'
+          - 'DEBT_EBIT'
+          - 'EBIT_INT_EXP'
+          - 'EBITDA_INT_EXP'
+          - 'OPER_CF_INT_EXP'
+          - 'LTD_EBITDA'
+          - 'NDEBT_FFO'
+          - 'LTD_FFO'
+          - 'FCF_DEBT'
+          - 'OPER_CF_DEBT'
+          - 'LTD_EQ'
+          - 'LTD_TCAP'
+          - 'LTD_ASSETS'
+          - 'DEBT_ASSETS'
+          - 'DEBT_EQ'
+          - 'NDEBT_TCAP'
+          - 'DEBT_TCAP'
+        frequency: 'CY'
     allRatiosSP50:
-      summary: Result of Fetching all avialable Index Level LTM Ratios for the S&P 500
-      description: >
-        The response of requesting all available Index Level Ratios on a Last
-        Twelve-Month basis as of latest calendar year end.
+      summary: 'Result of Fetching all avialable Index Level LTM Ratios for the S&P 500'
+      description: "The response of requesting all available Index Level Ratios on a Last Twelve-Month basis as of latest calendar year end.\n"
       value:
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: GROSS_MARGIN
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'GROSS_MARGIN'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 31.9792508103446
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: OPER_INC_SALES
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'OPER_INC_SALES'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 14.1443835805019
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: NET_MGN
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'NET_MGN'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 10.6712678960164
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: EBIT_MARGIN
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'EBIT_MARGIN'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 13.9233219620531
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: EBITDA_MARGIN
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'EBITDA_MARGIN'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 20.2564469882192
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: ROA
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'ROA'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 3.57523339824615
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: ROE
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'ROE'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 16.4002812973854
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: ROIC
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'ROIC'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 8.89427850180667
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: FCF_MGN
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'FCF_MGN'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 11.7909348774282
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: PE
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'PE'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 21.5977805004107
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: PEX
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'PEX'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 21.0620470124885
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: PSALES
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'PSALES'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 2.30475701679242
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: PBK
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'PBK'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 3.54209675605922
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: PCF
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'PCF'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 12.9919258671496
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: PCFX
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'PCFX'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 12.7987467084674
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: PFCF
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'PFCF'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 19.6190668285358
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: EVAL_EBIT
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'EVAL_EBIT'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 20.6321659086833
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: EVAL_EBITDA
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'EVAL_EBITDA'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 14.0500792506603
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: EVAL_SALES
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'EVAL_SALES'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 2.80945955717182
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: NDEBT_EBITDA
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'NDEBT_EBITDA'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 1.79159020571431
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: NDEBT_EBITDA_MIN_CAPEX
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'NDEBT_EBITDA_MIN_CAPEX'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 2.7472833444278
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: DEBT_EBITDA
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'DEBT_EBITDA'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 2.56510943570962
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: DEBT_EBIT
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'DEBT_EBIT'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 3.76679465697695
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: EBIT_INT_EXP
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'EBIT_INT_EXP'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 7.11304856820085
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: EBITDA_INT_EXP
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'EBITDA_INT_EXP'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 10.4497127870097
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: OPER_CF_INT_EXP
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'OPER_CF_INT_EXP'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 8.84109224468855
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: LTD_EBITDA
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'LTD_EBITDA'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 2.25145309045414
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: NDEBT_FFO
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'NDEBT_FFO'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 208.398439260982
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: LTD_FFO
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'LTD_FFO'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 262.009129565082
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: FCF_DEBT
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'FCF_DEBT'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 18.426933255696
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: OPER_CF_DEBT
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'OPER_CF_DEBT'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 31.8745985665069
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: LTD_EQ
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'LTD_EQ'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 81.639940142797
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: LTD_TCAP
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'LTD_TCAP'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 42.2975432060763
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: LTD_ASSETS
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'LTD_ASSETS'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 27.8191040539674
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: DEBT_ASSETS
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'DEBT_ASSETS'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 31.6946627066638
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: DEBT_EQ
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'DEBT_EQ'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 93.0134328265381
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: NDEBT_TCAP
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'NDEBT_TCAP'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 33.6582025424296
-        - currency: USD
+        - currency: 'USD'
           date: '2019-12-31'
-          fsymId: SP50
-          metric: DEBT_TCAP
-          name: S&P 500
-          periodicity: LTM
-          requestId: SP50
+          fsymId: 'SP50'
+          metric: 'DEBT_TCAP'
+          name: 'S&P 500'
+          periodicity: 'LTM'
+          requestId: 'SP50'
           value: 48.1901344711744
     badRequestDateFormat:
-      summary: Bad Request - Date Format
-      description: >-
-        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
-        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: 'Bad Request - Date Format'
+      description: 'This bad request occurs when a request doesn''t use the YYYY-MM-DD in the date parameters. To resolve, convert your date to YYYY-MM-DD.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 11:52:36.464'
-        path: /factset-benchmarks/v1/{endpoint}
+        path: '/factset-benchmarks/v1/{endpoint}'
         message: 'The date parameter must be in the following date format: YYYY-MM-DD'
         subErrors: null
     badRequestRequiredParameter:
-      summary: Bad Request - Required Parameter Missing
-      description: >-
-        This error message occurs when the request does not include the required
-        parameters. Required parameters are indicated with a red asterisks
-        symbol in the specification file.
+      summary: 'Bad Request - Required Parameter Missing'
+      description: 'This error message occurs when the request does not include the required parameters. Required parameters are indicated with a red asterisks symbol in the specification file.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-06-30 13:22:09.053'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: The parameter 'ids' is required and may not be empty.
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'The parameter ''ids'' is required and may not be empty.'
         subErrors: null
     badRequestFutureDate:
-      summary: Bad Request - Future Date
-      description: >-
-        This error message occurs when a future date is requested in the date
-        parameters. Please revise your request to include dates as of today's
-        current date or any prior historical date.
+      summary: 'Bad Request - Future Date'
+      description: 'This error message occurs when a future date is requested in the date parameters. Please revise your request to include dates as of today''s current date or any prior historical date.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-06-30 13:38:36.528'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: >-
-          The use of future dates is not applicable in this endpoint. Please
-          revise your request to include dates up to today's current date.
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'The use of future dates is not applicable in this endpoint. Please revise your request to include dates up to today''s current date.'
         subErrors: null
     badRequestMoreThanOneBenchmarkIdentifier:
-      summary: Bad Request - More Than One Benchmark Identifier
-      description: >-
-        This error message occurs when user is passing more than one identifier
-        as an input.
+      summary: 'Bad Request - More Than One Benchmark Identifier'
+      description: 'This error message occurs when user is passing more than one identifier as an input.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 12:37:52.731'
-        path: /factset-benchmarks/v1/constituents
-        message: >-
-          You submitted 2 ids. The max number of ids you may submit is 1. Please
-          try again with fewer ids.
+        path: '/factset-benchmarks/v1/constituents'
+        message: 'You submitted 2 ids. The max number of ids you may submit is 1. Please try again with fewer ids.'
         subErrors: null
     badRequestInvalidParameters:
-      summary: Bad Request - Passing invalid Benchmark Identifier
-      description: >-
-        This error message occurs when user is passing Invalid Identifier.
-        Please use the helper endpoint */id-list* for sample Benchmark
-        Identifiers.
+      summary: 'Bad Request - Passing invalid Benchmark Identifier'
+      description: 'This error message occurs when user is passing Invalid Identifier. Please use the helper endpoint */id-list* for sample Benchmark Identifiers.'
       value:
-        status: Forbidden
+        status: 'Forbidden'
         timestamp: '2020-07-10 15:01:43.634'
-        path: /factset-benchmarks/v1/constituents
-        message: >-
-          User is not authorized for the id requested, please reach out to
-          FactSet for support
+        path: '/factset-benchmarks/v1/constituents'
+        message: 'User is not authorized for the id requested, please reach out to FactSet for support'
         subErrors: null
     badRequestMalformedJSON:
-      summary: Bad Request - Malformed JSON Request
-      description: >-
-        This error may be returned when the request body is specified as JSON.
-        But is not in proper JSON format.
+      summary: 'Bad Request - Malformed JSON Request'
+      description: 'This error may be returned when the request body is specified as JSON. But is not in proper JSON format.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 11:59:09.649'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: Malformed JSON Request
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'Malformed JSON Request'
         subErrors: null
     badRequestReadTimeout:
-      summary: Bad Request - Read Timeout
-      description: >-
-        This error may be returned if it takes more than 29 seconds to hear back
-        from the data fetch service.
+      summary: 'Bad Request - Read Timeout'
+      description: 'This error may be returned if it takes more than 29 seconds to hear back from the data fetch service.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 16:18:38.949'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: The request took too long. Try again with a smaller request.
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'The request took too long. Try again with a smaller request.'
         subErrors: null
     unauthenticated:
-      summary: User Authentication Failed
-      description: >-
-        This occurs when a user is not properly authenticated or recognized by
-        the service. Please double check the USERNAME-SERIAL and API-Key used to
-        request and ensure you are within the IP range specified for the Key.
-        Report Issue under 401 error for help with troubleshooting.
+      summary: 'User Authentication Failed'
+      description: 'This occurs when a user is not properly authenticated or recognized by the service. Please double check the USERNAME-SERIAL and API-Key used to request and ensure you are within the IP range specified for the Key. Report Issue under 401 error for help with troubleshooting.'
       value:
-        status: User Authentication Failed
+        status: 'User Authentication Failed'
         timestamp: '2020-07-02 16:08:07.945'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: User Authentication Failed.
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'User Authentication Failed.'
         subErrors: null
     forbidden:
-      summary: Forbidden
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint/ID which is not
-        authorized to access. The request was a legal request, but the server is
-        refusing to respond. Please reach out to FactSet Account Team for
-        assistance with authorization.
+      summary: 'Forbidden'
+      description: 'The USERNAME-SERIAL attempted to request the endpoint/ID which is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       value:
-        status: Forbidden
+        status: 'Forbidden'
         timestamp: '2020-07-02 17:21:52.197'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: >-
-          User is not authorized for the id requested, please reach out to
-          FactSet for support
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'User is not authorized for the id requested, please reach out to FactSet for support'
         subErrors: null
     unsupportedMediaType:
-      summary: Unsupported Media Type
-      description: >-
-        This bad request occurs when the media type passed in the request is not
-        supported. Currently the APIs only support 'application/json'.
+      summary: 'Unsupported Media Type'
+      description: 'This bad request occurs when the media type passed in the request is not supported. Currently the APIs only support ''application/json''.'
       value:
-        status: Unsupported Media Type
+        status: 'Unsupported Media Type'
         timestamp: '2020-07-02 09:42:27.237'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: >-
-          text/html media type is not supported. Supported media types are
-          application/json
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'text/html media type is not supported. Supported media types are application/json'
         subErrors: null
     notWritable:
-      summary: Internal Server Error - Not Writable
-      description: >-
-        This error may be returned when the server encounters an error writing
-        the JSON response.
+      summary: 'Internal Server Error - Not Writable'
+      description: 'This error may be returned when the server encounters an error writing the JSON response.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2019-11-05 09:48:29.18'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: Error writing JSON output
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'Error writing JSON output'
         subErrors: null
     generalException:
-      summary: Internal Server Error - General Exception
-      description: >-
-        This is the most general error that can be returned to by the service.
-        Please `Report Issue` to FactSet.
+      summary: 'Internal Server Error - General Exception'
+      description: 'This is the most general error that can be returned to by the service. Please `Report Issue` to FactSet.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2019-11-01 10:36:01.944'
-        path: /factset-benchmarks/v1/{endpoint}
-        message: Unexpected error
+        path: '/factset-benchmarks/v1/{endpoint}'
+        message: 'Unexpected error'
         subErrors: null

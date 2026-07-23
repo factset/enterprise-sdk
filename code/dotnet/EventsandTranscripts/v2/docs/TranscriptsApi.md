@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="gettranscriptsintelligence"></a>
 # **GetTranscriptsIntelligence**
-> TranscriptsIntelligenceResponse GetTranscriptsIntelligence (List<string> ids, DateTime? startDate = null, DateTime? endDate = null, int? startDateRelative = null, int? endDateRelative = null, List<string> categories = null, string timeZone = null, List<string> sort = null, int? paginationLimit = null, int? paginationOffset = null)
+> TranscriptsIntelligenceResponse GetTranscriptsIntelligence (DateTime? startDate = null, DateTime? endDate = null, int? startDateRelative = null, int? endDateRelative = null, List<string> ids = null, List<string> categories = null, string timeZone = null, List<string> sort = null, int? paginationLimit = null, int? paginationOffset = null)
 
 Returns the StreetAccount Transcript Intelligence documents and related metadata within FactSet coverage based on specific date range and various parameters.
 
@@ -63,11 +63,11 @@ namespace Example
 
             var apiInstance = new TranscriptsApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
             var startDate = DateTime.Parse("2025-05-01");  // DateTime? | Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional) 
             var endDate = DateTime.Parse("2025-07-24");  // DateTime? | End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional) 
             var startDateRelative = 56;  // int? | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* - If dates are not provided, default will return all files.  (optional) 
             var endDateRelative = 56;  // int? | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* - If dates are not provided, default will return all files.  (optional) 
+            var ids = new List<string>(); // List<string> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used, `null` will be returned for the `requestId` field in the response. (optional) 
             var categories = new List<string>(); // List<string> | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional) 
             var timeZone = "\"America/New_York\"";  // string | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones. (optional)  (default to "America/New_York")
             var sort = new List<string>(); // List<string> | Enables sorting data in ascending or descending chronological order based on eventDate.  (optional) 
@@ -77,7 +77,7 @@ namespace Example
             try
             {
                 // Returns the StreetAccount Transcript Intelligence documents and related metadata within FactSet coverage based on specific date range and various parameters.
-                TranscriptsIntelligenceResponse result = apiInstance.GetTranscriptsIntelligence(ids, startDate, endDate, startDateRelative, endDateRelative, categories, timeZone, sort, paginationLimit, paginationOffset);
+                TranscriptsIntelligenceResponse result = apiInstance.GetTranscriptsIntelligence(startDate, endDate, startDateRelative, endDateRelative, ids, categories, timeZone, sort, paginationLimit, paginationOffset);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -95,11 +95,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **startDate** | **DateTime?**| Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
  **endDate** | **DateTime?**| End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
  **startDateRelative** | **int?**| The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional] 
  **endDateRelative** | **int?**| The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional] 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. | [optional] 
  **categories** | [**List&lt;string&gt;**](string.md)| Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   | [optional] 
  **timeZone** | **string**| Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. | [optional] [default to &quot;America/New_York&quot;]
  **sort** | [**List&lt;string&gt;**](string.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 <a name="gettranscriptsinvestorslides"></a>
 # **GetTranscriptsInvestorSlides**
-> InvestorSlidesResponse GetTranscriptsInvestorSlides (List<string> ids, DateTime startDate, DateTime endDate, List<string> eventIds = null, List<string> categories = null, string searchText = null, List<string> sort = null, int? paginationLimit = null, int? paginationOffset = null)
+> InvestorSlidesResponse GetTranscriptsInvestorSlides (DateTime startDate, DateTime endDate, List<string> ids = null, List<string> eventIds = null, List<string> categories = null, string searchText = null, List<string> sort = null, int? paginationLimit = null, int? paginationOffset = null)
 
 Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
 
@@ -183,9 +183,9 @@ namespace Example
 
             var apiInstance = new TranscriptsApi(config);
 
-            var ids = new List<string>(); // List<string> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-            var startDate = DateTime.Parse("2025-07-23");  // DateTime | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+            var startDate = DateTime.Parse("2025-07-23");  // DateTime | Start Date. Format is YYYY-MM-DD   **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** 
             var endDate = DateTime.Parse("2025-07-24");  // DateTime | End Date. Format is YYYY-MM-DD.
+            var ids = new List<string>(); // List<string> | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used, `null` will be returned for the `requestId` field in the response. (optional) 
             var eventIds = new List<string>(); // List<string> | Requests Event IDs. This is a list with a maximum limit of 1000. (optional) 
             var categories = new List<string>(); // List<string> | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.   (optional) 
             var searchText = "presentation";  // string | Restricts the search to include only document stories which include the text searched.     (optional) 
@@ -196,7 +196,7 @@ namespace Example
             try
             {
                 // Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
-                InvestorSlidesResponse result = apiInstance.GetTranscriptsInvestorSlides(ids, startDate, endDate, eventIds, categories, searchText, sort, paginationLimit, paginationOffset);
+                InvestorSlidesResponse result = apiInstance.GetTranscriptsInvestorSlides(startDate, endDate, ids, eventIds, categories, searchText, sort, paginationLimit, paginationOffset);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -214,9 +214,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
- **startDate** | **DateTime**| Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  | 
+ **startDate** | **DateTime**| Start Date. Format is YYYY-MM-DD   **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  | 
  **endDate** | **DateTime**| End Date. Format is YYYY-MM-DD. | 
+ **ids** | [**List&lt;string&gt;**](string.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. | [optional] 
  **eventIds** | [**List&lt;string&gt;**](string.md)| Requests Event IDs. This is a list with a maximum limit of 1000. | [optional] 
  **categories** | [**List&lt;string&gt;**](string.md)| Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   | [optional] 
  **searchText** | **string**| Restricts the search to include only document stories which include the text searched.     | [optional] 

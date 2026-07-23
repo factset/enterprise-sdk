@@ -72,23 +72,6 @@ class FundDetail(ModelNormal):
     """
 
     allowed_values = {
-        ('strategy_type',): {
-            'None': None,
-            'INFRASTRUCTURE/PROJ_FIN': "Infrastructure/Proj Fin",
-            'FUND_OF_FUNDS': "Fund of Funds",
-            'BUYOUT': "Buyout",
-            'MBO': "MBO",
-            'SECONDARY': "Secondary",
-            'REAL_ESTATE': "Real Estate",
-            'MEZZANINE': "Mezzanine",
-            'LBO': "LBO",
-            'DEBT': "Debt",
-            'SEED_STAGE': "Seed Stage",
-            'EARLY_STAGE': "Early Stage",
-            'LATER_STAGE': "Later Stage",
-
-
-        },
     }
 
     validations = {
@@ -126,7 +109,6 @@ class FundDetail(ModelNormal):
             'investment_criteria': (FundDetailInvestmentCriteria,),  # noqa: E501
             'terms': (FundDetailTerms,),  # noqa: E501
             'features': (FundDetailFeatures,),  # noqa: E501
-            'strategy_type': (str, none_type,),  # noqa: E501
             'fund_of_fund_allocation': (FundDetailFundOfFundAllocation,),  # noqa: E501
             'error': (ErrorObjectResponse,),  # noqa: E501
         }
@@ -146,7 +128,6 @@ class FundDetail(ModelNormal):
         'investment_criteria': 'investmentCriteria',  # noqa: E501
         'terms': 'terms',  # noqa: E501
         'features': 'features',  # noqa: E501
-        'strategy_type': 'strategyType',  # noqa: E501
         'fund_of_fund_allocation': 'fundOfFundAllocation',  # noqa: E501
         'error': 'error',  # noqa: E501
     }
@@ -201,7 +182,6 @@ class FundDetail(ModelNormal):
             investment_criteria (FundDetailInvestmentCriteria): [optional]  # noqa: E501
             terms (FundDetailTerms): [optional]  # noqa: E501
             features (FundDetailFeatures): [optional]  # noqa: E501
-            strategy_type (str, none_type): Indicate the fund strategy type.. [optional]  # noqa: E501
             fund_of_fund_allocation (FundDetailFundOfFundAllocation): [optional]  # noqa: E501
             error (ErrorObjectResponse): [optional]  # noqa: E501
         """
@@ -294,7 +274,6 @@ class FundDetail(ModelNormal):
             investment_criteria (FundDetailInvestmentCriteria): [optional]  # noqa: E501
             terms (FundDetailTerms): [optional]  # noqa: E501
             features (FundDetailFeatures): [optional]  # noqa: E501
-            strategy_type (str, none_type): Indicate the fund strategy type.. [optional]  # noqa: E501
             fund_of_fund_allocation (FundDetailFundOfFundAllocation): [optional]  # noqa: E501
             error (ErrorObjectResponse): [optional]  # noqa: E501
         """

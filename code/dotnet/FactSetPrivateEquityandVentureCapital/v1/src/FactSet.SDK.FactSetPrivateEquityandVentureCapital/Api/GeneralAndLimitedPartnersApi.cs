@@ -50,10 +50,10 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         /// <returns>ApiResponse of FundLimitedPartnersResponse</returns>
         ApiResponse<FundLimitedPartnersResponse> GetFundLimitedPartnersWithHttpInfo(List<string> ids);
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms.
+        /// Retrieves historical data for specified General Partner (GP) firms.
         /// </summary>
         /// <remarks>
-        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>
@@ -62,10 +62,10 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         GPDetailsResponse GetGP(List<string> ids, DateTime? asOfDate = default(DateTime?));
 
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms.
+        /// Retrieves historical data for specified General Partner (GP) firms.
         /// </summary>
         /// <remarks>
-        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>
@@ -126,10 +126,10 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         /// <returns>Task of ApiResponse (FundLimitedPartnersResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<FundLimitedPartnersResponse>> GetFundLimitedPartnersWithHttpInfoAsync(List<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms.
+        /// Retrieves historical data for specified General Partner (GP) firms.
         /// </summary>
         /// <remarks>
-        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>
@@ -139,10 +139,10 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         System.Threading.Tasks.Task<GPDetailsResponse> GetGPAsync(List<string> ids, DateTime? asOfDate = default(DateTime?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms.
+        /// Retrieves historical data for specified General Partner (GP) firms.
         /// </summary>
         /// <remarks>
-        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </remarks>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>
@@ -510,7 +510,7 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         }
 
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves historical data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>
@@ -523,7 +523,7 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         }
 
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves historical data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>
@@ -602,7 +602,7 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         }
 
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves historical data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>
@@ -616,7 +616,7 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Api
         }
 
         /// <summary>
-        /// Retrieve core profile and summary data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+        /// Retrieves historical data for specified General Partner (GP) firms. Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
         /// </summary>
         /// <exception cref="FactSet.SDK.FactSetPrivateEquityandVentureCapital.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ids">A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds.</param>

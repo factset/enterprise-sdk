@@ -856,6 +856,84 @@
                     }
                   }
                 },
+                "dataPrep - date range": {
+                  "value": {
+                    "data": {
+                      "jobType": "dataPrep",
+                      "jobName": "DataPrep_Demo",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT",
+                              "CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2023-11-10",
+                              "end": "2023-12-10",
+                              "frequency": "daily"
+                            }
+                          },
+                          {
+                            "accounts": [
+                              "CLIENT:/PRB/VAULTED_RETURNS/DEMO1.ACCT"
+                            ],
+                            "dateRange": {
+                              "start": "2022-11-21",
+                              "end": "2022-12-25",
+                              "frequency": "monthly"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "dataPrep - tasks and accounts": {
+                  "value": {
+                    "data": {
+                      "jobType": "dataPrep",
+                      "jobName": "DataPrep_Demo",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT",
+                              "CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT"
+                            ],
+                            "tasks": [
+                              "my_task_1",
+                              "my_task_2"
+                            ]
+                          }
+                        ],
+                        "runAsSerialNumber": "1234567"
+                      }
+                    }
+                  }
+                },
+                "dataPrep - individual dates": {
+                  "value": {
+                    "data": {
+                      "jobType": "dataPrep",
+                      "jobName": "DataPrep_Demo",
+                      "overrides": {
+                        "combinations": [
+                          {
+                            "accounts": [
+                              "CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT",
+                              "CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT"
+                            ],
+                            "dates": [
+                              "2022-12-24",
+                              "2022-12-23"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
                 "PA": {
                   "value": {
                     "data": {
@@ -959,6 +1037,14 @@
                     }
                   }
                 },
+                "dataPrep": {
+                  "value": {
+                    "data": {
+                      "jobType": "dataPrep",
+                      "jobName": "my_dataprep_job"
+                    }
+                  }
+                },
                 "PI": {
                   "value": {
                     "data": {
@@ -1017,8 +1103,8 @@
                     }
                   }
                 },
-                "Vault - date range": {
-                  "description": "Please note only daily or monthly is supported as frequency for Vault jobs",
+                "vault - date range": {
+                  "description": "Please note only daily or monthly is supported as frequency for vault jobs",
                   "value": {
                     "data": {
                       "jobType": "vault",
@@ -1050,7 +1136,7 @@
                     }
                   }
                 },
-                "Vault - no overrides": {
+                "vault - no overrides": {
                   "value": {
                     "data": {
                       "jobType": "vault",
@@ -1058,7 +1144,7 @@
                     }
                   }
                 },
-                "Vault - with overrides": {
+                "vault - with overrides": {
                   "value": {
                     "data": {
                       "jobType": "vault",
@@ -1188,6 +1274,20 @@
                       }
                     }
                   },
+                  "dataPrep": {
+                    "value": {
+                      "data": {
+                        "status": "queued",
+                        "prbStatus": "pending",
+                        "statusDescription": "string",
+                        "inputs": {
+                          "jobName": "my_dataprep_job",
+                          "jobType": "dataPrep"
+                        },
+                        "id": "78904"
+                      }
+                    }
+                  },
                   "PUB (With Overrides)": {
                     "value": {
                       "data": {
@@ -1211,7 +1311,7 @@
                       }
                     }
                   },
-                  "Vault (No Overrides)": {
+                  "vault (No Overrides)": {
                     "value": {
                       "data": {
                         "inputs": {
@@ -1225,7 +1325,7 @@
                       }
                     }
                   },
-                  "Vault (With Overrides)": {
+                  "vault (With Overrides)": {
                     "value": {
                       "data": {
                         "inputs": {
@@ -1787,11 +1887,13 @@
       },
       "Frequency": {
         "default": "daily",
-        "description": "Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault job type and 'single' frequency is only available for PA job type.",
+        "description": "Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: 'Weekly' is not supported for dataPrep or vault; 'Single' is supported only for PA; and 'Quarterly' and 'Annually' are supported only for dataPrep.",
         "enum": [
           "daily",
           "monthly",
           "weekly",
+          "quarterly",
+          "annually",
           "single"
         ],
         "type": "string"
@@ -1937,14 +2039,14 @@
         "description": "This creates a matrix of the given details. When the job is run, it will only run for the accounts, dates and/or tasks within the objects given. Dates can be specified either by giving individual dates in the `dates` parameter, or by using the `dateRange` parameter for where these are supported. The job will fail if both are provided. (Settings will only be used temporarily and no changes will be made to the default PRB job.) Certain parameters are only valid for certain job types. Please see below for more details.",
         "properties": {
           "accounts": {
-            "description": "An array of accounts, used for jobs types PA, ADF, PUB, and Vault",
+            "description": "An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault",
             "items": {
               "type": "string"
             },
             "type": "array"
           },
           "dates": {
-            "description": "An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details",
+            "description": "An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details",
             "items": {
               "format": "date",
               "type": "string"
@@ -1952,7 +2054,7 @@
             "type": "array"
           },
           "dateRange": {
-            "description": "Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for more details.",
+            "description": "Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF, dataPrep, and vault. Please see OA page 23173 for more details.",
             "type": "object",
             "properties": {
               "end": {
@@ -1974,28 +2076,29 @@
             }
           },
           "tasks": {
-            "description": "Used only for jobs where type is ADF, PA, PUB, or vault",
+            "description": "Used only for jobs where type is ADF, PA, PUB, dataPrep or vault",
             "items": {
               "type": "string"
             },
             "type": "array"
           },
           "allTasks": {
-            "description": "boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks",
+            "description": "boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks",
             "type": "boolean"
           }
         },
         "type": "object"
       },
       "JobTypes": {
-        "description": "PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault",
+        "description": "PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching",
         "enum": [
           "ADF",
           "PA",
           "PD",
           "PI",
           "PUB",
-          "vault"
+          "vault",
+          "dataPrep"
         ],
         "example": "vault",
         "title": "JobTypes",

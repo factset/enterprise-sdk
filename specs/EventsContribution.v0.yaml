@@ -1,46 +1,39 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
-  title: Events Contribution API
-  description: >-
-    The Events Contribution API provides the ability to add specific types of
-    corporate events to FactSet’s own events calendar, for display within
-    FactSet’s applications, as well as for off-platform re-distribution via
-    FactSet’s Events Calendar API.
-  version: 0.2.0
+  title: 'Events Contribution API'
+  description: 'The Events Contribution API provides the ability to add specific types of corporate events to FactSet’s own events calendar, for display within FactSet’s applications, as well as for off-platform re-distribution via FactSet’s Events Calendar API.'
+  version: '0.2.0'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
 externalDocs:
-  description: API Documentation
-  url: https://developer.factset.com/api-catalog/events-contribution-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/events-contribution-api'
 servers:
-  - url: https://api.factset.com/events-contribution/v0
+  - url: 'https://api.factset.com/events-contribution/v0'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 tags:
-  - name: Events Contribution
-    description: Insert, update, or delete events
+  - name: 'Events Contribution'
+    description: 'Insert, update, or delete events'
 paths:
   /events:
     post:
-      summary: Insert Event data
-      description: >-
-        This endpoint inserts an event. Once the event is inserted, it will show
-        up immediately among FactSet’s own event calendar apps, for display
-        within FactSet’s applications.
+      summary: 'Insert Event data'
+      description: 'This endpoint inserts an event. Once the event is inserted, it will show up immediately among FactSet’s own event calendar apps, for display within FactSet’s applications.'
       tags:
-        - Events Contribution
-      operationId: insertEvent
+        - 'Events Contribution'
+      operationId: 'insertEvent'
       requestBody:
         $ref: '#/components/requestBodies/InsertRequestBody'
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -53,7 +46,7 @@ paths:
                   $ref: '#/components/examples/invalidParameter'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request
+          description: 'Bad Request'
         '401':
           content:
             application/json:
@@ -62,12 +55,7 @@ paths:
                   $ref: '#/components/examples/notAuthenticated'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
         '403':
           content:
             application/json:
@@ -76,7 +64,7 @@ paths:
                   $ref: '#/components/examples/forbidden'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Forbidden
+          description: 'Forbidden'
         '500':
           content:
             application/json:
@@ -85,32 +73,30 @@ paths:
                   $ref: '#/components/examples/internalServerError'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Internal Server Error
+          description: 'Internal Server Error'
   /events/{eventId}:
     get:
-      summary: Get Event Data
-      description: This endpoint retrieves previously submitted events by event ID.
+      summary: 'Get Event Data'
+      description: 'This endpoint retrieves previously submitted events by event ID.'
       tags:
-        - Events Contribution
-      operationId: getEvent
+        - 'Events Contribution'
+      operationId: 'getEvent'
       parameters:
-        - name: eventId
-          in: path
-          description: >-
-            ID for event retrieval. This ID is vendor generated and should be
-            unique in each vendor's content set.
+        - name: 'eventId'
+          in: 'path'
+          description: 'ID for event retrieval. This ID is vendor generated and should be unique in each vendor''s content set.'
           required: true
           schema:
-            type: string
+            type: 'string'
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetResponse'
         '400':
-          description: Bad Request. Invalid Parameter.
+          description: 'Bad Request. Invalid Parameter.'
           content:
             application/json:
               examples:
@@ -126,14 +112,9 @@ paths:
                   $ref: '#/components/examples/notAuthenticated'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
         '403':
-          description: Forbidden
+          description: 'Forbidden'
           content:
             application/json:
               examples:
@@ -142,7 +123,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               examples:
@@ -151,7 +132,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               examples:
@@ -160,28 +141,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
     put:
-      summary: Update Event data
-      description: >-
-        This endpoint allows you to update a previously inserted event. Existing
-        event will be replaced with the event data provided in the request body.
+      summary: 'Update Event data'
+      description: 'This endpoint allows you to update a previously inserted event. Existing event will be replaced with the event data provided in the request body.'
       tags:
-        - Events Contribution
-      operationId: updateEvent
+        - 'Events Contribution'
+      operationId: 'updateEvent'
       parameters:
-        - in: path
-          name: eventId
+        - in: 'path'
+          name: 'eventId'
           schema:
-            type: string
+            type: 'string'
             example: '1234'
-          description: >-
-            ID of event to be updated. This ID is vendor generated and should be
-            unique in each vendor's content set.
+          description: 'ID of event to be updated. This ID is vendor generated and should be unique in each vendor''s content set.'
           required: true
       requestBody:
         $ref: '#/components/requestBodies/UpdateRequestBody'
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -194,7 +171,7 @@ paths:
                   $ref: '#/components/examples/invalidParameter'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request
+          description: 'Bad Request'
         '401':
           content:
             application/json:
@@ -203,12 +180,7 @@ paths:
                   $ref: '#/components/examples/notAuthenticated'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
         '403':
           content:
             application/json:
@@ -217,7 +189,7 @@ paths:
                   $ref: '#/components/examples/forbidden'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Forbidden
+          description: 'Forbidden'
         '500':
           content:
             application/json:
@@ -226,34 +198,30 @@ paths:
                   $ref: '#/components/examples/internalServerError'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Internal Server Error
+          description: 'Internal Server Error'
     delete:
-      summary: Delete Event data
-      description: >-
-        This endpoint allows you to delete a previously inserted event with the
-        corresponding event id.
+      summary: 'Delete Event data'
+      description: 'This endpoint allows you to delete a previously inserted event with the corresponding event id.'
       tags:
-        - Events Contribution
-      operationId: deleteEvent
+        - 'Events Contribution'
+      operationId: 'deleteEvent'
       parameters:
-        - in: path
-          name: eventId
+        - in: 'path'
+          name: 'eventId'
           schema:
-            type: string
+            type: 'string'
             example: '1234'
-          description: >-
-            ID of event to be deleted. This ID is vendor generated and should be
-            unique in each vendor's content set.
+          description: 'ID of event to be deleted. This ID is vendor generated and should be unique in each vendor''s content set.'
           required: true
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeleteResponse'
         '204':
-          description: No Content
+          description: 'No Content'
         '400':
           content:
             application/json:
@@ -262,7 +230,7 @@ paths:
                   $ref: '#/components/examples/invalidParameter'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Bad Request
+          description: 'Bad Request'
         '401':
           content:
             application/json:
@@ -271,12 +239,7 @@ paths:
                   $ref: '#/components/examples/notAuthenticated'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
         '403':
           content:
             application/json:
@@ -285,7 +248,7 @@ paths:
                   $ref: '#/components/examples/forbidden'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Forbidden
+          description: 'Forbidden'
         '500':
           content:
             application/json:
@@ -294,397 +257,378 @@ paths:
                   $ref: '#/components/examples/internalServerError'
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-          description: Internal Server Error
+          description: 'Internal Server Error'
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   requestBodies:
     InsertRequestBody:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/InsertRequest'
-      description: INSERT request body which needs to be sent with request
+      description: 'INSERT request body which needs to be sent with request'
       required: true
     UpdateRequestBody:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/UpdateRequest'
-      description: UPDATE request body which needs to be sent with request
+      description: 'UPDATE request body which needs to be sent with request'
       required: true
   schemas:
     InsertRequest:
-      description: Request body containing event data which needs to be sent with request
-      type: object
+      description: 'Request body containing event data which needs to be sent with request'
+      type: 'object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             eventData:
               $ref: '#/components/schemas/EventData'
           required:
-            - eventData
+            - 'eventData'
     UpdateRequest:
-      description: Request body containing event data which needs to be sent with request
-      type: object
+      description: 'Request body containing event data which needs to be sent with request'
+      type: 'object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             eventData:
               $ref: '#/components/schemas/EventUpdateData'
           required:
-            - eventData
+            - 'eventData'
     EventData:
-      type: object
-      description: Event Data
+      type: 'object'
+      description: 'Event Data'
       properties:
         eventId:
-          type: string
+          type: 'string'
           example: '1234'
-          description: >-
-            ID that corresponds to the event. This ID is vendor generated and
-            should be unique in each vendor's content set.
+          description: 'ID that corresponds to the event. This ID is vendor generated and should be unique in each vendor''s content set.'
         title:
-          type: string
+          type: 'string'
           maxLength: 500
-          example: the event title
-          description: Title of the event to be displayed
+          example: 'the event title'
+          description: 'Title of the event to be displayed'
         startDatetime:
-          type: string
-          format: date-time
+          type: 'string'
+          format: 'date-time'
           example: '2024-01-16T08:00:00Z'
-          description: Start date and time of the event
+          description: 'Start date and time of the event'
         agendaUrl:
-          type: string
-          example: http://www.factset.com
-          description: The meeting agenda which can be a document file or a webpage.
+          type: 'string'
+          example: 'http://www.factset.com'
+          description: 'The meeting agenda which can be a document file or a webpage.'
         participants:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/ParticipantsData'
         location:
           $ref: '#/components/schemas/LocationData'
         symbols:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/SymbolData'
         registrationInfo:
           $ref: '#/components/schemas/RegistrationInfoData'
       required:
-        - eventId
-        - title
-        - startDatetime
-        - symbols
+        - 'eventId'
+        - 'title'
+        - 'startDatetime'
+        - 'symbols'
     EventUpdateData:
-      type: object
-      description: Event Data Update
+      type: 'object'
+      description: 'Event Data Update'
       properties:
         title:
-          type: string
+          type: 'string'
           maxLength: 500
-          example: the event title
-          description: Title of the event to be displayed
+          example: 'the event title'
+          description: 'Title of the event to be displayed'
         startDatetime:
-          type: string
-          format: date-time
+          type: 'string'
+          format: 'date-time'
           example: '2024-01-16T08:00:00Z'
-          description: Start date and time of the event
+          description: 'Start date and time of the event'
         agendaUrl:
-          type: string
-          example: http://www.factset.com
-          description: The meeting agenda which can be a document file or a webpage.
+          type: 'string'
+          example: 'http://www.factset.com'
+          description: 'The meeting agenda which can be a document file or a webpage.'
         participants:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/ParticipantsData'
-          description: Participants of the event.
+          description: 'Participants of the event.'
         location:
           $ref: '#/components/schemas/LocationData'
         symbols:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/SymbolData'
-          description: Symbol associated with the event
+          description: 'Symbol associated with the event'
         registrationInfo:
           $ref: '#/components/schemas/RegistrationInfoData'
       required:
-        - title
-        - startDatetime
-        - symbols
+        - 'title'
+        - 'startDatetime'
+        - 'symbols'
     ParticipantsData:
-      description: Participants of the event
-      type: object
+      description: 'Participants of the event'
+      type: 'object'
       required:
-        - firstName
-        - lastName
+        - 'firstName'
+        - 'lastName'
       properties:
         firstName:
-          type: string
-          example: Jane
-          description: The first name of the participant
+          type: 'string'
+          example: 'Jane'
+          description: 'The first name of the participant'
         lastName:
-          type: string
-          example: Doe
-          description: The last name of the participant
+          type: 'string'
+          example: 'Doe'
+          description: 'The last name of the participant'
         title:
-          type: string
-          example: CEO
-          description: The title of the participant
+          type: 'string'
+          example: 'CEO'
+          description: 'The title of the participant'
     LocationData:
-      description: Location of the event
-      type: object
+      description: 'Location of the event'
+      type: 'object'
       properties:
         country:
-          type: string
+          type: 'string'
           minLength: 2
           maxLength: 2
-          example: US
-          description: >-
-            Country must be provided in ISO 3166 (alpha 2) format, i.e.,
-            two-letter country code
+          example: 'US'
+          description: 'Country must be provided in ISO 3166 (alpha 2) format, i.e., two-letter country code'
         state:
-          type: string
-          example: New York
-          description: State/province of the city where the event is taking place.
+          type: 'string'
+          example: 'New York'
+          description: 'State/province of the city where the event is taking place.'
         city:
-          type: string
-          example: New York
-          description: City where the event is taking place.
+          type: 'string'
+          example: 'New York'
+          description: 'City where the event is taking place.'
     SymbolData:
-      description: An identifier indicating which company the event belongs to
-      type: object
+      description: 'An identifier indicating which company the event belongs to'
+      type: 'object'
       required:
-        - value
-        - name
+        - 'value'
+        - 'name'
       properties:
         type:
-          type: string
+          type: 'string'
           enum:
-            - isin
-            - ticker
-            - entity
-            - sedol
-          example: ticker
-          description: Type of symbol
+            - 'isin'
+            - 'ticker'
+            - 'entity'
+            - 'sedol'
+          example: 'ticker'
+          description: 'Type of symbol'
         value:
-          type: string
-          example: FDS
-          description: Value of symbol
+          type: 'string'
+          example: 'FDS'
+          description: 'Value of symbol'
         name:
-          type: string
-          example: FactSet System Research Inc.
-          description: Name of symbol
+          type: 'string'
+          example: 'FactSet System Research Inc.'
+          description: 'Name of symbol'
     RegistrationInfoData:
-      description: Information regarding event registrant
-      type: object
+      description: 'Information regarding event registrant'
+      type: 'object'
       properties:
         contactEmailAddress:
-          type: string
-          format: email
-          description: Contact email of event registrant
-          example: factset@factset.com
+          type: 'string'
+          format: 'email'
+          description: 'Contact email of event registrant'
+          example: 'factset@factset.com'
         contactName:
-          type: string
-          description: Contact name of event registrant
-          example: FactSet
+          type: 'string'
+          description: 'Contact name of event registrant'
+          example: 'FactSet'
         extraInfo:
-          type: string
+          type: 'string'
           maxLength: 500
-          description: >-
-            Extra information can be provided regarding event registration.
-            Input must be in English and will be validated upon indication.
-          example: >-
-            this field can be used to display extra information regarding
-            registration
+          description: 'Extra information can be provided regarding event registration. Input must be in English and will be validated upon indication.'
+          example: 'this field can be used to display extra information regarding registration'
     GetResponse:
-      type: object
-      description: Get Event Response
+      type: 'object'
+      description: 'Get Event Response'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             id:
-              type: string
-              description: ID of event
-              example: 48392328ur39
+              type: 'string'
+              description: 'ID of event'
+              example: '48392328ur39'
             date:
-              type: string
-              pattern: >-
-                ^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [01][0-9]
-                \d{4}$
-              example: Jul 18 2024
-              description: Date of event
+              type: 'string'
+              pattern: '^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [01][0-9] \d{4}$'
+              example: 'Jul 18 2024'
+              description: 'Date of event'
             description:
-              type: string
-              example: Test Event
-              description: Description of event
+              type: 'string'
+              example: 'Test Event'
+              description: 'Description of event'
             contactName:
-              type: string
-              example: Jane Doe
-              description: Contact for event
+              type: 'string'
+              example: 'Jane Doe'
+              description: 'Contact for event'
             contactEmail:
-              type: string
-              format: email
-              example: test@example.com
-              description: Contact's email for event
+              type: 'string'
+              format: 'email'
+              example: 'test@example.com'
+              description: 'Contact''s email for event'
             agendaUrl:
-              type: string
-              example: test.com/investors
-              description: URL for event
+              type: 'string'
+              example: 'test.com/investors'
+              description: 'URL for event'
             additionalInfo:
-              type: string
-              example: Test Notes
-              description: Additional info for the event
+              type: 'string'
+              example: 'Test Notes'
+              description: 'Additional info for the event'
             city:
-              type: string
-              example: Toronto
-              description: City of the event
+              type: 'string'
+              example: 'Toronto'
+              description: 'City of the event'
             state:
-              type: string
-              example: AB
-              description: State of the event
+              type: 'string'
+              example: 'AB'
+              description: 'State of the event'
             isoCountry:
-              type: string
-              example: CA
-              description: Country of the event
+              type: 'string'
+              example: 'CA'
+              description: 'Country of the event'
     InsertResponse:
-      type: object
-      description: Insert Event Response
+      type: 'object'
+      description: 'Insert Event Response'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             eventData:
-              type: object
-              description: Event Data
+              type: 'object'
+              description: 'Event Data'
               properties:
                 eventId:
-                  type: string
+                  type: 'string'
                   example: '1234'
-                  description: >-
-                    Id of the event that was successfully inserted. This ID is
-                    vendor generated and should be unique in each vendor's
-                    content set.
+                  description: 'Id of the event that was successfully inserted. This ID is vendor generated and should be unique in each vendor''s content set.'
             message:
-              type: object
-              description: Message of insert operation
+              type: 'object'
+              description: 'Message of insert operation'
               properties:
                 event:
-                  type: string
-                  description: Event status
-                  example: Event inserted successfully
+                  type: 'string'
+                  description: 'Event status'
+                  example: 'Event inserted successfully'
     UpdateResponse:
-      type: object
-      description: Update Event Response
+      type: 'object'
+      description: 'Update Event Response'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             eventData:
-              type: object
-              description: Event Data
+              type: 'object'
+              description: 'Event Data'
               properties:
                 eventId:
-                  type: string
+                  type: 'string'
                   example: '1234'
-                  description: >-
-                    ID of the event that was successfully updated. This ID is
-                    vendor generated and should be unique in each vendor's
-                    content set.
+                  description: 'ID of the event that was successfully updated. This ID is vendor generated and should be unique in each vendor''s content set.'
             message:
-              type: object
-              description: Message of update operation
+              type: 'object'
+              description: 'Message of update operation'
               properties:
                 event:
-                  type: string
-                  description: Event status
-                  example: Event updated successfully
+                  type: 'string'
+                  description: 'Event status'
+                  example: 'Event updated successfully'
     DeleteResponse:
-      type: object
-      description: Delete Event Response
+      type: 'object'
+      description: 'Delete Event Response'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             eventData:
-              type: object
-              description: Event Data
+              type: 'object'
+              description: 'Event Data'
               properties:
                 eventId:
-                  type: string
+                  type: 'string'
                   example: '1234'
-                  description: >-
-                    ID of the event that was successfully deleted. This ID is
-                    vendor generated and should be unique in each vendor's
-                    content set.
+                  description: 'ID of the event that was successfully deleted. This ID is vendor generated and should be unique in each vendor''s content set.'
             message:
-              type: object
-              description: Message of delete operation
+              type: 'object'
+              description: 'Message of delete operation'
               properties:
                 event:
-                  type: string
-                  description: Event status
-                  example: Event deleted successfully
+                  type: 'string'
+                  description: 'Event status'
+                  example: 'Event deleted successfully'
     ErrorResponse:
-      type: object
-      description: Object representing an error response.
+      type: 'object'
+      description: 'Object representing an error response.'
       properties:
         errors:
-          type: array
-          description: An array of error objects.
+          type: 'array'
+          description: 'An array of error objects.'
           items:
             $ref: '#/components/schemas/ErrorObject'
     ErrorObject:
-      type: object
-      description: Object representing an error.
+      type: 'object'
+      description: 'Object representing an error.'
       properties:
         id:
-          description: A UUID for this particular occurrence of the error.
-          type: string
+          description: 'A UUID for this particular occurrence of the error.'
+          type: 'string'
         code:
-          description: A common or API-specific error code.
-          type: string
+          description: 'A common or API-specific error code.'
+          type: 'string'
         title:
-          description: Summary of the error.
-          type: string
+          description: 'Summary of the error.'
+          type: 'string'
   examples:
     invalidParameter:
       value:
         errors:
-          - id: 7af3d86ca5954503b9244f2620fcf5eb
-            code: parameterError
-            title: Invalid parameter(s)
+          - id: '7af3d86ca5954503b9244f2620fcf5eb'
+            code: 'parameterError'
+            title: 'Invalid parameter(s)'
     notFound:
       value:
         errors:
-          - id: 7af3d86ca5954503b9244f2620fcf5eb
-            code: notFound
-            title: event not found
+          - id: '7af3d86ca5954503b9244f2620fcf5eb'
+            code: 'notFound'
+            title: 'event not found'
     notAuthenticated:
       value:
         errors:
-          - id: 7af3d86ca5954503b9244f2620fcf5eb
-            code: Not Authenticated
-            title: Unauthenticated USERNAME-SERIAL.
+          - id: '7af3d86ca5954503b9244f2620fcf5eb'
+            code: 'Not Authenticated'
+            title: 'Unauthenticated USERNAME-SERIAL.'
     forbidden:
       value:
         errors:
-          - id: 7af3d86ca5954503b9244f2620fcf5eb
-            code: notAuthorized
-            title: Not authorized to access.
+          - id: '7af3d86ca5954503b9244f2620fcf5eb'
+            code: 'notAuthorized'
+            title: 'Not authorized to access.'
     internalServerError:
       value:
         errors:
-          - id: 7af3d86ca5954503b9244f2620fcf5eb
-            code: internalServerError
-            title: An unexpected error happened.
+          - id: '7af3d86ca5954503b9244f2620fcf5eb'
+            code: 'internalServerError'
+            title: 'An unexpected error happened.'

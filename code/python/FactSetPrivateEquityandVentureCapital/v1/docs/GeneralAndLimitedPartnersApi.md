@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/content/factset-pevc/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_fund_limited_partners**](GeneralAndLimitedPartnersApi.md#get_fund_limited_partners) | **GET** /limited-partners/funds | Retrieve the Limited Partners (LPs) and their capital commitments to specific funds.
-[**get_gp**](GeneralAndLimitedPartnersApi.md#get_gp) | **GET** /general-partners | Retrieve core profile and summary data for specified General Partner (GP) firms.
+[**get_gp**](GeneralAndLimitedPartnersApi.md#get_gp) | **GET** /general-partners | Retrieves historical data for specified General Partner (GP) firms.
 [**get_gp_funds**](GeneralAndLimitedPartnersApi.md#get_gp_funds) | **GET** /general-partners/funds | Retrieve the list of all Private Equity and Venture Capital Funds managed by specified General Partners.
 
 
@@ -62,7 +62,7 @@ with fds.sdk.FactSetPrivateEquityandVentureCapital.ApiClient(configuration) as a
     api_instance = general_and_limited_partners_api.GeneralAndLimitedPartnersApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["001JYM-E","005GEM-E"] # [str] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
+    ids = ["0LC436-E"] # [str] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
 
     try:
         # Retrieve the Limited Partners (LPs) and their capital commitments to specific funds.
@@ -112,9 +112,9 @@ Name | Type | Description  | Notes
 # **get_gp**
 > GPDetailsResponse get_gp(ids)
 
-Retrieve core profile and summary data for specified General Partner (GP) firms.
+Retrieves historical data for specified General Partner (GP) firms.
 
-Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the `/universe` endpoint and input the GP firm name, with `entityType` set to `HOL`. Only use `entityId` values whose `entityTypeCode` is `HOL` in your request.
+Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
 
 ### Example
 
@@ -165,7 +165,7 @@ with fds.sdk.FactSetPrivateEquityandVentureCapital.ApiClient(configuration) as a
     as_of_date = dateutil_parser('2023-08-27').date() # date | The as-of date for the AUM data in **YYYY-MM-DD** format. Returns the AUM value as of the specified date.  Note:  - If omitted: The response will return the latest available AUM data. - Future dates (T+1) are not accepted in this endpoint.  (optional)
 
     try:
-        # Retrieve core profile and summary data for specified General Partner (GP) firms.
+        # Retrieves historical data for specified General Partner (GP) firms.
         # example passing only required values which don't have defaults set
         # and optional values
         api_response = api_instance.get_gp(ids, as_of_date=as_of_date)

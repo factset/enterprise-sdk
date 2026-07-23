@@ -450,9 +450,9 @@ class GeneralAndLimitedPartnersApi(object):
         ids,
         **kwargs
     ) -> GPDetailsResponse:
-        """Retrieve core profile and summary data for specified General Partner (GP) firms.  # noqa: E501
+        """Retrieves historical data for specified General Partner (GP) firms.  # noqa: E501
 
-        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the `/universe` endpoint and input the GP firm name, with `entityType` set to `HOL`. Only use `entityId` values whose `entityTypeCode` is `HOL` in your request.  # noqa: E501
+        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
         Args:
@@ -498,9 +498,9 @@ class GeneralAndLimitedPartnersApi(object):
         ids,
         **kwargs
     ) -> typing.Tuple[GPDetailsResponse, int, typing.MutableMapping]:
-        """Retrieve core profile and summary data for specified General Partner (GP) firms.  # noqa: E501
+        """Retrieves historical data for specified General Partner (GP) firms.  # noqa: E501
 
-        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the `/universe` endpoint and input the GP firm name, with `entityType` set to `HOL`. Only use `entityId` values whose `entityTypeCode` is `HOL` in your request.  # noqa: E501
+        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
         Args:
@@ -550,9 +550,9 @@ class GeneralAndLimitedPartnersApi(object):
         ids,
         **kwargs
     ) -> "ApplyResult[GPDetailsResponse]":
-        """Retrieve core profile and summary data for specified General Partner (GP) firms.  # noqa: E501
+        """Retrieves historical data for specified General Partner (GP) firms.  # noqa: E501
 
-        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the `/universe` endpoint and input the GP firm name, with `entityType` set to `HOL`. Only use `entityId` values whose `entityTypeCode` is `HOL` in your request.  # noqa: E501
+        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
         Args:
@@ -597,9 +597,9 @@ class GeneralAndLimitedPartnersApi(object):
         ids,
         **kwargs
     ) -> "ApplyResult[typing.Tuple[GPDetailsResponse, int, typing.MutableMapping]]":
-        """Retrieve core profile and summary data for specified General Partner (GP) firms.  # noqa: E501
+        """Retrieves historical data for specified General Partner (GP) firms.  # noqa: E501
 
-        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the `/universe` endpoint and input the GP firm name, with `entityType` set to `HOL`. Only use `entityId` values whose `entityTypeCode` is `HOL` in your request.  # noqa: E501
+        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
         Args:

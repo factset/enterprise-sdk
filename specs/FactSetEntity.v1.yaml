@@ -1,59 +1,39 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  version: 1.5.0
-  title: FactSet Entity API
+  version: '1.5.0'
+  title: 'FactSet Entity API'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-  description: >
-    Using an entity centric data model, FactSet's Entity API provides access to
-
-    FactSet's complete security and entity level symbology, comprehensive entity
-    reference data, and all of the
-
-    necessary relationships and connections to create a foundation that tightly
-    correlates disparate sources of
-
-    information to a master entity identifier. Use this API to quickly
-    understand the full entity structure and related securities.<p><b>Rate limit
-    is set to 10 requests per second</b>.</p>
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+  description: "Using an entity centric data model, FactSet's Entity API provides access to\nFactSet's complete security and entity level symbology, comprehensive entity reference data, and all of the\nnecessary relationships and connections to create a foundation that tightly correlates disparate sources of\ninformation to a master entity identifier. Use this API to quickly understand the full entity structure and related securities.<p><b>Rate limit is set to 10 requests per second</b>.</p>\n"
 servers:
-  - url: https://api.factset.com/content
-    description: Production
+  - url: 'https://api.factset.com/content'
+    description: 'Production'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 tags:
-  - name: Entity Reference
-    description: >-
-      Retrieve Entity Reference information for a list of securities, such as
-      Parent Equity and Business Descriptions.
-  - name: Entity Securities
-    description: >-
-      Retrieve the related equity or fixed income securities for a given list of
-      ids
-  - name: Entity Structure
-    description: >-
-      Retrieve the Entities corporate structure, its subsidiaries and related
-      entity ids.
-  - name: Entity Reference Chinese
-  - name: Historical Credit Parent
+  - name: 'Entity Reference'
+    description: 'Retrieve Entity Reference information for a list of securities, such as Parent Equity and Business Descriptions.'
+  - name: 'Entity Securities'
+    description: 'Retrieve the related equity or fixed income securities for a given list of ids'
+  - name: 'Entity Structure'
+    description: 'Retrieve the Entities corporate structure, its subsidiaries and related entity ids.'
+  - name: 'Entity Reference Chinese'
+  - name: 'Historical Credit Parent'
 paths:
   /factset-entity/v1/entity-references:
     get:
-      summary: Returns an entity reference profiles for an individual entity
-      description: >
-        Returns an Entity reference profile for the requested Entity Id(s). Data
-        points include - Ultimate Parent Id, Credit Parent Id, Headquarters
-        location details, Website URL, and Business Description.
+      summary: 'Returns an entity reference profiles for an individual entity'
+      description: "Returns an Entity reference profile for the requested Entity Id(s). Data points include - Ultimate Parent Id, Credit Parent Id, Headquarters location details, Website URL, and Business Description.\n"
       tags:
-        - Entity Reference
-      operationId: getEntityReferences
+        - 'Entity Reference'
+      operationId: 'getEntityReferences'
       parameters:
         - $ref: '#/components/parameters/ids'
       responses:
         '200':
-          description: Fetches Entity Reference data for a list of ids.
+          description: 'Fetches Entity Reference data for a list of ids.'
           content:
             application/json:
               schema:
@@ -72,17 +52,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Returns an entity reference data for a list of ids.
-      description: >
-        Returns an entity reference object for the requested entity ids. Data
-        points include - ultimate parent id, headquarters location details,
-        credit parent id, website, and business description.
+      summary: 'Returns an entity reference data for a list of ids.'
+      description: "Returns an entity reference object for the requested entity ids. Data points include - ultimate parent id, headquarters location details, credit parent id, website, and business description.\n"
       tags:
-        - Entity Reference
-      operationId: postEntityReferences
+        - 'Entity Reference'
+      operationId: 'postEntityReferences'
       requestBody:
         required: true
-        description: Request Body to request a list of Entity Reference objects.
+        description: 'Request Body to request a list of Entity Reference objects.'
         content:
           application/json:
             schema:
@@ -92,7 +69,7 @@ paths:
                 $ref: '#/components/examples/postEntityReferencesExample'
       responses:
         '200':
-          description: Entity Reference data items
+          description: 'Entity Reference data items'
           content:
             application/json:
               schema:
@@ -112,21 +89,17 @@ paths:
           $ref: '#/components/responses/500'
   /factset-entity/v1/entity-securities:
     get:
-      summary: >-
-        Returns all Equity Exchange Listings and all debt instruments issued for
-        the requested entity.
-      description: >
-        Returns all Equity Exchange Listings (ticker-exchange) and all debt
-        instruments (cusips) issued for the requested entity.
+      summary: 'Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.'
+      description: "Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity.\n"
       tags:
-        - Entity Securities
-      operationId: getEntitySecurities
+        - 'Entity Securities'
+      operationId: 'getEntitySecurities'
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/securityType'
       responses:
         '200':
-          description: Entity Security data items
+          description: 'Entity Security data items'
           content:
             application/json:
               schema:
@@ -145,18 +118,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Returns all Equity Exchange Listings and all debt instruments issued for
-        the requested entity.
-      description: >
-        Returns all Equity Exchange Listings (ticker-exchange) and all debt
-        instruments (cusips) issued for the requested entity.
+      summary: 'Returns all Equity Exchange Listings and all debt instruments issued for the requested entity.'
+      description: "Returns all Equity Exchange Listings (ticker-exchange) and all debt instruments (cusips) issued for the requested entity.\n"
       tags:
-        - Entity Securities
-      operationId: postEntitySecurities
+        - 'Entity Securities'
+      operationId: 'postEntitySecurities'
       requestBody:
         required: true
-        description: Request Body to request a list of Entity Security objects.
+        description: 'Request Body to request a list of Entity Security objects.'
         content:
           application/json:
             schema:
@@ -166,7 +135,7 @@ paths:
                 $ref: '#/components/examples/postEntitySecuritiesExample'
       responses:
         '200':
-          description: Successful Response producing an array of Entity Security Objects
+          description: 'Successful Response producing an array of Entity Security Objects'
           content:
             application/json:
               schema:
@@ -186,21 +155,18 @@ paths:
           $ref: '#/components/responses/500'
   /factset-entity/v1/entity-structures:
     get:
-      summary: >-
-        Returns all active or inactive entities and respective levels below the
-        requested entity id.
-      description: |
-        Returns all active or inactive entities below the requested entity id.
+      summary: 'Returns all active or inactive entities and respective levels below the requested entity id.'
+      description: "Returns all active or inactive entities below the requested entity id.\n"
       tags:
-        - Entity Structure
-      operationId: getEntityStructure
+        - 'Entity Structure'
+      operationId: 'getEntityStructure'
       parameters:
         - $ref: '#/components/parameters/structureIds'
         - $ref: '#/components/parameters/level'
         - $ref: '#/components/parameters/active'
       responses:
         '200':
-          description: Fetches Entity Structure
+          description: 'Fetches Entity Structure'
           content:
             application/json:
               schema:
@@ -219,16 +185,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Returns all active or inactive entities below the requested entity id.
-      description: >
-        Returns all active or inactive entities and respective levels below the
-        requested entity id.
+      summary: 'Returns all active or inactive entities below the requested entity id.'
+      description: "Returns all active or inactive entities and respective levels below the requested entity id.\n"
       tags:
-        - Entity Structure
-      operationId: postEntityStructure
+        - 'Entity Structure'
+      operationId: 'postEntityStructure'
       requestBody:
         required: true
-        description: Request Body to request a list of Entity Structure objects.
+        description: 'Request Body to request a list of Entity Structure objects.'
         content:
           application/json:
             schema:
@@ -238,7 +202,7 @@ paths:
                 $ref: '#/components/examples/postEntityStructuresExample'
       responses:
         '200':
-          description: Entity Structure data items
+          description: 'Entity Structure data items'
           content:
             application/json:
               schema:
@@ -258,23 +222,18 @@ paths:
           $ref: '#/components/responses/500'
   /factset-entity/v1/ultimate-entity-structures:
     get:
-      summary: >-
-        Returns the full ultimate parent entity hiearachy. Control levels and
-        active status of underlying entities.
-      description: >
-        Returns full ultimate entity structure including ultimate parent and all
-        subordinates. Will accept entity from any level of entity structure or
-        active vs. inactive status of entity.
+      summary: 'Returns the full ultimate parent entity hiearachy. Control levels and active status of underlying entities.'
+      description: "Returns full ultimate entity structure including ultimate parent and all subordinates. Will accept entity from any level of entity structure or active vs. inactive status of entity.\n"
       tags:
-        - Entity Structure
-      operationId: getUltimateEntityStructure
+        - 'Entity Structure'
+      operationId: 'getUltimateEntityStructure'
       parameters:
         - $ref: '#/components/parameters/structureIds'
         - $ref: '#/components/parameters/level'
         - $ref: '#/components/parameters/active'
       responses:
         '200':
-          description: Fetches Ultimate Entity Structure data for a list of ids.
+          description: 'Fetches Ultimate Entity Structure data for a list of ids.'
           content:
             application/json:
               schema:
@@ -293,18 +252,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Returns all active or inactive entities and respective levels below the
-        requested entity id.
-      description: >
-        Returns all active or inactive entities and respective levels below the
-        requested entity id.
+      summary: 'Returns all active or inactive entities and respective levels below the requested entity id.'
+      description: "Returns all active or inactive entities and respective levels below the requested entity id.\n"
       tags:
-        - Entity Structure
-      operationId: postUltimateEntityStructure
+        - 'Entity Structure'
+      operationId: 'postUltimateEntityStructure'
       requestBody:
         required: true
-        description: Request Body to request a list of Ultimate Entity Structure objects.
+        description: 'Request Body to request a list of Ultimate Entity Structure objects.'
         content:
           application/json:
             schema:
@@ -314,7 +269,7 @@ paths:
                 $ref: '#/components/examples/postUltimateEntityStructuresExample'
       responses:
         '200':
-          description: Ultimate Entity Structure data items
+          description: 'Ultimate Entity Structure data items'
           content:
             application/json:
               schema:
@@ -334,19 +289,16 @@ paths:
           $ref: '#/components/responses/500'
   /factset-entity/v1/entity-reference-chi:
     get:
-      summary: Returns entity reference data in Chinese for an individual entity.
-      description: >
-        Returns entity reference data in Chinese for the requested Id(s). Data
-        points include Business Description and Entity Name in both simplified
-        and traditional Chinese.
+      summary: 'Returns entity reference data in Chinese for an individual entity.'
+      description: "Returns entity reference data in Chinese for the requested Id(s). Data points include Business Description and Entity Name in both simplified and traditional Chinese.\n"
       tags:
-        - Entity Reference Chinese
-      operationId: getEntityReferenceChi
+        - 'Entity Reference Chinese'
+      operationId: 'getEntityReferenceChi'
       parameters:
         - $ref: '#/components/parameters/idsChi'
       responses:
         '200':
-          description: Fetches Entity Reference data in Chinese for a list of ids.
+          description: 'Fetches Entity Reference data in Chinese for a list of ids.'
           content:
             application/json:
               schema:
@@ -365,17 +317,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Returns entity reference data in Chinese for an individual entity.
-      description: >
-        Returns entity reference data in Chinese for the requested Id(s). Data
-        points include Business Description and Entity Name in both simplified
-        and traditional Chinese.
+      summary: 'Returns entity reference data in Chinese for an individual entity.'
+      description: "Returns entity reference data in Chinese for the requested Id(s). Data points include Business Description and Entity Name in both simplified and traditional Chinese.\n"
       tags:
-        - Entity Reference Chinese
-      operationId: getEntityReferenceChiForList
+        - 'Entity Reference Chinese'
+      operationId: 'getEntityReferenceChiForList'
       requestBody:
         required: true
-        description: Request Body to request a list of Entity Reference Chinese objects.
+        description: 'Request Body to request a list of Entity Reference Chinese objects.'
         content:
           application/json:
             schema:
@@ -385,7 +334,7 @@ paths:
                 $ref: '#/components/examples/postEntityReferenceChiExample'
       responses:
         '200':
-          description: Fetches Entity Reference data in Chinese for a list of ids.
+          description: 'Fetches Entity Reference data in Chinese for a list of ids.'
           content:
             application/json:
               schema:
@@ -405,28 +354,17 @@ paths:
           $ref: '#/components/responses/500'
   /factset-entity/v1/hist-credit-parent:
     get:
-      summary: Returns historical credit parents for the requested id(s).
-      description: >
-        Returns the credit parent for requested fixed income ids. Point in time
-        credit parent retrieval is
-
-        also available if an asOfDate is provided. The full credit parent
-        history of a security is returned if
-
-        no asOfDate is provided.
-
-
-        This endpoint uses a seven day calendar to account for changes that
-        occur on all seven days of the week.
+      summary: 'Returns historical credit parents for the requested id(s).'
+      description: "Returns the credit parent for requested fixed income ids. Point in time credit parent retrieval is\nalso available if an asOfDate is provided. The full credit parent history of a security is returned if\nno asOfDate is provided.\n\nThis endpoint uses a seven day calendar to account for changes that occur on all seven days of the week.\n"
       tags:
-        - Historical Credit Parent
-      operationId: getHistCredParent
+        - 'Historical Credit Parent'
+      operationId: 'getHistCredParent'
       parameters:
         - $ref: '#/components/parameters/hcpIds'
         - $ref: '#/components/parameters/asOfDate'
       responses:
         '200':
-          description: Fetches Credit Parents
+          description: 'Fetches Credit Parents'
           content:
             application/json:
               schema:
@@ -445,25 +383,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Returns historical credit parents for the requested id(s).
-      description: >
-        Returns the credit parent for requested fixed income ids. Point in time
-        credit parent retrieval is
-
-        also available if an asOfDate is provided. The full credit parent
-        history of a security is returned if
-
-        no asOfDate is provided.
-
-
-        This endpoint uses a seven day calendar to account for changes that
-        occur on all seven days of the week.
+      summary: 'Returns historical credit parents for the requested id(s).'
+      description: "Returns the credit parent for requested fixed income ids. Point in time credit parent retrieval is\nalso available if an asOfDate is provided. The full credit parent history of a security is returned if\nno asOfDate is provided.\n\nThis endpoint uses a seven day calendar to account for changes that occur on all seven days of the week.\n"
       tags:
-        - Historical Credit Parent
-      operationId: postHistCredParent
+        - 'Historical Credit Parent'
+      operationId: 'postHistCredParent'
       requestBody:
         required: true
-        description: Request Body to request a list of credit parent objects.
+        description: 'Request Body to request a list of credit parent objects.'
         content:
           application/json:
             schema:
@@ -473,7 +400,7 @@ paths:
                 $ref: '#/components/examples/postHistCreditParentExample'
       responses:
         '200':
-          description: Credit parent data items
+          description: 'Credit parent data items'
           content:
             application/json:
               schema:
@@ -491,530 +418,408 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   parameters:
     ids:
-      name: ids
-      in: query
-      description: >
-        The requested Market Identifier. Accepted input identifiers include
-        Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet
-        Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a
-        single request**</p>
-          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
-              which may lead to exceeding this request line limit of 8KB, its
-              advised for any requests with large request lines to be requested through
-              the respective \"POST\" method.</p>*
+      name: 'ids'
+      in: 'query'
+      description: "The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 3000 in a single request**</p>\n  *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,\n      which may lead to exceeding this request line limit of 8KB, its\n      advised for any requests with large request lines to be requested through\n      the respective \\\"POST\\\" method.</p>*\n"
       required: true
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
-          example: IBM-US
+          type: 'string'
+          example: 'IBM-US'
         minItems: 1
         maxItems: 3000
       explode: false
       example:
-        - AAPL-US
-        - 0FPWZZ-E
-        - TSLA-US
+        - 'AAPL-US'
+        - '0FPWZZ-E'
+        - 'TSLA-US'
     hcpIds:
-      name: ids
-      in: query
-      description: >
-        The requested security level Market Identifiers. Accepted input
-        identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs,
-        SEDOLs, or FactSet -S Permanent Ids.<p>**Max Ids Limit set to 50 in a
-        single request**</p>
-          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
-              which may lead to exceeding this request line limit of 8KB, its
-              advised for any requests with large request lines to be requested through
-              the respective \"POST\" method.</p>*
+      name: 'ids'
+      in: 'query'
+      description: "The requested security level Market Identifiers. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet -S Permanent Ids.<p>**Max Ids Limit set to 50 in a single request**</p>\n  *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,\n      which may lead to exceeding this request line limit of 8KB, its\n      advised for any requests with large request lines to be requested through\n      the respective \\\"POST\\\" method.</p>*\n"
       required: true
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
-          example: IBM-US
+          type: 'string'
+          example: 'IBM-US'
         minItems: 1
         maxItems: 50
       explode: false
       example:
-        - CYQYNL-S
-        - G17920AA0
-        - US40434YTB38
+        - 'CYQYNL-S'
+        - 'G17920AA0'
+        - 'US40434YTB38'
     asOfDate:
-      name: asOfDate
-      in: query
+      name: 'asOfDate'
+      in: 'query'
       required: false
       schema:
-        type: string
-      description: >
-        The date requested for credit parent calculation. Represented in
-        **YYYY-MM-DD** format. If left blank or not specified, the full credit
-        parent history will be returned.
+        type: 'string'
+      description: "The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned.\n"
       example: '2020-01-01'
     structureIds:
-      name: ids
-      in: query
-      description: >
-        The requested Market Identifier. Accepted input identifiers include
-        Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet
-        Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a
-        single request**</p>
-          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
-              which may lead to exceeding this request line limit of 8KB, its
-              advised for any requests with large request lines to be requested through
-              the respective \"POST\" method.</p>*
+      name: 'ids'
+      in: 'query'
+      description: "The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 100 in a single request**</p>\n  *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,\n      which may lead to exceeding this request line limit of 8KB, its\n      advised for any requests with large request lines to be requested through\n      the respective \\\"POST\\\" method.</p>*\n"
       required: true
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
-          example: IBM-US
+          type: 'string'
+          example: 'IBM-US'
         minItems: 1
         maxItems: 100
       explode: false
       example:
-        - AAPL-US
-        - 0FPWZZ-E
-        - TSLA-US
+        - 'AAPL-US'
+        - '0FPWZZ-E'
+        - 'TSLA-US'
     securityType:
-      name: securityType
-      in: query
-      description: >
-        The category describes which security types will be returned in the
-        response. Defined as:
-
-        * **EQ** = All related traded equity listings
-
-        * **AEQ** = All active traded and non-traded equity listings
-
-        * **PR** = All active preferred securities
-
-        * **F** = All active funds
-
-        * **FI** = All debt instruments
-
-        * **ALL** = All related traded equity listings and debt
+      name: 'securityType'
+      in: 'query'
+      description: "The category describes which security types will be returned in the response. Defined as:\n* **EQ** = All related traded equity listings\n* **AEQ** = All active traded and non-traded equity listings\n* **PR** = All active preferred securities\n* **F** = All active funds\n* **FI** = All debt instruments\n* **ALL** = All related traded equity listings and debt\n"
       required: false
       schema:
-        type: string
+        type: 'string'
         enum:
-          - EQ
-          - AEQ
-          - PR
-          - F
-          - FI
-          - ALL
-        default: EQ
+          - 'EQ'
+          - 'AEQ'
+          - 'PR'
+          - 'F'
+          - 'FI'
+          - 'ALL'
+        default: 'EQ'
       examples:
         EQ:
-          summary: EQ
-          value: EQ
+          summary: 'EQ'
+          value: 'EQ'
         AEQ:
-          summary: AEQ
-          value: AEQ
+          summary: 'AEQ'
+          value: 'AEQ'
         PR:
-          summary: PR
-          value: PR
+          summary: 'PR'
+          value: 'PR'
         F:
-          summary: F
-          value: F
+          summary: 'F'
+          value: 'F'
         FI:
-          summary: FI
-          value: FI
+          summary: 'FI'
+          value: 'FI'
         ALL:
-          summary: ALL
-          value: ALL
+          summary: 'ALL'
+          value: 'ALL'
     level:
-      name: level
-      in: query
-      description: >-
-        Controls the levels returned in the hierarchy. Use -1 to return all
-        levels, or 1-n for a specific level.
+      name: 'level'
+      in: 'query'
+      description: 'Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level.'
       required: false
       schema:
-        type: integer
+        type: 'integer'
         default: -1
       example: -1
     active:
-      name: active
-      in: query
-      description: >-
-        Controls active or inactive securities returned in the hierarchy. Enter
-        1 to return only active entities, 0 for inactive entities, and -1 for
-        all active and inactive.
+      name: 'active'
+      in: 'query'
+      description: 'Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive.'
       required: false
       schema:
-        type: integer
+        type: 'integer'
         default: -1
         minimum: -1
         maximum: 1
       example: -1
     idsChi:
-      name: ids
-      in: query
-      description: >
-        The requested Market Identifier. Accepted input identifiers include
-        Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, BBGs or FactSet
-        Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 1500 in a
-        single request**</p>
-          *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,
-              which may lead to exceeding this request line limit of 8KB, its
-              advised for any requests with large request lines to be requested through
-              the respective \"POST\" method.</p>*
+      name: 'ids'
+      in: 'query'
+      description: "The requested Market Identifier. Accepted input identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, BBGs or FactSet Permanent Ids, such as -R, -L, or -E.<p>**Max Ids Limit set to 1500 in a single request**</p>\n  *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids,\n      which may lead to exceeding this request line limit of 8KB, its\n      advised for any requests with large request lines to be requested through\n      the respective \\\"POST\\\" method.</p>*\n"
       required: true
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
-          example: IBM-US
+          type: 'string'
+          example: 'IBM-US'
         minItems: 1
         maxItems: 1500
       explode: false
       example:
-        - 05X6LC-E
-        - 062T6N-E
+        - '05X6LC-E'
+        - '062T6N-E'
   schemas:
     entityReferenceRequest:
-      title: Entity Reference Request
-      description: Entity Reference Request Body
-      type: object
+      title: 'Entity Reference Request'
+      description: 'Entity Reference Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
       required:
-        - ids
+        - 'ids'
     entityReferenceResponse:
-      type: object
-      title: Entity Reference Response
+      type: 'object'
+      title: 'Entity Reference Response'
       properties:
         data:
-          description: Array of Entity Reference objects.
-          type: array
+          description: 'Array of Entity Reference objects.'
+          type: 'array'
           items:
             $ref: '#/components/schemas/entityReference'
     entityReference:
-      title: Entity Profile
-      type: object
+      title: 'Entity Profile'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Unique FactSet-generated identifier representing an entity for the
-            current entity identifier (-E)
-          example: 001MF1-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)'
+          example: '001MF1-E'
           nullable: true
         entityProperName:
-          type: string
-          description: >-
-            Name that the entity is commonly referred to as, normalized and in
-            proper case.
-          example: Amazon.com, Inc.
+          type: 'string'
+          description: 'Name that the entity is commonly referred to as, normalized and in proper case.'
+          example: 'Amazon.com, Inc.'
           nullable: true
         fsymEntityId:
-          type: string
-          description: Unique FactSet-generated identifier representing an entity
-          example: 001MF1-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity'
+          example: '001MF1-E'
           nullable: true
         ultimateParentId:
-          type: string
-          description: The ultimate parent id of the entity.
-          example: 001MF1-E
+          type: 'string'
+          description: 'The ultimate parent id of the entity.'
+          example: '001MF1-E'
           nullable: true
         ultimateParentName:
-          type: string
-          description: >-
-            Name that the ultimate parent entity is commonly referred to as,
-            normalized and in proper case."
-          example: Amazon.com, Inc.
+          type: 'string'
+          description: 'Name that the ultimate parent entity is commonly referred to as, normalized and in proper case."'
+          example: 'Amazon.com, Inc.'
           nullable: true
         creditParentId:
-          type: string
-          description: >
-            The credit parent id in which issues debt instruments. The credit
-            parent differs from the ultimate parent if the ultimate parent does
-            not inherit the credit risk associated with an issuer's debt
-            offerings.
-
-            Credit Parent's are not Assigned to the Extinct Issues, Governments,
-            Asset-Backed Securities, Trusts, Foundations, Private Equity,
-            Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns
-            credit parents based on the following methodology -
-
-            * If an issuer (entity A) is considered a direct subsidiary of
-            another entity (entity B), where the parent entity (entity B) has a
-            100% controlling interest in the issuer (entity A), then the parent
-            entity (entity B) is considered the credit parent.
-
-            * If an operating business is purchased as a portfolio
-            company/operating company (entity A) by a group of private equity
-            firms that establish a holding company (entity B) structure to
-            reflect the collective ownership, and the portfolio
-            company/operating company (entity A) issues debt as part of
-            acquisition financing, then the portfolio company/operating company
-            (entity A) is deemed to be the credit parent, not the holding
-            company (entity B).
-
-            * An issuer must have active debt.
-          example: 001MF1-E
+          type: 'string'
+          description: "The credit parent id in which issues debt instruments. The credit parent differs from the ultimate parent if the ultimate parent does not inherit the credit risk associated with an issuer's debt offerings.\nCredit Parent's are not Assigned to the Extinct Issues, Governments, Asset-Backed Securities, Trusts, Foundations, Private Equity, Venture Capital, Hedge Funds, or Mutual Funds. FactSet assigns credit parents based on the following methodology -\n* If an issuer (entity A) is considered a direct subsidiary of another entity (entity B), where the parent entity (entity B) has a 100% controlling interest in the issuer (entity A), then the parent entity (entity B) is considered the credit parent.\n* If an operating business is purchased as a portfolio company/operating company (entity A) by a group of private equity firms that establish a holding company (entity B) structure to reflect the collective ownership, and the portfolio company/operating company (entity A) issues debt as part of acquisition financing, then the portfolio company/operating company (entity A) is deemed to be the credit parent, not the holding company (entity B).\n* An issuer must have active debt.\n"
+          example: '001MF1-E'
           nullable: true
         parentEquityId:
-          type: string
-          description: The regional parent equity listing id.
-          example: MCNYYL-R
+          type: 'string'
+          description: 'The regional parent equity listing id.'
+          example: 'MCNYYL-R'
           nullable: true
         privateEntityFlag:
-          type: integer
-          description: Returns 1 if the entity is a Private Company, otherwise, 0.
+          type: 'integer'
+          description: 'Returns 1 if the entity is a Private Company, otherwise, 0.'
           example: 0
           nullable: true
         publicEntityFlag:
-          type: integer
-          description: Returns 1 if the entity is a Public Company, otherwise, 0.
+          type: 'integer'
+          description: 'Returns 1 if the entity is a Public Company, otherwise, 0.'
           example: 1
           nullable: true
         securityType:
-          type: string
-          description: >-
-            Security type of the identifier, For descriptions of the each
-            security type, visit [OA
-            15776](https://my.apps.factset.com/oa/pages/15776)
-          example: SHARE
+          type: 'string'
+          description: 'Security type of the identifier, For descriptions of the each security type, visit [OA 15776](https://my.apps.factset.com/oa/pages/15776)'
+          example: 'SHARE'
           nullable: true
         website:
-          type: string
-          description: Web page address for the entity
-          example: http://www.amazon.com
+          type: 'string'
+          description: 'Web page address for the entity'
+          example: 'http://www.amazon.com'
           nullable: true
         incorporationDate:
-          type: string
-          format: date
-          description: Year the entity was incorporated in YYYY-MM-DD format.
+          type: 'string'
+          format: 'date'
+          description: 'Year the entity was incorporated in YYYY-MM-DD format.'
           example: '1996-05-28'
           nullable: true
         countryOfRisk:
-          type: string
-          description: >
-            Entity's Country of Risk. FactSet has a determined methodology for
-            assigning a country of risk to public and private entities, based on
-            the following -
-
-            * Country of Headquarters
-
-            * Country of Incorporation
-
-            * Country of Primary Exchange (the country where most liquid equity
-            listings trade)
-          example: US
+          type: 'string'
+          description: "Entity's Country of Risk. FactSet has a determined methodology for assigning a country of risk to public and private entities, based on the following -\n* Country of Headquarters\n* Country of Incorporation\n* Country of Primary Exchange (the country where most liquid equity listings trade)\n"
+          example: 'US'
           nullable: true
         countryOfRiskGeoRev:
-          type: string
-          description: |
-            Entity's Country of Risk based on the Top Geograghic Revenue.
-          example: US
+          type: 'string'
+          description: "Entity's Country of Risk based on the Top Geograghic Revenue.\n"
+          example: 'US'
           nullable: true
         incorporationCountry:
-          type: string
-          description: ISO Country code where the entity is incorporated
-          example: US
+          type: 'string'
+          description: 'ISO Country code where the entity is incorporated'
+          example: 'US'
           nullable: true
         businessDescription:
-          type: string
-          description: Extended business description for the requested entity.
-          example: >-
-            Amazon.com, Inc. engages in the provision of Online retail shopping
-            services. It operates through the following business segments: North
-            America, International, and Amazon Web Services (AWS). The North
-            America segment includes retail sales of consumer products and
-            subscriptions through North America-focused websites such as
-            www.amazon.com and www.amazon.ca. The International segment offers
-            retail sales of consumer products and subscriptions through
-            internationally-focused websites. The Amazon Web Services segment
-            involves in the global sales of compute, storage, database, and AWS
-            service offerings for start-ups, enterprises, government agencies,
-            and academic institutions. The company was founded by Jeffrey P.
-            Bezos in July 1994 and is headquartered in Seattle, WA.
+          type: 'string'
+          description: 'Extended business description for the requested entity.'
+          example: 'Amazon.com, Inc. engages in the provision of Online retail shopping services. It operates through the following business segments: North America, International, and Amazon Web Services (AWS). The North America segment includes retail sales of consumer products and subscriptions through North America-focused websites such as www.amazon.com and www.amazon.ca. The International segment offers retail sales of consumer products and subscriptions through internationally-focused websites. The Amazon Web Services segment involves in the global sales of compute, storage, database, and AWS service offerings for start-ups, enterprises, government agencies, and academic institutions. The company was founded by Jeffrey P. Bezos in July 1994 and is headquartered in Seattle, WA.'
           nullable: true
         phone:
-          type: string
-          description: The entity's international phone number.
-          example: +1.206.266.1000
+          type: 'string'
+          description: 'The entity''s international phone number.'
+          example: '+1.206.266.1000'
           nullable: true
         headquartersStreet:
-          type: string
-          description: The entity's headquarters street address.
-          example: 410 Terry Avenue North
+          type: 'string'
+          description: 'The entity''s headquarters street address.'
+          example: '410 Terry Avenue North'
           nullable: true
         headquartersCity:
-          type: string
-          description: The entity's headquarters street address.
-          example: Seattle
+          type: 'string'
+          description: 'The entity''s headquarters street address.'
+          example: 'Seattle'
           nullable: true
         headquartersState:
-          type: string
-          description: Abbreviated State of company headquarters.
-          example: WA
+          type: 'string'
+          description: 'Abbreviated State of company headquarters.'
+          example: 'WA'
           nullable: true
         headquartersZip:
-          type: string
-          description: Zip/Postal Code for entity's headquarters.
-          example: 98109-5210
+          type: 'string'
+          description: 'Zip/Postal Code for entity''s headquarters.'
+          example: '98109-5210'
           nullable: true
         headquartersCountry:
-          type: string
-          description: Abbreviated (ISO) Country of headquarters.
-          example: US
+          type: 'string'
+          description: 'Abbreviated (ISO) Country of headquarters.'
+          example: 'US'
           nullable: true
         emailIR:
-          type: string
-          description: Email Address of the Investor Relations Contact
-          example: amazon-ir@amazon.com
+          type: 'string'
+          description: 'Email Address of the Investor Relations Contact'
+          example: 'amazon-ir@amazon.com'
           nullable: true
         websiteIR:
-          type: string
-          description: Website or Page for the Entity's Investor Relations team.
-          example: https://ir.aboutamazon.com/overview/default.aspx
+          type: 'string'
+          description: 'Website or Page for the Entity''s Investor Relations team.'
+          example: 'https://ir.aboutamazon.com/overview/default.aspx'
           nullable: true
         requestId:
-          type: string
-          description: >-
-            Identifier used in "ids" parameter.  When list of identifiers used,
-            they will be parsed and resolved individually.
-          example: AMZN-US
+          type: 'string'
+          description: 'Identifier used in "ids" parameter.  When list of identifiers used, they will be parsed and resolved individually.'
+          example: 'AMZN-US'
     entitySecuritiesRequest:
-      title: Entity Securities Request
-      description: Entity Securities Request Body
-      type: object
+      title: 'Entity Securities Request'
+      description: 'Entity Securities Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
         securityType:
           $ref: '#/components/schemas/securityType'
       required:
-        - ids
+        - 'ids'
     entitySecuritiesResponse:
-      type: object
-      title: Entity Securities Response
+      type: 'object'
+      title: 'Entity Securities Response'
       properties:
         data:
-          description: Array of securities objects.
-          type: array
+          description: 'Array of securities objects.'
+          type: 'array'
           items:
             $ref: '#/components/schemas/entitySecurities'
     entitySecurities:
-      title: Entity Securities
-      type: object
+      title: 'Entity Securities'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: FactSet Ultimate Parent ID of the Requested Security ID
-          example: 001MF1-E
+          type: 'string'
+          description: 'FactSet Ultimate Parent ID of the Requested Security ID'
+          example: '001MF1-E'
           nullable: true
         fsymSecurityId:
-          type: string
-          description: FactSet Security ID (-S).
-          example: F3PS31-S
+          type: 'string'
+          description: 'FactSet Security ID (-S).'
+          example: 'F3PS31-S'
           nullable: true
         fsymListingId:
-          type: string
-          description: >-
-            FactSet Listing ID (-L). Corresponds to the listing exchange for the
-            requested security. Not applicable for FI instruments.
-          example: LVR478-L
+          type: 'string'
+          description: 'FactSet Listing ID (-L). Corresponds to the listing exchange for the requested security. Not applicable for FI instruments.'
+          example: 'LVR478-L'
           nullable: true
         securityType:
-          type: string
-          description: >-
-            The Security Type Code. Security Type Code details and mapping are
-            described on Online Assistant Page 15776 for Equity and Page 16014
-            for Fixed Income.
-          example: BDNT
+          type: 'string'
+          description: 'The Security Type Code. Security Type Code details and mapping are described on Online Assistant Page 15776 for Equity and Page 16014 for Fixed Income.'
+          example: 'BDNT'
           enum:
-            - SHARE
-            - PREFEQ
-            - MF_C
-            - MF_O
-            - ETF_ETF
-            - ETF_UVI
-            - ETF_NAV
-            - ADR
-            - GDR
-            - NVDR
-            - DR
-            - ALIEN
-            - PREF
-            - WARRANT
-            - RIGHT
-            - UNIT
-            - STRUCT
-            - TEMP
-            - CONV
-            - BDNT
-            - PFD
-            - PASS
-            - MM
-            - RMBS
-            - ABS
-            - COVR
-            - LKS
-            - LAUTH
-            - BLDN
-            - CMBS
+            - 'SHARE'
+            - 'PREFEQ'
+            - 'MF_C'
+            - 'MF_O'
+            - 'ETF_ETF'
+            - 'ETF_UVI'
+            - 'ETF_NAV'
+            - 'ADR'
+            - 'GDR'
+            - 'NVDR'
+            - 'DR'
+            - 'ALIEN'
+            - 'PREF'
+            - 'WARRANT'
+            - 'RIGHT'
+            - 'UNIT'
+            - 'STRUCT'
+            - 'TEMP'
+            - 'CONV'
+            - 'BDNT'
+            - 'PFD'
+            - 'PASS'
+            - 'MM'
+            - 'RMBS'
+            - 'ABS'
+            - 'COVR'
+            - 'LKS'
+            - 'LAUTH'
+            - 'BLDN'
+            - 'CMBS'
           nullable: true
         listingExchange:
-          type: string
-          description: The securities primary listing exchange.
-          example: NAS
+          type: 'string'
+          description: 'The securities primary listing exchange.'
+          example: 'NAS'
           nullable: true
         securityName:
-          type: string
-          description: Security name
-          example: Amazon.com, Inc. 1.9% 21-AUG-2020
+          type: 'string'
+          description: 'Security name'
+          example: 'Amazon.com, Inc. 1.9% 21-AUG-2020'
           nullable: true
         fsymEntityId:
-          type: string
-          description: Unique FactSet-generated identifier representing an entity.
-          example: 001MF1-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity.'
+          example: '001MF1-E'
           nullable: true
         fsymTickerExchange:
-          type: string
-          description: >-
-            The security's ticker-exchange, representing the listing exchange
-            symbol.
-          example: AMZN-NAS
+          type: 'string'
+          description: 'The security''s ticker-exchange, representing the listing exchange symbol.'
+          example: 'AMZN-NAS'
           nullable: true
         fsymTickerRegion:
-          type: string
-          description: The security's regional ticker.
-          example: AMZN-US
+          type: 'string'
+          description: 'The security''s regional ticker.'
+          example: 'AMZN-US'
           nullable: true
         activeFlag:
-          type: integer
-          description: Indicates if security is active. 1 = Active; 0 = Inactive.
+          type: 'integer'
+          description: 'Indicates if security is active. 1 = Active; 0 = Inactive.'
           example: 1
           enum:
             - 0
             - 1
           nullable: true
         requestId:
-          type: string
-          description: >-
-            Identifier used in `ids` parameter.  When list of identifiers used,
-            they will be parsed and resolved individually.
-          example: AMZN-US
+          type: 'string'
+          description: 'Identifier used in `ids` parameter.  When list of identifiers used, they will be parsed and resolved individually.'
+          example: 'AMZN-US'
     entityStructureRequest:
-      title: Entity Structure Request
-      description: Entity Structure Request Body
-      type: object
+      title: 'Entity Structure Request'
+      description: 'Entity Structure Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/structureIds'
@@ -1023,70 +828,63 @@ components:
         active:
           $ref: '#/components/schemas/active'
       required:
-        - ids
+        - 'ids'
     entityStructureResponse:
-      type: object
-      title: Entity Structure Response
+      type: 'object'
+      title: 'Entity Structure Response'
       properties:
         data:
-          description: Array of Entity Structure objects.
-          type: array
+          description: 'Array of Entity Structure objects.'
+          type: 'array'
           items:
             $ref: '#/components/schemas/entityStructure'
     entityStructure:
-      title: Entity Structure
-      type: object
+      title: 'Entity Structure'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Unique FactSet-generated identifier representing an entity for the
-            current entity identifier (-E)
-          example: 001MF1-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)'
+          example: '001MF1-E'
           nullable: true
         fsymEntityId:
-          type: string
-          description: Unique FactSet-generated identifier representing an entity
-          example: 001MF1-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity'
+          example: '001MF1-E'
           nullable: true
         ultimateParentId:
-          type: string
-          description: The ultimate parent id of the entity.
-          example: 001MF1-E
+          type: 'string'
+          description: 'The ultimate parent id of the entity.'
+          example: '001MF1-E'
           nullable: true
         parentEntityId:
-          type: string
-          description: >-
-            Within the hierarchy, this id represents the immediate parent entity
-            id for the level directly above. Ultimate parent id will return a
-            blank string.
-          example: 001MF1-E
+          type: 'string'
+          description: 'Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.'
+          example: '001MF1-E'
           nullable: true
         level:
-          type: integer
-          description: >-
-            Controls the levels returned in the hierarchy. Use -1 to return all
-            levels, or 1-n for a specific level.
+          type: 'integer'
+          description: 'Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level.'
           example: 2
           nullable: true
         inactive:
-          type: integer
-          description: A flag for inactive securities; whereby 1 = inactive and 0 = active.
+          type: 'integer'
+          description: 'A flag for inactive securities; whereby 1 = inactive and 0 = active.'
           example: 0
           nullable: true
         description:
-          type: string
-          description: The proper name and entity type for the entity.
-          example: Whole Foods Market, Inc. (Subsidiary)
+          type: 'string'
+          description: 'The proper name and entity type for the entity.'
+          example: 'Whole Foods Market, Inc. (Subsidiary)'
           nullable: true
         requestId:
-          type: string
-          description: Identifier used in `ids`.
-          example: AMZN-US
+          type: 'string'
+          description: 'Identifier used in `ids`.'
+          example: 'AMZN-US'
     ultimateEntityStructureRequest:
-      title: Ultimate Entity Structure Request
-      description: Ultimate Entity Structure Request Body
-      type: object
+      title: 'Ultimate Entity Structure Request'
+      description: 'Ultimate Entity Structure Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/structureIds'
@@ -1095,361 +893,303 @@ components:
         active:
           $ref: '#/components/schemas/active'
       required:
-        - ids
+        - 'ids'
     ultimateEntityStructureResponse:
-      type: object
-      title: Entity Structure Response
+      type: 'object'
+      title: 'Entity Structure Response'
       properties:
         data:
-          description: Array of Entity Structure objects.
-          type: array
+          description: 'Array of Entity Structure objects.'
+          type: 'array'
           items:
             $ref: '#/components/schemas/utlimateEntityStructure'
     utlimateEntityStructure:
-      title: Ultimate Entity Structure
-      type: object
+      title: 'Ultimate Entity Structure'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Unique FactSet-generated identifier representing an entity for the
-            current entity identifier (-E)
-          example: 001MF1-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)'
+          example: '001MF1-E'
           nullable: true
         fsymEntityId:
-          type: string
-          description: Unique FactSet-generated identifier representing an entity
-          example: 001MF1-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity'
+          example: '001MF1-E'
           nullable: true
         ultimateParentId:
-          type: string
-          description: The ultimate parent id of the entity.
-          example: 001MF1-E
+          type: 'string'
+          description: 'The ultimate parent id of the entity.'
+          example: '001MF1-E'
           nullable: true
         parentEntityId:
-          type: string
-          description: >-
-            Within the hierarchy, this id represents the immediate parent entity
-            id for the level directly above. Ultimate parent id will return a
-            blank string.
-          example: 001MF1-E
+          type: 'string'
+          description: 'Within the hierarchy, this id represents the immediate parent entity id for the level directly above. Ultimate parent id will return a blank string.'
+          example: '001MF1-E'
           nullable: true
         level:
-          type: integer
-          description: >-
-            Level within the ultimate entity structure. This is taken from the
-            perspective of the ultimate parent id and the full entity hierarchy.
+          type: 'integer'
+          description: 'Level within the ultimate entity structure. This is taken from the perspective of the ultimate parent id and the full entity hierarchy.'
           example: 3
           nullable: true
         inactive:
-          type: integer
-          description: A flag for inactive securities; whereby 1 = inactive and 0 = active.
+          type: 'integer'
+          description: 'A flag for inactive securities; whereby 1 = inactive and 0 = active.'
           example: 0
           nullable: true
         description:
-          type: string
-          description: The proper name and entity type for the entity.
-          example: Whole Foods Market, Inc. (Subsidiary)
+          type: 'string'
+          description: 'The proper name and entity type for the entity.'
+          example: 'Whole Foods Market, Inc. (Subsidiary)'
           nullable: true
         requestId:
-          type: string
-          description: Identifier used in `ids`.
-          example: AMZN-US
+          type: 'string'
+          description: 'Identifier used in `ids`.'
+          example: 'AMZN-US'
     entityReferenceChiRequest:
-      title: Entity Reference Chinese Request
-      description: Entity Reference Request Body
-      type: object
+      title: 'Entity Reference Chinese Request'
+      description: 'Entity Reference Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/idsChi'
       required:
-        - ids
+        - 'ids'
     entityReferenceChiResponse:
-      type: object
-      title: Entity Reference Chinese Response
+      type: 'object'
+      title: 'Entity Reference Chinese Response'
       properties:
         data:
-          description: Array of Entity Reference objects.
-          type: array
+          description: 'Array of Entity Reference objects.'
+          type: 'array'
           items:
             $ref: '#/components/schemas/entityReferenceChi'
     entityReferenceChi:
-      title: Entity Profile
-      type: object
+      title: 'Entity Profile'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Unique FactSet-generated identifier representing an entity for the
-            current entity identifier (-E)
-          example: 062T6N-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)'
+          example: '062T6N-E'
           nullable: true
         fsymEntityId:
-          type: string
-          description: Unique FactSet-generated identifier representing an entity
-          example: 062T6N-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity'
+          example: '062T6N-E'
           nullable: true
         simplifiedChineseName:
-          type: string
-          description: The entity name in Simplified Chinese.
-          example: 百川能源股份有限公司
+          type: 'string'
+          description: 'The entity name in Simplified Chinese.'
+          example: '百川能源股份有限公司'
           nullable: true
         traditionalChineseName:
-          type: string
-          description: The entity name in Traditional Chinese.
-          example: 百川能源股份有限公司
+          type: 'string'
+          description: 'The entity name in Traditional Chinese.'
+          example: '百川能源股份有限公司'
           nullable: true
         entityProperName:
-          type: string
-          description: >-
-            Name that the entity is commonly referred to as, normalized and in
-            proper case.
-          example: Bestsun Energy Co., Ltd.
+          type: 'string'
+          description: 'Name that the entity is commonly referred to as, normalized and in proper case.'
+          example: 'Bestsun Energy Co., Ltd.'
           nullable: true
         simplifiedChineseDescription:
-          type: string
-          description: >-
-            Extended business description for the requested entity in Simplified
-            Chinese.
-          example: >-
-            百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。
+          type: 'string'
+          description: 'Extended business description for the requested entity in Simplified Chinese.'
+          example: '百川能源股份有限公司前身为武汉长江印刷股份有限(集团)公司,系由原武汉印刷厂、北京京华信托投资公司、深圳万科企业股份有限公司联合发起组建,于1992年3月18日正式成立。公司主营业务为城市管道燃气销售、燃气工程安装、燃气具销售。'
           nullable: true
         traditionalChineseDescription:
-          type: string
-          description: >-
-            Extended business description for the requested entity in
-            Traditional Chinese.
-          example: >-
-            百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。
+          type: 'string'
+          description: 'Extended business description for the requested entity in Traditional Chinese.'
+          example: '百川能源股份有限公司前身為武漢長江印刷股份有限(集團)公司,系由原武漢印刷廠、北京京華信託投資公司、深圳萬科企業股份有限公司聯合發起組建,於1992年3月18日正式成立。公司主營業務為城市管道燃氣銷售、燃氣工程安裝、燃氣具銷售。'
           nullable: true
         requestId:
-          type: string
-          description: >-
-            Identifier used in "ids" parameter. When list of identifiers used,
-            they will be parsed and resolved individually.
-          example: 062T6N-E
+          type: 'string'
+          description: 'Identifier used in "ids" parameter. When list of identifiers used, they will be parsed and resolved individually.'
+          example: '062T6N-E'
     creditParentRequest:
-      title: Historical Credit Parent Request
-      description: Historical Credit Parent Request Body
-      type: object
+      title: 'Historical Credit Parent Request'
+      description: 'Historical Credit Parent Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/hcpIds'
         asOfDate:
           $ref: '#/components/schemas/asOfDate'
       required:
-        - ids
+        - 'ids'
     creditParentResponse:
-      type: object
-      title: Historical Credit Parent Response
+      type: 'object'
+      title: 'Historical Credit Parent Response'
       properties:
         data:
-          description: Array of Credit Parent objects.
-          type: array
+          description: 'Array of Credit Parent objects.'
+          type: 'array'
           items:
             $ref: '#/components/schemas/creditParent'
     creditParent:
-      title: Credit Parent
-      type: object
+      title: 'Credit Parent'
+      type: 'object'
       properties:
         fsymId:
-          type: string
-          description: >-
-            Unique FactSet-generated identifier representing an entity for the
-            current entity identifier (-E)
-          example: 0028BD-E
+          type: 'string'
+          description: 'Unique FactSet-generated identifier representing an entity for the current entity identifier (-E)'
+          example: '0028BD-E'
           nullable: true
         requestId:
-          type: string
-          description: Identifier used in `ids`.
-          example: CYQYNL-S
+          type: 'string'
+          description: 'Identifier used in `ids`.'
+          example: 'CYQYNL-S'
         entityProperName:
-          type: string
-          description: The proper name for the credit parent entity.
-          example: BNP Paribas S.A. Class A
+          type: 'string'
+          description: 'The proper name for the credit parent entity.'
+          example: 'BNP Paribas S.A. Class A'
           nullable: true
         factsetCreditParentId:
-          type: string
-          description: This id represents the credit parent entity id.
-          example: 0028BD-E
+          type: 'string'
+          description: 'This id represents the credit parent entity id.'
+          example: '0028BD-E'
           nullable: true
         asOfDate:
-          type: string
-          format: date
-          description: >-
-            The effective date of this record in YYYY-MM-DD format. If an
-            asOfDate is not specified in the request, this field will be null in
-            the response.
+          type: 'string'
+          format: 'date'
+          description: 'The effective date of this record in YYYY-MM-DD format. If an asOfDate is not specified in the request, this field will be null in the response.'
           example: '2020-01-01'
           nullable: true
         effectiveStartDate:
-          type: string
-          format: date
-          description: The initial effective date of this record in YYYY-MM-DD format.
+          type: 'string'
+          format: 'date'
+          description: 'The initial effective date of this record in YYYY-MM-DD format.'
           example: '1996-05-28'
           nullable: true
         effectiveEndDate:
-          type: string
-          format: date
-          description: >-
-            The last day on which this record is effective date in YYYY-MM-DD
-            format.
+          type: 'string'
+          format: 'date'
+          description: 'The last day on which this record is effective date in YYYY-MM-DD format.'
           example: '2001-05-28'
           nullable: true
     ids:
-      title: ids
-      description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
-        SEDOL are accepted input.
-      type: array
+      title: 'ids'
+      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.\n"
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 3000
       example:
-        - FDS-US
-        - 0FPWZZ-E
-        - TSLA-US
+        - 'FDS-US'
+        - '0FPWZZ-E'
+        - 'TSLA-US'
     structureIds:
-      title: ids
-      description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and
-        SEDOL are accepted input.
-      type: array
+      title: 'ids'
+      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.\n"
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 100
       example:
-        - FDS-US
-        - 0FPWZZ-E
-        - TSLA-US
+        - 'FDS-US'
+        - '0FPWZZ-E'
+        - 'TSLA-US'
     hcpIds:
-      title: ids
-      description: >
-        Security identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are
-        accepted input.
-      type: array
+      title: 'ids'
+      description: "Security identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input.\n"
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 50
       example:
-        - CYQYNL-S
-        - G17920AA0
-        - US40434YTB38
+        - 'CYQYNL-S'
+        - 'G17920AA0'
+        - 'US40434YTB38'
     asOfDate:
-      title: asOfDate
-      type: string
-      description: >
-        The date requested for credit parent calculation. Represented in
-        **YYYY-MM-DD** format. If left blank or not specified, the full credit
-        parent history will be returned.
+      title: 'asOfDate'
+      type: 'string'
+      description: "The date requested for credit parent calculation. Represented in **YYYY-MM-DD** format. If left blank or not specified, the full credit parent history will be returned.\n"
       example: '2020-06-30'
     securityType:
-      title: securityType
-      description: >
-        The category describes which security types will be returned in the
-        response. Defined as:
-
-        * **EQ** = All related traded equity listings
-
-        * **AEQ** = All active traded and non-traded equity listings
-
-        * **PR** = All active preferred securities
-
-        * **F** = All active funds
-
-        * **FI** = All debt instruments
-
-        * **ALL** = All related traded equity listings and debt
-      type: string
+      title: 'securityType'
+      description: "The category describes which security types will be returned in the response. Defined as:\n* **EQ** = All related traded equity listings\n* **AEQ** = All active traded and non-traded equity listings\n* **PR** = All active preferred securities\n* **F** = All active funds\n* **FI** = All debt instruments\n* **ALL** = All related traded equity listings and debt\n"
+      type: 'string'
       enum:
-        - EQ
-        - AEQ
-        - PR
-        - F
-        - FI
-        - ALL
-      default: EQ
-      example: EQ
+        - 'EQ'
+        - 'AEQ'
+        - 'PR'
+        - 'F'
+        - 'FI'
+        - 'ALL'
+      default: 'EQ'
+      example: 'EQ'
     level:
-      title: level
-      description: >-
-        Controls the levels returned in the hierarchy. Use -1 to return all
-        levels, or 1-n for a specific level.
-      type: integer
+      title: 'level'
+      description: 'Controls the levels returned in the hierarchy. Use -1 to return all levels, or 1-n for a specific level.'
+      type: 'integer'
       default: -1
       example: -1
     active:
-      title: active
-      description: >-
-        Controls active or inactive securities returned in the hierarchy. Enter
-        1 to return only active entities, 0 for inactive entities, and -1 for
-        all active and inactive.
-      type: integer
+      title: 'active'
+      description: 'Controls active or inactive securities returned in the hierarchy. Enter 1 to return only active entities, 0 for inactive entities, and -1 for all active and inactive.'
+      type: 'integer'
       default: -1
       example: 1
       maximum: 1
       minimum: -1
     idsChi:
-      title: ids
-      description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, BBG
-        and SEDOL are accepted input.
-      type: array
+      title: 'ids'
+      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, BBG and SEDOL are accepted input.\n"
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 1500
       example:
-        - 05X6LC-E
-        - 062T6N-E
+        - '05X6LC-E'
+        - '062T6N-E'
     errorResponse:
-      type: object
-      description: error description
-      title: Error Response
+      type: 'object'
+      description: 'error description'
+      title: 'Error Response'
       properties:
         status:
-          description: status
-          type: string
-          example: Bad Request
+          description: 'status'
+          type: 'string'
+          example: 'Bad Request'
         timestamp:
-          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
-          type: string
+          description: 'timestamp in YYYY-MM-DD HH:MM:SS.SSS'
+          type: 'string'
           example: '2019-11-01 11:09:41.918'
-          format: date-time
+          format: 'date-time'
         path:
-          description: The Endpoint path {package}/version/{endpoint}
-          type: string
-          example: /factset-entity/v1/{end-point}
+          description: 'The Endpoint path {package}/version/{endpoint}'
+          type: 'string'
+          example: '/factset-entity/v1/{end-point}'
         message:
-          description: The plain text error message
-          type: string
-          example: Validation Error
+          description: 'The plain text error message'
+          type: 'string'
+          example: 'Validation Error'
         subErrors:
-          description: subErrors related to the error message. Null if not applicable.
-          type: object
+          description: 'subErrors related to the error message. Null if not applicable.'
+          type: 'object'
           properties:
             object:
-              description: the operation ID
-              type: string
+              description: 'the operation ID'
+              type: 'string'
             field:
-              description: Parameter Field Name
-              type: string
+              description: 'Parameter Field Name'
+              type: 'string'
             message:
-              description: Error message
-              type: string
+              description: 'Error message'
+              type: 'string'
             rejectedValue:
-              description: Rejected Values in an Array
-              type: array
+              description: 'Rejected Values in an Array'
+              type: 'array'
               items:
-                type: string
+                type: 'string'
   responses:
     '400':
-      description: >-
-        Bad Request. This can occur for several reasons. Please review the
-        "message" for more details.
+      description: 'Bad Request. This can occur for several reasons. Please review the "message" for more details.'
       content:
         application/json:
           schema:
@@ -1466,12 +1206,7 @@ components:
             Bad Request - Read Timeout:
               $ref: '#/components/examples/badRequestReadTimeout'
     '401':
-      description: >-
-        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
-        from. For more help, select the **Report Issue** in the top right corner
-        of this Developer Portal specification card and choose Connectivity 401
-        or 403 Responses.
+      description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
       content:
         application/json:
           schema:
@@ -1480,13 +1215,7 @@ components:
             Bad Request - Date Format:
               $ref: '#/components/examples/unauthenticated'
     '403':
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization. For more help, select the **Report Issue** in the top
-        right corner of this Developer Portal specification card and choose
-        Connectivity 401 or 403 Responses.
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
       content:
         application/json:
           schema:
@@ -1495,11 +1224,7 @@ components:
             Bad Request - Forbidden:
               $ref: '#/components/examples/forbidden'
     '415':
-      description: >-
-        Unsupported Media Type. This error may be returned when the caller sends
-        a resource in a format that is not accepted by the server. This can be
-        fixed by ensuring that Content-Type header is set to the correct value.
-        In this instance, "application/json" would be the appropriate value.
+      description: 'Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, "application/json" would be the appropriate value.'
       content:
         application/json:
           schema:
@@ -1508,7 +1233,7 @@ components:
             Bad Request - Unsupported Media Type:
               $ref: '#/components/examples/unsupportedMediaType'
     '500':
-      description: Internal Server Error.
+      description: 'Internal Server Error.'
       content:
         application/json:
           schema:
@@ -1520,339 +1245,277 @@ components:
               $ref: '#/components/examples/generalException'
   examples:
     postEntityReferencesExample:
-      summary: Entity References request for ids FDS-US, 0FPWZZ-E and TSLA-US
-      description: Entity References request for ids FDS-US, 0FPWZZ-E and TSLA-US.
+      summary: 'Entity References request for ids FDS-US, 0FPWZZ-E and TSLA-US'
+      description: 'Entity References request for ids FDS-US, 0FPWZZ-E and TSLA-US.'
       value:
         ids:
-          - FDS-US
-          - 0FPWZZ-E
-          - TSLA-US
+          - 'FDS-US'
+          - '0FPWZZ-E'
+          - 'TSLA-US'
     postEntitySecuritiesExample:
-      summary: Entity Securities request for ids FDS-US, 0FPWZZ-E and TSLA-US
-      description: >-
-        Entity Securities request for ids FDS-US, 0FPWZZ-E and TSLA-US and
-        security type 'EQ'
+      summary: 'Entity Securities request for ids FDS-US, 0FPWZZ-E and TSLA-US'
+      description: 'Entity Securities request for ids FDS-US, 0FPWZZ-E and TSLA-US and security type ''EQ'''
       value:
         ids:
-          - FDS-US
-          - 0FPWZZ-E
-          - TSLA-US
-        securityType: EQ
+          - 'FDS-US'
+          - '0FPWZZ-E'
+          - 'TSLA-US'
+        securityType: 'EQ'
     postEntityStructuresExample:
-      summary: Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US
-      description: >-
-        Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US with
-        level as '-1' and active as '-1'
+      summary: 'Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US'
+      description: 'Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US with level as ''-1'' and active as ''-1'''
       value:
         ids:
-          - FDS-US
-          - 0FPWZZ-E
-          - TSLA-US
+          - 'FDS-US'
+          - '0FPWZZ-E'
+          - 'TSLA-US'
         level: -1
         active: 1
     postUltimateEntityStructuresExample:
-      summary: Ultimate Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US
-      description: >-
-        Ultimate Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US
-        with level as '-1' and active as '-1'
+      summary: 'Ultimate Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US'
+      description: 'Ultimate Entity Structures request for ids FDS-US, 0FPWZZ-E and TSLA-US with level as ''-1'' and active as ''-1'''
       value:
         ids:
-          - FDS-US
-          - 0FPWZZ-E
-          - TSLA-US
+          - 'FDS-US'
+          - '0FPWZZ-E'
+          - 'TSLA-US'
         level: -1
         active: 1
     postEntityReferenceChiExample:
-      summary: Entity Reference Chi request for ids 05X6LC-E and 062T6N-E
-      description: Entity Reference Chi request for ids 05X6LC-E and 062T6N-E
+      summary: 'Entity Reference Chi request for ids 05X6LC-E and 062T6N-E'
+      description: 'Entity Reference Chi request for ids 05X6LC-E and 062T6N-E'
       value:
         ids:
-          - 05X6LC-E
-          - 062T6N-E
+          - '05X6LC-E'
+          - '062T6N-E'
     postHistCreditParentExample:
-      summary: Historical Credit Parent request for id AAPL-US
-      description: >-
-        Historical Credit Parent request for id AAPL-US and asOfDate as
-        '2020-01-01'
+      summary: 'Historical Credit Parent request for id AAPL-US'
+      description: 'Historical Credit Parent request for id AAPL-US and asOfDate as ''2020-01-01'''
       value:
         ids:
-          - CYQYNL-S
-          - G17920AA0
-          - US40434YTB38
+          - 'CYQYNL-S'
+          - 'G17920AA0'
+          - 'US40434YTB38'
         asOfDate: '2020-06-30'
     entityReferencesExample:
-      summary: Entity References response for id AAPL-US
-      description: Entity References response for id AAPL-US.
+      summary: 'Entity References response for id AAPL-US'
+      description: 'Entity References response for id AAPL-US.'
       value:
         data:
-          - fsymId: 000C7F-E
-            entityProperName: Apple Inc.
-            fsymEntityId: 000C7F-E
-            ultimateParentId: 000C7F-E
-            ultimateParentName: Apple Inc.
-            creditParentId: 000C7F-E
-            parentEquityId: MH33D6-R
+          - fsymId: '000C7F-E'
+            entityProperName: 'Apple Inc.'
+            fsymEntityId: '000C7F-E'
+            ultimateParentId: '000C7F-E'
+            ultimateParentName: 'Apple Inc.'
+            creditParentId: '000C7F-E'
+            parentEquityId: 'MH33D6-R'
             privateEntityFlag: '0'
             publicEntityFlag: '1'
-            securityType: SHARE
-            website: http://www.apple.com
+            securityType: 'SHARE'
+            website: 'http://www.apple.com'
             incorporationDate: '1977-01-03'
-            countryOfRisk: US
-            countryOfRiskGeoRev: US
-            incorporationCountry: US
-            businessDescription: >-
-              Apple, Inc. engages in the design, manufacture, and sale of
-              smartphones, personal computers, tablets, wearables and
-              accessories, and other varieties of related services. It operates
-              through the following geographical segments: Americas, Europe,
-              Greater China, Japan, and Rest of Asia Pacific. The Americas
-              segment includes North and South America. The Europe segment
-              consists of European countries, as well as India, the Middle East,
-              and Africa. The Greater China segment comprises China, Hong Kong,
-              and Taiwan. The Rest of Asia Pacific segment includes Australia
-              and Asian countries. Its products and services include iPhone,
-              Mac, iPad, AirPods, Apple TV, Apple Watch, Beats products,
-              AppleCare, iCloud, digital content stores, streaming, and
-              licensing services. The company was founded by Steven Paul Jobs,
-              Ronald Gerald Wayne, and Stephen G. Wozniak in April 1976 and is
-              headquartered in Cupertino, CA.
-            phone: +1.408.996.1010
-            headquartersStreet: One Apple Park Way
-            headquartersCity: Cupertino
-            headquartersState: CA
-            headquartersZip: 95014-2083
-            headquartersCountry: US
+            countryOfRisk: 'US'
+            countryOfRiskGeoRev: 'US'
+            incorporationCountry: 'US'
+            businessDescription: 'Apple, Inc. engages in the design, manufacture, and sale of smartphones, personal computers, tablets, wearables and accessories, and other varieties of related services. It operates through the following geographical segments: Americas, Europe, Greater China, Japan, and Rest of Asia Pacific. The Americas segment includes North and South America. The Europe segment consists of European countries, as well as India, the Middle East, and Africa. The Greater China segment comprises China, Hong Kong, and Taiwan. The Rest of Asia Pacific segment includes Australia and Asian countries. Its products and services include iPhone, Mac, iPad, AirPods, Apple TV, Apple Watch, Beats products, AppleCare, iCloud, digital content stores, streaming, and licensing services. The company was founded by Steven Paul Jobs, Ronald Gerald Wayne, and Stephen G. Wozniak in April 1976 and is headquartered in Cupertino, CA.'
+            phone: '+1.408.996.1010'
+            headquartersStreet: 'One Apple Park Way'
+            headquartersCity: 'Cupertino'
+            headquartersState: 'CA'
+            headquartersZip: '95014-2083'
+            headquartersCountry: 'US'
             emailIR: null
-            websiteIR: http://investor.apple.com/investor-relations/default.aspx
-            requestId: AAPL-US
+            websiteIR: 'http://investor.apple.com/investor-relations/default.aspx'
+            requestId: 'AAPL-US'
     entitySecuritiesExample:
-      summary: Entity Securities response for id AAPL-US
-      description: Entity Securities response for id AAPL-US and security type 'EQ'
+      summary: 'Entity Securities response for id AAPL-US'
+      description: 'Entity Securities response for id AAPL-US and security type ''EQ'''
       value:
         data:
-          - fsymId: 000C7F-E
-            fsymSecurityId: R85KLC-S
-            fsymListingId: C0S0SK-L
-            securityType: SHARE
-            listingExchange: NAS
-            securityName: Apple Inc.
-            fsymEntityId: 000C7F-E
-            fsymTickerExchange: AAPL-NAS
-            fsymTickerRegion: AAPL-US
+          - fsymId: '000C7F-E'
+            fsymSecurityId: 'R85KLC-S'
+            fsymListingId: 'C0S0SK-L'
+            securityType: 'SHARE'
+            listingExchange: 'NAS'
+            securityName: 'Apple Inc.'
+            fsymEntityId: '000C7F-E'
+            fsymTickerExchange: 'AAPL-NAS'
+            fsymTickerRegion: 'AAPL-US'
             activeFlag: '1'
-            requestId: AAPL-US
-          - fsymId: 000C7F-E
-            fsymSecurityId: R85KLC-S
-            fsymListingId: X4KTQX-L
-            securityType: SHARE
-            listingExchange: NAS
-            securityName: Apple Inc.
-            fsymEntityId: 000C7F-E
-            fsymTickerExchange: AAPL-ADF
-            fsymTickerRegion: AAPL-US
+            requestId: 'AAPL-US'
+          - fsymId: '000C7F-E'
+            fsymSecurityId: 'R85KLC-S'
+            fsymListingId: 'X4KTQX-L'
+            securityType: 'SHARE'
+            listingExchange: 'NAS'
+            securityName: 'Apple Inc.'
+            fsymEntityId: '000C7F-E'
+            fsymTickerExchange: 'AAPL-ADF'
+            fsymTickerRegion: 'AAPL-US'
             activeFlag: '1'
-            requestId: AAPL-US
+            requestId: 'AAPL-US'
     entityStructuresExample:
-      summary: Entity Structures response for id AAPL-US
-      description: >-
-        Entity Structures response for id AAPL-US with level as '-1' and active
-        as '-1'
+      summary: 'Entity Structures response for id AAPL-US'
+      description: 'Entity Structures response for id AAPL-US with level as ''-1'' and active as ''-1'''
       value:
         data:
-          - fsymId: 000C7F-E
-            fsymEntityId: 000C7F-E
-            ultimateParentId: 000C7F-E
+          - fsymId: '000C7F-E'
+            fsymEntityId: '000C7F-E'
+            ultimateParentId: '000C7F-E'
             parentEntityId: null
             level: '1'
             inactive: '0'
-            description: Apple Inc. (Public Company)
-            requestId: AAPL-US
-          - fsymId: 000C7F-E
-            fsymEntityId: 0YZXC6-E
-            ultimateParentId: 000C7F-E
-            parentEntityId: 000C7F-E
+            description: 'Apple Inc. (Public Company)'
+            requestId: 'AAPL-US'
+          - fsymId: '000C7F-E'
+            fsymEntityId: '0YZXC6-E'
+            ultimateParentId: '000C7F-E'
+            parentEntityId: '000C7F-E'
             level: '2'
             inactive: '0'
-            description: Avolonte Health LLC (Subsidiary)
-            requestId: AAPL-US
-          - fsymId: 000C7F-E
-            fsymEntityId: 0YKKNM-E
-            ultimateParentId: 000C7F-E
-            parentEntityId: 000C7F-E
+            description: 'Avolonte Health LLC (Subsidiary)'
+            requestId: 'AAPL-US'
+          - fsymId: '000C7F-E'
+            fsymEntityId: '0YKKNM-E'
+            ultimateParentId: '000C7F-E'
+            parentEntityId: '000C7F-E'
             level: '2'
             inactive: '0'
-            description: Rare Light, Inc. (Subsidiary)
-            requestId: AAPL-US
+            description: 'Rare Light, Inc. (Subsidiary)'
+            requestId: 'AAPL-US'
     ultimateEntityStructuresExample:
-      summary: Ultimate Entity Structures response for id AAPL-US
-      description: >-
-        Ultimate Entity Structures response for id AAPL-US with level as '-1'
-        and active as '-1'
+      summary: 'Ultimate Entity Structures response for id AAPL-US'
+      description: 'Ultimate Entity Structures response for id AAPL-US with level as ''-1'' and active as ''-1'''
       value:
         data:
-          - fsymId: 000C7F-E
-            fsymEntityId: 000C7F-E
-            ultimateParentId: 000C7F-E
+          - fsymId: '000C7F-E'
+            fsymEntityId: '000C7F-E'
+            ultimateParentId: '000C7F-E'
             parentEntityId: null
             level: '1'
             inactive: '0'
-            description: Apple Inc. (Public Company)
-            requestId: AAPL-US
-          - fsymId: 000C7F-E
-            fsymEntityId: 0YZXC6-E
-            ultimateParentId: 000C7F-E
-            parentEntityId: 000C7F-E
+            description: 'Apple Inc. (Public Company)'
+            requestId: 'AAPL-US'
+          - fsymId: '000C7F-E'
+            fsymEntityId: '0YZXC6-E'
+            ultimateParentId: '000C7F-E'
+            parentEntityId: '000C7F-E'
             level: '2'
             inactive: '0'
-            description: Avolonte Health LLC (Subsidiary)
-            requestId: AAPL-US
+            description: 'Avolonte Health LLC (Subsidiary)'
+            requestId: 'AAPL-US'
     entityReferenceChiExample:
-      summary: Entity Reference Chi response for id AAPL-US
-      description: Entity Reference Chi response for id AAPL-US
+      summary: 'Entity Reference Chi response for id AAPL-US'
+      description: 'Entity Reference Chi response for id AAPL-US'
       value:
         data:
-          - fsymId: 000C7F-E
-            fsymEntityId: 000C7F-E
-            simplifiedChineseName: 苹果公司
-            traditionalChineseName: 蘋果公司
-            entityProperName: Apple Inc.
-            simplifiedChineseDescription: >-
-              苹果公司从事智能手机、个人电脑、平板电脑、可穿戴设备和配件的设计、制造和销售，以及其他各种相关服务。它通过以下地理部分运营:美洲，欧洲，大中华区，日本和亚太其他地区。美洲部分包括北美和南美。欧洲部分包括欧洲国家，以及印度、中东和非洲。大中华区包括中国大陆、香港和台湾。亚太地区的其他部分包括澳大利亚和亚洲国家。其产品和服务包括iPhone、Mac、iPad、AirPods、Apple
-              TV、Apple Watch、Beats产品、AppleCare、iCloud、数字内容商店、流媒体和授权服务。
-            traditionalChineseDescription: >-
-              蘋果公司從事智能手機、個人電腦、平板電腦、可穿戴設備和配件的設計、製造和銷售，以及其他各種相關服務。它通過以下地理部分運營:美洲，歐洲，大中華區，日本和亞太其他地區。美洲部分包括北美和南美。歐洲部分包括歐洲國家，以及印度、中東和非洲。大中華區包括中國大陸、香港和臺灣。亞太地區的其他部分包括澳大利亞和亞洲國家。其產品和服務包括iPhone、Mac、iPad、AirPods、Apple
-              TV、Apple Watch、Beats產品、AppleCare、iCloud、數字內容商店、流媒體和授權服務。
-            requestId: AAPL-US
+          - fsymId: '000C7F-E'
+            fsymEntityId: '000C7F-E'
+            simplifiedChineseName: '苹果公司'
+            traditionalChineseName: '蘋果公司'
+            entityProperName: 'Apple Inc.'
+            simplifiedChineseDescription: '苹果公司从事智能手机、个人电脑、平板电脑、可穿戴设备和配件的设计、制造和销售，以及其他各种相关服务。它通过以下地理部分运营:美洲，欧洲，大中华区，日本和亚太其他地区。美洲部分包括北美和南美。欧洲部分包括欧洲国家，以及印度、中东和非洲。大中华区包括中国大陆、香港和台湾。亚太地区的其他部分包括澳大利亚和亚洲国家。其产品和服务包括iPhone、Mac、iPad、AirPods、Apple TV、Apple Watch、Beats产品、AppleCare、iCloud、数字内容商店、流媒体和授权服务。'
+            traditionalChineseDescription: '蘋果公司從事智能手機、個人電腦、平板電腦、可穿戴設備和配件的設計、製造和銷售，以及其他各種相關服務。它通過以下地理部分運營:美洲，歐洲，大中華區，日本和亞太其他地區。美洲部分包括北美和南美。歐洲部分包括歐洲國家，以及印度、中東和非洲。大中華區包括中國大陸、香港和臺灣。亞太地區的其他部分包括澳大利亞和亞洲國家。其產品和服務包括iPhone、Mac、iPad、AirPods、Apple TV、Apple Watch、Beats產品、AppleCare、iCloud、數字內容商店、流媒體和授權服務。'
+            requestId: 'AAPL-US'
     histCreditParentExample:
-      summary: Historical Credit Parent response for id AAPL-US
-      description: >-
-        Historical Credit Parent response for id AAPL-US and asOfDate as
-        '2020-01-01'
+      summary: 'Historical Credit Parent response for id AAPL-US'
+      description: 'Historical Credit Parent response for id AAPL-US and asOfDate as ''2020-01-01'''
       value:
         data:
-          - fsymId: R85KLC-S
-            requestId: AAPL-US
+          - fsymId: 'R85KLC-S'
+            requestId: 'AAPL-US'
             entityProperName: null
             factsetCreditParentId: null
             asOfDate: '2020-01-01'
             effectiveStartDate: null
             effectiveEndDate: null
     badRequestDateFormat:
-      summary: Bad Request - Date Format
-      description: >-
-        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
-        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: 'Bad Request - Date Format'
+      description: 'This bad request occurs when a request doesn''t use the YYYY-MM-DD in the date parameters. To resolve, convert your date to YYYY-MM-DD.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 11:52:36.464'
-        path: /factset-entity/v1/{endpoint}
+        path: '/factset-entity/v1/{endpoint}'
         message: 'The date parameter must be in the following date format: YYYY-MM-DD'
         subErrors: null
     badRequestRequiredParameter:
-      summary: Bad Request - Required Parameter Missing
-      description: >-
-        This error message occurs when the request does not include the required
-        parameters. Required parameters are indicated with a red asterisks
-        symbol in the specification file.
+      summary: 'Bad Request - Required Parameter Missing'
+      description: 'This error message occurs when the request does not include the required parameters. Required parameters are indicated with a red asterisks symbol in the specification file.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-06-30 13:22:09.053'
-        path: /factset-entity/v1/{endpoint}
-        message: The parameter 'ids' is required and may not be empty.
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'The parameter ''ids'' is required and may not be empty.'
         subErrors: null
     badRequestInvalidParameters:
-      summary: Bad Request - Passing Invalid Parameter
-      description: This error message occurs when user is passing an Invalid Parameter
+      summary: 'Bad Request - Passing Invalid Parameter'
+      description: 'This error message occurs when user is passing an Invalid Parameter'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-23 11:03:40.765'
-        path: /factset-entity/v1/{endpoint}
-        message: >-
-          Invalid Parameter (s): fakeParameter. Please modify your request to
-          use parameters outlined in the specification for this endpoint.
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'Invalid Parameter (s): fakeParameter. Please modify your request to use parameters outlined in the specification for this endpoint.'
         subErrors: null
     badRequestMalformedJSON:
-      summary: Bad Request - Malformed JSON Request
-      description: >-
-        This error may be returned when the request body is specified as JSON,
-        but is not in proper JSON format.
+      summary: 'Bad Request - Malformed JSON Request'
+      description: 'This error may be returned when the request body is specified as JSON, but is not in proper JSON format.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 11:59:09.649'
-        path: /factset-entity/v1/{endpoint}
-        message: Malformed JSON Request
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'Malformed JSON Request'
         subErrors: null
     badRequestReadTimeout:
-      summary: Bad Request - Read Timeout
-      description: >-
-        This error may be returned if it takes more than 29 seconds to hear back
-        from the data fetch service.
+      summary: 'Bad Request - Read Timeout'
+      description: 'This error may be returned if it takes more than 29 seconds to hear back from the data fetch service.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 16:18:38.949'
-        path: /factset-entity/v1/{endpoint}
-        message: The request took too long. Try again with a smaller request.
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'The request took too long. Try again with a smaller request.'
         subErrors: null
     unauthenticated:
-      summary: User Authentication Failed
-      description: >-
-        This occurs when a user is not properly authenticated or recognized by
-        the service. Please double check the USERNAME-SERIAL and API-Key used to
-        request and ensure you are within the IP range specified for the Key.
-        Report Issue under 401 error for help with troubleshooting.
+      summary: 'User Authentication Failed'
+      description: 'This occurs when a user is not properly authenticated or recognized by the service. Please double check the USERNAME-SERIAL and API-Key used to request and ensure you are within the IP range specified for the Key. Report Issue under 401 error for help with troubleshooting.'
       value:
-        status: User Authentication Failed
+        status: 'User Authentication Failed'
         timestamp: '2020-07-02 16:08:07.945'
-        path: /factset-entity/v1/{endpoint}
-        message: User Authentication Failed.
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'User Authentication Failed.'
         subErrors: null
     forbidden:
-      summary: Forbidden
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+      summary: 'Forbidden'
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       value:
-        status: Forbidden
+        status: 'Forbidden'
         timestamp: '2020-07-02 17:21:52.197'
-        path: /factset-entity/v1/{endpoint}
-        message: >-
-          USERNAME-SERIAL does not have permission to use
-          /factset-entity/v1/{endpoint}
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'USERNAME-SERIAL does not have permission to use /factset-entity/v1/{endpoint}'
         subErrors: null
     unsupportedMediaType:
-      summary: Unsupported Media Type
-      description: >-
-        This bad request occurs when the media type passed in the request is not
-        supported. Currently the APIs only support 'application/json'.
+      summary: 'Unsupported Media Type'
+      description: 'This bad request occurs when the media type passed in the request is not supported. Currently the APIs only support ''application/json''.'
       value:
-        status: Unsupported Media Type
+        status: 'Unsupported Media Type'
         timestamp: '2020-07-02 09:42:27.237'
-        path: /factset-entity/v1/{endpoint}
-        message: >-
-          text/html media type is not supported. Supported media types are
-          application/json.
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'text/html media type is not supported. Supported media types are application/json.'
         subErrors: null
     notWritable:
-      summary: Internal Server Error - Not Writable
-      description: >-
-        This error may be returned when the server encounters an error writing
-        the JSON response.
+      summary: 'Internal Server Error - Not Writable'
+      description: 'This error may be returned when the server encounters an error writing the JSON response.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2020-07-02 09:48:29.18'
-        path: /factset-entity/v1/{endpoint}
-        message: Error writing JSON output
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'Error writing JSON output'
         subErrors: null
     generalException:
-      summary: Internal Server Error - General Exception
-      description: >-
-        This is the most general error that can be returned to by the service.
-        Please `Report Issue` to FactSet.
+      summary: 'Internal Server Error - General Exception'
+      description: 'This is the most general error that can be returned to by the service. Please `Report Issue` to FactSet.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2020-07-02 10:36:01.944'
-        path: /factset-entity/v1/{endpoint}
-        message: Unexpected error
+        path: '/factset-entity/v1/{endpoint}'
+        message: 'Unexpected error'
         subErrors: null

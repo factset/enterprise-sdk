@@ -61,7 +61,7 @@ with fds.sdk.FactSetPrivateEquityandVentureCapital.ApiClient(configuration) as a
     api_instance = ipos_api.IPOsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = [410294,730294] # [int] | A list of unique FactSet-generated identifiers (Deal IDs) assigned to a **Merger & Acquisition (M&A) or Venture Capital (VC) deal**. This ID represents the main event being tracked.
+    ids = [23682] # [int] | A list of unique FactSet-generated identifiers (Deal IDs) assigned to a **Merger & Acquisition (M&A) or Venture Capital (VC) deal**. This ID represents the main event being tracked.
 
     try:
         # Retrieve details of an Initial Public Offering (IPO) related to a portfolio company exit.

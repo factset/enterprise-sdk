@@ -94,7 +94,6 @@ class FundSummary(ModelNormal):
             'factset_fund_entity_id': (str, none_type,),  # noqa: E501
             'fund_name': (str, none_type,),  # noqa: E501
             'fund_status': (str, none_type,),  # noqa: E501
-            'launch_date': (date, none_type,),  # noqa: E501
             'amount_raised_usd': (float, none_type,),  # noqa: E501
         }
 
@@ -107,7 +106,6 @@ class FundSummary(ModelNormal):
         'factset_fund_entity_id': 'factsetFundEntityId',  # noqa: E501
         'fund_name': 'fundName',  # noqa: E501
         'fund_status': 'fundStatus',  # noqa: E501
-        'launch_date': 'launchDate',  # noqa: E501
         'amount_raised_usd': 'amountRaisedUsd',  # noqa: E501
     }
 
@@ -155,7 +153,6 @@ class FundSummary(ModelNormal):
             factset_fund_entity_id (str, none_type): Unique FactSet identifier for the fund. [optional]  # noqa: E501
             fund_name (str, none_type): Fund name. [optional]  # noqa: E501
             fund_status (str, none_type): Current fund status. [optional]  # noqa: E501
-            launch_date (date, none_type): Fund launch date. [optional]  # noqa: E501
             amount_raised_usd (float, none_type): Amount raised in USD. [optional]  # noqa: E501
         """
 
@@ -241,7 +238,6 @@ class FundSummary(ModelNormal):
             factset_fund_entity_id (str, none_type): Unique FactSet identifier for the fund. [optional]  # noqa: E501
             fund_name (str, none_type): Fund name. [optional]  # noqa: E501
             fund_status (str, none_type): Current fund status. [optional]  # noqa: E501
-            launch_date (date, none_type): Fund launch date. [optional]  # noqa: E501
             amount_raised_usd (float, none_type): Amount raised in USD. [optional]  # noqa: E501
         """
 

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getfixeddetail"></a>
 # **GetFixedDetail**
-> DetailResponse GetFixedDetail (List<string> ids, List<string> metrics, DateTime? startDate = null, DateTime? endDate = null, string frequency = null, string periodicity = null, bool? includeAll = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, string currency = null, List<string> brokerNames = null, bool? updatesOnly = null, bool? sortByInputDateTime = null)
+> DetailResponse GetFixedDetail (List<string> ids, List<string> metrics, DateTime? startDate = null, DateTime? endDate = null, string frequency = null, string periodicity = null, bool? includeAll = null, string fiscalPeriodStart = null, string fiscalPeriodEnd = null, string currency = null, List<string> brokerNames = null, bool? updatesOnly = null, bool? sortByInputDateTime = null, bool? includeDocId = null)
 
 Estimates detail data for fixed fiscal periods
 
@@ -65,8 +65,8 @@ namespace Example
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
             var metrics = new List<string>(); // List<string> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional) 
+            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional) 
             var frequency = "D";  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to D)
             var periodicity = "ANN";  // string | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional)  (default to ANN)
             var includeAll = false;  // bool? | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    (optional)  (default to false)
@@ -76,11 +76,12 @@ namespace Example
             var brokerNames = new List<string>(); // List<string> | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional) 
             var updatesOnly = false;  // bool? | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     (optional)  (default to false)
             var sortByInputDateTime = false;  // bool? | When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional)  (default to false)
+            var includeDocId = false;  // bool? | Controls whether the `docId` field is included in the response.   * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.   * **FALSE** = Omits the `docId` field from the response. (default)  (optional)  (default to false)
 
             try
             {
                 // Estimates detail data for fixed fiscal periods
-                DetailResponse result = apiInstance.GetFixedDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime);
+                DetailResponse result = apiInstance.GetFixedDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -100,8 +101,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
  **metrics** | [**List&lt;string&gt;**](string.md)| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  | 
- **startDate** | **DateTime?**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **DateTime?**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **startDate** | **DateTime?**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
+ **endDate** | **DateTime?**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
  **frequency** | **string**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to D]
  **periodicity** | **string**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] [default to ANN]
  **includeAll** | **bool?**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] [default to false]
@@ -111,6 +112,7 @@ Name | Type | Description  | Notes
  **brokerNames** | [**List&lt;string&gt;**](string.md)| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional] 
  **updatesOnly** | **bool?**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] [default to false]
  **sortByInputDateTime** | **bool?**| When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  | [optional] [default to false]
+ **includeDocId** | **bool?**| Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  | [optional] [default to false]
 
 ### Return type
 [**DetailResponse**](DetailResponse.md)
@@ -245,7 +247,7 @@ Name | Type | Description  | Notes
 
 <a name="getrollingdetail"></a>
 # **GetRollingDetail**
-> DetailResponse GetRollingDetail (List<string> ids, List<string> metrics, DateTime? startDate = null, DateTime? endDate = null, string frequency = null, string periodicity = null, bool? includeAll = null, int? relativeFiscalStart = null, int? relativeFiscalEnd = null, string currency = null, List<string> brokerNames = null, bool? updatesOnly = null, bool? sortByInputDateTime = null)
+> DetailResponse GetRollingDetail (List<string> ids, List<string> metrics, DateTime? startDate = null, DateTime? endDate = null, string frequency = null, string periodicity = null, bool? includeAll = null, int? relativeFiscalStart = null, int? relativeFiscalEnd = null, string currency = null, List<string> brokerNames = null, bool? updatesOnly = null, bool? sortByInputDateTime = null, bool? includeDocId = null)
 
 FactSet estimates detail data for rolling fiscal periods
 
@@ -297,8 +299,8 @@ namespace Example
 
             var ids = new List<string>(); // List<string> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
             var metrics = new List<string>(); // List<string> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
-            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional) 
+            var startDate = DateTime.Parse("2019-07-30");  // DateTime? | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional) 
+            var endDate = DateTime.Parse("2019-08-30");  // DateTime? | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional) 
             var frequency = "D";  // string | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional)  (default to D)
             var periodicity = "ANN";  // string | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional)  (default to ANN)
             var includeAll = false;  // bool? | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    (optional)  (default to false)
@@ -308,11 +310,12 @@ namespace Example
             var brokerNames = new List<string>(); // List<string> | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional) 
             var updatesOnly = false;  // bool? | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     (optional)  (default to false)
             var sortByInputDateTime = false;  // bool? | When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional)  (default to false)
+            var includeDocId = false;  // bool? | Controls whether the `docId` field is included in the response.   * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.   * **FALSE** = Omits the `docId` field from the response. (default)  (optional)  (default to false)
 
             try
             {
                 // FactSet estimates detail data for rolling fiscal periods
-                DetailResponse result = apiInstance.GetRollingDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime);
+                DetailResponse result = apiInstance.GetRollingDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -332,8 +335,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**List&lt;string&gt;**](string.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
  **metrics** | [**List&lt;string&gt;**](string.md)| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  | 
- **startDate** | **DateTime?**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **DateTime?**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **startDate** | **DateTime?**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
+ **endDate** | **DateTime?**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
  **frequency** | **string**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to D]
  **periodicity** | **string**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] [default to ANN]
  **includeAll** | **bool?**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] [default to false]
@@ -343,6 +346,7 @@ Name | Type | Description  | Notes
  **brokerNames** | [**List&lt;string&gt;**](string.md)| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional] 
  **updatesOnly** | **bool?**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] [default to false]
  **sortByInputDateTime** | **bool?**| When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  | [optional] [default to false]
+ **includeDocId** | **bool?**| Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  | [optional] [default to false]
 
 ### Return type
 [**DetailResponse**](DetailResponse.md)

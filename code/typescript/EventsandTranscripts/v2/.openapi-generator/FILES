@@ -82,6 +82,7 @@ docs/TranscriptsRequestMeta.md
 docs/TranscriptsRequestMetaPagination.md
 docs/TranscriptsResponse.md
 docs/TranscriptsResponseData.md
+docs/TranscriptsResult.md
 git_push.sh
 mocha.opts
 package.json
@@ -165,3 +166,4 @@ src/model/TranscriptsRequestMeta.js
 src/model/TranscriptsRequestMetaPagination.js
 src/model/TranscriptsResponse.js
 src/model/TranscriptsResponseData.js
+src/model/TranscriptsResult.js

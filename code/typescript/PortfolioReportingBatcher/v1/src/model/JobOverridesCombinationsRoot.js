@@ -72,13 +72,13 @@ class JobOverridesCombinationsRoot {
 }
 
 /**
- * An array of accounts, used for jobs types PA, ADF, PUB, and Vault
+ * An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault
  * @member {Array.<String>} accounts
  */
 JobOverridesCombinationsRoot.prototype['accounts'] = undefined;
 
 /**
- * An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details
+ * An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details
  * @member {Array.<Date>} dates
  */
 JobOverridesCombinationsRoot.prototype['dates'] = undefined;
@@ -89,13 +89,13 @@ JobOverridesCombinationsRoot.prototype['dates'] = undefined;
 JobOverridesCombinationsRoot.prototype['dateRange'] = undefined;
 
 /**
- * Used only for jobs where type is ADF, PA, PUB, or vault
+ * Used only for jobs where type is ADF, PA, PUB, dataPrep or vault
  * @member {Array.<String>} tasks
  */
 JobOverridesCombinationsRoot.prototype['tasks'] = undefined;
 
 /**
- * boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks
+ * boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks
  * @member {Boolean} allTasks
  */
 JobOverridesCombinationsRoot.prototype['allTasks'] = undefined;

@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **InvestmentCriteria** | [**FundDetailInvestmentCriteria**](FundDetailInvestmentCriteria.md) |  | [optional] 
 **Terms** | [**FundDetailTerms**](FundDetailTerms.md) |  | [optional] 
 **Features** | [**FundDetailFeatures**](FundDetailFeatures.md) |  | [optional] 
-**StrategyType** | **string** | Indicate the fund strategy type. | [optional] 
 **FundOfFundAllocation** | [**FundDetailFundOfFundAllocation**](FundDetailFundOfFundAllocation.md) |  | [optional] 
 **Error** | [**ErrorObjectResponse**](ErrorObjectResponse.md) |  | [optional] 
 

@@ -15,7 +15,6 @@ import ApiClient from '../ApiClient';
 import AUMItem from './AUMItem';
 import ErrorObjectResponse from './ErrorObjectResponse';
 import GPDetailFeatures from './GPDetailFeatures';
-import GPDetailInvestmentCriteria from './GPDetailInvestmentCriteria';
 
 /**
  * The GPDetail model module.
@@ -56,9 +55,6 @@ class GPDetail {
             if (data.hasOwnProperty('gpName') && obj['gpName'] === undefined) {
                 obj['gpName'] = ApiClient.convertToType(data['gpName'], 'String');
             }
-            if (data.hasOwnProperty('investmentCriteria') && obj['investmentCriteria'] === undefined) {
-                obj['investmentCriteria'] = GPDetailInvestmentCriteria.constructFromObject(data['investmentCriteria']);
-            }
             if (data.hasOwnProperty('features') && obj['features'] === undefined) {
                 obj['features'] = GPDetailFeatures.constructFromObject(data['features']);
             }
@@ -87,11 +83,6 @@ GPDetail.prototype['requestId'] = undefined;
  * @member {String} gpName
  */
 GPDetail.prototype['gpName'] = undefined;
-
-/**
- * @member {module:model/GPDetailInvestmentCriteria} investmentCriteria
- */
-GPDetail.prototype['investmentCriteria'] = undefined;
 
 /**
  * @member {module:model/GPDetailFeatures} features

@@ -1,62 +1,33 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  title: Documents Distributor - CallStreet Events
-  version: 1.8.3
+  title: 'Documents Distributor - CallStreet Events'
+  version: '1.8.3'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
-  description: >
-    CallStreet Events contains all the Documents Distributor APIs that offer
-    events data such as Events Audio and Near Real-Time Transcripts.
-
-
-    The  Events Audio API provides access to historical as well as the latest
-    audio recordings of various company events covered by FactSet. The events
-    include, but are not limited to: earnings calls, conferences, and investor
-    days. 
-
-
-    This API also provides relevant metadata such as timestamps and identifiers
-    around each audio file.
-
-
-    The Documents Distributor - Near Real-time Transcripts API enables access to
-    Near Real-time Transcripts provided by CallStreet to time-sensitive clients.
-    This API also provides the relevant speaker metadata along with their
-    confidence scores. This data caters to quant clients interested in building
-    machine learning models.
-
-
-    Clients can leverage this API to perform sentiment analysis through natural
-    language processing or machine learning. It can also be used to complement
-    analysis using FactSet's transcripts service.
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  description: "CallStreet Events contains all the Documents Distributor APIs that offer events data such as Events Audio and Near Real-Time Transcripts.\n\nThe  Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet. The events include, but are not limited to: earnings calls, conferences, and investor days. \n\nThis API also provides relevant metadata such as timestamps and identifiers around each audio file.\n\nThe Documents Distributor - Near Real-time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients. This API also provides the relevant speaker metadata along with their confidence scores. This data caters to quant clients interested in building machine learning models.\n\nClients can leverage this API to perform sentiment analysis through natural language processing or machine learning. It can also be used to complement analysis using FactSet's transcripts service.\n"
 externalDocs:
-  description: API Documentation
-  url: >-
-    https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/documents-distributor-callstreet-events'
 servers:
-  - url: https://api.factset.com
-    description: Production
+  - url: 'https://api.factset.com'
+    description: 'Production'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 paths:
   /docs-distributor/audio/v1/history-files:
     get:
-      summary: >-
-        Retrieve historical audio recordings and related metadata within FactSet
-        coverage.
+      summary: 'Retrieve historical audio recordings and related metadata within FactSet coverage.'
       tags:
-        - Events Audio
+        - 'Events Audio'
       responses:
         '200':
-          description: >-
-            Array of presigned downloadable URLs consisting of historical audio
-            recordings with related metadata.
+          description: 'Array of presigned downloadable URLs consisting of historical audio recordings with related metadata.'
           content:
             application/json:
               schema:
@@ -66,11 +37,10 @@ paths:
                   value:
                     data:
                       - year: 2021
-                        fileName: 2021_trimmed.tar.gz
+                        fileName: '2021_trimmed.tar.gz'
                         fileSize: 191173623046875
                         trimmed: true
-                        url: >-
-                          https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
+                        url: 'https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938'
                     meta:
                       pagination:
                         total: 1
@@ -80,9 +50,7 @@ paths:
                       partial:
                         isPartial: false
         '400':
-          description: >-
-            Bad Request. This can occur for several reasons. Please review the
-            "details" for more details.
+          description: 'Bad Request. This can occur for several reasons. Please review the "details" for more details.'
           content:
             application/json:
               schema:
@@ -90,26 +58,21 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: parameterError
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'parameterError'
                     title: '[''yr''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _paginationLimit:
-                          - integer from 0 to 500
+                          - 'integer from 0 to 500'
                         _paginationOffset:
-                          - positive integer
+                          - 'positive integer'
                         year:
-                          - positive integer greater than 2010
+                          - 'positive integer greater than 2010'
                         trimmed:
-                          - boolean value
+                          - 'boolean value'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -117,17 +80,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthenticated
-                    title: >-
-                      There were either no, invalid, or expired credentials
-                      present in the request.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthenticated'
+                    title: 'There were either no, invalid, or expired credentials present in the request.'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -135,11 +92,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthorized
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthorized'
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this endpoint.'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -147,23 +104,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: genericServerError
-                    title: An unexpected error happened.
-      operationId: get-docs-distributor-audio-v1-history-files
-      description: >
-
-        * Returns the **untrimmed** historical audio recordings and related
-        metadata dating back from May 10, 2011 to Sep 30, 2022.
-
-
-        * Returns the **trimmed** historical audio recordings and related
-        metadata dating back from May 10, 2011 to Dec 31, 2022.
-
-
-
-
-        Query parameters can be used to filter and narrow down the results.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'genericServerError'
+                    title: 'An unexpected error happened.'
+      operationId: 'get-docs-distributor-audio-v1-history-files'
+      description: "\n* Returns the **untrimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Sep 30, 2022.\n\n* Returns the **trimmed** historical audio recordings and related metadata dating back from May 10, 2011 to Dec 31, 2022.\n\n\n\nQuery parameters can be used to filter and narrow down the results.\n"
       parameters:
         - $ref: '#/components/parameters/eventspaginationLimit'
         - $ref: '#/components/parameters/paginationOffset'
@@ -171,16 +116,12 @@ paths:
         - $ref: '#/components/parameters/trimmed'
   /docs-distributor/audio/v1/list-files:
     get:
-      summary: >-
-        Retrieve latest audio recordings and related metadata within FactSet
-        coverage.
+      summary: 'Retrieve latest audio recordings and related metadata within FactSet coverage.'
       tags:
-        - Events Audio
+        - 'Events Audio'
       responses:
         '200':
-          description: >-
-            Array of URLs consisting of latest audio recordings and related
-            metadata.
+          description: 'Array of URLs consisting of latest audio recordings and related metadata.'
           content:
             application/json:
               schema:
@@ -189,20 +130,19 @@ paths:
                 example-1:
                   value:
                     data:
-                      - url: >-
-                          https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938
-                        fileName: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
+                      - url: 'https://fdss3-cts-data-delivery-prod-1-us-east-1.s3.amazonaws.com/audiofiles/A512D0F2-4549-EC11-8124-8CDCD4AF21E4.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIASXWF7GTDZZHNXO4D%2F20211119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211119T143756Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB4aCXVzLWVhc3QtMSJHMEUCIAZPE65Cyr2GFwHLDFiDWEj3aUW66s6HuKk3vMz7hWR1AiEAiLS3ce5AC1hsDkZWdf9WklbnGoXCD6JMNsYKZLSZtKoqmAII1%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARACGgwxODgzMjAwMDMyNzEiDIEOfxabmh%2FtadnmnirsAToraA%2BQJ8Hmg2YS03b7IpkX6W6FJDjnDJ9M6sCLN7Q0mUT60Jc1OV%2BzuJ5IbCKhZhDV24mKPSPkyYs4Eh1%2Bp5E2YeclzHqSn44zB5g9UkVHP1bCkFCxv12pqhdIJ5NX4xBIPhWfXDQyIFQm%2BstD1FL3AqugJb19s0o79N032dOX1H3wvfqfkP4av9wKYRFhc2yO7qHMLUHmYnL2IAcnGRq5ukvO2%2FIrmGVYTFGr4wAWMDQFZRX6%2FiYvC7V3f3smsoy2jrJ8UDDn599%2BH32Nh%2FKfTO8yYSnt1ky%2FFJb%2FmheEF9PWnf%2FZxuG6o9ajMInX3owGOpoBFurBn4Hwi3d1xuSsXNVMEuSj7vWPV6dc8tSynf8yH7wRVtVyfz%2BnWH4EYPh0l2qeHuGhzAeQtLVfJNApnSVfEeyaGo1DOpieFST9bxhQIBG8ZloD%2FlojRhJT5AEwcRTryXAXWb%2FeuLKcH9izcUGx80wBcc6L8I6YFFFwwqyA4mhhYYMDAL3o3p0QE1Q4s99PDYPR0YCH7UzThg%3D%3D&X-Amz-Signature=4b8ae68420f7cc87da7c7a797f683e85528b6a96add83ce19ba3ffac0359a938'
+                        fileName: '835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3'
                         durationSecs: 5022
                         endOffsetSeconds: 4379
                         startOffsetSeconds: 1717
-                        sourceCode: W
+                        sourceCode: 'W'
                         startTime: '2022-05-31T22:26:58Z'
                         endTime: '2022-05-31T23:50:42Z'
                         uploadTime: '2022-05-31T23:57:01'
                         fileSize: 20090671
                         reportId: 2666621
-                        ticker: SPWH-US
-                        entityId: 0CT2ZZ-E
+                        ticker: 'SPWH-US'
+                        entityId: '0CT2ZZ-E'
                         trimmed: false
                         sampleRate: 22
                         bitrate: 32
@@ -218,9 +158,7 @@ paths:
                       partial:
                         isPartial: false
         '400':
-          description: >-
-            Bad Request. This can occur for several reasons. Please review the
-            "details" for more details.
+          description: 'Bad Request. This can occur for several reasons. Please review the "details" for more details.'
           content:
             application/json:
               schema:
@@ -228,50 +166,43 @@ paths:
               examples:
                 example-1:
                   value:
-                    code: parameterError
-                    title: uploadTme is not a valid parameter
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
+                    code: 'parameterError'
+                    title: 'uploadTme is not a valid parameter'
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
                     details:
                       validParameters:
                         _sort:
-                          - startDate
+                          - 'startDate'
                           - '-startDate'
-                          - uploadTime
+                          - 'uploadTime'
                         _paginationLimit:
-                          - integer from 0 to 500
+                          - 'integer from 0 to 500'
                         _paginationOffset:
-                          - positive integer
+                          - 'positive integer'
                         reportId:
-                          - integer
+                          - 'integer'
                         startDate:
-                          - integer offset less than 0
-                          - date
-                          - datetime
+                          - 'integer offset less than 0'
+                          - 'date'
+                          - 'datetime'
                         endDate:
-                          - integer offset less than 0
-                          - date
-                          - datetime
+                          - 'integer offset less than 0'
+                          - 'date'
+                          - 'datetime'
                         ids:
-                          - >-
-                            comma separated string of tickers or entityIds or
-                            combination of both
+                          - 'comma separated string of tickers or entityIds or combination of both'
                         sourceCode:
-                          - file source code
+                          - 'file source code'
                         fileName:
-                          - mp3 file name
+                          - 'mp3 file name'
                         trimmed:
-                          - true/false
+                          - 'true/false'
                         uploadTime:
-                          - integer from -1 to -168
+                          - 'integer from -1 to -168'
                         audioSourceId:
-                          - integer
+                          - 'integer'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -279,17 +210,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthenticated
-                    title: >-
-                      There were either no, invalid, or expired credentials
-                      present in the request.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthenticated'
+                    title: 'There were either no, invalid, or expired credentials present in the request.'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -297,11 +222,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthorized
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthorized'
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this endpoint.'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -309,175 +234,124 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: genericServerError
-                    title: An unexpected error happened.
-      operationId: get-docs-distributor-audio-v1-list-files
-      description: >-
-        Returns the latest audio recordings. Query parameters can be used to
-        filter and narrow down the results.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'genericServerError'
+                    title: 'An unexpected error happened.'
+      operationId: 'get-docs-distributor-audio-v1-list-files'
+      description: 'Returns the latest audio recordings. Query parameters can be used to filter and narrow down the results.'
       parameters:
         - schema:
-            type: string
+            type: 'string'
             enum:
               - '-startDate'
-              - uploadTime
-              - startDate
+              - 'uploadTime'
+              - 'startDate'
             default: '-startDate'
-          in: query
-          name: _sort
-          description: >-
-            Sorts results in chronological order, reverse chronological order
-            and by uploadTime(latest uploaded first). Results are in reverse
-            chronological order by default.
+          in: 'query'
+          name: '_sort'
+          description: 'Sorts results in chronological order, reverse chronological order and by uploadTime(latest uploaded first). Results are in reverse chronological order by default.'
         - schema:
-            type: integer
-            format: int32
+            type: 'integer'
+            format: 'int32'
             minimum: 0
             maximum: 500
             default: 25
-          in: query
-          name: _paginationLimit
-          description: >-
-            Specifies the number of results to return per page. [ Min=0 ;
-            Max=500 ]
+          in: 'query'
+          name: '_paginationLimit'
+          description: 'Specifies the number of results to return per page. [ Min=0 ; Max=500 ]'
         - schema:
-            type: string
-          in: query
+            type: 'string'
+          in: 'query'
           example: '2022-01-01'
-          name: startDate
-          description: >-
-            Used in conjuction with endDate. The earliest date of the audio file
-            the API should fetch for (can be in absolute: **YYYY-MM-DD** or
-            relative date: **-1** for yesterday).
+          name: 'startDate'
+          description: 'Used in conjuction with endDate. The earliest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **-1** for yesterday).'
         - schema:
-            type: integer
-            format: int32
+            type: 'integer'
+            format: 'int32'
             default: 0
-          in: query
-          name: _paginationOffset
-          description: >-
-            Specifies the starting point for pagination. This parameter is used
-            to identify the beginning of next set of results.
+          in: 'query'
+          name: '_paginationOffset'
+          description: 'Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.'
         - schema:
-            type: string
-          in: query
-          name: endDate
+            type: 'string'
+          in: 'query'
+          name: 'endDate'
           example: '2022-06-01'
-          description: >-
-            Used in conjuction with startDate. The latest date of the audio file
-            the API should fetch for (can be in absolute: **YYYY-MM-DD** or
-            relative date: **0** for today).
+          description: 'Used in conjuction with startDate. The latest date of the audio file the API should fetch for (can be in absolute: **YYYY-MM-DD** or relative date: **0** for today).'
         - schema:
-            type: integer
-            format: int32
-          in: query
-          name: reportId
+            type: 'integer'
+            format: 'int32'
+          in: 'query'
+          name: 'reportId'
           example: 2666621
-          description: >-
-            Unique identifier for fetching the audio file for an event. The same
-            ID is used for the transcript of the same event.
+          description: 'Unique identifier for fetching the audio file for an event. The same ID is used for the transcript of the same event.'
         - schema:
-            type: integer
-            format: int32
-          in: query
-          name: audioSourceId
-          description: >-
-            Unique ID for an Internal recording specific to reportID. For
-            example, ReportID X would have multiple recordings from different
-            source (phone or webcast or vendor or replay). One ReportID can have
-            multiple AudioSourceIDs.
+            type: 'integer'
+            format: 'int32'
+          in: 'query'
+          name: 'audioSourceId'
+          description: 'Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (phone or webcast or vendor or replay). One ReportID can have multiple AudioSourceIDs.'
         - schema:
-            type: array
+            type: 'array'
             items:
-              type: string
-          in: query
-          name: ids
+              type: 'string'
+          in: 'query'
+          name: 'ids'
           explode: false
           examples:
             oneId:
-              summary: One identifier
+              summary: 'One identifier'
               value:
-                - SPWH-US
+                - 'SPWH-US'
             noId:
-              summary: No identifier
+              summary: 'No identifier'
               value: []
             multipleIds:
-              summary: Multiple Identifiers
+              summary: 'Multiple Identifiers'
               value:
-                - FDS-US
-                - AAPL-US
-                - MSFT-US
-          description: >-
-            This parameter filters the results based on ticker-region or Entity
-            ID or the combination of both. A comma is used to separate each
-            identifier.
+                - 'FDS-US'
+                - 'AAPL-US'
+                - 'MSFT-US'
+          description: 'This parameter filters the results based on ticker-region or Entity ID or the combination of both. A comma is used to separate each identifier.'
         - schema:
-            type: string
+            type: 'string'
             enum:
-              - P
-              - W
-              - V
-              - F
-              - I
-              - R
-          in: query
-          name: sourceCode
-          description: >-
-            This parameter filters the results based on Source of the Audio
-            file. Below are the descriptions for each Source Code -
-
-            * P = Phone
-
-            * W = Webcast
-
-            * V = Vendor
-
-            * I = Webcast Replay
-
-            * F = Flash - identical to webcast; can merge with "W" in the future
-
-            * R = Replay (Phone Replay)
+              - 'P'
+              - 'W'
+              - 'V'
+              - 'F'
+              - 'I'
+              - 'R'
+          in: 'query'
+          name: 'sourceCode'
+          description: "This parameter filters the results based on Source of the Audio file. Below are the descriptions for each Source Code -\n* P = Phone\n* W = Webcast\n* V = Vendor\n* I = Webcast Replay\n* F = Flash - identical to webcast; can merge with \"W\" in the future\n* R = Replay (Phone Replay)"
         - schema:
-            type: string
-          in: query
-          name: fileName
-          example: 835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3
-          description: This parameter is used to filter the data on based on the file name.
+            type: 'string'
+          in: 'query'
+          name: 'fileName'
+          example: '835A1FD9-3CE1-EC11-8128-8CDCD4AF21E4.mp3'
+          description: 'This parameter is used to filter the data on based on the file name.'
         - schema:
-            type: boolean
-          in: query
-          name: trimmed
-          description: This parameters helps to search trimmed audio files.
+            type: 'boolean'
+          in: 'query'
+          name: 'trimmed'
+          description: 'This parameters helps to search trimmed audio files.'
         - schema:
-            type: integer
+            type: 'integer'
             minimum: -168
             maximum: -1
-            format: int32
-          in: query
-          name: uploadTime
-          description: >-
-            This parameter filters data based on uploadTime relative to the
-            current time, in hours. For example:- uploadTime = -15 (fetches
-            audio files between 15 hours ago and now)
-
-
-            Minimum is 1 hour i.e., uploadTime= -1
-
-
-            Maximum is 1 week/168 hours i.e., uploadTime=-168
-
-
-            While using uploadTime, the startDate and endDate parameters will be
-            ignored.
+            format: 'int32'
+          in: 'query'
+          name: 'uploadTime'
+          description: "This parameter filters data based on uploadTime relative to the current time, in hours. For example:- uploadTime = -15 (fetches audio files between 15 hours ago and now)\n\nMinimum is 1 hour i.e., uploadTime= -1\n\nMaximum is 1 week/168 hours i.e., uploadTime=-168\n\nWhile using uploadTime, the startDate and endDate parameters will be ignored."
   /bulk-documents/nrt/v1/calls:
     get:
-      summary: Returns the active calls happening at the moment.
+      summary: 'Returns the active calls happening at the moment.'
       tags:
-        - Near Real-Time Transcripts
+        - 'Near Real-Time Transcripts'
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -486,15 +360,15 @@ paths:
                 example-1:
                   value:
                     data:
-                      - callStatus: inProgress
+                      - callStatus: 'inProgress'
                         reportId: 2683372
-                        sourceCode: W
+                        sourceCode: 'W'
                         audioSourceId: 471849
                         recordingStartTime: '2022-07-11T14:46:59Z'
-                        ticker: AZZ-US
-                        entityId: 000CGP-E
-                        eventType: E
-                        eventTitle: Q1 2023 Earnings Call
+                        ticker: 'AZZ-US'
+                        entityId: '000CGP-E'
+                        eventType: 'E'
+                        eventTitle: 'Q1 2023 Earnings Call'
                         eventDatetimeUtc: '2022-07-11T15:00:00Z'
                     meta:
                       sort:
@@ -507,7 +381,7 @@ paths:
                       partial:
                         isPartial: false
         '400':
-          description: Bad Request
+          description: 'Bad Request'
           content:
             application/json:
               schema:
@@ -515,38 +389,33 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: f815da1a-da7e-4b66-a4a4-59b5b7c9bea2
-                    code: parameterError
+                    id: 'f815da1a-da7e-4b66-a4a4-59b5b7c9bea2'
+                    code: 'parameterError'
                     title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _sort:
-                          - startDate
+                          - 'startDate'
                           - '-startDate'
                         _paginationLimit:
-                          - integer from 0 to 500
+                          - 'integer from 0 to 500'
                         _paginationOffset:
-                          - positive integer
+                          - 'positive integer'
                         audioSourceId:
-                          - positive integer
+                          - 'positive integer'
                         reportId:
-                          - positive integer
+                          - 'positive integer'
                         callStatus:
-                          - ended
-                          - inProgress
-                          - ewn
-                          - issueAtSource
+                          - 'ended'
+                          - 'inProgress'
+                          - 'ewn'
+                          - 'issueAtSource'
                         ticker:
-                          - string in form of 'ticker-region'
+                          - 'string in form of ''ticker-region'''
                         entityId:
-                          - string
+                          - 'string'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -554,17 +423,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthenticated
-                    title: >-
-                      There were either no, invalid, or expired credentials
-                      present in the request.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthenticated'
+                    title: 'There were either no, invalid, or expired credentials present in the request.'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -572,11 +435,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthorized
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthorized'
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this endpoint.'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -584,11 +447,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: genericServerError
-                    title: An unexpected error happened.
-      operationId: get-bulk-documents-nrt-v1-calls
-      description: Returns the active calls happening at the moment
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'genericServerError'
+                    title: 'An unexpected error happened.'
+      operationId: 'get-bulk-documents-nrt-v1-calls'
+      description: 'Returns the active calls happening at the moment'
       parameters:
         - $ref: '#/components/parameters/paginationLimit'
         - $ref: '#/components/parameters/paginationOffset'
@@ -600,12 +463,12 @@ paths:
         - $ref: '#/components/parameters/callStatus'
   /bulk-documents/nrt/v1/list-snippets:
     get:
-      summary: Returns the latest transcript snippets from an active call.
+      summary: 'Returns the latest transcript snippets from an active call.'
       tags:
-        - Near Real-Time Transcripts
+        - 'Near Real-Time Transcripts'
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -622,9 +485,7 @@ paths:
                               endTime: 3.78
                               startTime: 0
                           - snippetData:
-                              transcript: >-
-                                , welcomed the course call, please hold an
-                                operator will be with you shortly. 
+                              transcript: ', welcomed the course call, please hold an operator will be with you shortly. '
                               endTime: 29.700000000000003
                               startTime: 21.42
                         snippetSequence: 1
@@ -655,9 +516,7 @@ paths:
                         snippetEndTimestamp: '2021-10-15 13:17:41'
                         transcriptData:
                           - snippetData:
-                              transcript: >-
-                                . Let's I'll join you and hold onto the calls
-                                again.
+                              transcript: '. Let''s I''ll join you and hold onto the calls again.'
                               endTime: 74.46000000000001
                               startTime: 67.68
                         snippetSequence: 4
@@ -680,7 +539,7 @@ paths:
                       partial:
                         isPartial: true
         '400':
-          description: Bad Request
+          description: 'Bad Request'
           content:
             application/json:
               schema:
@@ -688,26 +547,21 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 39bf5f1c-c503-4787-94e0-e557a3564fd6,
-                    code: parameterError
+                    id: '39bf5f1c-c503-4787-94e0-e557a3564fd6,'
+                    code: 'parameterError'
                     title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _paginationLimit:
-                          - integer from 0 to 500
+                          - 'integer from 0 to 500'
                         _paginationOffset:
-                          - positive integer
+                          - 'positive integer'
                         audioSourceId:
-                          - positive integer
+                          - 'positive integer'
                         reportId:
-                          - positive integer
+                          - 'positive integer'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -715,17 +569,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthenticated
-                    title: >-
-                      There were either no, invalid, or expired credentials
-                      present in the request.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthenticated'
+                    title: 'There were either no, invalid, or expired credentials present in the request.'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -733,11 +581,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthorized
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthorized'
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this endpoint.'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -745,11 +593,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: genericServerError
-                    title: An unexpected error happened.
-      operationId: get-bulk-documents-nrt-v1-list-snippets
-      description: Returns the latest snippets from an active call
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'genericServerError'
+                    title: 'An unexpected error happened.'
+      operationId: 'get-bulk-documents-nrt-v1-list-snippets'
+      description: 'Returns the latest snippets from an active call'
       parameters:
         - $ref: '#/components/parameters/paginationLimit'
         - $ref: '#/components/parameters/paginationOffset'
@@ -757,14 +605,12 @@ paths:
         - $ref: '#/components/parameters/reportId'
   /bulk-documents/nrt/v1/speakerids:
     get:
-      summary: >-
-        Returns the latest speakerIds with the confidence scores generated for
-        an active call.
+      summary: 'Returns the latest speakerIds with the confidence scores generated for an active call.'
       tags:
-        - Near Real-Time Transcripts
+        - 'Near Real-Time Transcripts'
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -775,32 +621,32 @@ paths:
                     data:
                       - audioSourceId: 471849
                         speakerStartOffset: 0
-                        speakerId: 00797V-E
+                        speakerId: '00797V-E'
                         cosineScore: 0.6958988631392222
-                        affiliationId: 0016YD-E
+                        affiliationId: '0016YD-E'
                       - audioSourceId: 471849
                         speakerStartOffset: 61.488
-                        speakerId: 00797V-E
+                        speakerId: '00797V-E'
                         cosineScore: 0.7166958724380188
-                        affiliationId: 0016YD-E
+                        affiliationId: '0016YD-E'
                       - audioSourceId: 471849
                         speakerStartOffset: 71.712
-                        speakerId: 00797V-E
+                        speakerId: '00797V-E'
                         cosineScore: 0.7045775184563546
-                        affiliationId: 0016YD-E
+                        affiliationId: '0016YD-E'
                       - audioSourceId: 471849
                         speakerStartOffset: 81.712
-                        speakerId: 00797V-E
+                        speakerId: '00797V-E'
                         cosineScore: 0.7845775184563546
-                        affiliationId: 0016YD-E
+                        affiliationId: '0016YD-E'
                       - audioSourceId: 471849
                         speakerStartOffset: 91.712
-                        speakerId: 00797V-E
+                        speakerId: '00797V-E'
                         cosineScore: 0.7645775184563546
-                        affiliationId: 0016YD-E
+                        affiliationId: '0016YD-E'
                     meta:
                       sort:
-                        - startDate
+                        - 'startDate'
                       pagination:
                         total: 439
                         isEstimatedTotal: false
@@ -809,7 +655,7 @@ paths:
                       partial:
                         isPartial: true
         '400':
-          description: Bad Request
+          description: 'Bad Request'
           content:
             application/json:
               schema:
@@ -817,27 +663,22 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: caccf853-a448-4a14-b44f-ffbb962730f3
-                    code: parameterError
+                    id: 'caccf853-a448-4a14-b44f-ffbb962730f3'
+                    code: 'parameterError'
                     title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _sort:
-                          - startDate
+                          - 'startDate'
                           - '-startDate'
                         _paginationLimit:
-                          - integer from 0 to 500
+                          - 'integer from 0 to 500'
                         _paginationOffset:
-                          - positive integer
+                          - 'positive integer'
                         audioSourceId:
-                          - positive integer
+                          - 'positive integer'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -845,17 +686,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthenticated
-                    title: >-
-                      There were either no, invalid, or expired credentials
-                      present in the request.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthenticated'
+                    title: 'There were either no, invalid, or expired credentials present in the request.'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -863,11 +698,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthorized
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthorized'
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this endpoint.'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -875,28 +710,24 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: genericServerError
-                    title: An unexpected error happened.
-      operationId: get-bulk-documents-nrt-v1-speakerids
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'genericServerError'
+                    title: 'An unexpected error happened.'
+      operationId: 'get-bulk-documents-nrt-v1-speakerids'
       parameters:
         - $ref: '#/components/parameters/paginationLimit'
         - $ref: '#/components/parameters/paginationOffset'
         - $ref: '#/components/parameters/audioSourceId'
         - $ref: '#/components/parameters/speakerSort'
-      description: >-
-        Returns the latest speakerIds with the cosine scores(confidence scores)
-        generated for an active call.
+      description: 'Returns the latest speakerIds with the cosine scores(confidence scores) generated for an active call.'
   /bulk-documents/nrt/v1/indexed-nrt:
     get:
-      summary: >-
-        Returns the  indexed transcript data  in small increments throughout the
-        duration of an active call.
+      summary: 'Returns the  indexed transcript data  in small increments throughout the duration of an active call.'
       tags:
-        - Near Real-Time Transcripts
+        - 'Near Real-Time Transcripts'
       responses:
         '200':
-          description: OK
+          description: 'OK'
           content:
             application/json:
               schema:
@@ -913,163 +744,160 @@ paths:
                           - indexedData:
                               - index:
                                   - confidence: 1
-                                    content: Revenue
-                                    language: en
+                                    content: 'Revenue'
+                                    language: 'en'
                                 endTime: 782.6299999976159
                                 startTime: 782.1199999922515
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9172338247299194
-                                    content: increased
-                                    language: en
+                                    content: 'increased'
+                                    language: 'en'
                                 endTime: 782.9899999523163
                                 startTime: 782.6299999976159
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9998389482498169
-                                    content: six
-                                    language: en
+                                    content: 'six'
+                                    language: 'en'
                                 endTime: 783.2299999618531
                                 startTime: 782.9899999523163
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9989027976989746
-                                    content: percent
-                                    language: en
+                                    content: 'percent'
+                                    language: 'en'
                                 endTime: 783.7999383831025
                                 startTime: 783.2299999618531
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: as
-                                    language: en
+                                    content: 'as'
+                                    language: 'en'
                                 endTime: 784.0099999332429
                                 startTime: 783.8000000143052
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9140177965164185
-                                    content: we
-                                    language: en
+                                    content: 'we'
+                                    language: 'en'
                                 endTime: 784.0999967479706
                                 startTime: 784.0099999332429
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.8930811285972595
-                                    content: benefited
-                                    language: en
+                                    content: 'benefited'
+                                    language: 'en'
                                 endTime: 784.6999999904633
                                 startTime: 784.1026543998719
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: from
-                                    language: en
+                                    content: 'from'
+                                    language: 'en'
                                 endTime: 784.9100000286103
                                 startTime: 784.6999999904633
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: strong
-                                    language: en
+                                    content: 'strong'
+                                    language: 'en'
                                 endTime: 785.4499999904633
                                 startTime: 784.9100546264649
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: gains
-                                    language: en
+                                    content: 'gains'
+                                    language: 'en'
                                 endTime: 786.3499998474122
                                 startTime: 785.7499999427796
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9999908208847046
-                                    content: from
-                                    language: en
+                                    content: 'from'
+                                    language: 'en'
                                 endTime: 786.8299755477906
                                 startTime: 786.5599998855591
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9939011335372925
-                                    content: equity
-                                    language: en
+                                    content: 'equity'
+                                    language: 'en'
                                 endTime: 787.19
                                 startTime: 786.8299998664857
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9999626874923706
-                                    content: securities
-                                    language: en
+                                    content: 'securities'
+                                    language: 'en'
                                 endTime: 787.9399942779542
                                 startTime: 787.1901826286316
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: and
-                                    language: en
+                                    content: 'and'
+                                    language: 'en'
                                 endTime: 788.4499997520447
                                 startTime: 788.1800994300843
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.6049093008041382
-                                    content: gain
-                                    language: en
+                                    content: 'gain'
+                                    language: 'en'
                                 endTime: 788.9599990272523
                                 startTime: 788.4499997520447
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: from
-                                    language: en
+                                    content: 'from'
+                                    language: 'en'
                                 endTime: 789.5299996757508
                                 startTime: 789.2599996948243
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9999662637710571
-                                    content: sales
-                                    language: en
+                                    content: 'sales'
+                                    language: 'en'
                                 endTime: 790.0999998474122
                                 startTime: 789.5299996757508
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: of
-                                    language: en
+                                    content: 'of'
+                                    language: 'en'
                                 endTime: 790.280000152588
                                 startTime: 790.0999998474122
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: our
-                                    language: en
+                                    content: 'our'
+                                    language: 'en'
                                 endTime: 790.3699993515015
                                 startTime: 790.280000152588
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.999971866607666
-                                    content: student
-                                    language: en
+                                    content: 'student'
+                                    language: 'en'
                                 endTime: 790.7000002288819
                                 startTime: 790.3699993515015
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9998940825462341
-                                    content: lending
-                                    language: en
+                                    content: 'lending'
+                                    language: 'en'
                                 endTime: 791.150000038147
                                 startTime: 790.7000011825562
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: asset
-                                    language: en
+                                    content: 'asset'
+                                    language: 'en'
                                 endTime: 791.7499994659424
                                 startTime: 791.2999996566773
-                                type: word
+                                type: 'word'
                             snippetData:
-                              transcript: >-
-                                Revenue increased six percent as we benefited
-                                from strong gains from equity securities and
-                                gain from sales of our student lending asset 
+                              transcript: 'Revenue increased six percent as we benefited from strong gains from equity securities and gain from sales of our student lending asset '
                               endTime: 791.75
                               startTime: 781.94
                       - reportId: 2683372
@@ -1080,383 +908,376 @@ paths:
                           - indexedData:
                               - index:
                                   - confidence: 1
-                                    content: management
-                                    language: en
+                                    content: 'management'
+                                    language: 'en'
                                 endTime: 792.4099999666214
                                 startTime: 791.7799999993294
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9995142221450806
-                                    content: and
-                                    language: en
+                                    content: 'and'
+                                    language: 'en'
                                 endTime: 792.589999973774
                                 startTime: 792.4099999666214
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: corporate
-                                    language: en
+                                    content: 'corporate'
+                                    language: 'en'
                                 endTime: 792.9199999570847
                                 startTime: 792.589999973774
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9906429052352905
-                                    content: trust
-                                    language: en
+                                    content: 'trust'
+                                    language: 'en'
                                 endTime: 793.2199999094009
                                 startTime: 792.9199999570847
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9990030527114868
-                                    content: businesses
-                                    language: en
+                                    content: 'businesses'
+                                    language: 'en'
                                 endTime: 793.8563723564148
                                 startTime: 793.2199999094009
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: .
-                                    language: en
+                                    content: '.'
+                                    language: 'en'
                                 endTime: 793.8563723564148
                                 startTime: 793.8563723564148
                                 isEOS: true
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 1
-                                    content: We
-                                    language: en
+                                    content: 'We'
+                                    language: 'en'
                                 endTime: 794.5999999046326
                                 startTime: 794.3899998664856
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: also
-                                    language: en
+                                    content: 'also'
+                                    language: 'en'
                                 endTime: 794.9299998283386
                                 startTime: 794.5999999046326
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.8609960079193115
-                                    content: have
-                                    language: en
+                                    content: 'have'
+                                    language: 'en'
                                 endTime: 795.0797309875488
                                 startTime: 794.9299998283386
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: broad
-                                    language: en
+                                    content: 'broad'
+                                    language: 'en'
                                 endTime: 795.4099998474121
                                 startTime: 795.079999923706
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: based
-                                    language: en
+                                    content: 'based'
+                                    language: 'en'
                                 endTime: 795.7099997997284
                                 startTime: 795.4099998474121
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: revenue
-                                    language: en
+                                    content: 'revenue'
+                                    language: 'en'
                                 endTime: 796.0699996948242
                                 startTime: 795.7099997997284
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: growth
-                                    language: en
+                                    content: 'growth'
+                                    language: 'en'
                                 endTime: 796.4899997711182
                                 startTime: 796.0699996948242
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: across
-                                    language: en
+                                    content: 'across'
+                                    language: 'en'
                                 endTime: 796.8800001144409
                                 startTime: 796.4899997711182
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: our
-                                    language: en
+                                    content: 'our'
+                                    language: 'en'
                                 endTime: 796.9699997901917
                                 startTime: 796.8800001144409
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: businesses
-                                    language: en
+                                    content: 'businesses'
+                                    language: 'en'
                                 endTime: 797.539999961853
                                 startTime: 796.9699997901917
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
                                     content: ','
-                                    language: en
+                                    language: 'en'
                                 endTime: 797.539999961853
                                 startTime: 797.539999961853
                                 isEOS: false
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 1
-                                    content: including
-                                    language: en
+                                    content: 'including'
+                                    language: 'en'
                                 endTime: 797.9600076675415
                                 startTime: 797.539999961853
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9997471570968628
-                                    content: home
-                                    language: en
+                                    content: 'home'
+                                    language: 'en'
                                 endTime: 798.1699695587158
                                 startTime: 797.9600076675415
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9999999403953552
-                                    content: lending
-                                    language: en
+                                    content: 'lending'
+                                    language: 'en'
                                 endTime: 798.5899996757507
                                 startTime: 798.170000076294
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
                                     content: ','
-                                    language: en
+                                    language: 'en'
                                 endTime: 798.5899996757507
                                 startTime: 798.5899996757507
                                 isEOS: false
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 0.9962349534034729
-                                    content: consumer
-                                    language: en
+                                    content: 'consumer'
+                                    language: 'en'
                                 endTime: 799.4587783813477
                                 startTime: 798.9800000190735
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9955459237098694
-                                    content: and
-                                    language: en
+                                    content: 'and'
+                                    language: 'en'
                                 endTime: 799.5499267578125
                                 startTime: 799.4600353240967
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: small
-                                    language: en
+                                    content: 'small'
+                                    language: 'en'
                                 endTime: 799.789999961853
                                 startTime: 799.5499997138977
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: business
-                                    language: en
+                                    content: 'business'
+                                    language: 'en'
                                 endTime: 800.1199998855591
                                 startTime: 799.789999961853
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: banking
-                                    language: en
+                                    content: 'banking'
+                                    language: 'en'
                                 endTime: 800.5999069213867
                                 startTime: 800.1199998855591
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
                                     content: ','
-                                    language: en
+                                    language: 'en'
                                 endTime: 800.5999069213867
                                 startTime: 800.5999069213867
                                 isEOS: false
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 1
-                                    content: credit
-                                    language: en
+                                    content: 'credit'
+                                    language: 'en'
                                 endTime: 801.2600002288818
                                 startTime: 800.8699998855591
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: card
-                                    language: en
+                                    content: 'card'
+                                    language: 'en'
                                 endTime: 801.6499996185303
                                 startTime: 801.2600002288818
-                                type: word
+                                type: 'word'
                             snippetData:
-                              transcript: >-
-                                management and corporate trust businesses. We
-                                also have broad based revenue growth across our
-                                businesses, including home lending, consumer and
-                                small business banking, credit card 
+                              transcript: 'management and corporate trust businesses. We also have broad based revenue growth across our businesses, including home lending, consumer and small business banking, credit card '
                               endTime: 801.65
                               startTime: 791.75
                           - indexedData:
                               - index:
                                   - confidence: 1
                                     content: ','
-                                    language: en
+                                    language: 'en'
                                 endTime: 801.9799999833107
                                 startTime: 801.9799999833107
                                 isEOS: false
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 0.9995478391647339
-                                    content: auto
-                                    language: en
+                                    content: 'auto'
+                                    language: 'en'
                                 endTime: 802.5800000071525
                                 startTime: 801.9799999833107
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
                                     content: ','
-                                    language: en
+                                    language: 'en'
                                 endTime: 802.5800000071525
                                 startTime: 802.5800000071525
                                 isEOS: false
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 1
-                                    content: commercial
-                                    language: en
+                                    content: 'commercial'
+                                    language: 'en'
                                 endTime: 803.2399999141693
                                 startTime: 802.7899999856949
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: real
-                                    language: en
+                                    content: 'real'
+                                    language: 'en'
                                 endTime: 803.4199999809265
                                 startTime: 803.2399999141693
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: estate
-                                    language: en
+                                    content: 'estate'
+                                    language: 'en'
                                 endTime: 803.8999732971191
                                 startTime: 803.4199999809265
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
                                     content: ','
-                                    language: en
+                                    language: 'en'
                                 endTime: 803.8999732971191
                                 startTime: 803.8999732971191
                                 isEOS: false
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 1
-                                    content: banking
-                                    language: en
+                                    content: 'banking'
+                                    language: 'en'
                                 endTime: 804.8299998283386
                                 startTime: 804.229999923706
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: and
-                                    language: en
+                                    content: 'and'
+                                    language: 'en'
                                 endTime: 805.3399998188019
                                 startTime: 805.0699998378753
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: wealth
-                                    language: en
+                                    content: 'wealth'
+                                    language: 'en'
                                 endTime: 805.6699999809265
                                 startTime: 805.3399998188019
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9995111227035522
-                                    content: and
-                                    language: en
+                                    content: 'and'
+                                    language: 'en'
                                 endTime: 805.8200000762939
                                 startTime: 805.6699999809265
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: investment
-                                    language: en
+                                    content: 'investment'
+                                    language: 'en'
                                 endTime: 806.3000000953674
                                 startTime: 805.8200000762939
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: management
-                                    language: en
+                                    content: 'management'
+                                    language: 'en'
                                 endTime: 806.8099998474121
                                 startTime: 806.3000000953674
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: .
-                                    language: en
+                                    content: '.'
+                                    language: 'en'
                                 endTime: 806.8099998474121
                                 startTime: 806.8099998474121
                                 isEOS: true
-                                type: punctuation
+                                type: 'punctuation'
                               - index:
                                   - confidence: 1
-                                    content: Credit
-                                    language: en
+                                    content: 'Credit'
+                                    language: 'en'
                                 endTime: 807.9199999809265
                                 startTime: 807.5599998474121
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: quality
-                                    language: en
+                                    content: 'quality'
+                                    language: 'en'
                                 endTime: 808.4
                                 startTime: 807.9199999809265
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.6613963842391968
-                                    content: improved
-                                    language: en
+                                    content: 'improved'
+                                    language: 'en'
                                 endTime: 808.7600001335144
                                 startTime: 808.4000004768371
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: significantly
-                                    language: en
+                                    content: 'significantly'
+                                    language: 'en'
                                 endTime: 809.689999961853
                                 startTime: 808.7640556335449
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9995760321617126
-                                    content: as
-                                    language: en
+                                    content: 'as'
+                                    language: 'en'
                                 endTime: 809.9599994659424
                                 startTime: 809.7199996948242
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: the
-                                    language: en
+                                    content: 'the'
+                                    language: 'en'
                                 endTime: 810.0499996185303
                                 startTime: 809.9599994659424
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 1
-                                    content: economy
-                                    language: en
+                                    content: 'economy'
+                                    language: 'en'
                                 endTime: 810.7099994659424
                                 startTime: 810.0499996185303
-                                type: word
+                                type: 'word'
                               - index:
                                   - confidence: 0.9282795786857605
-                                    content: improved
-                                    language: en
+                                    content: 'improved'
+                                    language: 'en'
                                 endTime: 811.7000907897949
                                 startTime: 811.0399993896484
-                                type: word
+                                type: 'word'
                             snippetData:
-                              transcript: >-
-                                , auto, commercial real estate, banking and
-                                wealth and investment management. Credit quality
-                                improved significantly as the economy improved 
+                              transcript: ', auto, commercial real estate, banking and wealth and investment management. Credit quality improved significantly as the economy improved '
                               endTime: 811.6999999999999
                               startTime: 801.65
                     meta:
@@ -1468,7 +1289,7 @@ paths:
                       partial:
                         isPartial: true
         '400':
-          description: Bad Request
+          description: 'Bad Request'
           content:
             application/json:
               schema:
@@ -1476,26 +1297,21 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 39bf5f1c-c503-4787-94e0-e557a3564fd6,
-                    code: parameterError
+                    id: '39bf5f1c-c503-4787-94e0-e557a3564fd6,'
+                    code: 'parameterError'
                     title: '[''_paginatinLimit''] is not a valid parameter(s)'
                     details:
                       validParameters:
                         _paginationLimit:
-                          - integer from 0 to 50
+                          - 'integer from 0 to 50'
                         _paginationOffset:
-                          - positive integer
+                          - 'positive integer'
                         audioSourceId:
-                          - positive integer
+                          - 'positive integer'
                         reportId:
-                          - positive integer
+                          - 'positive integer'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -1503,17 +1319,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthenticated
-                    title: >-
-                      There were either no, invalid, or expired credentials
-                      present in the request.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthenticated'
+                    title: 'There were either no, invalid, or expired credentials present in the request.'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -1521,11 +1331,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: notAuthorized
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'notAuthorized'
                     title: ' {USERNAME}-{SERIAL} does not have permission to use this endpoint.'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -1533,13 +1343,11 @@ paths:
               examples:
                 example-1:
                   value:
-                    id: 7af3d86ca5954503b9244f2620fcf5eb
-                    code: genericServerError
-                    title: An unexpected error happened.
-      operationId: get-bulk-documents-nrt-v1-indexed-nrt
-      description: >-
-        Returns the  indexed transcript data  in small increments throughout the
-        duration of an active call.
+                    id: '7af3d86ca5954503b9244f2620fcf5eb'
+                    code: 'genericServerError'
+                    title: 'An unexpected error happened.'
+      operationId: 'get-bulk-documents-nrt-v1-indexed-nrt'
+      description: 'Returns the  indexed transcript data  in small increments throughout the duration of an active call.'
       parameters:
         - $ref: '#/components/parameters/indexedpaginationLimit'
         - $ref: '#/components/parameters/paginationOffset'
@@ -1548,1084 +1356,798 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   schemas:
     NRT-Snippets:
-      description: >-
-        Transcript snippet metadata of active calls happening at that moment are
-        returned.
-      type: object
+      description: 'Transcript snippet metadata of active calls happening at that moment are returned.'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
-            type: object
+            type: 'object'
             properties:
               reportId:
-                type: integer
-                description: The unique ID for an event.
+                type: 'integer'
+                description: 'The unique ID for an event.'
               snippetEndTimestamp:
-                type: string
-                description: >-
-                  The snippet end time is calculated based off the endTime in
-                  the snippetData section and the recordingStartTime from the
-                  calls endpoint.
+                type: 'string'
+                description: 'The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint.'
               transcriptData:
-                type: array
+                type: 'array'
                 items:
-                  type: object
+                  type: 'object'
                   properties:
                     snippetData:
-                      type: object
+                      type: 'object'
                       properties:
                         transcript:
-                          type: string
-                          description: The actual transcript snippet.
+                          type: 'string'
+                          description: 'The actual transcript snippet.'
                         endTime:
-                          type: number
-                          description: >-
-                            The number of seconds into the call, when the
-                            transcript snippet ended.
+                          type: 'number'
+                          description: 'The number of seconds into the call, when the transcript snippet ended.'
                         startTime:
-                          type: number
-                          description: >-
-                            The number of seconds into the call,when the
-                            transcript snippet started.
+                          type: 'number'
+                          description: 'The number of seconds into the call,when the transcript snippet started.'
               snippetSequence:
-                type: integer
-                description: >-
-                  The sequence number of the snippet from the start of the
-                  current call. 
+                type: 'integer'
+                description: 'The sequence number of the snippet from the start of the current call. '
               audioSourceId:
-                type: integer
-                description: >-
-                  The Unique ID for an Internal recording specific to reportID.
-                  For example, ReportID X would have multiple recordings from a
-                  different source (dial-in or webcast). One ReportID can have
-                  multiple AudioSourceIDs.
+                type: 'integer'
+                description: 'The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.'
         meta:
-          type: object
+          type: 'object'
           properties:
             pagination:
-              type: object
+              type: 'object'
               properties:
                 total:
-                  description: Total number for results returned for a specific query.
-                  type: integer
+                  description: 'Total number for results returned for a specific query.'
+                  type: 'integer'
                 isEstimatedTotal:
-                  type: boolean
-                  description: >-
-                    This field acts as a flag for the exact count of results and
-                    is defaulted to false as the API should always return the
-                    exact count of results.
+                  type: 'boolean'
+                  description: 'This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.'
                 limit:
-                  type: integer
-                  description: Number of results returned per page.
+                  type: 'integer'
+                  description: 'Number of results returned per page.'
                 offset:
-                  type: integer
-                  description: >-
-                    The flag indicating the position in the results array if
-                    additional results are available beyond the default value or
-                    the value in _paginationLimit parameter (if used). This
-                    value is passed in the _paginationOffset parameter to
-                    retrieve subsequent results.
+                  type: 'integer'
+                  description: 'The flag indicating the position in the results array if additional results are available beyond the default value or the value in _paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.'
             partial:
-              type: object
+              type: 'object'
               properties:
                 isPartial:
-                  type: boolean
-                  description: >-
-                    If the value is True, it indicates additional results are
-                    available. False represents that this is the last set of
-                    results for this request.
+                  type: 'boolean'
+                  description: 'If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.'
     NRT-Calls:
       description: "\t\t\nMetadata of active calls happening at that moment are returned.\n"
-      type: object
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
-            type: object
+            type: 'object'
             properties:
               callStatus:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  Status of the call i.e. ended or inProgress or ewn or
-                  issueAtSource.
-
-
-                  * inProgress- the call is in progress.
-
-                  * ended- the call has ended.
-
-                  * ewn- the call has technically ended and can be considered as
-                  ended but is missing a notification from the upstream systems.
-
-                  * issueAtSource- the call has ended with no snippet data due
-                  to a possible issue at the source.
+                description: "Status of the call i.e. ended or inProgress or ewn or issueAtSource.\n\n* inProgress- the call is in progress.\n* ended- the call has ended.\n* ewn- the call has technically ended and can be considered as ended but is missing a notification from the upstream systems.\n* issueAtSource- the call has ended with no snippet data due to a possible issue at the source."
               reportId:
-                type: integer
+                type: 'integer'
                 nullable: true
-                description: The unique ID for an event.
+                description: 'The unique ID for an event.'
               sourceCode:
-                type: string
+                type: 'string'
                 nullable: true
-                description: |-
-                  Identifier for the source of how the event is recorded.
-                  P:- Phone Replay
-                  W:- Webcast
+                description: "Identifier for the source of how the event is recorded.\nP:- Phone Replay\nW:- Webcast"
               audioSourceId:
-                type: integer
+                type: 'integer'
                 nullable: true
-                description: >-
-                  Unique ID for an Internal recording specific to reportID. For
-                  example, ReportID X would have multiple recordings from
-                  different source (dial-in - P or webcast - W). One reportId
-                  can have multiple audiosourceIDs.
+                description: 'Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in - P or webcast - W). One reportId can have multiple audiosourceIDs.'
               recordingStartTime:
-                type: string
+                type: 'string'
                 nullable: true
-                description: The official UTC timestamp when FactSet starts the recording.
+                description: 'The official UTC timestamp when FactSet starts the recording.'
               ticker:
-                type: string
+                type: 'string'
                 nullable: true
-                description: Ticker-region identifier for the company hosting the event.
+                description: 'Ticker-region identifier for the company hosting the event.'
               entityId:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  Factset entity level identifier for the company hosting the
-                  event.
+                description: 'Factset entity level identifier for the company hosting the event.'
               eventType:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  Refers to the various event types covered by FactSet
-                  CallStreet -
-
-                  * Analyst, Investor & Shareholder Meeting => AS
-
-                  * Earnings Call => E
-
-                  * Earnings Release => ER
-
-                  * Guidance => G
-
-                  * Sales & Revenue Call => SA
-
-                  * Sales & Revenue Release => SR
-
-                  * Special & M&A (Special Situation) => SS
+                description: "Refers to the various event types covered by FactSet CallStreet -\n* Analyst, Investor & Shareholder Meeting => AS\n* Earnings Call => E\n* Earnings Release => ER\n* Guidance => G\n* Sales & Revenue Call => SA\n* Sales & Revenue Release => SR\n* Special & M&A (Special Situation) => SS"
               eventTitle:
-                type: string
+                type: 'string'
                 nullable: true
-                description: Title of the Event.
+                description: 'Title of the Event.'
               eventDatetimeUtc:
-                type: string
+                type: 'string'
                 nullable: true
-                description: The official UTC timestamp of the start of the event.
+                description: 'The official UTC timestamp of the start of the event.'
         meta:
-          type: object
+          type: 'object'
           properties:
             sort:
-              type: array
-              description: The value in _sort parameter if used in the request.
+              type: 'array'
+              description: 'The value in _sort parameter if used in the request.'
               items:
-                type: string
+                type: 'string'
             pagination:
-              type: object
+              type: 'object'
               properties:
                 total:
-                  type: integer
-                  description: Total number for results returned for a specific query.
+                  type: 'integer'
+                  description: 'Total number for results returned for a specific query.'
                 isEstimatedTotal:
-                  type: boolean
-                  description: >-
-                    This field acts as a flag for the exact count of results and
-                    is defaulted to false as the API should always return the
-                    exact count of results.
+                  type: 'boolean'
+                  description: 'This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.'
                 limit:
-                  type: integer
-                  description: Number of results returned per page.
+                  type: 'integer'
+                  description: 'Number of results returned per page.'
                 offset:
-                  type: integer
-                  description: >-
-                    The flag indicating the position in the results array if
-                    additional results are available beyond the default value or
-                    the value in _paginationLimit parameter (if used). This
-                    value is passed in the _paginationOffset parameter to
-                    retrieve subsequent results.
+                  type: 'integer'
+                  description: 'The flag indicating the position in the results array if additional results are available beyond the default value or the value in _paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.'
             partial:
-              type: object
+              type: 'object'
               properties:
                 isPartial:
-                  type: boolean
-                  description: >-
-                    If the value is True, it indicates additional results are
-                    available. False represents that this is the last set of
-                    results for this request.
+                  type: 'boolean'
+                  description: 'If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.'
     NRT-Speakerids:
-      description: >-
-        Speaker metadata and the cosine scores(confidence scores ) generated for
-        an active  call are returned.
-      type: object
+      description: 'Speaker metadata and the cosine scores(confidence scores ) generated for an active  call are returned.'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
-            type: object
+            type: 'object'
             properties:
               audioSourceId:
-                type: integer
+                type: 'integer'
                 nullable: true
-                description: >-
-                  The Unique ID for an Internal recording specific to reportID.
-                  For example, ReportID X would have multiple recordings from a
-                  different source (dial-in or webcast). One ReportID can have
-                  multiple audioSourceIDs.
+                description: 'The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSourceIDs.'
               speakerStartOffset:
-                type: number
+                type: 'number'
                 nullable: true
-                description: >-
-                  The number of seconds into the call when a speaker starts / is
-                  speaking.
+                description: 'The number of seconds into the call when a speaker starts / is speaking.'
               speakerId:
-                type: string
+                type: 'string'
                 nullable: true
-                description: A unique identifier for a speaker.
+                description: 'A unique identifier for a speaker.'
               cosineScore:
-                type: number
+                type: 'number'
                 nullable: true
-                description: >-
-                  The cosine similarity score (Confidence score)  for a
-                  particular speaker.
-
-
-                  A score >= 0.49 while a speaker is speaking can be considered
-                  as a high confidence in the predicted speaker.
-
-
-                  Only the SpeakerIDs with the highest cosineScore are rendered
-                  in the result set.
+                description: "The cosine similarity score (Confidence score)  for a particular speaker.\n\nA score >= 0.49 while a speaker is speaking can be considered as a high confidence in the predicted speaker.\n\nOnly the SpeakerIDs with the highest cosineScore are rendered in the result set."
               affiliationId:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  Affiliation ID denotes the company a speaker is associated
-                  with.
+                description: 'Affiliation ID denotes the company a speaker is associated with.'
         meta:
-          type: object
+          type: 'object'
           properties:
             sort:
-              type: array
-              description: The value in _sort parameter if used in the request.
+              type: 'array'
+              description: 'The value in _sort parameter if used in the request.'
               items:
-                type: string
+                type: 'string'
             pagination:
-              type: object
+              type: 'object'
               properties:
                 total:
-                  type: integer
-                  description: >-
-                    Total number of results the API returns for a particular
-                    query.
+                  type: 'integer'
+                  description: 'Total number of results the API returns for a particular query.'
                 isEstimatedTotal:
-                  type: boolean
-                  description: >-
-                    Boolean value that represents whether the total count of
-                    results returned is exact or an estimate. This is defaulted
-                    to False as the API should always return the exact count.
+                  type: 'boolean'
+                  description: 'Boolean value that represents whether the total count of results returned is exact or an estimate. This is defaulted to False as the API should always return the exact count.'
                 limit:
-                  type: integer
-                  description: Number of results returned per page.
+                  type: 'integer'
+                  description: 'Number of results returned per page.'
                 offset:
-                  type: integer
-                  description: >-
-                    The flag indicating the position in the results array if
-                    additional results are available beyond the default value or
-                    the value in paginationLimit parameter (if used). This value
-                    is passed in the _paginationOffset parameter to retrieve
-                    subsequent results.
+                  type: 'integer'
+                  description: 'The flag indicating the position in the results array if additional results are available beyond the default value or the value in paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.'
             partial:
-              type: object
+              type: 'object'
               properties:
                 isPartial:
-                  type: boolean
-                  description: >-
-                    If the value is True, it indicates additional results are
-                    available. False represents that this is the last set of
-                    results for this request.
+                  type: 'boolean'
+                  description: 'If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.'
     Events-Audio:
-      type: object
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
-            type: object
+            type: 'object'
             properties:
               url:
-                type: string
-                description: Download link for the audio file.
+                type: 'string'
+                description: 'Download link for the audio file.'
               fileName:
-                type: string
-                description: The filename of the audio file.
+                type: 'string'
+                description: 'The filename of the audio file.'
               durationSecs:
-                type: number
+                type: 'number'
                 nullable: true
-                description: >-
-                  Total duration of the recording in seconds based on
-                  startOffsetSeconds to endOffsetSeconds.
+                description: 'Total duration of the recording in seconds based on startOffsetSeconds to endOffsetSeconds.'
               endOffsetSeconds:
-                type: number
+                type: 'number'
                 nullable: true
-                description: >-
-                  The delta in seconds between startTime to when FactSet marks
-                  the end of the call.
+                description: 'The delta in seconds between startTime to when FactSet marks the end of the call.'
               startOffsetSeconds:
-                type: number
+                type: 'number'
                 nullable: true
-                description: >-
-                  The delta in seconds between start of audio file to when
-                  FactSet marks the beginning of the call.
+                description: 'The delta in seconds between start of audio file to when FactSet marks the beginning of the call.'
               sourceCode:
-                type: string
-                description: >-
-                  Identifies the method of how the event is recorded Below are
-                  the descriptions for each Source Code -
-
-                  * P = Phone
-
-                  * W = Webcast
-
-                  * V = Vendor
-
-                  * I = Webcast Replay
-
-                  * F = Flash - identical to webcast; can merge with "W" in the
-                  future
-
-                  * R = Replay (Phone Replay)
+                type: 'string'
+                description: "Identifies the method of how the event is recorded Below are the descriptions for each Source Code -\n* P = Phone\n* W = Webcast\n* V = Vendor\n* I = Webcast Replay\n* F = Flash - identical to webcast; can merge with \"W\" in the future\n* R = Replay (Phone Replay)"
               startTime:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  The official timestamp when FactSet begins the recording.
-
-
-                  Note:- All the vendor and trimmed files would have default
-                  1900-0101T00:00:00Z time stamp.
+                description: "The official timestamp when FactSet begins the recording.\n\nNote:- All the vendor and trimmed files would have default 1900-0101T00:00:00Z time stamp."
               endTime:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  The official timestamp when FactSet ends the recording.
-
-
-                  Note:- All the vendor and trimmed files would have default
-                  1900-0101T00:00:00Z time stamp.
+                description: "The official timestamp when FactSet ends the recording.\n\nNote:- All the vendor and trimmed files would have default 1900-0101T00:00:00Z time stamp."
               uploadTime:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  The official timestamp when FactSet publishes the audio file
-                  externally.
+                description: 'The official timestamp when FactSet publishes the audio file externally.'
               fileSize:
-                type: number
-                description: Size of the Audio file, in bytes.
+                type: 'number'
+                description: 'Size of the Audio file, in bytes.'
               reportId:
-                type: integer
-                description: >-
-                  The unique ID of the audio file for an event. The same ID is
-                  used for the transcript of the same event.
-
-                  This report ID can also be used to map to the Event details in
-                  SDF tables.
+                type: 'integer'
+                description: "The unique ID of the audio file for an event. The same ID is used for the transcript of the same event.\nThis report ID can also be used to map to the Event details in SDF tables."
               ticker:
-                type: string
+                type: 'string'
                 nullable: true
-                description: >-
-                  Ticker-region identifier for the company hosting the event.
-
-
-                  Note:- This field can have N/A value when the company is a
-                  private(non-equity company)
+                description: "Ticker-region identifier for the company hosting the event.\n\nNote:- This field can have N/A value when the company is a private(non-equity company)"
               entityId:
-                type: string
-                description: >-
-                  Factset entity level identifier for the company hosting the
-                  event.
+                type: 'string'
+                description: 'Factset entity level identifier for the company hosting the event.'
               trimmed:
-                type: boolean
-                description: >-
-                  The trimmed attribute helps identify if the audio is the
-                  trimmed version.
-
-                  Note:- All the vendor generated files are trimmed regardless
-                  of the ‘trimmed’ attribute value in the response.
+                type: 'boolean'
+                description: "The trimmed attribute helps identify if the audio is the trimmed version.\nNote:- All the vendor generated files are trimmed regardless of the ‘trimmed’ attribute value in the response."
               sampleRate:
-                type: number
+                type: 'number'
                 nullable: true
-                description: >-
-                  The number of samples of audio carried per second in Kbps.
-
-
-                  Note:- The field can have value as -1 for the audio files
-                  without sampleRate metadata
+                description: "The number of samples of audio carried per second in Kbps.\n\nNote:- The field can have value as -1 for the audio files without sampleRate metadata"
               bitrate:
-                type: number
+                type: 'number'
                 nullable: true
-                description: >-
-                  The total number of bits of information stored per second of
-                  sound in Kbps.
-
-
-                  Note:- The field can have value as -1 for the audio files
-                  without bitrate metadata
+                description: "The total number of bits of information stored per second of sound in Kbps.\n\nNote:- The field can have value as -1 for the audio files without bitrate metadata"
               audioSourceId:
-                type: integer
+                type: 'integer'
                 nullable: true
-                description: >-
-                  Unique ID for an Internal recording specific to reportID. For
-                  example, ReportID X would have multiple recordings from
-                  different source (Phone or Webcast or Vendor or Replay). One
-                  ReportID can have multiple AudioSourceIDs.
-
-
-                  The audioSourceId identifier is available for audio calls
-                  since November 29, 2022.
-
-                  Note:- Only un-trimmed audio files contain an audioSourceId
-                  value. All the vendor and trimmed audio files will have an
-                  audioSourceId value of null.
+                description: "Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (Phone or Webcast or Vendor or Replay). One ReportID can have multiple AudioSourceIDs.\n\nThe audioSourceId identifier is available for audio calls since November 29, 2022.\nNote:- Only un-trimmed audio files contain an audioSourceId value. All the vendor and trimmed audio files will have an audioSourceId value of null."
         meta:
-          type: object
+          type: 'object'
           properties:
             sort:
-              type: array
-              description: The value in _sort parameter if used in the request.
+              type: 'array'
+              description: 'The value in _sort parameter if used in the request.'
               items:
-                type: string
+                type: 'string'
             pagination:
-              type: object
+              type: 'object'
               description: "\t\nList of pagination objects"
               properties:
                 total:
-                  type: integer
-                  description: >-
-                    Total number of files the API returns for a particular
-                    query.
+                  type: 'integer'
+                  description: 'Total number of files the API returns for a particular query.'
                 isEstimatedTotal:
-                  type: boolean
-                  description: >-
-                    Boolean value that represents whether the total count of
-                    files returned is exact or an estimate. This is defaulted to
-                    False as the API should always return the exact count.
+                  type: 'boolean'
+                  description: 'Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to False as the API should always return the exact count.'
                 limit:
-                  type: integer
-                  description: Number of results returned per page
+                  type: 'integer'
+                  description: 'Number of results returned per page'
                 offset:
-                  type: integer
-                  description: >-
-                    The flag indicating the position in the results array if
-                    additional results are available beyond the default value or
-                    the value in paginationLimit parameter (if used). This value
-                    is passed in the _paginationOffset parameter to retrieve
-                    subsequent results.
+                  type: 'integer'
+                  description: 'The flag indicating the position in the results array if additional results are available beyond the default value or the value in paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.'
             partial:
-              type: object
+              type: 'object'
               description: ''
               properties:
                 isPartial:
-                  type: boolean
-                  description: >-
-                    If the value is True, it indicates additional results are
-                    available. False represents that this is the last set of
-                    results for this request.
+                  type: 'boolean'
+                  description: 'If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.'
     Events-Audio-History:
-      type: object
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
-            type: object
+            type: 'object'
             properties:
               year:
-                type: integer
-                description: >-
-                  The year corresponding to the file containing historical audio
-                  recordings that can be downloaded via presigned url.
+                type: 'integer'
+                description: 'The year corresponding to the file containing historical audio recordings that can be downloaded via presigned url.'
               trimmed:
-                type: boolean
-                description: >-
-                  True  indicates that the pre-signed downloadable URL contains
-                  trimmed historical audio recordings and related metadata of a
-                  specific year.
-
-
-                  False  indicates that the pre-signed downloadable URL contains
-                  untrimmed historical audio recordings and related metadata of
-                  a specific year.
+                type: 'boolean'
+                description: "True  indicates that the pre-signed downloadable URL contains trimmed historical audio recordings and related metadata of a specific year.\n\nFalse  indicates that the pre-signed downloadable URL contains untrimmed historical audio recordings and related metadata of a specific year."
               fileName:
-                type: string
-                description: The name of the file.
+                type: 'string'
+                description: 'The name of the file.'
               fileSize:
-                type: integer
-                description: The size of the file, in bytes.
+                type: 'integer'
+                description: 'The size of the file, in bytes.'
               url:
-                type: string
-                description: >-
-                  Pre-signed downloadable URL containing the historical audio
-                  recordings and related metadata of a specific year. The
-                  pre-signed URL in the response will expire after 3 hours.
+                type: 'string'
+                description: 'Pre-signed downloadable URL containing the historical audio recordings and related metadata of a specific year. The pre-signed URL in the response will expire after 3 hours.'
         meta:
-          type: object
+          type: 'object'
           properties:
             pagination:
-              type: object
+              type: 'object'
               description: "\t\nList of pagination objects"
               properties:
                 total:
-                  type: integer
-                  description: >-
-                    Total number of files the API returns for a particular
-                    query.
+                  type: 'integer'
+                  description: 'Total number of files the API returns for a particular query.'
                 isEstimatedTotal:
-                  type: boolean
-                  description: >-
-                    Boolean value that represents whether the total count of
-                    files returned is exact or an estimate. This is defaulted to
-                    False as the API should always return the exact count.
+                  type: 'boolean'
+                  description: 'Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to False as the API should always return the exact count.'
                 limit:
-                  type: integer
-                  description: Number of results returned per page
+                  type: 'integer'
+                  description: 'Number of results returned per page'
                 offset:
-                  type: integer
-                  description: >-
-                    The flag indicating the position in the results array if
-                    additional results are available beyond the default value or
-                    the value in paginationLimit parameter (if used). This value
-                    is passed in the _paginationOffset parameter to retrieve
-                    subsequent results.
+                  type: 'integer'
+                  description: 'The flag indicating the position in the results array if additional results are available beyond the default value or the value in paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.'
             partial:
-              type: object
+              type: 'object'
               description: ''
               properties:
                 isPartial:
-                  type: boolean
-                  description: >-
-                    If the value is True, it indicates additional results are
-                    available. False represents that this is the last set of
-                    results for this request.
+                  type: 'boolean'
+                  description: 'If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.'
     Events-Audio-400-Response:
       description: ''
-      type: object
+      type: 'object'
       properties:
         code:
-          type: string
+          type: 'string'
         title:
-          type: string
+          type: 'string'
         id:
-          type: string
+          type: 'string'
         details:
-          type: object
+          type: 'object'
           properties:
             validParameters:
-              type: object
+              type: 'object'
               properties:
                 _sort:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationLimit:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationOffset:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 reportId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 startDate:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 endDate:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 ids:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 sourceCode:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 fileName:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 trimmed:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 uploadTime:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 audioSourceId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
     NRT-Calls-400-Response:
       description: ''
-      type: object
+      type: 'object'
       properties:
         id:
-          type: string
+          type: 'string'
         code:
-          type: string
+          type: 'string'
         title:
-          type: string
+          type: 'string'
         details:
-          type: object
+          type: 'object'
           properties:
             validParameters:
-              type: object
+              type: 'object'
               properties:
                 _sort:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationLimit:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationOffset:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 audioSourceId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 reportId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 callStatus:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 ticker:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 entityId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
     NRT-Snippets-400-Response:
       description: ''
-      type: object
+      type: 'object'
       properties:
         id:
-          type: string
+          type: 'string'
         code:
-          type: string
+          type: 'string'
         title:
-          type: string
+          type: 'string'
         details:
-          type: object
+          type: 'object'
           properties:
             validParameters:
-              type: object
+              type: 'object'
               properties:
                 _paginationLimit:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationOffset:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 audioSourceId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 reportId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
     NRT-Speakerids-400-Response:
       description: ''
-      type: object
+      type: 'object'
       properties:
         id:
-          type: string
+          type: 'string'
         code:
-          type: string
+          type: 'string'
         title:
-          type: string
+          type: 'string'
         details:
-          type: object
+          type: 'object'
           properties:
             validParameters:
-              type: object
+              type: 'object'
               properties:
                 _sort:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationLimit:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationOffset:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 audioSourceId:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
     Events-Audio-History-400-Response:
       description: ''
-      type: object
+      type: 'object'
       properties:
         id:
-          type: string
+          type: 'string'
         code:
-          type: string
+          type: 'string'
         title:
-          type: string
+          type: 'string'
         details:
-          type: object
+          type: 'object'
           properties:
             validParameters:
-              type: object
+              type: 'object'
               properties:
                 _paginationLimit:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 _paginationOffset:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 year:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
                 trimmed:
-                  type: array
+                  type: 'array'
                   items:
-                    type: string
+                    type: 'string'
     Error:
-      type: object
+      type: 'object'
       properties:
         id:
-          type: string
+          type: 'string'
         code:
-          type: string
+          type: 'string'
         title:
-          type: string
+          type: 'string'
     Indexed-NRT:
-      description: >-
-        Indexed transcript metadata of active calls happening at that moment are
-        returned.
-      type: object
+      description: 'Indexed transcript metadata of active calls happening at that moment are returned.'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             properties:
               reportId:
-                type: integer
-                description: The unique ID for an event.
+                type: 'integer'
+                description: 'The unique ID for an event.'
               snippetEndTimestamp:
-                type: string
-                description: >-
-                  The snippet end time is calculated based off the endTime in
-                  the snippetData section and the recordingStartTime from the
-                  calls endpoint.
+                type: 'string'
+                description: 'The snippet end time is calculated based off the endTime in the snippetData section and the recordingStartTime from the calls endpoint.'
               snippetSequence:
-                type: integer
-                description: >-
-                  The sequence number of the snippet from the start of the
-                  current call.
+                type: 'integer'
+                description: 'The sequence number of the snippet from the start of the current call.'
               audioSourceId:
-                type: integer
-                description: >-
-                  The Unique ID for an Internal recording specific to reportID.
-                  For example, ReportID X would have multiple recordings from a
-                  different source (dial-in or webcast). One ReportID can have
-                  multiple audioSourceIDs.
+                type: 'integer'
+                description: 'The Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from a different source (dial-in or webcast). One ReportID can have multiple audioSourceIDs.'
               transcriptData:
-                type: array
+                type: 'array'
                 items:
                   properties:
                     indexedData:
-                      type: array
+                      type: 'array'
                       items:
                         properties:
                           index:
-                            type: array
+                            type: 'array'
                             items:
                               properties:
                                 confidence:
-                                  type: number
-                                  description: >-
-                                    Represents the confidence with which the
-                                    speech to text recognition engine predicts.
-                                    1 represents 100% confidence about the
-                                    content.
+                                  type: 'number'
+                                  description: 'Represents the confidence with which the speech to text recognition engine predicts. 1 represents 100% confidence about the content.'
                                 content:
-                                  type: string
-                                  description: It denotes the spoken content.
+                                  type: 'string'
+                                  description: 'It denotes the spoken content.'
                                 language:
-                                  type: string
-                                  description: >-
-                                    It denotes the spoken language. Its always
-                                    english.
+                                  type: 'string'
+                                  description: 'It denotes the spoken language. Its always english.'
                           endTime:
-                            type: number
-                            description: >-
-                              The number of seconds into the call, when the
-                              content ends.
+                            type: 'number'
+                            description: 'The number of seconds into the call, when the content ends.'
                           startTime:
-                            type: number
-                            description: >-
-                              The number of seconds into the call, when the
-                              content begins.
+                            type: 'number'
+                            description: 'The number of seconds into the call, when the content begins.'
                           type:
-                            type: string
-                            description: |-
-                              It denotes the type of content.
-
-                              Values- punctuation, word, speaker_change
+                            type: 'string'
+                            description: "It denotes the type of content.\n\nValues- punctuation, word, speaker_change"
                           isEOS:
-                            type: boolean
-                            description: >-
-                              isEOS is an abbreviation for isEndOfSentence. True
-                              – When the type is punctuation and content
-                              is‘.’.   
-
-
-                                                               
+                            type: 'boolean'
+                            description: "isEOS is an abbreviation for isEndOfSentence. True – When the type is punctuation and content is‘.’.   \n\n\n                                 "
                     snippetData:
-                      type: object
+                      type: 'object'
                       properties:
                         transcript:
-                          type: string
-                          description: The actual transcript snippet.
+                          type: 'string'
+                          description: 'The actual transcript snippet.'
                         endTime:
-                          type: number
-                          description: >-
-                            The number of seconds into the call,when the
-                            transcript snippet ended.
+                          type: 'number'
+                          description: 'The number of seconds into the call,when the transcript snippet ended.'
                         startTime:
-                          type: number
-                          description: >-
-                            The number of seconds into the call,when the
-                            transcript snippet started.
+                          type: 'number'
+                          description: 'The number of seconds into the call,when the transcript snippet started.'
         meta:
-          type: object
+          type: 'object'
           properties:
             pagination:
-              type: object
+              type: 'object'
               properties:
                 total:
-                  type: integer
-                  description: Total number for results returned for a specific query.
+                  type: 'integer'
+                  description: 'Total number for results returned for a specific query.'
                 isEstimatedTotal:
-                  type: boolean
-                  description: >-
-                    This field acts as a flag for the exact count of results and
-                    is defaulted to false as the API should always return the
-                    exact count of results.
+                  type: 'boolean'
+                  description: 'This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.'
                 limit:
-                  type: integer
-                  description: Number of results returned per page
+                  type: 'integer'
+                  description: 'Number of results returned per page'
                 offset:
-                  type: integer
-                  description: >-
-                    The flag indicating the position in the results array if
-                    additional results are available beyond the default value or
-                    the value in _paginationLimit parameter (if used). This
-                    value is passed in the _paginationOffset parameter to
-                    retrieve subsequent results.
+                  type: 'integer'
+                  description: 'The flag indicating the position in the results array if additional results are available beyond the default value or the value in _paginationLimit parameter (if used). This value is passed in the _paginationOffset parameter to retrieve subsequent results.'
             partial:
-              type: object
+              type: 'object'
               properties:
                 isPartial:
-                  type: boolean
-                  description: >-
-                    If the value is True, it indicates additional results are
-                    available. False represents that this is the last set of
-                    results for this request.
+                  type: 'boolean'
+                  description: 'If the value is True, it indicates additional results are available. False represents that this is the last set of results for this request.'
   parameters:
     paginationLimit:
       schema:
-        type: integer
-        format: int32
+        type: 'integer'
+        format: 'int32'
         minimum: 1
         maximum: 500
         default: 200
-      in: query
-      name: _paginationLimit
+      in: 'query'
+      name: '_paginationLimit'
       example: 5
-      description: Specifies the  number of results to return per page. [ Min=0; Max=500]
+      description: 'Specifies the  number of results to return per page. [ Min=0; Max=500]'
     indexedpaginationLimit:
       schema:
-        type: integer
-        format: int32
+        type: 'integer'
+        format: 'int32'
         minimum: 0
         maximum: 50
         default: 25
-      in: query
-      name: _paginationLimit
+      in: 'query'
+      name: '_paginationLimit'
       example: 5
-      description: Specifies the  number of results to return per page. [ Min=0; Max=50 ]
+      description: 'Specifies the  number of results to return per page. [ Min=0; Max=50 ]'
     paginationOffset:
       schema:
-        type: integer
-        format: int32
+        type: 'integer'
+        format: 'int32'
         default: 0
-      in: query
-      name: _paginationOffset
-      description: >-
-        Specifies the starting point for pagination. This parameter is used to
-        identify the beginning of next set of results.
+      in: 'query'
+      name: '_paginationOffset'
+      description: 'Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.'
     reportId:
       schema:
-        type: integer
-        format: int32
-      in: query
-      name: reportId
+        type: 'integer'
+        format: 'int32'
+      in: 'query'
+      name: 'reportId'
       example: 2683372
-      description: Unique identifier for an event.
+      description: 'Unique identifier for an event.'
     audioSourceId:
       schema:
-        type: integer
-        format: int32
-      in: query
-      name: audioSourceId
+        type: 'integer'
+        format: 'int32'
+      in: 'query'
+      name: 'audioSourceId'
       example: 471849
       required: true
-      description: >-
-        Unique ID for an Internal recording specific to reportID. For example,
-        ReportID X would have multiple recordings from different source (dial-in
-        or webcast). One ReportID can have multiple AudioSourceIDs.
+      description: 'Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.'
     audioSourceId1:
       schema:
-        type: integer
-        format: int32
-      in: query
-      name: audioSourceId
+        type: 'integer'
+        format: 'int32'
+      in: 'query'
+      name: 'audioSourceId'
       example: 471849
       required: false
-      description: >-
-        Unique ID for an Internal recording specific to reportID. For example,
-        ReportID X would have multiple recordings from different source (dial-in
-        or webcast). One ReportID can have multiple AudioSourceIDs.
+      description: 'Unique ID for an Internal recording specific to reportID. For example, ReportID X would have multiple recordings from different source (dial-in or webcast). One ReportID can have multiple AudioSourceIDs.'
     speakerSort:
       schema:
-        type: string
-        default: startDate
+        type: 'string'
+        default: 'startDate'
         enum:
-          - startDate
+          - 'startDate'
           - '-startDate'
-      in: query
-      name: _sort
-      description: >-
-        Enables to get the data in chronological or reverse chronological order.
-        Results are in chronological order if this parameter is not used.
+      in: 'query'
+      name: '_sort'
+      description: 'Enables to get the data in chronological or reverse chronological order. Results are in chronological order if this parameter is not used.'
     callSort:
       schema:
-        type: string
+        type: 'string'
         enum:
-          - startDate
+          - 'startDate'
           - '-startDate'
         default: '-startDate'
-      in: query
-      name: _sort
-      description: >-
-        Enables to get the data in chronological or reverse chronological order
-        based on startDate. Results are in reverse chronological order if this
-        parameter is not used.
+      in: 'query'
+      name: '_sort'
+      description: 'Enables to get the data in chronological or reverse chronological order based on startDate. Results are in reverse chronological order if this parameter is not used.'
     entityId:
       schema:
-        type: string
-      in: query
-      name: entityId
-      example: 000CGP-E
-      description: Factset entity level identifier for the company hosting the event.
+        type: 'string'
+      in: 'query'
+      name: 'entityId'
+      example: '000CGP-E'
+      description: 'Factset entity level identifier for the company hosting the event.'
     ticker:
       schema:
-        type: string
-      in: query
-      name: ticker
-      example: AZZ-US
-      description: Ticker-region identifier for the company hosting the event.
+        type: 'string'
+      in: 'query'
+      name: 'ticker'
+      example: 'AZZ-US'
+      description: 'Ticker-region identifier for the company hosting the event.'
     callStatus:
       schema:
-        type: string
+        type: 'string'
         enum:
-          - inProgress
-          - ended
-          - ewn
-          - issueAtSource
-      in: query
-      name: callStatus
-      description: Status of the call i.e. ended or inProgress or ewn or issueAtSource.
+          - 'inProgress'
+          - 'ended'
+          - 'ewn'
+          - 'issueAtSource'
+      in: 'query'
+      name: 'callStatus'
+      description: 'Status of the call i.e. ended or inProgress or ewn or issueAtSource.'
     eventspaginationLimit:
       schema:
-        type: integer
-        format: int32
+        type: 'integer'
+        format: 'int32'
         minimum: 0
         maximum: 500
         default: 25
-      in: query
-      name: _paginationLimit
-      description: Specifies the number of results to return per page. [ Min=0 ; Max=500 ]
+      in: 'query'
+      name: '_paginationLimit'
+      description: 'Specifies the number of results to return per page. [ Min=0 ; Max=500 ]'
     trimmed:
       schema:
-        type: boolean
+        type: 'boolean'
         default: false
-      in: query
-      name: trimmed
+      in: 'query'
+      name: 'trimmed'
       example: true
-      description: >-
-        Specifies if trimmed/untrimmed historical audio recordings should be
-        returned.
+      description: 'Specifies if trimmed/untrimmed historical audio recordings should be returned.'
     year:
       schema:
-        type: integer
-        format: int32
-      in: query
-      name: year
+        type: 'integer'
+        format: 'int32'
+      in: 'query'
+      name: 'year'
       example: 2021
-      description: >-
-        Specifies the year for which the historical audio recordings and related
-        metadata are to be retrieved.
+      description: 'Specifies the year for which the historical audio recordings and related metadata are to be retrieved.'
 tags:
-  - name: Events Audio
-    description: >-
-      The Events Audio API provides access to historical as well as the latest
-      audio recordings of various company events covered by FactSet.
-  - name: Near Real-Time Transcripts
-    description: >-
-      The Near Real-Time Transcripts API enables access to Near Real-time
-      Transcripts provided by CallStreet to time-sensitive clients.
+  - name: 'Events Audio'
+    description: 'The Events Audio API provides access to historical as well as the latest audio recordings of various company events covered by FactSet.'
+  - name: 'Near Real-Time Transcripts'
+    description: 'The Near Real-Time Transcripts API enables access to Near Real-time Transcripts provided by CallStreet to time-sensitive clients.'

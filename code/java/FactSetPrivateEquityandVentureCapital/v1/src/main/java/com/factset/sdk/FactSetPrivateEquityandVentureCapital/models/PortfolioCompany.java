@@ -137,11 +137,11 @@ public class PortfolioCompany implements Serializable {
   }
 
    /**
-   * Date of initial investment
+   * Date of latest investment
    * @return investmentDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Date of initial investment")
+  @ApiModelProperty(value = "Date of latest investment")
   @JsonIgnore
 
   public LocalDate getInvestmentDate() {

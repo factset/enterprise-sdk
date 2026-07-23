@@ -270,7 +270,7 @@ with fds.sdk.FactSetPrivateEquityandVentureCapital.ApiClient(configuration) as a
     api_instance = funds_api.FundsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["001JYM-E","005GEM-E"] # [str] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
+    ids = ["0LC436-E"] # [str] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
 
     try:
         # Retrieve the complete fundraising history for specified Private Equity or Venture Capital Funds.
@@ -369,7 +369,7 @@ with fds.sdk.FactSetPrivateEquityandVentureCapital.ApiClient(configuration) as a
     api_instance = funds_api.FundsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["001JYM-E","005GEM-E"] # [str] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
+    ids = ["0H7PQB-E","0JGJY6-E"] # [str] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
 
     try:
         # Retrieve the list of portfolio companies held by specified Private Equity or Venture Capital Funds.

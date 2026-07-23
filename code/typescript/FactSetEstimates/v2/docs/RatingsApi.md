@@ -54,8 +54,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new RatingsApi();
 const ids = ["AAPL-USA"]; // [String] | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
 const opts = {
-  'startDate': 2019-07-30, // Date | Start date for point in time of estimates expressed in YYYY-MM-DD format.
-  'endDate': 2019-08-30, // Date | End date for point in time of estimates expressed in YYYY-MM-DD format.
+  'startDate': 2019-07-30, // Date | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted.
+  'endDate': 2019-08-30, // Date | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted.
   'frequency': D // String | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  
 };
 
@@ -80,8 +80,8 @@ apiInstance.getConsensusRatings(ids, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**[String]**](String.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
- **startDate** | **Date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **Date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **startDate** | **Date**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
+ **endDate** | **Date**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
  **frequency** | **String**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to &#39;D&#39;]
 
 ### Return type
@@ -220,8 +220,8 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 const apiInstance = new RatingsApi();
 const ids = ["AAPL-USA"]; // [String] | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
 const opts = {
-  'startDate': 2019-07-30, // Date | Start date for point in time of estimates expressed in YYYY-MM-DD format.
-  'endDate': 2019-08-30, // Date | End date for point in time of estimates expressed in YYYY-MM-DD format.
+  'startDate': 2019-07-30, // Date | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted.
+  'endDate': 2019-08-30, // Date | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted.
   'includeAll': false, // Boolean | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   
   'brokerNames': ["Morningstar Equity Research"], // [String] | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
   'updatesOnly': false // Boolean | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    
@@ -248,8 +248,8 @@ apiInstance.getDetailRatings(ids, opts).then(
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | [**[String]**](String.md)| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  | 
- **startDate** | **Date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
- **endDate** | **Date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional] 
+ **startDate** | **Date**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
+ **endDate** | **Date**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
  **includeAll** | **Boolean**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] [default to false]
  **brokerNames** | [**[String]**](String.md)| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional] 
  **updatesOnly** | **Boolean**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] [default to false]

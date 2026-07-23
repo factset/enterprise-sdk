@@ -8,7 +8,9 @@ docs/Adjust.md
 docs/Batch.md
 docs/BatchDataRequest.md
 docs/BatchDataResponse.md
+docs/BatchOne.md
 docs/BatchProcessingApi.md
+docs/BatchResult.md
 docs/BatchStatus.md
 docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
@@ -83,6 +85,8 @@ src/model/Adjust.js
 src/model/Batch.js
 src/model/BatchDataRequest.js
 src/model/BatchDataResponse.js
+src/model/BatchOne.js
+src/model/BatchResult.js
 src/model/BatchStatus.js
 src/model/BatchStatusRequest.js
 src/model/BatchStatusResponse.js

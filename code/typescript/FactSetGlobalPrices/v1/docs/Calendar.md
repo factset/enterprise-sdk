@@ -9,4 +9,6 @@
 
 * `US` (value: `"US"`)
 
+* `LOCAL` (value: `"LOCAL"`)
+
 

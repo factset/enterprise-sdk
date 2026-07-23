@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Private Company API
-  version: 1.1.0
+  version: 1.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-private-company-api
@@ -779,6 +779,8 @@ paths:
           content:
             application/json:
               examples:
+                Private Company Financials:
+                  $ref: '#/components/examples/FinancialMetrics'
                 Private Company Non Periodic:
                   $ref: '#/components/examples/privateCompanyMetrics'
               schema:
@@ -1149,6 +1151,7 @@ components:
           fiscalEndDate: 2023-12-31
           currency: USD
           value: 229.286869
+          fpcIndicator: 0
         - requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
           metric: FPC_EBIT
@@ -1156,6 +1159,7 @@ components:
           fiscalEndDate: 2024-12-31
           currency: USD
           value: 550.657511
+          fpcIndicator: 0
     resultOfSingleIdwithMultipleFinancialDataItems:
       description: "EBIT (earnings before interest and taxes) and net income data\
         \ for a single requested private company.   \n"
@@ -1169,6 +1173,7 @@ components:
           fiscalEndDate: 2024-12-31
           value: 550.657511
           currency: USD
+          fpcIndicator: 0
         - requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
           metric: FPC_NET_INC
@@ -1176,6 +1181,7 @@ components:
           fiscalEndDate: 2024-12-31
           value: -493.794729
           currency: USD
+          fpcIndicator: 0
     resultOfMultipleIdswithSingleFinancialDataItem:
       description: "EBIT (earnings before income and taxes) data for multiple requested\
         \ private companies.  \n"
@@ -1189,6 +1195,7 @@ components:
           fiscalEndDate: 2023-12-31
           value: 229.286869
           currency: USD
+          fpcIndicator: 0
         - requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
           metric: FPC_EBIT
@@ -1196,6 +1203,7 @@ components:
           fiscalEndDate: 2024-12-31
           value: 550.657511
           currency: USD
+          fpcIndicator: 0
         - requestId: 0G3F5Z-E
           fsymId: 0G3F5Z-E
           metric: FPC_EBIT
@@ -1203,6 +1211,7 @@ components:
           fiscalEndDate: 2023-12-31
           value: 13.89472
           currency: USD
+          fpcIndicator: 0
         - requestId: 0G3F5Z-E
           fsymId: 0G3F5Z-E
           metric: FPC_EBIT
@@ -1210,6 +1219,7 @@ components:
           fiscalEndDate: 2024-12-31
           value: -6.188563
           currency: USD
+          fpcIndicator: 0
         - requestId: 00DK61-E
           fsymId: 00DK61-E
           metric: FPC_EBIT
@@ -1217,6 +1227,7 @@ components:
           fiscalEndDate: 2023-12-31
           value: 159.670993
           currency: USD
+          fpcIndicator: 0
         - requestId: 00DK61-E
           fsymId: 00DK61-E
           metric: FPC_EBIT
@@ -1224,6 +1235,7 @@ components:
           fiscalEndDate: 2024-12-31
           value: 383.467979
           currency: USD
+          fpcIndicator: 0
     resultOfMultipleIdswithSingleNonPeriodicItem:
       description: "Current estimated total venture capital raised in USD for multiple\
         \ requested private company.   \n"
@@ -1290,7 +1302,7 @@ components:
           matchFlag: true
     privateCompanyMetrics:
       description: Array of Private Company Metrics objects for a list of Companies
-      summary: Private Company Metrics
+      summary: Private Company Non-Periodic Metrics
       value:
         data:
         - metric: FACTSET_ENTITY_ID
@@ -1298,6 +1310,18 @@ components:
           category: NON_PERIODIC
           factor: null
           sdfName: FACTSET_ENTITY_ID
+    FinancialMetrics:
+      description: Array of Financial Metrics objects for a list of Companies
+      summary: Private Company Financial Metrics
+      value:
+        data:
+        - metric: FPC_ASSETS
+          description: Represents the sum of total current assets, long-term receivables,
+            investment in unconsolidated subsidiaries, other investments, net property
+            plant and equipment and other assets.
+          category: FINANCIALS
+          factor: 1000000
+          sdfName: FPC_ASSETS
     resultOfFinancialStatementDetails:
       description: Array of Private Company financial statements for a list of companies
       summary: Private Company Financial Statement Report Details
@@ -1445,7 +1469,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Bad Request
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: 'The date parameter must be in the following date format: YYYY-MM-DD'
     badRequestRequiredParameter:
       description: This error message occurs when the request does not include the
@@ -1456,7 +1480,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Bad Request
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: The parameter 'ids' is required and may not be empty.
     badRequestInvalidParameters:
       description: This error message occurs when user is passing an Invalid Parameter
@@ -1465,7 +1489,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Bad Request
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: 'Invalid Parameter (s): fakeParameter. Please modify your request to
           use parameters outlined in the specification for this endpoint.'
     badRequestMalformedJSON:
@@ -1476,7 +1500,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Bad Request
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: Malformed JSON Request
     badRequestReadTimeout:
       description: This error may be returned if it takes more than 29 seconds to
@@ -1486,7 +1510,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Bad Request
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: The request took too long. Try again with a smaller request.
     unauthenticated:
       description: This occurs when a user is not properly authenticated or recognized
@@ -1498,7 +1522,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: User Authentication Failed
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: User Authentication Failed.
     forbidden:
       description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
@@ -1509,8 +1533,8 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Forbidden
         links:
-          about: /factset-private-company/v1/{endpoint}
-        title: USERNAME-SERIAL does not have permission to use /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
+        title: USERNAME-SERIAL does not have permission to use /private-company/v1/{endpoint}
     unsupportedMediaType:
       description: This bad request occurs when the media type passed in the request
         is not supported. Currently the APIs only support 'application/json'.
@@ -1519,7 +1543,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Unsupported Media Type
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: text/html media type is not supported. Supported media types are application/json.
     notWritable:
       description: This error may be returned when the server encounters an error
@@ -1529,7 +1553,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Internal Server Error
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: Error writing JSON output
     generalException:
       description: This is the most general error that can be returned to by the service.
@@ -1539,7 +1563,7 @@ components:
         id: adb01824-252f-4420-b0c6-35a1e3507ef5
         code: Internal Server Error
         links:
-          about: /factset-private-company/v1/{endpoint}
+          about: /private-company/v1/{endpoint}
         title: Unexpected error
   parameters:
     privateMarketIds:
@@ -1846,6 +1870,7 @@ components:
         - metric: FPC_EBIT
           requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
+          fpcIndicator: 0
           currency: USD
           fiscalYear: 2024
           fiscalEndDate: 2023-12-31T00:00:00.000+0000
@@ -1853,6 +1878,7 @@ components:
         - metric: FPC_EBIT
           requestId: 0H3R4Y-E
           fsymId: 0H3R4Y-E
+          fpcIndicator: 0
           currency: USD
           fiscalYear: 2024
           fiscalEndDate: 2023-12-31T00:00:00.000+0000
@@ -1870,6 +1896,7 @@ components:
         metric: FPC_EBIT
         requestId: 0H3R4Y-E
         fsymId: 0H3R4Y-E
+        fpcIndicator: 0
         currency: USD
         fiscalYear: 2024
         fiscalEndDate: 2023-12-31T00:00:00.000+0000
@@ -1914,6 +1941,21 @@ components:
           format: double
           nullable: true
           type: number
+        fpcIndicator:
+          description: |2
+
+            Indicates whether the value for the respective `fpc_item` is actual, modeled, or computed. The possible values are as follows
+
+            0 - Actual:  Indicates values of an entity that are directly sourced from sources such as company filings,websites, press releases, trade and country registries, and news articles.
+
+            1 - Estimated (Low End of Range):  Indicates values of China entities that fall in the lower end of a range. For more information on Revenue & Employee Range Data, see section [Revenue & Employee Range Data- China](https://my.apps.factset.com/oa/cms/oaAttachment/cb2fc8ec-de25-41e2-b549-a07c637383e0/23961).
+
+            3 - Modeled:  Indicates reliable revenue estimates for private companies generated using a machine learningregression model trained on relevant inputs (such as employee count, industry sector, and scale of operation,etc.) from a comparable peer group of companies. At FactSet, the modelled revenues can either be internallygenerated (using a proprietary model) or sourced from a third-party data partner. For more information onour modelled revenue methodology, visit [Online Assistant Page 23588](https://my.apps.factset.com/oa/pages/23588).
+
+            4 - Computed(from US Tax Filings): Indicates values of an entity estimated by extracting tax, employment,and related information from over 80K federal, state, and local jurisdictions across the United States. Formore information on our Imputed Tax Financials Methodology, visit [Online Assistant Page 23587](https://my.apps.factset.com/oa/pages/23587).
+          example: 0
+          nullable: true
+          type: integer
       type: object
     NonPeriodicResponse:
       description: Private Company Non-Periodic Response
@@ -2034,7 +2076,7 @@ components:
         factor: 1000000
       properties:
         metric:
-          description: Data item to be used as `metrics` input in `/factset-private-company/v#/`
+          description: Data item to be used as `metrics` input in `/private-company/v#/`
             endpoint.
           example: FPC_ASSETS
           nullable: true
@@ -2432,7 +2474,7 @@ components:
           nullable: true
           type: boolean
         totalInvestors:
-          description: Total number of investment rounds for the portfolio company
+          description: Total number of investors for the portfolio company.
           example: 28
           nullable: true
           type: integer
@@ -2483,9 +2525,9 @@ components:
           nullable: true
           type: number
         vcpeAmountRaisedLocalCurrency:
-          description: "Current estimated total of venture capital raised in all rounds\
-            \ of the portfolio company. This item applies to venture capital raised\
-            \ rounds only.  \n"
+          description: "Current estimated total of venture capital and private equity\
+            \ raised in all rounds of the portfolio company. This item applies to\
+            \ venture capital and private equity raised rounds.  \n"
           example: 257.093
           format: double
           nullable: true
@@ -2912,11 +2954,11 @@ components:
       type: object
     ErrorObject_links:
       description: The Endpoint path {package}/version/{endpoint}
-      example: /factset-fundamentals/v2/{endpoint}
+      example: /private-company/v1/{endpoint}
       properties:
         about:
           description: details.
-          example: /factset-fundamentals/v2/{endpoint}
+          example: /private-company/v1/{endpoint}
           type: string
       type: object
   securitySchemes:

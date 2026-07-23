@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **investment_criteria** | [**FundDetailInvestmentCriteria**](FundDetailInvestmentCriteria.md) |  | [optional] 
 **terms** | [**FundDetailTerms**](FundDetailTerms.md) |  | [optional] 
 **features** | [**FundDetailFeatures**](FundDetailFeatures.md) |  | [optional] 
-**strategy_type** | **str, none_type** | Indicate the fund strategy type. | [optional] 
 **fund_of_fund_allocation** | [**FundDetailFundOfFundAllocation**](FundDetailFundOfFundAllocation.md) |  | [optional] 
 **error** | [**ErrorObjectResponse**](ErrorObjectResponse.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

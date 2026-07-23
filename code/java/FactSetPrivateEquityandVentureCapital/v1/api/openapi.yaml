@@ -302,8 +302,8 @@ paths:
         required: true
         schema:
           example:
-          - 001JYM-E
-          - 005GEM-E
+          - 0H7PQB-E
+          - 0JGJY6-E
           items:
             type: string
           maxItems: 50
@@ -409,8 +409,7 @@ paths:
         required: true
         schema:
           example:
-          - 001JYM-E
-          - 005GEM-E
+          - 0LC436-E
           items:
             type: string
           maxItems: 50
@@ -596,10 +595,10 @@ paths:
       x-accepts: application/json
   /general-partners:
     get:
-      description: |-
-        Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
-
-        Use the `/universe` endpoint and input the GP firm name, with `entityType` set to `HOL`. Only use `entityId` values whose `entityTypeCode` is `HOL` in your request.
+      description: Retrieves the primary descriptive and profile information for one
+        or more General Partner firms. This includes firm-level details such as the
+        **Asset Under Management (AUM)** and a high-level overview of their **investment
+        strategy** (e.g., target industry, geography).
       operationId: getGP
       parameters:
       - description: A list of FactSet Permanent Entity Identifiers (FactSet IDs)
@@ -707,8 +706,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error.
-      summary: Retrieve core profile and summary data for specified General Partner
-        (GP) firms.
+      summary: Retrieves historical data for specified General Partner (GP) firms.
       tags:
       - General and Limited Partners
       x-accepts: application/json
@@ -836,8 +834,7 @@ paths:
         required: true
         schema:
           example:
-          - 001JYM-E
-          - 005GEM-E
+          - 0LC436-E
           items:
             type: string
           maxItems: 50
@@ -1249,8 +1246,7 @@ paths:
         required: true
         schema:
           example:
-          - 410294
-          - 730294
+          - 23682
           items:
             type: integer
           maxItems: 50
@@ -1549,10 +1545,9 @@ components:
       value:
         data:
           ids:
-          - 001JYM-E
-          - 005GEM-E
-          startDate: 2009-12-31
-          endDate: 2009-12-31
+          - 000NC9-E
+          startDate: 2012-12-31
+          endDate: 2025-12-31
           cfType: DISTRIBUTION
     postTransactionSearch:
       description: Search transactions by portfolio company, stage, and date range
@@ -1560,24 +1555,22 @@ components:
       value:
         data:
           ids:
-          - 000C1D-E
+          - 0071BP-E
           status: Completed
-          stage: Seed
+          stage: Late
           investmentType: Growth
           startDate: 2023-01-01
-          endDate: 2023-12-31
-          minAmount: 10000000
-          maxAmount: 30000000
+          endDate: 2025-12-31
     postIPOSearch:
       description: Search IPOs by status, date range, and size
       summary: IPO search request
       value:
         data:
-          status: Announced
-          startDate: 2024-01-01
-          endDate: 2024-12-31
-          minSizeUsd: 60000000
-          maxSizeUsd: 100000000
+          status: Priced
+          startDate: 2020-01-01
+          endDate: 2025-12-31
+          minSizeUsd: 10000000
+          maxSizeUsd: 600000000
     resultOfEntityMatches:
       description: Entity Matches
       value:
@@ -1592,54 +1585,56 @@ components:
       value:
         data:
         - requestId: 001JYM-E
-          factsetGpEntityId: 000BKX-E
-          entityProfile: Leading growth equity fund focused on technology
-          fundStatus: Raising
+          factsetGpEntityId: 05PMRR-E
+          entityProfile: Battery Ventures II LP seeks investment opportunities in
+            high technology companies located in the US. The fund targets companies
+            operating in the fields of communications and software (client server
+            software, computer networking, mobile communications and multimedia).
+            It provides financing for seed, early and later stage capital requirements.
+          fundStatus: Liquidated
           dates:
-            registrationDate: 2020-01-15
-            launchDate: 2020-03-01
-            liquidationDate: null
+            registrationDate: 1988-10-05
+            liquidationDate: 1998-10-05
           financialInfo:
-            dryPowder: 500000000
-            amountRaised: 1000000000
-            amountRaisedUsd: 1000000000
+            dryPowder: null
+            amountRaised: 43
+            amountRaisedUsd: 43
             currency: USD
           investmentCriteria:
-            transactionMin: 5000000
-            transactionMax: 50000000
-            investmentMin: 1000000
-            investmentMax: 25000000
-            ebitdaMin: 10000000
-            ebitdaMax: 100000000
-            enterpriseValueMin: 50000000
-            enterpriseValueMax: 500000000
-            revenueMin: 20000000
-            revenueMax: 200000000
+            transactionMin: null
+            transactionMax: null
+            investmentMin: null
+            investmentMax: null
+            ebitdaMin: null
+            ebitdaMax: null
+            enterpriseValueMin: null
+            enterpriseValueMax: null
+            revenueMin: null
+            revenueMax: null
           terms:
-            managementFee: 2
-            preferredReturn: 8
-            carriedInterest: 20
-            fundTermYears: 10
-            extensionYears: 2
-            yearsExtended: 0
-            registry: Delaware
+            managementFee: null
+            preferredReturn: null
+            carriedInterest: null
+            fundTermYears: null
+            extensionYears: 0
+            yearsExtended: null
+            registry: null
           features:
             evergreenFund: false
-            esgFocus: true
+            esgFocus: false
             subParticipation: false
-            coInvest: true
+            coInvest: false
             investmentPublic: false
-          strategyType: Early Stage
           fundOfFundAllocation:
-            vcPercent: 40
-            pePercent: 30
-            mezzaninePercent: 10
-            debtPercent: 5
-            reitPercent: 0
-            secondaryFundPercent: 10
-            infrastructurePercent: 5
+            vcPercent: null
+            pePercent: null
+            mezzaninePercent: null
+            debtPercent: null
+            reitPercent: null
+            secondaryFundPercent: null
+            infrastructurePercent: null
           error: null
-        - requestId: M7CLZV
+        - requestId: 005GEM-E
           error:
             code: notFound
             title: No data
@@ -1653,16 +1648,59 @@ components:
       description: Portfolio Companies
       value:
         data:
-        - requestId: 001JYM-E
+        - requestId: 0H7PQB-E
           portfolioCompanies:
-          - factsetEntityId: TECH01-E
-            companyName: TechCo Inc
-            investmentDate: 2021-06-15
-            sector: Technology
-          - factsetEntityId: HLTH02-E
-            companyName: HealthTech Corp
-            investmentDate: 2021-09-20
-            sector: Healthcare
+          - factsetEntityId: 05ZY9V-E
+            companyName: Compana Pet Brands LLC
+            investmentDate: 2010-01-01
+            sector: 'Chemicals: Major Diversified'
+          - factsetEntityId: 05ZY9V-E
+            companyName: Compana Pet Brands LLC
+            investmentDate: 2017-12-11
+            sector: 'Chemicals: Major Diversified'
+          - factsetEntityId: 05ZY9V-E
+            companyName: Compana Pet Brands LLC
+            investmentDate: 1900-01-01
+            sector: 'Chemicals: Major Diversified'
+          - factsetEntityId: 05ZY9V-E
+            companyName: Compana Pet Brands LLC
+            investmentDate: 2015-01-05
+            sector: 'Chemicals: Major Diversified'
+          - factsetEntityId: 05ZY9V-E
+            companyName: Compana Pet Brands LLC
+            investmentDate: 2020-11-06
+            sector: 'Chemicals: Major Diversified'
+          - factsetEntityId: 05ZY9V-E
+            companyName: Compana Pet Brands LLC
+            investmentDate: 2021-01-08
+            sector: 'Chemicals: Major Diversified'
+          error: null
+        - requestId: 0JGJY6-E
+          portfolioCompanies:
+          - factsetEntityId: 05VDFL-E
+            companyName: SNP Schneider-Neureither & Partner SE
+            investmentDate: 2025-03-26
+            sector: Data Processing Services
+          - factsetEntityId: 05VDFL-E
+            companyName: SNP Schneider-Neureither & Partner SE
+            investmentDate: 2025-04-10
+            sector: Data Processing Services
+          - factsetEntityId: 05VDFL-E
+            companyName: SNP Schneider-Neureither & Partner SE
+            investmentDate: 2025-03-26
+            sector: Information Technology Services
+          - factsetEntityId: 05VDFL-E
+            companyName: SNP Schneider-Neureither & Partner SE
+            investmentDate: 2025-04-10
+            sector: Information Technology Services
+          - factsetEntityId: 05VDFL-E
+            companyName: SNP Schneider-Neureither & Partner SE
+            investmentDate: 2025-03-26
+            sector: Packaged Software
+          - factsetEntityId: 05VDFL-E
+            companyName: SNP Schneider-Neureither & Partner SE
+            investmentDate: 2025-04-10
+            sector: Packaged Software
           error: null
         - requestId: M7CLZV
           error:
@@ -1678,36 +1716,36 @@ components:
       description: Fundraising
       value:
         data:
-        - requestId: 001JYM-E
+        - requestId: 0LC436-E
           fundraisingRounds:
           - fundraiseCloseCode: First Close
-            closeDate: 2020-06-30
-            originalTargetAmount: 750000000
-            originalTargetAmountUsd: 750000000
-            revisedTargetAmount: 1000000000
-            revisedTargetAmountUsd: 1000000000
-            originalTargetDate: 2020-05-31
-            revisedTargetDate: 2020-06-30
-            targetMin: 500000000
-            targetMax: 1000000000
-            minMaxTargetDate: 2020-06-30
-            fundraiseAmountRaised: 600000000
+            closeDate: 2019-01-31
+            originalTargetAmount: 2500
+            originalTargetAmountUsd: 2752.875
+            revisedTargetAmount: null
+            revisedTargetAmountUsd: null
+            originalTargetDate: 2019-09-21
+            revisedTargetDate: null
+            targetMin: null
+            targetMax: 2850
+            minMaxTargetDate: 2020-05-28
+            fundraiseAmountRaised: 2850
             finalClose: false
-            currency: USD
-          - fundraiseCloseCode: First Close
-            closeDate: 2020-12-31
-            originalTargetAmount: 750000000
-            originalTargetAmountUsd: 750000000
-            revisedTargetAmount: 1000000000
-            revisedTargetAmountUsd: 1000000000
-            originalTargetDate: 2020-10-31
-            revisedTargetDate: 2020-12-31
-            targetMin: 500000000
-            targetMax: 1000000000
-            minMaxTargetDate: 2020-06-30
-            fundraiseAmountRaised: 400000000
+            currency: EUR
+          - fundraiseCloseCode: Second Close
+            closeDate: 2020-05-28
+            originalTargetAmount: 2500
+            originalTargetAmountUsd: 2752.875
+            revisedTargetAmount: null
+            revisedTargetAmountUsd: null
+            originalTargetDate: 2019-09-21
+            revisedTargetDate: null
+            targetMin: null
+            targetMax: 2850
+            minMaxTargetDate: 2020-05-28
+            fundraiseAmountRaised: 2850
             finalClose: true
-            currency: USD
+            currency: EUR
           error: null
         - requestId: M7CLZV
           error:
@@ -1723,24 +1761,48 @@ components:
       description: Limited Partners
       value:
         data:
-        - requestId: 001JYM-E
+        - requestId: 0LC436-E
           limitedPartners:
-          - factsetLpEntityId: PENS01-E
-            lpName: State Pension Fund
-            commitDate: 2020-06-30
-            commitAmount: 100000000
-            commitAmountUsd: 100000000
-            revisedCommit: null
-            currency: USD
-            fundraiseCloseCode: First Close
-          - factsetLpEntityId: ENDW02-E
-            lpName: University Endowment
-            commitDate: 2020-12-31
-            commitAmount: 50000000
-            commitAmountUsd: 50000000
-            revisedCommit: null
-            currency: USD
-            fundraiseCloseCode: First Close
+          - factsetLpEntityId: 002B3Q-E
+            lpName: New York State Common Retirement Fund
+            commitDate: 2019-10-11
+            commitAmount: null
+            commitAmountUsd: 220.72
+            revisedCommit: 0
+            currency: EUR
+            fundraiseCloseCode: null
+          - factsetLpEntityId: 00371D-E
+            lpName: Prudential Financial, Inc.
+            commitDate: 2019-11-27
+            commitAmount: null
+            commitAmountUsd: null
+            revisedCommit: 0
+            currency: null
+            fundraiseCloseCode: null
+          - factsetLpEntityId: 003GFV-E
+            lpName: ICG Enterprise Trust Plc
+            commitDate: 2020-01-31
+            commitAmount: null
+            commitAmountUsd: 17.7957
+            revisedCommit: 0
+            currency: GBP
+            fundraiseCloseCode: null
+          - factsetLpEntityId: 05FWK3-E
+            lpName: Banque Pictet & Cie SA
+            commitDate: 2020-05-28
+            commitAmount: null
+            commitAmountUsd: 11.0555
+            revisedCommit: 0
+            currency: EUR
+            fundraiseCloseCode: null
+          - factsetLpEntityId: 05JJ00-E
+            lpName: Danica Pension, Livsforsikringsaktieselskab
+            commitDate: 2020-05-28
+            commitAmount: null
+            commitAmountUsd: null
+            revisedCommit: 0
+            currency: null
+            fundraiseCloseCode: null
           error: null
         - requestId: M7CLZV
           error:
@@ -1756,25 +1818,12 @@ components:
       description: Cashflow Data
       value:
         data:
-        - requestId: 001JYM-E
+        - requestId: 000NC9-E
           cashflows:
-          - date: 2009-12-31
+          - date: 2014-03-31
             cfType: DISTRIBUTION
-            cfAmount: 50000000
-            cfAmountUsd: 50000000
-            currency: USD
-          - date: 2009-12-31
-            cfType: CONTRIBUTION
-            cfAmount: 25000000
-            cfAmountUsd: 25000000
-            currency: USD
-          error: null
-        - requestId: 005GEM-E
-          cashflows:
-          - date: 2009-12-31
-            cfType: DISTRIBUTION
-            cfAmount: 30000000
-            cfAmountUsd: 30000000
+            cfAmount: 224624.4
+            cfAmountUsd: 224624.4
             currency: USD
           error: null
         - requestId: M7CLZV
@@ -1792,55 +1841,60 @@ components:
       value:
         data:
         - requestId: 000BKX-E
-          gpName: Premier Capital Partners
-          investmentCriteria:
-            transactionMin: 10000000
-            transactionMax: 100000000
-            investmentMin: 5000000
-            investmentMax: 50000000
-            enterpriseValueMin: 100000000
-            enterpriseValueMax: 1000000000
-            ebitdaMin: 20000000
-            ebitdaMax: 200000000
-            revenueMin: 50000000
-            revenueMax: 500000000
-            currency: USD
+          gpName: Advent International LP
           features:
-            investStrategyAvailable: true
-            investPublicCompanies: false
+            investStrategyAvailable: false
+            investPublicCompanies: true
             esgFocus: true
           aum:
-            date: 2023-12-31
-            amount: 5000000000
-            amountUsd: 5000000000
+            date: 2021-12-31
+            amount: 88291.76275
+            amountUsd: 88291.76275
             currency: USD
           error: null
-        - requestId: M7CLZV
+        - requestId: 000BKX-E
+          gpName: Advent International LP
+          features:
+            investStrategyAvailable: false
+            investPublicCompanies: true
+            esgFocus: true
+          aum:
+            date: 2022-12-31
+            amount: 91674.441516
+            amountUsd: 91674.441516
+            currency: USD
+          error: null
+        - requestId: 000KCYH-E
           error:
-            code: notFound
-            title: No data
-            detail: There's no data for this id.
-        - requestId: BADSYMBOL
-          error:
-            code: parameterError
-            title: Invalid id
-            detail: This is not a valid id.
+            code: Bad Request
+            title: Missing / Invalid Parameters
+            detail: The parameter 'id' should be valid
     resultOfGpsFunds:
       description: General Partner Managed Funds
       value:
         data:
         - requestId: 000BKX-E
           funds:
-          - factsetFundEntityId: 001JYM-E
-            fundName: Premier Growth Fund III
-            fundStatus: Raising
-            launchDate: 2020-03-01
-            amountRaisedUsd: 1000000000
-          - factsetFundEntityId: 005GEM-E
-            fundName: Premier Growth Fund II
-            fundStatus: Investing
-            launchDate: 2017-01-15
-            amountRaisedUsd: 750000000
+          - factsetFundEntityId: 0768RJ-E
+            fundName: Advent Central & Eastern Europe IV Fund
+            fundStatus: Liquidated
+            amountRaisedUsd: 1481.45
+          - factsetFundEntityId: 0CNGH5-E
+            fundName: Advent International GPE VII Fund
+            fundStatus: Liquidated
+            amountRaisedUsd: 11319.45
+          - factsetFundEntityId: 0DYPRT-E
+            fundName: Advent Latin American Private Equity Fund VI
+            fundStatus: Liquidated
+            amountRaisedUsd: 2100
+          - factsetFundEntityId: 0FY9KS-E
+            fundName: Advent AH LP
+            fundStatus: Divesting
+            amountRaisedUsd: null
+          - factsetFundEntityId: 0G1KKR-E
+            fundName: Advent International GPE VIII Fund
+            fundStatus: Divesting
+            amountRaisedUsd: 13000
           error: null
         - requestId: M7CLZV
           error:
@@ -1857,57 +1911,101 @@ components:
       value:
         data:
         - requestId: 1000001
-          factsetPortCoEntityId: 000C1D-E
-          portfolioCompanyName: TechCo Inc
+          factsetPortCoEntityId: 000C10-E
+          portfolioCompanyName: American Safety Razor Co.
           investmentType: Growth
           status: Completed
-          announcementDate: 2024-01-15
-          closeDate: 2024-02-28
+          announcementDate: 1989-04-18
+          closeDate: 1989-04-18
           financial:
-            totalAmount: 50000000
-            totalAmountUsd: 50000000
-            cfTargetAmount: 60000000
+            totalAmount: null
+            totalAmountUsd: null
+            cfTargetAmount: null
             currency: USD
-            postMoneyValuation: 200000000
-            postMoneyValuationUsd: 200000000
-            preMoneyValuation: 150000000
-            preMoneyValuationUsd: 150000000
+            postMoneyValuation: null
+            postMoneyValuationUsd: null
+            preMoneyValuation: null
+            preMoneyValuationUsd: null
           details:
-            roundOfFunding: Series B
-            stage: Seed
-            numBackingInvestors: 5
+            roundOfFunding: null
+            stage: Late
+            numBackingInvestors: null
             isAssumed: false
-            synopsis: Growth capital investment to expand operations
-            securityNote: Preferred shares with liquidation preference
+            synopsis: American Safety Razor Co. has raised an undisclosed amount from
+              The Jordan Co. LP.
+            securityNote: null
             securityCodesUsed:
-            - Preferred Stock
+            - Common Stock
           investors:
-          - factsetInvestorEntityId: 000C5J-E
-            factsetFundEntityId: 001JYM-E
-            amountInvested: 20000000
-            amountInvestedUsd: 20000000
-            percentOfRound: 40
-            isLead: true
-            fundNotKnown: false
+          - factsetInvestorEntityId: 05L1TX-E
+            factsetFundEntityId: null
+            amountInvested: null
+            amountInvestedUsd: null
+            percentOfRound: null
+            isLead: false
+            fundNotKnown: true
             noFundUsed: false
-            factsetCrowdfundingEntityId: 0BM4TD-E
-          - factsetInvestorEntityId: 000C3H-E
-            factsetFundEntityId: 005GEM-E
-            amountInvested: 15000000
-            amountInvestedUsd: 15000000
-            percentOfRound: 30
+            factsetCrowdfundingEntityId: null
+          securities:
+          - securityCode: Common Stock
+            amountInvested: null
+            amountInvestedUsd: null
+            percentOfRound: null
+            currency: null
+          error: null
+        - requestId: 1000002
+          factsetPortCoEntityId: 000DQU-E
+          portfolioCompanyName: CIDCO, Inc.
+          investmentType: Venture Capital
+          status: Completed
+          announcementDate: 1993-05-04
+          closeDate: 1993-05-04
+          financial:
+            totalAmount: null
+            totalAmountUsd: null
+            cfTargetAmount: null
+            currency: USD
+            postMoneyValuation: null
+            postMoneyValuationUsd: null
+            preMoneyValuation: null
+            preMoneyValuationUsd: null
+          details:
+            roundOfFunding: Series A
+            stage: Early
+            numBackingInvestors: null
+            isAssumed: false
+            synopsis: CIDCO, Inc. has raised an undisclosed amount in a Series A round
+              from Summit Partners LP, HarbourVest Partners LLC.
+            securityNote: null
+            securityCodesUsed:
+            - Common Stock
+          investors:
+          - factsetInvestorEntityId: 001KPM-E
+            factsetFundEntityId: 001M6I-E
+            amountInvested: null
+            amountInvestedUsd: null
+            percentOfRound: null
             isLead: false
             fundNotKnown: false
             noFundUsed: false
             factsetCrowdfundingEntityId: null
+          - factsetInvestorEntityId: 001Z2Y-E
+            factsetFundEntityId: null
+            amountInvested: null
+            amountInvestedUsd: null
+            percentOfRound: null
+            isLead: true
+            fundNotKnown: true
+            noFundUsed: false
+            factsetCrowdfundingEntityId: null
           securities:
-          - securityCode: Preferred Stock
-            amountInvested: 50000000
-            amountInvestedUsd: 50000000
-            percentOfRound: 100
-            currency: USD
+          - securityCode: Common Stock
+            amountInvested: null
+            amountInvestedUsd: null
+            percentOfRound: null
+            currency: null
           error: null
-        - requestId: 9999999
+        - requestId: 999999
           error:
             code: notFound
             title: No data
@@ -1921,15 +2019,25 @@ components:
       description: Search Transaction
       value:
         data:
-        - requestId: 000C1D-E
-          transactionId: 1000001
-          portfolioCompanyName: TechCo Inc
-          announcementDate: 2023-06-15
-          closeDate: 2023-07-30
-          totalAmountUsd: 50000000
-          stage: Seed
+        - requestId: 0071BP-E
+          transactionId: 2010553
+          portfolioCompanyName: Space Exploration Technologies Corp.
+          announcementDate: 2025-01-21
+          closeDate: 2025-01-21
+          totalAmountUsd: null
+          stage: Late
           status: Completed
-          roundOfFunding: Series B
+          roundOfFunding: null
+          error: null
+        - requestId: 0071BP-E
+          transactionId: 2191362
+          portfolioCompanyName: Space Exploration Technologies Corp.
+          announcementDate: 2023-12-31
+          closeDate: 2023-12-31
+          totalAmountUsd: null
+          stage: Late
+          status: Completed
+          roundOfFunding: null
           error: null
         - requestId: 000C1D-E
           error:
@@ -1946,26 +2054,44 @@ components:
       value:
         data:
         - requestId: 1000001
-          advisors:
-          - factsetAdvisorEntityId: 000FF4-E
-            advisorName: Investment Bank LLC
-            factsetClientEntityId: 0612BP-E
-            clientType: TARGET
-            professionalType: FINANCIAL
-            factsetPersonEntityId: 05LGCB-E
+          advisors: []
           investments:
           - factsetPortCoEntityId: 000C1D-E
-            factsetInvestorEntityId: 000C5J-E
-            entryDate: 2024-02-28
-            exitDate: null
-            entryType: Undisclosed Date
+            factsetInvestorEntityId: 05L1TX-E
+            entryDate: 1989-04-18
+            exitDate: 1993-01-01
+            entryType: Private Placement
             exitType: IPO
-            dealId: 410294
-            ipoId: 26
-            retainingStake: true
+            dealId: null
+            ipoId: null
+            retainingStake: false
             investmentCategory: 1
           error: null
-        - requestId: 9999999
+        - requestId: 1000002
+          advisors: []
+          investments:
+          - factsetPortCoEntityId: 000DQV-E
+            factsetInvestorEntityId: 001KPM-E
+            entryDate: 1993-05-04
+            exitDate: 1993-12-01
+            entryType: Private Placement
+            exitType: IPO
+            dealId: null
+            ipoId: null
+            retainingStake: false
+            investmentCategory: 1
+          - factsetPortCoEntityId: 000DQV-E
+            factsetInvestorEntityId: 001Z2Y-E
+            entryDate: 1993-05-04
+            exitDate: 1993-12-01
+            entryType: Private Placement
+            exitType: IPO
+            dealId: null
+            ipoId: null
+            retainingStake: false
+            investmentCategory: 1
+          error: null
+        - requestId: 999999
           error:
             code: notFound
             title: No data
@@ -1979,21 +2105,21 @@ components:
       description: IPO Details
       value:
         data:
-        - requestId: 410294
-          ipoId: 26
-          factsetPortCoEntityId: PORT01-E
-          portfolioCompanyName: TechCo Inc
-          tickerSymbol: TECH
-          tradeDate: 2024-06-15
-          closeDate: 2024-06-14
+        - requestId: 23682
+          ipoId: 3565
+          factsetPortCoEntityId: 000P5F-E
+          portfolioCompanyName: LIN TV Corp.
+          tickerSymbol: TVL-US
+          tradeDate: 2002-05-03
+          closeDate: null
           offerPrice: 22
           offerPriceUsd: 22
-          exchangeDate: 2024-06-15
-          ipoSize: 920
+          exchangeDate: 2002-05-03
+          ipoSize: 430.1
           currency: USD
-          ipoStatus: Announced
-          announcementDate: 2024-05-01
-          pricingDate: 2024-06-14
+          ipoStatus: Priced
+          announcementDate: 2002-02-20
+          pricingDate: 2002-05-02
           error: null
         - requestId: 410293
           error:
@@ -2009,14 +2135,38 @@ components:
       description: Search IPOs
       value:
         data:
-        - ipoId: 26
-          factsetPortCoEntityId: 000C1D-E
-          portfolioCompanyName: TechCo Inc
-          tickerSymbol: TECH
-          tradeDate: 2024-06-15
-          offerPriceUsd: 22
-          ipoSize: 920
-          ipoStatus: Announced
+        - ipoId: 313371
+          factsetPortCoEntityId: 1053HL-E
+          portfolioCompanyName: VPBank Securities JSC
+          tickerSymbol: VPX-VN
+          tradeDate: 2025-12-11
+          offerPriceUsd: 1.287725
+          ipoSize: 12712500
+          ipoStatus: Priced
+        - ipoId: 314490
+          factsetPortCoEntityId: 0WJ8PB-E
+          portfolioCompanyName: VPS Securities JSC
+          tickerSymbol: VCK-VN
+          tradeDate: 2025-12-16
+          offerPriceUsd: 2.277732
+          ipoSize: 12138600
+          ipoStatus: Priced
+        - ipoId: 310495
+          factsetPortCoEntityId: 0CB2XY-E
+          portfolioCompanyName: Techcom Securities JSC
+          tickerSymbol: TCX-VN
+          tradeDate: 2025-10-21
+          offerPriceUsd: 1.776561
+          ipoSize: 10817820
+          ipoStatus: Priced
+        - ipoId: 238169
+          factsetPortCoEntityId: 0G2P0L-E
+          portfolioCompanyName: PT GoTo Gojek Tokopedia Tbk
+          tickerSymbol: GOTO-ID
+          tradeDate: 2022-04-11
+          offerPriceUsd: 0.023528
+          ipoSize: 1.3727888928E7
+          ipoStatus: Priced
     resultOfEntityStrategies:
       description: Entity Investment Strategies
       value:
@@ -2025,51 +2175,37 @@ components:
           isGp: false
           geographicFocus:
             regions:
-            - code: NA
+            - code: "N"
               description: North America
-            - code: EUR
-              description: Europe
             countries:
             - code: US
               description: United States
-            - code: GB
-              description: United Kingdom
-            statesProvinces:
-            - code: CA
-              description: California
-            - code: NY
-              description: New York
+            statesProvinces: []
           sectorFocus:
             sectors:
-            - code: TECH
-              description: Technology
-            - code: HEALTH
-              description: Healthcare
+            - code: "3200"
+              description: Commercial Services
+            - code: "3300"
+              description: Technology Services
+            - code: "4900"
+              description: Communications
             industries:
-            - code: SOFTWARE
-              description: Software
-            - code: BIOTECH
-              description: Biotechnology
+            - code: "3320"
+              description: Internet Software/Services
           investmentInstruments:
-          - code: EQUITY
-            description: Common Equity
-          - code: PREF
-            description: Preferred Stock
+          - code: "1"
+            description: Equity
           transactionStrategies:
-          - code: GROWTH
-            description: Growth Capital
-          - code: BUYOUT
-            description: Leveraged Buyout
+          - code: "2"
+            description: VC Seed
+          - code: "3"
+            description: VC Early
+          - code: "4"
+            description: VC Later
           controlCriteria:
-          - code: MAJORITY
-            description: Majority Control
-          - code: BOARD
-            description: Board Representation
-          investorRoles:
-          - code: LEAD
-            description: Lead Investor
-          - code: CONINVEST
-            description: Co-Investor
+          - code: "2"
+            description: Minority Interest
+          investorRoles: []
           error: null
         - requestId: ABCDEF-E
           error:
@@ -2207,6 +2343,45 @@ components:
         minItems: 1
         type: array
       style: form
+    portfolioCompaniesIds:
+      allowEmptyValue: false
+      description: A list of FactSet Permanent Entity Identifiers (FactSet IDs) for
+        **Private Equity and Venture Capital Funds**. These IDs are in the format
+        'XXXXXX-E' and are the primary input for most fund-related endpoints. These
+        IDs can be retrieved from the /universe endpoint
+      explode: true
+      in: query
+      name: ids
+      required: true
+      schema:
+        example:
+        - 0H7PQB-E
+        - 0JGJY6-E
+        items:
+          type: string
+        maxItems: 50
+        minItems: 1
+        type: array
+      style: form
+    fundraisingIds:
+      allowEmptyValue: false
+      description: A list of FactSet Permanent Entity Identifiers (FactSet IDs) for
+        **Private Equity and Venture Capital Funds**. These IDs are in the format
+        'XXXXXX-E' and are the primary input for most fund-related endpoints. These
+        IDs can be retrieved from the /universe endpoint
+      explode: true
+      in: query
+      name: ids
+      required: true
+      schema:
+        example:
+        - 0LC436-E
+        items:
+          type: string
+        maxItems: 50
+        minItems: 1
+        type: array
+      style: form
     factsetGpEntityIds:
       description: A list of FactSet Permanent Entity Identifiers (FactSet IDs) for
         **General Partner (GP) firms**. These IDs are used to identify the management
@@ -2253,8 +2428,7 @@ components:
       required: true
       schema:
         example:
-        - 410294
-        - 730294
+        - 23682
         items:
           type: integer
         maxItems: 50
@@ -2553,14 +2727,12 @@ components:
             secondaryFundPercent: 9.018348186070783
           dates:
             registrationDate: 2000-01-23
-            launchDate: 2000-01-23
             liquidationDate: 2000-01-23
           fundStatus: fundStatus
           error:
             code: GenericError
             detail: Validation Error
             title: Validation Error
-          strategyType: Infrastructure/Proj Fin
         - factsetGpEntityId: factsetGpEntityId
           investmentCriteria:
             investmentMax: 7.061401241503109
@@ -2604,14 +2776,12 @@ components:
             secondaryFundPercent: 9.018348186070783
           dates:
             registrationDate: 2000-01-23
-            launchDate: 2000-01-23
             liquidationDate: 2000-01-23
           fundStatus: fundStatus
           error:
             code: GenericError
             detail: Validation Error
             title: Validation Error
-          strategyType: Infrastructure/Proj Fin
       properties:
         data:
           description: List of `Fund Detail` objects.
@@ -2665,14 +2835,12 @@ components:
           secondaryFundPercent: 9.018348186070783
         dates:
           registrationDate: 2000-01-23
-          launchDate: 2000-01-23
           liquidationDate: 2000-01-23
         fundStatus: fundStatus
         error:
           code: GenericError
           detail: Validation Error
           title: Validation Error
-        strategyType: Infrastructure/Proj Fin
       nullable: true
       properties:
         requestId:
@@ -2701,23 +2869,6 @@ components:
           $ref: '#/components/schemas/FundDetail_terms'
         features:
           $ref: '#/components/schemas/FundDetail_features'
-        strategyType:
-          description: Indicate the fund strategy type.
-          enum:
-          - Infrastructure/Proj Fin
-          - Fund of Funds
-          - Buyout
-          - MBO
-          - Secondary
-          - Real Estate
-          - Mezzanine
-          - LBO
-          - Debt
-          - Seed Stage
-          - Early Stage
-          - Later Stage
-          nullable: true
-          type: string
         fundOfFundAllocation:
           $ref: '#/components/schemas/FundDetail_fundOfFundAllocation'
         error:
@@ -4019,12 +4170,10 @@ components:
           funds:
           - amountRaisedUsd: 0.8008281904610115
             fundStatus: Raising
-            launchDate: 2000-01-23
             factsetFundEntityId: factsetFundEntityId
             fundName: fundName
           - amountRaisedUsd: 0.8008281904610115
             fundStatus: Raising
-            launchDate: 2000-01-23
             factsetFundEntityId: factsetFundEntityId
             fundName: fundName
           error:
@@ -4035,12 +4184,10 @@ components:
           funds:
           - amountRaisedUsd: 0.8008281904610115
             fundStatus: Raising
-            launchDate: 2000-01-23
             factsetFundEntityId: factsetFundEntityId
             fundName: fundName
           - amountRaisedUsd: 0.8008281904610115
             fundStatus: Raising
-            launchDate: 2000-01-23
             factsetFundEntityId: factsetFundEntityId
             fundName: fundName
           error:
@@ -4061,12 +4208,10 @@ components:
         funds:
         - amountRaisedUsd: 0.8008281904610115
           fundStatus: Raising
-          launchDate: 2000-01-23
           factsetFundEntityId: factsetFundEntityId
           fundName: fundName
         - amountRaisedUsd: 0.8008281904610115
           fundStatus: Raising
-          launchDate: 2000-01-23
           factsetFundEntityId: factsetFundEntityId
           fundName: fundName
         error:
@@ -4092,19 +4237,7 @@ components:
         Details request.
       example:
         data:
-        - investmentCriteria:
-            investmentMax: 5.962133916683182
-            revenueMax: 2.027123023002322
-            transactionMin: 0.8008281904610115
-            transactionMax: 6.027456183070403
-            currency: currency
-            enterpriseValueMax: 9.301444243932576
-            ebitdaMin: 5.637376656633329
-            enterpriseValueMin: 7.061401241503109
-            investmentMin: 1.4658129805029452
-            ebitdaMax: 2.3021358869347655
-            revenueMin: 3.616076749251911
-          features:
+        - features:
             investPublicCompanies: true
             investStrategyAvailable: true
             esgFocus: true
@@ -4112,26 +4245,14 @@ components:
           gpName: gpName
           aum:
             date: 2000-01-23
-            amount: 4.145608029883936
-            amountUsd: 7.386281948385884
+            amount: 0.8008281904610115
+            amountUsd: 6.027456183070403
             currency: currency
           error:
             code: GenericError
             detail: Validation Error
             title: Validation Error
-        - investmentCriteria:
-            investmentMax: 5.962133916683182
-            revenueMax: 2.027123023002322
-            transactionMin: 0.8008281904610115
-            transactionMax: 6.027456183070403
-            currency: currency
-            enterpriseValueMax: 9.301444243932576
-            ebitdaMin: 5.637376656633329
-            enterpriseValueMin: 7.061401241503109
-            investmentMin: 1.4658129805029452
-            ebitdaMax: 2.3021358869347655
-            revenueMin: 3.616076749251911
-          features:
+        - features:
             investPublicCompanies: true
             investStrategyAvailable: true
             esgFocus: true
@@ -4139,8 +4260,8 @@ components:
           gpName: gpName
           aum:
             date: 2000-01-23
-            amount: 4.145608029883936
-            amountUsd: 7.386281948385884
+            amount: 0.8008281904610115
+            amountUsd: 6.027456183070403
             currency: currency
           error:
             code: GenericError
@@ -4156,18 +4277,6 @@ components:
       type: object
     GPDetail:
       example:
-        investmentCriteria:
-          investmentMax: 5.962133916683182
-          revenueMax: 2.027123023002322
-          transactionMin: 0.8008281904610115
-          transactionMax: 6.027456183070403
-          currency: currency
-          enterpriseValueMax: 9.301444243932576
-          ebitdaMin: 5.637376656633329
-          enterpriseValueMin: 7.061401241503109
-          investmentMin: 1.4658129805029452
-          ebitdaMax: 2.3021358869347655
-          revenueMin: 3.616076749251911
         features:
           investPublicCompanies: true
           investStrategyAvailable: true
@@ -4176,8 +4285,8 @@ components:
         gpName: gpName
         aum:
           date: 2000-01-23
-          amount: 4.145608029883936
-          amountUsd: 7.386281948385884
+          amount: 0.8008281904610115
+          amountUsd: 6.027456183070403
           currency: currency
         error:
           code: GenericError
@@ -4193,8 +4302,6 @@ components:
           description: General partner name
           nullable: true
           type: string
-        investmentCriteria:
-          $ref: '#/components/schemas/GPDetail_investmentCriteria'
         features:
           $ref: '#/components/schemas/GPDetail_features'
         aum:
@@ -4219,7 +4326,7 @@ components:
           nullable: true
           type: string
         investmentDate:
-          description: Date of initial investment
+          description: Date of latest investment
           format: date
           nullable: true
           type: string
@@ -4260,6 +4367,7 @@ components:
           - Seventh Close
           - Eighth Close
           - Ninth Close
+          - null
           nullable: true
           type: string
         closeDate:
@@ -4380,6 +4488,7 @@ components:
           - Seventh Close
           - Eighth Close
           - Ninth Close
+          - null
           nullable: true
           type: string
       type: object
@@ -4646,7 +4755,6 @@ components:
       example:
         amountRaisedUsd: 0.8008281904610115
         fundStatus: Raising
-        launchDate: 2000-01-23
         factsetFundEntityId: factsetFundEntityId
         fundName: fundName
       nullable: true
@@ -4668,11 +4776,6 @@ components:
           - Liquidated
           nullable: true
           type: string
-        launchDate:
-          description: Fund launch date
-          format: date
-          nullable: true
-          type: string
         amountRaisedUsd:
           description: Amount raised in USD
           nullable: true
@@ -4681,8 +4784,8 @@ components:
     AUMItem:
       example:
         date: 2000-01-23
-        amount: 4.145608029883936
-        amountUsd: 7.386281948385884
+        amount: 0.8008281904610115
+        amountUsd: 6.027456183070403
         currency: currency
       nullable: true
       properties:
@@ -4886,7 +4989,6 @@ components:
     FundDetail_dates:
       example:
         registrationDate: 2000-01-23
-        launchDate: 2000-01-23
         liquidationDate: 2000-01-23
       nullable: true
       properties:
@@ -4894,11 +4996,6 @@ components:
           description: The date on which it is filed in the registry
           format: date
           nullable: false
-          type: string
-        launchDate:
-          description: The date on which the fund was first opened to investors
-          format: date
-          nullable: true
           type: string
         liquidationDate:
           description: The date at which all investments have been divested
@@ -5265,66 +5362,6 @@ components:
             type: string
           nullable: true
           type: array
-      type: object
-    GPDetail_investmentCriteria:
-      example:
-        investmentMax: 5.962133916683182
-        revenueMax: 2.027123023002322
-        transactionMin: 0.8008281904610115
-        transactionMax: 6.027456183070403
-        currency: currency
-        enterpriseValueMax: 9.301444243932576
-        ebitdaMin: 5.637376656633329
-        enterpriseValueMin: 7.061401241503109
-        investmentMin: 1.4658129805029452
-        ebitdaMax: 2.3021358869347655
-        revenueMin: 3.616076749251911
-      nullable: true
-      properties:
-        transactionMin:
-          description: Minimum transaction size
-          nullable: true
-          type: number
-        transactionMax:
-          description: Maximum transaction size
-          nullable: true
-          type: number
-        investmentMin:
-          description: Minimum investment amount
-          nullable: true
-          type: number
-        investmentMax:
-          description: Maximum investment amount
-          nullable: true
-          type: number
-        ebitdaMin:
-          description: Minimum target company EBITDA
-          nullable: true
-          type: number
-        ebitdaMax:
-          description: Maximum target company EBITDA
-          nullable: true
-          type: number
-        enterpriseValueMin:
-          description: Minimum target company enterprise value
-          nullable: true
-          type: number
-        enterpriseValueMax:
-          description: Maximum target company enterprise value
-          nullable: true
-          type: number
-        revenueMin:
-          description: Minimum target company revenue
-          nullable: true
-          type: number
-        revenueMax:
-          description: Maximum target company revenue
-          nullable: true
-          type: number
-        currency:
-          description: Currency of portfolio investment criteria of the GP
-          nullable: true
-          type: string
       type: object
     GPDetail_features:
       example:

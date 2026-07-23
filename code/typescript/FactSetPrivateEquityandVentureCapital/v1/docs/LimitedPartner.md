@@ -40,6 +40,8 @@ Name | Type | Description | Notes
 
 * `Ninth Close` (value: `"Ninth Close"`)
 
+* `null` (value: `"null"`)
+
 
 
 

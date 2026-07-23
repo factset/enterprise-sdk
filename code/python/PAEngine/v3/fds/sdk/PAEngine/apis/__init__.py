@@ -15,6 +15,7 @@
 
 # Import APIs into API package:
 from fds.sdk.PAEngine.api.accounts_api import AccountsApi
+from fds.sdk.PAEngine.api.calendar_api import CalendarApi
 from fds.sdk.PAEngine.api.column_statistics_api import ColumnStatisticsApi
 from fds.sdk.PAEngine.api.columns_api import ColumnsApi
 from fds.sdk.PAEngine.api.components_api import ComponentsApi

@@ -1,5 +1,60 @@
 # Breaking Changes
 
+## 2026-07-21 EventsAndTranscripts API v2: `ids` No Longer Required, Response Type Renamed
+
+The `ids` query parameter on `getTranscriptsInvestorSlides` and `getTranscriptsIntelligence` lost its `required: true` flag. Since optional parameters are positional in generated method signatures, this reshuffles arguments in every language. Additionally, `TranscriptsResponseData`'s discriminator mapping now points to a new `TranscriptsResult` schema instead of `DocumentResult`, changing the generated class name for that polymorphic response.
+
+**New versions:** 3.0.0 (all languages)
+
+**Migration:** Update calls that pass `ids` positionally — use the named parameter or adjust for its new position. Update any references to the `DocumentResult` type for transcript responses to `TranscriptsResult`.
+
+**Affected SDKs:**
+- Events and Transcripts (API v2)
+
+## 2026-07-21 FactSet Estimates API v2 (Java): New Optional Parameter Changes Method Signatures
+
+A new optional query parameter `includeDocId` was added to the `GET /fixed-detail` and `GET /rolling-detail` endpoints. In Java, optional parameters are positional, so even an optional addition shifts every subsequent positional argument in the generated method signatures. Python, TypeScript, and .NET are unaffected (kwargs / options object / trailing defaults respectively).
+
+**New versions:** java 7.0.0 (other languages: minor bump only)
+
+**Migration:** Add a value (or `null`) for the new `includeDocId` parameter in any Java calls to the affected methods. The compiler will flag the exact call sites.
+
+**Affected SDKs:**
+- FactSet Estimates (API v2, Java only)
+
+## 2026-07-21 FactSet Prices API v1: `BatchDataResponse.data` Now Required, Typed, and Renamed
+
+`BatchDataResponse.data` changed from an untyped, optional `object` to a required, typed array. The underlying schema was also renamed from `BatchData` to `BatchResult` and is now a `oneOf: [price, marketValue]`. This is both a generated-class rename and a shape change on the `/batch/v1/result` response.
+
+**New versions:** 3.0.0 (all languages)
+
+**Migration:** Update any code referencing the `BatchData` type to use `BatchResult`. Update handling of `BatchDataResponse.data` to expect a required, typed array rather than an untyped optional object.
+
+**Affected SDKs:**
+- FactSet Prices (API v1)
+
+## 2026-07-21 FactSet Private Equity and Venture Capital API v1: Removed Response Fields
+
+Four response fields were removed from the spec: `FundDetail.dates.launchDate`, `FundDetail.strategyType`, `GPDetail.investmentCriteria` (moved to `FundDetail` instead), and `FundSummary.launchDate`. Strongly-typed clients (Java, .NET, TypeScript) will find these fields gone at compile time; Python callers reading them will get `AttributeError` at runtime.
+
+**New versions:** 2.0.0 (all languages)
+
+**Migration:** Remove any code reading `FundDetail.dates.launchDate`, `FundDetail.strategyType`, `GPDetail.investmentCriteria`, or `FundSummary.launchDate`. If you relied on `investmentCriteria`, read it from `FundDetail` instead of `GPDetail`.
+
+**Affected SDKs:**
+- FactSet Private Equity and Venture Capital (API v1)
+
+## 2026-07-21 PA Engine API v3: Required Fields Dropped from `PADateParameters`
+
+`PADateParameters.enddate` and `.frequency` both lost `required: true` — the schema's `required` array was dropped entirely. This affects the ~6 operations that accept this schema as a request body, including `convertPADatesToAbsoluteFormat` and the PA calculation endpoints, reshuffling positional arguments in every language. A new optional `calendar` query parameter was also added to the dates endpoint.
+
+**New versions:** dotnet 3.0.0, java 4.0.0, python 4.0.0, typescript 4.0.0
+
+**Migration:** Update calls that pass `enddate` or `frequency` positionally — use named parameters or adjust for their new position.
+
+**Affected SDKs:**
+- PA Engine (API v3)
+
 ## 2026-05-29 FactSet Concordance API v2 (Java): New Optional Parameters Change Method Signatures
 
 The `creditsafe` and `crunchbase` optional parameters were added to entity match endpoints. In Java, optional parameters are positional, so this changes the method signatures for `getEntityMatch()`, `getEntityMatchForList()`, and `getEntityTaskForList()`. Other languages (Python, TypeScript, .NET) are unaffected.

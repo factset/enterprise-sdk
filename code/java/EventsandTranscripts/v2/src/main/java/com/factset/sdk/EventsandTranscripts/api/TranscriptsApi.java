@@ -93,11 +93,11 @@ public class TranscriptsApi {
   /**
    * Returns the StreetAccount Transcript Intelligence documents and related metadata within FactSet coverage based on specific date range and various parameters.
    * Returns the StreetAccount Transcript Intelligence documents within FactSet coverage along with other response fields.  All StreetAccount Transcript Intelligence stories originate from StreetAccount 
-   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
    * @param startDate Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional)
    * @param endDate End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional)
    * @param startDateRelative The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  (optional)
    * @param endDateRelative The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  (optional)
+   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. (optional)
    * @param categories Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   (optional)
    * @param timeZone Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. (optional, default to America/New_York)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
@@ -115,18 +115,18 @@ public class TranscriptsApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public TranscriptsIntelligenceResponse getTranscriptsIntelligence(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Integer startDateRelative, Integer endDateRelative, java.util.List<String> categories, String timeZone, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
-    return getTranscriptsIntelligenceWithHttpInfo(ids, startDate, endDate, startDateRelative, endDateRelative, categories, timeZone, sort, paginationLimit, paginationOffset).getData();
+  public TranscriptsIntelligenceResponse getTranscriptsIntelligence(LocalDate startDate, LocalDate endDate, Integer startDateRelative, Integer endDateRelative, java.util.List<String> ids, java.util.List<String> categories, String timeZone, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getTranscriptsIntelligenceWithHttpInfo(startDate, endDate, startDateRelative, endDateRelative, ids, categories, timeZone, sort, paginationLimit, paginationOffset).getData();
   }
 
   /**
    * Returns the StreetAccount Transcript Intelligence documents and related metadata within FactSet coverage based on specific date range and various parameters.
    * Returns the StreetAccount Transcript Intelligence documents within FactSet coverage along with other response fields.  All StreetAccount Transcript Intelligence stories originate from StreetAccount 
-   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
    * @param startDate Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional)
    * @param endDate End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  (optional)
    * @param startDateRelative The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  (optional)
    * @param endDateRelative The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  (optional)
+   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. (optional)
    * @param categories Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   (optional)
    * @param timeZone Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. (optional, default to America/New_York)
    * @param sort Enables sorting data in ascending or descending chronological order based on eventDate.  (optional, default to [\&quot;-storyDateTime\&quot;])
@@ -144,13 +144,8 @@ public class TranscriptsApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TranscriptsIntelligenceResponse> getTranscriptsIntelligenceWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, Integer startDateRelative, Integer endDateRelative, java.util.List<String> categories, String timeZone, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+  public ApiResponse<TranscriptsIntelligenceResponse> getTranscriptsIntelligenceWithHttpInfo(LocalDate startDate, LocalDate endDate, Integer startDateRelative, Integer endDateRelative, java.util.List<String> ids, java.util.List<String> categories, String timeZone, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getTranscriptsIntelligence");
-    }
     
     // create path and map variables
     String localVarPath = "/transcripts/intelligence";
@@ -202,9 +197,9 @@ public class TranscriptsApi {
   /**
    * Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
    * Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
-   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
-   * @param startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  (required)
+   * @param startDate Start Date. Format is YYYY-MM-DD   **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (required)
    * @param endDate End Date. Format is YYYY-MM-DD. (required)
+   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. (optional)
    * @param eventIds Requests Event IDs. This is a list with a maximum limit of 1000. (optional)
    * @param categories Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   (optional)
    * @param searchText Restricts the search to include only document stories which include the text searched.     (optional)
@@ -223,16 +218,16 @@ public class TranscriptsApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public InvestorSlidesResponse getTranscriptsInvestorSlides(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, java.util.List<String> eventIds, java.util.List<String> categories, String searchText, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
-    return getTranscriptsInvestorSlidesWithHttpInfo(ids, startDate, endDate, eventIds, categories, searchText, sort, paginationLimit, paginationOffset).getData();
+  public InvestorSlidesResponse getTranscriptsInvestorSlides(LocalDate startDate, LocalDate endDate, java.util.List<String> ids, java.util.List<String> eventIds, java.util.List<String> categories, String searchText, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getTranscriptsInvestorSlidesWithHttpInfo(startDate, endDate, ids, eventIds, categories, searchText, sort, paginationLimit, paginationOffset).getData();
   }
 
   /**
    * Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
    * Returns the Factset Callstreet Investor Slides documents within FactSet coverage along with other response fields   All transcripts originate from Factset Callstreet Investor Slides. 
-   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID (required)
-   * @param startDate Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  (required)
+   * @param startDate Start Date. Format is YYYY-MM-DD   **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  (required)
    * @param endDate End Date. Format is YYYY-MM-DD. (required)
+   * @param ids Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. (optional)
    * @param eventIds Requests Event IDs. This is a list with a maximum limit of 1000. (optional)
    * @param categories Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   (optional)
    * @param searchText Restricts the search to include only document stories which include the text searched.     (optional)
@@ -251,13 +246,8 @@ public class TranscriptsApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<InvestorSlidesResponse> getTranscriptsInvestorSlidesWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, java.util.List<String> eventIds, java.util.List<String> categories, String searchText, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+  public ApiResponse<InvestorSlidesResponse> getTranscriptsInvestorSlidesWithHttpInfo(LocalDate startDate, LocalDate endDate, java.util.List<String> ids, java.util.List<String> eventIds, java.util.List<String> categories, String searchText, java.util.List<String> sort, Integer paginationLimit, Integer paginationOffset) throws ApiException {
     Object localVarPostBody = null;
-    
-    // verify the required parameter 'ids' is set
-    if (ids == null) {
-      throw new ApiException(400, "Missing the required parameter 'ids' when calling getTranscriptsInvestorSlides");
-    }
     
     // verify the required parameter 'startDate' is set
     if (startDate == null) {

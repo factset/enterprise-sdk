@@ -166,8 +166,8 @@ public class GeneralAndLimitedPartnersApi {
 
   }
   /**
-   * Retrieve core profile and summary data for specified General Partner (GP) firms.
-   * Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+   * Retrieves historical data for specified General Partner (GP) firms.
+   * Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
    * @param ids A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds. (required)
    * @param asOfDate The as-of date for the AUM data in **YYYY-MM-DD** format. Returns the AUM value as of the specified date.  Note:  - If omitted: The response will return the latest available AUM data. - Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @return GPDetailsResponse
@@ -188,8 +188,8 @@ public class GeneralAndLimitedPartnersApi {
   }
 
   /**
-   * Retrieve core profile and summary data for specified General Partner (GP) firms.
-   * Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+   * Retrieves historical data for specified General Partner (GP) firms.
+   * Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
    * @param ids A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **General Partner (GP) firms**. These IDs are used to identify the management companies of the funds. (required)
    * @param asOfDate The as-of date for the AUM data in **YYYY-MM-DD** format. Returns the AUM value as of the specified date.  Note:  - If omitted: The response will return the latest available AUM data. - Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @return ApiResponse&lt;GPDetailsResponse&gt;

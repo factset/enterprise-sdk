@@ -149,11 +149,11 @@ class JobOverridesCombinationsRoot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            accounts ([str]): An array of accounts, used for jobs types PA, ADF, PUB, and Vault. [optional]  # noqa: E501
-            dates ([date]): An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details. [optional]  # noqa: E501
+            accounts ([str]): An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault. [optional]  # noqa: E501
+            dates ([date]): An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details. [optional]  # noqa: E501
             date_range (JobOverridesCombinationsRootDateRange): [optional]  # noqa: E501
-            tasks ([str]): Used only for jobs where type is ADF, PA, PUB, or vault. [optional]  # noqa: E501
-            all_tasks (bool): boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks. [optional]  # noqa: E501
+            tasks ([str]): Used only for jobs where type is ADF, PA, PUB, dataPrep or vault. [optional]  # noqa: E501
+            all_tasks (bool): boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,11 +235,11 @@ class JobOverridesCombinationsRoot(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            accounts ([str]): An array of accounts, used for jobs types PA, ADF, PUB, and Vault. [optional]  # noqa: E501
-            dates ([date]): An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details. [optional]  # noqa: E501
+            accounts ([str]): An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault. [optional]  # noqa: E501
+            dates ([date]): An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details. [optional]  # noqa: E501
             date_range (JobOverridesCombinationsRootDateRange): [optional]  # noqa: E501
-            tasks ([str]): Used only for jobs where type is ADF, PA, PUB, or vault. [optional]  # noqa: E501
-            all_tasks (bool): boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks. [optional]  # noqa: E501
+            tasks ([str]): Used only for jobs where type is ADF, PA, PUB, dataPrep or vault. [optional]  # noqa: E501
+            all_tasks (bool): boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

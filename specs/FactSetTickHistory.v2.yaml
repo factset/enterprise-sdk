@@ -1,40 +1,36 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  title: Tick History
-  description: >-
-    Tick History provides dynamic access to historical tick data for a specific
-    security for specific dates or date range.
-  version: 2.4.2
+  title: 'Tick History'
+  description: 'Tick History provides dynamic access to historical tick data for a specific security for specific dates or date range.'
+  version: '2.4.2'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
 externalDocs:
-  description: API Documentation
-  url: https://developer.factset.com/api-catalog/factset-tick-history-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/factset-tick-history-api'
 servers:
-  - url: https://api.factset.com/tick-history/v2
-  - url: https://api-sandbox.factset.com/tick-history/v2
+  - url: 'https://api.factset.com/tick-history/v2'
+  - url: 'https://api-sandbox.factset.com/tick-history/v2'
 paths:
   /level1/coverage:
     get:
       tags:
-        - Level 1
-      operationId: requestTickHistoryCoverage
-      summary: >-
-        Returns the coverage for the requested ticker/isin along with other
-        response fields for Level1 data.
-      description: Returns coverage for specified tickers for Level1 Data
+        - 'Level 1'
+      operationId: 'requestTickHistoryCoverage'
+      summary: 'Returns the coverage for the requested ticker/isin along with other response fields for Level1 data.'
+      description: 'Returns coverage for specified tickers for Level1 Data'
       parameters:
         - $ref: '#/components/parameters/tickerCoverage'
         - $ref: '#/components/parameters/isoCodeCoverage'
         - $ref: '#/components/parameters/isin'
       responses:
         '200':
-          description: Success</p>
+          description: 'Success</p>'
           content:
             application/json:
               schema:
@@ -43,7 +39,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleCoverageResponse'
         '400':
-          description: Bad request
+          description: 'Bad request'
           content:
             application/json:
               schema:
@@ -52,12 +48,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -66,11 +57,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -79,7 +66,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
         '429':
-          description: Too many requests.
+          description: 'Too many requests.'
           content:
             application/json:
               schema:
@@ -88,7 +75,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -99,10 +86,10 @@ paths:
   /level1/files/create:
     post:
       tags:
-        - Level 1
-      summary: Requests the creation of tick-by-tick file
-      operationId: requestTickHistoryLevel1Files
-      description: Data available from 20120101 to previous day.
+        - 'Level 1'
+      summary: 'Requests the creation of tick-by-tick file'
+      operationId: 'requestTickHistoryLevel1Files'
+      description: 'Data available from 20120101 to previous day.'
       requestBody:
         required: true
         content:
@@ -130,7 +117,7 @@ paths:
                 $ref: '#/components/examples/postBodyOfASXTickersReg'
       responses:
         '202':
-          description: The Request has been Accepted
+          description: 'The Request has been Accepted'
           content:
             application/json:
               schema:
@@ -140,23 +127,23 @@ paths:
                   $ref: '#/components/examples/sampleFilesResponse'
           headers:
             Location:
-              description: Relative location to poll for status
+              description: 'Relative location to poll for status'
               schema:
-                type: string
+                type: 'string'
             X-FactSet-Api-RateLimit-Limit:
-              description: Number of allowed requests for the time window.
+              description: 'Number of allowed requests for the time window.'
               schema:
-                type: string
+                type: 'string'
             X-FactSet-Api-RateLimit-Remaining:
-              description: Number of requests left for the time window.
+              description: 'Number of requests left for the time window.'
               schema:
-                type: string
+                type: 'string'
             X-FactSet-Api-RateLimit-Reset:
-              description: Number of seconds remaining till rate limit resets.
+              description: 'Number of seconds remaining till rate limit resets.'
               schema:
-                type: string
+                type: 'string'
         '400':
-          description: Bad request
+          description: 'Bad request'
           content:
             application/json:
               schema:
@@ -165,12 +152,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -179,11 +161,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -192,7 +170,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
         '429':
-          description: Too many requests.
+          description: 'Too many requests.'
           content:
             application/json:
               schema:
@@ -201,7 +179,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -212,17 +190,15 @@ paths:
   /level1/files/status:
     get:
       tags:
-        - Level 1
-      summary: Returns the status of the ID
-      operationId: getLevel1FileStatus
-      description: Need to plug-in the id get from /create endpoint into /status endpoint
+        - 'Level 1'
+      summary: 'Returns the status of the ID'
+      operationId: 'getLevel1FileStatus'
+      description: 'Need to plug-in the id get from /create endpoint into /status endpoint'
       parameters:
         - $ref: '#/components/parameters/requestIdStatus'
       responses:
         '201':
-          description: |
-
-            The Request has been created and the response has been created.
+          description: "\nThe Request has been created and the response has been created.\n"
           content:
             application/json:
               schema:
@@ -232,13 +208,12 @@ paths:
                   $ref: '#/components/examples/sampleCompletedResponse'
           headers:
             Location:
-              description: Relative location to pick up results.
+              description: 'Relative location to pick up results.'
               schema:
-                type: string
-              example: get?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+                type: 'string'
+              example: 'get?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
         '202':
-          description: |
-            The Request has not finished and the result has NOT been created.
+          description: "The Request has not finished and the result has NOT been created.\n"
           content:
             application/json:
               schema:
@@ -254,16 +229,11 @@ paths:
                   $ref: '#/components/examples/sampleFilesResponseCancelled'
           headers:
             Location:
-              description: Relative location to poll for status.
+              description: 'Relative location to poll for status.'
               schema:
-                type: string
+                type: 'string'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -272,11 +242,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -285,7 +251,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
         '404':
-          description: id not found
+          description: 'id not found'
           content:
             application/json:
               schema:
@@ -294,7 +260,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -306,19 +272,17 @@ paths:
   /level1/files/get:
     get:
       tags:
-        - Level 1
-      summary: Returns the tick-by-tick data in files requested in the /create endpoint
-      operationId: getTickHistoryLevel1Files
-      description: Returns the files from tickhistory endpoint
+        - 'Level 1'
+      summary: 'Returns the tick-by-tick data in files requested in the /create endpoint'
+      operationId: 'getTickHistoryLevel1Files'
+      description: 'Returns the files from tickhistory endpoint'
       parameters:
         - $ref: '#/components/parameters/requestId'
         - $ref: '#/components/parameters/_paginationLimit'
         - $ref: '#/components/parameters/_paginationOffset'
       responses:
         '200':
-          description: >-
-            Success</p> **To download the output file copy the response url in a
-            browser**
+          description: 'Success</p> **To download the output file copy the response url in a browser**'
           content:
             application/json:
               schema:
@@ -327,8 +291,7 @@ paths:
                 default200ResponseExample:
                   $ref: '#/components/examples/sampleGetFilesResponse'
         '202':
-          description: |
-            The Request has not finished and the result has NOT been created.
+          description: "The Request has not finished and the result has NOT been created.\n"
           content:
             application/json:
               schema:
@@ -340,11 +303,11 @@ paths:
                   $ref: '#/components/examples/sampleFilesResponseExecuting'
           headers:
             Location:
-              description: Relative location to poll for status.
+              description: 'Relative location to poll for status.'
               schema:
-                type: string
+                type: 'string'
         '400':
-          description: Bad request
+          description: 'Bad request'
           content:
             application/json:
               schema:
@@ -353,12 +316,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -367,11 +325,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -380,7 +334,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
         '404':
-          description: id not found
+          description: 'id not found'
           content:
             application/json:
               schema:
@@ -389,7 +343,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -401,12 +355,10 @@ paths:
   /level1/files/minute-bars/create:
     post:
       tags:
-        - Level 1
-      summary: Requests the creation of Minute bars file
-      operationId: requestMinutebarsFiles
-      description: >-
-        1-minute bars available from 20120101 to previous day. Per request able
-        to fetch up to 6 months of data.
+        - 'Level 1'
+      summary: 'Requests the creation of Minute bars file'
+      operationId: 'requestMinutebarsFiles'
+      description: '1-minute bars available from 20120101 to previous day. Per request able to fetch up to 6 months of data.'
       requestBody:
         required: true
         content:
@@ -420,7 +372,7 @@ paths:
                 $ref: '#/components/examples/minMultipleTicker'
       responses:
         '202':
-          description: The Request has been Accepted
+          description: 'The Request has been Accepted'
           content:
             application/json:
               schema:
@@ -430,23 +382,23 @@ paths:
                   $ref: '#/components/examples/sampleFilesResponse'
           headers:
             Location:
-              description: Relative location to poll for status
+              description: 'Relative location to poll for status'
               schema:
-                type: string
+                type: 'string'
             X-FactSet-Api-RateLimit-Limit:
-              description: Number of allowed requests for the time window.
+              description: 'Number of allowed requests for the time window.'
               schema:
-                type: string
+                type: 'string'
             X-FactSet-Api-RateLimit-Remaining:
-              description: Number of requests left for the time window.
+              description: 'Number of requests left for the time window.'
               schema:
-                type: string
+                type: 'string'
             X-FactSet-Api-RateLimit-Reset:
-              description: Number of seconds remaining till rate limit resets.
+              description: 'Number of seconds remaining till rate limit resets.'
               schema:
-                type: string
+                type: 'string'
         '400':
-          description: Bad request
+          description: 'Bad request'
           content:
             application/json:
               schema:
@@ -455,12 +407,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -469,11 +416,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -482,7 +425,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
         '429':
-          description: Too many requests.
+          description: 'Too many requests.'
           content:
             application/json:
               schema:
@@ -491,7 +434,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/429Example'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -502,17 +445,15 @@ paths:
   /level1/files/minute-bars/status:
     get:
       tags:
-        - Level 1
-      summary: Returns the status of the ID
-      operationId: getMinutebarsFileStatus
-      description: Need to plug-in the id get from /create endpoint into /status endpoint
+        - 'Level 1'
+      summary: 'Returns the status of the ID'
+      operationId: 'getMinutebarsFileStatus'
+      description: 'Need to plug-in the id get from /create endpoint into /status endpoint'
       parameters:
         - $ref: '#/components/parameters/requestIdStatus'
       responses:
         '201':
-          description: |
-
-            The Request has been created and the response has been created.
+          description: "\nThe Request has been created and the response has been created.\n"
           content:
             application/json:
               schema:
@@ -522,13 +463,12 @@ paths:
                   $ref: '#/components/examples/sampleCompletedResponse'
           headers:
             Location:
-              description: Relative location to pick up results.
+              description: 'Relative location to pick up results.'
               schema:
-                type: string
-              example: get?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+                type: 'string'
+              example: 'get?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
         '202':
-          description: |
-            The Request has not finished and the result has NOT been created.
+          description: "The Request has not finished and the result has NOT been created.\n"
           content:
             application/json:
               schema:
@@ -544,16 +484,11 @@ paths:
                   $ref: '#/components/examples/sampleFilesResponseCancelled'
           headers:
             Location:
-              description: Relative location to poll for status.
+              description: 'Relative location to poll for status.'
               schema:
-                type: string
+                type: 'string'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -562,11 +497,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -575,7 +506,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
         '404':
-          description: id not found
+          description: 'id not found'
           content:
             application/json:
               schema:
@@ -584,7 +515,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -596,19 +527,17 @@ paths:
   /level1/files/minute-bars/get:
     get:
       tags:
-        - Level 1
-      summary: Returns the Minute bars data in files requested in the /create endpoint
-      operationId: getMinutebarsFiles
-      description: Returns the files from tickhistory endpoint
+        - 'Level 1'
+      summary: 'Returns the Minute bars data in files requested in the /create endpoint'
+      operationId: 'getMinutebarsFiles'
+      description: 'Returns the files from tickhistory endpoint'
       parameters:
         - $ref: '#/components/parameters/requestId'
         - $ref: '#/components/parameters/_paginationLimit'
         - $ref: '#/components/parameters/_paginationOffset'
       responses:
         '200':
-          description: >-
-            Success</p> **To download the output file copy the response url in a
-            browser**
+          description: 'Success</p> **To download the output file copy the response url in a browser**'
           content:
             application/json:
               schema:
@@ -619,8 +548,7 @@ paths:
                 quotes200ResponseExample:
                   $ref: '#/components/examples/sampleMinGetQuoteFilesResponse'
         '202':
-          description: |
-            The Request has not finished and the result has NOT been created.
+          description: "The Request has not finished and the result has NOT been created.\n"
           content:
             application/json:
               schema:
@@ -632,11 +560,11 @@ paths:
                   $ref: '#/components/examples/sampleFilesResponseExecuting'
           headers:
             Location:
-              description: Relative location to poll for status.
+              description: 'Relative location to poll for status.'
               schema:
-                type: string
+                type: 'string'
         '400':
-          description: Bad request
+          description: 'Bad request'
           content:
             application/json:
               schema:
@@ -645,12 +573,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/400Example'
         '401':
-          description: >-
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
           content:
             application/json:
               schema:
@@ -659,11 +582,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/401Example'
         '403':
-          description: >-
-            The USERNAME-SERIAL attempted to request the endpoint is not
-            authorized to access. The request was a legal request, but the
-            server is refusing to respond. Please reach out to FactSet Account
-            Team for assistance with authorization.
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
           content:
             application/json:
               schema:
@@ -672,7 +591,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/403Example'
         '404':
-          description: id not found
+          description: 'id not found'
           content:
             application/json:
               schema:
@@ -681,7 +600,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/404Example'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -696,73 +615,57 @@ security:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   parameters:
     tickerCoverage:
-      name: tickers
-      in: query
-      description: |
-        <P> The requested list of one or more tickers.</p>
-
-         The `tickers` and `isins`  parameters provide two different ways to specify the identifiers for data retrieved. Please enter either the tickers or isins parameter.
-         
-        <P> Maximum 10 tickers per request</p>  
-         
+      name: 'tickers'
+      in: 'query'
+      description: "<P> The requested list of one or more tickers.</p>\n\n The `tickers` and `isins`  parameters provide two different ways to specify the identifiers for data retrieved. Please enter either the tickers or isins parameter.\n \n<P> Maximum 10 tickers per request</p>  \n \n"
       required: false
       explode: false
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
           minItems: 1
           maxItems: 10
       examples:
         oneId:
-          summary: One identifier
+          summary: 'One identifier'
           value:
-            - CBA
+            - 'CBA'
         multipleIds:
-          summary: Multiple Identifiers
+          summary: 'Multiple Identifiers'
           value:
-            - CBA
-            - BHP
+            - 'CBA'
+            - 'BHP'
     isoCodeCoverage:
-      name: factsetExchangeCode
-      in: query
-      description: >-
-        <p>This parameter is used to filter the results based on the FactSet
-        specific regional or composite exchange code.</p>
-
-        **NOTE**:Does not support multiple factsetExchangeCodes
+      name: 'factsetExchangeCode'
+      in: 'query'
+      description: "<p>This parameter is used to filter the results based on the FactSet specific regional or composite exchange code.</p>\n**NOTE**:Does not support multiple factsetExchangeCodes"
       required: false
-      example: AUS
+      example: 'AUS'
       schema:
-        type: string
+        type: 'string'
         minItems: 1
         maxItems: 1
     isin:
-      name: isins
-      in: query
-      description: |
-        <P> Specifies the ISIN of the record. </p>
-
-          Please enter either the `tickers` or `isins` parameter. 
-          
-        <P> Maximum 10 ISINs per request.</p>   
-         
+      name: 'isins'
+      in: 'query'
+      description: "<P> Specifies the ISIN of the record. </p>\n\n  Please enter either the `tickers` or `isins` parameter. \n  \n<P> Maximum 10 ISINs per request.</p>   \n \n"
       required: false
       explode: false
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
           minItems: 1
           maxItems: 10
       examples:
@@ -770,64 +673,58 @@ components:
           summary: '---'
           value: []
         oneId:
-          summary: One identifier
+          summary: 'One identifier'
           value:
-            - US3030751057
+            - 'US3030751057'
         multipleIds:
-          summary: Multiple Identifiers
+          summary: 'Multiple Identifiers'
           value:
-            - US3030751057
-            - ARDEUT110202
+            - 'US3030751057'
+            - 'ARDEUT110202'
     requestId:
-      name: id
-      in: query
-      description: >-
-        id returned by files create endpoint to poll and collect results of the
-        query
+      name: 'id'
+      in: 'query'
+      description: 'id returned by files create endpoint to poll and collect results of the query'
       required: true
       schema:
-        type: string
+        type: 'string'
     requestIdStatus:
-      name: id
-      in: query
-      description: >-
-        id returned by files create endpoint to poll and collect status of the
-        query
+      name: 'id'
+      in: 'query'
+      description: 'id returned by files create endpoint to poll and collect status of the query'
       required: true
       schema:
-        type: string
+        type: 'string'
     _paginationLimit:
-      name: _paginationLimit
-      in: query
-      description: Specifies the maximum number of results to return per response page
+      name: '_paginationLimit'
+      in: 'query'
+      description: 'Specifies the maximum number of results to return per response page'
       required: false
       schema:
-        type: integer
+        type: 'integer'
         default: 20
     _paginationOffset:
-      name: _paginationOffset
-      in: query
-      description: >-
-        Specifies the starting point for pagination. This parameter is used to
-        identify the beginning of next set of results
+      name: '_paginationOffset'
+      in: 'query'
+      description: 'Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results'
       required: false
       schema:
-        type: integer
+        type: 'integer'
         default: 0
   schemas:
     LeveloneRequest:
-      title: Level1 Request Body
-      description: Level1 request body elements
-      type: object
+      title: 'Level1 Request Body'
+      description: 'Level1 request body elements'
+      type: 'object'
       properties:
         data:
           $ref: '#/components/schemas/Level1RequestBody'
       required:
-        - data
+        - 'data'
     Level1RequestBody:
-      title: Level1 Request Body
-      description: Level1 request body elements
-      type: object
+      title: 'Level1 Request Body'
+      description: 'Level1 request body elements'
+      type: 'object'
       properties:
         tickers:
           $ref: '#/components/schemas/Tickers'
@@ -840,134 +737,111 @@ components:
         single:
           $ref: '#/components/schemas/Single'
       required:
-        - tickers
-        - factsetExchangeCode
-        - dateTimeRange
+        - 'tickers'
+        - 'factsetExchangeCode'
+        - 'dateTimeRange'
     Tickers:
-      type: array
+      type: 'array'
       items:
-        type: string
+        type: 'string'
         minItems: 1
         maxItems: 500
-      description: >
-        The requested list of one or more tickers. <p> NOTE: Maximum 500 tickers
-        per request.</p>.
-         
+      description: "The requested list of one or more tickers. <p> NOTE: Maximum 500 tickers per request.</p>.\n \n"
       example:
-        - FDS
+        - 'FDS'
     FactsetExchangeCode:
-      title: factsetExchangeCode
-      description: >
-        FactSet specific regional or composite exchange code and last exchange
-        code.
-
-        <p> NOTE:Does not support multiple factsetExchangeCodes</p>.
-      type: string
+      title: 'factsetExchangeCode'
+      description: "FactSet specific regional or composite exchange code and last exchange code.\n<p> NOTE:Does not support multiple factsetExchangeCodes</p>.\n"
+      type: 'string'
       minItems: 1
       maxItems: 1
-      example: USA
+      example: 'USA'
     DateTimeRange:
       $ref: '#/components/schemas/DateTimePeriod'
     DateTimePeriod:
-      type: object
-      description: |
-
-        NOTE: 
-          
-          - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
-          
-          - Supports milliseconds, YYYY-MM-DDTHH:MM:SS.SSSZ where .SSS represents the milliseconds which is optional.
+      type: 'object'
+      description: "\nNOTE: \n  \n  - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.\n  \n  - Supports milliseconds, YYYY-MM-DDTHH:MM:SS.SSSZ where .SSS represents the milliseconds which is optional.\n"
       properties:
         start:
-          description: >
-            The date for (or from which) the data is required. Supports in
-            YYYY-MM-DDTHH:MM:SSZ format. 
-          type: string
-          format: date-time
+          description: "The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. \n"
+          type: 'string'
+          format: 'date-time'
           example: '2012-01-01T11:00:00Z'
         end:
-          type: string
-          format: date-time
-          description: >
-            The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ
-            format. 
+          type: 'string'
+          format: 'date-time'
+          description: "The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. \n"
           example: '2012-01-30T11:20:30Z'
     Single:
-      type: boolean
-      description: >
-        <p> Set `true` to have data returned in a single file. If omitted, data
-        will be returned in multiple files.</p>
-
-        <p> Up to 128 Megabytes can be returned per file. Please reduce the date
-        and time range of this request accordingly.</p>
+      type: 'boolean'
+      description: "<p> Set `true` to have data returned in a single file. If omitted, data will be returned in multiple files.</p>\n<p> Up to 128 Megabytes can be returned per file. Please reduce the date and time range of this request accordingly.</p>\n"
       default: false
     Fields:
-      type: array
+      type: 'array'
       items:
-        type: string
+        type: 'string'
         enum:
-          - TICKER
-          - ISO_CODE
-          - DATE
-          - TIME
-          - MSG_TYPE
-          - SEQUENCE
-          - PRODUCT
-          - BID
-          - BID_TIME
-          - BID_VOL
-          - BID_EXCH
-          - ASK
-          - ASK_TIME
-          - ASK_VOL
-          - ASK_EXCH
-          - LAST_PRICE
-          - LAST_DATE
-          - LAST_TIME
-          - LAST_VOL
-          - LAST_EXCH
-          - MID
-          - MID_TIME
-          - CVOL
-          - CCVOL
-          - VWAP
-          - YIELD_PRICE
-          - CURRENT_YIELD
-          - TRADE_CONDITION
-          - REPORTING_SIDE
-          - ASK_YIELD
-          - BID_YIELD
-          - VENUE
-          - BUY_ID
-          - MID_YIELD
-          - ORDER_CODE
-          - SELL_ID
-          - ORIG_SEQUENCE
-          - SECURITY_TYPE
-          - SECURITY_STATUS
-          - MSG_BITMASK
-          - ORDER_NUM
-          - ISO
-          - DATE_UTC
-          - TIME_UTC
-          - TICK_CONDITION
-      description: |
-        Fields for which data is requested
+          - 'TICKER'
+          - 'ISO_CODE'
+          - 'DATE'
+          - 'TIME'
+          - 'MSG_TYPE'
+          - 'SEQUENCE'
+          - 'PRODUCT'
+          - 'BID'
+          - 'BID_TIME'
+          - 'BID_VOL'
+          - 'BID_EXCH'
+          - 'ASK'
+          - 'ASK_TIME'
+          - 'ASK_VOL'
+          - 'ASK_EXCH'
+          - 'LAST_PRICE'
+          - 'LAST_DATE'
+          - 'LAST_TIME'
+          - 'LAST_VOL'
+          - 'LAST_EXCH'
+          - 'MID'
+          - 'MID_TIME'
+          - 'CVOL'
+          - 'CCVOL'
+          - 'VWAP'
+          - 'YIELD_PRICE'
+          - 'CURRENT_YIELD'
+          - 'TRADE_CONDITION'
+          - 'REPORTING_SIDE'
+          - 'ASK_YIELD'
+          - 'BID_YIELD'
+          - 'VENUE'
+          - 'BUY_ID'
+          - 'MID_YIELD'
+          - 'ORDER_CODE'
+          - 'SELL_ID'
+          - 'ORIG_SEQUENCE'
+          - 'SECURITY_TYPE'
+          - 'SECURITY_STATUS'
+          - 'MSG_BITMASK'
+          - 'ORDER_NUM'
+          - 'ISO'
+          - 'DATE_UTC'
+          - 'TIME_UTC'
+          - 'TICK_CONDITION'
+      description: "Fields for which data is requested\n"
       example:
-        - ASK
+        - 'ASK'
     MinRequest:
-      title: Level1 Minute bars Request Body
-      description: Level1 Minute bars request body elements
-      type: object
+      title: 'Level1 Minute bars Request Body'
+      description: 'Level1 Minute bars request body elements'
+      type: 'object'
       properties:
         data:
           $ref: '#/components/schemas/MinutesbarRequestBody'
       required:
-        - data
+        - 'data'
     MinutesbarRequestBody:
-      title: Level1 Minute bars Request Body
-      description: Level1 Minute bars request body elements
-      type: object
+      title: 'Level1 Minute bars Request Body'
+      description: 'Level1 Minute bars request body elements'
+      type: 'object'
       properties:
         tickers:
           $ref: '#/components/schemas/Tickers'
@@ -982,603 +856,482 @@ components:
         single:
           $ref: '#/components/schemas/Single'
       required:
-        - tickers
-        - factsetExchangeCode
-        - dateTimeRange
-        - granularity
-        - type
+        - 'tickers'
+        - 'factsetExchangeCode'
+        - 'dateTimeRange'
+        - 'granularity'
+        - 'type'
     Granularity:
-      title: granularity
-      description: >
-        This is the grantualrity in which minute bars data is shown. Possible
-        values are 1 Minute (1m)
-      type: string
+      title: 'granularity'
+      description: "This is the grantualrity in which minute bars data is shown. Possible values are 1 Minute (1m)\n"
+      type: 'string'
       enum:
-        - 1m
+        - '1m'
     Type:
-      title: type
-      description: >
-
-        <p>'type=trades' gives  minute bars data calculated from trade data
-        (price and volume)</p> <p>'type=quotes' gives minute bars data
-        calculated from quote data (bid and ask)</p>
-      type: string
+      title: 'type'
+      description: "\n<p>'type=trades' gives  minute bars data calculated from trade data (price and volume)</p> <p>'type=quotes' gives minute bars data calculated from quote data (bid and ask)</p>\n"
+      type: 'string'
       enum:
-        - trades
-        - quotes
+        - 'trades'
+        - 'quotes'
     DateTimePeriodMin:
-      type: object
-      description: |
-
-        NOTE: 
-          
-          - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.
-          
+      type: 'object'
+      description: "\nNOTE: \n  \n  - The start and end times are processed as UTC time of the factsetExchangeCode provided. Please refer to the **Data Model User Guide** for time zone to exchange mappings.\n  \n"
       required:
-        - start
-        - end
+        - 'start'
+        - 'end'
       properties:
         start:
-          description: >
-            The date for (or from which) the data is required. Supports in
-            YYYY-MM-DDTHH:MM:SSZ format. 
-          type: string
-          format: date-time
+          description: "The date for (or from which) the data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. \n"
+          type: 'string'
+          format: 'date-time'
           example: '2012-01-01T11:00:00Z'
         end:
-          type: string
-          format: date-time
-          description: >
-            The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ
-            format. 
+          type: 'string'
+          format: 'date-time'
+          description: "The date to which data is required. Supports in YYYY-MM-DDTHH:MM:SSZ format. \n"
           example: '2012-01-30T11:20:30Z'
     SubmittedResponse:
-      type: object
-      title: Status Response
-      description: Returns Status of the id.
+      type: 'object'
+      title: 'Status Response'
+      description: 'Returns Status of the id.'
       properties:
         data:
           $ref: '#/components/schemas/StatusOne'
     StatusOne:
-      type: object
-      description: request-files
+      type: 'object'
+      description: 'request-files'
       properties:
         id:
-          description: a unique identification for the query requested
-          type: string
+          description: 'a unique identification for the query requested'
+          type: 'string'
         status:
-          description: The status of the query
-          type: string
+          description: 'The status of the query'
+          type: 'string'
           enum:
-            - queued
-            - executing
-            - created
-            - failed
-            - cancelled
+            - 'queued'
+            - 'executing'
+            - 'created'
+            - 'failed'
+            - 'cancelled'
         error:
           $ref: '#/components/schemas/ErrorObject'
     ErrorObject:
-      type: object
+      type: 'object'
       nullable: true
-      description: error
+      description: 'error'
       properties:
         id:
-          description: A UUID for this particular occurrence of the problem.
-          type: string
-          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          description: 'A UUID for this particular occurrence of the problem.'
+          type: 'string'
+          example: 'adb01824-252f-4420-b0c6-35a1e3507ef5'
         code:
-          description: status
-          type: string
-          example: GenericError
+          description: 'status'
+          type: 'string'
+          example: 'GenericError'
         title:
-          description: The plain text error message
-          type: string
-          example: Validation Error
+          description: 'The plain text error message'
+          type: 'string'
+          example: 'Validation Error'
     CompletedResponse:
-      type: object
-      title: status
-      description: Returns status.
+      type: 'object'
+      title: 'status'
+      description: 'Returns status.'
       properties:
         data:
           $ref: '#/components/schemas/CheckFiles'
     CheckFiles:
-      type: object
-      description: check-files
+      type: 'object'
+      description: 'check-files'
       properties:
         id:
-          description: a unique identification for the query requested
-          type: string
+          description: 'a unique identification for the query requested'
+          type: 'string'
         status:
-          description: The status of the query
-          type: string
+          description: 'The status of the query'
+          type: 'string'
           enum:
-            - queued
-            - executing
-            - created
-            - failed
-            - cancelled
+            - 'queued'
+            - 'executing'
+            - 'created'
+            - 'failed'
+            - 'cancelled'
         error:
           $ref: '#/components/schemas/ErrorObject'
     CoverageResponse:
-      type: object
-      description: Returns coverage for Level1 Data
+      type: 'object'
+      description: 'Returns coverage for Level1 Data'
       properties:
         data:
-          description: Returns Coverage Response
-          type: array
+          description: 'Returns Coverage Response'
+          type: 'array'
           items:
             $ref: '#/components/schemas/CoverageTickHistory'
     CoverageTickHistory:
-      title: Coverage Object
-      type: object
-      description: >-
-        Returns Coverage Response of the requested ticker with unique isocode
-        within a date range
+      title: 'Coverage Object'
+      type: 'object'
+      description: 'Returns Coverage Response of the requested ticker with unique isocode within a date range'
       properties:
         ticker:
-          description: a unique ticker given to a company
-          type: string
+          description: 'a unique ticker given to a company'
+          type: 'string'
         factsetExchangeCode:
-          description: FactSet specific exchange code.
-          type: string
+          description: 'FactSet specific exchange code.'
+          type: 'string'
         startDate:
           description: 'The date for (or from which) the coverage is required. '
-          type: string
-          format: date
+          type: 'string'
+          format: 'date'
         latestTradeDate:
-          description: This specifies the latest traded date from tick history.
-          type: string
-          format: date
+          description: 'This specifies the latest traded date from tick history.'
+          type: 'string'
+          format: 'date'
         companyName:
-          description: Name of the firm
-          type: string
+          description: 'Name of the firm'
+          type: 'string'
         isin:
           description: 'returns the ISIN of the requested company '
-          type: string
+          type: 'string'
         currency:
-          description: Represents 3 digit ISO code for the currency
-          type: string
+          description: 'Represents 3 digit ISO code for the currency'
+          type: 'string'
         lastExchangeCode:
-          description: the last traded exhange code from tick history
-          type: string
+          description: 'the last traded exhange code from tick history'
+          type: 'string'
         lastExchangeName:
-          description: the last traded exchange name from tick history
-          type: string
+          description: 'the last traded exchange name from tick history'
+          type: 'string'
         primaryTickerExchange:
-          description: the primary ticker iso
-          type: string
+          description: 'the primary ticker iso'
+          type: 'string'
     Status:
-      type: object
-      description: specifies the error message fields in the response
+      type: 'object'
+      description: 'specifies the error message fields in the response'
       properties:
         errors:
-          type: array
-          description: An array containing errors
+          type: 'array'
+          description: 'An array containing errors'
           items:
             $ref: '#/components/schemas/ErrorExample'
     ErrorExample:
-      type: object
-      description: Specifies the fields in the error message
+      type: 'object'
+      description: 'Specifies the fields in the error message'
       properties:
         code:
-          description: It specifies the unique code
-          type: string
+          description: 'It specifies the unique code'
+          type: 'string'
         title:
           description: ' Specifies the error message'
-          type: string
+          type: 'string'
         id:
-          description: Specifies the id
-          type: string
+          description: 'Specifies the id'
+          type: 'string'
     GetFilesResponse:
-      type: object
-      description: Returns Tick History Files
+      type: 'object'
+      description: 'Returns Tick History Files'
       properties:
         data:
           $ref: '#/components/schemas/TickData'
         meta:
           $ref: '#/components/schemas/Meta'
     TickData:
-      type: object
-      title: Tick History Object
+      type: 'object'
+      title: 'Tick History Object'
       description: ' Returns Tick History Response.'
       properties:
         requestTimestamp:
-          description: Timestamp of when request was made
-          type: string
-          format: date-time
+          description: 'Timestamp of when request was made'
+          type: 'string'
+          format: 'date-time'
         updateTimestamp:
-          description: Timestamp when the file was last updated
-          type: string
-          format: date-time
+          description: 'Timestamp when the file was last updated'
+          type: 'string'
+          format: 'date-time'
         notAuthorizedTickers:
-          description: Returns not Authorized Tickers
-          type: array
+          description: 'Returns not Authorized Tickers'
+          type: 'array'
           items:
-            type: string
+            type: 'string'
         invalidTickers:
-          description: Returns invalid Tickers
-          type: array
+          description: 'Returns invalid Tickers'
+          type: 'array'
           items:
-            type: string
+            type: 'string'
         listOfFiles:
-          type: array
-          description: Contains list of Files
+          type: 'array'
+          description: 'Contains list of Files'
           items:
             $ref: '#/components/schemas/Files'
     GetFilesMinuteResponse:
-      type: object
-      description: Returns Tick History Files
+      type: 'object'
+      description: 'Returns Tick History Files'
       properties:
         data:
           $ref: '#/components/schemas/MinTickData'
         meta:
           $ref: '#/components/schemas/Meta'
     MinTickData:
-      type: object
-      title: Tick History Object
+      type: 'object'
+      title: 'Tick History Object'
       description: ' Returns Tick History Response.'
       properties:
         requestTimestamp:
-          description: Timestamp of when request was made
-          type: string
-          format: date-time
+          description: 'Timestamp of when request was made'
+          type: 'string'
+          format: 'date-time'
         updateTimestamp:
-          description: Timestamp when the file was last updated
-          type: string
-          format: date-time
+          description: 'Timestamp when the file was last updated'
+          type: 'string'
+          format: 'date-time'
         listOfFiles:
-          type: array
-          description: Contains list of Files
+          type: 'array'
+          description: 'Contains list of Files'
           items:
             $ref: '#/components/schemas/FilesOne'
     Files:
-      title: Files
-      description: Array of data objects
-      type: object
+      title: 'Files'
+      description: 'Array of data objects'
+      type: 'object'
       properties:
         fileName:
-          description: Name of the file(s) generated for the query requested
-          type: string
+          description: 'Name of the file(s) generated for the query requested'
+          type: 'string'
         url:
-          description: |
-
-            Download link for the TickHistory file with requested parameters.
-            <p>This download link will expire after 24 hours.</p>
-          type: string
+          description: "\nDownload link for the TickHistory file with requested parameters.\n<p>This download link will expire after 24 hours.</p>\n"
+          type: 'string'
     FilesOne:
-      title: Files
-      description: Array of data objects
-      type: object
+      title: 'Files'
+      description: 'Array of data objects'
+      type: 'object'
       properties:
         fileName:
-          description: Name of the file(s) generated for the query requested
-          type: string
+          description: 'Name of the file(s) generated for the query requested'
+          type: 'string'
         url:
-          description: >
-            Download link for the TickHistory minute bars file with requested
-            parameters.
-
-
-            For <b>trades</b>, the downloaded file contains the following
-            fields:
-
-            - isoCode
-
-            - ticker
-
-            - date
-
-            - time
-
-            - tradeOpen
-
-            - tradeHigh
-
-            - tradeLow
-
-            - tradeClose
-
-            - tradeVolume
-
-            - securityType
-
-            - tradeNumber
-
-            - tradeVWAP
-
-            - dateUtc
-
-            - timeUtc
-
-
-            For <b>quotes</b>, the downloaded file contains the following
-            fields:
-
-            - ticker
-
-            - isoCode
-
-            - date
-
-            - time
-
-            - bidOpenPrc
-
-            - bidClosePrc
-
-            - bidSumVol
-
-            - askOpenPrc
-
-            - askClosePrc
-
-            - askSumVol
-
-            - count
-
-            - medianSpread
-
-            - dateUtc
-
-            - timeUtc
-
-
-            This download link will expire after 24 hours.
-          type: string
+          description: "Download link for the TickHistory minute bars file with requested parameters.\n\nFor <b>trades</b>, the downloaded file contains the following fields:\n- isoCode\n- ticker\n- date\n- time\n- tradeOpen\n- tradeHigh\n- tradeLow\n- tradeClose\n- tradeVolume\n- securityType\n- tradeNumber\n- tradeVWAP\n- dateUtc\n- timeUtc\n\nFor <b>quotes</b>, the downloaded file contains the following fields:\n- ticker\n- isoCode\n- date\n- time\n- bidOpenPrc\n- bidClosePrc\n- bidSumVol\n- askOpenPrc\n- askClosePrc\n- askSumVol\n- count\n- medianSpread\n- dateUtc\n- timeUtc\n\nThis download link will expire after 24 hours.\n"
+          type: 'string'
     Meta:
-      title: Meta
-      description: Array of metadata objects
-      type: object
+      title: 'Meta'
+      description: 'Array of metadata objects'
+      type: 'object'
       properties:
         pagination:
           $ref: '#/components/schemas/Pagination'
     Pagination:
-      title: Pagination
-      description: List of pagination objects
-      type: object
+      title: 'Pagination'
+      description: 'List of pagination objects'
+      type: 'object'
       properties:
         total:
-          description: Total number of files the API returns for a particular query
-          type: integer
+          description: 'Total number of files the API returns for a particular query'
+          type: 'integer'
         isEstimatedTotal:
-          description: >-
-            Boolean value that represents whether the total count of files
-            returned is exact or an estimate. This is defaulted to False as the
-            API should always return the exact count
-          type: boolean
+          description: 'Boolean value that represents whether the total count of files returned is exact or an estimate. This is defaulted to False as the API should always return the exact count'
+          type: 'boolean'
   examples:
     postBodyOfUSTickers:
-      summary: US Equity tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the US Equity tick data
-        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'US Equity tickers with default all fields for the given period'
+      description: 'Post body request example to fetch details of the US Equity tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - IBM
-            - F
-            - AAPL
-            - GOOG
-            - TSLA
-          factsetExchangeCode: USA
+            - 'IBM'
+            - 'F'
+            - 'AAPL'
+            - 'GOOG'
+            - 'TSLA'
+          factsetExchangeCode: 'USA'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfUSTickersReg:
-      summary: >-
-        US Equity tickers for a Regional ISO Code with default all fields for
-        the given period
-      description: >-
-        Post body request example to fetch details of the US Equity tick data
-        for a Regional ISO Code for the period 2024-11-01T00:00:00Z to
-        2024-11-10T23:59:59Z.
+      summary: 'US Equity tickers for a Regional ISO Code with default all fields for the given period'
+      description: 'Post body request example to fetch details of the US Equity tick data for a Regional ISO Code for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - IBM
-            - F
-            - AAPL
-            - GOOG
-            - TSLA
-          factsetExchangeCode: NYS
+            - 'IBM'
+            - 'F'
+            - 'AAPL'
+            - 'GOOG'
+            - 'TSLA'
+          factsetExchangeCode: 'NYS'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfASXTickers:
-      summary: AUS tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the AUS tick data for the
-        period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'AUS tickers with default all fields for the given period'
+      description: 'Post body request example to fetch details of the AUS tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - CBA
-            - BHP
-          factsetExchangeCode: AUS
+            - 'CBA'
+            - 'BHP'
+          factsetExchangeCode: 'AUS'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfASXTickersReg:
-      summary: >-
-        ASX tickers for a Regional ISO Code with default all fields for the
-        given period
-      description: >-
-        Post body request example to fetch details of the ASX tick data for a
-        Regional ISO Code for the period 2024-11-01T00:00:00Z to
-        2024-11-10T23:59:59Z.
+      summary: 'ASX tickers for a Regional ISO Code with default all fields for the given period'
+      description: 'Post body request example to fetch details of the ASX tick data for a Regional ISO Code for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - CBA
-            - BHP
-          factsetExchangeCode: ASX
+            - 'CBA'
+            - 'BHP'
+          factsetExchangeCode: 'ASX'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfLSETickers:
-      summary: LSE tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the LSE tick data for the
-        period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'LSE tickers with default all fields for the given period'
+      description: 'Post body request example to fetch details of the LSE tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - HSBA
-            - VOD
-          factsetExchangeCode: LON
+            - 'HSBA'
+            - 'VOD'
+          factsetExchangeCode: 'LON'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfTokyoTickers:
-      summary: Tokyo tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the Tokyo tick data for
-        the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'Tokyo tickers with default all fields for the given period'
+      description: 'Post body request example to fetch details of the Tokyo tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
             - '7203'
             - '4307'
-          factsetExchangeCode: TKS
+          factsetExchangeCode: 'TKS'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfSwissTickers:
-      summary: Swiss tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the Swiss tick data for
-        the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'Swiss tickers with default all fields for the given period'
+      description: 'Post body request example to fetch details of the Swiss tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - NESN
-            - COTN
-          factsetExchangeCode: SWX
+            - 'NESN'
+            - 'COTN'
+          factsetExchangeCode: 'SWX'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfSingaporeTickers:
-      summary: Singapore tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the Singapore tick data
-        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'Singapore tickers with default all fields for the given period'
+      description: 'Post body request example to fetch details of the Singapore tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - J36
-          factsetExchangeCode: SES
+            - 'J36'
+          factsetExchangeCode: 'SES'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     postBodyOfHongKongTickers:
-      summary: Hong Kong tickers with default all fields for the given period
-      description: >-
-        Post body request example to fetch details of the Hong Kong tick data
-        for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'Hong Kong tickers with default all fields for the given period'
+      description: 'Post body request example to fetch details of the Hong Kong tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
             - '700'
-          factsetExchangeCode: HKG
+          factsetExchangeCode: 'HKG'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
           single: false
     minSingleTicker:
-      summary: Single ticker for the given period
-      description: >-
-        Post body request example to fetch details of the IBM tick data for the
-        period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.
+      summary: 'Single ticker for the given period'
+      description: 'Post body request example to fetch details of the IBM tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - IBM
-          factsetExchangeCode: USA
+            - 'IBM'
+          factsetExchangeCode: 'USA'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
-          granularity: 1m
-          type: trades
+          granularity: '1m'
+          type: 'trades'
           single: false
     minMultipleTicker:
-      summary: Multiple tickers for the given period
-      description: >-
-        Post body request example to fetch details of the IBM, F, AAPL, GOOG and
-        TSLA tick data for the period 2024-11-01T00:00:00Z to
-        2024-11-10T23:59:59Z.
+      summary: 'Multiple tickers for the given period'
+      description: 'Post body request example to fetch details of the IBM, F, AAPL, GOOG and TSLA tick data for the period 2024-11-01T00:00:00Z to 2024-11-10T23:59:59Z.'
       value:
         data:
           tickers:
-            - IBM
-            - F
-            - AAPL
-            - GOOG
-            - TSLA
-          factsetExchangeCode: USA
+            - 'IBM'
+            - 'F'
+            - 'AAPL'
+            - 'GOOG'
+            - 'TSLA'
+          factsetExchangeCode: 'USA'
           dateTimeRange:
             start: '2024-11-01T00:00:00Z'
             end: '2024-11-10T23:59:59Z'
-          granularity: 1m
-          type: trades
+          granularity: '1m'
+          type: 'trades'
           single: false
     sampleFilesResponse:
-      summary: Status Accepted
+      summary: 'Status Accepted'
       value:
         data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: queued
+          id: '27b4923f-86dd-4b8b-89ac-dfc3a26fa786'
+          status: 'queued'
           error: null
     sampleFilesResponseQueued:
-      summary: Status Queued
+      summary: 'Status Queued'
       value:
         data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: queued
+          id: '27b4923f-86dd-4b8b-89ac-dfc3a26fa786'
+          status: 'queued'
           error: null
     sampleFilesResponseExecuting:
-      summary: Status Executing
+      summary: 'Status Executing'
       value:
         data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: executing
+          id: '27b4923f-86dd-4b8b-89ac-dfc3a26fa786'
+          status: 'executing'
           error: null
     sampleFilesResponseFailed:
-      summary: Status Failed
+      summary: 'Status Failed'
       value:
         data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: failed
+          id: '27b4923f-86dd-4b8b-89ac-dfc3a26fa786'
+          status: 'failed'
           error:
-            id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
-            code: Geeneric Error
+            id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+            code: 'Geeneric Error'
             title: 'Not a valid request '
     sampleFilesResponseCancelled:
-      summary: Status Cancelled
+      summary: 'Status Cancelled'
       value:
         data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: cancelled
+          id: '27b4923f-86dd-4b8b-89ac-dfc3a26fa786'
+          status: 'cancelled'
           error:
-            id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
-            code: Error
-            title: Request taking long time
+            id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+            code: 'Error'
+            title: 'Request taking long time'
     sampleCompletedResponse:
-      summary: Status Done
+      summary: 'Status Done'
       value:
         data:
-          id: 27b4923f-86dd-4b8b-89ac-dfc3a26fa786
-          status: created
+          id: '27b4923f-86dd-4b8b-89ac-dfc3a26fa786'
+          status: 'created'
           error: null
     sampleGetFilesResponse:
-      summary: sample Response data for Level1
+      summary: 'sample Response data for Level1'
       value:
         data:
           requestTimestamp: '2020-10-23T03:38:02Z'
@@ -1586,109 +1339,104 @@ components:
           notAuthorizedTickers: []
           invalidTickers: []
           listOfFiles:
-            - fileName: data_0_0_0.csv.gz
-              url: >-
-                https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
+            - fileName: 'data_0_0_0.csv.gz'
+              url: 'https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65'
         meta:
           pagination:
             total: 256
             isEstimatedTotal: false
     sampleMinGetFilesResponse:
-      summary: sample Response data for Minute bars Trades
+      summary: 'sample Response data for Minute bars Trades'
       value:
         data:
           requestTimestamp: '2020-10-23T03:38:02Z'
           updateTimestamp: '2020-10-23T03:41:39Z'
           listOfFiles:
-            - fileName: data_0_0_0.csv.gz
-              url: >-
-                https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
+            - fileName: 'data_0_0_0.csv.gz'
+              url: 'https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65'
         meta:
           pagination:
             total: 256
             isEstimatedTotal: false
     sampleMinGetQuoteFilesResponse:
-      summary: sample Response data for Minute bars Quotes
+      summary: 'sample Response data for Minute bars Quotes'
       value:
         data:
           requestTimestamp: '2022-11-23T03:38:02Z'
           updateTimestamp: '2022-11-23T03:41:39Z'
           listOfFiles:
-            - fileName: data_1_0_0.csv.gz
-              url: >-
-                https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65
+            - fileName: 'data_1_0_0.csv.gz'
+              url: 'https://fdss3-structured-data-delivery-tickhistory-prod.s3.amazonaws.com/1908ba22c3d50cf0eb29d4941a15d754/1064084624/data_0_0_0.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6B6XG7VERPYTDXEC%2F20210407%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210407T173818Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQDvzcjGyFCVYyQANp8yuwa3Wn3pD0qWWxLx4ay4oHW61QIgXf3ULeWuRB2jidoA%2BiY83uRbUT8PvB8enoeKgisQUIYq2AEISxAAGgw5NjYyODIxMTY0MjUiDLuCDb9G45Fsn6HtLCq1AYQPGk8GpzGiRXMiASd%2FayNLEOTkXRvTkjg00DAMPt4GM9%2BmVJyXStFairI5Ru1ZO6%2B4DAHT8H1u2Z2g%2FZfIR8Wozv8NYq992v8PapfgUXfuVeJI%2BLnGFyUstgbIB1BgO18I0JscQWbGIy6FTiGfBgPuxvpN57TAcmHgc1XNbKDGFqgeVwcLIkY62a8zYjbOPP09gzFW2%2FNPCIyKl074r0dAHwmGw21XEoxKyJgNaybEXli4lGAwh9y3gwY64AFxwpKMsSGOx4teikNbdzo8dCDU0rjtxUgCupkqrqOtetRTLrjaxp4%2BfDa5IweJcdTREupEfkEZR8aaHgcWSzd5%2BKk1nUEUe1RoG%2FqzrQ0%2BANY3nX2a%2BKhgI6PLX%2FVEGJtaxtx0fMHO9PU1Szg9Rr%2FRY%2BphK19fHFGGAJc1r%2Fby00MrJFahqIRkwVud8h63dSoOJ%2Fbc0vd3oPzl%2F6GGyRTaAyCsjPTr6lPBXLdrmBkP8TuDyW%2BnTGhX8wJtSp2BxCOxLy7%2BVwGGAPl%2FtBtQdNK7q4tkb2COlYL%2BD9m6w2uNFg%3D%3D&X-Amz-Signature=3d54bc7804a710dbea470007eb9a7b231a9f60544fe44582bab3ae60ab67ca65'
         meta:
           pagination:
             total: 65
             isEstimatedTotal: false
     sampleCoverageResponse:
-      summary: sample Response
+      summary: 'sample Response'
       value:
         data:
-          - ticker: IBM
-            factsetExchangeCode: MUN
+          - ticker: 'IBM'
+            factsetExchangeCode: 'MUN'
             startDate: '2012-01-02'
             latestTradeDate: '2023-01-01'
-            companyName: International Business Machines
-            isin: US3030751057
-            currency: USD
+            companyName: 'International Business Machines'
+            isin: 'US3030751057'
+            currency: 'USD'
             lastExchangeCode: '14002'
-            lastExchangeName: NYSE - Nasdaq Regional
-            primaryTickerExchange: IBM-NYS
-          - ticker: IBM
-            factsetExchangeCode: CAN
+            lastExchangeName: 'NYSE - Nasdaq Regional'
+            primaryTickerExchange: 'IBM-NYS'
+          - ticker: 'IBM'
+            factsetExchangeCode: 'CAN'
             startDate: '2012-01-02'
             latestTradeDate: '2023-01-01'
-            companyName: International Business Machines
-            isin: US3030751057
-            currency: EUR
+            companyName: 'International Business Machines'
+            isin: 'US3030751057'
+            currency: 'EUR'
             lastExchangeCode: '257'
-            lastExchangeName: Turquoise
-            primaryTickerExchange: NOKIA-EUR
+            lastExchangeName: 'Turquoise'
+            primaryTickerExchange: 'NOKIA-EUR'
     400Example:
-      summary: Sample error Response
+      summary: 'Sample error Response'
       value:
         errors:
-          - code: Bad Request
-            title: parameterError:['_id'] is not a valid parameter(s)
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Bad Request'
+            title: 'parameterError:[''_id''] is not a valid parameter(s)'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
     401Example:
-      summary: sample error response
+      summary: 'sample error response'
       value:
         errors:
-          - code: Not Authenticated
-            title: USERNAME-SERIAL does not have permission
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Not Authenticated'
+            title: 'USERNAME-SERIAL does not have permission'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
     403Example:
-      summary: sample error response
+      summary: 'sample error response'
       value:
         errors:
-          - code: Forbidden
-            title: USERNAME-SERIAL does not have permission
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Forbidden'
+            title: 'USERNAME-SERIAL does not have permission'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
     500Example:
-      summary: sample error response
+      summary: 'sample error response'
       value:
         errors:
-          - code: Internal server error
-            title: An unexpected error happened
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Internal server error'
+            title: 'An unexpected error happened'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
     429Example:
-      summary: sample error response
+      summary: 'sample error response'
       value:
         errors:
-          - code: Too Many Requests
-            title: quantityLimitsExceeded
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Too Many Requests'
+            title: 'quantityLimitsExceeded'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
     404Example:
-      summary: sample error response
+      summary: 'sample error response'
       value:
         errors:
-          - code: Not Found
-            title: id not found
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Not Found'
+            title: 'id not found'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
 tags:
-  - name: Level 1
-    description: >-
-      API provides access to check coverage and retrieve Level 1 historical tick
-      data
+  - name: 'Level 1'
+    description: 'API provides access to check coverage and retrieve Level 1 historical tick data'

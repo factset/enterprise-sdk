@@ -100,6 +100,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                     startdate="startdate_example",
                     enddate="enddate_example",
                     frequency="frequency_example",
+                    calendar="calendar_example",
                 ),
                 datasources=PACalculationDataSources(
                     portfoliopricingsources=[
@@ -561,6 +562,7 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
                     startdate="startdate_example",
                     enddate="enddate_example",
                     frequency="frequency_example",
+                    calendar="calendar_example",
                 ),
                 datasources=PACalculationDataSources(
                     portfoliopricingsources=[

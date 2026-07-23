@@ -82,6 +82,7 @@ docs/TranscriptsRequestMeta.md
 docs/TranscriptsRequestMetaPagination.md
 docs/TranscriptsResponse.md
 docs/TranscriptsResponseData.md
+docs/TranscriptsResult.md
 git_push.sh
 src/FactSet.SDK.EventsandTranscripts/Api/CalendarEventsApi.cs
 src/FactSet.SDK.EventsandTranscripts/Api/EventsAudioApi.cs
@@ -179,3 +180,4 @@ src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsRequestMeta.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsRequestMetaPagination.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsResponse.cs
 src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsResponseData.cs
+src/FactSet.SDK.EventsandTranscripts/Model/TranscriptsResult.cs

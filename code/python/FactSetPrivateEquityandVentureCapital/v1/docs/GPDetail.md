@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_id** | **str, none_type** | Unique FactSet identifier for the GP used in request | [optional] 
 **gp_name** | **str, none_type** | General partner name | [optional] 
-**investment_criteria** | [**GPDetailInvestmentCriteria**](GPDetailInvestmentCriteria.md) |  | [optional] 
 **features** | [**GPDetailFeatures**](GPDetailFeatures.md) |  | [optional] 
 **aum** | [**AUMItem**](AUMItem.md) |  | [optional] 
 **error** | [**ErrorObjectResponse**](ErrorObjectResponse.md) |  | [optional] 

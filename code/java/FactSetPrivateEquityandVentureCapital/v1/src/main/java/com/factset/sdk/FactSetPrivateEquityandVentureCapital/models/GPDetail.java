@@ -20,7 +20,6 @@ import java.util.HashMap;
 import com.factset.sdk.FactSetPrivateEquityandVentureCapital.models.AUMItem;
 import com.factset.sdk.FactSetPrivateEquityandVentureCapital.models.ErrorObjectResponse;
 import com.factset.sdk.FactSetPrivateEquityandVentureCapital.models.GPDetailFeatures;
-import com.factset.sdk.FactSetPrivateEquityandVentureCapital.models.GPDetailInvestmentCriteria;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -43,7 +42,6 @@ import com.factset.sdk.FactSetPrivateEquityandVentureCapital.JSON;
 @JsonPropertyOrder({
   GPDetail.JSON_PROPERTY_REQUEST_ID,
   GPDetail.JSON_PROPERTY_GP_NAME,
-  GPDetail.JSON_PROPERTY_INVESTMENT_CRITERIA,
   GPDetail.JSON_PROPERTY_FEATURES,
   GPDetail.JSON_PROPERTY_AUM,
   GPDetail.JSON_PROPERTY_ERROR
@@ -58,9 +56,6 @@ public class GPDetail implements Serializable {
 
   public static final String JSON_PROPERTY_GP_NAME = "gpName";
   private JsonNullable<String> gpName = JsonNullable.<String>undefined();
-
-  public static final String JSON_PROPERTY_INVESTMENT_CRITERIA = "investmentCriteria";
-  private JsonNullable<GPDetailInvestmentCriteria> investmentCriteria = JsonNullable.<GPDetailInvestmentCriteria>undefined();
 
   public static final String JSON_PROPERTY_FEATURES = "features";
   private JsonNullable<GPDetailFeatures> features = JsonNullable.<GPDetailFeatures>undefined();
@@ -139,40 +134,6 @@ public class GPDetail implements Serializable {
 
   public void setGpName(String gpName) {
     this.gpName = JsonNullable.<String>of(gpName);
-  }
-
-
-  public GPDetail investmentCriteria(GPDetailInvestmentCriteria investmentCriteria) {
-    this.investmentCriteria = JsonNullable.<GPDetailInvestmentCriteria>of(investmentCriteria);
-    return this;
-  }
-
-   /**
-   * Get investmentCriteria
-   * @return investmentCriteria
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public GPDetailInvestmentCriteria getInvestmentCriteria() {
-        return investmentCriteria.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_INVESTMENT_CRITERIA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<GPDetailInvestmentCriteria> getInvestmentCriteria_JsonNullable() {
-    return investmentCriteria;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_INVESTMENT_CRITERIA)
-  public void setInvestmentCriteria_JsonNullable(JsonNullable<GPDetailInvestmentCriteria> investmentCriteria) {
-    this.investmentCriteria = investmentCriteria;
-  }
-
-  public void setInvestmentCriteria(GPDetailInvestmentCriteria investmentCriteria) {
-    this.investmentCriteria = JsonNullable.<GPDetailInvestmentCriteria>of(investmentCriteria);
   }
 
 
@@ -292,7 +253,6 @@ public class GPDetail implements Serializable {
     GPDetail gpDetail = (GPDetail) o;
     return equalsNullable(this.requestId, gpDetail.requestId) &&
         equalsNullable(this.gpName, gpDetail.gpName) &&
-        equalsNullable(this.investmentCriteria, gpDetail.investmentCriteria) &&
         equalsNullable(this.features, gpDetail.features) &&
         equalsNullable(this.aum, gpDetail.aum) &&
         equalsNullable(this.error, gpDetail.error);
@@ -304,7 +264,7 @@ public class GPDetail implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(requestId), hashCodeNullable(gpName), hashCodeNullable(investmentCriteria), hashCodeNullable(features), hashCodeNullable(aum), hashCodeNullable(error));
+    return Objects.hash(hashCodeNullable(requestId), hashCodeNullable(gpName), hashCodeNullable(features), hashCodeNullable(aum), hashCodeNullable(error));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -320,7 +280,6 @@ public class GPDetail implements Serializable {
     sb.append("class GPDetail {\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    gpName: ").append(toIndentedString(gpName)).append("\n");
-    sb.append("    investmentCriteria: ").append(toIndentedString(investmentCriteria)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    aum: ").append(toIndentedString(aum)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");

@@ -1,63 +1,40 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
-  title: StreetAccount News API
-  description: >-
-    The StreetAccount News API provides access to FactSet's proprietary news
-    provider, StreetAccount. StreetAccount, is a premium real-time market
-    intelligence news service that delivers comprehensive U.S., Canadian, and
-    European coverage (and expanding Asia coverage). All possible sources for
-    corporate news are scanned and key story facts are highlighted and presented
-    in an easy-to-read format.
-
-
-    **StreetAccount Filters, Headlines, and Views:**
-
-
-    These endpoints allow for the retrieval of news headlines using filters such
-    as Watchlists/Indices/Tickers, Categories (the equivalent of 'Subjects'
-    within the Workstation), Market Topics, Regions, and Sectors.  Headlines can
-    also be retrieved based on saved views within the Workstation.
-  version: 1.2.1
+  title: 'StreetAccount News API'
+  description: "The StreetAccount News API provides access to FactSet's proprietary news provider, StreetAccount. StreetAccount, is a premium real-time market intelligence news service that delivers comprehensive U.S., Canadian, and European coverage (and expanding Asia coverage). All possible sources for corporate news are scanned and key story facts are highlighted and presented in an easy-to-read format.\n\n**StreetAccount Filters, Headlines, and Views:**\n\nThese endpoints allow for the retrieval of news headlines using filters such as Watchlists/Indices/Tickers, Categories (the equivalent of 'Subjects' within the Workstation), Market Topics, Regions, and Sectors.  Headlines can also be retrieved based on saved views within the Workstation."
+  version: '1.2.1'
   contact:
-    name: FactSet Research Systems
-    url: https://developer.factset.com/contact
-    email: api@factset.com
+    name: 'FactSet Research Systems'
+    url: 'https://developer.factset.com/contact'
+    email: 'api@factset.com'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
 servers:
-  - url: https://api.factset.com/streetaccount/v1
-    description: Production Server
+  - url: 'https://api.factset.com/streetaccount/v1'
+    description: 'Production Server'
 tags:
-  - name: Filters
-    description: Get flattened or structured filters
-  - name: Headlines
-    description: Get headlines for a specified view or specified filters
-  - name: SA Bursts
-    description: Real-time burst file notifications and downloads
-  - name: Views
-    description: Create, edit and delete views
+  - name: 'Filters'
+    description: 'Get flattened or structured filters'
+  - name: 'Headlines'
+    description: 'Get headlines for a specified view or specified filters'
+  - name: 'SA Bursts'
+    description: 'Real-time burst file notifications and downloads'
+  - name: 'Views'
+    description: 'Create, edit and delete views'
 paths:
   /headlines:
     post:
-      summary: Retrieve StreetAccount headlines for given filters
-      description: >-
-        This endpoint will pull all headlines produced by StreetAccount and the
-        full story body will be returned by the data set. Filters can be
-        specified via the endpoint below. The attributes field in the request
-        body can be used to specify which fields are returned in the response.
-        If attributes are empty or not specified, the response does not omit
-        attributes.
+      summary: 'Retrieve StreetAccount headlines for given filters'
+      description: 'This endpoint will pull all headlines produced by StreetAccount and the full story body will be returned by the data set. Filters can be specified via the endpoint below. The attributes field in the request body can be used to specify which fields are returned in the response. If attributes are empty or not specified, the response does not omit attributes.'
       tags:
-        - Headlines
-      operationId: getStreetAccountHeadlines
+        - 'Headlines'
+      operationId: 'getStreetAccountHeadlines'
       requestBody:
         $ref: '#/components/requestBodies/headlinesRequest'
       responses:
         '200':
-          description: >-
-            Returns the headlines and associated story information for given
-            filters.
+          description: 'Returns the headlines and associated story information for given filters.'
           content:
             application/json:
               schema:
@@ -67,26 +44,24 @@ paths:
                   value:
                     data:
                       - storyTime: '2022-09-15T06:48:19Z'
-                        headlines: Sample Headline
-                        id: sa_story_3393235
+                        headlines: 'Sample Headline'
+                        id: 'sa_story_3393235'
                         primarySymbols:
-                          - MAR-US
+                          - 'MAR-US'
                         symbols:
-                          - MAR-US
+                          - 'MAR-US'
                         subjects:
-                          - SA_EARNINGS
-                        storyBody: Sample Body
-                        referenceUris: >-
-                          https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0315/00.pdf
-                        url: >-
-                          https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_00&_doc_date=20240315&_doc_product=SA
+                          - 'SA_EARNINGS'
+                        storyBody: 'Sample Body'
+                        referenceUris: 'https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0315/00.pdf'
+                        url: 'https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_00&_doc_date=20240315&_doc_product=SA'
                     meta:
-                      requestGuid: 79D8C5700000R
+                      requestGuid: '79D8C5700000R'
                       pagination:
                         total: 50
                         isEstimatedTotal: false
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -95,12 +70,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadHeadlinesPostRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -109,7 +79,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -121,21 +91,16 @@ paths:
           $ref: '#/components/responses/429'
   /headlines/view:
     post:
-      summary: Retrieve StreetAccount headlines for given view
-      description: >-
-        This endpoint allows you to pull all headlines produced by StreetAccount
-        for a saved view. The full story body will be returned by the data set.
-        Views can be created via the 'Create Views' endpoint.
+      summary: 'Retrieve StreetAccount headlines for given view'
+      description: 'This endpoint allows you to pull all headlines produced by StreetAccount for a saved view. The full story body will be returned by the data set. Views can be created via the ''Create Views'' endpoint.'
       tags:
-        - Headlines
-      operationId: getStreetAccountHeadlinesByView
+        - 'Headlines'
+      operationId: 'getStreetAccountHeadlinesByView'
       requestBody:
         $ref: '#/components/requestBodies/headlinesRequestByView'
       responses:
         '200':
-          description: >-
-            Returns the headlines and associated story information for given
-            view.
+          description: 'Returns the headlines and associated story information for given view.'
           content:
             application/json:
               schema:
@@ -145,26 +110,24 @@ paths:
                   value:
                     data:
                       - storyTime: '2022-09-15T06:48:19Z'
-                        headlines: Sample Headline
-                        id: sa_story_3393235
+                        headlines: 'Sample Headline'
+                        id: 'sa_story_3393235'
                         primarySymbols:
-                          - AAPL-US
+                          - 'AAPL-US'
                         symbols:
-                          - AAPL-US
+                          - 'AAPL-US'
                         subjects:
-                          - SA_EARNINGS
-                        storyBody: Sample Body
-                        referenceUris: >-
-                          https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0315/00.pdf
-                        url: >-
-                          https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_00&_doc_date=20240315&_doc_product=SA
+                          - 'SA_EARNINGS'
+                        storyBody: 'Sample Body'
+                        referenceUris: 'https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0315/00.pdf'
+                        url: 'https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_00&_doc_date=20240315&_doc_product=SA'
                     meta:
-                      requestGuid: 79D8C5700085B
+                      requestGuid: '79D8C5700085B'
                       pagination:
                         total: 50
                         isEstimatedTotal: false
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -173,12 +136,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -187,7 +145,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -199,16 +157,14 @@ paths:
           $ref: '#/components/responses/429'
   /views:
     get:
-      summary: Retrieves StreetAccount search views
-      description: >-
-        This endpoint allows you to pull the full list of StreetAccount views
-        that have been previously saved.
+      summary: 'Retrieves StreetAccount search views'
+      description: 'This endpoint allows you to pull the full list of StreetAccount views that have been previously saved.'
       tags:
-        - Views
-      operationId: getStreetAccountViews
+        - 'Views'
+      operationId: 'getStreetAccountViews'
       responses:
         '200':
-          description: Returns views.
+          description: 'Returns views.'
           content:
             application/json:
               schema:
@@ -217,31 +173,31 @@ paths:
                 Sample Response:
                   value:
                     data:
-                      - name: Sample View
+                      - name: 'Sample View'
                         tickers:
-                          - name: Marriott International, Inc. Class A.
-                            value: MAR-US
-                            type: Equity
-                          - name: Audioboom Group plc.
-                            value: JE00BJYJFG60
-                            type: Equity
-                          - name: Innergex Renewable Energy Inc.
-                            value: 45790B104
-                            type: Equity
-                          - name: Fidelity National Information Services, Inc.
+                          - name: 'Marriott International, Inc. Class A.'
+                            value: 'MAR-US'
+                            type: 'Equity'
+                          - name: 'Audioboom Group plc.'
+                            value: 'JE00BJYJFG60'
+                            type: 'Equity'
+                          - name: 'Innergex Renewable Energy Inc.'
+                            value: '45790B104'
+                            type: 'Equity'
+                          - name: 'Fidelity National Information Services, Inc.'
                             value: '2769796'
-                            type: Equity
+                            type: 'Equity'
                         isPrimary: true
                         categories:
-                          - News Media
+                          - 'News Media'
                         topics:
-                          - Market Summaries
+                          - 'Market Summaries'
                         regions:
-                          - North America
+                          - 'North America'
                         sectors:
-                          - Chemicals - Plastics & Rubber
+                          - 'Chemicals - Plastics & Rubber'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -250,12 +206,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -266,7 +217,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -276,18 +227,16 @@ paths:
                   $ref: '#/components/examples/500Details'
   /views/create:
     post:
-      summary: Creates and saves a StreetAccount view
-      description: >-
-        This endpoint allows you to create a new StreetAccount view. Select
-        watchlists/tickers and filters of your choice to create and save a view.
+      summary: 'Creates and saves a StreetAccount view'
+      description: 'This endpoint allows you to create a new StreetAccount view. Select watchlists/tickers and filters of your choice to create and save a view.'
       tags:
-        - Views
-      operationId: createStreetAccountView
+        - 'Views'
+      operationId: 'createStreetAccountView'
       requestBody:
         $ref: '#/components/requestBodies/createOrEditViewBody'
       responses:
         '201':
-          description: Creates StreetAccount view for the provided filters.
+          description: 'Creates StreetAccount view for the provided filters.'
           content:
             application/json:
               schema:
@@ -296,9 +245,9 @@ paths:
                 Sample Response:
                   value:
                     data:
-                      name: SA News View
+                      name: 'SA News View'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -307,12 +256,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -323,7 +267,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -333,20 +277,18 @@ paths:
                   $ref: '#/components/examples/500Details'
   /views/update:
     post:
-      summary: Edits and saves an existing StreetAccount view
-      description: >-
-        This endpoint allows you to edit the criteria used for a previously
-        saved StreetAccount view.
+      summary: 'Edits and saves an existing StreetAccount view'
+      description: 'This endpoint allows you to edit the criteria used for a previously saved StreetAccount view.'
       tags:
-        - Views
-      operationId: editStreetAccountView
+        - 'Views'
+      operationId: 'editStreetAccountView'
       requestBody:
         $ref: '#/components/requestBodies/createOrEditViewBody'
       responses:
         '204':
-          description: No Content
+          description: 'No Content'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -355,12 +297,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -371,7 +308,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -381,20 +318,18 @@ paths:
                   $ref: '#/components/examples/500Details'
   /views/delete:
     post:
-      summary: Deletes an existing StreetAccount view
-      description: >-
-        This endpoint allows you to delete a previously saved StreetAccount
-        view.
+      summary: 'Deletes an existing StreetAccount view'
+      description: 'This endpoint allows you to delete a previously saved StreetAccount view.'
       tags:
-        - Views
-      operationId: deleteStreetAccountView
+        - 'Views'
+      operationId: 'deleteStreetAccountView'
       requestBody:
         $ref: '#/components/requestBodies/deleteViewBody'
       responses:
         '204':
-          description: No Content
+          description: 'No Content'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -403,12 +338,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -419,7 +349,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -429,19 +359,16 @@ paths:
                   $ref: '#/components/examples/500Details'
   /quick-alert/create:
     post:
-      summary: Creates a quick-alert for given saved view
-      description: >
-        This endpoint takes in a view name and provides realtime email updates
-        on new stories coming in for the view. Only one quick alert can be
-        enabled for a view at a time. 
+      summary: 'Creates a quick-alert for given saved view'
+      description: "This endpoint takes in a view name and provides realtime email updates on new stories coming in for the view. Only one quick alert can be enabled for a view at a time. \n"
       tags:
-        - Views
-      operationId: createQuickAlertForView
+        - 'Views'
+      operationId: 'createQuickAlertForView'
       requestBody:
         $ref: '#/components/requestBodies/quickAlertsBody'
       responses:
         '201':
-          description: Creates quick-alert for view.
+          description: 'Creates quick-alert for view.'
           content:
             application/json:
               schema:
@@ -450,9 +377,9 @@ paths:
                 Sample Response:
                   value:
                     data:
-                      name: StreetAccount News
+                      name: 'StreetAccount News'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -461,7 +388,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -472,7 +399,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Internal Error
+          description: 'Internal Error'
           content:
             application/json:
               schema:
@@ -482,20 +409,18 @@ paths:
                   $ref: '#/components/examples/500Details'
   /quick-alert/delete:
     post:
-      summary: Deletes an existing quick alert for a view.
-      description: >-
-        This endpoint allows you to delete a quick alert from a previously saved
-        view.
+      summary: 'Deletes an existing quick alert for a view.'
+      description: 'This endpoint allows you to delete a quick alert from a previously saved view.'
       tags:
-        - Views
-      operationId: deleteQuickalertView
+        - 'Views'
+      operationId: 'deleteQuickalertView'
       requestBody:
         $ref: '#/components/requestBodies/quickAlertsBody'
       responses:
         '204':
-          description: Quick alert deleted.
+          description: 'Quick alert deleted.'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -504,12 +429,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -520,7 +440,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -530,21 +450,16 @@ paths:
                   $ref: '#/components/examples/500Details'
   /filters:
     get:
-      summary: Retrieve all StreetAccount filters
+      summary: 'Retrieve all StreetAccount filters'
       tags:
-        - Filters
-      operationId: getStreetAccountFilters
+        - 'Filters'
+      operationId: 'getStreetAccountFilters'
       parameters:
         - $ref: '#/components/parameters/attributes'
-      description: >-
-        If structured flag is set, parent and child filter information will be
-        returned. If flattened flag is set, flattened filters will be returned
-        which can be used with the headlines and createView endpoints. Both
-        flags can be set to return both sets of filters.  If no params are
-        provided it will return both.
+      description: 'If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.'
       responses:
         '200':
-          description: Returns all filters.
+          description: 'Returns all filters.'
           content:
             application/json:
               schema:
@@ -555,63 +470,63 @@ paths:
                     data:
                       structured:
                         categories:
-                          - name: Litigation
+                          - name: 'Litigation'
                             value:
-                              - SA_LITIGATION
+                              - 'SA_LITIGATION'
                             children:
-                              - name: Mergers & Acquisitions
+                              - name: 'Mergers & Acquisitions'
                                 value:
-                                  - SA_FILTERED_MNA
+                                  - 'SA_FILTERED_MNA'
                         topics:
-                          - name: ESG Content Summary
+                          - name: 'ESG Content Summary'
                             value:
-                              - SA_ESG_US
+                              - 'SA_ESG_US'
                             children:
-                              - name: Business Model & Innovation
+                              - name: 'Business Model & Innovation'
                                 value:
-                                  - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+                                  - 'SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION'
                         regions:
-                          - name: Asia Pacific
+                          - name: 'Asia Pacific'
                             value:
                               - '6'
                             children:
-                              - name: South Africa
+                              - name: 'South Africa'
                                 value:
                                   - '28'
                         sectors:
-                          - name: Conglomerates
+                          - name: 'Conglomerates'
                             expanded: true
                             children:
-                              - name: Alternative Energy"
+                              - name: 'Alternative Energy"'
                                 value:
                                   - 108
                         watchlists:
-                          - name: S&P 500
-                            type: Index
-                            value: SP50
+                          - name: 'S&P 500'
+                            type: 'Index'
+                            value: 'SP50'
                       flattened:
                         categories:
-                          - name: Dividends
+                          - name: 'Dividends'
                             value:
-                              - SA_DIVIDENDS
+                              - 'SA_DIVIDENDS'
                         topics:
-                          - name: 13F Summary
+                          - name: '13F Summary'
                             value:
-                              - SA_13F_SUMMARY
+                              - 'SA_13F_SUMMARY'
                         regions:
-                          - name: Canada
+                          - name: 'Canada'
                             value:
                               - '5'
                         sectors:
-                          - name: Chemical Manufacturing
+                          - name: 'Chemical Manufacturing'
                             value:
                               - 106
                         watchlists:
-                          - name: S&P 500
-                            type: Index
-                            value: SP50
+                          - name: 'S&P 500'
+                            type: 'Index'
+                            value: 'SP50'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -620,12 +535,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -634,7 +544,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -646,21 +556,16 @@ paths:
           $ref: '#/components/responses/429'
   /filters/categories:
     get:
-      summary: Retrieve all StreetAccount filter categories
+      summary: 'Retrieve all StreetAccount filter categories'
       tags:
-        - Filters
-      operationId: getStreetAccountFiltersCategories
+        - 'Filters'
+      operationId: 'getStreetAccountFiltersCategories'
       parameters:
         - $ref: '#/components/parameters/attributes'
-      description: >-
-        If structured flag is set, parent and child filter information will be
-        returned. If flattened flag is set, flattened filters will be returned
-        which can be used with the headlines and createView endpoints. Both
-        flags can be set to return both sets of filters.  If no params are
-        provided it will return both.
+      description: 'If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.'
       responses:
         '200':
-          description: Returns StreetAccount categories
+          description: 'Returns StreetAccount categories'
           content:
             application/json:
               schema:
@@ -671,20 +576,20 @@ paths:
                     data:
                       structured:
                         categories:
-                          - name: Litigation
+                          - name: 'Litigation'
                             value:
-                              - SA_LITIGATION
+                              - 'SA_LITIGATION'
                             children:
-                              - name: Mergers & Acquisitions
+                              - name: 'Mergers & Acquisitions'
                                 value:
-                                  - SA_FILTERED_MNA
+                                  - 'SA_FILTERED_MNA'
                       flattened:
                         categories:
-                          - name: Dividends
+                          - name: 'Dividends'
                             value:
-                              - SA_DIVIDENDS
+                              - 'SA_DIVIDENDS'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -693,12 +598,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -707,7 +607,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -719,21 +619,16 @@ paths:
           $ref: '#/components/responses/429'
   /filters/topics:
     get:
-      summary: Retrieve all StreetAccount filter topics
+      summary: 'Retrieve all StreetAccount filter topics'
       tags:
-        - Filters
-      operationId: getStreetAccountFiltersTopics
+        - 'Filters'
+      operationId: 'getStreetAccountFiltersTopics'
       parameters:
         - $ref: '#/components/parameters/attributes'
-      description: >-
-        If structured flag is set, parent and child filter information will be
-        returned. If flattened flag is set, flattened filters will be returned
-        which can be used with the headlines and createView endpoints. Both
-        flags can be set to return both sets of filters.  If no params are
-        provided it will return both.
+      description: 'If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.'
       responses:
         '200':
-          description: Returns StreetAccount topics.
+          description: 'Returns StreetAccount topics.'
           content:
             application/json:
               schema:
@@ -744,20 +639,20 @@ paths:
                     data:
                       structured:
                         topics:
-                          - name: ESG Content Summary
+                          - name: 'ESG Content Summary'
                             value:
-                              - SA_ESG_US
+                              - 'SA_ESG_US'
                             children:
-                              - name: Business Model & Innovation
+                              - name: 'Business Model & Innovation'
                                 value:
-                                  - SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION
+                                  - 'SA_ESG_MATERIAL_BUSINESS_MODEL_INNOVATION'
                       flattened:
                         topics:
-                          - name: 13F Summary
+                          - name: '13F Summary'
                             value:
-                              - SA_13F_SUMMARY
+                              - 'SA_13F_SUMMARY'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -766,12 +661,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -780,7 +670,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -792,21 +682,16 @@ paths:
           $ref: '#/components/responses/429'
   /filters/regions:
     get:
-      summary: Retrieve all StreetAccount filter regions
+      summary: 'Retrieve all StreetAccount filter regions'
       tags:
-        - Filters
-      operationId: getStreetAccountFiltersRegions
+        - 'Filters'
+      operationId: 'getStreetAccountFiltersRegions'
       parameters:
         - $ref: '#/components/parameters/attributes'
-      description: >-
-        If structured flag is set, parent and child filter information will be
-        returned. If flattened flag is set, flattened filters will be returned
-        which can be used with the headlines and createView endpoints. Both
-        flags can be set to return both sets of filters.  If no params are
-        provided it will return both.
+      description: 'If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.'
       responses:
         '200':
-          description: Returns StreetAccount regions.
+          description: 'Returns StreetAccount regions.'
           content:
             application/json:
               schema:
@@ -817,20 +702,20 @@ paths:
                     data:
                       structured:
                         regions:
-                          - name: Asia Pacific
+                          - name: 'Asia Pacific'
                             value:
                               - '6'
                             children:
-                              - name: South Africa
+                              - name: 'South Africa'
                                 value:
                                   - '28'
                       flattened:
                         regions:
-                          - name: Canada
+                          - name: 'Canada'
                             value:
                               - '5'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -839,12 +724,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -853,7 +733,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -865,21 +745,16 @@ paths:
           $ref: '#/components/responses/429'
   /filters/sectors:
     get:
-      summary: Retrieve all StreetAccount filter sectors
+      summary: 'Retrieve all StreetAccount filter sectors'
       tags:
-        - Filters
-      operationId: getStreetAccountFiltersSectors
+        - 'Filters'
+      operationId: 'getStreetAccountFiltersSectors'
       parameters:
         - $ref: '#/components/parameters/attributes'
-      description: >-
-        If structured flag is set, parent and child filter information will be
-        returned. If flattened flag is set, flattened filters will be returned
-        which can be used with the headlines and createView endpoints. Both
-        flags can be set to return both sets of filters.  If no params are
-        provided it will return both.
+      description: 'If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.'
       responses:
         '200':
-          description: Returns StreetAccount sectors.
+          description: 'Returns StreetAccount sectors.'
           content:
             application/json:
               schema:
@@ -890,19 +765,19 @@ paths:
                     data:
                       structured:
                         sectors:
-                          - name: Conglomerates
+                          - name: 'Conglomerates'
                             expanded: true
                             children:
-                              - name: Alternative Energy"
+                              - name: 'Alternative Energy"'
                                 value:
                                   - 108
                       flattened:
                         sectors:
-                          - name: Chemical Manufacturing
+                          - name: 'Chemical Manufacturing'
                             value:
                               - 106
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -911,12 +786,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -925,7 +795,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -937,21 +807,16 @@ paths:
           $ref: '#/components/responses/429'
   /filters/watchlists:
     get:
-      summary: Retrieve all StreetAccount filter watchlists
+      summary: 'Retrieve all StreetAccount filter watchlists'
       tags:
-        - Filters
-      operationId: getStreetAccountFiltersWatchlists
+        - 'Filters'
+      operationId: 'getStreetAccountFiltersWatchlists'
       parameters:
         - $ref: '#/components/parameters/attributes'
-      description: >-
-        If structured flag is set, parent and child filter information will be
-        returned. If flattened flag is set, flattened filters will be returned
-        which can be used with the headlines and createView endpoints. Both
-        flags can be set to return both sets of filters.  If no params are
-        provided it will return both.
+      description: 'If structured flag is set, parent and child filter information will be returned. If flattened flag is set, flattened filters will be returned which can be used with the headlines and createView endpoints. Both flags can be set to return both sets of filters.  If no params are provided it will return both.'
       responses:
         '200':
-          description: Returns StreetAccount watchlists.
+          description: 'Returns StreetAccount watchlists.'
           content:
             application/json:
               schema:
@@ -962,16 +827,16 @@ paths:
                     data:
                       structured:
                         watchlists:
-                          - name: S&P 500
-                            type: Index
-                            value: SP50
+                          - name: 'S&P 500'
+                            type: 'Index'
+                            value: 'SP50'
                       flattened:
                         watchlists:
-                          - name: S&P 500
-                            type: Index
-                            value: SP50
+                          - name: 'S&P 500'
+                            type: 'Index'
+                            value: 'SP50'
         '400':
-          description: Bad Request. This can occur for invalid parameter.
+          description: 'Bad Request. This can occur for invalid parameter.'
           content:
             application/json:
               schema:
@@ -980,12 +845,7 @@ paths:
                 default400ResponseExample:
                   $ref: '#/components/examples/BadRequest'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -994,7 +854,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: Not Found
+          description: 'Not Found'
           content:
             application/json:
               schema:
@@ -1006,30 +866,14 @@ paths:
           $ref: '#/components/responses/429'
   /sa-bursts/latest-file:
     get:
-      summary: Retrieve the latest burst file metadata and download URL
-      description: >
-        Returns JSON containing the timestamp and a download URL for the most
-        recent StreetAccount burst ZIP file. Use the `downloadUrl` in the
-        response to download the file.
-
-
-        **Response fields**
-
-
-        - **`burstDateTime`** — Timestamp of the latest burst file in ISO 8601
-        UTC format (YYYY-MM-DDTHH:mm:ssZ).
-
-
-        - **`downloadUrl`** — Opaque URL to download the burst file. Issue
-          a `GET` request to this URL to receive an HTTP 302 redirect to the file.
-          The URL contains a short-lived token unique to this burst and
-          is valid for **5 minutes**.
+      summary: 'Retrieve the latest burst file metadata and download URL'
+      description: "Returns JSON containing the timestamp and a download URL for the most recent StreetAccount burst ZIP file. Use the `downloadUrl` in the response to download the file.\n\n**Response fields**\n\n- **`burstDateTime`** — Timestamp of the latest burst file in ISO 8601 UTC format (YYYY-MM-DDTHH:mm:ssZ).\n\n- **`downloadUrl`** — Opaque URL to download the burst file. Issue\n  a `GET` request to this URL to receive an HTTP 302 redirect to the file.\n  The URL contains a short-lived token unique to this burst and\n  is valid for **5 minutes**.\n"
       tags:
-        - SA Bursts
-      operationId: getLatestBurstFile
+        - 'SA Bursts'
+      operationId: 'getLatestBurstFile'
       responses:
         '200':
-          description: Latest burst file metadata.
+          description: 'Latest burst file metadata.'
           content:
             application/json:
               schema:
@@ -1039,15 +883,9 @@ paths:
                   value:
                     data:
                       burstDateTime: '2026-04-04T11:21:06Z'
-                      downloadUrl: >-
-                        https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download
+                      downloadUrl: 'https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download'
         '401':
-          description: >
-            Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-            successfully generated an API KEY for the IP range you are
-            connecting from. For more help, select the Report Issue in the top
-            right corner of this Developer Portal specification card and choose
-            Connectivity 401 or 403 Responses.
+          description: "Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.\n"
           content:
             application/json:
               schema:
@@ -1056,7 +894,7 @@ paths:
                 default401ResponseExample:
                   $ref: '#/components/examples/AuthDetails'
         '404':
-          description: No burst file available.
+          description: 'No burst file available.'
           content:
             application/json:
               schema:
@@ -1067,7 +905,7 @@ paths:
         '429':
           $ref: '#/components/responses/429'
         '500':
-          description: Internal Server Error
+          description: 'Internal Server Error'
           content:
             application/json:
               schema:
@@ -1076,58 +914,55 @@ paths:
                 default500ResponseExample:
                   $ref: '#/components/examples/500Details'
 externalDocs:
-  description: API Documentation
-  url: https://developer.factset.com/api-catalog/streetaccount-news-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/streetaccount-news-api'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 components:
   parameters:
     attributes:
-      name: _attributes
-      in: query
-      description: >
-        Specify the type(s) of filters to be returned. Accepted values are
-        `structured` and/or `flattened`. If not specified, all filters are
-        returned.
+      name: '_attributes'
+      in: 'query'
+      description: "Specify the type(s) of filters to be returned. Accepted values are `structured` and/or `flattened`. If not specified, all filters are returned.\n"
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
           maxLength: 11
           enum:
-            - structured
-            - flattened
+            - 'structured'
+            - 'flattened'
         maxItems: 2
         uniqueItems: true
       explode: false
       required: false
   responses:
     '429':
-      description: Limit Exceeded
+      description: 'Limit Exceeded'
       headers:
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests left for the time window.
+          description: 'Number of requests left for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining till rate limit resets.
+          description: 'Number of seconds remaining till rate limit resets.'
           schema:
-            type: string
+            type: 'string'
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   requestBodies:
     headlinesRequest:
       content:
@@ -1139,9 +974,7 @@ components:
               $ref: '#/components/examples/predefinedRange'
             Using searchTime:
               $ref: '#/components/examples/searchTime'
-      description: >-
-        /filters endpoint contains the filters associated with the optional
-        parameters in the request body.
+      description: '/filters endpoint contains the filters associated with the optional parameters in the request body.'
     headlinesRequestByView:
       content:
         application/json:
@@ -1152,9 +985,9 @@ components:
               $ref: '#/components/examples/predefinedRangeid'
             Using searchTime with view name:
               $ref: '#/components/examples/searchTimeid'
-      description: View body which needs to be sent with request
+      description: 'View body which needs to be sent with request'
     quickAlertsBody:
-      description: View name to get an alert
+      description: 'View name to get an alert'
       content:
         application/json:
           schema:
@@ -1164,63 +997,63 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/CreateOrEditViewBody'
-      description: Create or Edit View Body which needs to be sent with request
+      description: 'Create or Edit View Body which needs to be sent with request'
     deleteViewBody:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/DeleteViewBody'
-      description: Delete View Body which needs to be sent with request
+      description: 'Delete View Body which needs to be sent with request'
   examples:
     predefinedRange:
-      summary: Using predefinedRange
+      summary: 'Using predefinedRange'
       value:
         data:
           tickers:
-            - value: MAR-US
-              type: Equity
-            - value: JE00BJYJFG60
-              type: Equity
-            - value: 45790B104
-              type: Equity
+            - value: 'MAR-US'
+              type: 'Equity'
+            - value: 'JE00BJYJFG60'
+              type: 'Equity'
+            - value: '45790B104'
+              type: 'Equity'
             - value: '2769796'
-              type: Equity
+              type: 'Equity'
           isPrimary: true
           categories:
-            - Earnings
+            - 'Earnings'
           topics:
-            - Market Summaries
+            - 'Market Summaries'
           regions:
-            - North America
+            - 'North America'
           sectors:
-            - Financial
-          predefinedRange: twoDays
+            - 'Financial'
+          predefinedRange: 'twoDays'
         meta:
           pagination:
             limit: 50
             offset: 0
     searchTime:
-      summary: Using searchTime
+      summary: 'Using searchTime'
       value:
         data:
           tickers:
-            - value: MAR-US
-              type: Equity
-            - value: JE00BJYJFG60
-              type: Equity
-            - value: 45790B104
-              type: Equity
+            - value: 'MAR-US'
+              type: 'Equity'
+            - value: 'JE00BJYJFG60'
+              type: 'Equity'
+            - value: '45790B104'
+              type: 'Equity'
             - value: '2769796'
-              type: Equity
+              type: 'Equity'
           isPrimary: true
           categories:
-            - Earnings
+            - 'Earnings'
           topics:
-            - Market Summaries
+            - 'Market Summaries'
           regions:
-            - North America
+            - 'North America'
           sectors:
-            - Financial
+            - 'Financial'
           searchTime:
             start: '2022-08-21T12:35:45Z'
             end: '2022-08-29T08:10:30Z'
@@ -1229,20 +1062,20 @@ components:
             limit: 50
             offset: 0
     predefinedRangeid:
-      summary: Using predefinedRange with view name
+      summary: 'Using predefinedRange with view name'
       value:
         data:
-          name: SA News View
-          predefinedRange: twoDays
+          name: 'SA News View'
+          predefinedRange: 'twoDays'
         meta:
           pagination:
             limit: 50
             offset: 0
     searchTimeid:
-      summary: Using searchTime with view name
+      summary: 'Using searchTime with view name'
       value:
         data:
-          name: SA News View
+          name: 'SA News View'
           searchTime:
             start: '2022-08-21T12:35:45Z'
             end: '2022-08-29T08:10:30Z'
@@ -1251,1054 +1084,953 @@ components:
             limit: 50
             offset: 0
     BadRequest:
-      summary: Sample Error Response
+      summary: 'Sample Error Response'
       value:
         errors:
-          - code: Bad Request
-            title: Invalid View Name.
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Bad Request'
+            title: 'Invalid View Name.'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
     BadHeadlinesPostRequest:
-      summary: Sample Error Response
+      summary: 'Sample Error Response'
       value:
         errors:
-          - code: Bad Request
-            title: Invalid request.
-            id: 7af3d86ca5954503b9244f2620fcf5eb
+          - code: 'Bad Request'
+            title: 'Invalid request.'
+            id: '7af3d86ca5954503b9244f2620fcf5eb'
     AuthDetails:
-      summary: Sample Error Response
+      summary: 'Sample Error Response'
       value:
         errors:
-          - code: Not Authenticated
-            title: Unauthenticated USERNAME-SERIAL.
-            id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+          - code: 'Not Authenticated'
+            title: 'Unauthenticated USERNAME-SERIAL.'
+            id: 'fd5a51ff-02cf-48ec-b9b1-913d64863b0'
     NotFound:
-      summary: Sample Error Response
+      summary: 'Sample Error Response'
       value:
         errors:
-          - code: Not Found
-            title: View Name not found.
-            id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+          - code: 'Not Found'
+            title: 'View Name not found.'
+            id: 'fd5a51ff-02cf-48ec-b9b1-913d64863b0'
     500Details:
-      summary: Sample Error Response
+      summary: 'Sample Error Response'
       value:
         errors:
-          - code: Internal Server error
-            title: An unexpected error happened.
-            id: fd5a51ff-02cf-48ec-b9b1-913d64863b0
+          - code: 'Internal Server error'
+            title: 'An unexpected error happened.'
+            id: 'fd5a51ff-02cf-48ec-b9b1-913d64863b0'
   schemas:
     Error:
-      type: object
-      description: Object representing an error response.
+      type: 'object'
+      description: 'Object representing an error response.'
       properties:
         errors:
-          type: array
-          description: An array of error objects.
+          type: 'array'
+          description: 'An array of error objects.'
           items:
             $ref: '#/components/schemas/ErrorObject'
     ErrorObject:
-      type: object
-      description: An object representing an error.
+      type: 'object'
+      description: 'An object representing an error.'
       properties:
         id:
-          type: string
-          description: The unique identifier for the error.
+          type: 'string'
+          description: 'The unique identifier for the error.'
         title:
-          type: string
-          description: A title or summary of the error.
+          type: 'string'
+          description: 'A title or summary of the error.'
         code:
-          type: string
-          description: The error code associated with the error.
+          type: 'string'
+          description: 'The error code associated with the error.'
     HeadlinesRequest:
-      type: object
-      description: >-
-        This request object allows you to filter the headlines related to
-        specific tickers, categories, regions, topics, sectors, and time range.
+      type: 'object'
+      description: 'This request object allows you to filter the headlines related to specific tickers, categories, regions, topics, sectors, and time range.'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             tickers:
-              type: array
-              description: >-
-                List of tickers to filter the headlines. Each ticker is an
-                object.
+              type: 'array'
+              description: 'List of tickers to filter the headlines. Each ticker is an object.'
               items:
                 $ref: '#/components/schemas/HeadlinesRequestTickersObject'
             isPrimary:
-              type: boolean
-              description: >
-                If true, stories that match the provided ticker on which the
-                ticker is a primary symbol will be returned. Additionally,
-                stories that match the other filters specified such as topics or
-                regions will also be returned. 
+              type: 'boolean'
+              description: "If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned. \n"
               example: true
             categories:
-              type: array
-              description: >-
-                A list of categories used to filter the headlines. Categories
-                are define the nature or topic of the headlines, such as
-                "Earnings". Use the `/filters/categories` endpoint to get the
-                list of available categories.
+              type: 'array'
+              description: 'A list of categories used to filter the headlines. Categories are define the nature or topic of the headlines, such as "Earnings". Use the `/filters/categories` endpoint to get the list of available categories.'
               items:
-                type: string
-                example: Earnings
+                type: 'string'
+                example: 'Earnings'
             topics:
-              type: array
-              description: >-
-                A list of topics used to filter the headlines. Topics represent
-                specific subjects or themes associated with the headlines, such
-                as "Market Summaries". Use the `/filters/topics` endpoint to get
-                the list of available topics.
+              type: 'array'
+              description: 'A list of topics used to filter the headlines. Topics represent specific subjects or themes associated with the headlines, such as "Market Summaries". Use the `/filters/topics` endpoint to get the list of available topics.'
               items:
-                type: string
-                example: Market Summaries
+                type: 'string'
+                example: 'Market Summaries'
             regions:
-              type: array
-              description: >-
-                A list of regions used to filter the headlines. Regions specify
-                the geographical location or market to which the headlines are
-                relevant, for example, "North America". Use the
-                `/filters/regions` endpoint to get the list of available
-                regions.
-
-
-                **Note:** Filtering is possible only for top-level regions, not
-                individual countries.
+              type: 'array'
+              description: "A list of regions used to filter the headlines. Regions specify the geographical location or market to which the headlines are relevant, for example, \"North America\". Use the `/filters/regions` endpoint to get the list of available regions.\n\n**Note:** Filtering is possible only for top-level regions, not individual countries."
               items:
-                type: string
-                example: North America
+                type: 'string'
+                example: 'North America'
             sectors:
-              type: array
-              description: >-
-                A list of sectors used to filter the headlines. Sectors are
-                segments or divisions of the economy or market provided by
-                StreetAccount, such as "Financial". Use the
-                `/filters/sectors`endpoint to get the list of available sectors.
+              type: 'array'
+              description: 'A list of sectors used to filter the headlines. Sectors are segments or divisions of the economy or market provided by StreetAccount, such as "Financial". Use the `/filters/sectors`endpoint to get the list of available sectors.'
               items:
-                type: string
-                example: Financial
+                type: 'string'
+                example: 'Financial'
             predefinedRange:
-              type: string
-              description: >-
-                see list of valid date ranges. Date range is mutually exclusive
-                to start/end time
+              type: 'string'
+              description: 'see list of valid date ranges. Date range is mutually exclusive to start/end time'
               enum:
-                - today
-                - twoDays
-                - oneWeek
-                - oneMonth
-                - threeMonths
-                - sixMonths
-                - oneYear
-                - threeYears
-                - fiveYears
-                - tenYears
-                - allAvailable
+                - 'today'
+                - 'twoDays'
+                - 'oneWeek'
+                - 'oneMonth'
+                - 'threeMonths'
+                - 'sixMonths'
+                - 'oneYear'
+                - 'threeYears'
+                - 'fiveYears'
+                - 'tenYears'
+                - 'allAvailable'
             searchTime:
-              type: object
-              description: Elements of search time.
+              type: 'object'
+              description: 'Elements of search time.'
               properties:
                 start:
-                  type: string
-                  format: date-time
-                  description: >-
-                    Start time for custom search. startTime must follow the ISO
-                    8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also
-                    supports offsets ±[hh]:[mm]
+                  type: 'string'
+                  format: 'date-time'
+                  description: 'Start time for custom search. startTime must follow the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets ±[hh]:[mm]'
                   example: '2022-08-21T12:35:45Z'
                 end:
-                  type: string
-                  format: date-time
-                  description: >-
-                    End time for custom search. If end time is not present, end
-                    time is automatically set to the time of the search. endTime
-                    must follow the ISO 8601 standard format,
-                    YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
-                    ±[hh]:[mm]
+                  type: 'string'
+                  format: 'date-time'
+                  description: 'End time for custom search. If end time is not present, end time is automatically set to the time of the search. endTime must follow the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets ±[hh]:[mm]'
                   example: '2022-08-29T08:10:30Z'
         meta:
-          type: object
-          description: Elements of meta object.
+          type: 'object'
+          description: 'Elements of meta object.'
           properties:
             pagination:
-              type: object
-              description: >-
-                Object defining pagination for the results pageable attribute.
-                Offset-based strategy is used for Pagination.
+              type: 'object'
+              description: 'Object defining pagination for the results pageable attribute. Offset-based strategy is used for Pagination.'
               properties:
                 limit:
-                  type: integer
+                  type: 'integer'
                   example: 50
                   default: 500
-                  description: Non-negative maximum number of entries to return.
+                  description: 'Non-negative maximum number of entries to return.'
                 offset:
-                  type: integer
+                  type: 'integer'
                   example: 0
                   default: 0
-                  description: Non-negative number of entries to skip.
+                  description: 'Non-negative number of entries to skip.'
             attributes:
-              type: array
+              type: 'array'
               items:
-                type: string
+                type: 'string'
                 enum:
-                  - headlines
-                  - storyTime
-                  - id
-                  - primarySymbols
-                  - symbols
-                  - subjects
-                  - storyBody
-                  - referenceUris
-                  - url
-              description: >-
-                A specific set of attributes to return in the response. If empty
-                or not specified, the response does not omit attributes.
+                  - 'headlines'
+                  - 'storyTime'
+                  - 'id'
+                  - 'primarySymbols'
+                  - 'symbols'
+                  - 'subjects'
+                  - 'storyBody'
+                  - 'referenceUris'
+                  - 'url'
+              description: 'A specific set of attributes to return in the response. If empty or not specified, the response does not omit attributes.'
               example:
-                - headlines
+                - 'headlines'
     HeadlinesRequestTickersObject:
-      type: object
-      description: Elements of headlines request tickers.
+      type: 'object'
+      description: 'Elements of headlines request tickers.'
       properties:
         value:
-          type: string
-          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
-          example: SP50
+          type: 'string'
+          description: 'Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.'
+          example: 'SP50'
         type:
-          type: string
-          description: |
-            The type of asset associated with the ticker.
-          example: Index
+          type: 'string'
+          description: "The type of asset associated with the ticker.\n"
+          example: 'Index'
           enum:
-            - Index
-            - ETF
-            - Mutual_Fund
-            - Portfolios
-            - Equity
-            - privateCompanies
-            - Fixed_Income
-            - Holder
+            - 'Index'
+            - 'ETF'
+            - 'Mutual_Fund'
+            - 'Portfolios'
+            - 'Equity'
+            - 'privateCompanies'
+            - 'Fixed_Income'
+            - 'Holder'
     HeadlinesRequestByView:
-      type: object
-      description: Elements of headlines request by view.
+      type: 'object'
+      description: 'Elements of headlines request by view.'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             name:
-              type: string
-              description: View name of the view to return headlines for
-              example: SA News View
+              type: 'string'
+              description: 'View name of the view to return headlines for'
+              example: 'SA News View'
             predefinedRange:
-              type: string
-              description: >-
-                see list of valid date ranges. Date range is mutually exlusive
-                to start/end time
+              type: 'string'
+              description: 'see list of valid date ranges. Date range is mutually exlusive to start/end time'
               enum:
-                - today
-                - twoDays
-                - oneWeek
-                - oneMonth
-                - threeMonths
-                - sixMonths
-                - oneYear
-                - threeYears
-                - fiveYears
-                - tenYears
-                - allAvailable
+                - 'today'
+                - 'twoDays'
+                - 'oneWeek'
+                - 'oneMonth'
+                - 'threeMonths'
+                - 'sixMonths'
+                - 'oneYear'
+                - 'threeYears'
+                - 'fiveYears'
+                - 'tenYears'
+                - 'allAvailable'
             searchTime:
-              type: object
-              description: Elements of search time.
+              type: 'object'
+              description: 'Elements of search time.'
               properties:
                 start:
-                  type: string
-                  format: date-time
-                  description: >-
-                    Start time for custom search. startTime must follow the ISO
-                    8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also
-                    supports offsets ±[hh]:[mm]
+                  type: 'string'
+                  format: 'date-time'
+                  description: 'Start time for custom search. startTime must follow the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets ±[hh]:[mm]'
                   example: '2022-08-21T12:35:45Z'
                 end:
-                  type: string
-                  format: date-time
-                  description: >-
-                    End time for custom search. If end time is not present end
-                    time is automatically set to the time of the search. endTime
-                    must follow the ISO 8601 standard format,
-                    YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets
-                    ±[hh]:[mm]
+                  type: 'string'
+                  format: 'date-time'
+                  description: 'End time for custom search. If end time is not present end time is automatically set to the time of the search. endTime must follow the ISO 8601 standard format, YYYY-MM-DDTHH:mm:ssZ (UTC). It also supports offsets ±[hh]:[mm]'
                   example: '2022-08-29T08:10:30Z'
           required:
-            - name
+            - 'name'
         meta:
-          type: object
-          description: Elements of meta object.
+          type: 'object'
+          description: 'Elements of meta object.'
           properties:
             pagination:
-              type: object
-              description: >-
-                Object defining pagination for the results pageable attribute.
-                Offset-based strategy is used for Pagination.
+              type: 'object'
+              description: 'Object defining pagination for the results pageable attribute. Offset-based strategy is used for Pagination.'
               properties:
                 limit:
-                  type: integer
+                  type: 'integer'
                   example: 50
                   default: 500
-                  description: Non-negative maximum number of entries to return.
+                  description: 'Non-negative maximum number of entries to return.'
                 offset:
-                  type: integer
+                  type: 'integer'
                   example: 0
                   default: 0
-                  description: Non-negative number of entries to skip.
+                  description: 'Non-negative number of entries to skip.'
       required:
-        - data
+        - 'data'
     QuickAlertsBody:
-      type: object
-      description: Elements of quick alerts body object.
+      type: 'object'
+      description: 'Elements of quick alerts body object.'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             name:
-              type: string
-              description: The name of the view associated with quick alerts.
-              example: StreetAccount News
+              type: 'string'
+              description: 'The name of the view associated with quick alerts.'
+              example: 'StreetAccount News'
           required:
-            - name
+            - 'name'
       required:
-        - data
+        - 'data'
     QuickAlertsResponse:
-      type: object
-      description: Elements of quick alerts response object.
+      type: 'object'
+      description: 'Elements of quick alerts response object.'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             name:
-              type: string
-              description: The name of the view associated with quick alerts.
-              example: StreetAccount News
+              type: 'string'
+              description: 'The name of the view associated with quick alerts.'
+              example: 'StreetAccount News'
     HeadlinesResponse:
-      type: object
-      description: Properties in results objects are based on return values.
+      type: 'object'
+      description: 'Properties in results objects are based on return values.'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/SearchResponseArrayObject'
         meta:
-          type: object
-          description: Elements of meta object.
+          type: 'object'
+          description: 'Elements of meta object.'
           properties:
             requestGuid:
-              type: string
-              description: >-
-                Identifier to get general information about the request that
-                produced that search response.
+              type: 'string'
+              description: 'Identifier to get general information about the request that produced that search response.'
             pagination:
-              type: object
-              description: |
-                Pagination information for the search result.
+              type: 'object'
+              description: "Pagination information for the search result.\n"
               properties:
                 total:
-                  type: integer
-                  description: |
-                    The total number of items available in the search. result.
+                  type: 'integer'
+                  description: "The total number of items available in the search. result.\n"
                   example: 50
                 isEstimatedTotal:
-                  type: boolean
-                  description: |
-                    Indicates whether the total count provided is an estimation.
+                  type: 'boolean'
+                  description: "Indicates whether the total count provided is an estimation.\n"
                   example: false
     SearchResponseArrayObject:
-      type: object
-      description: Elements of search response array object.
+      type: 'object'
+      description: 'Elements of search response array object.'
       properties:
         storyTime:
-          type: string
-          format: date-time
-          description: The timestamp when the story was published.
+          type: 'string'
+          format: 'date-time'
+          description: 'The timestamp when the story was published.'
           example: '2022-09-15T06:48:19Z'
         headlines:
-          type: string
-          description: The headline of the story.
-          example: Sample Headline
+          type: 'string'
+          description: 'The headline of the story.'
+          example: 'Sample Headline'
         id:
-          type: string
-          description: The unique identifier for the story.
-          example: sa_story_3393235
+          type: 'string'
+          description: 'The unique identifier for the story.'
+          example: 'sa_story_3393235'
         primarySymbols:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The primary symbols associated with the story.
-            example: AAPL-US
+            type: 'string'
+            description: 'The primary symbols associated with the story.'
+            example: 'AAPL-US'
         symbols:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: All symbols associated with the story.
-            example: AAPL-US
+            type: 'string'
+            description: 'All symbols associated with the story.'
+            example: 'AAPL-US'
         subjects:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The subjects associated with the story.
-            example: SA_EARNINGS
+            type: 'string'
+            description: 'The subjects associated with the story.'
+            example: 'SA_EARNINGS'
         storyBody:
-          type: string
-          description: The sample body of the story.
-          example: Sample Body
+          type: 'string'
+          description: 'The sample body of the story.'
+          example: 'Sample Body'
         referenceUris:
-          type: string
-          description: The reference URIs associated with the story.
-          example: https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0315/000.pdf
+          type: 'string'
+          description: 'The reference URIs associated with the story.'
+          example: 'https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0315/000.pdf'
         url:
-          type: string
-          description: The URL of the story.
-          example: >-
-            https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_3819300&_doc_date=2000&_doc_product=SA
+          type: 'string'
+          description: 'The URL of the story.'
+          example: 'https://my.apps.factset.com/viewer-fusion/?_doc_id=sa_story_3819300&_doc_date=2000&_doc_product=SA'
     CreateOrEditViewBody:
-      type: object
-      description: Elements of create or edit view body object.
+      type: 'object'
+      description: 'Elements of create or edit view body object.'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             name:
-              type: string
-              description: The name of the view.
-              example: SA News View
+              type: 'string'
+              description: 'The name of the view.'
+              example: 'SA News View'
             tickers:
-              type: array
+              type: 'array'
               items:
                 $ref: '#/components/schemas/CreateOrEditViewTickers'
-              description: An array of ticker objects associated with the view.
+              description: 'An array of ticker objects associated with the view.'
               example:
-                - name: Marriott International, Inc. Class A.
-                  value: MAR-US
-                  type: Equity
-                - name: Audioboom Group plc.
-                  value: JE00BJYJFG60
-                  type: Equity
-                - name: Innergex Renewable Energy Inc.
-                  value: 45790B104
-                  type: Equity
-                - name: Fidelity National Information Services, Inc.
+                - name: 'Marriott International, Inc. Class A.'
+                  value: 'MAR-US'
+                  type: 'Equity'
+                - name: 'Audioboom Group plc.'
+                  value: 'JE00BJYJFG60'
+                  type: 'Equity'
+                - name: 'Innergex Renewable Energy Inc.'
+                  value: '45790B104'
+                  type: 'Equity'
+                - name: 'Fidelity National Information Services, Inc.'
                   value: '2769796'
-                  type: Equity
+                  type: 'Equity'
             isPrimary:
-              type: boolean
-              description: >
-                If true, stories that match the provided ticker on which the
-                ticker is a primary symbol will be returned. Additionally,
-                stories that match the other filters specified such as topics or
-                regions will also be returned. 
+              type: 'boolean'
+              description: "If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned. \n"
               example: true
             categories:
-              type: array
+              type: 'array'
               items:
-                type: string
-                description: An array of categories associated with the view
-                example: Earnings
+                type: 'string'
+                description: 'An array of categories associated with the view'
+                example: 'Earnings'
             topics:
-              type: array
+              type: 'array'
               items:
-                type: string
-                description: An array of topics associated with the view.
-                example: Market Summaries
+                type: 'string'
+                description: 'An array of topics associated with the view.'
+                example: 'Market Summaries'
             regions:
-              type: array
+              type: 'array'
               items:
-                type: string
-                description: >
-                  An array of regions associated with the view.
-
-
-                  **Note:** Filtering is possible only for top-level regions,
-                  not individual countries.
-                example: North America
+                type: 'string'
+                description: "An array of regions associated with the view.\n\n**Note:** Filtering is possible only for top-level regions, not individual countries.\n"
+                example: 'North America'
             sectors:
-              type: array
+              type: 'array'
               items:
-                type: string
-                description: An array of sectors associated with the view.
-                example: Financial
+                type: 'string'
+                description: 'An array of sectors associated with the view.'
+                example: 'Financial'
             quickAlert:
-              type: boolean
-              description: >
-                Indicates whether quick alerts are enabled for the view.
-
-                A value of 'true' means quick alerts are enabled, while 'false'
-                means they are not.
+              type: 'boolean'
+              description: "Indicates whether quick alerts are enabled for the view.\nA value of 'true' means quick alerts are enabled, while 'false' means they are not.\n"
               example: false
           required:
-            - name
+            - 'name'
       required:
-        - data
+        - 'data'
     DeleteViewBody:
-      type: object
-      description: Elements of delete view body object.
+      type: 'object'
+      description: 'Elements of delete view body object.'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             name:
-              type: string
-              description: The name of the view to be deleted.
-              example: SA News View
+              type: 'string'
+              description: 'The name of the view to be deleted.'
+              example: 'SA News View'
           required:
-            - name
+            - 'name'
       required:
-        - data
+        - 'data'
     CreateOrEditViewTickers:
-      type: object
-      description: Elements of create or edit view tickers object.
+      type: 'object'
+      description: 'Elements of create or edit view tickers object.'
       properties:
         name:
-          type: string
-          description: name of the ticker
+          type: 'string'
+          description: 'name of the ticker'
         value:
-          type: string
-          description: Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.
+          type: 'string'
+          description: 'Supports Ticker-Exchange, ISIN, CUSIP and SEDOL.'
         type:
-          type: string
-          description: The type of the asset associated with the ticker.
+          type: 'string'
+          description: 'The type of the asset associated with the ticker.'
           enum:
-            - Index
-            - ETF
-            - Mutual_Fund
-            - Portfolios
-            - Equity
-            - privateCompanies
-            - Fixed_Income
-            - Holder
+            - 'Index'
+            - 'ETF'
+            - 'Mutual_Fund'
+            - 'Portfolios'
+            - 'Equity'
+            - 'privateCompanies'
+            - 'Fixed_Income'
+            - 'Holder'
     CreateViewResponse:
-      type: object
-      description: Properties in object are results of the create or save operation
+      type: 'object'
+      description: 'Properties in object are results of the create or save operation'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             name:
-              type: string
-              description: The name of the created view.
-              example: SA News View
+              type: 'string'
+              description: 'The name of the created view.'
+              example: 'SA News View'
     Views:
-      type: object
-      description: StreetAccount views
+      type: 'object'
+      description: 'StreetAccount views'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/ViewsObject'
     ViewsObject:
-      type: object
-      description: Elements of views object.
+      type: 'object'
+      description: 'Elements of views object.'
       properties:
         name:
-          type: string
-          description: The name of the view.
-          example: Sample View
+          type: 'string'
+          description: 'The name of the view.'
+          example: 'Sample View'
         tickers:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/CreateOrEditViewTickers'
-          description: An array of ticker symbols associated with the view.
+          description: 'An array of ticker symbols associated with the view.'
         isPrimary:
-          type: boolean
-          description: >
-            If true, stories that match the provided ticker on which the ticker
-            is a primary symbol will be returned. Additionally, stories that
-            match the other filters specified such as topics or regions will
-            also be returned. 
-                      
+          type: 'boolean'
+          description: "If true, stories that match the provided ticker on which the ticker is a primary symbol will be returned. Additionally, stories that match the other filters specified such as topics or regions will also be returned. \n          \n"
         categories:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: An array of categories associated with the view.
-            example: News Media
+            type: 'string'
+            description: 'An array of categories associated with the view.'
+            example: 'News Media'
         topics:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: An array of topics associated with the view.
+            type: 'string'
+            description: 'An array of topics associated with the view.'
             example: 'Market Summaries '
         regions:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: An array of regions associated with the view.
-            example: North America
+            type: 'string'
+            description: 'An array of regions associated with the view.'
+            example: 'North America'
         sectors:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: An array of sectors associated with the view.
-            example: Chemicals - Plastics & Rubber
+            type: 'string'
+            description: 'An array of sectors associated with the view.'
+            example: 'Chemicals - Plastics & Rubber'
     FilterResponse:
-      type: object
-      description: Filters Object
+      type: 'object'
+      description: 'Filters Object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             structured:
               $ref: '#/components/schemas/StructuredFilters'
             flattened:
               $ref: '#/components/schemas/FlattenedFilters'
     FlattenedFilters:
-      type: object
-      description: Flattened Filters Object.
+      type: 'object'
+      description: 'Flattened Filters Object.'
       properties:
         categories:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersCategoriesObject'
         topics:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersTopicsObject'
         regions:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersRegionsObject'
         sectors:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersSectorsObject'
         watchlists:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersWatchlistsObject'
     FlattenedFiltersCategoriesObject:
-      type: object
-      description: |
-        Elements of flattened filters categories object.
-
-        '(Note: the value array will always have just one value.)'
+      type: 'object'
+      description: "Elements of flattened filters categories object.\n\n'(Note: the value array will always have just one value.)'\n"
       properties:
         name:
-          type: string
-          description: The name of the category.
+          type: 'string'
+          description: 'The name of the category.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-          description: |
-            An array containing a single value associated with the category.
+            type: 'string'
+          description: "An array containing a single value associated with the category.\n"
     FlattenedFiltersTopicsObject:
-      type: object
-      description: |
-        Elements of flattened filters topics object.
-
-        '(Note: the value array will always have just one value.)'
+      type: 'object'
+      description: "Elements of flattened filters topics object.\n\n'(Note: the value array will always have just one value.)'\n"
       properties:
         name:
-          type: string
-          description: The name of the topic.
+          type: 'string'
+          description: 'The name of the topic.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-          description: An array containing a single value associated with the topic.
+            type: 'string'
+          description: 'An array containing a single value associated with the topic.'
     FlattenedFiltersRegionsObject:
-      type: object
-      description: |
-        Elements of flattened filters regions object.
-
-        '(Note: the value array will always have just one value.)'
+      type: 'object'
+      description: "Elements of flattened filters regions object.\n\n'(Note: the value array will always have just one value.)'\n"
       properties:
         name:
-          type: string
-          description: The name of the region.
+          type: 'string'
+          description: 'The name of the region.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-          description: >-
-            An array containing a single numeric value associated with the
-            region.
+            type: 'string'
+          description: 'An array containing a single numeric value associated with the region.'
     FlattenedFiltersSectorsObject:
-      type: object
-      description: |
-        Elements of flattened filters sectors object.
-
-        '(Note: the value array will always have just one value.)'
+      type: 'object'
+      description: "Elements of flattened filters sectors object.\n\n'(Note: the value array will always have just one value.)'\n"
       properties:
         name:
-          type: string
-          description: The name of the sector.
+          type: 'string'
+          description: 'The name of the sector.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: number
-          description: >
-            An array containing a single numeric value associated with the
-            sector.
+            type: 'number'
+          description: "An array containing a single numeric value associated with the sector.\n"
     FlattenedFiltersWatchlistsObject:
-      type: object
-      description: Elements of flattened filters watchlists object.
+      type: 'object'
+      description: 'Elements of flattened filters watchlists object.'
       properties:
         name:
-          type: string
-          description: The name of the watchlist.
+          type: 'string'
+          description: 'The name of the watchlist.'
         type:
-          type: string
-          description: The type of watchlist.
+          type: 'string'
+          description: 'The type of watchlist.'
         value:
-          type: string
-          description: The value associated with the watchlist.
+          type: 'string'
+          description: 'The value associated with the watchlist.'
       example:
-        name: S&P 500
-        type: Index
-        value: SP50
+        name: 'S&P 500'
+        type: 'Index'
+        value: 'SP50'
     StructuredFilters:
-      type: object
-      description: Structured Filters Object
+      type: 'object'
+      description: 'Structured Filters Object'
       properties:
         categories:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersCategoriesObject'
         topics:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersTopicsObject'
         regions:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersRegionsObject'
         sectors:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersSectorsObject'
         watchlists:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersWatchlistsObject'
     StructuredFiltersCategoriesObject:
-      type: object
-      description: Elements of structured filters categories.
+      type: 'object'
+      description: 'Elements of structured filters categories.'
       properties:
         name:
-          type: string
-          description: The name of the category.
-          example: Litigation
+          type: 'string'
+          description: 'The name of the category.'
+          example: 'Litigation'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The values associated with the category.
-            example: SA_LITIGATION
+            type: 'string'
+            description: 'The values associated with the category.'
+            example: 'SA_LITIGATION'
         children:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersChildrenObjectCategories'
-          description: An array of children objects.
+          description: 'An array of children objects.'
     StructuredFiltersChildrenObjectTopics:
-      type: object
-      description: Elements of structured filters children topics object.
+      type: 'object'
+      description: 'Elements of structured filters children topics object.'
       properties:
         name:
-          type: string
-          description: The name of the children.
+          type: 'string'
+          description: 'The name of the children.'
         children:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersChildrenObjectTopicsNested'
-          description: An array of children objects.
+          description: 'An array of children objects.'
     StructuredFiltersChildrenObjectTopicsNested:
-      type: object
-      description: Elements of structured filters children topics object.
+      type: 'object'
+      description: 'Elements of structured filters children topics object.'
       properties:
         name:
-          type: string
-          description: The name of the children.
+          type: 'string'
+          description: 'The name of the children.'
         children:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersChildrenObjectTopicsNested2'
-          description: An array of children objects.
+          description: 'An array of children objects.'
     StructuredFiltersChildrenObjectTopicsNested2:
-      type: object
-      description: Elements of structured filters children topics object.
+      type: 'object'
+      description: 'Elements of structured filters children topics object.'
       properties:
         name:
-          type: string
-          description: The name of the children.
+          type: 'string'
+          description: 'The name of the children.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The values associated with the category.
-            example: SA_LITIGATION
+            type: 'string'
+            description: 'The values associated with the category.'
+            example: 'SA_LITIGATION'
     StructuredFiltersChildrenObjectCategories:
-      type: object
-      description: Elements of structured filters children categories object.
+      type: 'object'
+      description: 'Elements of structured filters children categories object.'
       properties:
         name:
-          type: string
-          description: The name of the children.
+          type: 'string'
+          description: 'The name of the children.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The values associated with the children.
+            type: 'string'
+            description: 'The values associated with the children.'
     StructuredFiltersChildrenObjectRegions:
-      type: object
-      description: Elements of structured filters regions children object.
+      type: 'object'
+      description: 'Elements of structured filters regions children object.'
       properties:
         name:
-          type: string
-          description: The name of the children.
+          type: 'string'
+          description: 'The name of the children.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The values associated with the children.
+            type: 'string'
+            description: 'The values associated with the children.'
     StructuredFiltersChildrenObjectSectors:
-      type: object
-      description: Elements of structured filters sectors children object.
+      type: 'object'
+      description: 'Elements of structured filters sectors children object.'
       properties:
         name:
-          type: string
-          description: The name of the children.
+          type: 'string'
+          description: 'The name of the children.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: number
-            description: The values associated with the children.
+            type: 'number'
+            description: 'The values associated with the children.'
     StructuredFiltersTopicsObject:
-      type: object
-      description: Elements of structured filters topics object.
+      type: 'object'
+      description: 'Elements of structured filters topics object.'
       properties:
         name:
-          type: string
-          description: The name of the topic.
-          example: ESG Content Summary
+          type: 'string'
+          description: 'The name of the topic.'
+          example: 'ESG Content Summary'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The values associated with the topic.
-            example: SA_ESG_US
+            type: 'string'
+            description: 'The values associated with the topic.'
+            example: 'SA_ESG_US'
         children:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersChildrenObjectTopics'
-          description: An array of child objects.
+          description: 'An array of child objects.'
       required:
-        - name
+        - 'name'
     StructuredFiltersRegionsObject:
-      type: object
-      description: Elements of structured filters regions object.
+      type: 'object'
+      description: 'Elements of structured filters regions object.'
       properties:
         name:
-          type: string
-          description: The name of the region.
-          example: Asia Pacific
+          type: 'string'
+          description: 'The name of the region.'
+          example: 'Asia Pacific'
         value:
-          type: array
+          type: 'array'
           items:
-            type: string
-            description: The values associated with the region
+            type: 'string'
+            description: 'The values associated with the region'
         children:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersChildrenObjectRegions'
-          description: An array of children objects.
+          description: 'An array of children objects.'
     StructuredFiltersSectorsObject:
-      type: object
-      description: Elements of structured filters sectors object.
+      type: 'object'
+      description: 'Elements of structured filters sectors object.'
       properties:
         name:
-          type: string
-          description: The name of the sector
-          example: Conglomerates
+          type: 'string'
+          description: 'The name of the sector'
+          example: 'Conglomerates'
         expanded:
-          type: boolean
-          description: It returns the boolean value.
+          type: 'boolean'
+          description: 'It returns the boolean value.'
         children:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersChildrenObjectSectors'
-          description: An array of child objects representing sectors.
+          description: 'An array of child objects representing sectors.'
         value:
-          type: array
+          type: 'array'
           items:
-            type: number
-            description: The values associated with the region
+            type: 'number'
+            description: 'The values associated with the region'
             example: 6
     StructuredFiltersWatchlistsObject:
-      type: object
-      description: Elements of structured filters watchlists object.
+      type: 'object'
+      description: 'Elements of structured filters watchlists object.'
       properties:
         name:
-          type: string
-          description: The name of the watchlist.
-          example: S&P 500
+          type: 'string'
+          description: 'The name of the watchlist.'
+          example: 'S&P 500'
         type:
-          type: string
-          description: The type of watchlist.
-          example: Index
+          type: 'string'
+          description: 'The type of watchlist.'
+          example: 'Index'
         value:
-          type: string
-          description: The value associated with the watchlist.
-          example: SP50
+          type: 'string'
+          description: 'The value associated with the watchlist.'
+          example: 'SP50'
     FilterTopicResponse:
-      type: object
-      description: Filters Topic Object
+      type: 'object'
+      description: 'Filters Topic Object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             structured:
               $ref: '#/components/schemas/StructuredFiltersTopics'
             flattened:
               $ref: '#/components/schemas/FlattenedFiltersTopics'
     FlattenedFiltersTopics:
-      type: object
-      description: Flattened Filters Topic Object
+      type: 'object'
+      description: 'Flattened Filters Topic Object'
       properties:
         topics:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersTopicsObject'
     StructuredFiltersTopics:
-      type: object
-      description: Structured Filters Topic Object
+      type: 'object'
+      description: 'Structured Filters Topic Object'
       properties:
         topics:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersTopicsObject'
     FilterCategoriesResponse:
-      type: object
-      description: FiltersCategories Object
+      type: 'object'
+      description: 'FiltersCategories Object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             structured:
               $ref: '#/components/schemas/StructuredFiltersCategories'
             flattened:
               $ref: '#/components/schemas/FlattenedFiltersCategories'
     FlattenedFiltersCategories:
-      type: object
-      description: Flattened FiltersCategories Object
+      type: 'object'
+      description: 'Flattened FiltersCategories Object'
       properties:
         categories:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersCategoriesObject'
     StructuredFiltersCategories:
-      type: object
-      description: Structured FiltersCategories Object
+      type: 'object'
+      description: 'Structured FiltersCategories Object'
       properties:
         categories:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersCategoriesObject'
     FilterRegionsResponse:
-      type: object
-      description: FiltersRegions Object
+      type: 'object'
+      description: 'FiltersRegions Object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             structured:
               $ref: '#/components/schemas/StructuredFiltersRegions'
             flattened:
               $ref: '#/components/schemas/FlattenedFiltersRegions'
     FlattenedFiltersRegions:
-      type: object
-      description: Flattened FiltersRegions Object
+      type: 'object'
+      description: 'Flattened FiltersRegions Object'
       properties:
         regions:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersRegionsObject'
     StructuredFiltersRegions:
-      type: object
-      description: Structured FiltersRegions Object
+      type: 'object'
+      description: 'Structured FiltersRegions Object'
       properties:
         regions:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersRegionsObject'
     FilterSectorsResponse:
-      type: object
-      description: FiltersSectors Object
+      type: 'object'
+      description: 'FiltersSectors Object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             structured:
               $ref: '#/components/schemas/StructuredFiltersSectors'
             flattened:
               $ref: '#/components/schemas/FlattenedFiltersSectors'
     FlattenedFiltersSectors:
-      type: object
-      description: Flattened FiltersSectors Object
+      type: 'object'
+      description: 'Flattened FiltersSectors Object'
       properties:
         sectors:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersSectorsObject'
     StructuredFiltersSectors:
-      type: object
-      description: Structured FiltersSectors Object
+      type: 'object'
+      description: 'Structured FiltersSectors Object'
       properties:
         sectors:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersSectorsObject'
     FilterWatchlistsResponse:
-      type: object
-      description: FiltersWatchlists Object
+      type: 'object'
+      description: 'FiltersWatchlists Object'
       properties:
         data:
-          type: object
+          type: 'object'
           properties:
             structured:
               $ref: '#/components/schemas/StructuredFiltersWatchlists'
             flattened:
               $ref: '#/components/schemas/FlattenedFiltersWatchlists'
     FlattenedFiltersWatchlists:
-      type: object
-      description: Flattened FilterWatchlists Object
+      type: 'object'
+      description: 'Flattened FilterWatchlists Object'
       properties:
         watchlists:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FlattenedFiltersWatchlistsObject'
     StructuredFiltersWatchlists:
-      type: object
-      description: Structured FiltersWatchlists Object
+      type: 'object'
+      description: 'Structured FiltersWatchlists Object'
       properties:
         watchlists:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/StructuredFiltersWatchlistsObject'
     BurstFileResponse:
-      type: object
-      description: Latest burst file metadata and download URL.
+      type: 'object'
+      description: 'Latest burst file metadata and download URL.'
       properties:
         data:
-          type: object
-          description: Response data containing burst file metadata.
+          type: 'object'
+          description: 'Response data containing burst file metadata.'
           properties:
             burstDateTime:
-              type: string
-              format: date-time
-              description: Timestamp in ISO 8601 format (UTC).
+              type: 'string'
+              format: 'date-time'
+              description: 'Timestamp in ISO 8601 format (UTC).'
               example: '2026-04-04T11:21:06Z'
             downloadUrl:
-              type: string
-              description: >
-                Opaque URL to download the burst file. Contains a short-lived
-                token unique to this burst. Issue a GET to this URL to receive
-                an HTTP 302 redirect to the file. Valid for 5 minutes.
-              example: >-
-                https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download
+              type: 'string'
+              description: "Opaque URL to download the burst file. Contains a short-lived token unique to this burst. Issue a GET to this URL to receive an HTTP 302 redirect to the file. Valid for 5 minutes.\n"
+              example: 'https://api.factset.com/streetaccount/v1/sa-bursts/g6hjadf8c3b2e1f0/download'

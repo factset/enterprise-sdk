@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault
+ * PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching
  */
 public enum JobTypes {
   
@@ -41,7 +41,9 @@ public enum JobTypes {
   
   PUB("PUB"),
   
-  VAULT("vault");
+  VAULT("vault"),
+  
+  DATAPREP("dataPrep");
 
   private String value;
 

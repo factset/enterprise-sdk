@@ -41,7 +41,6 @@ docs/FundraisingRound.md
 docs/FundsApi.md
 docs/GPDetail.md
 docs/GPDetailFeatures.md
-docs/GPDetailInvestmentCriteria.md
 docs/GPDetailsResponse.md
 docs/GPFund.md
 docs/GPFundsResponse.md
@@ -140,7 +139,6 @@ src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/FundSummary.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/FundraisingRound.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/GPDetail.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/GPDetailFeatures.cs
-src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/GPDetailInvestmentCriteria.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/GPDetailsResponse.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/GPFund.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Model/GPFundsResponse.cs

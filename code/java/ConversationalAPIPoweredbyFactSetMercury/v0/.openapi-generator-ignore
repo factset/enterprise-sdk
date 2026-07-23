@@ -1,0 +1,4 @@
+# ignore build system files we do not use
+
+**/pom.xml
+**/build.sbt

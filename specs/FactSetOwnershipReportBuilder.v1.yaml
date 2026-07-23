@@ -1,7 +1,7 @@
 components:
   examples:
     default200Response:
-      summary: (dummy data - equity holders)
+      summary: '(dummy data - equity holders)'
       value:
         data:
           tables:
@@ -11,19 +11,19 @@ components:
                   adj_mv:
                     items:
                       currencyCode:
-                        value: USD
+                        value: 'USD'
                       currencySymbol:
-                        value: $
+                        value: '$'
                       scale:
                         value: 6
                   pcprt:
                     items:
                       valueType:
-                        value: PERCENTAGE
+                        value: 'PERCENTAGE'
                   pctowns:
                     items:
                       valueType:
-                        value: PERCENTAGE
+                        value: 'PERCENTAGE'
                   position:
                     items:
                       scale:
@@ -34,57 +34,57 @@ components:
                         value: 3
                 rows:
                   - cells:
-                      - All Holders
+                      - 'All Holders'
                       - '%OS'
-                      - Position (000)
-                      - Pos Change (000)
-                      - Mkt Val (MM)
+                      - 'Position (000)'
+                      - 'Pos Change (000)'
+                      - 'Mkt Val (MM)'
                       - '% Port'
-                      - Activism
-                      - Report Date
-                      - Source
+                      - 'Activism'
+                      - 'Report Date'
+                      - 'Source'
                     headerCellDetails:
                       '0':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '1':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '2':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '3':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '4':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '5':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '6':
                         columnIndex: 0
-                        source: PRIMARY
+                        source: 'PRIMARY'
                       '7':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '8':
                         columnIndex: 0
-                        source: HEADERS
-                    rowType: Header
+                        source: 'HEADERS'
+                    rowType: 'Header'
                   - cells:
-                      - The Vanguard Group, Inc.
+                      - 'The Vanguard Group, Inc.'
                       - 9.8903
                       - 3757653
                       - -115462
                       - 1252876663.26
                       - 0.023711
-                      - Very Low
+                      - 'Very Low'
                       - '2020-06-30'
-                      - 13F Form
+                      - '13F Form'
                     rowMetadata:
                       holderId:
-                        value: F72998
+                        value: 'F72998'
                   - cells:
                       - ' Vanguard Total Stock Market Index Fund'
                       - 2.8321
@@ -94,7 +94,7 @@ components:
                       - 0.037892
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4004630'
@@ -107,7 +107,7 @@ components:
                       - 0.273436
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4005398'
@@ -120,7 +120,7 @@ components:
                       - 0.239476
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4004539'
@@ -133,7 +133,7 @@ components:
                       - 0.075905
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4004567'
@@ -146,7 +146,7 @@ components:
                       - 0.151329
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4048126'
@@ -159,7 +159,7 @@ components:
                       - 0.500536
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4048682'
@@ -172,7 +172,7 @@ components:
                       - 0.377082
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4039461'
@@ -185,7 +185,7 @@ components:
                       - 0.74321
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4107013'
@@ -198,7 +198,7 @@ components:
                       - 0.244843
                       - null
                       - '2020-06-30'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4007901'
@@ -211,229 +211,229 @@ components:
                       - 0.037833
                       - null
                       - '2020-07-31'
-                      - US Fund (N-30D)
+                      - 'US Fund (N-30D)'
                     rowMetadata:
                       holderId:
                         value: ' M4017307'
               definition:
                 columns:
-                  - id: holderName
+                  - id: 'holderName'
                     isDimension: true
-                    type: string
-                  - id: pctowns
-                    type: real
-                  - id: position
-                    type: real
-                  - id: postionchg
-                    type: real
-                  - id: adj_mv
-                    type: real
-                  - id: pcprt
-                    type: real
-                  - id: actscore
-                    type: string
-                  - id: reportdate
-                    type: string
-                  - id: source
-                    type: string
+                    type: 'string'
+                  - id: 'pctowns'
+                    type: 'real'
+                  - id: 'position'
+                    type: 'real'
+                  - id: 'postionchg'
+                    type: 'real'
+                  - id: 'adj_mv'
+                    type: 'real'
+                  - id: 'pcprt'
+                    type: 'real'
+                  - id: 'actscore'
+                    type: 'string'
+                  - id: 'reportdate'
+                    type: 'string'
+                  - id: 'source'
+                    type: 'string'
               headersDefinition:
                 columns:
-                  - id: ownershipTableHeader
+                  - id: 'ownershipTableHeader'
                     isDimension: true
-                    type: string
+                    type: 'string'
           version: '2.0'
         meta:
-          fsymId: SQFMK3-R
-          requestId: FDS-US
+          fsymId: 'SQFMK3-R'
+          requestId: 'FDS-US'
     defaultUltimateParent200Response:
-      summary: (dummy data - ultimate parent)
+      summary: '(dummy data - ultimate parent)'
       value:
         data:
           columns:
-            - contextualType: string
-              name: name
-            - contextualType: int64
-              name: pctos
-            - contextualType: int64
-              name: pos
-            - contextualType: int64
-              name: poschg
-            - contextualType: int64
-              name: mv
-            - contextualType: int64
-              name: mvchg
-            - contextualType: int64
-              name: pcprt
-            - contextualType: string
-              name: report_date
-            - contextualType: string
-              name: source
-            - contextualType: string
-              name: holderId
-            - contextualType: string
-              name: pk
-            - contextualType: string
-              name: rowPath
-            - contextualType: boolean
-              name: aggr
+            - contextualType: 'string'
+              name: 'name'
+            - contextualType: 'int64'
+              name: 'pctos'
+            - contextualType: 'int64'
+              name: 'pos'
+            - contextualType: 'int64'
+              name: 'poschg'
+            - contextualType: 'int64'
+              name: 'mv'
+            - contextualType: 'int64'
+              name: 'mvchg'
+            - contextualType: 'int64'
+              name: 'pcprt'
+            - contextualType: 'string'
+              name: 'report_date'
+            - contextualType: 'string'
+              name: 'source'
+            - contextualType: 'string'
+              name: 'holderId'
+            - contextualType: 'string'
+              name: 'pk'
+            - contextualType: 'string'
+              name: 'rowPath'
+            - contextualType: 'boolean'
+              name: 'aggr'
           rows:
             - aggr: true
               holderId: ''
               mv: 2190.677202
               mvchg: 185.87468708999998
-              name: The Vanguard Group, Inc.
+              name: 'The Vanguard Group, Inc.'
               pcprt: 0.10960070590000001
               pctos: 11.9781
-              pk: TheVanguardGroupInc
+              pk: 'TheVanguardGroupInc'
               pos: 4562.01
               poschg: -31.840999999999998
               report_date: ''
               rowPath: ''
               source: ''
             - aggr: true
-              holderId: F72998
+              holderId: 'F72998'
               mv: 2110.5563122
               mvchg: 176.62241719
-              name: The Vanguard Group, Inc.
+              name: 'The Vanguard Group, Inc.'
               pcprt: 0.0279046476
               pctos: 11.54
               pk: ''
               pos: 4395.161
               poschg: -36.3
-              report_date: 12/31/2023
-              rowPath: TheVanguardGroupInc
-              source: 13F Form
+              report_date: '12/31/2023'
+              rowPath: 'TheVanguardGroupInc'
+              source: '13F Form'
             - aggr: false
-              holderId: F11628548
+              holderId: 'F11628548'
               mv: 57.2451222
               mvchg: 8.15074284
-              name: Vanguard Global Advisers LLC
+              name: 'Vanguard Global Advisers LLC'
               pcprt: 0.0174503751
               pctos: 0.313
               pk: ''
               pos: 119.211
               poschg: 6.715
-              report_date: 12/31/2023
-              rowPath: TheVanguardGroupInc
-              source: 13F Form
+              report_date: '12/31/2023'
+              rowPath: 'TheVanguardGroupInc'
+              source: '13F Form'
             - aggr: false
-              holderId: F60034
+              holderId: 'F60034'
               mv: 13.7370814
               mvchg: 0.75562954
-              name: Vanguard Fiduciary Trust Co.
+              name: 'Vanguard Fiduciary Trust Co.'
               pcprt: 0.0267013638
               pctos: 0.0751
               pk: ''
               pos: 28.607
               poschg: -1.139
-              report_date: 12/31/2023
-              rowPath: TheVanguardGroupInc
-              source: 13F Form
+              report_date: '12/31/2023'
+              rowPath: 'TheVanguardGroupInc'
+              source: '13F Form'
             - aggr: false
-              holderId: F5547256
+              holderId: 'F5547256'
               mv: 7.9698794
               mvchg: 0.57840323
-              name: Vanguard Investments Australia Ltd.
+              name: 'Vanguard Investments Australia Ltd.'
               pcprt: 0.0094628924
               pctos: 0.0436
               pk: ''
               pos: 16.597
               poschg: -0.34
-              report_date: 12/31/2023
-              rowPath: TheVanguardGroupInc
-              source: 13F Form
+              report_date: '12/31/2023'
+              rowPath: 'TheVanguardGroupInc'
+              source: '13F Form'
             - aggr: false
-              holderId: F17008500
+              holderId: 'F17008500'
               mv: 1.1688068
               mvchg: -0.23250571
-              name: Vanguard Personalized Indexing Management LLC
+              name: 'Vanguard Personalized Indexing Management LLC'
               pcprt: 0.028081427
               pctos: 0.0064
               pk: ''
               pos: 2.434
               poschg: -0.777
-              report_date: 12/31/2023
-              rowPath: TheVanguardGroupInc
-              source: 13F Form
+              report_date: '12/31/2023'
+              rowPath: 'TheVanguardGroupInc'
+              source: '13F Form'
           table:
             customMetadata:
               title:
-                contextualType: string
-                value: Single Company - Point in Time - 03/12/2024
+                contextualType: 'string'
+                value: 'Single Company - Point in Time - 03/12/2024'
             groupResult:
-              aggregateRows: aggr
+              aggregateRows: 'aggr'
               by:
-                - name
-              rowPath: rowPath
+                - 'name'
+              rowPath: 'rowPath'
             primaryKeys:
-              - pk
+              - 'pk'
             totalNumRows: 1779
           version: '3.1'
           views:
-            - name: UltimateParentTable
+            - name: 'UltimateParentTable'
               table:
                 columns:
-                  - $collapsedColumn
-                  - pctos
-                  - pos
-                  - poschg
-                  - mv
-                  - mvchg
-                  - pcprt
-                  - report_date
-                  - source
-                  - holderId
+                  - '$collapsedColumn'
+                  - 'pctos'
+                  - 'pos'
+                  - 'poschg'
+                  - 'mv'
+                  - 'mvchg'
+                  - 'pcprt'
+                  - 'report_date'
+                  - 'source'
+                  - 'holderId'
                 group:
                   collapsedColumn:
-                    alias: $collapsedColumn
+                    alias: '$collapsedColumn'
                 headers:
-                  $collapsedColumn: Name
-                  holderId: Holder ID
-                  mv: Mkt Val (MM)
-                  mvchg: Mkt Val Chg (MM) [6M]
-                  name: Name
+                  $collapsedColumn: 'Name'
+                  holderId: 'Holder ID'
+                  mv: 'Mkt Val (MM)'
+                  mvchg: 'Mkt Val Chg (MM) [6M]'
+                  name: 'Name'
                   pcprt: '%Port'
                   pctos: '%OS'
-                  pos: Position (000)
-                  poschg: Position Chg (000) [6M]
-                  report_date: Report Date
-                  source: Source
+                  pos: 'Position (000)'
+                  poschg: 'Position Chg (000) [6M]'
+                  report_date: 'Report Date'
+                  source: 'Source'
         meta:
-          fsymId: SQFMK3-R
-          requestId: FDS
+          fsymId: 'SQFMK3-R'
+          requestId: 'FDS'
     endpointNotFound:
-      summary: endpoint not found
+      summary: 'endpoint not found'
       value:
         errors:
-          - code: endpointNotFound
-            id: 39314614-e607-465a-ba95-5bb79c362e23
-            title: The requested endpoint does not exist.
+          - code: 'endpointNotFound'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
+            title: 'The requested endpoint does not exist.'
     genericServerError:
-      summary: generic server error
+      summary: 'generic server error'
       value:
         errors:
-          - code: genericServerError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
-            title: Unexpected error processing request
+          - code: 'genericServerError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
+            title: 'Unexpected error processing request'
     idInvalidParameterError:
-      summary: generic parameter error (invalid parameter)
+      summary: 'generic parameter error (invalid parameter)'
       value:
         errors:
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
             title: 'Invalid parameter(s): ''id'''
         meta:
           fsymId: null
-          requestId: BAD_TICKER
+          requestId: 'BAD_TICKER'
     idRequiredParameterError:
-      summary: generic parameter error (missing parameter)
+      summary: 'generic parameter error (missing parameter)'
       value:
         errors:
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
             title: 'Missing required parameter(s): ''id'''
     noData200Response:
-      summary: (debt holders - no data case)
+      summary: '(debt holders - no data case)'
       value:
         data:
           tables:
@@ -443,31 +443,31 @@ components:
                   pctowns:
                     items:
                       valueType:
-                        value: PERCENTAGE
+                        value: 'PERCENTAGE'
                   position:
                     items:
                       currencyCode:
-                        value: USD
+                        value: 'USD'
                       currencySymbol:
-                        value: $
+                        value: '$'
                       scale:
                         value: 6
                 rows:
                   - cells:
-                      - Institutions
+                      - 'Institutions'
                       - '%OS'
-                      - Position (MM)
+                      - 'Position (MM)'
                     headerCellDetails:
                       '0':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '1':
                         columnIndex: 0
-                        source: HEADERS
+                        source: 'HEADERS'
                       '2':
                         columnIndex: 0
-                        source: HEADERS
-                    rowType: Header
+                        source: 'HEADERS'
+                    rowType: 'Header'
                   - cells:
                       - null
                       - null
@@ -477,89 +477,84 @@ components:
                         value: '@NA'
               definition:
                 columns:
-                  - id: holderName
+                  - id: 'holderName'
                     isDimension: true
-                    type: string
-                  - id: pctowns
-                    type: real
-                  - id: position
-                    type: real
+                    type: 'string'
+                  - id: 'pctowns'
+                    type: 'real'
+                  - id: 'position'
+                    type: 'real'
               headersDefinition:
                 columns:
-                  - id: ownershipTableHeader
+                  - id: 'ownershipTableHeader'
                     isDimension: true
-                    type: string
+                    type: 'string'
           version: '2.0'
         meta:
-          fsymId: DT59Y2-R
-          message: There is no data for this request.
+          fsymId: 'DT59Y2-R'
+          message: 'There is no data for this request.'
           noData: true
-          requestId: YELP-US
+          requestId: 'YELP-US'
     notAuthorized:
-      summary: not authorized
+      summary: 'not authorized'
       value:
         errors:
-          - code: notAuthorized
-            id: 39314614-e607-465a-ba95-5bb79c362e23
-            title: >-
-              User is forbidden access with current credentials. For access,
-              contact your FactSet sales representative
+          - code: 'notAuthorized'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
+            title: 'User is forbidden access with current credentials. For access, contact your FactSet sales representative'
     parameterErrorAssetType:
-      summary: asset type parameter error
+      summary: 'asset type parameter error'
       value:
         errors:
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
             title: 'Invalid parameter: ''asset_type'''
         meta:
-          fsymId: SQFMK3-R
-          requestId: FDS
+          fsymId: 'SQFMK3-R'
+          requestId: 'FDS'
     parameterErrorDate:
-      summary: date parameter error
+      summary: 'date parameter error'
       value:
         errors:
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
             title: 'Invalid parameter: ''date'''
         meta:
-          fsymId: SQFMK3-R
-          requestId: FDS
+          fsymId: 'SQFMK3-R'
+          requestId: 'FDS'
     parameterErrorEntityType:
-      summary: entity type parameter error
+      summary: 'entity type parameter error'
       value:
         errors:
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
             title: 'Invalid parameter: ''entity_type'''
         meta:
-          fsymId: SQFMK3-R
-          requestId: FDS
+          fsymId: 'SQFMK3-R'
+          requestId: 'FDS'
     parameterErrorHolderType:
-      summary: holder type parameter error
+      summary: 'holder type parameter error'
       value:
         errors:
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
             title: 'Invalid parameter: ''holder_type'''
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
-            title: >-
-              holderType parameter value is invalid with assetType ‘DEBT’. Only
-              holderType ‘INSTITUTIONS’ or ‘FUNDS’ are valid when returning
-              assetType ‘DEBT’.
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
+            title: 'holderType parameter value is invalid with assetType ‘DEBT’. Only holderType ‘INSTITUTIONS’ or ‘FUNDS’ are valid when returning assetType ‘DEBT’.'
         meta:
-          fsymId: SQFMK3-R
-          requestId: FDS
+          fsymId: 'SQFMK3-R'
+          requestId: 'FDS'
     parameterErrorTopn:
-      summary: topn parameter error
+      summary: 'topn parameter error'
       value:
         errors:
-          - code: parameterError
-            id: 39314614-e607-465a-ba95-5bb79c362e23
+          - code: 'parameterError'
+            id: '39314614-e607-465a-ba95-5bb79c362e23'
             title: 'Invalid parameter: ''topn'''
         meta:
-          fsymId: SQFMK3-R
-          requestId: FDS
+          fsymId: 'SQFMK3-R'
+          requestId: 'FDS'
   responses:
     200OKStach2:
       content:
@@ -571,34 +566,32 @@ components:
               $ref: '#/components/examples/noData200Response'
           schema:
             $ref: '#/components/schemas/ResponseHolders'
-      description: >-
-        Expected response; returns JSON data containing STACH 2.0 row organized
-        package format
+      description: 'Expected response; returns JSON data containing STACH 2.0 row organized package format'
       headers:
         Api-Supported-Versions:
-          description: Supported API versions (semantic versioning)
+          description: 'Supported API versions (semantic versioning)'
           schema:
-            type: string
+            type: 'string'
         Api-Version:
-          description: API version (semantic versioning)
+          description: 'API version (semantic versioning)'
           schema:
-            type: string
+            type: 'string'
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests remaining for the time window
+          description: 'Number of requests remaining for the time window'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining until rate limit resets
+          description: 'Number of seconds remaining until rate limit resets'
           schema:
-            type: string
+            type: 'string'
     200OKStach3:
       content:
         application/json:
@@ -607,32 +600,32 @@ components:
               $ref: '#/components/examples/defaultUltimateParent200Response'
           schema:
             $ref: '#/components/schemas/ResponseUltimateParent'
-      description: Expected response; returns JSON data containing STACH 3.1 table format
+      description: 'Expected response; returns JSON data containing STACH 3.1 table format'
       headers:
         Api-Supported-Versions:
-          description: Supported API versions (semantic versioning)
+          description: 'Supported API versions (semantic versioning)'
           schema:
-            type: string
+            type: 'string'
         Api-Version:
-          description: API version (semantic versioning)
+          description: 'API version (semantic versioning)'
           schema:
-            type: string
+            type: 'string'
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests remaining for the time window
+          description: 'Number of requests remaining for the time window'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining until rate limit resets
+          description: 'Number of seconds remaining until rate limit resets'
           schema:
-            type: string
+            type: 'string'
     400BadRequest:
       content:
         application/json:
@@ -653,61 +646,51 @@ components:
               $ref: '#/components/examples/parameterErrorTopn'
           schema:
             $ref: '#/components/schemas/ErrorWithMetaResponse'
-      description: >-
-        Bad Request. For further assistance, file an issue under "Workflow &
-        Throttling - 400 or 429 Response" using `Report Issue` at the top of
-        this page, including the X-DataDirect-Request-Key from the header to
-        assist in troubleshooting.
+      description: 'Bad Request. For further assistance, file an issue under "Workflow & Throttling - 400 or 429 Response" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting.'
       headers:
         Api-Supported-Versions:
-          description: Supported API versions
+          description: 'Supported API versions'
           schema:
-            type: string
+            type: 'string'
         Api-Version:
-          description: API version (semantic versioning)
+          description: 'API version (semantic versioning)'
           schema:
-            type: string
+            type: 'string'
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests remaining for the time window
+          description: 'Number of requests remaining for the time window'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining until rate limit resets
+          description: 'Number of seconds remaining until rate limit resets'
           schema:
-            type: string
+            type: 'string'
     401Unauthorized:
-      description: >-
-        Missing or invalid authentication. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
-        from. For further assistance, file an issue under "Connectivty - 401 or
-        403 Responses" using `Report Issue` at the top of this page, including
-        the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
+      description: 'Missing or invalid authentication. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For further assistance, file an issue under "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting.'
       headers:
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests remaining for the time window
+          description: 'Number of requests remaining for the time window'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining until rate limit resets
+          description: 'Number of seconds remaining until rate limit resets'
           schema:
-            type: string
+            type: 'string'
     403Forbidden:
       content:
         application/json:
@@ -716,29 +699,24 @@ components:
               $ref: '#/components/examples/notAuthorized'
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-      description: >-
-        User is forbidden access with current credentials. Reach out to your
-        local FactSet Account Manager for assistance, or file an issue under
-        "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of
-        this page, including the X-DataDirect-Request-Key from the header to
-        assist in troubleshooting.
+      description: 'User is forbidden access with current credentials. Reach out to your local FactSet Account Manager for assistance, or file an issue under "Connectivty - 401 or 403 Responses" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting.'
       headers:
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests remaining for the time window
+          description: 'Number of requests remaining for the time window'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining until rate limit resets
+          description: 'Number of seconds remaining until rate limit resets'
           schema:
-            type: string
+            type: 'string'
     404NotFound:
       content:
         application/json:
@@ -747,52 +725,43 @@ components:
               $ref: '#/components/examples/endpointNotFound'
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-      description: >-
-        Not found. For further assistance, file an issue under "Performance -
-        404 and 500 Responses" using `Report Issue` at the top of this page,
-        including the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
+      description: 'Not found. For further assistance, file an issue under "Performance - 404 and 500 Responses" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting.'
       headers:
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests remaining for the time window
+          description: 'Number of requests remaining for the time window'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining until rate limit resets
+          description: 'Number of seconds remaining until rate limit resets'
           schema:
-            type: string
+            type: 'string'
     429TooManyRequests:
-      description: >-
-        Too many requests - this API is rate-limited to 20 requests per second.
-        For further assistance, file an issue under "Workflow & Throttling - 400
-        or 429 Response" using `Report Issue` at the top of this page, including
-        the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
+      description: 'Too many requests - this API is rate-limited to 20 requests per second. For further assistance, file an issue under "Workflow & Throttling - 400 or 429 Response" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting.'
       headers:
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit:
-          description: Number of allowed requests for the time window.
+          description: 'Number of allowed requests for the time window.'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Remaining:
-          description: Number of requests remaining for the time window
+          description: 'Number of requests remaining for the time window'
           schema:
-            type: string
+            type: 'string'
         X-FactSet-Api-RateLimit-Limit-Reset:
-          description: Number of seconds remaining until rate limit resets
+          description: 'Number of seconds remaining until rate limit resets'
           schema:
-            type: string
+            type: 'string'
     500InternalServerError:
       content:
         application/json:
@@ -801,233 +770,197 @@ components:
               $ref: '#/components/examples/genericServerError'
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-      description: >-
-        Server error. For further assistance, file an issue under "Performance -
-        404 and 500 Responses" using `Report Issue` at the top of this page,
-        including the X-DataDirect-Request-Key from the header to assist in
-        troubleshooting.
+      description: 'Server error. For further assistance, file an issue under "Performance - 404 and 500 Responses" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting.'
       headers:
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
     503ServiceUnavailable:
-      description: >-
-        Service unavailable. Typically a timeout, or result of a rejected
-        request to prevent service overload. For further assistance, file an
-        issue under "Performance - 404 and 500 Responses" using `Report Issue`
-        at the top of this page, including the X-DataDirect-Request-Key from the
-        header to assist in troubleshooting.
+      description: 'Service unavailable. Typically a timeout, or result of a rejected request to prevent service overload. For further assistance, file an issue under "Performance - 404 and 500 Responses" using `Report Issue` at the top of this page, including the X-DataDirect-Request-Key from the header to assist in troubleshooting.'
       headers:
         X-DataDirect-Request-Key:
-          description: FactSet request ID
+          description: 'FactSet request ID'
           schema:
-            type: string
+            type: 'string'
   schemas:
     ErrorObject:
-      description: Schema describing an API error
+      description: 'Schema describing an API error'
       properties:
         code:
-          description: A common or API-specific error code.
-          type: string
+          description: 'A common or API-specific error code.'
+          type: 'string'
         detail:
-          description: >-
-            A human-readable explanation specific to the occurrence of the
-            problem.
-          type: string
+          description: 'A human-readable explanation specific to the occurrence of the problem.'
+          type: 'string'
         id:
-          description: >-
-            A UUID for this particular ocurrence of the problem.  This will be
-            logged for debugging.
-          type: string
+          description: 'A UUID for this particular ocurrence of the problem.  This will be logged for debugging.'
+          type: 'string'
         links:
-          description: >-
-            An object with a member "about" containing a link that leads to
-            further details about the problem.
+          description: 'An object with a member "about" containing a link that leads to further details about the problem.'
           properties:
             about:
-              description: Link to further details about the problem
-              type: string
-          type: object
+              description: 'Link to further details about the problem'
+              type: 'string'
+          type: 'object'
         source:
-          description: >-
-            An object containing references to the source of the error,
-            optionally including additional members
+          description: 'An object containing references to the source of the error, optionally including additional members'
           properties:
             parameter:
-              description: >-
-                A string indicating which path or URI query parameter caused the
-                error
-              type: string
-          type: object
+              description: 'A string indicating which path or URI query parameter caused the error'
+              type: 'string'
+          type: 'object'
         title:
-          description: >-
-            A short, human-readable summary of the problem.  This should not
-            change from occurrence to occurrence of the problem
-          type: string
-      type: object
+          description: 'A short, human-readable summary of the problem.  This should not change from occurrence to occurrence of the problem'
+          type: 'string'
+      type: 'object'
     ErrorResponse:
-      description: Standard Ownership response when an error occurs.
+      description: 'Standard Ownership response when an error occurs.'
       properties:
         errors:
-          description: Any errors that occured which made this request unservicable
+          description: 'Any errors that occured which made this request unservicable'
           items:
             $ref: '#/components/schemas/ErrorObject'
-          type: array
-      type: object
+          type: 'array'
+      type: 'object'
     ErrorWithMetaResponse:
-      description: Standard Ownership response when an error occurs.
+      description: 'Standard Ownership response when an error occurs.'
       properties:
         errors:
-          description: Any errors that occured which made this request unservicable
+          description: 'Any errors that occured which made this request unservicable'
           items:
             $ref: '#/components/schemas/ErrorObject'
-          type: array
+          type: 'array'
         meta:
           $ref: '#/components/schemas/Meta'
-      type: object
+      type: 'object'
     Meta:
-      description: >-
-        Standard Ownership response meta object.  Contains metadata about the
-        response at the root level.
+      description: 'Standard Ownership response meta object.  Contains metadata about the response at the root level.'
       properties:
         currency:
-          description: The currency ISO of the data which was returned
+          description: 'The currency ISO of the data which was returned'
           nullable: true
-          type: string
+          type: 'string'
         fsymId:
-          description: The resolved fsymId that corresponds to the provided requestId
+          description: 'The resolved fsymId that corresponds to the provided requestId'
           nullable: true
-          type: string
+          type: 'string'
         noData:
-          description: Indicator of whether FactSet had data for this request
+          description: 'Indicator of whether FactSet had data for this request'
           nullable: true
-          type: boolean
+          type: 'boolean'
         requestId:
-          description: The identifier which was requested by the client
-          type: string
-      type: object
+          description: 'The identifier which was requested by the client'
+          type: 'string'
+      type: 'object'
     ResponseHolders:
-      description: Standard response schema for the Holders endpoint
+      description: 'Standard response schema for the Holders endpoint'
       properties:
         data:
-          description: Returns a STACH 2.0 row organized package
-          title: STACH
-          type: object
+          description: 'Returns a STACH 2.0 row organized package'
+          title: 'STACH'
+          type: 'object'
         meta:
           $ref: '#/components/schemas/Meta'
-      type: object
+      type: 'object'
     ResponseUltimateParent:
-      description: Standard response schema for the Ultimate Parent endpoint
+      description: 'Standard response schema for the Ultimate Parent endpoint'
       properties:
         data:
-          description: >-
-            Returns a STACH 3.1 row organized package.  For more detail on the
-            STACH format, please view our publicly hosted
-            [documentation](https://factset.github.io/stachschema/#/)
-          title: STACH
-          type: object
+          description: 'Returns a STACH 3.1 row organized package.  For more detail on the STACH format, please view our publicly hosted [documentation](https://factset.github.io/stachschema/#/)'
+          title: 'STACH'
+          type: 'object'
         meta:
           $ref: '#/components/schemas/Meta'
-      type: object
+      type: 'object'
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
 externalDocs:
-  description: API Documentation
-  url: >-
-    https://developer.factset.com/api-catalog/factset-ownership-report-builder-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/factset-ownership-report-builder-api'
 info:
   contact:
-    email: api@factset.com
-    name: FactSet Research Systems
-    url: https://developer.factset.com/contact
-  description: description.md
+    email: 'api@factset.com'
+    name: 'FactSet Research Systems'
+    url: 'https://developer.factset.com/contact'
+  description: 'description.md'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
-  title: FactSet Ownership API
-  version: 1.1.0
-openapi: 3.0.3
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  title: 'FactSet Ownership API'
+  version: '1.1.0'
+openapi: '3.0.3'
 paths:
   /holders:
     get:
-      description: Holders of a company or fund
-      operationId: getOwnershipHolders
+      description: 'Holders of a company or fund'
+      operationId: 'getOwnershipHolders'
       parameters:
-        - description: Company or Fund Identifier
-          in: query
-          name: id
+        - description: 'Company or Fund Identifier'
+          in: 'query'
+          name: 'id'
           required: true
           schema:
-            example: FDS-US
+            example: 'FDS-US'
             maxLength: 12
-            type: string
-        - description: Controls the Asset Type of the data returned
-          in: query
-          name: asset_type
+            type: 'string'
+        - description: 'Controls the Asset Type of the data returned'
+          in: 'query'
+          name: 'asset_type'
           required: false
           schema:
-            default: EQUITY
+            default: 'EQUITY'
             enum:
-              - EQUITY
-              - DEBT
-            type: string
-        - description: Controls the Holder Type of the data returned
-          in: query
-          name: holder_type
+              - 'EQUITY'
+              - 'DEBT'
+            type: 'string'
+        - description: 'Controls the Holder Type of the data returned'
+          in: 'query'
+          name: 'holder_type'
           required: false
           schema:
-            default: INSTITUTIONS
+            default: 'INSTITUTIONS'
             enum:
-              - ALL_HOLDERS
-              - BENEFICIAL_OWNERS
-              - FUNDS
-              - INSTITUTIONS
-              - INSTITUTIONS_INSIDERS
-              - INSIDERS_STAKEHOLDERS
-            type: string
-        - description: >-
-            Controls the type of Entity data returned. Defaults to Security
-            data, but can also be used to display Company data.
-          in: query
-          name: entity_type
+              - 'ALL_HOLDERS'
+              - 'BENEFICIAL_OWNERS'
+              - 'FUNDS'
+              - 'INSTITUTIONS'
+              - 'INSTITUTIONS_INSIDERS'
+              - 'INSIDERS_STAKEHOLDERS'
+            type: 'string'
+        - description: 'Controls the type of Entity data returned. Defaults to Security data, but can also be used to display Company data.'
+          in: 'query'
+          name: 'entity_type'
           required: false
           schema:
-            default: SECURITY
+            default: 'SECURITY'
             enum:
-              - SECURITY
-              - COMPANY
-            type: string
-        - description: >
-            Limits the number of holders returned based on their Market Value
-            position in the security.
-
-            Default is ALL, otherwise use a valid number above 0.
-          in: query
-          name: topn
+              - 'SECURITY'
+              - 'COMPANY'
+            type: 'string'
+        - description: "Limits the number of holders returned based on their Market Value position in the security.\nDefault is ALL, otherwise use a valid number above 0.\n"
+          in: 'query'
+          name: 'topn'
           schema:
-            example: ALL
-            type: string
-        - description: >-
-            Top Holders as of date expressed in YYYY-MM-DD format. Defaults to
-            latest month-end close; non-month-end dates are converted to
-            month-end dates.
-          in: query
-          name: date
+            example: 'ALL'
+            type: 'string'
+        - description: 'Top Holders as of date expressed in YYYY-MM-DD format. Defaults to latest month-end close; non-month-end dates are converted to month-end dates.'
+          in: 'query'
+          name: 'date'
           required: false
           schema:
             example: '2019-12-31'
-            format: date
+            format: 'date'
             maxLength: 10
-            type: string
+            type: 'string'
       responses:
         '200':
           $ref: '#/components/responses/200OKStach2'
@@ -1045,232 +978,219 @@ paths:
           $ref: '#/components/responses/500InternalServerError'
         '503':
           $ref: '#/components/responses/503ServiceUnavailable'
-      summary: Holders of a company or fund
+      summary: 'Holders of a company or fund'
       tags:
-        - Ownership
+        - 'Ownership'
   /ultimate-parent:
     get:
-      description: >-
-        Get FactSet's ownership breakdown about a specific security.  The
-        returned table will display the institutions, insiders, funds, and
-        beneficial owners that comprise the ownership of the provided security. 
-        These holders will be grouped by the ultimate parent in their entity
-        structure.
-      operationId: getOwnershipUltimateParent
+      description: 'Get FactSet''s ownership breakdown about a specific security.  The returned table will display the institutions, insiders, funds, and beneficial owners that comprise the ownership of the provided security.  These holders will be grouped by the ultimate parent in their entity structure.'
+      operationId: 'getOwnershipUltimateParent'
       parameters:
-        - description: >
-            Any valid FactSet identifier which points to a security.  This could
-            be Ticker Region, Entity ID, CUSIP, or SEDOL.
-          in: query
-          name: id
+        - description: "Any valid FactSet identifier which points to a security.  This could be Ticker Region, Entity ID, CUSIP, or SEDOL.\n"
+          in: 'query'
+          name: 'id'
           required: true
           schema:
-            example: FDS-US
+            example: 'FDS-US'
             maxLength: 12
-            type: string
-        - description: >
-            Currency ISO code that any currency-based data should be returned
-            in.  If excluded, the value will default to the special keyword
-            "LOCAL" which will cause the currency-based values to be calculated
-            in currency which is local to the exchange it is traded on.
-          in: query
-          name: currency
+            type: 'string'
+        - description: "Currency ISO code that any currency-based data should be returned in.  If excluded, the value will default to the special keyword \"LOCAL\" which will cause the currency-based values to be calculated in currency which is local to the exchange it is traded on.\n"
+          in: 'query'
+          name: 'currency'
           schema:
             enum:
-              - LOCAL
-              - AED
-              - ARS
-              - ATS
-              - AUD
-              - BBD
-              - BDT
-              - BEF
-              - BHD
-              - BMD
-              - BOB
-              - BRL
-              - CAD
-              - CHF
-              - CLP
-              - CNY
-              - COP
-              - CYP
-              - CZK
-              - DKK
-              - DOP
-              - EEK
-              - EGP
-              - ESP
-              - EUR
-              - FIM
-              - FRF
-              - GBP
-              - GHS
-              - GRD
-              - HKD
-              - HRK
-              - HUF
-              - IDR
-              - IEP
-              - ILS
-              - INR
-              - ISK
-              - ITL
-              - JMD
-              - JOD
-              - JPY
-              - KES
-              - KRW
-              - KWD
-              - KYD
-              - KZT
-              - LBP
-              - LKR
-              - LTL
-              - LUF
-              - LVL
-              - MAD
-              - MKD
-              - MNT
-              - MTL
-              - MUR
-              - MWK
-              - MXN
-              - MYR
-              - NAD
-              - NGN
-              - NLG
-              - NOK
-              - NZD
-              - OMR
-              - PAB
-              - PEN
-              - PHP
-              - PKR
-              - PLN
-              - PTE
-              - PYG
-              - QAR
-              - RUB
-              - SAR
-              - SEK
-              - SGD
-              - SIT
-              - SKK
-              - SZL
-              - THB
-              - TND
-              - TWD
-              - TZS
-              - UGX
-              - USD
-              - VND
-              - XAF
-              - ZAR
-            example: LOCAL
-            type: string
-        - description: The columns to be returned in the resulting table
-          in: query
-          name: attributes
+              - 'LOCAL'
+              - 'AED'
+              - 'ARS'
+              - 'ATS'
+              - 'AUD'
+              - 'BBD'
+              - 'BDT'
+              - 'BEF'
+              - 'BHD'
+              - 'BMD'
+              - 'BOB'
+              - 'BRL'
+              - 'CAD'
+              - 'CHF'
+              - 'CLP'
+              - 'CNY'
+              - 'COP'
+              - 'CYP'
+              - 'CZK'
+              - 'DKK'
+              - 'DOP'
+              - 'EEK'
+              - 'EGP'
+              - 'ESP'
+              - 'EUR'
+              - 'FIM'
+              - 'FRF'
+              - 'GBP'
+              - 'GHS'
+              - 'GRD'
+              - 'HKD'
+              - 'HRK'
+              - 'HUF'
+              - 'IDR'
+              - 'IEP'
+              - 'ILS'
+              - 'INR'
+              - 'ISK'
+              - 'ITL'
+              - 'JMD'
+              - 'JOD'
+              - 'JPY'
+              - 'KES'
+              - 'KRW'
+              - 'KWD'
+              - 'KYD'
+              - 'KZT'
+              - 'LBP'
+              - 'LKR'
+              - 'LTL'
+              - 'LUF'
+              - 'LVL'
+              - 'MAD'
+              - 'MKD'
+              - 'MNT'
+              - 'MTL'
+              - 'MUR'
+              - 'MWK'
+              - 'MXN'
+              - 'MYR'
+              - 'NAD'
+              - 'NGN'
+              - 'NLG'
+              - 'NOK'
+              - 'NZD'
+              - 'OMR'
+              - 'PAB'
+              - 'PEN'
+              - 'PHP'
+              - 'PKR'
+              - 'PLN'
+              - 'PTE'
+              - 'PYG'
+              - 'QAR'
+              - 'RUB'
+              - 'SAR'
+              - 'SEK'
+              - 'SGD'
+              - 'SIT'
+              - 'SKK'
+              - 'SZL'
+              - 'THB'
+              - 'TND'
+              - 'TWD'
+              - 'TZS'
+              - 'UGX'
+              - 'USD'
+              - 'VND'
+              - 'XAF'
+              - 'ZAR'
+            example: 'LOCAL'
+            type: 'string'
+        - description: 'The columns to be returned in the resulting table'
+          in: 'query'
+          name: 'attributes'
           schema:
             default:
-              - percentOwnership
-              - position
-              - positionChange
-              - marketValue
-              - marketValueChange
-              - percentPortfolio
-              - reportDate
-              - source
-              - holderId
+              - 'percentOwnership'
+              - 'position'
+              - 'positionChange'
+              - 'marketValue'
+              - 'marketValueChange'
+              - 'percentPortfolio'
+              - 'reportDate'
+              - 'source'
+              - 'holderId'
             example:
-              - percentOwnership
-              - position
-              - positionChange
-              - marketValue
-              - marketValueChange
-              - percentPortfolio
-              - reportDate
-              - source
-              - holderId
+              - 'percentOwnership'
+              - 'position'
+              - 'positionChange'
+              - 'marketValue'
+              - 'marketValueChange'
+              - 'percentPortfolio'
+              - 'reportDate'
+              - 'source'
+              - 'holderId'
             items:
               enum:
-                - percentOwnership
-                - position
-                - positionChange
-                - marketValue
-                - marketValueChange
-                - percentPortfolio
-                - reportDate
-                - source
-                - holderId
-                - percentOwnershipChange
-                - percentPortfolioChange
-                - optionsIndirectShares
-                - fullyDilutedShares
-                - contactName
-                - contactPhone
-                - contactEmail
-                - contactTitle
-                - holderRegion
-                - holderSubRegion
-                - holderCountry
-                - holderMetroRegion
-                - holderCity
-                - holderState
-                - holderIsForeignOrDomestic
-                - holderCapGroupStyle
-                - holderManagerStyle
-                - holderHoldingsStyles
-                - holderTurnover
-                - holderActivismLevel
-                - holderUltimateParent
-                - holderAssetsUnderManagement
-                - holderGroupLevelCount
-                - holderType
-                - investorType
-                - institutionOrInsider
-                - equityAssets
-              type: string
+                - 'percentOwnership'
+                - 'position'
+                - 'positionChange'
+                - 'marketValue'
+                - 'marketValueChange'
+                - 'percentPortfolio'
+                - 'reportDate'
+                - 'source'
+                - 'holderId'
+                - 'percentOwnershipChange'
+                - 'percentPortfolioChange'
+                - 'optionsIndirectShares'
+                - 'fullyDilutedShares'
+                - 'contactName'
+                - 'contactPhone'
+                - 'contactEmail'
+                - 'contactTitle'
+                - 'holderRegion'
+                - 'holderSubRegion'
+                - 'holderCountry'
+                - 'holderMetroRegion'
+                - 'holderCity'
+                - 'holderState'
+                - 'holderIsForeignOrDomestic'
+                - 'holderCapGroupStyle'
+                - 'holderManagerStyle'
+                - 'holderHoldingsStyles'
+                - 'holderTurnover'
+                - 'holderActivismLevel'
+                - 'holderUltimateParent'
+                - 'holderAssetsUnderManagement'
+                - 'holderGroupLevelCount'
+                - 'holderType'
+                - 'investorType'
+                - 'institutionOrInsider'
+                - 'equityAssets'
+              type: 'string'
             maxItems: 40
-            type: array
-        - description: The period over which we should return holdings for.
-          in: query
-          name: period
+            type: 'array'
+        - description: 'The period over which we should return holdings for.'
+          in: 'query'
+          name: 'period'
           schema:
-            default: 6m
+            default: '6m'
             enum:
-              - 1m
-              - 3m
-              - 6m
-              - 12m
-              - recent
-            type: string
-        - description: The holder types which should be included in this table
-          in: query
-          name: holderType
+              - '1m'
+              - '3m'
+              - '6m'
+              - '12m'
+              - 'recent'
+            type: 'string'
+        - description: 'The holder types which should be included in this table'
+          in: 'query'
+          name: 'holderType'
           required: false
           schema:
-            default: institutions
+            default: 'institutions'
             enum:
-              - allHolders
-              - beneficialOwners
-              - funds
-              - institutions
-              - institutionsInsiders
-              - insidersStakeholders
-            type: string
-        - description: >-
-            The date as of which this data should be returned. YYYY-MM-DD
-            format. Defaults to current date.
-          in: query
-          name: date
+              - 'allHolders'
+              - 'beneficialOwners'
+              - 'funds'
+              - 'institutions'
+              - 'institutionsInsiders'
+              - 'insidersStakeholders'
+            type: 'string'
+        - description: 'The date as of which this data should be returned. YYYY-MM-DD format. Defaults to current date.'
+          in: 'query'
+          name: 'date'
           required: false
           schema:
             example: '2019-12-31'
-            format: date
+            format: 'date'
             maxLength: 10
-            type: string
+            type: 'string'
       responses:
         '200':
           $ref: '#/components/responses/200OKStach3'
@@ -1288,19 +1208,14 @@ paths:
           $ref: '#/components/responses/500InternalServerError'
         '503':
           $ref: '#/components/responses/503ServiceUnavailable'
-      summary: >-
-        Get FactSet's ownership breakdown about a specific security.  The
-        returned table will display the institutions, insiders, funds, and
-        beneficial owners that comprise the ownership of the provided security. 
-        These holders will be grouped by the ultimate parent in their entity
-        structure.
+      summary: 'Get FactSet''s ownership breakdown about a specific security.  The returned table will display the institutions, insiders, funds, and beneficial owners that comprise the ownership of the provided security.  These holders will be grouped by the ultimate parent in their entity structure.'
       tags:
-        - Ownership
+        - 'Ownership'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 servers:
-  - url: https://api.factset.com/report/ownership/v1
+  - url: 'https://api.factset.com/report/ownership/v1'
 tags:
-  - description: FactSet Ownership Data
-    name: Ownership
+  - description: 'FactSet Ownership Data'
+    name: 'Ownership'

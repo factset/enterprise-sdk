@@ -41,7 +41,6 @@ docs/FundraisingRound.md
 docs/FundsApi.md
 docs/GPDetail.md
 docs/GPDetailFeatures.md
-docs/GPDetailInvestmentCriteria.md
 docs/GPDetailsResponse.md
 docs/GPFund.md
 docs/GPFundsResponse.md
@@ -126,7 +125,6 @@ src/model/FundSummary.js
 src/model/FundraisingRound.js
 src/model/GPDetail.js
 src/model/GPDetailFeatures.js
-src/model/GPDetailInvestmentCriteria.js
 src/model/GPDetailsResponse.js
 src/model/GPFund.js
 src/model/GPFundsResponse.js

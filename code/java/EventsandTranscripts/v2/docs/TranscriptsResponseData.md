@@ -3,26 +3,19 @@
 # TranscriptsResponseData
 
 ## oneOf schemas
-* [DocumentResult](DocumentResult.md)
 * [TranscriptsByIdsResponse](TranscriptsByIdsResponse.md)
+* [TranscriptsResult](TranscriptsResult.md)
 
 ## Example
 ```java
 // Import classes:
 import com.factset.sdk.EventsandTranscripts.models.TranscriptsResponseData;
-import com.factset.sdk.EventsandTranscripts.models.DocumentResult;
 import com.factset.sdk.EventsandTranscripts.models.TranscriptsByIdsResponse;
+import com.factset.sdk.EventsandTranscripts.models.TranscriptsResult;
 
 public class Example {
     public static void main(String[] args) {
         TranscriptsResponseData exampleTranscriptsResponseData = new TranscriptsResponseData();
-
-        // create a new DocumentResult
-        DocumentResult exampleDocumentResult = new DocumentResult();
-        // set TranscriptsResponseData to DocumentResult
-        exampleTranscriptsResponseData.setActualInstance(exampleDocumentResult);
-        // to get back the DocumentResult set earlier
-        DocumentResult testDocumentResult = (DocumentResult) exampleTranscriptsResponseData.getActualInstance();
 
         // create a new TranscriptsByIdsResponse
         TranscriptsByIdsResponse exampleTranscriptsByIdsResponse = new TranscriptsByIdsResponse();
@@ -30,6 +23,13 @@ public class Example {
         exampleTranscriptsResponseData.setActualInstance(exampleTranscriptsByIdsResponse);
         // to get back the TranscriptsByIdsResponse set earlier
         TranscriptsByIdsResponse testTranscriptsByIdsResponse = (TranscriptsByIdsResponse) exampleTranscriptsResponseData.getActualInstance();
+
+        // create a new TranscriptsResult
+        TranscriptsResult exampleTranscriptsResult = new TranscriptsResult();
+        // set TranscriptsResponseData to TranscriptsResult
+        exampleTranscriptsResponseData.setActualInstance(exampleTranscriptsResult);
+        // to get back the TranscriptsResult set earlier
+        TranscriptsResult testTranscriptsResult = (TranscriptsResult) exampleTranscriptsResponseData.getActualInstance();
     }
 }
 ```

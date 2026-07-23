@@ -1,42 +1,37 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  title: FactSet People API
-  version: 1.3.0
-  description: >
-    The FactSet People API exposes FactSet data for individuals and their
-    jobs.<p>This API is rate-limited to 10 requests per second and 10 concurrent
-    requests per user.</p>
+  title: 'FactSet People API'
+  version: '1.3.0'
+  description: "The FactSet People API exposes FactSet data for individuals and their jobs.<p>This API is rate-limited to 10 requests per second and 10 concurrent requests per user.</p>\n"
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
 servers:
-  - url: https://api.factset.com/content
-    description: Production Server
+  - url: 'https://api.factset.com/content'
+    description: 'Production Server'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 tags:
-  - name: Profiles
-    description: Return information about the person with the specified entity ID.
-  - name: Job History
-    description: Returns the job history of the person
-  - name: Company
-    description: Returns a list of associated people for a requested company
+  - name: 'Profiles'
+    description: 'Return information about the person with the specified entity ID.'
+  - name: 'Job History'
+    description: 'Returns the job history of the person'
+  - name: 'Company'
+    description: 'Returns a list of associated people for a requested company'
 paths:
   /factset-people/v1/profiles:
     get:
-      summary: Return information about the person with the specified entity ID.
-      description: >
-        Returns a summary of basic information about the person referenced by
-        the entityId specified in the URI.
+      summary: 'Return information about the person with the specified entity ID.'
+      description: "Returns a summary of basic information about the person referenced by the entityId specified in the URI.\n"
       tags:
-        - Profiles
-      operationId: getPeopleProfiles
+        - 'Profiles'
+      operationId: 'getPeopleProfiles'
       parameters:
         - $ref: '#/components/parameters/profileEntityId'
       responses:
         '200':
-          description: Array of Profile Ojects
+          description: 'Array of Profile Ojects'
           content:
             application/json:
               schema:
@@ -55,10 +50,10 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Returns profile information for a large list of people.
+      summary: 'Returns profile information for a large list of people.'
       tags:
-        - Profiles
-      operationId: getPeopleProfilesForList
+        - 'Profiles'
+      operationId: 'getPeopleProfilesForList'
       requestBody:
         required: true
         content:
@@ -70,7 +65,7 @@ paths:
                 $ref: '#/components/examples/postProfile'
       responses:
         '200':
-          description: Array of People Profile Objects
+          description: 'Array of People Profile Objects'
           content:
             application/json:
               schema:
@@ -90,13 +85,11 @@ paths:
           $ref: '#/components/responses/500'
   /factset-people/v1/jobs:
     get:
-      summary: Returns the Job history of the person.
-      description: >
-        Returns the `Job` history of the person referenced by the entityId
-        specified in the request.
+      summary: 'Returns the Job history of the person.'
+      description: "Returns the `Job` history of the person referenced by the entityId specified in the request.\n"
       tags:
-        - Job History
-      operationId: getPeopleJobs
+        - 'Job History'
+      operationId: 'getPeopleJobs'
       parameters:
         - $ref: '#/components/parameters/entityId'
         - $ref: '#/components/parameters/status'
@@ -104,7 +97,7 @@ paths:
         - $ref: '#/components/parameters/type'
       responses:
         '200':
-          description: Array of Job objects.
+          description: 'Array of Job objects.'
           content:
             application/json:
               schema:
@@ -123,13 +116,11 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Returns the Job history for the large list of people.
-      description: >
-        Returns the `Job` history of the person referenced by the entityId
-        specified in the request.
+      summary: 'Returns the Job history for the large list of people.'
+      description: "Returns the `Job` history of the person referenced by the entityId specified in the request.\n"
       tags:
-        - Job History
-      operationId: getPeopleJobsForList
+        - 'Job History'
+      operationId: 'getPeopleJobsForList'
       requestBody:
         required: true
         content:
@@ -141,7 +132,7 @@ paths:
                 $ref: '#/components/examples/postJobs'
       responses:
         '200':
-          description: Array of Job objects.
+          description: 'Array of Job objects.'
           content:
             application/json:
               schema:
@@ -161,21 +152,17 @@ paths:
           $ref: '#/components/responses/500'
   /factset-people/v1/company-people:
     get:
-      summary: Returns the list of people for the specified company identifiers
-      description: >
-        Returns the list of executives associated the company identifier
-        requested. Information includes the job functions, email, phone, title,
-        name, and FactSet Entity Identifier. The personId returned can then be
-        used in the `/profiles` endpoint to learn more about the given person.
+      summary: 'Returns the list of people for the specified company identifiers'
+      description: "Returns the list of executives associated the company identifier requested. Information includes the job functions, email, phone, title, name, and FactSet Entity Identifier. The personId returned can then be used in the `/profiles` endpoint to learn more about the given person.\n"
       tags:
-        - Company
-      operationId: getCompanyPeople
+        - 'Company'
+      operationId: 'getCompanyPeople'
       parameters:
         - $ref: '#/components/parameters/companyId'
         - $ref: '#/components/parameters/jobFunction'
       responses:
         '200':
-          description: Array of Company People objects.
+          description: 'Array of Company People objects.'
           content:
             application/json:
               schema:
@@ -194,17 +181,11 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Returns the list of people associated for a large list of company
-        identitifers
-      description: >
-        Returns the list of executives associated the company identifier
-        requested. Information includes the job functions, email, phone, title,
-        name, and FactSet Entity Identifier. The personId returned can then be
-        used in the /profiles endpoint to learn more about the given person.
+      summary: 'Returns the list of people associated for a large list of company identitifers'
+      description: "Returns the list of executives associated the company identifier requested. Information includes the job functions, email, phone, title, name, and FactSet Entity Identifier. The personId returned can then be used in the /profiles endpoint to learn more about the given person.\n"
       tags:
-        - Company
-      operationId: getCompanyPeopleForList
+        - 'Company'
+      operationId: 'getCompanyPeopleForList'
       requestBody:
         required: true
         content:
@@ -216,7 +197,7 @@ paths:
                 $ref: '#/components/examples/postCompanyPeople'
       responses:
         '200':
-          description: Array of Company People objects.
+          description: 'Array of Company People objects.'
           content:
             application/json:
               schema:
@@ -236,38 +217,17 @@ paths:
           $ref: '#/components/responses/500'
   /factset-people/v1/company-positions:
     get:
-      summary: >-
-        Returns the list of people for the specified company identifiers and
-        position
-      description: >
-        Returns the list of people, name, and title for a list of company ids
-        and requested position. Positions include-
-          * Chairman
-          * Chief Executive Officer
-          * President
-          * Chief Operating Officer
-          * Chief Financial Officer
-          * Chief Technology Officer
-          * Chief Investment Officer
-          * Founder(s)
-          * Compliance Officer
-          * Admin
-          * Independent Director
-          * Directors/Board Members
-          * Investor Relations
-          * Legal Counsel
-          * Treasurer
-          * Sales and Marketing Managers
-          * Human Resources
+      summary: 'Returns the list of people for the specified company identifiers and position'
+      description: "Returns the list of people, name, and title for a list of company ids and requested position. Positions include-\n  * Chairman\n  * Chief Executive Officer\n  * President\n  * Chief Operating Officer\n  * Chief Financial Officer\n  * Chief Technology Officer\n  * Chief Investment Officer\n  * Founder(s)\n  * Compliance Officer\n  * Admin\n  * Independent Director\n  * Directors/Board Members\n  * Investor Relations\n  * Legal Counsel\n  * Treasurer\n  * Sales and Marketing Managers\n  * Human Resources\n"
       tags:
-        - Company
-      operationId: getCompanyPositions
+        - 'Company'
+      operationId: 'getCompanyPositions'
       parameters:
         - $ref: '#/components/parameters/companyId'
         - $ref: '#/components/parameters/position'
       responses:
         '200':
-          description: Array of Company Positions objects.
+          description: 'Array of Company Positions objects.'
           content:
             application/json:
               schema:
@@ -286,32 +246,11 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Returns the list of people associated for a large list of company
-        identitifers and position
-      description: >
-        Returns the list of people, name, and title for a list of company ids
-        and requested position. Positions include-
-          * Chairman
-          * Chief Executive Officer
-          * President
-          * Chief Operating Officer
-          * Chief Financial Officer
-          * Chief Technology Officer
-          * Chief Investment Officer
-          * Founder(s)
-          * Compliance Officer
-          * Admin
-          * Independent Director
-          * Directors/Board Members
-          * Investor Relations
-          * Legal Counsel
-          * Treasurer
-          * Sales and Marketing Managers
-          * Human Resources
+      summary: 'Returns the list of people associated for a large list of company identitifers and position'
+      description: "Returns the list of people, name, and title for a list of company ids and requested position. Positions include-\n  * Chairman\n  * Chief Executive Officer\n  * President\n  * Chief Operating Officer\n  * Chief Financial Officer\n  * Chief Technology Officer\n  * Chief Investment Officer\n  * Founder(s)\n  * Compliance Officer\n  * Admin\n  * Independent Director\n  * Directors/Board Members\n  * Investor Relations\n  * Legal Counsel\n  * Treasurer\n  * Sales and Marketing Managers\n  * Human Resources\n"
       tags:
-        - Company
-      operationId: getCompanyPositionsForList
+        - 'Company'
+      operationId: 'getCompanyPositionsForList'
       requestBody:
         required: true
         content:
@@ -323,7 +262,7 @@ paths:
                 $ref: '#/components/examples/postCompanyPositions'
       responses:
         '200':
-          description: Array of Company Positions objects.
+          description: 'Array of Company Positions objects.'
           content:
             application/json:
               schema:
@@ -343,22 +282,16 @@ paths:
           $ref: '#/components/responses/500'
   /factset-people/v1/company-compensation:
     get:
-      summary: >-
-        Returns the compensation details of the people for the specified company
-        identifier
-      description: >
-        Returns the list of company-level executive compensation data items for
-        the top executives listed in annual filings.The coverage of the
-        compensation details for the executives are limited to US region. All
-        the compensation figures are expressed in raw units. 
+      summary: 'Returns the compensation details of the people for the specified company identifier'
+      description: "Returns the list of company-level executive compensation data items for the top executives listed in annual filings.The coverage of the compensation details for the executives are limited to US region. All the compensation figures are expressed in raw units. \n"
       tags:
-        - Company
-      operationId: getCompanyCompensation
+        - 'Company'
+      operationId: 'getCompanyCompensation'
       parameters:
         - $ref: '#/components/parameters/companyId'
       responses:
         '200':
-          description: Array of Company Compensation objects.
+          description: 'Array of Company Compensation objects.'
           content:
             application/json:
               schema:
@@ -377,18 +310,11 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: >-
-        Returns the compensation details for the people for the specified
-        company identifier
-      description: >
-        Returns the list of company-level executive compensation data items for
-        the top executives listed in annual filings for the most recent fiscal
-        year. The coverage of the compensation details for the executives are
-        limited to US region. All the compensation figures are expressed in raw
-        units. 
+      summary: 'Returns the compensation details for the people for the specified company identifier'
+      description: "Returns the list of company-level executive compensation data items for the top executives listed in annual filings for the most recent fiscal year. The coverage of the compensation details for the executives are limited to US region. All the compensation figures are expressed in raw units. \n"
       tags:
-        - Company
-      operationId: getCompanyCompensationForList
+        - 'Company'
+      operationId: 'getCompanyCompensationForList'
       requestBody:
         required: true
         content:
@@ -400,7 +326,7 @@ paths:
                 $ref: '#/components/examples/postCompanyCompensation'
       responses:
         '200':
-          description: Array of Company Positions objects.
+          description: 'Array of Company Positions objects.'
           content:
             application/json:
               schema:
@@ -420,21 +346,17 @@ paths:
           $ref: '#/components/responses/500'
   /factset-people/v1/company-stats:
     get:
-      summary: Returns statistics about top leadership of a company.
-      description: >
-        Returns the statistics such as the average age, tenure, compensation of
-        leadership, number of executives, and the gender diversity of
-        leadership. We can utilize the data for analyzing a company's board and
-        management.
+      summary: 'Returns statistics about top leadership of a company.'
+      description: "Returns the statistics such as the average age, tenure, compensation of leadership, number of executives, and the gender diversity of leadership. We can utilize the data for analyzing a company's board and management.\n"
       tags:
-        - Company
-      operationId: getCompanyStats
+        - 'Company'
+      operationId: 'getCompanyStats'
       parameters:
         - $ref: '#/components/parameters/companyId'
         - $ref: '#/components/parameters/mbType'
       responses:
         '200':
-          description: Array of Company Stats objects.
+          description: 'Array of Company Stats objects.'
           content:
             application/json:
               schema:
@@ -453,15 +375,11 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Returns statistics about top leadership of a company.
-      description: >
-        Returns the statistics such as the average age, tenure, compensation of
-        leadership, number of executives, and the gender diversity of
-        leadership. We can utilize the data for analyzing a company's board and
-        management. 
+      summary: 'Returns statistics about top leadership of a company.'
+      description: "Returns the statistics such as the average age, tenure, compensation of leadership, number of executives, and the gender diversity of leadership. We can utilize the data for analyzing a company's board and management. \n"
       tags:
-        - Company
-      operationId: getCompanyStatsForList
+        - 'Company'
+      operationId: 'getCompanyStatsForList'
       requestBody:
         required: true
         content:
@@ -473,7 +391,7 @@ paths:
                 $ref: '#/components/examples/postCompanyStats'
       responses:
         '200':
-          description: Array of Company Positions objects.
+          description: 'Array of Company Positions objects.'
           content:
             application/json:
               schema:
@@ -494,329 +412,271 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   parameters:
     entityId:
-      name: ids
-      description: List of FactSet Person Entity identifier.
-      in: query
+      name: 'ids'
+      description: 'List of FactSet Person Entity identifier.'
+      in: 'query'
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 1000
       required: true
       explode: false
       example:
-        - 0DPHLH-E
-        - 07MZV9-E
+        - '0DPHLH-E'
+        - '07MZV9-E'
     profileEntityId:
-      name: ids
-      description: List of FactSet Person Entity identifier.
-      in: query
+      name: 'ids'
+      description: 'List of FactSet Person Entity identifier.'
+      in: 'query'
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 500
       required: true
       explode: false
       example:
-        - 0DPHLH-E
-        - 07MZV9-E
+        - '0DPHLH-E'
+        - '07MZV9-E'
     status:
-      name: status
-      description: Select only Jobs with a certain status primary, active, or inactive.
-      in: query
+      name: 'status'
+      description: 'Select only Jobs with a certain status primary, active, or inactive.'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - ALL
-          - PRIMARY
-          - ACTIVE
-          - INACTIVE
-        default: ALL
+          - 'ALL'
+          - 'PRIMARY'
+          - 'ACTIVE'
+          - 'INACTIVE'
+        default: 'ALL'
     level:
-      name: level
-      description: >-
-        Select the level of detail only main Jobs or include other Jobs at a
-        company.
-      in: query
+      name: 'level'
+      description: 'Select the level of detail only main Jobs or include other Jobs at a company.'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - SUMMARY
-          - DETAIL
-        default: DETAIL
+          - 'SUMMARY'
+          - 'DETAIL'
+        default: 'DETAIL'
     type:
-      name: type
-      description: Select only Jobs of a certain type board member or employee.
-      in: query
+      name: 'type'
+      description: 'Select only Jobs of a certain type board member or employee.'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - ALL
-          - BRD
-          - EMP
-        default: ALL
+          - 'ALL'
+          - 'BRD'
+          - 'EMP'
+        default: 'ALL'
     companyId:
-      name: ids
-      description: >
-        The requested company identifier. FactSet Identifiers, tickers, CUSIP,
-        SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per
-        request*</p>
-
-        *<p>Make note, GET Method URL request lines are also limited to a total
-
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands
-
-        of ids, which may lead to exceeding this request line limit of 8KB, its
-
-        advised for any requests with large request lines to be requested
-        through
-
-        the respective "POST" method.</p>*
-      in: query
+      name: 'ids'
+      description: "The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p>\n*<p>Make note, GET Method URL request lines are also limited to a total\nlength of 8192 bytes (8KB). In cases where the service allows for thousands\nof ids, which may lead to exceeding this request line limit of 8KB, its\nadvised for any requests with large request lines to be requested through\nthe respective \"POST\" method.</p>*\n"
+      in: 'query'
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 1000
       required: true
       explode: false
       example:
-        - AAPL-US
-        - IBM-US
+        - 'AAPL-US'
+        - 'IBM-US'
     jobFunction:
-      name: function
-      description: >
-        Controls the types of people returned based on high-level job functions.
-        Filter by - 
-          |function|description|
-          |---|---|
-          |PEOPLE|Retrieve **ALL** Executives of a requested company|
-          |OFFICER|Retrieve only the Officers of a requested company|
-          |DIRECTOR|Retrieve only the Directors of a requested company|
-      in: query
+      name: 'function'
+      description: "Controls the types of people returned based on high-level job functions. Filter by - \n  |function|description|\n  |---|---|\n  |PEOPLE|Retrieve **ALL** Executives of a requested company|\n  |OFFICER|Retrieve only the Officers of a requested company|\n  |DIRECTOR|Retrieve only the Directors of a requested company|\n"
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - PEOPLE
-          - OFFICER
-          - DIRECTOR
-        example: PEOPLE
-        default: PEOPLE
+          - 'PEOPLE'
+          - 'OFFICER'
+          - 'DIRECTOR'
+        example: 'PEOPLE'
+        default: 'PEOPLE'
       required: false
     position:
-      name: position
-      description: >
-        Controls the position details returned for the requested company. By
-        default, the service returns the CEO name, title, and ID for the
-        requested company ids.
-          |position|description|
-          |---|---|
-          |CHAIR|Chairman|
-          |CEO|Chief Executive Officer|
-          |PRES|President|
-          |COO|Chief Operating Officer|
-          |CFO|Chief Financial Officer|
-          |CTO|Chief Technology Officer|
-          |CIO|Chief Investment Officer|
-          |FOU|Founder(s)|
-          |CMP|Compliance Officer|
-          |ADM|Admin|
-          |IND|Independent Director|
-          |BRD|Directors/Board Members|
-          |IR|Investor Relations|
-          |LEG|Legal Counsel|
-          |TREAS|Treasurer|
-          |MKT|Sales and Marketing Managers|
-          |HR|Human Resources|
-      in: query
+      name: 'position'
+      description: "Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.\n  |position|description|\n  |---|---|\n  |CHAIR|Chairman|\n  |CEO|Chief Executive Officer|\n  |PRES|President|\n  |COO|Chief Operating Officer|\n  |CFO|Chief Financial Officer|\n  |CTO|Chief Technology Officer|\n  |CIO|Chief Investment Officer|\n  |FOU|Founder(s)|\n  |CMP|Compliance Officer|\n  |ADM|Admin|\n  |IND|Independent Director|\n  |BRD|Directors/Board Members|\n  |IR|Investor Relations|\n  |LEG|Legal Counsel|\n  |TREAS|Treasurer|\n  |MKT|Sales and Marketing Managers|\n  |HR|Human Resources|\n"
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - CHAIR
-          - CEO
-          - PRES
-          - COO
-          - CFO
-          - CTO
-          - CIO
-          - FOU
-          - CMP
-          - ADM
-          - IND
-          - BRD
-          - IR
-          - LEG
-          - TREAS
-          - MKT
-          - HR
-        example: FOU
-        default: CEO
+          - 'CHAIR'
+          - 'CEO'
+          - 'PRES'
+          - 'COO'
+          - 'CFO'
+          - 'CTO'
+          - 'CIO'
+          - 'FOU'
+          - 'CMP'
+          - 'ADM'
+          - 'IND'
+          - 'BRD'
+          - 'IR'
+          - 'LEG'
+          - 'TREAS'
+          - 'MKT'
+          - 'HR'
+        example: 'FOU'
+        default: 'CEO'
       required: false
     mbType:
-      name: mbType
-      description: |
-        Search based on the management and board types. The types include - 
-        |type|description|
-        |---|---|
-        |MB|Management & Board|
-        |MGMT|Management|
-        |BRD|Board|
-      in: query
+      name: 'mbType'
+      description: "Search based on the management and board types. The types include - \n|type|description|\n|---|---|\n|MB|Management & Board|\n|MGMT|Management|\n|BRD|Board|\n"
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - MB
-          - MGMT
-          - BRD
-        default: MB
+          - 'MB'
+          - 'MGMT'
+          - 'BRD'
+        default: 'MB'
   schemas:
     peopleProfilesRequest:
-      title: Profiles Request
-      type: object
+      title: 'Profiles Request'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
       required:
-        - ids
+        - 'ids'
     peopleProfilesResponse:
-      title: Profiles Response
-      type: object
+      title: 'Profiles Response'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/profile'
     profile:
-      title: Profile
-      type: object
-      description: Basic information about a person entity.
+      title: 'Profile'
+      type: 'object'
+      description: 'Basic information about a person entity.'
       properties:
         requestId:
-          type: string
-          description: Person identifier used in the request.
-          example: 0DPHLH-E
+          type: 'string'
+          description: 'Person identifier used in the request.'
+          example: '0DPHLH-E'
         personId:
-          description: FactSet Entity Identifier for the Person
-          type: string
-          example: 0DPHLH-E
+          description: 'FactSet Entity Identifier for the Person'
+          type: 'string'
+          example: '0DPHLH-E'
           nullable: true
         lastName:
-          description: Last Name
-          type: string
-          example: Snow
+          description: 'Last Name'
+          type: 'string'
+          example: 'Snow'
           nullable: true
         factsetName:
-          description: Name
-          type: string
-          example: Philip Snow
+          description: 'Name'
+          type: 'string'
+          example: 'Philip Snow'
           nullable: true
         firstName:
-          description: First Name
-          type: string
-          example: Frederick
+          description: 'First Name'
+          type: 'string'
+          example: 'Frederick'
           nullable: true
         middleName:
-          description: Middle Name
-          type: string
-          example: Philip
+          description: 'Middle Name'
+          type: 'string'
+          example: 'Philip'
           nullable: true
         formalName:
-          description: Formal Name
-          type: string
-          example: Frederick Philip Snow
+          description: 'Formal Name'
+          type: 'string'
+          example: 'Frederick Philip Snow'
           nullable: true
         properName:
-          description: Proper Name
-          type: string
-          example: Snow Frederick Philip CFA
+          description: 'Proper Name'
+          type: 'string'
+          example: 'Snow Frederick Philip CFA'
           nullable: true
         salutation:
-          description: Primary Salutation of Name
-          type: string
-          example: Mr.
+          description: 'Primary Salutation of Name'
+          type: 'string'
+          example: 'Mr.'
           nullable: true
         highestDegree:
-          description: The Highest Held Degree Code.
-          type: string
-          example: GRD
+          description: 'The Highest Held Degree Code.'
+          type: 'string'
+          example: 'GRD'
           nullable: true
         highestDegreeInst:
-          description: The Highest Degree Institution Name.
-          type: string
-          example: Thunderbird School of Global Management
+          description: 'The Highest Degree Institution Name.'
+          type: 'string'
+          example: 'Thunderbird School of Global Management'
           nullable: true
         suffix:
-          description: Suffix of Name
-          type: string
-          example: CFA
+          description: 'Suffix of Name'
+          type: 'string'
+          example: 'CFA'
           nullable: true
         age:
-          description: Person's age in years.
-          type: number
-          format: integer
+          description: 'Person''s age in years.'
+          type: 'number'
+          format: 'integer'
           example: 57
           nullable: true
         gender:
-          description: Person's Gender.
-          type: string
-          example: Male
+          description: 'Person''s Gender.'
+          type: 'string'
+          example: 'Male'
           nullable: true
         salary:
-          description: Most Recent Salary
-          type: number
-          format: integer
+          description: 'Most Recent Salary'
+          type: 'number'
+          format: 'integer'
           example: 525846
           nullable: true
         totalCompensation:
-          description: Most Recent Total Compensation
-          type: number
-          format: integer
+          description: 'Most Recent Total Compensation'
+          type: 'number'
+          format: 'integer'
           example: 4719062
           nullable: true
         primaryCompanyId:
-          description: Entity identifier of primary `Company` of employment.
-          type: string
-          example: 0016YD-E
+          description: 'Entity identifier of primary `Company` of employment.'
+          type: 'string'
+          example: '0016YD-E'
           nullable: true
         primaryCompanyName:
-          description: Name of primary company of employment
-          type: string
-          example: FactSet Research Systems, Inc.
+          description: 'Name of primary company of employment'
+          type: 'string'
+          example: 'FactSet Research Systems, Inc.'
           nullable: true
         primaryTitle:
-          description: Title at primary `Company` of employment
-          type: string
-          example: Chief Executive Officer & Director
+          description: 'Title at primary `Company` of employment'
+          type: 'string'
+          example: 'Chief Executive Officer & Director'
           nullable: true
         biography:
-          description: Brief biography of the person requested.
-          type: string
-          example: >-
-            Frederick Philip Snow is Chief Executive Officer & Director at
-            FactSet Research Systems, Inc. He is also on the board of FactSet
-            Systems India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd.
-            and Member of CFA Institute. Mr. Snow received an undergraduate
-            degree from the University of California, Berkeley and a graduate
-            degree from Thunderbird School of Global Management.
+          description: 'Brief biography of the person requested.'
+          type: 'string'
+          example: 'Frederick Philip Snow is Chief Executive Officer & Director at FactSet Research Systems, Inc. He is also on the board of FactSet Systems India Pvt Ltd., Quantopian, Inc. and Vermilion Holdings Ltd. and Member of CFA Institute. Mr. Snow received an undergraduate degree from the University of California, Berkeley and a graduate degree from Thunderbird School of Global Management.'
           nullable: true
     peopleJobsRequest:
-      title: Jobs Request
-      type: object
+      title: 'Jobs Request'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -827,1058 +687,957 @@ components:
         type:
           $ref: '#/components/schemas/type'
       required:
-        - ids
+        - 'ids'
     peopleJobsResponse:
-      title: Jobs Response
-      type: object
+      title: 'Jobs Response'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/job'
     job:
-      title: Job
-      type: object
-      description: Basic information about a person's `Job`.
+      title: 'Job'
+      type: 'object'
+      description: 'Basic information about a person''s `Job`.'
       properties:
         companyCity:
-          description: City the job is located in.
-          type: string
-          example: Norwalk
+          description: 'City the job is located in.'
+          type: 'string'
+          example: 'Norwalk'
           nullable: true
         companyId:
-          description: FactSet Identifier for the company.
-          type: string
-          example: 0016YD-E
+          description: 'FactSet Identifier for the company.'
+          type: 'string'
+          example: '0016YD-E'
           nullable: true
         companyName:
-          description: Name of the company.
-          type: string
-          example: FactSet Research Systems, Inc.
+          description: 'Name of the company.'
+          type: 'string'
+          example: 'FactSet Research Systems, Inc.'
           nullable: true
         jobEndDate:
-          description: Ending date for the Job.
-          type: string
-          format: date
+          description: 'Ending date for the Job.'
+          type: 'string'
+          format: 'date'
           example: '0001-01-01'
           nullable: true
         jobFunctionCode:
-          description: Job function code.
-          type: string
-          example: CEO
+          description: 'Job function code.'
+          type: 'string'
+          example: 'CEO'
           nullable: true
         jobFunctionName:
-          description: Description of the job.
-          type: string
-          example: Chief Executive Officer
+          description: 'Description of the job.'
+          type: 'string'
+          example: 'Chief Executive Officer'
           nullable: true
         jobStartDate:
-          description: Starting date for the Job.
-          type: string
-          format: date
+          description: 'Starting date for the Job.'
+          type: 'string'
+          format: 'date'
           example: '2015-07-01'
           nullable: true
         jobTitle:
-          description: Job Title
-          type: string
-          example: Chief Executive Officer & Director
+          description: 'Job Title'
+          type: 'string'
+          example: 'Chief Executive Officer & Director'
           nullable: true
         personId:
-          description: FactSet Entity Identifier for the Person.
-          type: string
-          example: 0DPHLH-E
+          description: 'FactSet Entity Identifier for the Person.'
+          type: 'string'
+          example: '0DPHLH-E'
           nullable: true
         requestId:
-          description: Original identifier used for the request.
-          type: string
-          example: 0DPHLH-E
+          description: 'Original identifier used for the request.'
+          type: 'string'
+          example: '0DPHLH-E'
     companyPeopleRequest:
-      title: Company People Request
-      type: object
+      title: 'Company People Request'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/companyIds'
         function:
           $ref: '#/components/schemas/function'
       required:
-        - ids
+        - 'ids'
     companyPeopleResponse:
-      title: Company People Response
-      type: object
+      title: 'Company People Response'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/companyPeople'
     companyPeople:
-      title: Company People
-      type: object
-      description: List of executives for the specified company identifier.
+      title: 'Company People'
+      type: 'object'
+      description: 'List of executives for the specified company identifier.'
       properties:
         fsymId:
-          description: FactSet Identifier for the company requested.
-          type: string
-          example: 000C7F-E
+          description: 'FactSet Identifier for the company requested.'
+          type: 'string'
+          example: '000C7F-E'
           nullable: true
         email:
-          description: Email of the person
-          type: string
+          description: 'Email of the person'
+          type: 'string'
           example: null
           nullable: true
         name:
-          description: FactSet Name of the person
-          type: string
-          example: Tim Cook
+          description: 'FactSet Name of the person'
+          type: 'string'
+          example: 'Tim Cook'
           nullable: true
         jobFunction1:
-          description: Job Function1
-          type: string
-          example: Chief Executive Officer
+          description: 'Job Function1'
+          type: 'string'
+          example: 'Chief Executive Officer'
           nullable: true
         jobFunction2:
-          description: Job Function2
-          type: string
-          example: Director/Board Member
+          description: 'Job Function2'
+          type: 'string'
+          example: 'Director/Board Member'
           nullable: true
         jobFunction3:
-          description: Job Function3
-          type: string
+          description: 'Job Function3'
+          type: 'string'
           example: null
           nullable: true
         jobFunction4:
-          description: Job Function4
-          type: string
+          description: 'Job Function4'
+          type: 'string'
           example: null
           nullable: true
         mainPhone:
-          description: Main Phone Numbers of the executives.
-          type: string
-          example: 1.408.996.1010
+          description: 'Main Phone Numbers of the executives.'
+          type: 'string'
+          example: '1.408.996.1010'
           nullable: true
         personId:
-          description: FactSet Entity Identifier for the Person.
-          type: string
-          example: 05F520-E
+          description: 'FactSet Entity Identifier for the Person.'
+          type: 'string'
+          example: '05F520-E'
           nullable: true
         phone:
-          description: Phone number of the executives.
-          type: string
+          description: 'Phone number of the executives.'
+          type: 'string'
           example: null
           nullable: true
         requestId:
-          description: Original identifier used for the request.
-          type: string
-          example: AAPL-US
+          description: 'Original identifier used for the request.'
+          type: 'string'
+          example: 'AAPL-US'
         title:
-          description: Executive titles for a specified company.
-          type: string
-          example: Chief Executive officer & Director
+          description: 'Executive titles for a specified company.'
+          type: 'string'
+          example: 'Chief Executive officer & Director'
           nullable: true
     companyPositionsRequest:
-      title: Company Positions Request
-      type: object
+      title: 'Company Positions Request'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/companyIds'
         position:
           $ref: '#/components/schemas/position'
       required:
-        - ids
+        - 'ids'
     companyPositionsResponse:
-      title: Company Positions Response
-      type: object
+      title: 'Company Positions Response'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/companyPositions'
     companyPositions:
-      title: Company Positions
-      type: object
-      description: List of executives for the specified company identifier.
+      title: 'Company Positions'
+      type: 'object'
+      description: 'List of executives for the specified company identifier.'
       properties:
         fsymId:
-          description: FactSet Identifier for the company.
-          type: string
-          example: 006XY7-E
+          description: 'FactSet Identifier for the company.'
+          type: 'string'
+          example: '006XY7-E'
           nullable: true
         personId:
-          description: Factset Entity Identifier for the Person
-          type: string
-          example: 05H8B8-E
+          description: 'Factset Entity Identifier for the Person'
+          type: 'string'
+          example: '05H8B8-E'
           nullable: true
         name:
-          description: FactSet Name of the person
-          type: string
-          example: Elon Reeve Musk
+          description: 'FactSet Name of the person'
+          type: 'string'
+          example: 'Elon Reeve Musk'
           nullable: true
         title:
-          description: The requested Position Title
-          type: string
-          example: Technoking of Tesla
+          description: 'The requested Position Title'
+          type: 'string'
+          example: 'Technoking of Tesla'
           nullable: true
         yearsAtFirm:
-          description: >-
-            The number of years individual is at firm. For founders, this is
-            since inception.
-          type: number
-          format: double
+          description: 'The number of years individual is at firm. For founders, this is since inception.'
+          type: 'number'
+          format: 'double'
           example: 17.78
           nullable: true
         age:
-          description: The age of the person requested.
-          type: number
-          format: integer
+          description: 'The age of the person requested.'
+          type: 'number'
+          format: 'integer'
           example: 48
           nullable: true
         gender:
-          description: The Gender of the person requested.
-          type: string
-          example: Male
+          description: 'The Gender of the person requested.'
+          type: 'string'
+          example: 'Male'
           nullable: true
         requestPosition:
-          description: The requested position code.
-          type: string
-          example: CEO
+          description: 'The requested position code.'
+          type: 'string'
+          example: 'CEO'
           nullable: true
         requestId:
-          description: Original identifier used for the request.
-          type: string
-          example: TSLA-US
+          description: 'Original identifier used for the request.'
+          type: 'string'
+          example: 'TSLA-US'
     companyCompensationRequest:
-      title: Company Compensation Request
-      type: object
+      title: 'Company Compensation Request'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/companyIds'
       required:
-        - ids
+        - 'ids'
     companyCompensationResponse:
-      title: Company Compensation Response
-      type: object
+      title: 'Company Compensation Response'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/companyCompensation'
     companyCompensation:
-      title: Company Compensation
-      type: object
-      description: >-
-        List of executives and their compensation details for the specified
-        company identifier.
+      title: 'Company Compensation'
+      type: 'object'
+      description: 'List of executives and their compensation details for the specified company identifier.'
       properties:
         name:
-          description: FactSet Name of the person
-          type: string
-          example: Tim Cook
+          description: 'FactSet Name of the person'
+          type: 'string'
+          example: 'Tim Cook'
           nullable: true
         personId:
-          description: Factset Entity Identifier for the Person
-          type: string
-          example: 05F520-E
+          description: 'Factset Entity Identifier for the Person'
+          type: 'string'
+          example: '05F520-E'
           nullable: true
         title:
-          description: The requested Position Title
-          type: string
-          example: Chief Executive Officer & Director
+          description: 'The requested Position Title'
+          type: 'string'
+          example: 'Chief Executive Officer & Director'
           nullable: true
         salary:
-          description: Salary of the person. Expressed in USD and raw units.
-          type: number
-          format: integer
+          description: 'Salary of the person. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: 525846
           nullable: true
         bonus:
-          description: >-
-            Bonus of the executive during the fiscal year. Expressed in USD and
-            raw units.
-          type: number
-          format: integer
+          description: 'Bonus of the executive during the fiscal year. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: 48
           nullable: true
         stockAwards:
-          description: Stock awards for the person. Expressed in USD and raw units.
-          type: number
-          format: integer
+          description: 'Stock awards for the person. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: null
           nullable: true
         optionsAwards:
-          description: Option Awards for the person. Expressed in USD and raw units.
-          type: number
-          format: integer
+          description: 'Option Awards for the person. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: null
           nullable: true
         otherCompensation:
-          description: >-
-            All the other compensations which are not explicitly defined as
-            salary, bonus, stock awards, or options awards. Expressed in USD and
-            raw units.
-          type: number
-          format: integer
+          description: 'All the other compensations which are not explicitly defined as salary, bonus, stock awards, or options awards. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: 11200
           nullable: true
         totalCompensation:
-          description: >-
-            The sum of all compensation for the requested person as reported by
-            the company. Expressed in USD and raw units.
-          type: number
-          format: integer
+          description: 'The sum of all compensation for the requested person as reported by the company. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: 4719062
           nullable: true
         nonEquityIncentivePlanComp:
-          description: >-
-            All the earnings pursuant to awards under non-equity incentive
-            plans. Expressed in USD and raw units.
-          type: number
-          format: integer
+          description: 'All the earnings pursuant to awards under non-equity incentive plans. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: 10731000
           nullable: true
         nonQualifiedCompEarnings:
-          description: >-
-            All the other nonqualified defined contribution which are not tax
-            qualified and other contributions. Expressed in USD and raw units.
-          type: number
-          format: integer
+          description: 'All the other nonqualified defined contribution which are not tax qualified and other contributions. Expressed in USD and raw units.'
+          type: 'number'
+          format: 'integer'
           example: null
           nullable: true
         compensationYear:
-          description: >-
-            The most recent year of compensation is expressed as 'YYYY' as
-            opposed to 'YYYY-MM-DD' format.
-          type: string
+          description: 'The most recent year of compensation is expressed as ''YYYY'' as opposed to ''YYYY-MM-DD'' format.'
+          type: 'string'
           example: '2020'
           nullable: true
         requestId:
-          description: Original identifier used for the request.
-          type: string
-          example: TSLA-US
+          description: 'Original identifier used for the request.'
+          type: 'string'
+          example: 'TSLA-US'
     companyStatsRequest:
-      title: Company Stats Request
-      type: object
+      title: 'Company Stats Request'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/companyIds'
         mbType:
           $ref: '#/components/schemas/mbType'
       required:
-        - ids
+        - 'ids'
     companyStatsResponse:
-      title: Company Stats Response
-      type: object
+      title: 'Company Stats Response'
+      type: 'object'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/companyStats'
     companyStats:
-      title: Company Statistics
-      type: object
-      description: >-
-        List of the statistics such as the average age, tenure, compensation of
-        leadership, the number of executives, and the gender diversity of
-        leadership for the requested identifier.
+      title: 'Company Statistics'
+      type: 'object'
+      description: 'List of the statistics such as the average age, tenure, compensation of leadership, the number of executives, and the gender diversity of leadership for the requested identifier.'
       properties:
         fsymId:
-          description: FactSet Identifier for the company.
-          type: string
-          example: 0016YD-E
+          description: 'FactSet Identifier for the company.'
+          type: 'string'
+          example: '0016YD-E'
           nullable: true
         averageMgmtCompensation:
-          description: Average compensation for the executives
-          type: number
-          format: integer
+          description: 'Average compensation for the executives'
+          type: 'number'
+          format: 'integer'
           example: 2267284
           nullable: true
         averageTenure:
-          description: Avergae tenure of the people
-          type: number
-          format: double
+          description: 'Avergae tenure of the people'
+          type: 'number'
+          format: 'double'
           example: 12.19
           nullable: true
         medianTenure:
-          description: Median tenure
-          type: number
-          format: double
+          description: 'Median tenure'
+          type: 'number'
+          format: 'double'
           example: 0.2
           nullable: true
         averageAge:
-          description: Average of the executives on the management and board
-          type: number
-          format: double
+          description: 'Average of the executives on the management and board'
+          type: 'number'
+          format: 'double'
           example: 58.17
           nullable: true
         maxAge:
-          description: Maximum age of the people on Management & Board
-          type: number
-          format: integer
+          description: 'Maximum age of the people on Management & Board'
+          type: 'number'
+          format: 'integer'
           example: 68
           nullable: true
         minimumAge:
-          description: Minimum age of the person on board
-          type: number
-          format: integer
+          description: 'Minimum age of the person on board'
+          type: 'number'
+          format: 'integer'
           example: 53
           nullable: true
         medianAge:
-          description: Median age of the people on board
-          type: number
+          description: 'Median age of the people on board'
+          type: 'number'
           example: 56
           nullable: true
         boardIndependentDirectors:
-          description: Independent directors on the board
-          type: number
-          format: integer
+          description: 'Independent directors on the board'
+          type: 'number'
+          format: 'integer'
           example: 7
           nullable: true
         femaleBoardMembers:
-          description: Number of female members on the board
-          type: number
-          format: integer
+          description: 'Number of female members on the board'
+          type: 'number'
+          format: 'integer'
           example: 3
           nullable: true
         femaleBoardMembersPercent:
-          description: Percentage of female members on the board
-          type: number
-          format: double
+          description: 'Percentage of female members on the board'
+          type: 'number'
+          format: 'double'
           example: 37.33
           nullable: true
         numberOfMembers:
-          description: Number of people on board.
-          type: number
-          format: integer
+          description: 'Number of people on board.'
+          type: 'number'
+          format: 'integer'
           example: 25
           nullable: true
         onOtherBoardsAll:
-          description: On Other Boards All
-          type: number
-          format: integer
+          description: 'On Other Boards All'
+          type: 'number'
+          format: 'integer'
           example: 7
           nullable: true
         onOtherBoardsCorporate:
-          description: On Other Boards Corporate
-          type: number
-          format: integer
+          description: 'On Other Boards Corporate'
+          type: 'number'
+          format: 'integer'
           example: 6
           nullable: true
         mbType:
-          description: >-
-            Management and Board type, where MB = Management & Board, MGMT =
-            Management, and BRD = Board. This is a pass-through value from the
-            input used in the `mbType` query parameter.
-          type: string
-          example: MB
+          description: 'Management and Board type, where MB = Management & Board, MGMT = Management, and BRD = Board. This is a pass-through value from the input used in the `mbType` query parameter.'
+          type: 'string'
+          example: 'MB'
           nullable: true
         requestId:
-          description: Original identifier used for the request.
-          type: string
-          example: FDS
+          description: 'Original identifier used for the request.'
+          type: 'string'
+          example: 'FDS'
     errorResponse:
-      type: object
-      title: Error Response
+      type: 'object'
+      title: 'Error Response'
       properties:
         status:
-          description: status
-          type: string
-          example: Bad Request
+          description: 'status'
+          type: 'string'
+          example: 'Bad Request'
         timestamp:
-          description: timestamp in YYYY-MM-DD HH:MM:SS.SSS
-          type: string
+          description: 'timestamp in YYYY-MM-DD HH:MM:SS.SSS'
+          type: 'string'
           example: '2019-11-01 11:09:41.918'
-          format: date-time
+          format: 'date-time'
         path:
-          description: The Endpoint path {package}/version/{endpoint}
-          type: string
-          example: /factset-people/v1/superRegion
+          description: 'The Endpoint path {package}/version/{endpoint}'
+          type: 'string'
+          example: '/factset-people/v1/superRegion'
         message:
-          description: The plain text error message
-          type: string
-          example: Validation Error
+          description: 'The plain text error message'
+          type: 'string'
+          example: 'Validation Error'
         subErrors:
-          description: subErrors related to the error message. Null if not applicable.
-          type: object
+          description: 'subErrors related to the error message. Null if not applicable.'
+          type: 'object'
           properties:
             object:
-              description: the operation ID
-              type: string
+              description: 'the operation ID'
+              type: 'string'
             field:
-              description: Parameter Field Name
-              type: string
+              description: 'Parameter Field Name'
+              type: 'string'
             message:
-              description: Error message
-              type: string
+              description: 'Error message'
+              type: 'string'
             rejectedValue:
-              description: Rejected Values in an Array
-              type: array
+              description: 'Rejected Values in an Array'
+              type: 'array'
               items:
-                type: string
+                type: 'string'
     ids:
-      type: array
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 1000
-      description: |
-        FactSet People Entity Ids.
+      description: "FactSet People Entity Ids.\n"
       example:
-        - 0DPHLH-E
+        - '0DPHLH-E'
     companyIds:
-      type: array
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 1000
-      description: >
-        The requested company identifier. FactSet Identifiers, tickers, CUSIP,
-        SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per
-        request*</p> *<p>Make note, GET Method URL request lines are also
-        limited to a total length of 8192 bytes (8KB). In cases where the
-        service allows for thousands of ids, which may lead to exceeding this
-        request line limit of 8KB, its advised for any requests with large
-        request lines to be requested through the respective "POST" method.</p>*
+      description: "The requested company identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>*\n"
       example:
-        - AAPL-US
+        - 'AAPL-US'
     function:
-      type: string
+      type: 'string'
       enum:
-        - PEOPLE
-        - OFFICER
-        - DIRECTOR
-      default: PEOPLE
-      description: >
-        Controls the types of people returned based on high-level job functions.
-        Filter by - 
-          |function|description|
-          |---|---|
-          |PEOPLE|Retrieve **ALL** Executives of a requested company|
-          |OFFICER|Retrieve only the Officers of a requested company|
-          |DIRECTOR|Retrieve only the Directors of a requested company|
-      example: DIRECTOR
+        - 'PEOPLE'
+        - 'OFFICER'
+        - 'DIRECTOR'
+      default: 'PEOPLE'
+      description: "Controls the types of people returned based on high-level job functions. Filter by - \n  |function|description|\n  |---|---|\n  |PEOPLE|Retrieve **ALL** Executives of a requested company|\n  |OFFICER|Retrieve only the Officers of a requested company|\n  |DIRECTOR|Retrieve only the Directors of a requested company|\n"
+      example: 'DIRECTOR'
     status:
-      type: string
-      description: Select only Jobs with a certain status primary, active, or inactive.
+      type: 'string'
+      description: 'Select only Jobs with a certain status primary, active, or inactive.'
       enum:
-        - ALL
-        - PRIMARY
-        - ACTIVE
-        - INACTIVE
-      default: ALL
+        - 'ALL'
+        - 'PRIMARY'
+        - 'ACTIVE'
+        - 'INACTIVE'
+      default: 'ALL'
     level:
-      description: >-
-        Select the level of detail only main Jobs or include other Jobs at a
-        company.
-      type: string
+      description: 'Select the level of detail only main Jobs or include other Jobs at a company.'
+      type: 'string'
       enum:
-        - SUMMARY
-        - DETAIL
-      default: DETAIL
+        - 'SUMMARY'
+        - 'DETAIL'
+      default: 'DETAIL'
     type:
-      description: Select only Jobs of a certain type board member or employee.
+      description: 'Select only Jobs of a certain type board member or employee.'
       enum:
-        - ALL
-        - BRD
-        - EMP
-      default: ALL
+        - 'ALL'
+        - 'BRD'
+        - 'EMP'
+      default: 'ALL'
     position:
-      description: >
-        Controls the position details returned for the requested company. By
-        default, the service returns the CEO name, title, and ID for the
-        requested company ids.
-          |position|description|
-          |---|---|
-          |CHAIR|Chairman|
-          |CEO|Chief Executive Officer|
-          |PRES|President|
-          |COO|Chief Operating Officer|
-          |CFO|Chief Financial Officer|
-          |CTO|Chief Technology Officer|
-          |CIO|Chief Investment Officer|
-          |FOU|Founder(s)|
-          |CMP|Compliance Officer|
-          |ADM|Admin|
-          |IND|Independent Director|
-          |BRD|Directors/Board Members|
-          |IR|Investor Relations|
-          |LEG|Legal Counsel|
-          |TREAS|Treasurer|
-          |MKT|Sales and Marketing Managers|
-          |HR|Human Resources|
+      description: "Controls the position details returned for the requested company. By default, the service returns the CEO name, title, and ID for the requested company ids.\n  |position|description|\n  |---|---|\n  |CHAIR|Chairman|\n  |CEO|Chief Executive Officer|\n  |PRES|President|\n  |COO|Chief Operating Officer|\n  |CFO|Chief Financial Officer|\n  |CTO|Chief Technology Officer|\n  |CIO|Chief Investment Officer|\n  |FOU|Founder(s)|\n  |CMP|Compliance Officer|\n  |ADM|Admin|\n  |IND|Independent Director|\n  |BRD|Directors/Board Members|\n  |IR|Investor Relations|\n  |LEG|Legal Counsel|\n  |TREAS|Treasurer|\n  |MKT|Sales and Marketing Managers|\n  |HR|Human Resources|\n"
       enum:
-        - CHAIR
-        - CEO
-        - PRES
-        - COO
-        - CFO
-        - CTO
-        - CIO
-        - FOU
-        - CMP
-        - ADM
-        - IND
-        - BRD
-        - IR
-        - LEG
-        - TREAS
-        - MKT
-        - HR
-      default: CEO
-      example: FOU
+        - 'CHAIR'
+        - 'CEO'
+        - 'PRES'
+        - 'COO'
+        - 'CFO'
+        - 'CTO'
+        - 'CIO'
+        - 'FOU'
+        - 'CMP'
+        - 'ADM'
+        - 'IND'
+        - 'BRD'
+        - 'IR'
+        - 'LEG'
+        - 'TREAS'
+        - 'MKT'
+        - 'HR'
+      default: 'CEO'
+      example: 'FOU'
     mbType:
-      description: |
-        Search based on the management and board types. The types include - 
-        |type|description|
-        |---|---|
-        |MB|Management & Board|
-        |MGMT|Management|
-        |BRD|Board|
-      type: string
+      description: "Search based on the management and board types. The types include - \n|type|description|\n|---|---|\n|MB|Management & Board|\n|MGMT|Management|\n|BRD|Board|\n"
+      type: 'string'
       enum:
-        - MB
-        - MGMT
-        - BRD
-      default: MB
+        - 'MB'
+        - 'MGMT'
+        - 'BRD'
+      default: 'MB'
   examples:
     badRequestDateFormat:
-      summary: Bad Request - Date Format
-      description: >-
-        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
-        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: 'Bad Request - Date Format'
+      description: 'This bad request occurs when a request doesn''t use the YYYY-MM-DD in the date parameters. To resolve, convert your date to YYYY-MM-DD.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2019-10-31 16:08:07.945'
-        path: /factset-people/v1/{endpoint}
-        message: >-
-          The date parameter 'startDate' must be in the following date format:
-          YYYY-MM-DD
+        path: '/factset-people/v1/{endpoint}'
+        message: 'The date parameter ''startDate'' must be in the following date format: YYYY-MM-DD'
         subErrors: null
     badRequestRequiredParameter:
-      summary: Bad Request - Required Parameter Missing
-      description: >-
-        This error message occurs when the request does not include the required
-        parameters. Required parameters are indicated with a red asterisks
-        symbol in the specification file.
+      summary: 'Bad Request - Required Parameter Missing'
+      description: 'This error message occurs when the request does not include the required parameters. Required parameters are indicated with a red asterisks symbol in the specification file.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-06-12 15:48:42.016'
-        path: /factset-people/v1/{endpoint}
-        message: The parameter 'ids' is required and may not be empty.
+        path: '/factset-people/v1/{endpoint}'
+        message: 'The parameter ''ids'' is required and may not be empty.'
         subErrors: null
     badRequestInvalidParameters:
-      summary: Bad Request - Invalid Parameters
-      description: >-
-        This error message occurs when a request parameter is used in which is
-        not recognized by the service. Please revise your request to include
-        only the parameters listed in the specification. Typical causes are
-        spelling mistakes and use of improper casing.
+      summary: 'Bad Request - Invalid Parameters'
+      description: 'This error message occurs when a request parameter is used in which is not recognized by the service. Please revise your request to include only the parameters listed in the specification. Typical causes are spelling mistakes and use of improper casing.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-06-12 15:58:54.068'
-        path: /factset-people/v1/{endpoint}
-        message: >-
-          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
-          modify your request to use parameters outlined in the specification
-          for this endpoint.
+        path: '/factset-people/v1/{endpoint}'
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please modify your request to use parameters outlined in the specification for this endpoint.'
         subErrors: null
     badRequestMalformedJSON:
-      summary: Bad Request - Malformed JSON Request
-      description: >-
-        This error may be returned when the request body is specified as JSON,
-        but is not in proper JSON format.
+      summary: 'Bad Request - Malformed JSON Request'
+      description: 'This error may be returned when the request body is specified as JSON, but is not in proper JSON format.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2019-11-05 09:48:29.18'
-        path: /factset-people/v1/{endpoint}
-        message: Malformed JSON Request
+        path: '/factset-people/v1/{endpoint}'
+        message: 'Malformed JSON Request'
         subErrors: null
     badRequestReadTimeout:
-      summary: Bad Request - Read Timeout
-      description: >-
-        This error may be returned if it takes more than 29 seconds to hear back
-        from the data fetch service.
+      summary: 'Bad Request - Read Timeout'
+      description: 'This error may be returned if it takes more than 29 seconds to hear back from the data fetch service.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2019-11-04 16:18:38.949'
-        path: /factset-people/v1/{endpoint}
-        message: The request took too long. Try again with a smaller request.
+        path: '/factset-people/v1/{endpoint}'
+        message: 'The request took too long. Try again with a smaller request.'
         subErrors: null
     postProfile:
-      summary: Profile request for id - 0DPHLH-E
+      summary: 'Profile request for id - 0DPHLH-E'
       value:
         ids:
-          - 0DPHLH-E
+          - '0DPHLH-E'
     postJobs:
-      summary: Jobs request for id - 0DPHLH-E
+      summary: 'Jobs request for id - 0DPHLH-E'
       value:
         ids:
-          - 0DPHLH-E
-        status: ALL
-        level: DETAIL
-        type: ALL
+          - '0DPHLH-E'
+        status: 'ALL'
+        level: 'DETAIL'
+        type: 'ALL'
     postCompanyPeople:
-      summary: Company People request for id - AAPL-US
+      summary: 'Company People request for id - AAPL-US'
       value:
         ids:
-          - AAPL-US
-        function: DIRECTOR
+          - 'AAPL-US'
+        function: 'DIRECTOR'
     postCompanyPositions:
-      summary: Company Positions request for id - AAPL-US
+      summary: 'Company Positions request for id - AAPL-US'
       value:
         ids:
-          - AAPL-US
-        position: FOU
+          - 'AAPL-US'
+        position: 'FOU'
     postCompanyCompensation:
-      summary: Company Compensation request for id - AAPL-US
+      summary: 'Company Compensation request for id - AAPL-US'
       value:
         ids:
-          - AAPL-US
+          - 'AAPL-US'
     postCompanyStats:
-      summary: Company Stats Request for id - AAPL-US
+      summary: 'Company Stats Request for id - AAPL-US'
       value:
         ids:
-          - AAPL-US
-        mbType: MB
+          - 'AAPL-US'
+        mbType: 'MB'
     ProfileResponse:
-      summary: Profile response for 0DPHLH-E and 07MZV9-E
+      summary: 'Profile response for 0DPHLH-E and 07MZV9-E'
       value:
         data:
-          - requestId: 0DPHLH-E
-            personId: 0DPHLH-E
-            lastName: Snow
-            factsetName: Philip Snow
-            firstName: Frederick
-            middleName: Philip
-            formalName: Frederick Philip Snow
-            properName: Snow Frederick Philip CFA
-            salutation: Mr.
-            highestDegree: GRD
-            highestDegreeInst: Thunderbird School of Global Management
-            suffix: CFA
+          - requestId: '0DPHLH-E'
+            personId: '0DPHLH-E'
+            lastName: 'Snow'
+            factsetName: 'Philip Snow'
+            firstName: 'Frederick'
+            middleName: 'Philip'
+            formalName: 'Frederick Philip Snow'
+            properName: 'Snow Frederick Philip CFA'
+            salutation: 'Mr.'
+            highestDegree: 'GRD'
+            highestDegreeInst: 'Thunderbird School of Global Management'
+            suffix: 'CFA'
             age: 60
-            gender: Male
+            gender: 'Male'
             salary: 692500
             totalCompensation: 6604998
-            primaryCompanyId: 0016YD-E
-            primaryCompanyName: FactSet Research Systems, Inc.
-            primaryTitle: Chief Executive Officer & Director
-            biography: >-
-              Presently, Frederick Philip Snow occupies the position of Chief
-              Executive Officer & Director at FactSet Research Systems, Inc. and
-              Chairman for FactSet JCF SAS (a subsidiary of FactSet Research
-              Systems, Inc.). Mr. Snow is also Member of CFA Institute and on
-              the board of 5 other companies. He received an undergraduate
-              degree from the University of California, Berkeley and a graduate
-              degree from Thunderbird School of Global Management.
-          - requestId: 07MZV9-E
-            personId: 07MZV9-E
-            lastName: Hale
-            factsetName: Mark J. Hale
-            firstName: Mark
-            middleName: J.
-            formalName: Mark J. Hale
-            properName: Hale Mark J.
-            salutation: Mr.
-            highestDegree: UND
-            highestDegreeInst: Carnegie Mellon University
+            primaryCompanyId: '0016YD-E'
+            primaryCompanyName: 'FactSet Research Systems, Inc.'
+            primaryTitle: 'Chief Executive Officer & Director'
+            biography: 'Presently, Frederick Philip Snow occupies the position of Chief Executive Officer & Director at FactSet Research Systems, Inc. and Chairman for FactSet JCF SAS (a subsidiary of FactSet Research Systems, Inc.). Mr. Snow is also Member of CFA Institute and on the board of 5 other companies. He received an undergraduate degree from the University of California, Berkeley and a graduate degree from Thunderbird School of Global Management.'
+          - requestId: '07MZV9-E'
+            personId: '07MZV9-E'
+            lastName: 'Hale'
+            factsetName: 'Mark J. Hale'
+            firstName: 'Mark'
+            middleName: 'J.'
+            formalName: 'Mark J. Hale'
+            properName: 'Hale Mark J.'
+            salutation: 'Mr.'
+            highestDegree: 'UND'
+            highestDegreeInst: 'Carnegie Mellon University'
             suffix: null
             age: 51
-            gender: Male
+            gender: 'Male'
             salary: 300000
             totalCompensation: 1106928
-            primaryCompanyId: 0GJSJF-E
-            primaryCompanyName: Visible Alpha LLC
-            primaryTitle: Chief Executive Officer
-            biography: >-
-              Mr. Mark J. Hale is a Chief Executive Officer at Visible Alpha
-              LLC. He joined the company in 2018 as COO and has a strong track
-              record in financial services and information technology, as well
-              as in the FinTech community. Prior to joining Visible Alpha, Mr.
-              Hale spent 22 years at FactSet, serving in diverse leadership
-              roles in content operations, software engineering, quality
-              assurance and executive management. He holds a B.S. in Electrical
-              & Computer Engineering from Carnegie Mellon University.
+            primaryCompanyId: '0GJSJF-E'
+            primaryCompanyName: 'Visible Alpha LLC'
+            primaryTitle: 'Chief Executive Officer'
+            biography: 'Mr. Mark J. Hale is a Chief Executive Officer at Visible Alpha LLC. He joined the company in 2018 as COO and has a strong track record in financial services and information technology, as well as in the FinTech community. Prior to joining Visible Alpha, Mr. Hale spent 22 years at FactSet, serving in diverse leadership roles in content operations, software engineering, quality assurance and executive management. He holds a B.S. in Electrical & Computer Engineering from Carnegie Mellon University.'
     JobsResponse:
-      summary: Jobs response for 0DPHLH-E and 07MZV9-E
+      summary: 'Jobs response for 0DPHLH-E and 07MZV9-E'
       value:
         data:
-          - companyCity: Paris
-            companyId: 09714M-E
-            companyName: FactSet JCF SAS
+          - companyCity: 'Paris'
+            companyId: '09714M-E'
+            companyName: 'FactSet JCF SAS'
             jobEndDate: null
-            jobFunctionCode: CHM
-            jobFunctionName: Chairman
+            jobFunctionCode: 'CHM'
+            jobFunctionName: 'Chairman'
             jobStartDate: '2019-04-19'
-            jobTitle: Chairman
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Norwalk
-            companyId: 0016YD-E
-            companyName: FactSet Research Systems, Inc.
+            jobTitle: 'Chairman'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Norwalk'
+            companyId: '0016YD-E'
+            companyName: 'FactSet Research Systems, Inc.'
             jobEndDate: null
-            jobFunctionCode: CEO
-            jobFunctionName: Chief Executive Officer
+            jobFunctionCode: 'CEO'
+            jobFunctionName: 'Chief Executive Officer'
             jobStartDate: '2015-07-01'
-            jobTitle: Chief Executive Officer & Director
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Norwalk
-            companyId: 0016YD-E
-            companyName: FactSet Research Systems, Inc.
+            jobTitle: 'Chief Executive Officer & Director'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Norwalk'
+            companyId: '0016YD-E'
+            companyName: 'FactSet Research Systems, Inc.'
             jobEndDate: null
-            jobFunctionCode: BRD
-            jobFunctionName: Director/Board Member
+            jobFunctionCode: 'BRD'
+            jobFunctionName: 'Director/Board Member'
             jobStartDate: '2015-03-16'
-            jobTitle: Chief Executive Officer & Director
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Boston
-            companyId: 0DCNKN-E
-            companyName: Quantopian, Inc.
+            jobTitle: 'Chief Executive Officer & Director'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Boston'
+            companyId: '0DCNKN-E'
+            companyName: 'Quantopian, Inc.'
             jobEndDate: null
-            jobFunctionCode: BRD
-            jobFunctionName: Director/Board Member
+            jobFunctionCode: 'BRD'
+            jobFunctionName: 'Director/Board Member'
             jobStartDate: '2019-12-19'
-            jobTitle: Director
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Charlottesville
-            companyId: 06NH4N-E
-            companyName: CFA Institute
+            jobTitle: 'Director'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Charlottesville'
+            companyId: '06NH4N-E'
+            companyName: 'CFA Institute'
             jobEndDate: null
-            jobFunctionCode: PRN
-            jobFunctionName: Corporate Officer/Principal
+            jobFunctionCode: 'PRN'
+            jobFunctionName: 'Corporate Officer/Principal'
             jobStartDate: null
-            jobTitle: Member
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Hyderabad
-            companyId: 09KD0V-E
-            companyName: FactSet Systems India Pvt Ltd.
+            jobTitle: 'Member'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Hyderabad'
+            companyId: '09KD0V-E'
+            companyName: 'FactSet Systems India Pvt Ltd.'
             jobEndDate: null
-            jobFunctionCode: BRD
-            jobFunctionName: Director/Board Member
+            jobFunctionCode: 'BRD'
+            jobFunctionName: 'Director/Board Member'
             jobStartDate: null
-            jobTitle: Director
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Edinburgh
-            companyId: 0JXRTR-E
-            companyName: Vermilion Holdings Ltd.
+            jobTitle: 'Director'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Edinburgh'
+            companyId: '0JXRTR-E'
+            companyName: 'Vermilion Holdings Ltd.'
             jobEndDate: null
-            jobFunctionCode: BRD
-            jobFunctionName: Director/Board Member
+            jobFunctionCode: 'BRD'
+            jobFunctionName: 'Director/Board Member'
             jobStartDate: '2018-10-07'
-            jobTitle: Director
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Dubai
-            companyId: 0FJYBG-E
-            companyName: FactSet (UAE) Ltd.
+            jobTitle: 'Director'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Dubai'
+            companyId: '0FJYBG-E'
+            companyName: 'FactSet (UAE) Ltd.'
             jobEndDate: null
-            jobFunctionCode: BRD
-            jobFunctionName: Director/Board Member
+            jobFunctionCode: 'BRD'
+            jobFunctionName: 'Director/Board Member'
             jobStartDate: null
-            jobTitle: Director
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: London
-            companyId: 0988HX-E
-            companyName: FactSet UK Ltd.
+            jobTitle: 'Director'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'London'
+            companyId: '0988HX-E'
+            companyName: 'FactSet UK Ltd.'
             jobEndDate: null
-            jobFunctionCode: BRD
-            jobFunctionName: Director/Board Member
+            jobFunctionCode: 'BRD'
+            jobFunctionName: 'Director/Board Member'
             jobStartDate: '2018-10-07'
-            jobTitle: Director
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Norwalk
-            companyId: 0016YD-E
-            companyName: FactSet Research Systems, Inc.
+            jobTitle: 'Director'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Norwalk'
+            companyId: '0016YD-E'
+            companyName: 'FactSet Research Systems, Inc.'
             jobEndDate: '2015-06-30'
-            jobFunctionCode: PSD
-            jobFunctionName: President
+            jobFunctionCode: 'PSD'
+            jobFunctionName: 'President'
             jobStartDate: '2014-07-01'
-            jobTitle: President
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: Norwalk
-            companyId: 0016YD-E
-            companyName: FactSet Research Systems, Inc.
+            jobTitle: 'President'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'Norwalk'
+            companyId: '0016YD-E'
+            companyName: 'FactSet Research Systems, Inc.'
             jobEndDate: '2014-07-01'
-            jobFunctionCode: SAM
-            jobFunctionName: Sales & Marketing
+            jobFunctionCode: 'SAM'
+            jobFunctionName: 'Sales & Marketing'
             jobStartDate: '2013-01-01'
-            jobTitle: Sales & Marketing
-            personId: 0DPHLH-E
-            requestId: 0DPHLH-E
-          - companyCity: New York
-            companyId: 0GJSJF-E
-            companyName: Visible Alpha LLC
+            jobTitle: 'Sales & Marketing'
+            personId: '0DPHLH-E'
+            requestId: '0DPHLH-E'
+          - companyCity: 'New York'
+            companyId: '0GJSJF-E'
+            companyName: 'Visible Alpha LLC'
             jobEndDate: null
-            jobFunctionCode: CEO
-            jobFunctionName: Chief Executive Officer
+            jobFunctionCode: 'CEO'
+            jobFunctionName: 'Chief Executive Officer'
             jobStartDate: '2020-02-01'
-            jobTitle: Chief Executive Officer
-            personId: 07MZV9-E
-            requestId: 07MZV9-E
-          - companyCity: New York
-            companyId: 0GJSJF-E
-            companyName: Visible Alpha LLC
+            jobTitle: 'Chief Executive Officer'
+            personId: '07MZV9-E'
+            requestId: '07MZV9-E'
+          - companyCity: 'New York'
+            companyId: '0GJSJF-E'
+            companyName: 'Visible Alpha LLC'
             jobEndDate: '2020-02-01'
-            jobFunctionCode: COO
-            jobFunctionName: Chief Operating Officer
+            jobFunctionCode: 'COO'
+            jobFunctionName: 'Chief Operating Officer'
             jobStartDate: '2018-09-17'
-            jobTitle: Chief Operating Officer
-            personId: 07MZV9-E
-            requestId: 07MZV9-E
-          - companyCity: Norwalk
-            companyId: 0016YD-E
-            companyName: FactSet Research Systems, Inc.
+            jobTitle: 'Chief Operating Officer'
+            personId: '07MZV9-E'
+            requestId: '07MZV9-E'
+          - companyCity: 'Norwalk'
+            companyId: '0016YD-E'
+            companyName: 'FactSet Research Systems, Inc.'
             jobEndDate: '2017-12-31'
-            jobFunctionCode: COO
-            jobFunctionName: Chief Operating Officer
+            jobFunctionCode: 'COO'
+            jobFunctionName: 'Chief Operating Officer'
             jobStartDate: '2015-03-16'
-            jobTitle: Chief Operating Officer
-            personId: 07MZV9-E
-            requestId: 07MZV9-E
-          - companyCity: Norwalk
-            companyId: 0016YD-E
-            companyName: FactSet Research Systems, Inc.
+            jobTitle: 'Chief Operating Officer'
+            personId: '07MZV9-E'
+            requestId: '07MZV9-E'
+          - companyCity: 'Norwalk'
+            companyId: '0016YD-E'
+            companyName: 'FactSet Research Systems, Inc.'
             jobEndDate: '2015-03-16'
-            jobFunctionCode: PRN
-            jobFunctionName: Corporate Officer/Principal
+            jobFunctionCode: 'PRN'
+            jobFunctionName: 'Corporate Officer/Principal'
             jobStartDate: '1995-07-10'
-            jobTitle: Corporate Officer/Principal
-            personId: 07MZV9-E
-            requestId: 07MZV9-E
+            jobTitle: 'Corporate Officer/Principal'
+            personId: '07MZV9-E'
+            requestId: '07MZV9-E'
     CompanyPeopleResponse:
-      summary: Company People response for 'AAPL-US' to only return "DIRECTOR" field.
+      summary: 'Company People response for ''AAPL-US'' to only return "DIRECTOR" field.'
       value:
         data:
-          - fsymId: 000C7F-E
+          - fsymId: '000C7F-E'
             email: null
-            name: Arthur D. Levinson
-            jobFunction1: Chairman
-            jobFunction2: Independent Dir/Board Member
+            name: 'Arthur D. Levinson'
+            jobFunction1: 'Chairman'
+            jobFunction2: 'Independent Dir/Board Member'
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 05F39B-E
+            mainPhone: '1.408.996.1010'
+            personId: '05F39B-E'
             phone: null
-            requestId: AAPL-US
-            title: Independent Chairman
-          - fsymId: 000C7F-E
+            requestId: 'AAPL-US'
+            title: 'Independent Chairman'
+          - fsymId: '000C7F-E'
             email: null
-            name: Tim Cook
-            jobFunction1: Chief Executive Officer
-            jobFunction2: Director/Board Member
+            name: 'Tim Cook'
+            jobFunction1: 'Chief Executive Officer'
+            jobFunction2: 'Director/Board Member'
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 05F520-E
+            mainPhone: '1.408.996.1010'
+            personId: '05F520-E'
             phone: null
-            requestId: AAPL-US
-            title: Chief Executive Officer & Director
-          - fsymId: 000C7F-E
+            requestId: 'AAPL-US'
+            title: 'Chief Executive Officer & Director'
+          - fsymId: '000C7F-E'
             email: null
-            name: Andrea Jung
-            jobFunction1: Chief Operating Officer
+            name: 'Andrea Jung'
+            jobFunction1: 'Chief Operating Officer'
             jobFunction2: null
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 05DYGF-E
+            mainPhone: '1.408.996.1010'
+            personId: '05DYGF-E'
             phone: null
-            requestId: AAPL-US
-            title: Independent Non-Executive Director
-          - fsymId: 000C7F-E
+            requestId: 'AAPL-US'
+            title: 'Independent Non-Executive Director'
+          - fsymId: '000C7F-E'
             email: null
-            name: Ronald D. Sugar
-            jobFunction1: Director of Finance/CFO
+            name: 'Ronald D. Sugar'
+            jobFunction1: 'Director of Finance/CFO'
             jobFunction2: null
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 05HR5F-E
+            mainPhone: '1.408.996.1010'
+            personId: '05HR5F-E'
             phone: null
-            requestId: AAPL-US
-            title: Independent Director
-          - fsymId: 000C7F-E
+            requestId: 'AAPL-US'
+            title: 'Independent Director'
+          - fsymId: '000C7F-E'
             email: null
-            name: Susan Lynne Wagner
-            jobFunction1: Chief Tech/Sci/R&D Officer
+            name: 'Susan Lynne Wagner'
+            jobFunction1: 'Chief Tech/Sci/R&D Officer'
             jobFunction2: null
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 0021H2-E
+            mainPhone: '1.408.996.1010'
+            personId: '0021H2-E'
             phone: null
-            requestId: AAPL-US
-            title: Independent Director
-          - fsymId: 000C7F-E
+            requestId: 'AAPL-US'
+            title: 'Independent Director'
+          - fsymId: '000C7F-E'
             email: null
-            name: Monica Cecilia Lozano
-            jobFunction1: Chief Tech/Sci/R&D Officer
+            name: 'Monica Cecilia Lozano'
+            jobFunction1: 'Chief Tech/Sci/R&D Officer'
             jobFunction2: null
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 05FTGN-E
+            mainPhone: '1.408.996.1010'
+            personId: '05FTGN-E'
             phone: null
-            requestId: AAPL-US
-            title: Independent Director
-          - fsymId: 000C7F-E
+            requestId: 'AAPL-US'
+            title: 'Independent Director'
+          - fsymId: '000C7F-E'
             email: null
-            name: Alex Gorsky
-            jobFunction1: Corporate Secretary
-            jobFunction2: General Counsel
+            name: 'Alex Gorsky'
+            jobFunction1: 'Corporate Secretary'
+            jobFunction2: 'General Counsel'
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 065SLB-E
+            mainPhone: '1.408.996.1010'
+            personId: '065SLB-E'
             phone: null
-            requestId: AAPL-US
-            title: Independent Director
-          - fsymId: 000C7F-E
+            requestId: 'AAPL-US'
+            title: 'Independent Director'
+          - fsymId: '000C7F-E'
             email: null
-            name: Wanda M. Austin
-            jobFunction1: Corporate Officer/Principal
+            name: 'Wanda M. Austin'
+            jobFunction1: 'Corporate Officer/Principal'
             jobFunction2: null
             jobFunction3: null
             jobFunction4: null
-            mainPhone: 1.408.996.1010
-            personId: 06XHQ6-E
+            mainPhone: '1.408.996.1010'
+            personId: '06XHQ6-E'
             phone: null
-            requestId: AAPL-US
-            title: Director
+            requestId: 'AAPL-US'
+            title: 'Director'
     CompanyPositionsResponse:
-      summary: Company Positions response for 'FDS-US' to only return "FOU" field.
+      summary: 'Company Positions response for ''FDS-US'' to only return "FOU" field.'
       value:
         data:
-          - fsymId: 0016YD-E
-            personId: 05FJHJ-E
-            name: Charles J. Snyder
-            title: Founder
+          - fsymId: '0016YD-E'
+            personId: '05FJHJ-E'
+            name: 'Charles J. Snyder'
+            title: 'Founder'
             yearsAtFirm: 45.54
             age: 82
-            gender: Male
-            requestPosition: FOU
-            requestId: FDS-US
-          - fsymId: 0016YD-E
-            personId: 05FJHH-E
-            name: Howard E. Wille
-            title: Founder
+            gender: 'Male'
+            requestPosition: 'FOU'
+            requestId: 'FDS-US'
+          - fsymId: '0016YD-E'
+            personId: '05FJHH-E'
+            name: 'Howard E. Wille'
+            title: 'Founder'
             yearsAtFirm: 45.54
             age: null
-            gender: Male
-            requestPosition: FOU
-            requestId: FDS-US
+            gender: 'Male'
+            requestPosition: 'FOU'
+            requestId: 'FDS-US'
     CompanyCompensationResponse:
-      summary: Company Compensation response for AAPL-US
+      summary: 'Company Compensation response for AAPL-US'
       value:
         data:
-          - name: Tim Cook
-            personId: 05F520-E
-            title: Chief Executive Officer & Director
+          - name: 'Tim Cook'
+            personId: '05F520-E'
+            title: 'Chief Executive Officer & Director'
             salary: 3000000
             bonus: null
             stockAwards: 46970283
@@ -1888,10 +1647,10 @@ components:
             nonEquityIncentivePlanComp: 10713450
             nonQualifiedCompEarnings: null
             compensationYear: '2023'
-            requestId: AAPL-US
-          - name: Jeffrey E. Williams
-            personId: 00CPSF-E
-            title: Chief Operating Officer
+            requestId: 'AAPL-US'
+          - name: 'Jeffrey E. Williams'
+            personId: '00CPSF-E'
+            title: 'Chief Operating Officer'
             salary: 1000000
             bonus: null
             stockAwards: 22323641
@@ -1901,10 +1660,10 @@ components:
             nonEquityIncentivePlanComp: 3571150
             nonQualifiedCompEarnings: null
             compensationYear: '2023'
-            requestId: AAPL-US
-          - name: Luca Maestri
-            personId: 07F5D0-E
-            title: Chief Financial Officer & Senior Vice President
+            requestId: 'AAPL-US'
+          - name: 'Luca Maestri'
+            personId: '07F5D0-E'
+            title: 'Chief Financial Officer & Senior Vice President'
             salary: 1000000
             bonus: null
             stockAwards: 22323641
@@ -1914,10 +1673,10 @@ components:
             nonEquityIncentivePlanComp: 3571150
             nonQualifiedCompEarnings: null
             compensationYear: '2023'
-            requestId: AAPL-US
-          - name: Kate Adams
-            personId: 06WHND-E
-            title: Secretary, Senior Vice President & General Counsel
+            requestId: 'AAPL-US'
+          - name: 'Kate Adams'
+            personId: '06WHND-E'
+            title: 'Secretary, Senior Vice President & General Counsel'
             salary: 1000000
             bonus: null
             stockAwards: 22323641
@@ -1927,10 +1686,10 @@ components:
             nonEquityIncentivePlanComp: 3571150
             nonQualifiedCompEarnings: null
             compensationYear: '2023'
-            requestId: AAPL-US
-          - name: Deirdre O'Brien
-            personId: 0H7DRB-E
-            title: Senior Vice President-Retail
+            requestId: 'AAPL-US'
+          - name: 'Deirdre O''Brien'
+            personId: '0H7DRB-E'
+            title: 'Senior Vice President-Retail'
             salary: 1000000
             bonus: null
             stockAwards: 22323641
@@ -1940,12 +1699,12 @@ components:
             nonEquityIncentivePlanComp: 3571150
             nonQualifiedCompEarnings: null
             compensationYear: '2023'
-            requestId: AAPL-US
+            requestId: 'AAPL-US'
     CompanyStatsResponse:
-      summary: Company Stats response for 'AAPL-US' to only return "MB" field.
+      summary: 'Company Stats response for ''AAPL-US'' to only return "MB" field.'
       value:
         data:
-          - fsymId: 000C7F-E
+          - fsymId: '000C7F-E'
             averageMgmtCompensation: 34197132
             averageTenure: 13.88
             medianTenure: 0.05
@@ -1959,76 +1718,56 @@ components:
             numberOfMembers: 45
             onOtherBoardsAll: 8
             onOtherBoardsCorporate: 8
-            mbType: MB
-            requestId: AAPL-US
+            mbType: 'MB'
+            requestId: 'AAPL-US'
     unauthenticated:
-      summary: User Authentication Failed
-      description: >-
-        This occurs when a user is not properly authenticated or recognized by
-        the service. Please double check the USERNAME-SERIAL and API-Key used to
-        request and ensure you are within the IP range specified for the Key.
-        Report Issue under 401 error for help with troubleshooting.
+      summary: 'User Authentication Failed'
+      description: 'This occurs when a user is not properly authenticated or recognized by the service. Please double check the USERNAME-SERIAL and API-Key used to request and ensure you are within the IP range specified for the Key. Report Issue under 401 error for help with troubleshooting.'
       value:
-        status: User Authentication Failed
+        status: 'User Authentication Failed'
         timestamp: '2019-10-31 16:08:07.945'
-        path: /factset-people/v1/{endpoint}
-        message: User Authentication Failed.
+        path: '/factset-people/v1/{endpoint}'
+        message: 'User Authentication Failed.'
         subErrors: null
     forbidden:
-      summary: Forbidden
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+      summary: 'Forbidden'
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       value:
-        status: Forbidden
+        status: 'Forbidden'
         timestamp: '2020-06-12 16:08:51.731'
-        path: /factset-people/v1/{endpoint}
-        message: >-
-          USERNAME-SERIAL does not have permission to use /factset-people
-          /v1/{endpoint}
+        path: '/factset-people/v1/{endpoint}'
+        message: 'USERNAME-SERIAL does not have permission to use /factset-people /v1/{endpoint}'
         subErrors: null
     unsupportedMediaType:
-      summary: Unsupported Media Type
-      description: >-
-        This bad request occurs when the media type passed in the request is not
-        supported. Currently the APIs only support 'application/json'.
+      summary: 'Unsupported Media Type'
+      description: 'This bad request occurs when the media type passed in the request is not supported. Currently the APIs only support ''application/json''.'
       value:
-        status: Unsupported Media Type
+        status: 'Unsupported Media Type'
         timestamp: '2019-11-05 09:42:27.237'
-        path: /factset-people/v1/{endpoint}
-        message: >-
-          text/html media type is not supported. Supported media types are
-          application/json
+        path: '/factset-people/v1/{endpoint}'
+        message: 'text/html media type is not supported. Supported media types are application/json'
         subErrors: null
     notWritable:
-      summary: Internal Server Error - Not Writable
-      description: >-
-        This error may be returned when the server encounters an error writing
-        the JSON response.
+      summary: 'Internal Server Error - Not Writable'
+      description: 'This error may be returned when the server encounters an error writing the JSON response.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2019-11-05 09:48:29.18'
-        path: /factset-people/v1/{endpoint}
-        message: Error writing JSON output
+        path: '/factset-people/v1/{endpoint}'
+        message: 'Error writing JSON output'
         subErrors: null
     generalException:
-      summary: Internal Server Error - General Exception
-      description: >-
-        This is the most general error that can be returned to by the service.
-        Please `Report Issue` to FactSet.
+      summary: 'Internal Server Error - General Exception'
+      description: 'This is the most general error that can be returned to by the service. Please `Report Issue` to FactSet.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2019-11-01 10:36:01.944'
-        path: /factset-people/v1/{endpoint}
-        message: Unexpected error
+        path: '/factset-people/v1/{endpoint}'
+        message: 'Unexpected error'
         subErrors: null
   responses:
     '400':
-      description: >-
-        Bad Request. This can occur for several reasons. Please review the
-        "message" for more details.
+      description: 'Bad Request. This can occur for several reasons. Please review the "message" for more details.'
       content:
         application/json:
           schema:
@@ -2045,12 +1784,7 @@ components:
             Bad Request - Read Timeout:
               $ref: '#/components/examples/badRequestReadTimeout'
     '401':
-      description: >-
-        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
-        from. For more help, select the **Report Issue** in the top right corner
-        of this Developer Portal specification card and choose Connectivity 401
-        or 403 Responses.
+      description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
       content:
         application/json:
           schema:
@@ -2059,11 +1793,7 @@ components:
             Unauthenticated:
               $ref: '#/components/examples/unauthenticated'
     '403':
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       content:
         application/json:
           schema:
@@ -2072,11 +1802,7 @@ components:
             Forbidden:
               $ref: '#/components/examples/forbidden'
     '415':
-      description: >-
-        Unsupported Media Type. This error may be returned when the caller sends
-        a resource in a format that is not accepted by the server. This can be
-        fixed by ensuring that Content-Type header is set to the correct value.
-        In this instance, "application/json" would be the appropriate value.
+      description: 'Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, "application/json" would be the appropriate value.'
       content:
         application/json:
           schema:
@@ -2085,7 +1811,7 @@ components:
             Unsupported Media Type:
               $ref: '#/components/examples/unsupportedMediaType'
     '500':
-      description: Internal Server Error.
+      description: 'Internal Server Error.'
       content:
         application/json:
           schema:

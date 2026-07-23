@@ -53,7 +53,6 @@ import com.factset.sdk.FactSetPrivateEquityandVentureCapital.JSON;
   FundDetail.JSON_PROPERTY_INVESTMENT_CRITERIA,
   FundDetail.JSON_PROPERTY_TERMS,
   FundDetail.JSON_PROPERTY_FEATURES,
-  FundDetail.JSON_PROPERTY_STRATEGY_TYPE,
   FundDetail.JSON_PROPERTY_FUND_OF_FUND_ALLOCATION,
   FundDetail.JSON_PROPERTY_ERROR
 })
@@ -88,64 +87,6 @@ public class FundDetail implements Serializable {
 
   public static final String JSON_PROPERTY_FEATURES = "features";
   private JsonNullable<FundDetailFeatures> features = JsonNullable.<FundDetailFeatures>undefined();
-
-  /**
-   * Indicate the fund strategy type.
-   */
-  public enum StrategyTypeEnum {
-    INFRASTRUCTURE_PROJ_FIN("Infrastructure/Proj Fin"),
-    
-    FUND_OF_FUNDS("Fund of Funds"),
-    
-    BUYOUT("Buyout"),
-    
-    MBO("MBO"),
-    
-    SECONDARY("Secondary"),
-    
-    REAL_ESTATE("Real Estate"),
-    
-    MEZZANINE("Mezzanine"),
-    
-    LBO("LBO"),
-    
-    DEBT("Debt"),
-    
-    SEED_STAGE("Seed Stage"),
-    
-    EARLY_STAGE("Early Stage"),
-    
-    LATER_STAGE("Later Stage");
-
-    private String value;
-
-    StrategyTypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StrategyTypeEnum fromValue(String value) {
-      for (StrategyTypeEnum b : StrategyTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-
-  public static final String JSON_PROPERTY_STRATEGY_TYPE = "strategyType";
-  private JsonNullable<StrategyTypeEnum> strategyType = JsonNullable.<StrategyTypeEnum>undefined();
 
   public static final String JSON_PROPERTY_FUND_OF_FUND_ALLOCATION = "fundOfFundAllocation";
   private JsonNullable<FundDetailFundOfFundAllocation> fundOfFundAllocation = JsonNullable.<FundDetailFundOfFundAllocation>undefined();
@@ -462,40 +403,6 @@ public class FundDetail implements Serializable {
   }
 
 
-  public FundDetail strategyType(StrategyTypeEnum strategyType) {
-    this.strategyType = JsonNullable.<StrategyTypeEnum>of(strategyType);
-    return this;
-  }
-
-   /**
-   * Indicate the fund strategy type.
-   * @return strategyType
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Indicate the fund strategy type.")
-  @JsonIgnore
-
-  public StrategyTypeEnum getStrategyType() {
-        return strategyType.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_STRATEGY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<StrategyTypeEnum> getStrategyType_JsonNullable() {
-    return strategyType;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_STRATEGY_TYPE)
-  public void setStrategyType_JsonNullable(JsonNullable<StrategyTypeEnum> strategyType) {
-    this.strategyType = strategyType;
-  }
-
-  public void setStrategyType(StrategyTypeEnum strategyType) {
-    this.strategyType = JsonNullable.<StrategyTypeEnum>of(strategyType);
-  }
-
-
   public FundDetail fundOfFundAllocation(FundDetailFundOfFundAllocation fundOfFundAllocation) {
     this.fundOfFundAllocation = JsonNullable.<FundDetailFundOfFundAllocation>of(fundOfFundAllocation);
     return this;
@@ -585,7 +492,6 @@ public class FundDetail implements Serializable {
         equalsNullable(this.investmentCriteria, fundDetail.investmentCriteria) &&
         equalsNullable(this.terms, fundDetail.terms) &&
         equalsNullable(this.features, fundDetail.features) &&
-        equalsNullable(this.strategyType, fundDetail.strategyType) &&
         equalsNullable(this.fundOfFundAllocation, fundDetail.fundOfFundAllocation) &&
         equalsNullable(this.error, fundDetail.error);
   }
@@ -596,7 +502,7 @@ public class FundDetail implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(requestId), hashCodeNullable(factsetGpEntityId), hashCodeNullable(entityProfile), hashCodeNullable(fundStatus), hashCodeNullable(dates), hashCodeNullable(financialInfo), hashCodeNullable(investmentCriteria), hashCodeNullable(terms), hashCodeNullable(features), hashCodeNullable(strategyType), hashCodeNullable(fundOfFundAllocation), hashCodeNullable(error));
+    return Objects.hash(hashCodeNullable(requestId), hashCodeNullable(factsetGpEntityId), hashCodeNullable(entityProfile), hashCodeNullable(fundStatus), hashCodeNullable(dates), hashCodeNullable(financialInfo), hashCodeNullable(investmentCriteria), hashCodeNullable(terms), hashCodeNullable(features), hashCodeNullable(fundOfFundAllocation), hashCodeNullable(error));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -619,7 +525,6 @@ public class FundDetail implements Serializable {
     sb.append("    investmentCriteria: ").append(toIndentedString(investmentCriteria)).append("\n");
     sb.append("    terms: ").append(toIndentedString(terms)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
-    sb.append("    strategyType: ").append(toIndentedString(strategyType)).append("\n");
     sb.append("    fundOfFundAllocation: ").append(toIndentedString(fundOfFundAllocation)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("}");

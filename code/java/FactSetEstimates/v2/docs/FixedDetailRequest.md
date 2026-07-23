@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **brokerNames** | **java.util.List&lt;String&gt;** | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). |  [optional]
 **updatesOnly** | **Boolean** | Controls whether the response includes only broker updates within the requested period or all reported data points. By default, the service returns data for every date in the requested range at the selected frequency. * &#x60;TRUE&#x60; &#x3D; Returns the first reported estimates within the period plus any subsequent broker updates. * &#x60;FALSE&#x60; &#x3D; Returns data for every date in the requested range at the selected frequency. |  [optional]
 **sortByInputDateTime** | **Boolean** | When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  |  [optional]
+**includeDocId** | **Boolean** | Controls whether the &#x60;docId&#x60; field is included in the response.   * &#x60;TRUE&#x60; &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * &#x60;FALSE&#x60; &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  |  [optional]
 
 
 ## Implemented Interfaces

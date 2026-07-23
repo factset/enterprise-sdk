@@ -22,7 +22,7 @@ import Frequency from './Frequency';
 class JobOverridesCombinationsRootDateRange {
     /**
      * Constructs a new <code>JobOverridesCombinationsRootDateRange</code>.
-     * Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for more details.
+     * Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF, dataPrep, and vault. Please see OA page 23173 for more details.
      * @alias module:model/JobOverridesCombinationsRootDateRange
      */
     constructor() { 

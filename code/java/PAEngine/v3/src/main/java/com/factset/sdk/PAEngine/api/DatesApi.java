@@ -62,6 +62,7 @@ public class DatesApi {
    * @param componentid Component Id (required)
    * @param account Account ( Account Name ending with .ACCT or .ACTM ) (required)
    * @param startdate Start Date (optional)
+   * @param calendar Calendar (optional)
    * @return DateParametersSummaryRoot
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -78,8 +79,8 @@ public class DatesApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public DateParametersSummaryRoot convertPADatesToAbsoluteFormat(String enddate, String componentid, String account, String startdate) throws ApiException {
-    return convertPADatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, startdate).getData();
+  public DateParametersSummaryRoot convertPADatesToAbsoluteFormat(String enddate, String componentid, String account, String startdate, String calendar) throws ApiException {
+    return convertPADatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, startdate, calendar).getData();
   }
 
   /**
@@ -89,6 +90,7 @@ public class DatesApi {
    * @param componentid Component Id (required)
    * @param account Account ( Account Name ending with .ACCT or .ACTM ) (required)
    * @param startdate Start Date (optional)
+   * @param calendar Calendar (optional)
    * @return ApiResponse&lt;DateParametersSummaryRoot&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -105,7 +107,7 @@ public class DatesApi {
        <tr><td> 503 </td><td> Request timed out. Retry the request in sometime. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  </td></tr>
      </table>
    */
-  public ApiResponse<DateParametersSummaryRoot> convertPADatesToAbsoluteFormatWithHttpInfo(String enddate, String componentid, String account, String startdate) throws ApiException {
+  public ApiResponse<DateParametersSummaryRoot> convertPADatesToAbsoluteFormatWithHttpInfo(String enddate, String componentid, String account, String startdate, String calendar) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'enddate' is set
@@ -136,6 +138,7 @@ public class DatesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "enddate", enddate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "componentid", componentid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "account", account));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "calendar", calendar));
 
     
     

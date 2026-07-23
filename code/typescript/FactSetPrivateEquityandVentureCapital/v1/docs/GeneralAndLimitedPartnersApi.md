@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/content/factset-pevc/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getFundLimitedPartners**](GeneralAndLimitedPartnersApi.md#getFundLimitedPartners) | **GET** /limited-partners/funds | Retrieve the Limited Partners (LPs) and their capital commitments to specific funds.
-[**getGP**](GeneralAndLimitedPartnersApi.md#getGP) | **GET** /general-partners | Retrieve core profile and summary data for specified General Partner (GP) firms.
+[**getGP**](GeneralAndLimitedPartnersApi.md#getGP) | **GET** /general-partners | Retrieves historical data for specified General Partner (GP) firms.
 [**getGPFunds**](GeneralAndLimitedPartnersApi.md#getGPFunds) | **GET** /general-partners/funds | Retrieve the list of all Private Equity and Venture Capital Funds managed by specified General Partners.
 
 
@@ -51,7 +51,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new GeneralAndLimitedPartnersApi();
-const ids = ["001JYM-E","005GEM-E"]; // [String] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
+const ids = ["0LC436-E"]; // [String] | A list of FactSet Permanent Entity Identifiers (FactSet IDs) for **Private Equity and Venture Capital Funds**. These IDs are in the format 'XXXXXX-E' and are the primary input for most fund-related endpoints. These IDs can be retrieved from the /universe endpoint
 
 // Call api endpoint
 apiInstance.getFundLimitedPartners(ids).then(
@@ -93,9 +93,9 @@ Name | Type | Description  | Notes
 
 > GPDetailsResponse getGP(ids, opts)
 
-Retrieve core profile and summary data for specified General Partner (GP) firms.
+Retrieves historical data for specified General Partner (GP) firms.
 
-Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).  Use the &#x60;/universe&#x60; endpoint and input the GP firm name, with &#x60;entityType&#x60; set to &#x60;HOL&#x60;. Only use &#x60;entityId&#x60; values whose &#x60;entityTypeCode&#x60; is &#x60;HOL&#x60; in your request.
+Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
 
 ### Example
 

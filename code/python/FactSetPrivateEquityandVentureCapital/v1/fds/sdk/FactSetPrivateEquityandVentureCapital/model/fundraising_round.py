@@ -69,6 +69,7 @@ class FundraisingRound(ModelNormal):
             'SEVENTH_CLOSE': "Seventh Close",
             'EIGHTH_CLOSE': "Eighth Close",
             'NINTH_CLOSE': "Ninth Close",
+            'NULL': "null",
 
 
         },

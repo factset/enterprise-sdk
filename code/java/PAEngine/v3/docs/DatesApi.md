@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## convertPADatesToAbsoluteFormat
 
-> DateParametersSummaryRoot convertPADatesToAbsoluteFormat(enddate, componentid, account, startdate)
+> DateParametersSummaryRoot convertPADatesToAbsoluteFormat(enddate, componentid, account, startdate, calendar)
 
 Convert PA dates to absolute format
 
@@ -61,8 +61,9 @@ public class Example {
         String componentid = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46"; // String | Component Id
         String account = "Client:/Folder1/Folder2/AccountName.ACCT"; // String | Account ( Account Name ending with .ACCT or .ACTM )
         String startdate = "-3AY"; // String | Start Date
+        String calendar = "FIVEDAY"; // String | Calendar
         try {
-            DateParametersSummaryRoot result = apiInstance.convertPADatesToAbsoluteFormat(enddate, componentid, account, startdate);
+            DateParametersSummaryRoot result = apiInstance.convertPADatesToAbsoluteFormat(enddate, componentid, account, startdate, calendar);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -85,6 +86,7 @@ Name | Type | Description  | Notes
  **componentid** | **String**| Component Id |
  **account** | **String**| Account ( Account Name ending with .ACCT or .ACTM ) |
  **startdate** | **String**| Start Date | [optional]
+ **calendar** | **String**| Calendar | [optional]
 
 ### Return type
 

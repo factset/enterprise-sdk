@@ -15,6 +15,7 @@ docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
 docs/CalculationsSummary.md
 docs/CalculationsSummaryRoot.md
+docs/CalendarApi.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -65,6 +66,8 @@ docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
+docs/PACalendar.md
+docs/PACalendarRoot.md
 docs/PACommentary.md
 docs/PACommentaryConfigurationSummary.md
 docs/PACommentaryConfigurationSummaryRoot.md
@@ -118,6 +121,7 @@ docs/UnlinkedPATemplateUpdateParametersRoot.md
 docs/UnlinkedPATemplatesApi.md
 git_push.sh
 src/FactSet.SDK.PAEngine/Api/AccountsApi.cs
+src/FactSet.SDK.PAEngine/Api/CalendarApi.cs
 src/FactSet.SDK.PAEngine/Api/ColumnStatisticsApi.cs
 src/FactSet.SDK.PAEngine/Api/ColumnsApi.cs
 src/FactSet.SDK.PAEngine/Api/ComponentsApi.cs
@@ -199,6 +203,8 @@ src/FactSet.SDK.PAEngine/Model/PACalculationGroup.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationParameters.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationParametersRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACalculationPricingSource.cs
+src/FactSet.SDK.PAEngine/Model/PACalendar.cs
+src/FactSet.SDK.PAEngine/Model/PACalendarRoot.cs
 src/FactSet.SDK.PAEngine/Model/PACommentary.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryConfigurationSummary.cs
 src/FactSet.SDK.PAEngine/Model/PACommentaryConfigurationSummaryRoot.cs

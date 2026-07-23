@@ -37,7 +37,7 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         /// </summary>
         /// <param name="factsetEntityId">FactSet identifier for the portfolio company.</param>
         /// <param name="companyName">Portfolio company name.</param>
-        /// <param name="investmentDate">Date of initial investment.</param>
+        /// <param name="investmentDate">Date of latest investment.</param>
         /// <param name="sector">Primary sector classification.</param>
         public PortfolioCompany(string factsetEntityId = default(string), string companyName = default(string), DateTime? investmentDate = default(DateTime?), string sector = default(string))
         {
@@ -62,9 +62,9 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         public string CompanyName { get; set; }
 
         /// <summary>
-        /// Date of initial investment
+        /// Date of latest investment
         /// </summary>
-        /// <value>Date of initial investment</value>
+        /// <value>Date of latest investment</value>
         [DataMember(Name = "investmentDate", EmitDefaultValue = true)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime? InvestmentDate { get; set; }

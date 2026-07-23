@@ -33,9 +33,9 @@ import com.factset.sdk.PortfolioReportingBatcher.JSON;
 
 
 /**
- * Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for more details.
+ * Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF, dataPrep, and vault. Please see OA page 23173 for more details.
  */
-@ApiModel(description = "Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for more details.")
+@ApiModel(description = "Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF, dataPrep, and vault. Please see OA page 23173 for more details.")
 @JsonPropertyOrder({
   JobOverridesCombinationsRootDateRange.JSON_PROPERTY_END,
   JobOverridesCombinationsRootDateRange.JSON_PROPERTY_START,

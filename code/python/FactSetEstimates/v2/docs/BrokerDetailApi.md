@@ -65,8 +65,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
     metrics = ["SALES"] # [str] | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-    start_date = dateutil_parser('2019-07-30').date() # date | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    end_date = dateutil_parser('2019-08-30').date() # date | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    start_date = dateutil_parser('2019-07-30').date() # date | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
+    end_date = dateutil_parser('2019-08-30').date() # date | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
     frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) if omitted the server will use the default value of "D"
     periodicity = "ANN" # str | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional) if omitted the server will use the default value of "ANN"
     include_all = False # bool | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    (optional) if omitted the server will use the default value of False
@@ -76,12 +76,13 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     broker_names = ["Morningstar Equity Research"] # [str] | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
     updates_only = False # bool | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     (optional) if omitted the server will use the default value of False
     sort_by_input_date_time = True # bool | When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional) if omitted the server will use the default value of False
+    include_doc_id = False # bool | Controls whether the `docId` field is included in the response.   * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.   * **FALSE** = Omits the `docId` field from the response. (default)  (optional) if omitted the server will use the default value of False
 
     try:
         # Estimates detail data for fixed fiscal periods
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_fixed_detail(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, include_all=include_all, fiscal_period_start=fiscal_period_start, fiscal_period_end=fiscal_period_end, currency=currency, broker_names=broker_names, updates_only=updates_only, sort_by_input_date_time=sort_by_input_date_time)
+        api_response = api_instance.get_fixed_detail(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, include_all=include_all, fiscal_period_start=fiscal_period_start, fiscal_period_end=fiscal_period_end, currency=currency, broker_names=broker_names, updates_only=updates_only, sort_by_input_date_time=sort_by_input_date_time, include_doc_id=include_doc_id)
 
         pprint(api_response)
 
@@ -96,8 +97,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  |
  **metrics** | **[str]**| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  |
- **start_date** | **date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
- **end_date** | **date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **start_date** | **date**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
+ **end_date** | **date**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
  **frequency** | **str**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] if omitted the server will use the default value of "D"
  **periodicity** | **str**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] if omitted the server will use the default value of "ANN"
  **include_all** | **bool**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] if omitted the server will use the default value of False
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
  **broker_names** | **[str]**| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional]
  **updates_only** | **bool**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] if omitted the server will use the default value of False
  **sort_by_input_date_time** | **bool**| When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  | [optional] if omitted the server will use the default value of False
+ **include_doc_id** | **bool**| Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
@@ -202,6 +204,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         broker_names=BrokerNames(["Morningstar Equity Research"]),
         updates_only=False,
         sort_by_input_date_time=True,
+        include_doc_id=False,
     ) # FixedDetailRequest | Request object for Estimate Data Items.
 
     try:
@@ -304,8 +307,8 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
     metrics = ["SALES"] # [str] | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-    start_date = dateutil_parser('2019-07-30').date() # date | Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-    end_date = dateutil_parser('2019-08-30').date() # date | End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+    start_date = dateutil_parser('2019-07-30').date() # date | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
+    end_date = dateutil_parser('2019-08-30').date() # date | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
     frequency = "D" # str | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.   (optional) if omitted the server will use the default value of "D"
     periodicity = "ANN" # str | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional) if omitted the server will use the default value of "ANN"
     include_all = False # bool | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus    (optional) if omitted the server will use the default value of False
@@ -315,12 +318,13 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     broker_names = ["Morningstar Equity Research"] # [str] | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
     updates_only = False # bool | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.     (optional) if omitted the server will use the default value of False
     sort_by_input_date_time = True # bool | When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional) if omitted the server will use the default value of False
+    include_doc_id = False # bool | Controls whether the `docId` field is included in the response.   * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.   * **FALSE** = Omits the `docId` field from the response. (default)  (optional) if omitted the server will use the default value of False
 
     try:
         # FactSet estimates detail data for rolling fiscal periods
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_rolling_detail(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, include_all=include_all, relative_fiscal_start=relative_fiscal_start, relative_fiscal_end=relative_fiscal_end, currency=currency, broker_names=broker_names, updates_only=updates_only, sort_by_input_date_time=sort_by_input_date_time)
+        api_response = api_instance.get_rolling_detail(ids, metrics, start_date=start_date, end_date=end_date, frequency=frequency, periodicity=periodicity, include_all=include_all, relative_fiscal_start=relative_fiscal_start, relative_fiscal_end=relative_fiscal_end, currency=currency, broker_names=broker_names, updates_only=updates_only, sort_by_input_date_time=sort_by_input_date_time, include_doc_id=include_doc_id)
 
         pprint(api_response)
 
@@ -335,8 +339,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **[str]**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  |
  **metrics** | **[str]**| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  |
- **start_date** | **date**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
- **end_date** | **date**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **start_date** | **date**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
+ **end_date** | **date**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
  **frequency** | **str**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] if omitted the server will use the default value of "D"
  **periodicity** | **str**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] if omitted the server will use the default value of "ANN"
  **include_all** | **bool**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] if omitted the server will use the default value of False
@@ -346,6 +350,7 @@ Name | Type | Description  | Notes
  **broker_names** | **[str]**| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional]
  **updates_only** | **bool**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] if omitted the server will use the default value of False
  **sort_by_input_date_time** | **bool**| When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  | [optional] if omitted the server will use the default value of False
+ **include_doc_id** | **bool**| Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  | [optional] if omitted the server will use the default value of False
 
 ### Return type
 
@@ -441,6 +446,7 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
         broker_names=BrokerNames(["Morningstar Equity Research"]),
         updates_only=False,
         sort_by_input_date_time=True,
+        include_doc_id=False,
     ) # RollingDetailRequest | Request object for Estimate Data Items.
 
     try:

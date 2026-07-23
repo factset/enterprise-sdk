@@ -11,6 +11,10 @@
 
 * `WEEKLY` (value: `"weekly"`)
 
+* `QUARTERLY` (value: `"quarterly"`)
+
+* `ANNUALLY` (value: `"annually"`)
+
 * `SINGLE` (value: `"single"`)
 
 

@@ -37,15 +37,13 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         /// </summary>
         /// <param name="requestId">Unique FactSet identifier for the GP used in request.</param>
         /// <param name="gpName">General partner name.</param>
-        /// <param name="investmentCriteria">investmentCriteria.</param>
         /// <param name="features">features.</param>
         /// <param name="aum">aum.</param>
         /// <param name="error">error.</param>
-        public GPDetail(string requestId = default(string), string gpName = default(string), GPDetailInvestmentCriteria investmentCriteria = default(GPDetailInvestmentCriteria), GPDetailFeatures features = default(GPDetailFeatures), AUMItem aum = default(AUMItem), ErrorObjectResponse error = default(ErrorObjectResponse))
+        public GPDetail(string requestId = default(string), string gpName = default(string), GPDetailFeatures features = default(GPDetailFeatures), AUMItem aum = default(AUMItem), ErrorObjectResponse error = default(ErrorObjectResponse))
         {
             this.RequestId = requestId;
             this.GpName = gpName;
-            this.InvestmentCriteria = investmentCriteria;
             this.Features = features;
             this.Aum = aum;
             this.Error = error;
@@ -64,12 +62,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         /// <value>General partner name</value>
         [DataMember(Name = "gpName", EmitDefaultValue = true)]
         public string GpName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InvestmentCriteria
-        /// </summary>
-        [DataMember(Name = "investmentCriteria", EmitDefaultValue = true)]
-        public GPDetailInvestmentCriteria InvestmentCriteria { get; set; }
 
         /// <summary>
         /// Gets or Sets Features
@@ -99,7 +91,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
             sb.Append("class GPDetail {\n");
             sb.Append("  RequestId: ").Append(RequestId).Append("\n");
             sb.Append("  GpName: ").Append(GpName).Append("\n");
-            sb.Append("  InvestmentCriteria: ").Append(InvestmentCriteria).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  Aum: ").Append(Aum).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
@@ -149,11 +140,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                     this.GpName.Equals(input.GpName))
                 ) && 
                 (
-                    this.InvestmentCriteria == input.InvestmentCriteria ||
-                    (this.InvestmentCriteria != null &&
-                    this.InvestmentCriteria.Equals(input.InvestmentCriteria))
-                ) && 
-                (
                     this.Features == input.Features ||
                     (this.Features != null &&
                     this.Features.Equals(input.Features))
@@ -186,10 +172,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                 if (this.GpName != null)
                 {
                     hashCode = (hashCode * 59) + this.GpName.GetHashCode();
-                }
-                if (this.InvestmentCriteria != null)
-                {
-                    hashCode = (hashCode * 59) + this.InvestmentCriteria.GetHashCode();
                 }
                 if (this.Features != null)
                 {

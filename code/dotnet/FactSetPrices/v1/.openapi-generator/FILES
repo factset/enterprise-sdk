@@ -8,7 +8,9 @@ docs/Adjust.md
 docs/Batch.md
 docs/BatchDataRequest.md
 docs/BatchDataResponse.md
+docs/BatchOne.md
 docs/BatchProcessingApi.md
+docs/BatchResult.md
 docs/BatchStatus.md
 docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
@@ -97,6 +99,8 @@ src/FactSet.SDK.FactSetPrices/Model/Adjust.cs
 src/FactSet.SDK.FactSetPrices/Model/Batch.cs
 src/FactSet.SDK.FactSetPrices/Model/BatchDataRequest.cs
 src/FactSet.SDK.FactSetPrices/Model/BatchDataResponse.cs
+src/FactSet.SDK.FactSetPrices/Model/BatchOne.cs
+src/FactSet.SDK.FactSetPrices/Model/BatchResult.cs
 src/FactSet.SDK.FactSetPrices/Model/BatchStatus.cs
 src/FactSet.SDK.FactSetPrices/Model/BatchStatusRequest.cs
 src/FactSet.SDK.FactSetPrices/Model/BatchStatusResponse.cs

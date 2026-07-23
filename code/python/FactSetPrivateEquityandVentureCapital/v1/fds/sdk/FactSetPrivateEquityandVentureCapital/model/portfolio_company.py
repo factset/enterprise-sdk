@@ -143,7 +143,7 @@ class PortfolioCompany(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             factset_entity_id (str, none_type): FactSet identifier for the portfolio company. [optional]  # noqa: E501
             company_name (str, none_type): Portfolio company name. [optional]  # noqa: E501
-            investment_date (date, none_type): Date of initial investment. [optional]  # noqa: E501
+            investment_date (date, none_type): Date of latest investment. [optional]  # noqa: E501
             sector (str, none_type): Primary sector classification. [optional]  # noqa: E501
         """
 
@@ -228,7 +228,7 @@ class PortfolioCompany(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             factset_entity_id (str, none_type): FactSet identifier for the portfolio company. [optional]  # noqa: E501
             company_name (str, none_type): Portfolio company name. [optional]  # noqa: E501
-            investment_date (date, none_type): Date of initial investment. [optional]  # noqa: E501
+            investment_date (date, none_type): Date of latest investment. [optional]  # noqa: E501
             sector (str, none_type): Primary sector classification. [optional]  # noqa: E501
         """
 

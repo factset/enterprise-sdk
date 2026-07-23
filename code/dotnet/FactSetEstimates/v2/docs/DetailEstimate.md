@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **AnalystName** | **string** | The name of the analyst making the estimate. | [optional] 
 **BrokerId** | **string** | The FactSet Entity Identifier for the broker making the estimate. | [optional] 
 **BrokerName** | **string** | The name of the broker making the estimate. | [optional] 
+**DocId** | **string** | A unique identifier for the document report associated with a broker’s analyst estimate. Use this docId to retrieve the corresponding investment report through FactSet’s Investment Research API. | [optional] 
 **LastModifiedDate** | **DateTime?** | The date at which a broker provided an estimate that is a revision. | [optional] 
 **PrevEstimateDate** | **DateTime?** | Date the previous estimate was made expressed in YYYY-MM-DD format. For more details, visit [Online Assistant Page #16598](https://oa.apps.factset.com/pages/16598) | [optional] 
 **PrevEstimateValue** | **double?** | The value of the previous estimate. | [optional] 

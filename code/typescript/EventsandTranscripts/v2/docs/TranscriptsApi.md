@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getTranscriptsIntelligence
 
-> TranscriptsIntelligenceResponse getTranscriptsIntelligence(ids, opts)
+> TranscriptsIntelligenceResponse getTranscriptsIntelligence(opts)
 
 Returns the StreetAccount Transcript Intelligence documents and related metadata within FactSet coverage based on specific date range and various parameters.
 
@@ -52,12 +52,12 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TranscriptsApi();
-const ids = ["ADT-US"]; // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
 const opts = {
   'startDate': 2025-05-01, // Date | Start Date (YYYY-MM-DD). If dates are not provided, default will return all files. 
   'endDate': 2025-07-24, // Date | End Date (YYYY-MM-DD). If dates are not provided, default will return all files. 
   'startDateRelative': 56, // Number | The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `startDate` or `startDateRelative` should be used, but not both.* - If dates are not provided, default will return all files. 
   'endDateRelative': 56, // Number | The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (`0` for today, `-1` for yesterday, etc.). - *Either `endDate` or `endDateRelative` should be used, but not both.* - If dates are not provided, default will return all files. 
+  'ids': ["ADT-US"], // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used, `null` will be returned for the `requestId` field in the response.
   'categories': ["CN:US"], // [String] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
   'timeZone': America/New_York, // String | Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the `/meta/time-zones` endpoint to get the list of available time zones.
   'sort': ["null"], // [String] | Enables sorting data in ascending or descending chronological order based on eventDate. 
@@ -66,7 +66,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.getTranscriptsIntelligence(ids, opts).then(
+apiInstance.getTranscriptsIntelligence(opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -85,11 +85,11 @@ apiInstance.getTranscriptsIntelligence(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
  **startDate** | **Date**| Start Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
  **endDate** | **Date**| End Date (YYYY-MM-DD). If dates are not provided, default will return all files.  | [optional] 
  **startDateRelative** | **Number**| The earliest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional] 
  **endDateRelative** | **Number**| The latest date of the feed file the API should fetch based on the file timestamp, relative to today. - Format: Integer (&#x60;0&#x60; for today, &#x60;-1&#x60; for yesterday, etc.). - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - If dates are not provided, default will return all files.  | [optional] 
+ **ids** | [**[String]**](String.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. | [optional] 
  **categories** | [**[String]**](String.md)| Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   | [optional] 
  **timeZone** | **String**| Time Zone for story dates/times (POSIX format from IANA timeZone registry).  Use the &#x60;/meta/time-zones&#x60; endpoint to get the list of available time zones. | [optional] [default to &#39;America/New_York&#39;]
  **sort** | [**[String]**](String.md)| Enables sorting data in ascending or descending chronological order based on eventDate.  | [optional] 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ## getTranscriptsInvestorSlides
 
-> InvestorSlidesResponse getTranscriptsInvestorSlides(ids, startDate, endDate, opts)
+> InvestorSlidesResponse getTranscriptsInvestorSlides(startDate, endDate, opts)
 
 Returns the investor slides in PDF format and related metadata within FactSet coverage based on specific date range and various parameters.
 
@@ -151,10 +151,10 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new TranscriptsApi();
-const ids = ["ADT-US"]; // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
-const startDate = 2025-07-23; // Date | Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.** 
+const startDate = 2025-07-23; // Date | Start Date. Format is YYYY-MM-DD   **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.** 
 const endDate = 2025-07-24; // Date | End Date. Format is YYYY-MM-DD.
 const opts = {
+  'ids': ["ADT-US"], // [String] | Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID > **Note**: If this parameter is not used, `null` will be returned for the `requestId` field in the response.
   'eventIds': ["1203806069"], // [String] | Requests Event IDs. This is a list with a maximum limit of 1000.
   'categories': ["CN:US"], // [String] | Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the ```/meta/categories``` endpoint to get the list of available categories.  Default = All categories.  
   'searchText': presentation, // String | Restricts the search to include only document stories which include the text searched.    
@@ -164,7 +164,7 @@ const opts = {
 };
 
 // Call api endpoint
-apiInstance.getTranscriptsInvestorSlides(ids, startDate, endDate, opts).then(
+apiInstance.getTranscriptsInvestorSlides(startDate, endDate, opts).then(
   data => {
 
     console.log('API called successfully. Returned data:');
@@ -183,9 +183,9 @@ apiInstance.getTranscriptsInvestorSlides(ids, startDate, endDate, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID | 
- **startDate** | **Date**| Start Date. Format is YYYY-MM-DD    **The API supports data from 1995 onwards. Ensure that the provided Date falls within this range for accurate results.**  | 
+ **startDate** | **Date**| Start Date. Format is YYYY-MM-DD   **The API supports data from 1999 onwards. Ensure that the provided Date falls within this range for accurate results.**  | 
  **endDate** | **Date**| End Date. Format is YYYY-MM-DD. | 
+ **ids** | [**[String]**](String.md)| Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used, &#x60;null&#x60; will be returned for the &#x60;requestId&#x60; field in the response. | [optional] 
  **eventIds** | [**[String]**](String.md)| Requests Event IDs. This is a list with a maximum limit of 1000. | [optional] 
  **categories** | [**[String]**](String.md)| Code for categories to include. This is a list, which represents country, industry, and subject codes. Use the &#x60;&#x60;&#x60;/meta/categories&#x60;&#x60;&#x60; endpoint to get the list of available categories.  Default &#x3D; All categories.   | [optional] 
  **searchText** | **String**| Restricts the search to include only document stories which include the text searched.     | [optional] 

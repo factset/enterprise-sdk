@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Provides the current market value for a list of specified securities.
 
-Provides the current market value (in USD millions) for a list of specified securities.  
+Provides the current market value (in millions) for a list of specified securities. The currency of the returned value is indicated by the &#x60;currency&#x60; field in the response. 
 
 ### Example
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 Requests the current market value for a list of specified securities.
 
-Provides the current market value (in USD millions) for a list of specified securities.
+Provides the current market value (in millions) for a list of specified securities. The currency of the returned value is indicated by the &#x60;currency&#x60; field in the response.
 
 ### Example
 

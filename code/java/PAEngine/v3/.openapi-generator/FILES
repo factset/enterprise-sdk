@@ -16,6 +16,7 @@ docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
 docs/CalculationsSummary.md
 docs/CalculationsSummaryRoot.md
+docs/CalendarApi.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -65,6 +66,8 @@ docs/PACalculationGroup.md
 docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
+docs/PACalendar.md
+docs/PACalendarRoot.md
 docs/PACommentary.md
 docs/PACommentaryConfigurationSummary.md
 docs/PACommentaryConfigurationSummaryRoot.md
@@ -137,6 +140,7 @@ src/main/java/com/factset/sdk/PAEngine/ServerConfiguration.java
 src/main/java/com/factset/sdk/PAEngine/ServerVariable.java
 src/main/java/com/factset/sdk/PAEngine/StringUtil.java
 src/main/java/com/factset/sdk/PAEngine/api/AccountsApi.java
+src/main/java/com/factset/sdk/PAEngine/api/CalendarApi.java
 src/main/java/com/factset/sdk/PAEngine/api/ColumnStatisticsApi.java
 src/main/java/com/factset/sdk/PAEngine/api/ColumnsApi.java
 src/main/java/com/factset/sdk/PAEngine/api/ComponentsApi.java
@@ -208,6 +212,8 @@ src/main/java/com/factset/sdk/PAEngine/models/PACalculationGroup.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationParameters.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationParametersRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACalculationPricingSource.java
+src/main/java/com/factset/sdk/PAEngine/models/PACalendar.java
+src/main/java/com/factset/sdk/PAEngine/models/PACalendarRoot.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentary.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryConfigurationSummary.java
 src/main/java/com/factset/sdk/PAEngine/models/PACommentaryConfigurationSummaryRoot.java

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Provides the current market value for a list of specified securities.
 
-Provides the current market value (in USD millions) for a list of specified securities. 
+Provides the current market value (in millions) for a list of specified securities. The currency of the returned value is indicated by the `currency` field in the response.
 
 
 ### Example
@@ -124,7 +124,7 @@ GetGPDMarketValResponseWrapper
 
 Requests the current market value for a list of specified securities.
 
-Provides the current market value (in USD millions) for a list of specified securities.
+Provides the current market value (in millions) for a list of specified securities. The currency of the returned value is indicated by the `currency` field in the response.
 
 ### Example
 

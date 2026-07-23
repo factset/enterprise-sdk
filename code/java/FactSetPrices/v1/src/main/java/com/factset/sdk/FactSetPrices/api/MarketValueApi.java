@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetPrices.models.BatchStatusResponse;
 import com.factset.sdk.FactSetPrices.models.ErrorResponse;
 import com.factset.sdk.FactSetPrices.models.MarketValueRequest;
 import com.factset.sdk.FactSetPrices.models.MarketValueResponse;
@@ -31,6 +32,7 @@ public class MarketValueApi {
   private static final Map<Integer, GenericType> getMarketValueResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMarketValueResponseTypeMap.put(200, new GenericType<MarketValueResponse>(){});
+    getMarketValueResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getMarketValueResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getMarketValueResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getMarketValueResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -41,6 +43,7 @@ public class MarketValueApi {
   private static final Map<Integer, GenericType> getMarketValueForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMarketValueForListResponseTypeMap.put(200, new GenericType<MarketValueResponse>(){});
+    getMarketValueForListResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getMarketValueForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getMarketValueForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getMarketValueForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -49,6 +52,170 @@ public class MarketValueApi {
   }
 
   
+ /**
+   * Wrapper to support GET /factset-prices/v1/market-value returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code MarketValueResponse }<br>Array of company market capitalization values.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetMarketValueResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     MarketValueResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetMarketValueResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetMarketValueResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public MarketValueResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (MarketValueResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetMarketValueResponseWrapper other = (GetMarketValueResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetMarketValueResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support POST /factset-prices/v1/market-value returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code MarketValueResponse }<br>Array of company market capitalization values.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetMarketValueForListResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     MarketValueResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetMarketValueForListResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetMarketValueForListResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public MarketValueResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (MarketValueResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetMarketValueForListResponseWrapper other = (GetMarketValueForListResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetMarketValueForListResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
 
 
   /**
@@ -72,18 +239,20 @@ public class MarketValueApi {
   /**
    * Gets the security level and company level market values for a list of &#x60;ids&#x60; as of given date range and frequency.
    * Gets market capitalization of list of ids for the company level, security level, calendar, frequency, and currency for a specified date range. 
-   * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  2000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
+   * @param ids  The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.*&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*   - Batch requests:       * Single day: up to 700 IDs per request       * Multi-day: up to 700 IDs per request  (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.  (optional, default to D)
    * @param calendar Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities&#39; trading calendar which excludes date records for respective holiday periods. (optional, default to FIVEDAY)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-   * @return MarketValueResponse
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 30 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use the corresponding &#x60;/batch/v1/status&#x60; endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the &#x60;/batch/v1/result&#x60; endpoint.  (optional, default to N)
+   * @return GetMarketValueResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Array of company market capitalization values. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -91,25 +260,27 @@ public class MarketValueApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public MarketValueResponse getMarketValue(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency) throws ApiException {
-    return getMarketValueWithHttpInfo(ids, startDate, endDate, frequency, calendar, currency).getData();
+  public GetMarketValueResponseWrapper getMarketValue(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency, String batch) throws ApiException {
+    return getMarketValueWithHttpInfo(ids, startDate, endDate, frequency, calendar, currency, batch).getData();
   }
 
   /**
    * Gets the security level and company level market values for a list of &#x60;ids&#x60; as of given date range and frequency.
    * Gets market capitalization of list of ids for the company level, security level, calendar, frequency, and currency for a specified date range. 
-   * @param ids The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. &lt;p&gt;***ids limit** &#x3D;  2000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;* (required)
+   * @param ids  The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.*&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*   - Batch requests:       * Single day: up to 700 IDs per request       * Multi-day: up to 700 IDs per request  (required)
    * @param startDate The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.  (optional, default to D)
    * @param calendar Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities&#39; trading calendar which excludes date records for respective holiday periods. (optional, default to FIVEDAY)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional)
-   * @return ApiResponse&lt;MarketValueResponse&gt;
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 30 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use the corresponding &#x60;/batch/v1/status&#x60; endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the &#x60;/batch/v1/result&#x60; endpoint.  (optional, default to N)
+   * @return ApiResponse&lt;GetMarketValueResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Array of company market capitalization values. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -117,7 +288,7 @@ public class MarketValueApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<MarketValueResponse> getMarketValueWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency) throws ApiException {
+  public ApiResponse<GetMarketValueResponseWrapper> getMarketValueWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String calendar, String currency, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -140,6 +311,7 @@ public class MarketValueApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "frequency", frequency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "calendar", calendar));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
 
     
     
@@ -158,26 +330,34 @@ public class MarketValueApi {
 
 
     ApiResponse<
+        Object
         
-        MarketValueResponse
       
     > apiResponse = apiClient.invokeAPI("MarketValueApi.getMarketValue", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getMarketValueResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    GetMarketValueResponseWrapper responseWrapper = new GetMarketValueResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetMarketValueResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
   /**
    * Requests the market value for a list of &#x60;ids&#x60; as of given date range.
    * Requests the market value for a list of &#x60;ids&#x60; as of given date range.
    * @param marketValueRequest Request object for &#x60;Security&#x60; market values. (required)
-   * @return MarketValueResponse
+   * @return GetMarketValueForListResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Array of company market capitalization values. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -185,7 +365,7 @@ public class MarketValueApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public MarketValueResponse getMarketValueForList(MarketValueRequest marketValueRequest) throws ApiException {
+  public GetMarketValueForListResponseWrapper getMarketValueForList(MarketValueRequest marketValueRequest) throws ApiException {
     return getMarketValueForListWithHttpInfo(marketValueRequest).getData();
   }
 
@@ -193,12 +373,13 @@ public class MarketValueApi {
    * Requests the market value for a list of &#x60;ids&#x60; as of given date range.
    * Requests the market value for a list of &#x60;ids&#x60; as of given date range.
    * @param marketValueRequest Request object for &#x60;Security&#x60; market values. (required)
-   * @return ApiResponse&lt;MarketValueResponse&gt;
+   * @return ApiResponse&lt;GetMarketValueForListResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Array of company market capitalization values. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -206,7 +387,7 @@ public class MarketValueApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<MarketValueResponse> getMarketValueForListWithHttpInfo(MarketValueRequest marketValueRequest) throws ApiException {
+  public ApiResponse<GetMarketValueForListResponseWrapper> getMarketValueForListWithHttpInfo(MarketValueRequest marketValueRequest) throws ApiException {
     Object localVarPostBody = marketValueRequest;
     
     // verify the required parameter 'marketValueRequest' is set
@@ -241,14 +422,21 @@ public class MarketValueApi {
 
 
     ApiResponse<
+        Object
         
-        MarketValueResponse
       
     > apiResponse = apiClient.invokeAPI("MarketValueApi.getMarketValueForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getMarketValueForListResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    GetMarketValueForListResponseWrapper responseWrapper = new GetMarketValueForListResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetMarketValueForListResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
 }

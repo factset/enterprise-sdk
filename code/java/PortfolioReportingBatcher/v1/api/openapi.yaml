@@ -480,6 +480,53 @@ paths:
                         - my_task_1
                         - my_task_2
                       runAsSerialNumber: "894550"
+              dataPrep - date range:
+                value:
+                  data:
+                    jobType: dataPrep
+                    jobName: DataPrep_Demo
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        dateRange:
+                          start: 2023-11-10
+                          end: 2023-12-10
+                          frequency: daily
+                      - accounts:
+                        - CLIENT:/PRB/VAULTED_RETURNS/DEMO1.ACCT
+                        dateRange:
+                          start: 2022-11-21
+                          end: 2022-12-25
+                          frequency: monthly
+              dataPrep - tasks and accounts:
+                value:
+                  data:
+                    jobType: dataPrep
+                    jobName: DataPrep_Demo
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        tasks:
+                        - my_task_1
+                        - my_task_2
+                      runAsSerialNumber: "1234567"
+              dataPrep - individual dates:
+                value:
+                  data:
+                    jobType: dataPrep
+                    jobName: DataPrep_Demo
+                    overrides:
+                      combinations:
+                      - accounts:
+                        - CLIENT:/FPS/VAULTED_RETURNS/7DAYS_VLT.ACCT
+                        - CLIENT:/FPS/VAULTED_RETURNS/1MONTH.ACCT
+                        dates:
+                        - 2022-12-24
+                        - 2022-12-23
               PA:
                 value:
                   data:
@@ -545,6 +592,11 @@ paths:
                   data:
                     jobType: PD
                     jobName: my_pd_job
+              dataPrep:
+                value:
+                  data:
+                    jobType: dataPrep
+                    jobName: my_dataprep_job
               PI:
                 value:
                   data:
@@ -578,9 +630,9 @@ paths:
                         accounts:
                         - client:/equity/uk_funds.acct
                       runAsSerialNumber: "894550"
-              Vault - date range:
+              vault - date range:
                 description: Please note only daily or monthly is supported as frequency
-                  for Vault jobs
+                  for vault jobs
                 value:
                   data:
                     jobType: vault
@@ -599,12 +651,12 @@ paths:
                           start: 2023-10-21
                           end: 2023-12-21
                           frequency: monthly
-              Vault - no overrides:
+              vault - no overrides:
                 value:
                   data:
                     jobType: vault
                     jobName: vault_multi_date
-              Vault - with overrides:
+              vault - with overrides:
                 value:
                   data:
                     jobType: vault
@@ -818,6 +870,16 @@ paths:
                         jobName: my_pi_job
                         jobType: PI
                       id: "78904"
+                dataPrep:
+                  value:
+                    data:
+                      status: queued
+                      prbStatus: pending
+                      statusDescription: string
+                      inputs:
+                        jobName: my_dataprep_job
+                        jobType: dataPrep
+                      id: "78904"
                 PUB (With Overrides):
                   value:
                     data:
@@ -832,7 +894,7 @@ paths:
                           - dates:
                             - 2023-02-05
                       id: "3456789"
-                Vault (No Overrides):
+                vault (No Overrides):
                   value:
                     data:
                       inputs:
@@ -842,7 +904,7 @@ paths:
                       prbStatus: success
                       statusDescription: job has completed with success
                       id: "123456"
-                Vault (With Overrides):
+                vault (With Overrides):
                   value:
                     data:
                       inputs:
@@ -1267,14 +1329,16 @@ components:
       type: object
     Frequency:
       default: daily
-      description: Used for PA, ADF, and Vault job types only. Will determine the
-        frequency between the start and end dates. Please note that 'weekly' frequency
-        is not available for Vault job type and 'single' frequency is only available
-        for PA job type.
+      description: 'Applicable only to PA, ADF, dataPrep, and vault job types. Specifies
+        the frequency used between the start and end dates. Note: ''Weekly'' is not
+        supported for dataPrep or vault; ''Single'' is supported only for PA; and
+        ''Quarterly'' and ''Annually'' are supported only for dataPrep.'
       enum:
       - daily
       - monthly
       - weekly
+      - quarterly
+      - annually
       - single
       type: string
     IdStatus:
@@ -1427,14 +1491,14 @@ components:
         valid for certain job types. Please see below for more details.
       properties:
         accounts:
-          description: An array of accounts, used for jobs types PA, ADF, PUB, and
-            Vault
+          description: An array of accounts, used for jobs types PA, ADF, PUB, dataPrep,
+            and vault
           items:
             type: string
           type: array
         dates:
-          description: An array of dates, used for jobs types PA, ADF, PUB, and Vault.
-            Please see OA Page 23173 for more details
+          description: An array of dates, used for jobs types PA, ADF, PUB, dataPrep,
+            and vault. Please see OA Page 23173 for more details
           items:
             format: date
             type: string
@@ -1442,19 +1506,21 @@ components:
         dateRange:
           $ref: '#/components/schemas/JobOverridesCombinationsRoot_dateRange'
         tasks:
-          description: Used only for jobs where type is ADF, PA, PUB, or vault
+          description: Used only for jobs where type is ADF, PA, PUB, dataPrep or
+            vault
           items:
             type: string
           type: array
         allTasks:
           description: boolean flag to indicate if all tasks for given ADF, PA, PUB,
-            or vault job should be run, e.g. if account is newly created and not yet
-            added to any tasks
+            dataPrep or vault job should be run, e.g. if account is newly created
+            and not yet added to any tasks
           type: boolean
       type: object
     JobTypes:
       description: PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed,
-        PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault
+        PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault,
+        dataPrep - Data Prep Batching
       enum:
       - ADF
       - PA
@@ -1462,6 +1528,7 @@ components:
       - PI
       - PUB
       - vault
+      - dataPrep
       example: vault
       title: JobTypes
       type: string
@@ -1748,8 +1815,8 @@ components:
       type: object
     JobOverridesCombinationsRoot_dateRange:
       description: Used if the job needs to be executed for many dates periodically
-        spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for
-        more details.
+        spaced, used for jobs types PA, ADF, dataPrep, and vault. Please see OA page
+        23173 for more details.
       properties:
         end:
           description: The end date in format YYYY-MM-DD

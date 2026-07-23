@@ -56,6 +56,8 @@ class Frequency(ModelSimple):
             'DAILY': "daily",
             'MONTHLY': "monthly",
             'WEEKLY': "weekly",
+            'QUARTERLY': "quarterly",
+            'ANNUALLY': "annually",
             'SINGLE': "single",
 
 
@@ -110,10 +112,10 @@ class Frequency(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault job type and 'single' frequency is only available for PA job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "single", ]  # noqa: E501
+            args[0] (str): Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: 'Weekly' is not supported for dataPrep or vault; 'Single' is supported only for PA; and 'Quarterly' and 'Annually' are supported only for dataPrep.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "quarterly", "annually", "single", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault job type and 'single' frequency is only available for PA job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "single", ]  # noqa: E501
+            value (str): Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: 'Weekly' is not supported for dataPrep or vault; 'Single' is supported only for PA; and 'Quarterly' and 'Annually' are supported only for dataPrep.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "quarterly", "annually", "single", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -196,10 +198,10 @@ class Frequency(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault job type and 'single' frequency is only available for PA job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "single", ]  # noqa: E501
+            args[0] (str): Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: 'Weekly' is not supported for dataPrep or vault; 'Single' is supported only for PA; and 'Quarterly' and 'Annually' are supported only for dataPrep.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "quarterly", "annually", "single", ]  # noqa: E501
 
         Keyword Args:
-            value (str): Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault job type and 'single' frequency is only available for PA job type.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "single", ]  # noqa: E501
+            value (str): Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: 'Weekly' is not supported for dataPrep or vault; 'Single' is supported only for PA; and 'Quarterly' and 'Annually' are supported only for dataPrep.. if omitted defaults to "daily", must be one of ["daily", "monthly", "weekly", "quarterly", "annually", "single", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

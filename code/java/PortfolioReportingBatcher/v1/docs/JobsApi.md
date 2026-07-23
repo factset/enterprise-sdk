@@ -81,7 +81,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **JobTypes**| The jobs type | [enum: ADF, PA, PD, PI, PUB, vault]
+ **type** | **JobTypes**| The jobs type | [enum: ADF, PA, PD, PI, PUB, vault, dataPrep]
  **name** | **String**| The jobs name |
  **attribute** | **List&lt;String&gt;**| The attribute parameter accepts a list of the given enums, separated by commas. Each of them returns the respective data associated with the job. Runs returns the run history of the job. | [optional] [enum: documents, tasks, accounts, runs]
 
@@ -185,7 +185,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **JobTypes**| The job type | [optional] [enum: ADF, PA, PD, PI, PUB, vault]
+ **type** | **JobTypes**| The job type | [optional] [enum: ADF, PA, PD, PI, PUB, vault, dataPrep]
  **name** | **String**| The job name | [optional]
  **paginationOffset** | **Integer**| The number of jobs to skip (please note the jobs are ordered by last modified in descending order, i.e. most recently modified will show on the | [optional]
  **paginationLimit** | **Integer**| The number of jobs to bring back (maximum 50) | [optional]

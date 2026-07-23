@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Global Prices API
-  version: 1.11.0
+  version: 1.12.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-global-prices-api
@@ -179,6 +179,7 @@ paths:
           - FIVEDAY
           - SEVENDAY
           - US
+          - LOCAL
           type: string
         style: form
       - description: Currency code for adjusting prices. Default is Local. For a list
@@ -2009,6 +2010,7 @@ paths:
           - FIVEDAY
           - SEVENDAY
           - US
+          - LOCAL
           type: string
         style: form
       - description: "Enables the ability to asynchronously \"batch\" the request,\
@@ -2251,8 +2253,8 @@ paths:
       x-accepts: application/json
   /factset-global-prices/v1/market-value:
     get:
-      description: "Provides the current market value (in USD millions) for a list\
-        \ of specified securities. \n"
+      description: |
+        Provides the current market value (in millions) for a list of specified securities. The currency of the returned value is indicated by the `currency` field in the response.
       operationId: getGPDMarketVal
       parameters:
       - description: The requested list of security identifiers. Accepted ID types
@@ -2408,8 +2410,9 @@ paths:
       x-factset-different-success-responses: true
       x-accepts: application/json
     post:
-      description: Provides the current market value (in USD millions) for a list
-        of specified securities.
+      description: Provides the current market value (in millions) for a list of specified
+        securities. The currency of the returned value is indicated by the `currency`
+        field in the response.
       operationId: getSecurityPricesForListMarketVal
       requestBody:
         content:
@@ -4931,6 +4934,7 @@ components:
         - fsymId: MH33D6-R
           date: 2024-11-26
           currentMarketValue: 3520021.70201
+          currency: USD
           requestId: AAPL-US
     postPrices:
       summary: Prices Request over 1 year period for FDS-US
@@ -6309,6 +6313,7 @@ components:
         - FIVEDAY
         - SEVENDAY
         - US
+        - LOCAL
         type: string
       style: form
     currency:
@@ -8665,10 +8670,12 @@ components:
           currentMarketValue: 3520021.70201
           requestId: AAPL-US
           fsymId: MH33D6-R
+          currency: USD
         - date: 2024-11-26T00:00:00.000+0000
           currentMarketValue: 3520021.70201
           requestId: AAPL-US
           fsymId: MH33D6-R
+          currency: USD
       properties:
         data:
           description: Array of Market Value Objects
@@ -8684,6 +8691,7 @@ components:
         currentMarketValue: 3520021.70201
         requestId: AAPL-US
         fsymId: MH33D6-R
+        currency: USD
       properties:
         fsymId:
           description: Security-level FactSet Permanent Identifier associated with
@@ -8701,6 +8709,12 @@ components:
           example: 3520021.70201
           nullable: true
           type: number
+        currency:
+          description: 'Currency ISO code associated with the market value. For more
+            details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
         date:
           description: Current Market Value Date
           example: 2024-11-26
@@ -9073,6 +9087,7 @@ components:
       - FIVEDAY
       - SEVENDAY
       - US
+      - LOCAL
       example: FIVEDAY
       title: Calendar
       type: string

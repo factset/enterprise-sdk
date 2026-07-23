@@ -78,14 +78,12 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         /// <param name="factsetFundEntityId">Unique FactSet identifier for the fund.</param>
         /// <param name="fundName">Fund name.</param>
         /// <param name="fundStatus">Current fund status.</param>
-        /// <param name="launchDate">Fund launch date.</param>
         /// <param name="amountRaisedUsd">Amount raised in USD.</param>
-        public FundSummary(string factsetFundEntityId = default(string), string fundName = default(string), FundStatusEnum? fundStatus = default(FundStatusEnum?), DateTime? launchDate = default(DateTime?), decimal? amountRaisedUsd = default(decimal?))
+        public FundSummary(string factsetFundEntityId = default(string), string fundName = default(string), FundStatusEnum? fundStatus = default(FundStatusEnum?), decimal? amountRaisedUsd = default(decimal?))
         {
             this.FactsetFundEntityId = factsetFundEntityId;
             this.FundName = fundName;
             this.FundStatus = fundStatus;
-            this.LaunchDate = launchDate;
             this.AmountRaisedUsd = amountRaisedUsd;
         }
 
@@ -102,14 +100,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         /// <value>Fund name</value>
         [DataMember(Name = "fundName", EmitDefaultValue = true)]
         public string FundName { get; set; }
-
-        /// <summary>
-        /// Fund launch date
-        /// </summary>
-        /// <value>Fund launch date</value>
-        [DataMember(Name = "launchDate", EmitDefaultValue = true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime? LaunchDate { get; set; }
 
         /// <summary>
         /// Amount raised in USD
@@ -129,7 +119,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
             sb.Append("  FactsetFundEntityId: ").Append(FactsetFundEntityId).Append("\n");
             sb.Append("  FundName: ").Append(FundName).Append("\n");
             sb.Append("  FundStatus: ").Append(FundStatus).Append("\n");
-            sb.Append("  LaunchDate: ").Append(LaunchDate).Append("\n");
             sb.Append("  AmountRaisedUsd: ").Append(AmountRaisedUsd).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -181,11 +170,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                     this.FundStatus.Equals(input.FundStatus)
                 ) && 
                 (
-                    this.LaunchDate == input.LaunchDate ||
-                    (this.LaunchDate != null &&
-                    this.LaunchDate.Equals(input.LaunchDate))
-                ) && 
-                (
                     this.AmountRaisedUsd == input.AmountRaisedUsd ||
                     (this.AmountRaisedUsd != null &&
                     this.AmountRaisedUsd.Equals(input.AmountRaisedUsd))
@@ -210,10 +194,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                     hashCode = (hashCode * 59) + this.FundName.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.FundStatus.GetHashCode();
-                if (this.LaunchDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.LaunchDate.GetHashCode();
-                }
                 if (this.AmountRaisedUsd != null)
                 {
                     hashCode = (hashCode * 59) + this.AmountRaisedUsd.GetHashCode();

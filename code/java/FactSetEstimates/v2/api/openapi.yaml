@@ -37,7 +37,7 @@ info:
     \ to create your own SDKs. You can also access it by selecting the \"Download\
     \ Spec\" button beside the version information.\n  \n  [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)\n"
   title: FactSet Estimates
-  version: 2.9.1
+  version: 2.10.0
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -121,8 +121,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -132,8 +133,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -493,8 +495,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -504,8 +507,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -860,8 +864,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -871,8 +876,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -1019,6 +1025,18 @@ paths:
         schema:
           default: false
           example: true
+          type: boolean
+        style: form
+      - description: |
+          Controls whether the `docId` field is included in the response.
+            * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.
+            * **FALSE** = Omits the `docId` field from the response. (default)
+        explode: true
+        in: query
+        name: includeDocId
+        required: false
+        schema:
+          default: false
           type: boolean
         style: form
       responses:
@@ -1272,8 +1290,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -1283,8 +1302,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -1427,6 +1447,18 @@ paths:
         schema:
           default: false
           example: true
+          type: boolean
+        style: form
+      - description: |
+          Controls whether the `docId` field is included in the response.
+            * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.
+            * **FALSE** = Omits the `docId` field from the response. (default)
+        explode: true
+        in: query
+        name: includeDocId
+        required: false
+        schema:
+          default: false
           type: boolean
         style: form
       responses:
@@ -1662,8 +1694,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -1673,8 +1706,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -1954,8 +1988,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -1965,8 +2000,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -2270,8 +2306,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -2281,8 +2318,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -2909,8 +2947,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -2920,8 +2959,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -4768,8 +4808,9 @@ paths:
           minItems: 1
           type: array
         style: form
-      - description: Start date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: Start of the perspective date range for estimates, expressed
+          in YYYY-MM-DD format. If left blank, the API defaults to the start of the
+          latest company reporting period. Future dates (T+1) are not accepted.
         example: 2019-07-30
         explode: true
         in: query
@@ -4779,8 +4820,9 @@ paths:
           format: date
           type: string
         style: form
-      - description: End date for point in time of estimates expressed in YYYY-MM-DD
-          format.
+      - description: End of the perspective date range for estimates, expressed in
+          YYYY-MM-DD format. If left blank, the API defaults to the end of the latest
+          company reporting period. Future dates (T+1) are not accepted.
         example: 2019-08-30
         explode: true
         in: query
@@ -5140,7 +5182,7 @@ components:
             low: 15.71
             up: 3
             down: 1
-            analystsCount: 19
+            analystCount: 19
             mean: 16.03633
             median: 15.99
             standardDeviation: 0.229748
@@ -5152,7 +5194,7 @@ components:
             low: 17.1
             up: 0
             down: 4
-            analystsCount: 19
+            analystCount: 19
             mean: 17.613407
             median: 17.46
             standardDeviation: 0.49044
@@ -5240,6 +5282,7 @@ components:
         - Morningstar Equity Research
         updatesOnly: false
         sortByInputDateTime: false
+        includeDocId: false
     postFixedDetail:
       description: Fixed Detail response of FDS-US for SALES metrics with frequency
         set to 'AM' and periodicity to 'ANN'
@@ -5261,6 +5304,7 @@ components:
         - Morningstar Equity Research
         updatesOnly: false
         sortByInputDateTime: false
+        includeDocId: false
     postConsensusRatings:
       description: Consensus Ratings response of FDS-US for SALES metrics with frequency
         set to 'AM'.
@@ -5312,9 +5356,14 @@ components:
         periodicity: ANN
         frequency: AM
         segmentType: BUS
-        metrics:
-        - SALES
+        segmentIds:
+        - PRODLINE_SALES_1
         currency: USD
+        brokerNames:
+        - Morgan Stanley
+        updatesOnly: false
+        includeAll: false
+        sortByInputDateTime: false
     postSegmentsDetails:
       description: Segments details request of AAPL-USA for SALES metrics and 'BUS'
         segmentType with frequency set to 'AM' and periodicity to 'ANN'
@@ -5588,6 +5637,7 @@ components:
           analystName: null
           brokerId: 0GRZY7-E
           brokerName: Cascend Securities
+          docId: 52ddb8602911b02fa3b0f471d25fb6f0
           lastModifiedDate: 2019-05-23
           prevEstimateDate: 2019-07-29
           prevEstimateValue: "257310"
@@ -5614,6 +5664,7 @@ components:
           analystName: Amit Daryanani
           brokerId: 09N0CH-E
           brokerName: Evercore ISI
+          docId: e39fbcab7a8f84da07f49b0101e136f0
           lastModifiedDate: 2019-06-04
           prevEstimateDate: 2019-07-26
           prevEstimateValue: "256000"
@@ -5646,6 +5697,7 @@ components:
           analystName: null
           brokerId: 0GRZY7-E
           brokerName: Cascend Securities
+          docId: 52ddb8602911b02fa3b0f471d25fb6f0
           lastModifiedDate: 2019-05-23
           prevEstimateDate: 2019-07-29
           prevEstimateValue: "257310"
@@ -5672,6 +5724,7 @@ components:
           analystName: Amit Daryanani
           brokerId: 09N0CH-E
           brokerName: Evercore ISI
+          docId: e39fbcab7a8f84da07f49b0101e136f0
           lastModifiedDate: 2019-06-04
           prevEstimateDate: 2019-07-26
           prevEstimateValue: "256000"
@@ -5714,6 +5767,7 @@ components:
           brokerId: 09N0CH-E
           brokerName: Evercore ISI
           ratingsNoteText: Buy
+          changeType: increase
           requestId: AAPL-USA
           inputDateTime: 2019-07-29T19:49:34
           lastModifiedDate: 2019-06-04
@@ -6709,8 +6763,9 @@ components:
         type: string
       style: form
     startDate:
-      description: Start date for point in time of estimates expressed in YYYY-MM-DD
-        format.
+      description: Start of the perspective date range for estimates, expressed in
+        YYYY-MM-DD format. If left blank, the API defaults to the start of the latest
+        company reporting period. Future dates (T+1) are not accepted.
       example: 2019-07-30
       explode: true
       in: query
@@ -6721,8 +6776,9 @@ components:
         type: string
       style: form
     endDate:
-      description: End date for point in time of estimates expressed in YYYY-MM-DD
-        format.
+      description: End of the perspective date range for estimates, expressed in YYYY-MM-DD
+        format. If left blank, the API defaults to the end of the latest company reporting
+        period. Future dates (T+1) are not accepted.
       example: 2019-08-30
       explode: true
       in: query
@@ -6870,6 +6926,19 @@ components:
       explode: true
       in: query
       name: includeAll
+      required: false
+      schema:
+        default: false
+        type: boolean
+      style: form
+    includeDocId:
+      description: |
+        Controls whether the `docId` field is included in the response.
+          * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.
+          * **FALSE** = Omits the `docId` field from the response. (default)
+      explode: true
+      in: query
+      name: includeDocId
       required: false
       schema:
         default: false
@@ -8209,6 +8278,14 @@ components:
             When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
           example: true
           type: boolean
+        includeDocId:
+          default: false
+          description: |
+            Controls whether the `docId` field is included in the response.
+              * `TRUE` = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.
+              * `FALSE` = Omits the `docId` field from the response. (default)
+          example: false
+          type: boolean
       required:
       - ids
       - metrics
@@ -8217,7 +8294,8 @@ components:
     detailResponse:
       example:
         data:
-        - fsymId: SJY281-R
+        - docId: 52ddb8602911b02fa3b0f471d25fb6f0
+          fsymId: SJY281-R
           section: Included
           estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
@@ -8243,7 +8321,8 @@ components:
           fiscalYear: 2018
           relativePeriod: 2
           statusCode: 0
-        - fsymId: SJY281-R
+        - docId: 52ddb8602911b02fa3b0f471d25fb6f0
+          fsymId: SJY281-R
           section: Included
           estimateCurrency: USD
           fiscalEndDate: 2017-12-31T00:00:00.000+0000
@@ -8279,6 +8358,7 @@ components:
       type: object
     detailEstimate:
       example:
+        docId: 52ddb8602911b02fa3b0f471d25fb6f0
         fsymId: SJY281-R
         section: Included
         estimateCurrency: USD
@@ -8395,6 +8475,13 @@ components:
         brokerName:
           description: The name of the broker making the estimate.
           example: Morgan Stanley
+          nullable: true
+          type: string
+        docId:
+          description: A unique identifier for the document report associated with
+            a broker’s analyst estimate. Use this docId to retrieve the corresponding
+            investment report through FactSet’s Investment Research API.
+          example: 52ddb8602911b02fa3b0f471d25fb6f0
           nullable: true
           type: string
         lastModifiedDate:
@@ -8557,6 +8644,14 @@ components:
           description: |
             When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.
           example: true
+          type: boolean
+        includeDocId:
+          default: false
+          description: |
+            Controls whether the `docId` field is included in the response.
+              * `TRUE` = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.
+              * `FALSE` = Omits the `docId` field from the response. (default)
+          example: false
           type: boolean
       required:
       - ids
@@ -8806,6 +8901,7 @@ components:
           fsymId: SJY281-R
           analystName: Josh Baer
           ratingsNoteText: overWeight
+          changeType: increase
           analystId: 0DXTST-E
           brokerName: Morgan Stanley
           inputDateTime: 2022-10-25T22:40:09
@@ -8816,6 +8912,7 @@ components:
           fsymId: SJY281-R
           analystName: Josh Baer
           ratingsNoteText: overWeight
+          changeType: increase
           analystId: 0DXTST-E
           brokerName: Morgan Stanley
           inputDateTime: 2022-10-25T22:40:09
@@ -8836,6 +8933,7 @@ components:
         fsymId: SJY281-R
         analystName: Josh Baer
         ratingsNoteText: overWeight
+        changeType: increase
         analystId: 0DXTST-E
         brokerName: Morgan Stanley
         inputDateTime: 2022-10-25T22:40:09
@@ -8885,6 +8983,19 @@ components:
             Most\" or \"Least\" favorable rating is displayed for top or bottom rating\
             \ available for a particular security.\n"
           example: overWeight
+          nullable: true
+          type: string
+        changeType:
+          description: |
+            Indicates whether the rating has increased, decreased, or remained unchanged compared to the previous rating.
+              * **increase** = Rating improved
+              * **decrease** = Rating worsened
+              * **unchanged** = Rating remained the same
+          enum:
+          - increase
+          - decrease
+          - unchanged
+          example: increase
           nullable: true
           type: string
         requestId:
@@ -10128,6 +10239,14 @@ components:
         Include All filter is used to identify included and excluded broker details from the consensus. By default, the service would return only the brokers included in the consensus.
           * `TRUE` = Returns all the brokers included and excluded in the consensus
           * `FALSE` = Returns only the broker details included in the consensus
+      example: false
+      type: boolean
+    includeDocId:
+      default: false
+      description: |
+        Controls whether the `docId` field is included in the response.
+          * `TRUE` = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.
+          * `FALSE` = Omits the `docId` field from the response. (default)
       example: false
       type: boolean
     sortByInputDateTime:

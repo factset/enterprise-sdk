@@ -255,7 +255,13 @@ FundraisingRound['FundraiseCloseCodeEnum'] = {
      * value: "Ninth Close"
      * @const
      */
-    "Ninth Close": "Ninth Close"
+    "Ninth Close": "Ninth Close",
+
+    /**
+     * value: "null"
+     * @const
+     */
+    "null": "null"
 };
 
 

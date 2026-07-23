@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **fsym_id** | **str, none_type** | Security-level FactSet Permanent Identifier associated with the identifier. | [optional] 
 **request_id** | **str** | FactSet Security Permanent Identifier that was used for the request. | [optional] 
 **current_market_value** | **float, none_type** | Market Value for a specified security. (Current Only) | [optional] 
+**currency** | **str, none_type** | Currency ISO code associated with the market value. For more details, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **date** | **date, none_type** | Current Market Value Date | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

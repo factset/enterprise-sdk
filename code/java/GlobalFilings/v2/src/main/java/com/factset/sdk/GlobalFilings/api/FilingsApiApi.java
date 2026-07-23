@@ -175,7 +175,7 @@ public class FilingsApiApi {
   }
   /**
    * Returns the filings documents and related metadata within FactSet coverage.
-   * Returns the filings documents within FactSet coverage along with other response fields.
+   * Returns the filings documents within FactSet coverage along with other response fields. Upon request, this endpoint can fetch up to 10,000 documents. 
    * @param sources  (required)
    * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  (optional)
    * @param startDate Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)
@@ -207,7 +207,7 @@ public class FilingsApiApi {
 
   /**
    * Returns the filings documents and related metadata within FactSet coverage.
-   * Returns the filings documents within FactSet coverage along with other response fields.
+   * Returns the filings documents within FactSet coverage along with other response fields. Upon request, this endpoint can fetch up to 10,000 documents. 
    * @param sources  (required)
    * @param ids Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol,CUSIP, SEDOL, ISIN, or Entity ID &gt; **Note**: If this parameter is not used should return null for the requestId field in the response.  (optional)
    * @param startDate Start Date. Format is YYYYMMDD or relative +/- days (0,-1,etc).  (optional)

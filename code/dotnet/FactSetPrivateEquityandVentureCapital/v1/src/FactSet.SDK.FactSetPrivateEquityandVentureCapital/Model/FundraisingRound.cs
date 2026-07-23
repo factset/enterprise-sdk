@@ -103,7 +103,13 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
             /// Enum NinthClose for value: Ninth Close
             /// </summary>
             [EnumMember(Value = "Ninth Close")]
-            NinthClose = 11
+            NinthClose = 11,
+
+            /// <summary>
+            /// Enum Null for value: null
+            /// </summary>
+            [EnumMember(Value = "null")]
+            Null = 12
 
         }
 

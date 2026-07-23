@@ -27,9 +27,9 @@ using OpenAPIDateConverter = FactSet.SDK.PortfolioReportingBatcher.Client.OpenAP
 namespace FactSet.SDK.PortfolioReportingBatcher.Model
 {
     /// <summary>
-    /// Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that &#39;weekly&#39; frequency is not available for Vault job type and &#39;single&#39; frequency is only available for PA job type.
+    /// Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: &#39;Weekly&#39; is not supported for dataPrep or vault; &#39;Single&#39; is supported only for PA; and &#39;Quarterly&#39; and &#39;Annually&#39; are supported only for dataPrep.
     /// </summary>
-    /// <value>Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that &#39;weekly&#39; frequency is not available for Vault job type and &#39;single&#39; frequency is only available for PA job type.</value>
+    /// <value>Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: &#39;Weekly&#39; is not supported for dataPrep or vault; &#39;Single&#39; is supported only for PA; and &#39;Quarterly&#39; and &#39;Annually&#39; are supported only for dataPrep.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum Frequency
     {
@@ -52,10 +52,22 @@ namespace FactSet.SDK.PortfolioReportingBatcher.Model
         Weekly = 3,
 
         /// <summary>
+        /// Enum Quarterly for value: quarterly
+        /// </summary>
+        [EnumMember(Value = "quarterly")]
+        Quarterly = 4,
+
+        /// <summary>
+        /// Enum Annually for value: annually
+        /// </summary>
+        [EnumMember(Value = "annually")]
+        Annually = 5,
+
+        /// <summary>
         /// Enum Single for value: single
         /// </summary>
         [EnumMember(Value = "single")]
-        Single = 4
+        Single = 6
 
     }
 

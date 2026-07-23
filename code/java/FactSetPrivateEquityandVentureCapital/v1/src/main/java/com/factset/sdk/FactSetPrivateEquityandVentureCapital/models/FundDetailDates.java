@@ -39,7 +39,6 @@ import com.factset.sdk.FactSetPrivateEquityandVentureCapital.JSON;
  */
 @JsonPropertyOrder({
   FundDetailDates.JSON_PROPERTY_REGISTRATION_DATE,
-  FundDetailDates.JSON_PROPERTY_LAUNCH_DATE,
   FundDetailDates.JSON_PROPERTY_LIQUIDATION_DATE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -49,9 +48,6 @@ public class FundDetailDates implements Serializable {
 
   public static final String JSON_PROPERTY_REGISTRATION_DATE = "registrationDate";
   private LocalDate registrationDate;
-
-  public static final String JSON_PROPERTY_LAUNCH_DATE = "launchDate";
-  private JsonNullable<LocalDate> launchDate = JsonNullable.<LocalDate>undefined();
 
   public static final String JSON_PROPERTY_LIQUIDATION_DATE = "liquidationDate";
   private JsonNullable<LocalDate> liquidationDate = JsonNullable.<LocalDate>undefined();
@@ -82,40 +78,6 @@ public class FundDetailDates implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRegistrationDate(LocalDate registrationDate) {
     this.registrationDate = registrationDate;
-  }
-
-
-  public FundDetailDates launchDate(LocalDate launchDate) {
-    this.launchDate = JsonNullable.<LocalDate>of(launchDate);
-    return this;
-  }
-
-   /**
-   * The date on which the fund was first opened to investors
-   * @return launchDate
-  **/
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The date on which the fund was first opened to investors")
-  @JsonIgnore
-
-  public LocalDate getLaunchDate() {
-        return launchDate.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_LAUNCH_DATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<LocalDate> getLaunchDate_JsonNullable() {
-    return launchDate;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_LAUNCH_DATE)
-  public void setLaunchDate_JsonNullable(JsonNullable<LocalDate> launchDate) {
-    this.launchDate = launchDate;
-  }
-
-  public void setLaunchDate(LocalDate launchDate) {
-    this.launchDate = JsonNullable.<LocalDate>of(launchDate);
   }
 
 
@@ -166,7 +128,6 @@ public class FundDetailDates implements Serializable {
     }
     FundDetailDates fundDetailDates = (FundDetailDates) o;
     return Objects.equals(this.registrationDate, fundDetailDates.registrationDate) &&
-        equalsNullable(this.launchDate, fundDetailDates.launchDate) &&
         equalsNullable(this.liquidationDate, fundDetailDates.liquidationDate);
   }
 
@@ -176,7 +137,7 @@ public class FundDetailDates implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(registrationDate, hashCodeNullable(launchDate), hashCodeNullable(liquidationDate));
+    return Objects.hash(registrationDate, hashCodeNullable(liquidationDate));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -191,7 +152,6 @@ public class FundDetailDates implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class FundDetailDates {\n");
     sb.append("    registrationDate: ").append(toIndentedString(registrationDate)).append("\n");
-    sb.append("    launchDate: ").append(toIndentedString(launchDate)).append("\n");
     sb.append("    liquidationDate: ").append(toIndentedString(liquidationDate)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -79,7 +79,7 @@ PortfolioCompany.prototype['factsetEntityId'] = undefined;
 PortfolioCompany.prototype['companyName'] = undefined;
 
 /**
- * Date of initial investment
+ * Date of latest investment
  * @member {Date} investmentDate
  */
 PortfolioCompany.prototype['investmentDate'] = undefined;

@@ -1,5 +1,5 @@
 # FactSet.SDK.PortfolioReportingBatcher.Model.Frequency
-Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that 'weekly' frequency is not available for Vault job type and 'single' frequency is only available for PA job type.
+Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: 'Weekly' is not supported for dataPrep or vault; 'Single' is supported only for PA; and 'Quarterly' and 'Annually' are supported only for dataPrep.
 
 ## Properties
 

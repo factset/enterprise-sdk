@@ -1,0 +1,319 @@
+openapi: '3.0.3'
+info:
+  title: 'Chat completion API — OpenAI-compatible endpoints'
+  description: "OpenAI-compatible streaming endpoint for Conversational API.\n\nOnly the last user message is used; system prompts and chat history\nare ignored. Responses are always streamed as Server-Sent Events\n(`text/event-stream`) and terminate with `data: [DONE]`.\n"
+  version: '0.1.0'
+  license:
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  contact:
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
+servers:
+  - url: 'https://api.uat.factset.com/conversational/v0'
+    description: 'UAT Server'
+paths:
+  /chat/completions:
+    post:
+      operationId: 'chatCompletion'
+      tags:
+        - 'Chat'
+      summary: 'Stream a chat completion (OpenAI-compatible)'
+      description: "Accepts an OpenAI-style Chat Completions request and streams\n`chat.completion.chunk` frames via Server-Sent Events.\n\nThe `messages` array is searched in reverse for the last entry\nwith `role: user`; everything else is discarded before the\nrequest is forwarded to the agent.\n"
+      parameters:
+        - in: 'query'
+          name: 'consumer'
+          required: true
+          description: 'Identify the requestor'
+          schema:
+            type: 'string'
+            example: 'developer-portal'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+            examples:
+              basic:
+                summary: 'Minimal request'
+                value:
+                  model: 'fds-answer-2.0'
+                  stream: true
+                  messages:
+                    - role: 'user'
+                      content: 'Give me price of FDS-US'
+      responses:
+        '200':
+          description: "A stream of OpenAI `chat.completion.chunk` frames delivered\nvia Server-Sent Events. The stream terminates with\n`data: [DONE]`.\n"
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionChunk'
+              examples:
+                stream:
+                  summary: 'Example SSE frames'
+                  value: "data: {\"id\":\"chatcmpl-...\",\"object\":\"chat.completion.chunk\",\"created\":1778074499,\"model\":\"fds-answer-2.0\",\"choices\":[{\"index\":0,\"delta\":{\"role\":\"assistant\"},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-...\",\"object\":\"chat.completion.chunk\",\"created\":1778074499,\"model\":\"fds-answer-2.0\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"4\",\"factset_context\":null},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-...\",\"object\":\"chat.completion.chunk\",\"created\":1778074499,\"model\":\"fds-answer-2.0\",\"choices\":[{\"index\":0,\"delta\":{\"factset_context\":{\"data\":[{\"Company Country\": \"United States\"}]}},\"finish_reason\":null}]}\n\ndata: {\"id\":\"chatcmpl-...\",\"object\":\"chat.completion.chunk\",\"created\":1778074499,\"model\":\"fds-answer-2.0\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}]}\n\ndata: [DONE]\n"
+        '400':
+          description: 'Invalid request body or missing user message.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                invalid_model:
+                  value:
+                    error:
+                      message: 'Invalid value for ''model''.'
+                      type: 'invalid_request_error'
+                      param: 'model'
+                      code: null
+        '429':
+          description: 'Too Many Requests.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                rate_limited:
+                  value:
+                    error:
+                      message: 'Rate limit exceeded.'
+                      type: 'rate_limit_error'
+                      param: null
+                      code: null
+        '500':
+          description: 'Internal server error.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                server_error:
+                  value:
+                    error:
+                      message: 'Internal server error.'
+                      type: 'server_error'
+                      param: null
+                      code: null
+  /models:
+    get:
+      operationId: 'listModels'
+      tags:
+        - 'Chat'
+      summary: 'List available models (OpenAI-compatible)'
+      description: "Returns the static list of models accepted by `/chat/completions`.\nMirrors the OpenAI `GET /v1/models` shape so OpenAI-compatible\nclients can discover the model ID.\n"
+      parameters:
+        - in: 'query'
+          name: 'consumer'
+          required: true
+          description: 'Identify the requestor'
+          schema:
+            type: 'string'
+            example: 'developer-portal'
+      responses:
+        '200':
+          description: 'Model list.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelList'
+              examples:
+                basic:
+                  value:
+                    object: 'list'
+                    data:
+                      - id: 'fds-answer-2.0'
+                        object: 'model'
+        '429':
+          description: 'Too Many Requests.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                rate_limited:
+                  value:
+                    error:
+                      message: 'Rate limit exceeded.'
+                      type: 'rate_limit_error'
+                      param: null
+                      code: null
+        '500':
+          description: 'Internal server error.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                server_error:
+                  value:
+                    error:
+                      message: 'Internal server error.'
+                      type: 'server_error'
+                      param: null
+                      code: null
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: 'oauth2'
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
+          scopes: {}
+    FactSetApiKey:
+      type: 'http'
+      scheme: 'basic'
+  schemas:
+    ChatMessage:
+      type: 'object'
+      description: 'A single message in a chat conversation.'
+      required:
+        - 'role'
+        - 'content'
+      properties:
+        role:
+          type: 'string'
+          description: 'The role of the message sender (system, user, or assistant).'
+          enum:
+            - 'system'
+            - 'user'
+            - 'assistant'
+        content:
+          type: 'string'
+          description: 'The text content of the message.'
+    ChatCompletionRequest:
+      type: 'object'
+      description: 'A request to generate a chat completion.'
+      required:
+        - 'model'
+        - 'messages'
+      properties:
+        model:
+          type: 'string'
+          description: 'Echoed in response chunks.'
+          example: 'fds-answer-2.0'
+        stream:
+          type: 'boolean'
+          description: 'Ignored; the endpoint always streams.'
+          example: true
+        messages:
+          type: 'array'
+          description: 'Only the last message with `role: user` is used.'
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+    ChatCompletionChunk:
+      type: 'object'
+      description: 'A single streamed chunk of a chat completion response.'
+      properties:
+        id:
+          type: 'string'
+          description: 'Unique identifier for the completion.'
+        object:
+          type: 'string'
+          description: 'The object type, always "chat.completion.chunk".'
+          enum:
+            - 'chat.completion.chunk'
+        created:
+          type: 'integer'
+          format: 'int64'
+          description: 'Unix timestamp indicating when the response was created.'
+        model:
+          type: 'string'
+          description: 'The model used to generate the completion.'
+        choices:
+          type: 'array'
+          description: 'Array of completion choices.'
+          items:
+            $ref: '#/components/schemas/ResponseChoices'
+    ResponseChoices:
+      type: 'object'
+      description: 'A choice within a completion chunk.'
+      properties:
+        index:
+          type: 'integer'
+          description: 'The index of this choice within the choices array.'
+        delta:
+          type: 'object'
+          description: 'The incremental update to the message content for this chunk.'
+          properties:
+            role:
+              type: 'string'
+              description: 'The role of the message (e.g., "assistant").'
+            content:
+              type: 'string'
+              description: 'The incremental content for this chunk.'
+            factset_context:
+              type: 'object'
+              nullable: true
+              description: 'Additional FactSet context associated with this chunk, or null if none is available.'
+        finish_reason:
+          type: 'string'
+          nullable: true
+          description: 'The reason the model stopped generating tokens (stop, error, or null if incomplete).'
+          enum:
+            - 'stop'
+            - 'error'
+            - null
+    Model:
+      type: 'object'
+      description: 'A model available for chat completions.'
+      properties:
+        id:
+          type: 'string'
+          description: 'The unique identifier for the model.'
+          example: 'fds-answer-2.0'
+        object:
+          type: 'string'
+          description: 'The object type, always "model".'
+          enum:
+            - 'model'
+    ModelList:
+      type: 'object'
+      description: 'A list of available models.'
+      properties:
+        object:
+          type: 'string'
+          description: 'The object type, always "list".'
+          enum:
+            - 'list'
+        data:
+          type: 'array'
+          description: 'Array of available models.'
+          items:
+            $ref: '#/components/schemas/Model'
+    ErrorResponse:
+      type: 'object'
+      description: 'An error response from the API.'
+      properties:
+        error:
+          type: 'object'
+          description: 'Error details.'
+          required:
+            - 'message'
+            - 'type'
+          properties:
+            message:
+              type: 'string'
+              description: 'A human-readable error message.'
+            type:
+              type: 'string'
+              description: 'The error type (e.g., invalid_request_error).'
+            param:
+              type: 'string'
+              nullable: true
+              description: 'The parameter that caused the error, if applicable.'
+            code:
+              type: 'string'
+              nullable: true
+              description: 'An error code for programmatic error handling.'
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+tags:
+  - name: 'Chat'
+    description: 'Ask new questions and receive responses containing natural language text and FactSet data.'
+externalDocs:
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/conversational-api-powered-factset-mercury'

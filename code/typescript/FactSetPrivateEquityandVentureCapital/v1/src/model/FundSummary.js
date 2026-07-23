@@ -55,9 +55,6 @@ class FundSummary {
             if (data.hasOwnProperty('fundStatus') && obj['fundStatus'] === undefined) {
                 obj['fundStatus'] = ApiClient.convertToType(data['fundStatus'], 'String');
             }
-            if (data.hasOwnProperty('launchDate') && obj['launchDate'] === undefined) {
-                obj['launchDate'] = ApiClient.convertToType(data['launchDate'], 'Date');
-            }
             if (data.hasOwnProperty('amountRaisedUsd') && obj['amountRaisedUsd'] === undefined) {
                 obj['amountRaisedUsd'] = ApiClient.convertToType(data['amountRaisedUsd'], 'Number');
             }
@@ -86,12 +83,6 @@ FundSummary.prototype['fundName'] = undefined;
  * @member {module:model/FundSummary.FundStatusEnum} fundStatus
  */
 FundSummary.prototype['fundStatus'] = undefined;
-
-/**
- * Fund launch date
- * @member {Date} launchDate
- */
-FundSummary.prototype['launchDate'] = undefined;
 
 /**
  * Amount raised in USD

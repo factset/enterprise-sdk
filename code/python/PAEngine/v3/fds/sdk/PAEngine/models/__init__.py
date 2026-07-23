@@ -58,6 +58,8 @@ from fds.sdk.PAEngine.model.pa_calculation_group import PACalculationGroup
 from fds.sdk.PAEngine.model.pa_calculation_parameters import PACalculationParameters
 from fds.sdk.PAEngine.model.pa_calculation_parameters_root import PACalculationParametersRoot
 from fds.sdk.PAEngine.model.pa_calculation_pricing_source import PACalculationPricingSource
+from fds.sdk.PAEngine.model.pa_calendar import PACalendar
+from fds.sdk.PAEngine.model.pa_calendar_root import PACalendarRoot
 from fds.sdk.PAEngine.model.pa_commentary import PACommentary
 from fds.sdk.PAEngine.model.pa_commentary_configuration_summary import PACommentaryConfigurationSummary
 from fds.sdk.PAEngine.model.pa_commentary_configuration_summary_root import PACommentaryConfigurationSummaryRoot

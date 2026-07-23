@@ -34,11 +34,9 @@ def lazy_import():
     from fds.sdk.FactSetPrivateEquityandVentureCapital.model.aum_item import AUMItem
     from fds.sdk.FactSetPrivateEquityandVentureCapital.model.error_object_response import ErrorObjectResponse
     from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_detail_features import GPDetailFeatures
-    from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_detail_investment_criteria import GPDetailInvestmentCriteria
     globals()['AUMItem'] = AUMItem
     globals()['ErrorObjectResponse'] = ErrorObjectResponse
     globals()['GPDetailFeatures'] = GPDetailFeatures
-    globals()['GPDetailInvestmentCriteria'] = GPDetailInvestmentCriteria
 
 
 class GPDetail(ModelNormal):
@@ -96,7 +94,6 @@ class GPDetail(ModelNormal):
         return {
             'request_id': (str, none_type,),  # noqa: E501
             'gp_name': (str, none_type,),  # noqa: E501
-            'investment_criteria': (GPDetailInvestmentCriteria,),  # noqa: E501
             'features': (GPDetailFeatures,),  # noqa: E501
             'aum': (AUMItem,),  # noqa: E501
             'error': (ErrorObjectResponse,),  # noqa: E501
@@ -110,7 +107,6 @@ class GPDetail(ModelNormal):
     attribute_map = {
         'request_id': 'requestId',  # noqa: E501
         'gp_name': 'gpName',  # noqa: E501
-        'investment_criteria': 'investmentCriteria',  # noqa: E501
         'features': 'features',  # noqa: E501
         'aum': 'aum',  # noqa: E501
         'error': 'error',  # noqa: E501
@@ -159,7 +155,6 @@ class GPDetail(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             request_id (str, none_type): Unique FactSet identifier for the GP used in request. [optional]  # noqa: E501
             gp_name (str, none_type): General partner name. [optional]  # noqa: E501
-            investment_criteria (GPDetailInvestmentCriteria): [optional]  # noqa: E501
             features (GPDetailFeatures): [optional]  # noqa: E501
             aum (AUMItem): [optional]  # noqa: E501
             error (ErrorObjectResponse): [optional]  # noqa: E501
@@ -246,7 +241,6 @@ class GPDetail(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             request_id (str, none_type): Unique FactSet identifier for the GP used in request. [optional]  # noqa: E501
             gp_name (str, none_type): General partner name. [optional]  # noqa: E501
-            investment_criteria (GPDetailInvestmentCriteria): [optional]  # noqa: E501
             features (GPDetailFeatures): [optional]  # noqa: E501
             aum (AUMItem): [optional]  # noqa: E501
             error (ErrorObjectResponse): [optional]  # noqa: E501

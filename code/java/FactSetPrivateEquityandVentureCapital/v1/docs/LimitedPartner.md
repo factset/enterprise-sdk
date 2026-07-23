@@ -33,6 +33,7 @@ SIXTH_CLOSE | &quot;Sixth Close&quot;
 SEVENTH_CLOSE | &quot;Seventh Close&quot;
 EIGHTH_CLOSE | &quot;Eighth Close&quot;
 NINTH_CLOSE | &quot;Ninth Close&quot;
+NULL | &quot;null&quot;
 
 
 ## Implemented Interfaces

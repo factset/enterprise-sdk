@@ -1,36 +1,31 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
-  title: FactSet NER API
-  description: >-
-    Identify and extract named entities from unstructured or semi-structured
-    text.
+  title: 'FactSet NER API'
+  description: 'Identify and extract named entities from unstructured or semi-structured text.'
   contact:
-    name: FactSet Research Systems
-    url: https://developer.factset.com/contact
-    email: api@factset.com
-  version: 0.0.0
+    name: 'FactSet Research Systems'
+    url: 'https://developer.factset.com/contact'
+    email: 'api@factset.com'
+  version: '0.0.0'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
 servers:
-  - url: https://api.factset.com/aiml/ner/v0
+  - url: 'https://api.factset.com/aiml/ner/v0'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 tags:
-  - name: Express
-  - name: Advanced
+  - name: 'Express'
+  - name: 'Advanced'
 paths:
   /express:
     post:
-      summary: Express Processing
-      description: >-
-        NER endpoint optimized for speed, supports batch processing up to 10
-        inputs. Supports person, organization, location, product, datetime,
-        period, and numerical entity types.
-      operationId: postExpressNerExtraction
+      summary: 'Express Processing'
+      description: 'NER endpoint optimized for speed, supports batch processing up to 10 inputs. Supports person, organization, location, product, datetime, period, and numerical entity types.'
+      operationId: 'postExpressNerExtraction'
       tags:
-        - Express
+        - 'Express'
       security:
         - FactSetApiKey: []
         - FactSetOAuth2: []
@@ -42,49 +37,45 @@ paths:
               $ref: '#/components/schemas/ExpressRequestRoot'
       responses:
         '200':
-          description: Successful entity extraction
+          description: 'Successful entity extraction'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OutputRoot'
         '400':
-          description: Invalid request
+          description: 'Invalid request'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '403':
-          description: Forbidden
+          description: 'Forbidden'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
   /advanced:
     post:
-      summary: Advanced Processing
-      description: >-
-        NER endpoint optimized for accuracy and entity coverage, supports
-        single-input processing. Supports financial entity types such as
-        cryptocurrency, index, rate, yield, commodity, currency, future, fund,
-        asset, and debt instrument in addition to Express entity types.
-      operationId: postAdvancedNerExtraction
+      summary: 'Advanced Processing'
+      description: 'NER endpoint optimized for accuracy and entity coverage, supports single-input processing. Supports financial entity types such as cryptocurrency, index, rate, yield, commodity, currency, future, fund, asset, and debt instrument in addition to Express entity types.'
+      operationId: 'postAdvancedNerExtraction'
       tags:
-        - Advanced
+        - 'Advanced'
       security:
         - FactSetApiKey: []
         - FactSetOAuth2: []
       parameters:
-        - name: model
-          in: query
+        - name: 'model'
+          in: 'query'
           required: false
           schema:
-            type: string
+            type: 'string'
             enum:
-              - openai.gpt-5.2-2025-12-11
-              - anthropic.claude-sonnet-4-6
-              - meta.llama-4-scout-instruct
-            default: meta.llama-4-scout-instruct
-          description: Optional override for the Advanced model backend.
+              - 'openai.gpt-5.2-2025-12-11'
+              - 'anthropic.claude-sonnet-4-6'
+              - 'meta.llama-4-scout-instruct'
+            default: 'meta.llama-4-scout-instruct'
+          description: 'Optional override for the Advanced model backend.'
       requestBody:
         required: true
         content:
@@ -93,19 +84,19 @@ paths:
               $ref: '#/components/schemas/AdvancedRequestRoot'
       responses:
         '200':
-          description: Successful entity extraction
+          description: 'Successful entity extraction'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/OutputRoot'
         '400':
-          description: Invalid request
+          description: 'Invalid request'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
         '403':
-          description: Forbidden
+          description: 'Forbidden'
           content:
             application/json:
               schema:
@@ -113,188 +104,186 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   schemas:
     ExpressRequestRoot:
-      type: object
+      type: 'object'
       required:
-        - data
+        - 'data'
       properties:
         data:
           $ref: '#/components/schemas/ExpressInput'
         meta:
-          type: object
+          type: 'object'
           additionalProperties: true
     ExpressInput:
-      type: object
+      type: 'object'
       required:
-        - inputData
-        - requiredEntities
+        - 'inputData'
+        - 'requiredEntities'
       properties:
         inputData:
-          type: array
+          type: 'array'
           maxItems: 10
           items:
-            type: string
+            type: 'string'
             minLength: 1
         requiredEntities:
-          type: array
-          description: If `product` is included, `organization` must also be included.
+          type: 'array'
+          description: 'If `product` is included, `organization` must also be included.'
           items:
             $ref: '#/components/schemas/StandardEntityType'
     AdvancedRequestRoot:
-      type: object
+      type: 'object'
       required:
-        - data
+        - 'data'
       properties:
         data:
           $ref: '#/components/schemas/AdvancedInput'
     AdvancedInput:
-      type: object
+      type: 'object'
       required:
-        - inputData
-        - requiredEntities
+        - 'inputData'
+        - 'requiredEntities'
       properties:
         inputData:
-          type: string
+          type: 'string'
           minLength: 1
         requiredEntities:
-          type: array
-          description: If `product` is included, `organization` must also be included.
+          type: 'array'
+          description: 'If `product` is included, `organization` must also be included.'
           items:
             $ref: '#/components/schemas/AdvancedEntityType'
         offsetRequired:
-          type: boolean
+          type: 'boolean'
           default: true
         lookupRequired:
-          type: boolean
+          type: 'boolean'
           default: true
         model:
-          type: string
+          type: 'string'
           enum:
-            - openai.gpt-5.2-2025-12-11
-            - anthropic.claude-sonnet-4-6
-            - meta.llama-4-scout-instruct
-          default: meta.llama-4-scout-instruct
+            - 'openai.gpt-5.2-2025-12-11'
+            - 'anthropic.claude-sonnet-4-6'
+            - 'meta.llama-4-scout-instruct'
+          default: 'meta.llama-4-scout-instruct'
     StandardEntityType:
-      type: string
-      description: Standard NER entity type supported by the Express endpoint.
+      type: 'string'
+      description: 'Standard NER entity type supported by the Express endpoint.'
       enum:
-        - person
-        - organization
-        - location
-        - product
-        - datetime
-        - period
-        - numerical
+        - 'person'
+        - 'organization'
+        - 'location'
+        - 'product'
+        - 'datetime'
+        - 'period'
+        - 'numerical'
     AdvancedEntityType:
-      type: string
-      description: >-
-        Extended NER entity type supported by the Advanced endpoint, including
-        financial instrument types.
+      type: 'string'
+      description: 'Extended NER entity type supported by the Advanced endpoint, including financial instrument types.'
       enum:
-        - person
-        - organization
-        - location
-        - product
-        - datetime
-        - period
-        - numerical
-        - cryptocurrency
-        - index
-        - rate
-        - yield
-        - commodity
-        - currency
-        - future
-        - fund
-        - asset
-        - debtinstrument
+        - 'person'
+        - 'organization'
+        - 'location'
+        - 'product'
+        - 'datetime'
+        - 'period'
+        - 'numerical'
+        - 'cryptocurrency'
+        - 'index'
+        - 'rate'
+        - 'yield'
+        - 'commodity'
+        - 'currency'
+        - 'future'
+        - 'fund'
+        - 'asset'
+        - 'debtinstrument'
     OutputRoot:
-      type: object
+      type: 'object'
       required:
-        - data
+        - 'data'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/OutputItem'
         meta:
-          type: object
+          type: 'object'
           additionalProperties: true
-          description: Includes `model`, `modelDuration`, and `taskDuration`.
+          description: 'Includes `model`, `modelDuration`, and `taskDuration`.'
     OutputItem:
-      type: object
+      type: 'object'
       properties:
         entities:
-          type: array
+          type: 'array'
           nullable: true
           items:
             $ref: '#/components/schemas/EntityData'
         error:
-          type: string
+          type: 'string'
           nullable: true
         lookupStatuses:
-          type: object
+          type: 'object'
           nullable: true
           additionalProperties:
             $ref: '#/components/schemas/LookupStatus'
     EntityData:
-      type: object
-      description: A single extracted entity with its associated metadata fields.
+      type: 'object'
+      description: 'A single extracted entity with its associated metadata fields.'
       additionalProperties: true
     LookupStatus:
-      type: string
-      description: Status of an entity lookup operation.
+      type: 'string'
+      description: 'Status of an entity lookup operation.'
       enum:
-        - success
-        - noMatch
-        - unavailable
+        - 'success'
+        - 'noMatch'
+        - 'unavailable'
     ErrorResponse:
-      type: object
+      type: 'object'
       required:
-        - errors
+        - 'errors'
       properties:
         errors:
-          type: array
-          description: List of errors
+          type: 'array'
+          description: 'List of errors'
           items:
             $ref: '#/components/schemas/HTTPError'
     ErrorSource:
-      type: object
+      type: 'object'
       properties:
         parameter:
-          type: string
+          type: 'string'
         pointer:
-          type: string
+          type: 'string'
       required:
-        - parameter
-        - pointer
+        - 'parameter'
+        - 'pointer'
     HTTPError:
-      type: object
+      type: 'object'
       properties:
         code:
-          type: string
+          type: 'string'
         detail:
-          type: string
+          type: 'string'
         id:
-          type: string
-          format: uuid
+          type: 'string'
+          format: 'uuid'
         source:
           $ref: '#/components/schemas/ErrorSource'
         title:
-          type: string
+          type: 'string'
       required:
-        - code
-        - id
-        - title
+        - 'code'
+        - 'id'
+        - 'title'
 externalDocs:
-  description: API Documentation
-  url: https://developer.factset.com/api-catalog/natural-language-processing-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/natural-language-processing-api'

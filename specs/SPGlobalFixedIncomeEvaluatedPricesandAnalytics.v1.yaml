@@ -1,30 +1,21 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  version: 1.0.0
-  title: S&P Global Fixed Income Evaluated Prices & Analytics API
+  version: '1.0.0'
+  title: 'S&P Global Fixed Income Evaluated Prices & Analytics API'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
-  description: >
-    Gain access to evaluated pricing and analytics data for Corporate Bonds,
-    Municipal Bonds and Asset Backed Securities provided by S&P Global (formerly
-    IHS Markit) .
-
-
-    Data returned through multiple endpoints like prices, spread, yield, yield
-    curve, sensitivity, coupon information, securities metadata and details
-    specific to the Asset Backed Securities.
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  description: "Gain access to evaluated pricing and analytics data for Corporate Bonds, Municipal Bonds and Asset Backed Securities provided by S&P Global (formerly IHS Markit) .\n\nData returned through multiple endpoints like prices, spread, yield, yield curve, sensitivity, coupon information, securities metadata and details specific to the Asset Backed Securities.\n"
 servers:
-  - url: https://api.factset.com/content
-    description: Production
+  - url: 'https://api.factset.com/content'
+    description: 'Production'
 externalDocs:
-  description: API Documentation
-  url: >-
-    https://developer.factset.com/api-catalog/sp-global-fixed-income-evaluated-prices-and-analytics-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/sp-global-fixed-income-evaluated-prices-and-analytics-api'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
@@ -32,12 +23,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/prices:
     get:
       tags:
-        - Prices
-      summary: Get Bid, Mid and Ask prices for a list of securities
-      operationId: getBondPrices
-      description: >
-        Get bond clean and dirty bid, mid and ask pricing data provided by
-        Markit for a specified date range and frequency.
+        - 'Prices'
+      summary: 'Get Bid, Mid and Ask prices for a list of securities'
+      operationId: 'getBondPrices'
+      description: "Get bond clean and dirty bid, mid and ask pricing data provided by Markit for a specified date range and frequency.\n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -46,7 +35,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Bond Pricing items
+          description: 'Bond Pricing items'
           content:
             application/json:
               schema:
@@ -66,15 +55,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Prices
-      summary: Request Bid, Mid and Ask prices for a list of securities
-      description: >
-        Get bond clean and dirty bid, mid and ask pricing data provided by
-        Markit for a specified date range and frequency.
-      operationId: getBondPricesForList
+        - 'Prices'
+      summary: 'Request Bid, Mid and Ask prices for a list of securities'
+      description: "Get bond clean and dirty bid, mid and ask pricing data provided by Markit for a specified date range and frequency.\n"
+      operationId: 'getBondPricesForList'
       requestBody:
         required: true
-        description: Request object for requesting pricing data
+        description: 'Request object for requesting pricing data'
         content:
           application/json:
             schema:
@@ -84,7 +71,7 @@ paths:
                 $ref: '#/components/examples/pricesRequest'
       responses:
         '200':
-          description: Bond Prices data items
+          description: 'Bond Prices data items'
           content:
             application/json:
               schema:
@@ -105,13 +92,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/spread:
     get:
       tags:
-        - Spread
-      summary: Get the Spread and OAS data for a list of securities
-      operationId: getBondSpread
-      description: >
-        Get spread details like discount margin, OAS, Asset Swap Spread, Z
-        Spread, spread benchmark provided by Markit for a specified date range
-        and frequency.
+        - 'Spread'
+      summary: 'Get the Spread and OAS data for a list of securities'
+      operationId: 'getBondSpread'
+      description: "Get spread details like discount margin, OAS, Asset Swap Spread, Z Spread, spread benchmark provided by Markit for a specified date range and frequency.\n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -120,7 +104,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Bond Spread items
+          description: 'Bond Spread items'
           content:
             application/json:
               schema:
@@ -140,16 +124,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Spread
-      summary: Request the Spread and OAS data for a list of securities
-      description: >
-        Get spread details like discount margin, OAS, Asset Swap Spread, Z
-        Spread, spread benchmark provided by Markit for a specified date range
-        and frequency.
-      operationId: getBondSpreadForList
+        - 'Spread'
+      summary: 'Request the Spread and OAS data for a list of securities'
+      description: "Get spread details like discount margin, OAS, Asset Swap Spread, Z Spread, spread benchmark provided by Markit for a specified date range and frequency.\n"
+      operationId: 'getBondSpreadForList'
       requestBody:
         required: true
-        description: Request object for requesting pricing data
+        description: 'Request object for requesting pricing data'
         content:
           application/json:
             schema:
@@ -159,7 +140,7 @@ paths:
                 $ref: '#/components/examples/spreadRequest'
       responses:
         '200':
-          description: Bond Prices data items
+          description: 'Bond Prices data items'
           content:
             application/json:
               schema:
@@ -180,13 +161,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/yield:
     get:
       tags:
-        - Yield
-      summary: Get yield information for given date range and list of securities
-      operationId: getBondYield
-      description: >
-        Get the yield information like yield to maturity, yield to worst,
-        benchmark yield to maturity and yield to call provided by Markit for a
-        specified date range and frequency. 
+        - 'Yield'
+      summary: 'Get yield information for given date range and list of securities'
+      operationId: 'getBondYield'
+      description: "Get the yield information like yield to maturity, yield to worst, benchmark yield to maturity and yield to call provided by Markit for a specified date range and frequency. \n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -195,7 +173,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Bond Yield items
+          description: 'Bond Yield items'
           content:
             application/json:
               schema:
@@ -215,16 +193,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Yield
-      summary: Request yield information for given date range and list of securities
-      description: >
-        Get the yield information like yield to maturity, yield to worst,
-        benchmark yield to maturity and yield to call provided by Markit for a
-        specified date range and frequency.
-      operationId: getBondYieldForList
+        - 'Yield'
+      summary: 'Request yield information for given date range and list of securities'
+      description: "Get the yield information like yield to maturity, yield to worst, benchmark yield to maturity and yield to call provided by Markit for a specified date range and frequency.\n"
+      operationId: 'getBondYieldForList'
       requestBody:
         required: true
-        description: Request object for requesting yield data
+        description: 'Request object for requesting yield data'
         content:
           application/json:
             schema:
@@ -234,7 +209,7 @@ paths:
                 $ref: '#/components/examples/yieldRequest'
       responses:
         '200':
-          description: Bond Yield data items
+          description: 'Bond Yield data items'
           content:
             application/json:
               schema:
@@ -255,13 +230,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/issuer-yield-curve:
     get:
       tags:
-        - Issuer Yield Curve
-      summary: Get yield curve data for given date range and list of securities
-      operationId: getBondIssuerYieldCurve
-      description: >
-        Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y,
-        6Y, 7Y, 8Y, 9Y, 10Y, 15Y, 20Y, 25Y, 30Y and 40Y provided by Markit for
-        the specified date range and frequency.
+        - 'Issuer Yield Curve'
+      summary: 'Get yield curve data for given date range and list of securities'
+      operationId: 'getBondIssuerYieldCurve'
+      description: "Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y, 9Y, 10Y, 15Y, 20Y, 25Y, 30Y and 40Y provided by Markit for the specified date range and frequency.\n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -270,7 +242,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Bond Issuer Yield Curve items
+          description: 'Bond Issuer Yield Curve items'
           content:
             application/json:
               schema:
@@ -290,16 +262,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Issuer Yield Curve
-      summary: Request yield curve data for given date range and list of securities
-      description: >
-        Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y,
-        6Y, 7Y, 8Y, 9Y, 10Y, 15Y, 20Y, 25Y, 30Y and 40Y provided by Markit for
-        the specified date range and frequency.
-      operationId: getBondIssuerYieldCurveForList
+        - 'Issuer Yield Curve'
+      summary: 'Request yield curve data for given date range and list of securities'
+      description: "Get yield curve data points and dates for 3M, 6M, 1Y, 2Y, 3Y, 4Y, 5Y, 6Y, 7Y, 8Y, 9Y, 10Y, 15Y, 20Y, 25Y, 30Y and 40Y provided by Markit for the specified date range and frequency.\n"
+      operationId: 'getBondIssuerYieldCurveForList'
       requestBody:
         required: true
-        description: Request object for requesting issuer yield curve data.
+        description: 'Request object for requesting issuer yield curve data.'
         content:
           application/json:
             schema:
@@ -309,7 +278,7 @@ paths:
                 $ref: '#/components/examples/issuerYieldCurveRequest'
       responses:
         '200':
-          description: Bond Issuer Yield Curve data items
+          description: 'Bond Issuer Yield Curve data items'
           content:
             application/json:
               schema:
@@ -330,13 +299,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/sensitivity:
     get:
       tags:
-        - Sensitivity
-      summary: Get the bond sensitivity data for a list of securities
-      operationId: getBondSensitivity
-      description: >
-        Get the sensitivity information like convexity, effective convexity,
-        effective duration, Macaulay duration and modified duration provided by
-        Markit for the specified date range and frequency.
+        - 'Sensitivity'
+      summary: 'Get the bond sensitivity data for a list of securities'
+      operationId: 'getBondSensitivity'
+      description: "Get the sensitivity information like convexity, effective convexity, effective duration, Macaulay duration and modified duration provided by Markit for the specified date range and frequency.\n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -345,7 +311,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Bond Sensitivity items
+          description: 'Bond Sensitivity items'
           content:
             application/json:
               schema:
@@ -365,16 +331,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Sensitivity
-      summary: Request the bond sensitivity data for a list of securities
-      description: >
-        Get the sensitivity information like convexity, effective convexity,
-        effective duration, Macaulay duration and modified duration provided by
-        Markit for the specified date range and frequency.
-      operationId: getBondSensitivityForList
+        - 'Sensitivity'
+      summary: 'Request the bond sensitivity data for a list of securities'
+      description: "Get the sensitivity information like convexity, effective convexity, effective duration, Macaulay duration and modified duration provided by Markit for the specified date range and frequency.\n"
+      operationId: 'getBondSensitivityForList'
       requestBody:
         required: true
-        description: Request object for requesting sensitivity data
+        description: 'Request object for requesting sensitivity data'
         content:
           application/json:
             schema:
@@ -384,7 +347,7 @@ paths:
                 $ref: '#/components/examples/sensitivityRequest'
       responses:
         '200':
-          description: Bond Prices data items
+          description: 'Bond Prices data items'
           content:
             application/json:
               schema:
@@ -405,13 +368,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/meta:
     get:
       tags:
-        - Meta
-      summary: Get bond meta data for a list of securities.
-      operationId: getBondMeta
-      description: >
-        Get bond metadata like classification, maturity date, symbology
-        information like isin, cusip, vendorid, ticker, issue and issuer name
-        provided by Markit for a list of securities.
+        - 'Meta'
+      summary: 'Get bond meta data for a list of securities.'
+      operationId: 'getBondMeta'
+      description: "Get bond metadata like classification, maturity date, symbology information like isin, cusip, vendorid, ticker, issue and issuer name provided by Markit for a list of securities.\n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -420,7 +380,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Bond Meta items
+          description: 'Bond Meta items'
           content:
             application/json:
               schema:
@@ -440,16 +400,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Meta
-      summary: Get bond meta data for a list of securities.
-      description: >
-        Get bond metadata like classification, maturity date, symbology
-        information like isin, cusip, vendorid, ticker, issue and issuer name
-        provided by Markit for a list of securities.
-      operationId: getBondMetaForList
+        - 'Meta'
+      summary: 'Get bond meta data for a list of securities.'
+      description: "Get bond metadata like classification, maturity date, symbology information like isin, cusip, vendorid, ticker, issue and issuer name provided by Markit for a list of securities.\n"
+      operationId: 'getBondMetaForList'
       requestBody:
         required: true
-        description: Request object for requesting meta data
+        description: 'Request object for requesting meta data'
         content:
           application/json:
             schema:
@@ -459,7 +416,7 @@ paths:
                 $ref: '#/components/examples/metaRequest'
       responses:
         '200':
-          description: Bond Meta data items
+          description: 'Bond Meta data items'
           content:
             application/json:
               schema:
@@ -480,13 +437,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/abs-details:
     get:
       tags:
-        - ABS Details
-      summary: Get Asset Backed Security Details for a list of securities
-      operationId: getABSDetails
-      description: >
-        Get details for Asset Backed Securities like factors, pay up, wal, cdr,
-        cpr and prepay details provided by Markit for the specified date range
-        and frequency.
+        - 'ABS Details'
+      summary: 'Get Asset Backed Security Details for a list of securities'
+      operationId: 'getABSDetails'
+      description: "Get details for Asset Backed Securities like factors, pay up, wal, cdr, cpr and prepay details provided by Markit for the specified date range and frequency.\n"
       parameters:
         - $ref: '#/components/parameters/idsABS'
         - $ref: '#/components/parameters/startDate'
@@ -495,7 +449,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Asset Bond Security Detail items
+          description: 'Asset Bond Security Detail items'
           content:
             application/json:
               schema:
@@ -515,16 +469,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - ABS Details
-      summary: Request Asset Backed Security Details for a list of securities
-      description: >
-        Get details for Asset Backed Securities like factors, pay up, wal, cdr,
-        cpr and prepay details provided by Markit for the specified date range
-        and frequency.
-      operationId: getABSDetailsForList
+        - 'ABS Details'
+      summary: 'Request Asset Backed Security Details for a list of securities'
+      description: "Get details for Asset Backed Securities like factors, pay up, wal, cdr, cpr and prepay details provided by Markit for the specified date range and frequency.\n"
+      operationId: 'getABSDetailsForList'
       requestBody:
         required: true
-        description: Request object for requesting ABS details
+        description: 'Request object for requesting ABS details'
         content:
           application/json:
             schema:
@@ -534,7 +485,7 @@ paths:
                 $ref: '#/components/examples/absDetailsRequest'
       responses:
         '200':
-          description: Asset Bond Security Detail items
+          description: 'Asset Bond Security Detail items'
           content:
             application/json:
               schema:
@@ -555,13 +506,10 @@ paths:
   /markit-bond-prices-and-analytics/v1/coupon:
     get:
       tags:
-        - Coupon
-      summary: Get coupon data for given date range and list of securities
-      operationId: getBondCoupon
-      description: >
-        Get coupon information like accrued interest, coupon, coupon type and
-        coupon frequency provided by Markit for specified date range and
-        frequency.
+        - 'Coupon'
+      summary: 'Get coupon data for given date range and list of securities'
+      operationId: 'getBondCoupon'
+      description: "Get coupon information like accrued interest, coupon, coupon type and coupon frequency provided by Markit for specified date range and frequency.\n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -570,7 +518,7 @@ paths:
         - $ref: '#/components/parameters/calendar'
       responses:
         '200':
-          description: Bond Coupon items
+          description: 'Bond Coupon items'
           content:
             application/json:
               schema:
@@ -590,16 +538,13 @@ paths:
           $ref: '#/components/responses/500'
     post:
       tags:
-        - Coupon
-      summary: Request coupon data for given date range and list of securities
-      description: >
-        Get coupon information like accrued interest, coupon, coupon type and
-        coupon frequency provided by Markit for specified date range and
-        frequency.
-      operationId: getBondCouponForList
+        - 'Coupon'
+      summary: 'Request coupon data for given date range and list of securities'
+      description: "Get coupon information like accrued interest, coupon, coupon type and coupon frequency provided by Markit for specified date range and frequency.\n"
+      operationId: 'getBondCouponForList'
       requestBody:
         required: true
-        description: Request object for requesting Coupon data
+        description: 'Request object for requesting Coupon data'
         content:
           application/json:
             schema:
@@ -609,7 +554,7 @@ paths:
                 $ref: '#/components/examples/couponRequest'
       responses:
         '200':
-          description: Bond Coupon data items
+          description: 'Bond Coupon data items'
           content:
             application/json:
               schema:
@@ -630,196 +575,137 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   parameters:
     ids:
-      name: ids
-      in: query
+      name: 'ids'
+      in: 'query'
       required: true
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 2000
       explode: false
-      description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP,
-        ISIN and
-
-        SEDOL are accepted as input. <p>***ids limit** = 2000  per request*</p>
-
-        *<p>Make note, GET Method URL request lines are also limited to a total
-
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands
-
-        of ids, which may lead to exceeding this request line limit of 8KB, its
-
-        advised for any requests with large request lines to be requested
-        through
-
-        the respective "POST" method.</p>*
+      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, ISIN and\nSEDOL are accepted as input. <p>***ids limit** = 2000  per request*</p>\n*<p>Make note, GET Method URL request lines are also limited to a total\nlength of 8192 bytes (8KB). In cases where the service allows for thousands\nof ids, which may lead to exceeding this request line limit of 8KB, its\nadvised for any requests with large request lines to be requested through\nthe respective \"POST\" method.</p>*\n"
       examples:
         oneId:
-          summary: Single id
+          summary: 'Single id'
           value:
-            - US45905URL07
+            - 'US45905URL07'
         multipleIds:
-          summary: Multiple ids
+          summary: 'Multiple ids'
           value:
-            - US45905URL07
-            - US01030LCU70
+            - 'US45905URL07'
+            - 'US01030LCU70'
     idsABS:
-      name: ids
-      in: query
+      name: 'ids'
+      in: 'query'
       required: true
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
         minItems: 1
         maxItems: 2000
       explode: false
-      description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP,
-        ISIN and
-
-        SEDOL are accepted as input. <p>***ids limit** = 2000  per request*</p>
-
-        *<p>Make note, GET Method URL request lines are also limited to a total
-
-        length of 8192 bytes (8KB). In cases where the service allows for
-        thousands
-
-        of ids, which may lead to exceeding this request line limit of 8KB, its
-
-        advised for any requests with large request lines to be requested
-        through
-
-        the respective "POST" method.</p>*
+      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, ISIN and\nSEDOL are accepted as input. <p>***ids limit** = 2000  per request*</p>\n*<p>Make note, GET Method URL request lines are also limited to a total\nlength of 8192 bytes (8KB). In cases where the service allows for thousands\nof ids, which may lead to exceeding this request line limit of 8KB, its\nadvised for any requests with large request lines to be requested through\nthe respective \"POST\" method.</p>*\n"
       examples:
         oneId:
-          summary: Single id
+          summary: 'Single id'
           value:
-            - US05522RDC97
+            - 'US05522RDC97'
         multipleIds:
-          summary: Multiple ids
+          summary: 'Multiple ids'
           value:
-            - US05522RDC97
-            - US065606AD71
+            - 'US05522RDC97'
+            - 'US065606AD71'
     startDate:
-      name: startDate
-      in: query
+      name: 'startDate'
+      in: 'query'
       required: false
       schema:
-        type: string
-      description: >
-        The start date requested for a given date range in **YYYY-MM-DD**
-        format. If left blank, the API will default to previous close. Future
-        dates (T+1) are not accepted in this endpoint.
+        type: 'string'
+      description: "The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.\n"
       example: '2021-01-01'
     endDate:
-      name: endDate
-      in: query
+      name: 'endDate'
+      in: 'query'
       required: false
       schema:
-        type: string
-      description: >
-        The end date requested for a given date range in **YYYY-MM-DD** format.
-        If left blank, the API will default to previous close. Future dates
-        (T+1) are not accepted in this endpoint.
+        type: 'string'
+      description: "The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.\n"
       example: '2021-12-31'
     frequency:
-      name: frequency
-      in: query
+      name: 'frequency'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - D
-          - W
-          - M
-          - AM
-          - CQ
-          - FQ
-          - AY
-          - CY
-          - FY
-        default: D
-      description: |
-        Controls the display frequency of the data returned.
-          * **D** = Daily
-          * **W** = Weekly, based on the last day of the week of the start date.
-          * **M** = Monthly, based on the last trading day of the month.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-          * **FQ** = Fiscal Quarter of the company.
-          * **AY** = Actual Annual, based on the start date.
-          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
-          * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
+          - 'D'
+          - 'W'
+          - 'M'
+          - 'AM'
+          - 'CQ'
+          - 'FQ'
+          - 'AY'
+          - 'CY'
+          - 'FY'
+        default: 'D'
+      description: "Controls the display frequency of the data returned.\n  * **D** = Daily\n  * **W** = Weekly, based on the last day of the week of the start date.\n  * **M** = Monthly, based on the last trading day of the month.\n  * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n  * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).\n  * **FQ** = Fiscal Quarter of the company.\n  * **AY** = Actual Annual, based on the start date.\n  * **CY** = Calendar Annual, based on the last trading day of the calendar year.\n  * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.\n"
       examples:
         Daily:
-          summary: D - Daily frequency display based on trading calendar
-          value: D
+          summary: 'D - Daily frequency display based on trading calendar'
+          value: 'D'
         Weekly:
-          summary: W - Weekly - based on the last day of the week of the start date
-          value: W
+          summary: 'W - Weekly - based on the last day of the week of the start date'
+          value: 'W'
         Monthly:
-          summary: M - Monthly - based on the last trading day of the month.
-          value: M
+          summary: 'M - Monthly - based on the last trading day of the month.'
+          value: 'M'
         Actual Month:
-          summary: >-
-            AM - Actual Month - based on the startDate (e.g., if the start date
-            is June 16, data is displayed for June 16, May 16, April 16 etc.).
-          value: AM
+          summary: 'AM - Actual Month - based on the startDate (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).'
+          value: 'AM'
         Calendar Quarterly:
-          summary: >-
-            CQ - Calendar Quarterly - based on the last day of the week of the
-            startDate
-          value: CQ
+          summary: 'CQ - Calendar Quarterly - based on the last day of the week of the startDate'
+          value: 'CQ'
         Fiscal Quarterly:
-          summary: FQ - Fiscal Quarter of the company
-          value: FQ
+          summary: 'FQ - Fiscal Quarter of the company'
+          value: 'FQ'
         Actual Annual:
-          summary: AY - Actual Annual - based on the startDate
-          value: AY
+          summary: 'AY - Actual Annual - based on the startDate'
+          value: 'AY'
         Calendar Annual:
-          summary: >-
-            CY - Calendar Annual - based on the last trading day of the calendar
-            year.
-          value: CY
+          summary: 'CY - Calendar Annual - based on the last trading day of the calendar year.'
+          value: 'CY'
         Fiscal Annual:
-          summary: >-
-            FY - Fiscal Annual - based on the last trading day of the company's
-            fiscal year.
-          value: FY
+          summary: 'FY - Fiscal Annual - based on the last trading day of the company''s fiscal year.'
+          value: 'FY'
     calendar:
-      name: calendar
-      in: query
+      name: 'calendar'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
         enum:
-          - FIVEDAY
-          - SEVENDAY
-          - LOCAL
-        default: FIVEDAY
-      description: >-
-        Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
-        will default to the securities' trading calendar which excludes date
-        records for respective holiday periods.
-      example: FIVEDAY
+          - 'FIVEDAY'
+          - 'SEVENDAY'
+          - 'LOCAL'
+        default: 'FIVEDAY'
+      description: 'Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities'' trading calendar which excludes date records for respective holiday periods.'
+      example: 'FIVEDAY'
   schemas:
     bondPricesRequest:
-      title: Bond Prices Request Body
-      description: Bond Prices request body elements
-      type: object
+      title: 'Bond Prices Request Body'
+      description: 'Bond Prices request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -832,151 +718,118 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     bondPricesResponse:
-      type: object
-      title: Bond Prices Response
-      description: Array of Bond Prices Response Objects
+      type: 'object'
+      title: 'Bond Prices Response'
+      description: 'Array of Bond Prices Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/bondPrices'
     bondPrices:
-      title: Bond Prices Response Object
-      type: object
+      title: 'Bond Prices Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US45905URL07
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US45905URL07'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: CJQZQ0-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'CJQZQ0-S'
           nullable: true
         currency:
-          description: >-
-            Returns the coupon currency .Available only  available for
-            `corporate and asset-backed security bonds`.
-          type: string
-          example: USD
+          description: 'Returns the coupon currency .Available only  available for `corporate and asset-backed security bonds`.'
+          type: 'string'
+          example: 'USD'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         cleanBidPrice:
-          description: The bid price of the instrument.
-          type: number
-          format: double
+          description: 'The bid price of the instrument.'
+          type: 'number'
+          format: 'double'
           example: 95.74477
           nullable: true
         cleanMidPrice:
-          description: The bid price of the instrument.
-          type: number
-          format: double
+          description: 'The bid price of the instrument.'
+          type: 'number'
+          format: 'double'
           example: 95.77036
           nullable: true
         cleanAskPrice:
-          description: The bid price of the instrument.
-          type: number
-          format: double
+          description: 'The bid price of the instrument.'
+          type: 'number'
+          format: 'double'
           example: 95.79596
           nullable: true
         dirtyBidPrice:
-          description: >-
-            The price of the bond plus the interest that is accrued between
-            coupon payments, based on the bid price. Available only  for
-            `corporate bonds`.
-          type: number
-          format: double
+          description: 'The price of the bond plus the interest that is accrued between coupon payments, based on the bid price. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 96.61248
           nullable: true
         dirtyMidPrice:
-          description: >-
-            The price of the bond plus the interest that is accrued between
-            coupon payments, based on the mid price. Available only  for
-            `corporate bonds`.
-          type: number
-          format: double
+          description: 'The price of the bond plus the interest that is accrued between coupon payments, based on the mid price. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 96.63807
           nullable: true
         dirtyAskPrice:
-          description: >-
-            The price of the bond plus the interest that is accrued between
-            coupon payments, based on the bid price. Available only  for
-            `corporate bonds`.
-          type: number
-          format: double
+          description: 'The price of the bond plus the interest that is accrued between coupon payments, based on the bid price. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 96.66367
           nullable: true
         pv:
-          description: >-
-            The present variation per one basis point change in yield, based on
-            the mid price .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The present variation per one basis point change in yield, based on the mid price .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 1.96728
           nullable: true
         bidPriceDate:
-          description: >-
-            The date the bid price is valued to. Available only  for `municipal
-            bonds`.
-          type: string
-          format: date
+          description: 'The date the bid price is valued to. Available only  for `municipal bonds`.'
+          type: 'string'
+          format: 'date'
           example: null
           nullable: true
         midPriceDate:
-          description: >-
-            The date the mid price is valued to. Available only  for `municipal
-            bonds`.
-          type: string
-          format: date
+          description: 'The date the mid price is valued to. Available only  for `municipal bonds`.'
+          type: 'string'
+          format: 'date'
           example: null
           nullable: true
         askPriceDate:
-          description: >-
-            The date the ask price is valued to. Available only  for `municipal
-            bonds`.
-          type: string
-          format: date
+          description: 'The date the ask price is valued to. Available only  for `municipal bonds`.'
+          type: 'string'
+          format: 'date'
           example: null
           nullable: true
         bidPriceType:
-          description: >-
-            Bid price type for the given identifier. Available only  for
-            `municipal bonds`.
-          type: string
+          description: 'Bid price type for the given identifier. Available only  for `municipal bonds`.'
+          type: 'string'
           example: null
           nullable: true
         midPriceType:
-          description: >-
-            Mid price type for the given identifier .Available only  for
-            `municipal bonds`.
-          type: string
+          description: 'Mid price type for the given identifier .Available only  for `municipal bonds`.'
+          type: 'string'
           example: null
         askPriceType:
-          description: >-
-            Ask price type for the given identifier .Available only  for
-            `municipal bonds`.
-          type: string
+          description: 'Ask price type for the given identifier .Available only  for `municipal bonds`.'
+          type: 'string'
           example: null
           nullable: true
     bondSpreadRequest:
-      title: Bond Spread Request Body
-      description: Bond Spread request body elements
-      type: object
+      title: 'Bond Spread Request Body'
+      description: 'Bond Spread request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -989,321 +842,213 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     bondSpreadResponse:
-      type: object
-      title: Bond Spread Response
-      description: Array of Bond Spread Response Objects
+      type: 'object'
+      title: 'Bond Spread Response'
+      description: 'Array of Bond Spread Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/bondSpread'
     bondSpread:
-      title: Bond Spread Response Object
-      type: object
+      title: 'Bond Spread Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US45905URL07
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US45905URL07'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: CJQZQ0-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'CJQZQ0-S'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         actualCDSBondBasisMid:
-          description: >-
-            The difference between the CDS spread interpolated to the bond
-            maturity and the asset swap spread of the bond .Available only  for
-            `corporate bonds`
-          type: number
-          format: double
+          description: 'The difference between the CDS spread interpolated to the bond maturity and the asset swap spread of the bond .Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         actualIMMCDSBondBasis:
-          description: >-
-            The difference between the CDS spread interpolated to the IMM date
-            immediately following the bond maturity,and the asset swap spread of
-            the bond .Available only  for `corporate bonds`
-          type: number
-          format: double
+          description: 'The difference between the CDS spread interpolated to the IMM date immediately following the bond maturity,and the asset swap spread of the bond .Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         CDSBondBasisDate:
-          description: >-
-            The date of the CDS Bond Basis .Available only  for `corporate
-            bonds`
-          type: string
-          format: date
+          description: 'The date of the CDS Bond Basis .Available only  for `corporate bonds`'
+          type: 'string'
+          format: 'date'
           example: null
           nullable: true
         bidDiscountMargin:
-          description: >-
-            The discount margin of a Floating Rate Note,denominated in basis
-            points, based on the evaluated bid price. Discount margin is the
-            return earned in addition to the index underlying the floating rate
-            security .Available only  for `corporate bonds` and `asset-backed
-            security bonds`.
-          type: number
-          format: double
+          description: 'The discount margin of a Floating Rate Note,denominated in basis points, based on the evaluated bid price. Discount margin is the return earned in addition to the index underlying the floating rate security .Available only  for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midDiscountMargin:
-          description: >-
-            The discount margin of a Floating RateNote, denominate in basis
-            points, based on the evaluated mid price. Discount margin is the
-            return earned in addition to the index underlying the floating rate
-            security .Available only  for `corporate bonds` and `asset-backed
-            security bonds`.
-          type: number
-          format: double
+          description: 'The discount margin of a Floating RateNote, denominate in basis points, based on the evaluated mid price. Discount margin is the return earned in addition to the index underlying the floating rate security .Available only  for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         askDiscountMargin:
-          description: >-
-            The discount margin of a Floating Rate Note, denominated in basis
-            points, based on the evaluated ask price. Discount margin is the
-            return earned in addition to the index underlying the floating rate
-            security. Available only  for `corporate bonds` and `asset-backed
-            security bonds`.
-          type: number
-          format: double
+          description: 'The discount margin of a Floating Rate Note, denominated in basis points, based on the evaluated ask price. Discount margin is the return earned in addition to the index underlying the floating rate security. Available only  for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         bidOAS:
-          description: >-
-            The Option Adjusted Spread (OAS), based on the bid price. OAS is the
-            flat spread which has to be added to the treasury yield curve in a
-            pricing model (that accounts for embedded options) to discount a
-            security payment to match its market price. Available only  for
-            `corporate bonds`
-          type: number
-          format: double
+          description: 'The Option Adjusted Spread (OAS), based on the bid price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price. Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midOAS:
-          description: >-
-            The Option Adjusted Spread (OAS), based on the mid price. OAS is the
-            flat spread which has to be added to the treasury yield curve in a
-            pricing model (that accounts for embedded options) to discount a
-            security payment to match its market price .Available only  for
-            `corporate bonds` and `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The Option Adjusted Spread (OAS), based on the mid price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price .Available only  for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         askOAS:
-          description: >-
-            The Option Adjusted Spread (OAS), based on the ask price. OAS is the
-            flat spread which has to be added to the treasury yield curve in a
-            pricing model (that accounts for embedded options) to discount a
-            security payment to match its market price. Available only  for
-            `corporate bonds`
-          type: number
-          format: double
+          description: 'The Option Adjusted Spread (OAS), based on the ask price. OAS is the flat spread which has to be added to the treasury yield curve in a pricing model (that accounts for embedded options) to discount a security payment to match its market price. Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         bidAssetSwapSpread:
-          description: >-
-            The bid asset swap spread in the currency of the instrument. Asset
-            Swap Spread is the difference between the yield of an instrument and
-            the LIBOR curve .Available only  for `corporate bonds` and
-            `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The bid asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: -14.02804
           nullable: true
         midAssetSwapSpread:
-          description: >-
-            The mid asset swap spread in the currency of the instrument. Asset
-            Swap Spread is the difference between the yield of an instrument and
-            the LIBOR curve .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The mid asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: -15.30298
           nullable: true
         askAssetSwapSpread:
-          description: >-
-            The ask asset swap spread in the currency of the instrument. Asset
-            Swap Spread is the difference between the yield of an instrument and
-            the LIBOR curve .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The ask asset swap spread in the currency of the instrument. Asset Swap Spread is the difference between the yield of an instrument and the LIBOR curve .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: -16.57834
           nullable: true
         bidZSpread:
-          description: >-
-            The bid Z spread of the instrument, based on the bid price. Z spread
-            is the constant spread that will make the price of an instrument
-            equal to the present value of its cash flows, when added to the
-            yield at each point on the spot rate treasury curve, where a cash
-            flow is received. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The bid Z spread of the instrument, based on the bid price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: -14.33783
           nullable: true
         midZSpread:
-          description: >-
-            The bid Z spread of the instrument, based on the mid price. Z spread
-            is the constant spread that will make the price of an instrument
-            equal to the present value of its cash flows, when added to the
-            yield at each point on the spot rate treasury curve, where a cash
-            flow is received .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The bid Z spread of the instrument, based on the mid price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: -15.63881
           nullable: true
         askZSpread:
-          description: >-
-            The bid Z spread of the instrument, based on the ask price. Z spread
-            is the constant spread that will make the price of an instrument
-            equal to the present value of its cash flows, when added to the
-            yield at each point on the spot rate treasury curve, where a cash
-            flow is received .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The bid Z spread of the instrument, based on the ask price. Z spread is the constant spread that will make the price of an instrument equal to the present value of its cash flows, when added to the yield at each point on the spot rate treasury curve, where a cash flow is received .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: -16.93988
           nullable: true
         bidGSpread:
-          description: >-
-            The G spread of the instrument, based on the bid price. G spread is
-            the difference between the yield to maturity of the bond and the
-            linearly interpolated yield to the same maturity on an appropriate
-            government curve. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The G spread of the instrument, based on the bid price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 7.76769
           nullable: true
         midGSpread:
-          description: >-
-            The G spread of the instrument, based on the mid price. G spread is
-            the difference between the yield to maturity of the bond and the
-            linearly interpolated yield to the same maturity on an appropriate
-            government curve. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The G spread of the instrument, based on the mid price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 6.8439
           nullable: true
         askGSpread:
-          description: >-
-            The G spread of the instrument, based on the ask price. G spread is
-            the difference between the yield to maturity of the bond and the
-            linearly interpolated yield to the same maturity on an appropriate
-            government curve. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The G spread of the instrument, based on the ask price. G spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate government curve. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 5.92011
           nullable: true
         bidYieldSpreadvBenchmark:
-          description: >-
-            The spread of the instrument bid yield against the assigned
-            benchmark bid yield. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The spread of the instrument bid yield against the assigned benchmark bid yield. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 1.8
           nullable: true
         midYieldSpreadvBenchmark:
-          description: >-
-            The spread of the instrument mid yield against the assigned
-            benchmark mid yield. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The spread of the instrument mid yield against the assigned benchmark mid yield. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 0.9
           nullable: true
         askYieldSpreadvBenchmark:
-          description: >-
-            The spread of the instrument ask yield against the assigned
-            benchmark ask yield. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The spread of the instrument ask yield against the assigned benchmark ask yield. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 0
           nullable: true
         bidAskPriceSpread:
-          description: The difference between the ask price and the bid price.
-          type: number
-          format: double
+          description: 'The difference between the ask price and the bid price.'
+          type: 'number'
+          format: 'double'
           example: 0.05119
           nullable: true
         bidAskYieldSpread:
-          description: >-
-            The difference between the ask yield and bid yield .Available only 
-            for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The difference between the ask yield and bid yield .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 2.65437
           nullable: true
         bidSTWSpread:
-          description: >-
-            The difference, in terms of spread, between the bid yield to worst
-            and the yield to maturity of the treasury bond with the closest
-            maturity to the yieldToWorstDate. Available only  for `corporate
-            bonds`.
-          type: number
-          format: double
+          description: 'The difference, in terms of spread, between the bid yield to worst and the yield to maturity of the treasury bond with the closest maturity to the yieldToWorstDate. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midISpread:
-          description: >-
-            The I spread of the bond, based on the mid price. I spread is the
-            difference between the yield to maturity of the bond and the
-            linearly interpolated yield to the same maturity on an appropriate
-            reference curve. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The I spread of the bond, based on the mid price. I spread is the difference between the yield to maturity of the bond and the linearly interpolated yield to the same maturity on an appropriate reference curve. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: -15.93663
           nullable: true
         midWALTreasurySpread:
-          description: >-
-            The value of Mid Spread to treasuries at same WAL of the bond.
-            Available only  for `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The value of Mid Spread to treasuries at same WAL of the bond. Available only  for `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midEDSFSpread:
-          description: >-
-            The mid spread to the Euro Dollar Synthetic Futures(EDSF) curve used
-            in evaluated price of the instrument. Available only  for
-            `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The mid spread to the Euro Dollar Synthetic Futures(EDSF) curve used in evaluated price of the instrument. Available only  for `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         treasurySwapSpread:
-          description: >-
-            Swap spread to treasuries for same maturity of the treasury bond and
-            swap. Available only  for `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'Swap spread to treasuries for same maturity of the treasury bond and swap. Available only  for `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midSwapSpread:
-          description: >-
-            The mid spread to swaps .Available only  for `asset-backed security
-            bonds`.
-          type: number
-          format: double
+          description: 'The mid spread to swaps .Available only  for `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
     bondYieldRequest:
-      title: Bond Yield Request Body
-      description: Bond Yield request body elements
-      type: object
+      title: 'Bond Yield Request Body'
+      description: 'Bond Yield request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -1316,146 +1061,111 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     bondYieldResponse:
-      type: object
-      title: Bond Yield Response
-      description: Array of Bond Yield Response Objects
+      type: 'object'
+      title: 'Bond Yield Response'
+      description: 'Array of Bond Yield Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/bondYield'
     bondYield:
-      title: Bond Yield Response Object
-      type: object
+      title: 'Bond Yield Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US45905URL07
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US45905URL07'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: CJQZQ0-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'CJQZQ0-S'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         bidYieldToMaturity:
-          description: >-
-            The yield to maturity of the bid price of the instrument. Available
-            only for `corporate bonds` and `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The yield to maturity of the bid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.27241
           nullable: true
         midYieldToMaturity:
-          description: >-
-            The yield to maturity of the mid price of the instrument. Available
-            only for `corporate bonds` and `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The yield to maturity of the mid price of the instrument. Available only for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.25914
           nullable: true
         askYieldToMaturity:
-          description: >-
-            The yield to maturity of the ask price of the instrument. Available
-            only for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The yield to maturity of the ask price of the instrument. Available only for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.24587
           nullable: true
         bidYieldToWorst:
-          description: >-
-            The lowest yield, under all possible scenarios, of the bid price of
-            the instrument. Available only for `corporate bonds` and `municipal
-            bonds`.
-          type: number
-          format: double
+          description: 'The lowest yield, under all possible scenarios, of the bid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midYieldToWorst:
-          description: >-
-            The lowest yield, under all possible scenarios, of the mid price of
-            the instrument. Available only for `corporate bonds` and `municipal
-            bonds`.
-          type: number
-          format: double
+          description: 'The lowest yield, under all possible scenarios, of the mid price of the instrument. Available only for `corporate bonds` and `municipal bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         askYieldToWorst:
-          description: >-
-            The lowest yield, under all possible scenarios, of the ask price of
-            the instrument. Available only for `corporate bonds` and `municipal
-            bonds`.
-          type: number
-          format: double
+          description: 'The lowest yield, under all possible scenarios, of the ask price of the instrument. Available only for `corporate bonds` and `municipal bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         benchmarkBidYieldToMaturity:
-          description: >-
-            The bid yield to maturity of the benchmark instrument. Available
-            only for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The bid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.25441
           nullable: true
         benchmarkMidYieldToMaturity:
-          description: >-
-            The mid yield to maturity of the benchmark instrument. Available
-            only for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The mid yield to maturity of the benchmark instrument. Available only for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.25014
           nullable: true
         benchmarkAskYieldToMaturity:
-          description: >-
-            The ask yield to maturity of the benchmark instrument. Available
-            only for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The ask yield to maturity of the benchmark instrument. Available only for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.24587
           nullable: true
         bidYieldToCall:
-          description: >-
-            The yield to call of the bid price of the instrument. Available only
-            for `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The yield to call of the bid price of the instrument. Available only for `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midYieldToCall:
-          description: >-
-            The yield to call of the mid price of the instrument. Available only
-            for `asset-backed security bonds`.
-          type: number
-          format: double
+          description: 'The yield to call of the mid price of the instrument. Available only for `asset-backed security bonds`.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         yieldTWDate:
-          description: >-
-            The date used in the yield to worst calculation. Available only for
-            'corporate bonds'.
-          type: string
-          format: date
+          description: 'The date used in the yield to worst calculation. Available only for ''corporate bonds''.'
+          type: 'string'
+          format: 'date'
           example: null
           nullable: true
     bondIssuerYieldCurveRequest:
-      title: Bond Issuer Yield Curve Request Body
-      description: Bond Issuer Yield Curve request body elements
-      type: object
+      title: 'Bond Issuer Yield Curve Request Body'
+      description: 'Bond Issuer Yield Curve request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -1468,251 +1178,243 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     bondIssuerYieldCurveResponse:
-      type: object
-      title: Bond Issuer Yield Curve Response
-      description: Array of Bond Issuer Yield Curve Response Objects
+      type: 'object'
+      title: 'Bond Issuer Yield Curve Response'
+      description: 'Array of Bond Issuer Yield Curve Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/bondIssuerYieldCurve'
     bondIssuerYieldCurve:
-      title: Bond Issuer Yield Curve Response Object
-      type: object
+      title: 'Bond Issuer Yield Curve Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US45905URL07
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US45905URL07'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: CJQZQ0-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'CJQZQ0-S'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         yieldCurveDate3M:
-          description: Returns the 3M yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 3M yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2023-04-30'
           nullable: true
         yieldCurveDate6M:
-          description: Returns the 6M yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 6M yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2023-07-31'
           nullable: true
         yieldCurveDate1Y:
-          description: Returns the 1Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 1Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2024-01-31'
           nullable: true
         yieldCurveDate2Y:
-          description: Returns the 2Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 2Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2025-01-31'
           nullable: true
         yieldCurveDate3Y:
-          description: Returns the 3Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 3Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2026-01-31'
           nullable: true
         yieldCurveDate4Y:
-          description: Returns the 4Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 4Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2027-01-31'
           nullable: true
         yieldCurveDate5Y:
-          description: Returns the 5Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 5Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2028-01-31'
           nullable: true
         yieldCurveDate6Y:
-          description: Returns the 6Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 6Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2029-01-31'
           nullable: true
         yieldCurveDate7Y:
-          description: Returns the 7Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 7Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2030-01-31'
           nullable: true
         yieldCurveDate8Y:
-          description: Returns the 8Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 8Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2031-01-31'
           nullable: true
         yieldCurveDate9Y:
-          description: Returns the 9Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 9Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2032-01-31'
           nullable: true
         yieldCurveDate10Y:
-          description: Returns the 10Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 10Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2033-01-31'
           nullable: true
         yieldCurveDate15Y:
-          description: Returns the 15Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 15Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2038-01-31'
           nullable: true
         yieldCurveDate20Y:
-          description: Returns the 20Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 20Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2043-01-31'
           nullable: true
         yieldCurveDate25Y:
-          description: Returns the 25Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 25Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2048-01-31'
           nullable: true
         yieldCurveDate30Y:
-          description: Returns the 30Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 30Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2053-01-31'
           nullable: true
         yieldCurveDate40Y:
-          description: Returns the 40Y yield curve date in 'YYYY-MM-DD' format.
-          type: string
-          format: date
+          description: 'Returns the 40Y yield curve date in ''YYYY-MM-DD'' format.'
+          type: 'string'
+          format: 'date'
           example: '2063-01-31'
           nullable: true
         ytmCurve3M:
-          description: Returns the 3M yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 3M yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.71383
           nullable: true
         ytmCurve6M:
-          description: Returns the 6M yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 6M yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.85789
           nullable: true
         ytmCurve1Y:
-          description: Returns the 1Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 1Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.87322
           nullable: true
         ytmCurve2Y:
-          description: Returns the 2Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 2Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.31165
           nullable: true
         ytmCurve3Y:
-          description: Returns the 3Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 3Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.94318
           nullable: true
         ytmCurve4Y:
-          description: Returns the 4Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 4Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.84834
           nullable: true
         ytmCurve5Y:
-          description: Returns the 5Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 5Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.77094
           nullable: true
         ytmCurve6Y:
-          description: Returns the 6Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 6Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.75772
           nullable: true
         ytmCurve7Y:
-          description: Returns the 7Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 7Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.70533
           nullable: true
         ytmCurve8Y:
-          description: Returns the 8Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 8Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.68161
           nullable: true
         ytmCurve9Y:
-          description: Returns the 9Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 9Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.69604
           nullable: true
         ytmCurve10Y:
-          description: Returns the 10Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 10Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 3.75209
           nullable: true
         ytmCurve15Y:
-          description: Returns the 15Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 15Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.15736
           nullable: true
         ytmCurve20Y:
-          description: Returns the 20Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 20Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.55024
           nullable: true
         ytmCurve25Y:
-          description: Returns the 25Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 25Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.73328
           nullable: true
         ytmCurve30Y:
-          description: Returns the 30Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 30Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.76396
           nullable: true
         ytmCurve40Y:
-          description: Returns the 40Y yield to maturity.
-          type: number
-          format: double
+          description: 'Returns the 40Y yield to maturity.'
+          type: 'number'
+          format: 'double'
           example: 4.61172
           nullable: true
     bondSensitivityRequest:
-      title: Bond Sensitivity Request Body
-      description: Bond Sensitivity request body elements
-      type: object
+      title: 'Bond Sensitivity Request Body'
+      description: 'Bond Sensitivity request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -1725,175 +1427,129 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     bondSensitivityResponse:
-      type: object
-      title: Bond Sensitivity Response
-      description: Array of Bond Sensitivity Response Objects
+      type: 'object'
+      title: 'Bond Sensitivity Response'
+      description: 'Array of Bond Sensitivity Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/bondSensitivity'
     bondSensitivity:
-      title: Bond Sensitivity Response Object
-      type: object
+      title: 'Bond Sensitivity Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US45905URL07
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US45905URL07'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: CJQZQ0-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'CJQZQ0-S'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         bidConvexity:
-          description: >-
-            Measures the change of Duration with the change in yield,based on
-            the bid price .Available only  for `corporate bonds` and `municipal
-            bonds`.
-          type: number
-          format: double
+          description: 'Measures the change of Duration with the change in yield,based on the bid price .Available only  for `corporate bonds` and `municipal bonds`.'
+          type: 'number'
+          format: 'double'
           example: 5.83
           nullable: true
         midConvexity:
-          description: >-
-            Measures the change of duration with the change in yield,based on
-            the mid price .Available only  for `corporate bonds`
-          type: number
-          format: double
+          description: 'Measures the change of duration with the change in yield,based on the mid price .Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: 5.83
           nullable: true
         askConvexity:
-          description: >-
-            Measures the change of duration with the change in yield,based on
-            the ask price .Available only  for `corporate bonds`
-          type: number
-          format: double
+          description: 'Measures the change of duration with the change in yield,based on the ask price .Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: 5.83
           nullable: true
         bidEffectiveConvexity:
-          description: >-
-            The effective convexity based on the bid price .Available only  for
-            `corporate bonds`.
-          type: number
-          format: double
+          description: 'The effective convexity based on the bid price .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.86286
           nullable: true
         midEffectiveConvexity:
-          description: >-
-            The effective convexity based on the mid price .Available only  for
-            `corporate bonds`.
-          type: number
-          format: double
+          description: 'The effective convexity based on the mid price .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 4.86481
           nullable: true
         askEffectiveConvexity:
           description: ' The effective convexity based on the ask price. Available only  for `corporate bonds`.'
-          type: number
-          format: double
+          type: 'number'
+          format: 'double'
           example: 4.86676
           nullable: true
         bidEffectiveDuration:
-          description: >-
-            A duration calculation for bonds with embedded options,based on the
-            bid price. Effective duration takes into account that expected cash
-            flows fluctuate as interest rates change. Available only  for
-            `corporate bonds`
-          type: number
-          format: double
+          description: 'A duration calculation for bonds with embedded options,based on the bid price. Effective duration takes into account that expected cash flows fluctuate as interest rates change. Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: 1.9278
           nullable: true
         midEffectiveDuration:
-          description: >-
-            A duration calculation for bonds with embedded options,based on the
-            mid price. Effective duration takes into account that expected cash
-            flows fluctuate as interest rates change .Available only  for
-            `corporate bonds`.
-          type: number
-          format: double
+          description: 'A duration calculation for bonds with embedded options,based on the mid price. Effective duration takes into account that expected cash flows fluctuate as interest rates change .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 1.92845
           nullable: true
         askEffectiveDuration:
-          description: >-
-            A duration calculation for bonds with embedded options,based on the
-            ask price. Effective duration takes into account that expected cash
-            flows fluctuate as interest rates change. Available only  for
-            `corporate bonds`
-          type: number
-          format: double
+          description: 'A duration calculation for bonds with embedded options,based on the ask price. Effective duration takes into account that expected cash flows fluctuate as interest rates change. Available only  for `corporate bonds`'
+          type: 'number'
+          format: 'double'
           example: 1.9291
           nullable: true
         bidMacaulayDuration:
-          description: >-
-            The weighted average maturity of bond, where the weights are
-            relative discounted cash flows in each period,based on the bid price
-            .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the bid price .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 2.04
           nullable: true
         midMacaulayDuration:
-          description: >-
-            The weighted average maturity of bond, where the weights are
-            relative discounted cash flows in each period,based on the mid price
-            .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the mid price .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 2.04
           nullable: true
         askMacaulayDuration:
-          description: >-
-            The weighted average maturity of bond, where the weights are
-            relative discounted cash flows in each period,based on the ask price
-            .Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The weighted average maturity of bond, where the weights are relative discounted cash flows in each period,based on the ask price .Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 2.04
           nullable: true
         bidModifiedDuration:
-          description: >-
-            The first derivative of the bond price, with respect to yield,based
-            on the bid price.
-          type: number
-          format: double
+          description: 'The first derivative of the bond price, with respect to yield,based on the bid price.'
+          type: 'number'
+          format: 'double'
           example: 2
           nullable: true
         midModifiedDuration:
-          description: >-
-            The first derivative of the bond price, with respect to yield,based
-            on the mid price. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The first derivative of the bond price, with respect to yield,based on the mid price. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 2
           nullable: true
         askModifiedDuration:
-          description: >-
-            The first derivative of the bond price, with respect to yield,based
-            on the ask price. Available only  for `corporate bonds`.
-          type: number
-          format: double
+          description: 'The first derivative of the bond price, with respect to yield,based on the ask price. Available only  for `corporate bonds`.'
+          type: 'number'
+          format: 'double'
           example: 2
           nullable: true
     bondMetaRequest:
-      title: Bond Meta Request Body
-      description: Bond Meta request body elements
-      type: object
+      title: 'Bond Meta Request Body'
+      description: 'Bond Meta request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -1906,190 +1562,146 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     bondMetaResponse:
-      type: object
-      title: Bond Meta Response
-      description: Array of Bond Meta Response Objects
+      type: 'object'
+      title: 'Bond Meta Response'
+      description: 'Array of Bond Meta Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/bondMeta'
     bondMeta:
-      title: Bond Meta Response Object
-      type: object
+      title: 'Bond Meta Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US45905URL07
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US45905URL07'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: CJQZQ0-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'CJQZQ0-S'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         classification:
-          description: Returns the top level sector classification of the instrument.
-          type: string
-          example: GovernmentRelated
+          description: 'Returns the top level sector classification of the instrument.'
+          type: 'string'
+          example: 'GovernmentRelated'
           nullable: true
         maturityDate:
-          description: >-
-            The date on which the principal amount of the security becomes due
-            and payable, as stated in the terms of the security. Available only
-            for `corporate bonds` and `municipal bonds`.
-          type: string
-          format: date
+          description: 'The date on which the principal amount of the security becomes due and payable, as stated in the terms of the security. Available only for `corporate bonds` and `municipal bonds`.'
+          type: 'string'
+          format: 'date'
           example: '2025-03-03'
           nullable: true
         assumedMaturityDate:
-          description: >-
-            The assumed maturity date on which the principal amount of the
-            security becomes due and payable. This is controlled by the
-            evaluator and represents the maturity date being used in the market.
-            Available only for `corporate bonds`.
-          type: string
-          format: date
+          description: 'The assumed maturity date on which the principal amount of the security becomes due and payable. This is controlled by the evaluator and represents the maturity date being used in the market. Available only for `corporate bonds`.'
+          type: 'string'
+          format: 'date'
           example: null
           nullable: true
         defaulted:
-          description: >-
-            Indicates if an instrument is default or not. Available only for
-            `corporate bonds`.
-          type: string
+          description: 'Indicates if an instrument is default or not. Available only for `corporate bonds`.'
+          type: 'string'
           example: 'N'
           nullable: true
         isin:
-          description: >-
-            The ISIN (International Securities Identification Number) to which
-            the price data applies.
-          type: string
-          example: US45905URL07
+          description: 'The ISIN (International Securities Identification Number) to which the price data applies.'
+          type: 'string'
+          example: 'US45905URL07'
           nullable: true
         cusip:
-          description: >-
-            Unique CUSIP identifier for the instrument to which the price data
-            applies.
-          type: string
-          example: 45905URL0
+          description: 'Unique CUSIP identifier for the instrument to which the price data applies.'
+          type: 'string'
+          example: '45905URL0'
           nullable: true
         vendorId:
-          description: Returns the Vendor ID.
-          type: string
-          example: US45905URL07
+          description: 'Returns the Vendor ID.'
+          type: 'string'
+          example: 'US45905URL07'
           nullable: true
         ticker:
-          description: >-
-            The IHS Markit ticker for the organization. Available only for
-            `corporate bonds` and `asset-backed security bonds`.
-          type: string
-          example: IBRD
+          description: 'The IHS Markit ticker for the organization. Available only for `corporate bonds` and `asset-backed security bonds`.'
+          type: 'string'
+          example: 'IBRD'
           nullable: true
         setId:
-          description: >-
-            EVB internal identifier of instrumentSet. Available only for
-            `corporate bonds`.
-          type: number
+          description: 'EVB internal identifier of instrumentSet. Available only for `corporate bonds`.'
+          type: 'number'
           example: 684
           nullable: true
         benchmarkISIN:
-          description: >-
-            The ISIN of the benchmark instrument. Available only for `corporate
-            bonds`.
-          type: string
-          example: US91282CGD74
+          description: 'The ISIN of the benchmark instrument. Available only for `corporate bonds`.'
+          type: 'string'
+          example: 'US91282CGD74'
           nullable: true
         benchmarkCUSIP:
-          description: >-
-            The CUSIP of the benchmark instrument. Available only for `corporate
-            bonds`.
-          type: string
-          example: 91282CGD7
+          description: 'The CUSIP of the benchmark instrument. Available only for `corporate bonds`.'
+          type: 'string'
+          example: '91282CGD7'
           nullable: true
         name:
-          description: Returns full bond name (issuer name-coupon rate-maturity year)
-          type: string
-          example: Intl Bk for Recon & Dev 2.125 03-Mar-2025
+          description: 'Returns full bond name (issuer name-coupon rate-maturity year)'
+          type: 'string'
+          example: 'Intl Bk for Recon & Dev 2.125 03-Mar-2025'
           nullable: true
         issuerName:
-          description: >-
-            Returns the short name of the issuer. Available only for `corporate
-            bonds` and 'municipal bonds'.
-          type: string
-          example: Intl Bk for Recon & Dev
+          description: 'Returns the short name of the issuer. Available only for `corporate bonds` and ''municipal bonds''.'
+          type: 'string'
+          example: 'Intl Bk for Recon & Dev'
           nullable: true
         benchmarkName:
-          description: >-
-            The name of the benchmark instrument. Available only for `corporate
-            bonds`.
-          type: string
-          example: USGB 4.25 12/31/24
+          description: 'The name of the benchmark instrument. Available only for `corporate bonds`.'
+          type: 'string'
+          example: 'USGB 4.25 12/31/24'
           nullable: true
         perpetual:
-          description: >-
-            Shows that a maturity date is not specified for the instrument.
-            Available only for `corporate bonds`.
-          type: string
+          description: 'Shows that a maturity date is not specified for the instrument. Available only for `corporate bonds`.'
+          type: 'string'
           example: 'N'
           nullable: true
         region:
-          description: Region of the coupon currency. Available only for `corporate bonds`.
-          type: string
-          example: Americas
+          description: 'Region of the coupon currency. Available only for `corporate bonds`.'
+          type: 'string'
+          example: 'Americas'
           nullable: true
         tier:
-          description: >-
-            The code representing the bond seniority type. Available only for
-            `corporate bonds`.
-          type: string
-          example: SNRFOR
+          description: 'The code representing the bond seniority type. Available only for `corporate bonds`.'
+          type: 'string'
+          example: 'SNRFOR'
           nullable: true
         issueName:
-          description: Name of the instrument. Available only for `municipal bonds`.
-          type: string
+          description: 'Name of the instrument. Available only for `municipal bonds`.'
+          type: 'string'
           example: null
           nullable: true
         bondTicker:
-          description: >-
-            Returns the bond specific ticker. Available only for `asset-backed
-            security bonds`.
-          type: string
+          description: 'Returns the bond specific ticker. Available only for `asset-backed security bonds`.'
+          type: 'string'
           example: null
           nullable: true
         indexTrancheName:
-          description: >-
-            The field shows Index Tranche Name. Available only for `asset-backed
-            security bonds`.
-          type: string
+          description: 'The field shows Index Tranche Name. Available only for `asset-backed security bonds`.'
+          type: 'string'
           example: null
           nullable: true
         redemption:
-          description: >-
-            Returns the indication of whether the bond is run to maturity or to
-            the optional redemption/call. Available only for `asset-backed
-            security bonds`.
-          type: string
+          description: 'Returns the indication of whether the bond is run to maturity or to the optional redemption/call. Available only for `asset-backed security bonds`.'
+          type: 'string'
           example: null
           nullable: true
     absDetailsRequest:
-      title: ABS Details Request Body
-      description: ABS Details request body elements
-      type: object
+      title: 'ABS Details Request Body'
+      description: 'ABS Details request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/idsABS'
@@ -2102,173 +1714,132 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     absDetailsResponse:
-      type: object
+      type: 'object'
       title: 'ABS Details Response '
-      description: Array of ABS Details Response Objects
+      description: 'Array of ABS Details Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/absDetails'
     absDetails:
-      title: ABS Details Response Object
-      type: object
+      title: 'ABS Details Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US05522RDC97
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US05522RDC97'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: V1D5YM-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'V1D5YM-S'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         cdr:
-          description: >-
-            A vector of conditional default rate assumption used in the
-            evaluated price of the instrument. CDR represents the percentage of
-            outstanding principal balances in the pool that are in default.
-          type: string
+          description: 'A vector of conditional default rate assumption used in the evaluated price of the instrument. CDR represents the percentage of outstanding principal balances in the pool that are in default.'
+          type: 'string'
           example: '0'
           nullable: true
         cpr:
-          description: >-
-            Returns the flat CPR that would equate to the same weighted average
-            life (WAL) projection for Agency CMOs as the base case CPR vector
-          type: number
-          format: double
+          description: 'Returns the flat CPR that would equate to the same weighted average life (WAL) projection for Agency CMOs as the base case CPR vector'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         factor:
-          description: >-
-            The representation of the amount of the principal of an amortizing
-            bond that has been paid out or written down since issuance,
-            expressed as a percentage of the original total principal
-          type: number
-          format: double
+          description: 'The representation of the amount of the principal of an amortizing bond that has been paid out or written down since issuance, expressed as a percentage of the original total principal'
+          type: 'number'
+          format: 'double'
           example: 1
           nullable: true
         estimatedFactor:
-          description: >-
-            The projected agency pool factor between factor date and the day the
-            actual factor is reported to investors (only applicable for agency
-            passthrough securities).
-          type: number
-          format: double
+          description: 'The projected agency pool factor between factor date and the day the actual factor is reported to investors (only applicable for agency passthrough securities).'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         bidPricePreFactor:
-          description: >-
-            Returns the agency pool bid price that is adjusted to account for
-            prepayment expectations during the first five business days of the
-            month before the factors are reported.
-          type: number
-          format: double
+          description: 'Returns the agency pool bid price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         midPricePreFactor:
-          description: >-
-            Returns the agency pool mid price that is adjusted to account for
-            prepayment expectations during the first five business days of the
-            month before the factors are reported.
-          type: number
-          format: double
+          description: 'Returns the agency pool mid price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         askPricePreFactor:
-          description: >-
-            Returns the agency pool ask price that is adjusted to account for
-            prepayment expectations during the first five business days of the
-            month before the factors are reported.
-          type: number
-          format: double
+          description: 'Returns the agency pool ask price that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         CPREstimatePreFactor:
-          description: >-
-            Returns the agency pool CPR estimate that is adjusted to account for
-            prepayment expectations during the first five business days of the
-            month before the factors are reported.
-          type: number
-          format: double
+          description: 'Returns the agency pool CPR estimate that is adjusted to account for prepayment expectations during the first five business days of the month before the factors are reported.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         liquidity:
-          description: Returns the market liquidity score.
-          type: number
-          format: double
+          description: 'Returns the market liquidity score.'
+          type: 'number'
+          format: 'double'
           example: 1
           nullable: true
         payUp:
-          description: Returns the number of ticks, in 32nds format, above the TBA price.
-          type: number
-          format: double
+          description: 'Returns the number of ticks, in 32nds format, above the TBA price.'
+          type: 'number'
+          format: 'double'
           example: null
           nullable: true
         payUpDescription:
-          description: >-
-            Returns the specified pool characteristics being used to drive the
-            pay-up.
-          type: string
+          description: 'Returns the specified pool characteristics being used to drive the pay-up.'
+          type: 'string'
           example: null
           nullable: true
         prePayRate:
-          description: >-
-            'Returns a vector of values of speed used in the evaluated price of
-            the instrument. It is the estimated rate at which borrowers pays off
-            the obligations that underlies an instrument.
-          type: number
-          format: double
+          description: '''Returns a vector of values of speed used in the evaluated price of the instrument. It is the estimated rate at which borrowers pays off the obligations that underlies an instrument.'
+          type: 'number'
+          format: 'double'
           example: 20
           nullable: true
         prePayType:
-          description: >-
-            Returns the type of prepayment speed used in the evaluated price of
-            the instrument.
-          type: string
-          example: SMM
+          description: 'Returns the type of prepayment speed used in the evaluated price of the instrument.'
+          type: 'string'
+          example: 'SMM'
           nullable: true
         severity:
-          description: >-
-            Returns a vector of Loss Severity assumption used in evaluated price
-            of the instrument. It is the percentage of the principal applied to
-            the defaulted loan balance.
-          type: number
-          format: double
+          description: 'Returns a vector of Loss Severity assumption used in evaluated price of the instrument. It is the percentage of the principal applied to the defaulted loan balance.'
+          type: 'number'
+          format: 'double'
           example: 0
           nullable: true
         wal:
-          description: Returns the Weighted Average Life of the instrument.
-          type: number
-          format: double
+          description: 'Returns the Weighted Average Life of the instrument.'
+          type: 'number'
+          format: 'double'
           example: 0.886
           nullable: true
         WALPrincipal:
-          description: Returns the Weighted Average Life of the instrument.
-          type: number
-          format: double
+          description: 'Returns the Weighted Average Life of the instrument.'
+          type: 'number'
+          format: 'double'
           example: 0.886
           nullable: true
     bondCouponRequest:
-      title: Bond Coupon Request Body
-      description: Bond Coupon request body elements
-      type: object
+      title: 'Bond Coupon Request Body'
+      description: 'Bond Coupon request body elements'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/ids'
@@ -2281,193 +1852,152 @@ components:
         calendar:
           $ref: '#/components/schemas/calendar'
       required:
-        - ids
+        - 'ids'
     bondCouponResponse:
-      type: object
-      title: Bond Coupon Response
-      description: Array of Bond Coupon Response Objects
+      type: 'object'
+      title: 'Bond Coupon Response'
+      description: 'Array of Bond Coupon Response Objects'
       properties:
         data:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/bondCoupon'
     bondCoupon:
-      title: Bond Coupon Response Object
-      type: object
+      title: 'Bond Coupon Response Object'
+      type: 'object'
       properties:
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: US45905URL07
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'US45905URL07'
         fsymId:
-          description: >-
-            FactSet Regional Security Identifier. Six alpha-numeric characters,
-            excluding vowels, with an -R suffix (XXXXXX-R). Identifies the
-            security's best regional security data series per currency. For
-            equities, all primary listings per region and currency are allocated
-            a regional-level permanent identifier. The regional-level permanent
-            identifier will be available once a SEDOL representing the
-            region/currency has been allocated and the identifiers are on
-            FactSet.
-          type: string
-          example: CJQZQ0-S
+          description: 'FactSet Regional Security Identifier. Six alpha-numeric characters, excluding vowels, with an -R suffix (XXXXXX-R). Identifies the security''s best regional security data series per currency. For equities, all primary listings per region and currency are allocated a regional-level permanent identifier. The regional-level permanent identifier will be available once a SEDOL representing the region/currency has been allocated and the identifiers are on FactSet.'
+          type: 'string'
+          example: 'CJQZQ0-S'
           nullable: true
         date:
-          description: The date on which the price is calculated.
-          type: string
-          format: date
+          description: 'The date on which the price is calculated.'
+          type: 'string'
+          format: 'date'
           example: '2023-01-26'
           nullable: true
         accruedInterest:
-          description: >-
-            The interest that is owed, but not yet paid, added to the price of
-            the bond. Available only for `corporate and municipal bonds`.
-          type: number
-          format: double
+          description: 'The interest that is owed, but not yet paid, added to the price of the bond. Available only for `corporate and municipal bonds`.'
+          type: 'number'
+          format: 'double'
           example: 0.86771
           nullable: true
         coupon:
-          description: >-
-            The current coupon rate of the instrument. Available only for
-            `corporate and municipal bonds`.
-          type: number
-          format: double
+          description: 'The current coupon rate of the instrument. Available only for `corporate and municipal bonds`.'
+          type: 'number'
+          format: 'double'
           example: 2.125
           nullable: true
         couponType:
-          description: >-
-            The coupon type of the instrument. Available only for `corporate and
-            municipal bonds`.
-          type: string
-          example: Fixed
+          description: 'The coupon type of the instrument. Available only for `corporate and municipal bonds`.'
+          type: 'string'
+          example: 'Fixed'
           nullable: true
         couponFrequency:
-          description: >-
-            The coupon frequency of the bond. Available only for `corporate
-            bonds`. 
-          type: string
-          example: 6M
+          description: 'The coupon frequency of the bond. Available only for `corporate bonds`. '
+          type: 'string'
+          example: '6M'
           nullable: true
     ids:
-      title: Ids
-      description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP,
-        ISIN and SEDOL are accepted input.
-      type: array
+      title: 'Ids'
+      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, ISIN and SEDOL are accepted input.\n"
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 2000
       example:
-        - US45905URL07
+        - 'US45905URL07'
     idsABS:
-      title: Ids
-      description: >
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP,
-        ISIN and SEDOL are accepted input.
-      type: array
+      title: 'Ids'
+      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP, ISIN and SEDOL are accepted input.\n"
+      type: 'array'
       items:
-        type: string
+        type: 'string'
       minItems: 1
       maxItems: 2000
       example:
-        - US05522RDC97
+        - 'US05522RDC97'
     startDate:
-      type: string
-      description: >
-        The start date requested for a given date range in **YYYY-MM-DD**
-        format. If left blank, the API will default to previous close. Future
-        dates (T+1) are not accepted in this endpoint.
+      type: 'string'
+      description: "The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.\n"
       example: '2021-01-01'
     endDate:
-      type: string
-      description: >
-        The end date requested for a given date range in **YYYY-MM-DD** format.
-        If left blank, the API will default to previous close. Future dates
-        (T+1) are not accepted in this endpoint.
+      type: 'string'
+      description: "The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.\n"
       example: '2021-12-31'
     frequency:
-      type: string
+      type: 'string'
       enum:
-        - D
-        - W
-        - M
-        - AM
-        - CQ
-        - FQ
-        - AY
-        - CY
-        - FY
-      default: D
-      description: |
-        Controls the display frequency of the data returned.
-          * **D** = Daily
-          * **W** = Weekly, based on the last day of the week of the start date.
-          * **M** = Monthly, based on the last trading day of the month.
-          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
-          * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).
-          * **FQ** = Fiscal Quarter of the company.
-          * **AY** = Actual Annual, based on the start date.
-          * **CY** = Calendar Annual, based on the last trading day of the calendar year.
-          * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.
-      example: D
+        - 'D'
+        - 'W'
+        - 'M'
+        - 'AM'
+        - 'CQ'
+        - 'FQ'
+        - 'AY'
+        - 'CY'
+        - 'FY'
+      default: 'D'
+      description: "Controls the display frequency of the data returned.\n  * **D** = Daily\n  * **W** = Weekly, based on the last day of the week of the start date.\n  * **M** = Monthly, based on the last trading day of the month.\n  * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n  * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).\n  * **FQ** = Fiscal Quarter of the company.\n  * **AY** = Actual Annual, based on the start date.\n  * **CY** = Calendar Annual, based on the last trading day of the calendar year.\n  * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.\n"
+      example: 'D'
     calendar:
-      type: string
+      type: 'string'
       enum:
-        - FIVEDAY
-        - SEVENDAY
-        - LOCAL
-      default: FIVEDAY
-      description: >-
-        Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar
-        will default to the securities' trading calendar which excludes date
-        records for respective holiday periods.
-      example: FIVEDAY
+        - 'FIVEDAY'
+        - 'SEVENDAY'
+        - 'LOCAL'
+      default: 'FIVEDAY'
+      description: 'Calendar of data returned. SEVENDAY includes weekends. LOCAL calendar will default to the securities'' trading calendar which excludes date records for respective holiday periods.'
+      example: 'FIVEDAY'
     errorResponse:
-      type: object
-      title: Error Response
+      type: 'object'
+      title: 'Error Response'
       properties:
         status:
-          description: status
-          type: string
-          example: Bad Request
+          description: 'status'
+          type: 'string'
+          example: 'Bad Request'
         timestamp:
-          description: Timestamp in YYYY-MM-DD HH:MM:SS.SSS
-          type: string
+          description: 'Timestamp in YYYY-MM-DD HH:MM:SS.SSS'
+          type: 'string'
           example: '2019-11-01 11:09:41.918'
-          format: date-time
+          format: 'date-time'
         path:
-          description: The Endpoint path {package}/version/{endpoint}
-          type: string
-          example: /markit-bond-prices/v1/{endpoint}
+          description: 'The Endpoint path {package}/version/{endpoint}'
+          type: 'string'
+          example: '/markit-bond-prices/v1/{endpoint}'
         message:
-          description: The plain text error message
-          type: string
-          example: Validation Error
+          description: 'The plain text error message'
+          type: 'string'
+          example: 'Validation Error'
         subErrors:
-          description: Sub-Errors related to the error message. Null if not applicable.
-          type: object
+          description: 'Sub-Errors related to the error message. Null if not applicable.'
+          type: 'object'
           nullable: true
           properties:
             object:
-              description: The operation ID
-              type: string
+              description: 'The operation ID'
+              type: 'string'
             field:
-              description: Parameter Field Name
-              type: string
+              description: 'Parameter Field Name'
+              type: 'string'
             message:
-              description: Error message
-              type: string
+              description: 'Error message'
+              type: 'string'
             rejectedValue:
-              description: Rejected Values in an Array
-              type: array
+              description: 'Rejected Values in an Array'
+              type: 'array'
               items:
-                type: string
+                type: 'string'
   responses:
     '400':
-      description: >-
-        Bad Request. This can occur for several reasons. Please review the
-        "message" for more details.
+      description: 'Bad Request. This can occur for several reasons. Please review the "message" for more details.'
       content:
         application/json:
           schema:
@@ -2484,12 +2014,7 @@ components:
             Bad Request - Read Timeout:
               $ref: '#/components/examples/badRequestReadTimeout'
     '401':
-      description: >-
-        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
-        from. For more help, select the **Report Issue** in the top right corner
-        of this Developer Portal specification card and choose Connectivity 401
-        or 403 Responses.
+      description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
       content:
         application/json:
           schema:
@@ -2498,11 +2023,7 @@ components:
             Bad Request - Date Format:
               $ref: '#/components/examples/unauthenticated'
     '403':
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       content:
         application/json:
           schema:
@@ -2513,11 +2034,7 @@ components:
             Bad Request - Missing History Access:
               $ref: '#/components/examples/missingHistoryAccess'
     '415':
-      description: >-
-        Unsupported Media Type. This error may be returned when the caller sends
-        a resource in a format that is not accepted by the server. This can be
-        fixed by ensuring that Content-Type header is set to the correct value.
-        In this instance, "application/json" would be the appropriate value.
+      description: 'Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, "application/json" would be the appropriate value.'
       content:
         application/json:
           schema:
@@ -2526,7 +2043,7 @@ components:
             Bad Request - Unsupported Media Type:
               $ref: '#/components/examples/unsupportedMediaType'
     '500':
-      description: Internal Server Error.
+      description: 'Internal Server Error.'
       content:
         application/json:
           schema:
@@ -2538,13 +2055,13 @@ components:
               $ref: '#/components/examples/generalException'
   examples:
     pricesResponse:
-      summary: Prices for US45905URL07
-      description: Prices for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: 'Prices for US45905URL07'
+      description: 'Prices for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US45905URL07
-            fsymId: CJQZQ0-S
-            currency: USD
+          - requestId: 'US45905URL07'
+            fsymId: 'CJQZQ0-S'
+            currency: 'USD'
             date: '2023-01-26'
             cleanBidPrice: 95.74477
             cleanMidPrice: 95.77036
@@ -2560,22 +2077,22 @@ components:
             midPriceType: null
             askPriceType: null
     pricesRequest:
-      summary: Request for Prices
-      description: Request of US45905URL07 for Prices
+      summary: 'Request for Prices'
+      description: 'Request of US45905URL07 for Prices'
       value:
         ids:
-          - US45905URL07
+          - 'US45905URL07'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     spreadResponse:
-      summary: Spread for US45905URL07
-      description: Spread for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: 'Spread for US45905URL07'
+      description: 'Spread for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US45905URL07
-            fsymId: CJQZQ0-S
+          - requestId: 'US45905URL07'
+            fsymId: 'CJQZQ0-S'
             date: '2023-01-26'
             actualCDSBondBasisMid: null
             actualIMMCDSBondBasis: null
@@ -2607,22 +2124,22 @@ components:
             treasurySwapSpread: null
             midSwapSpread: null
     spreadRequest:
-      summary: Request for Spread
-      description: Request of US45905URL07 for Spread
+      summary: 'Request for Spread'
+      description: 'Request of US45905URL07 for Spread'
       value:
         ids:
-          - US45905URL07
+          - 'US45905URL07'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     yieldResponse:
-      summary: Yield for US45905URL07
-      description: Yield for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: 'Yield for US45905URL07'
+      description: 'Yield for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US45905URL07
-            fsymId: CJQZQ0-S
+          - requestId: 'US45905URL07'
+            fsymId: 'CJQZQ0-S'
             date: '2023-01-26'
             bidYieldToMaturity: 4.27241
             midYieldToMaturity: 4.25914
@@ -2637,24 +2154,22 @@ components:
             midYieldToCall: null
             yieldTWDate: null
     yieldRequest:
-      summary: Request for Yield
-      description: Request of US45905URL07 for Yield
+      summary: 'Request for Yield'
+      description: 'Request of US45905URL07 for Yield'
       value:
         ids:
-          - US45905URL07
+          - 'US45905URL07'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     issuerYieldCurveResponse:
-      summary: Issuer Yield Curve for US45905URL07
-      description: >-
-        Issuer Yield Curve for US45905URL07 with startDate and endDate as
-        "2023-01-26"
+      summary: 'Issuer Yield Curve for US45905URL07'
+      description: 'Issuer Yield Curve for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US45905URL07
-            fsymId: CJQZQ0-S
+          - requestId: 'US45905URL07'
+            fsymId: 'CJQZQ0-S'
             date: '2023-01-26'
             yieldCurveDate3M: '2023-04-30'
             yieldCurveDate6M: '2023-07-31'
@@ -2691,22 +2206,22 @@ components:
             ytmCurve30Y: 4.76396
             ytmCurve40Y: 4.61172
     issuerYieldCurveRequest:
-      summary: Request for Issuer Yield Curve
-      description: Request of US45905URL07 for Issuer Yield Curve
+      summary: 'Request for Issuer Yield Curve'
+      description: 'Request of US45905URL07 for Issuer Yield Curve'
       value:
         ids:
-          - US45905URL07
+          - 'US45905URL07'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     sensitivityResponse:
-      summary: Sensitivity for US45905URL07
-      description: Sensitivity for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: 'Sensitivity for US45905URL07'
+      description: 'Sensitivity for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US45905URL07
-            fsymId: CJQZQ0-S
+          - requestId: 'US45905URL07'
+            fsymId: 'CJQZQ0-S'
             date: '2023-01-26'
             bidConvexity: 5.83
             midConvexity: 5.83
@@ -2724,61 +2239,61 @@ components:
             midModifiedDuration: 2
             askModifiedDuration: 2
     sensitivityRequest:
-      summary: Request for Sensitivity
-      description: Request of US45905URL07 for Sensitivity
+      summary: 'Request for Sensitivity'
+      description: 'Request of US45905URL07 for Sensitivity'
       value:
         ids:
-          - US45905URL07
+          - 'US45905URL07'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     metaResponse:
-      summary: Meta for US45905URL07
-      description: Meta for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: 'Meta for US45905URL07'
+      description: 'Meta for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US45905URL07
-            fsymId: CJQZQ0-S
+          - requestId: 'US45905URL07'
+            fsymId: 'CJQZQ0-S'
             date: '2023-01-26'
-            classification: GovernmentRelated
+            classification: 'GovernmentRelated'
             maturityDate: '2025-03-03'
             assumedMaturityDate: null
             defaulted: 'N'
-            isin: US45905URL07
-            cusip: 45905URL0
-            vendorId: US45905URL07
-            ticker: IBRD
+            isin: 'US45905URL07'
+            cusip: '45905URL0'
+            vendorId: 'US45905URL07'
+            ticker: 'IBRD'
             setId: 684
-            benchmarkISIN: US91282CGD74
-            benchmarkCUSIP: 91282CGD7
-            name: Intl Bk for Recon & Dev 2.125 03-Mar-2025
-            issuerName: Intl Bk for Recon & Dev
-            benchmarkName: USGB 4.25 12/31/24
+            benchmarkISIN: 'US91282CGD74'
+            benchmarkCUSIP: '91282CGD7'
+            name: 'Intl Bk for Recon & Dev 2.125 03-Mar-2025'
+            issuerName: 'Intl Bk for Recon & Dev'
+            benchmarkName: 'USGB 4.25 12/31/24'
             perpetual: 'N'
-            region: Americas
-            tier: SNRFOR
+            region: 'Americas'
+            tier: 'SNRFOR'
             issueName: null
             bondTicker: null
             indexTrancheName: null
             redemption: null
     metaRequest:
-      summary: Request for Meta
-      description: Request of US45905URL07 for Meta
+      summary: 'Request for Meta'
+      description: 'Request of US45905URL07 for Meta'
       value:
         ids:
-          - US45905URL07
+          - 'US45905URL07'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     absDetailsResponse:
-      summary: ABS Details for US45905URL07
-      description: ABS Details for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: 'ABS Details for US45905URL07'
+      description: 'ABS Details for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US05522RDC97
-            fsymId: V1D5YM-S
+          - requestId: 'US05522RDC97'
+            fsymId: 'V1D5YM-S'
             date: '2023-01-26'
             cdr: '0'
             cpr: null
@@ -2792,177 +2307,138 @@ components:
             payUp: null
             payUpDescription: null
             prePayRate: 20
-            prePayType: SMM
+            prePayType: 'SMM'
             severity: 0
             wal: 0.886
             WALPrincipal: 0.886
     absDetailsRequest:
-      summary: Request for ABS Details
-      description: Request of US05522RDC97 for ABS Details
+      summary: 'Request for ABS Details'
+      description: 'Request of US05522RDC97 for ABS Details'
       value:
         ids:
-          - US05522RDC97
+          - 'US05522RDC97'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     couponResponse:
-      summary: Coupon for US45905URL07
-      description: Coupon for US45905URL07 with startDate and endDate as "2023-01-26"
+      summary: 'Coupon for US45905URL07'
+      description: 'Coupon for US45905URL07 with startDate and endDate as "2023-01-26"'
       value:
         data:
-          - requestId: US45905URL07
-            fsymId: CJQZQ0-S
+          - requestId: 'US45905URL07'
+            fsymId: 'CJQZQ0-S'
             date: '2023-01-26'
             accruedInterest: 0.86771
             coupon: 2.125
-            couponType: Fixed
-            couponFrequency: 6M
+            couponType: 'Fixed'
+            couponFrequency: '6M'
     couponRequest:
-      summary: Request for Coupon
-      description: Request of US45905URL07 for Coupon
+      summary: 'Request for Coupon'
+      description: 'Request of US45905URL07 for Coupon'
       value:
         ids:
-          - US45905URL07
+          - 'US45905URL07'
         startDate: '2021-01-01'
         endDate: '2021-12-31'
-        frequency: D
-        calendar: FIVEDAY
+        frequency: 'D'
+        calendar: 'FIVEDAY'
     badRequestDateFormat:
-      summary: Bad Request - Date Format
-      description: >-
-        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
-        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: 'Bad Request - Date Format'
+      description: 'This bad request occurs when a request doesn''t use the YYYY-MM-DD in the date parameters. To resolve, convert your date to YYYY-MM-DD.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 11:52:36.464'
-        path: /markit-bond-prices/v1/{endpoint}
+        path: '/markit-bond-prices/v1/{endpoint}'
         message: 'The date parameter must be in the following date format: YYYY-MM-DD'
         subErrors: null
     badRequestRequiredParameter:
-      summary: Bad Request - Required Parameter Missing
-      description: >-
-        This error message occurs when the request does not include the required
-        parameters. Required parameters are indicated with a red asterisks
-        symbol in the specification file.
+      summary: 'Bad Request - Required Parameter Missing'
+      description: 'This error message occurs when the request does not include the required parameters. Required parameters are indicated with a red asterisks symbol in the specification file.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-06-30 13:22:09.053'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: The parameter 'ids' is required and may not be empty.
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'The parameter ''ids'' is required and may not be empty.'
         subErrors: null
     badRequestInvalidParameters:
-      summary: Bad Request - Invalid Parameters
-      description: >-
-        This error message occurs when user is passing invalid parameter. Please
-        check the API specification for valid parameters
+      summary: 'Bad Request - Invalid Parameters'
+      description: 'This error message occurs when user is passing invalid parameter. Please check the API specification for valid parameters'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-23 11:03:40.765'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: >-
-          Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please
-          modify your request to use parameters outlined in the specification
-          for this endpoint.
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please modify your request to use parameters outlined in the specification for this endpoint.'
         subErrors: null
     badRequestMalformedJSON:
-      summary: Bad Request - Malformed JSON Request
-      description: >-
-        This error may be returned when the request body is specified as JSON.
-        But is not in proper JSON format.
+      summary: 'Bad Request - Malformed JSON Request'
+      description: 'This error may be returned when the request body is specified as JSON. But is not in proper JSON format.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 11:59:09.649'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: Malformed JSON Request
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'Malformed JSON Request'
         subErrors: null
     badRequestReadTimeout:
-      summary: Bad Request - Read Timeout
-      description: >-
-        This error may be returned if it takes more than 29 seconds to hear back
-        from the data fetch service.
+      summary: 'Bad Request - Read Timeout'
+      description: 'This error may be returned if it takes more than 29 seconds to hear back from the data fetch service.'
       value:
-        status: Bad Request
+        status: 'Bad Request'
         timestamp: '2020-07-02 16:18:38.949'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: The request took too long. Try again with a smaller request.
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'The request took too long. Try again with a smaller request.'
         subErrors: null
     unauthenticated:
-      summary: User Authentication Failed
-      description: >-
-        This occurs when a user is not properly authenticated or recognized by
-        the service. Please double check the USERNAME-SERIAL and API-Key used to
-        request and ensure you are within the IP range specified for the Key.
-        Report Issue under 401 error for help with troubleshooting.
+      summary: 'User Authentication Failed'
+      description: 'This occurs when a user is not properly authenticated or recognized by the service. Please double check the USERNAME-SERIAL and API-Key used to request and ensure you are within the IP range specified for the Key. Report Issue under 401 error for help with troubleshooting.'
       value:
-        status: User Authentication Failed
+        status: 'User Authentication Failed'
         timestamp: '2020-07-02 16:08:07.945'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: User Authentication Failed.
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'User Authentication Failed.'
         subErrors: null
     forbidden:
-      summary: Forbidden
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint/ID which is not
-        authorized to access. The request was a legal request, but the server is
-        refusing to respond. Please reach out to FactSet Account Team for
-        assistance with authorization.
+      summary: 'Forbidden'
+      description: 'The USERNAME-SERIAL attempted to request the endpoint/ID which is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       value:
-        status: Forbidden
+        status: 'Forbidden'
         timestamp: '2020-07-02 17:21:52.197'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: >-
-          USERNAME-SERIAL does not have permission to use
-          /markit-bind-prices-and-analytics/v1/{endpoint}
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'USERNAME-SERIAL does not have permission to use /markit-bind-prices-and-analytics/v1/{endpoint}'
         subErrors: null
     missingHistoryAccess:
-      summary: Missing History Access
-      description: >-
-        The USERNAME-SERIAL attempted to request the startDate and endDate
-        parameters which is not authorized to access. The request was a legal
-        request, but the server is refusing to respond. Please reach out to
-        FactSet Account Team for assistance with authorization.
+      summary: 'Missing History Access'
+      description: 'The USERNAME-SERIAL attempted to request the startDate and endDate parameters which is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       value:
-        status: Forbidden
+        status: 'Forbidden'
         timestamp: '2020-07-02 17:21:52.197'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: >-
-          USERNAME-SERIAL is missing additional permissions for the parameters
-          startDate and endDate
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'USERNAME-SERIAL is missing additional permissions for the parameters startDate and endDate'
         subErrors: null
     unsupportedMediaType:
-      summary: Unsupported Media Type
-      description: >-
-        This bad request occurs when the media type passed in the request is not
-        supported. Currently the APIs Available only  support
-        'application/json'.
+      summary: 'Unsupported Media Type'
+      description: 'This bad request occurs when the media type passed in the request is not supported. Currently the APIs Available only  support ''application/json''.'
       value:
-        status: Unsupported Media Type
+        status: 'Unsupported Media Type'
         timestamp: '2020-07-02 09:42:27.237'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: >-
-          text/html media type is not supported. Supported media types are
-          application/json.
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'text/html media type is not supported. Supported media types are application/json.'
         subErrors: null
     notWritable:
-      summary: Internal Server Error - Not Writable
-      description: >-
-        This error may be returned when the server encounters an error writing
-        the JSON response.
+      summary: 'Internal Server Error - Not Writable'
+      description: 'This error may be returned when the server encounters an error writing the JSON response.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2020-07-02 09:48:29.18'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: Error writing JSON output
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'Error writing JSON output'
         subErrors: null
     generalException:
-      summary: Internal Server Error - General Exception
-      description: >-
-        This is the most general error that can be returned to by the service.
-        Please `Report Issue` to FactSet.
+      summary: 'Internal Server Error - General Exception'
+      description: 'This is the most general error that can be returned to by the service. Please `Report Issue` to FactSet.'
       value:
-        status: Internal Server Error
+        status: 'Internal Server Error'
         timestamp: '2020-07-02 10:36:01.944'
-        path: /markit-bond-prices/v1/{endpoint}
-        message: Unexpected error
+        path: '/markit-bond-prices/v1/{endpoint}'
+        message: 'Unexpected error'
         subErrors: null

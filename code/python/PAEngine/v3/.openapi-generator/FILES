@@ -15,6 +15,7 @@ docs/CalculationUnitStatus.md
 docs/CalculationUnitStatusMeta.md
 docs/CalculationsSummary.md
 docs/CalculationsSummaryRoot.md
+docs/CalendarApi.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -65,6 +66,8 @@ docs/PACalculationParameters.md
 docs/PACalculationParametersRoot.md
 docs/PACalculationPricingSource.md
 docs/PACalculationsApi.md
+docs/PACalendar.md
+docs/PACalendarRoot.md
 docs/PACommentary.md
 docs/PACommentaryConfigurationSummary.md
 docs/PACommentaryConfigurationSummaryRoot.md
@@ -120,6 +123,7 @@ fds/__init__.py
 fds/sdk/PAEngine/__init__.py
 fds/sdk/PAEngine/api/__init__.py
 fds/sdk/PAEngine/api/accounts_api.py
+fds/sdk/PAEngine/api/calendar_api.py
 fds/sdk/PAEngine/api/column_statistics_api.py
 fds/sdk/PAEngine/api/columns_api.py
 fds/sdk/PAEngine/api/components_api.py
@@ -188,6 +192,8 @@ fds/sdk/PAEngine/model/pa_calculation_group.py
 fds/sdk/PAEngine/model/pa_calculation_parameters.py
 fds/sdk/PAEngine/model/pa_calculation_parameters_root.py
 fds/sdk/PAEngine/model/pa_calculation_pricing_source.py
+fds/sdk/PAEngine/model/pa_calendar.py
+fds/sdk/PAEngine/model/pa_calendar_root.py
 fds/sdk/PAEngine/model/pa_commentary.py
 fds/sdk/PAEngine/model/pa_commentary_configuration_summary.py
 fds/sdk/PAEngine/model/pa_commentary_configuration_summary_root.py

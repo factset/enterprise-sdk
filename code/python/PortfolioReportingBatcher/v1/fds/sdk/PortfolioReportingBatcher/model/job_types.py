@@ -59,6 +59,7 @@ class JobTypes(ModelSimple):
             'PI': "PI",
             'PUB': "PUB",
             'VAULT': "vault",
+            'DATAPREP': "dataPrep",
 
 
         },
@@ -112,10 +113,10 @@ class JobTypes(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", ]  # noqa: E501
+            args[0] (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", "dataPrep", ]  # noqa: E501
 
         Keyword Args:
-            value (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", ]  # noqa: E501
+            value (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", "dataPrep", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -202,10 +203,10 @@ class JobTypes(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", ]  # noqa: E501
+            args[0] (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", "dataPrep", ]  # noqa: E501
 
         Keyword Args:
-            value (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", ]  # noqa: E501
+            value (str): PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching., must be one of ["ADF", "PA", "PD", "PI", "PUB", "vault", "dataPrep", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

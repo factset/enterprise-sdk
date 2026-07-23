@@ -64,12 +64,13 @@ with fds.sdk.PAEngine.ApiClient(configuration) as api_client:
     componentid = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46" # str | Component Id
     account = "Client:/Folder1/Folder2/AccountName.ACCT" # str | Account ( Account Name ending with .ACCT or .ACTM )
     startdate = "-3AY" # str | Start Date (optional)
+    calendar = "FIVEDAY" # str | Calendar (optional)
 
     try:
         # Convert PA dates to absolute format
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.convert_pa_dates_to_absolute_format(enddate, componentid, account, startdate=startdate)
+        api_response = api_instance.convert_pa_dates_to_absolute_format(enddate, componentid, account, startdate=startdate, calendar=calendar)
 
         pprint(api_response)
 
@@ -86,6 +87,7 @@ Name | Type | Description  | Notes
  **componentid** | **str**| Component Id |
  **account** | **str**| Account ( Account Name ending with .ACCT or .ACTM ) |
  **startdate** | **str**| Start Date | [optional]
+ **calendar** | **str**| Calendar | [optional]
 
 ### Return type
 

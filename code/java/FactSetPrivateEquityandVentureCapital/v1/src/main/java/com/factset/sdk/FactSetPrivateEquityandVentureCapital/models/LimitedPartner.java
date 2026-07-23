@@ -98,7 +98,9 @@ public class LimitedPartner implements Serializable {
     
     EIGHTH_CLOSE("Eighth Close"),
     
-    NINTH_CLOSE("Ninth Close");
+    NINTH_CLOSE("Ninth Close"),
+    
+    NULL("null");
 
     private String value;
 

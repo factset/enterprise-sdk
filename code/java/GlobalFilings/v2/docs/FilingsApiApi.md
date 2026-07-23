@@ -126,7 +126,8 @@ Name | Type | Description  | Notes
 
 Returns the filings documents and related metadata within FactSet coverage.
 
-Returns the filings documents within FactSet coverage along with other response fields.
+Returns the filings documents within FactSet coverage along with other response fields. Upon request, this endpoint can fetch up to 10,000 documents.
+
 
 ### Example
 

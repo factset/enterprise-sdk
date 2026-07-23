@@ -8,7 +8,9 @@ docs/Adjust.md
 docs/Batch.md
 docs/BatchDataRequest.md
 docs/BatchDataResponse.md
+docs/BatchOne.md
 docs/BatchProcessingApi.md
+docs/BatchResult.md
 docs/BatchStatus.md
 docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
@@ -30,11 +32,11 @@ docs/HighLow.md
 docs/HighLowApi.md
 docs/HighLowRequest.md
 docs/HighLowResponse.md
-docs/IdsBatchMax5000.md
 docs/IdsMax1000.md
 docs/IdsMax2000.md
 docs/MarketValue.md
 docs/MarketValueApi.md
+docs/MarketValueIds.md
 docs/MarketValueRequest.md
 docs/MarketValueResponse.md
 docs/ModelReturn.md
@@ -44,6 +46,7 @@ docs/PriceType.md
 docs/PricesApi.md
 docs/PricesFixedIncomeRequest.md
 docs/PricesFixedIncomeResponse.md
+docs/PricesIds.md
 docs/PricesRequest.md
 docs/PricesResponse.md
 docs/ReferenceApi.md
@@ -90,6 +93,8 @@ fds/sdk/FactSetPrices/model/adjust.py
 fds/sdk/FactSetPrices/model/batch.py
 fds/sdk/FactSetPrices/model/batch_data_request.py
 fds/sdk/FactSetPrices/model/batch_data_response.py
+fds/sdk/FactSetPrices/model/batch_one.py
+fds/sdk/FactSetPrices/model/batch_result.py
 fds/sdk/FactSetPrices/model/batch_status.py
 fds/sdk/FactSetPrices/model/batch_status_request.py
 fds/sdk/FactSetPrices/model/batch_status_response.py
@@ -108,10 +113,10 @@ fds/sdk/FactSetPrices/model/frequency_fi.py
 fds/sdk/FactSetPrices/model/high_low.py
 fds/sdk/FactSetPrices/model/high_low_request.py
 fds/sdk/FactSetPrices/model/high_low_response.py
-fds/sdk/FactSetPrices/model/ids_batch_max5000.py
 fds/sdk/FactSetPrices/model/ids_max1000.py
 fds/sdk/FactSetPrices/model/ids_max2000.py
 fds/sdk/FactSetPrices/model/market_value.py
+fds/sdk/FactSetPrices/model/market_value_ids.py
 fds/sdk/FactSetPrices/model/market_value_request.py
 fds/sdk/FactSetPrices/model/market_value_response.py
 fds/sdk/FactSetPrices/model/model_return.py
@@ -120,6 +125,7 @@ fds/sdk/FactSetPrices/model/price.py
 fds/sdk/FactSetPrices/model/price_type.py
 fds/sdk/FactSetPrices/model/prices_fixed_income_request.py
 fds/sdk/FactSetPrices/model/prices_fixed_income_response.py
+fds/sdk/FactSetPrices/model/prices_ids.py
 fds/sdk/FactSetPrices/model/prices_request.py
 fds/sdk/FactSetPrices/model/prices_response.py
 fds/sdk/FactSetPrices/model/references.py

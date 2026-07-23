@@ -83,6 +83,7 @@ docs/TranscriptsRequestMeta.md
 docs/TranscriptsRequestMetaPagination.md
 docs/TranscriptsResponse.md
 docs/TranscriptsResponseData.md
+docs/TranscriptsResult.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -188,3 +189,4 @@ src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsRequestMeta
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsRequestMetaPagination.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsResponse.java
 src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsResponseData.java
+src/main/java/com/factset/sdk/EventsandTranscripts/models/TranscriptsResult.java

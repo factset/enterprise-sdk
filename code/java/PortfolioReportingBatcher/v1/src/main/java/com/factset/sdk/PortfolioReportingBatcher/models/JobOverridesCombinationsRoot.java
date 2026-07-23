@@ -79,11 +79,11 @@ public class JobOverridesCombinationsRoot implements Serializable {
   }
 
    /**
-   * An array of accounts, used for jobs types PA, ADF, PUB, and Vault
+   * An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault
    * @return accounts
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of accounts, used for jobs types PA, ADF, PUB, and Vault")
+  @ApiModelProperty(value = "An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,11 +113,11 @@ public class JobOverridesCombinationsRoot implements Serializable {
   }
 
    /**
-   * An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details
+   * An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details
    * @return dates
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details")
+  @ApiModelProperty(value = "An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details")
   @JsonProperty(JSON_PROPERTY_DATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -173,11 +173,11 @@ public class JobOverridesCombinationsRoot implements Serializable {
   }
 
    /**
-   * Used only for jobs where type is ADF, PA, PUB, or vault
+   * Used only for jobs where type is ADF, PA, PUB, dataPrep or vault
    * @return tasks
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Used only for jobs where type is ADF, PA, PUB, or vault")
+  @ApiModelProperty(value = "Used only for jobs where type is ADF, PA, PUB, dataPrep or vault")
   @JsonProperty(JSON_PROPERTY_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -199,11 +199,11 @@ public class JobOverridesCombinationsRoot implements Serializable {
   }
 
    /**
-   * boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks
+   * boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks
    * @return allTasks
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks")
+  @ApiModelProperty(value = "boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks")
   @JsonProperty(JSON_PROPERTY_ALL_TASKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

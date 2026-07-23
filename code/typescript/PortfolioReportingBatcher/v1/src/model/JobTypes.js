@@ -61,6 +61,13 @@ export default class JobTypes {
         "vault" = "vault";
 
     
+        /**
+         * value: "dataPrep"
+         * @const
+         */
+        "dataPrep" = "dataPrep";
+
+    
 
     /**
     * Returns a <code>JobTypes</code> enum value from a Javascript object name.

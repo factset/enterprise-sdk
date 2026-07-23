@@ -5,7 +5,7 @@ All URIs are relative to *https://api.factset.com/content/factset-pevc/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getFundLimitedPartners**](GeneralAndLimitedPartnersApi.md#getFundLimitedPartners) | **GET** /limited-partners/funds | Retrieve the Limited Partners (LPs) and their capital commitments to specific funds.
-[**getGP**](GeneralAndLimitedPartnersApi.md#getGP) | **GET** /general-partners | Retrieve core profile and summary data for specified General Partner (GP) firms.
+[**getGP**](GeneralAndLimitedPartnersApi.md#getGP) | **GET** /general-partners | Retrieves historical data for specified General Partner (GP) firms.
 [**getGPFunds**](GeneralAndLimitedPartnersApi.md#getGPFunds) | **GET** /general-partners/funds | Retrieve the list of all Private Equity and Venture Capital Funds managed by specified General Partners.
 
 
@@ -112,11 +112,9 @@ Name | Type | Description  | Notes
 
 > GPDetailsResponse getGP(ids, asOfDate)
 
-Retrieve core profile and summary data for specified General Partner (GP) firms.
+Retrieves historical data for specified General Partner (GP) firms.
 
 Retrieves the primary descriptive and profile information for one or more General Partner firms. This includes firm-level details such as the **Asset Under Management (AUM)** and a high-level overview of their **investment strategy** (e.g., target industry, geography).
-
-Use the `/universe` endpoint and input the GP firm name, with `entityType` set to `HOL`. Only use `entityId` values whose `entityTypeCode` is `HOL` in your request.
 
 ### Example
 

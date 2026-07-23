@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Events and Transcripts API
-  version: 2.2.1
+  version: 2.2.2
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
@@ -119,9 +119,9 @@ paths:
 
         This endpoint retrieves an object containing a pre-signed URL from which an archive of all audio data for a specified year can be downloaded.
 
-        * Returns **untrimmed** historical audio recordings, which include complete audio files such as intro music & non-speaking portions, and related metadata dating back from May 10, 2011 to Sep 30, 2024.
+        * Returns **untrimmed** historical audio recordings, which include complete audio files such as intro music & non-speaking portions, and related metadata dating back from May 10, 2011 through the most recently completed calendar year.
 
-        * Returns **trimmed** historical audio recordings, which are audio files with the non-speaking portions removed, and related metadata dating back from May 10, 2011 to Dec 31, 2024.
+        * Returns **trimmed** historical audio recordings, which are audio files with the non-speaking portions removed, and related metadata dating back from May 10, 2011 through the most recently completed calendar year.
       operationId: getAudioHistoryFiles
       parameters:
       - description: |
@@ -662,9 +662,9 @@ paths:
          All transcripts originate from Factset Callstreet Investor Slides.
       operationId: getTranscriptsInvestorSlides
       parameters:
-      - description: Requested symbols or securities. This is a list with a maximum
-          limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL,
-          ISIN, or Entity ID
+      - description: |-
+          Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
+          > **Note**: If this parameter is not used, `null` will be returned for the `requestId` field in the response.
         examples:
           oneId:
             summary: One identifier
@@ -678,15 +678,15 @@ paths:
         explode: false
         in: query
         name: ids
-        required: true
+        required: false
         schema:
           items:
             type: string
           maxItems: 1000
           type: array
         style: form
-      - description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
-          \ from 1995 onwards. Ensure that the provided Date falls within this range\
+      - description: "Start Date. Format is YYYY-MM-DD \n\n**The API supports data\
+          \ from 1999 onwards. Ensure that the provided Date falls within this range\
           \ for accurate results.**\n"
         example: 2025-07-23
         explode: true
@@ -908,9 +908,9 @@ paths:
           maximum: 0
           type: integer
         style: form
-      - description: Requested symbols or securities. This is a list with a maximum
-          limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL,
-          ISIN, or Entity ID
+      - description: |-
+          Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
+          > **Note**: If this parameter is not used, `null` will be returned for the `requestId` field in the response.
         examples:
           oneId:
             summary: One identifier
@@ -924,7 +924,7 @@ paths:
         explode: false
         in: query
         name: ids
-        required: true
+        required: false
         schema:
           items:
             type: string
@@ -1566,6 +1566,7 @@ components:
             ET'''
           storyDateTime: 2023-03-07T19:40:26Z
           uploadDateTime: 2024-01-08T04:19:24Z
+          timeZone: America/New_York
           eventType: ConferencePresentation
           categories:
           - CN:US
@@ -2054,6 +2055,7 @@ components:
         data:
           startDateTime: 2020-10-01T00:00:00Z
           endDateTime: 2020-10-26T10:00:00Z
+          timeZone: America/New_York
           dateType: uploadDateTime
         meta:
           pagination:
@@ -2223,9 +2225,9 @@ components:
         type: string
       style: form
     ids:
-      description: Requested symbols or securities. This is a list with a maximum
-        limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL,
-        ISIN, or Entity ID
+      description: |-
+        Requested symbols or securities. This is a list with a maximum limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL, ISIN, or Entity ID
+        > **Note**: If this parameter is not used, `null` will be returned for the `requestId` field in the response.
       examples:
         oneId:
           summary: One identifier
@@ -2239,7 +2241,7 @@ components:
       explode: false
       in: query
       name: ids
-      required: true
+      required: false
       schema:
         items:
           type: string
@@ -2247,9 +2249,9 @@ components:
         type: array
       style: form
     startDateSlides:
-      description: "Start Date. Format is YYYY-MM-DD \n\n\n**The API supports data\
-        \ from 1995 onwards. Ensure that the provided Date falls within this range\
-        \ for accurate results.**\n"
+      description: "Start Date. Format is YYYY-MM-DD \n\n**The API supports data from\
+        \ 1999 onwards. Ensure that the provided Date falls within this range for\
+        \ accurate results.**\n"
       example: 2025-07-23
       explode: true
       in: query
@@ -2930,6 +2932,7 @@ components:
       properties:
         requestId:
           description: The requested identifier associated with this group of documents.
+          nullable: true
           type: string
         documents:
           description: Contains list of documents
@@ -3117,6 +3120,7 @@ components:
       properties:
         requestId:
           description: The requested identifier associated with this group of documents.
+          nullable: true
           type: string
         documents:
           description: Contains list of documents
@@ -3535,7 +3539,7 @@ components:
         ids:
           description: Requested symbols or securities. This is a list with a maximum
             limit of 1000. Each symbol can be a FactSet exchange symbol, CUSIP, SEDOL,
-            ISIN, or Entity ID
+            ISIN, or Entity ID.
           example:
           - MODN-US
           - OSIS-US
@@ -3603,6 +3607,13 @@ components:
             The date to which data is required. If dates are not provided, default will return all files.
           example: 2020-10-26T10:00:00Z
           format: date-time
+          type: string
+        timeZone:
+          default: America/New_York
+          description: Time Zone for story dates/times (POSIX format from IANA timeZone
+            registry).  Use the `/meta/time-zones` endpoint to get the list of available
+            time zones.
+          example: Europe/London
           type: string
         dateType:
           description: "<p>'dateType=storyDateTime' Enables filtering of transcripts\
@@ -3737,11 +3748,11 @@ components:
       discriminator:
         mapping:
           transcriptById: '#/components/schemas/TranscriptsByIdsResponse'
-          documentResult: '#/components/schemas/DocumentResult'
+          documentResult: '#/components/schemas/TranscriptsResult'
         propertyName: transcriptResponseType
       oneOf:
       - $ref: '#/components/schemas/TranscriptsByIdsResponse'
-      - $ref: '#/components/schemas/DocumentResult'
+      - $ref: '#/components/schemas/TranscriptsResult'
       type: object
     TranscriptsByIdsResponse:
       description: |
@@ -3765,6 +3776,114 @@ components:
           $ref: '#/components/schemas/InvalidIdErrorData'
       required:
       - requestId
+      type: object
+    TranscriptsResult:
+      description: Array of data objects
+      properties:
+        transcriptResponseType:
+          description: Returns the Transcripts data based on provided Dates, Text
+            and Times.
+          enum:
+          - documentResult
+          type: string
+        versionId:
+          description: Used to distinguish the corrected reports. As such, one `reportId`
+            can have many `versionIds`.
+          type: string
+        primaryIds:
+          description: Refers to the main companies a particular document pertains
+            to.
+          items:
+            type: string
+          type: array
+        allIds:
+          description: 'Refers to all companies mentioned in the document. '
+          items:
+            type: string
+          type: array
+        reportId:
+          description: This is a unique identifier for a specific transcript (audio
+            or video) returned.
+          type: string
+        eventId:
+          description: ID of the conference call.
+          type: string
+        eventDate:
+          description: The date when the event took place. Formatted as 'YYYY-MM-DD'.
+          format: date
+          type: string
+        transcriptType:
+          description: |-
+            Specifies the type of transcript.
+
+            * NearRealTime: The initial transcripts available soon after an event, providing quick access to the latest information.
+
+            * Raw: Raw verbatim transcripts of conference calls available within hours after the completion of the call.
+
+            * Corrected: Verbatim transcripts that have been reviewed and corrected by industry-focused financial professionals. Our editors re-listen to the entire call audio and confirm and research all the terms and numbers in the call.
+          enum:
+          - NearRealTime
+          - Raw
+          - Corrected
+          type: string
+        headline:
+          description: Headline of the story.
+          type: string
+        storyDateTime:
+          description: Refers to either the date and time of the story, when it is
+            available in workstation (in the specified timeZone) or the date and time
+            FactSet received it from the vendor.
+          format: date-time
+          type: string
+        timeZone:
+          default: America/New_York
+          description: |-
+            Time Zone for story dates/times (POSIX format from IANA timeZone registry).
+            Note: The timeZone will be included in the response only for TranscriptsByTimesRequest.
+          example: America/New_York
+          type: string
+        uploadDateTime:
+          description: It is the time when transcript is created (in the specified
+            timeZone).
+          format: date-time
+          type: string
+        eventType:
+          description: |-
+            Specifies the type of event:
+
+            * Earnings: Regular quarterly calls where companies provide insights into their latest earnings, sharing details on their financial performance, including revenue, profits, and earnings per share.
+
+            * Guidance: Calls where companies offer estimated financial information about future earnings or outline business outlooks before official earnings are released.
+
+            * Analyst, Investor & Shareholder Meeting: Gatherings hosted by companies for analysts, investors, and shareholders to discuss strategic updates, financial health, and corporate developments.
+
+            * ConferencePresentation: A structured delivery of information within a conference setting, where individuals gather to discuss shared interests through formats such as keynote speeches, panel discussions, workshops, seminars, or webinars.
+
+            * SalesRevenue: Conference calls focused on discussing comprehensive sales activity and revenue figures, typically held monthly or quarterly.
+
+            * SpecialSituation: Conference calls addressing situations that do not fit into standard categories, often concerning mergers, acquisitions, joint ventures, or significant business updates.
+          enum:
+          - Earnings
+          - Guidance
+          - AnalystsShareholdersMeeting
+          - ConferencePresentation
+          - SalesRevenue
+          - SpecialSituation
+          - SalesRevenueRelease
+          type: string
+        categories:
+          description: Categories are Country, Industry, and Subject codes. This is
+            a list retrieved from `/meta/categories`
+          items:
+            type: string
+          type: array
+        transcriptsUrl:
+          description: This is the URL for downloading the document with an expiration
+            duration of 24 hours.
+          type: string
+      required:
+      - storyDateTime
+      title: Transcript Information
       type: object
     DocumentResult:
       description: Array of data objects

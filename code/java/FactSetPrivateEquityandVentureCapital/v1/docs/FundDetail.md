@@ -16,28 +16,8 @@ Name | Type | Description | Notes
 **investmentCriteria** | [**FundDetailInvestmentCriteria**](FundDetailInvestmentCriteria.md) |  |  [optional]
 **terms** | [**FundDetailTerms**](FundDetailTerms.md) |  |  [optional]
 **features** | [**FundDetailFeatures**](FundDetailFeatures.md) |  |  [optional]
-**strategyType** | [**StrategyTypeEnum**](#StrategyTypeEnum) | Indicate the fund strategy type. |  [optional]
 **fundOfFundAllocation** | [**FundDetailFundOfFundAllocation**](FundDetailFundOfFundAllocation.md) |  |  [optional]
 **error** | [**ErrorObjectResponse**](ErrorObjectResponse.md) |  |  [optional]
-
-
-
-## Enum: StrategyTypeEnum
-
-Name | Value
----- | -----
-INFRASTRUCTURE_PROJ_FIN | &quot;Infrastructure/Proj Fin&quot;
-FUND_OF_FUNDS | &quot;Fund of Funds&quot;
-BUYOUT | &quot;Buyout&quot;
-MBO | &quot;MBO&quot;
-SECONDARY | &quot;Secondary&quot;
-REAL_ESTATE | &quot;Real Estate&quot;
-MEZZANINE | &quot;Mezzanine&quot;
-LBO | &quot;LBO&quot;
-DEBT | &quot;Debt&quot;
-SEED_STAGE | &quot;Seed Stage&quot;
-EARLY_STAGE | &quot;Early Stage&quot;
-LATER_STAGE | &quot;Later Stage&quot;
 
 
 ## Implemented Interfaces

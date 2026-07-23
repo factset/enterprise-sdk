@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="convertpadatestoabsoluteformat"></a>
 # **ConvertPADatesToAbsoluteFormat**
-> DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null)
+> DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null, string calendar = null)
 
 Convert PA dates to absolute format
 
@@ -64,11 +64,12 @@ namespace Example
             var componentid = "801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46";  // string | Component Id
             var account = "Client:/Folder1/Folder2/AccountName.ACCT";  // string | Account ( Account Name ending with .ACCT or .ACTM )
             var startdate = "-3AY";  // string | Start Date (optional) 
+            var calendar = "FIVEDAY";  // string | Calendar (optional) 
 
             try
             {
                 // Convert PA dates to absolute format
-                DateParametersSummaryRoot result = apiInstance.ConvertPADatesToAbsoluteFormat(enddate, componentid, account, startdate);
+                DateParametersSummaryRoot result = apiInstance.ConvertPADatesToAbsoluteFormat(enddate, componentid, account, startdate, calendar);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
@@ -90,6 +91,7 @@ Name | Type | Description  | Notes
  **componentid** | **string**| Component Id | 
  **account** | **string**| Account ( Account Name ending with .ACCT or .ACTM ) | 
  **startdate** | **string**| Start Date | [optional] 
+ **calendar** | **string**| Calendar | [optional] 
 
 ### Return type
 [**DateParametersSummaryRoot**](DateParametersSummaryRoot.md)

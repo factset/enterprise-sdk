@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "3.16.0"
+    "version": "3.23.0"
   },
   "servers": [
     {
@@ -1713,7 +1713,8 @@
                         "currencyisocode": "USD",
                         "dates": {
                           "enddate": "0",
-                          "frequency": "Single"
+                          "frequency": "Single",
+                          "calendar": "FIVEDAY"
                         },
                         "snapshot": true,
                         "path": "pa3_documents:/pa_api_default_document-rbics;report51566341-6c7c-367d-2286-0cdd3ae16b64;tile1",
@@ -2121,19 +2122,17 @@
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 },
                 "example": {
-                  "data": {
-                    "errors": [
-                      {
-                        "id": "6698D8968BA1AA05",
-                        "code": "BadInput",
-                        "title": "Failed to process request",
-                        "detail": "Invalid path provided client:/example_path",
-                        "source": {
-                          "parameter": "path"
-                        }
+                  "errors": [
+                    {
+                      "id": "6698D8968BA1AA05",
+                      "code": "BadInput",
+                      "title": "Failed to process request",
+                      "detail": "Invalid path provided client:/example_path",
+                      "source": {
+                        "parameter": "path"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 }
               }
             }
@@ -2573,6 +2572,16 @@
               "type": "string",
               "description": "Account ( Account Name ending with .ACCT or .ACTM )",
               "example": "Client:/Folder1/Folder2/AccountName.ACCT"
+            }
+          },
+          {
+            "name": "calendar",
+            "in": "query",
+            "description": "Calendar",
+            "schema": {
+              "type": "string",
+              "description": "Calendar",
+              "example": "FIVEDAY"
             }
           }
         ],
@@ -5786,7 +5795,8 @@
                         "dates": {
                           "startdate": "",
                           "enddate": "20240508",
-                          "frequency": "Single"
+                          "frequency": "Single",
+                          "calendar": "FIVEDAY"
                         },
                         "currencyisocode": "USD"
                       }
@@ -5823,7 +5833,8 @@
                         "dates": {
                           "startdate": "",
                           "enddate": "20240508",
-                          "frequency": "Single"
+                          "frequency": "Single",
+                          "calendar": "SEVENDAY"
                         },
                         "currencyisocode": "USD"
                       }
@@ -5856,7 +5867,8 @@
                         "dates": {
                           "startdate": "",
                           "enddate": "20240508",
-                          "frequency": "Single"
+                          "frequency": "Single",
+                          "calendar": "FIVEDAY"
                         },
                         "currencyisocode": "USD"
                       },
@@ -5877,7 +5889,8 @@
                         "dates": {
                           "startdate": "20240507",
                           "enddate": "20240508",
-                          "frequency": "Daily"
+                          "frequency": "Daily",
+                          "calendar": "FIB"
                         },
                         "currencyisocode": "USD"
                       }
@@ -8338,7 +8351,8 @@
                         "dates": {
                           "startdate": "",
                           "enddate": "20240508",
-                          "frequency": "Single"
+                          "frequency": "Single",
+                          "calendar": "FIVEDAY"
                         },
                         "currencyisocode": "USD"
                       }
@@ -8375,7 +8389,8 @@
                         "dates": {
                           "startdate": "",
                           "enddate": "20240508",
-                          "frequency": "Single"
+                          "frequency": "Single",
+                          "calendar": "SEVENDAY"
                         },
                         "currencyisocode": "USD"
                       }
@@ -8408,7 +8423,8 @@
                         "dates": {
                           "startdate": "",
                           "enddate": "20240508",
-                          "frequency": "Single"
+                          "frequency": "Single",
+                          "calendar": "FIVEDAY"
                         },
                         "currencyisocode": "USD"
                       },
@@ -8429,7 +8445,8 @@
                         "dates": {
                           "startdate": "20240507",
                           "enddate": "20240508",
-                          "frequency": "Daily"
+                          "frequency": "Daily",
+                          "calendar": "FIB"
                         },
                         "currencyisocode": "USD"
                       }
@@ -13558,19 +13575,17 @@
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 },
                 "example": {
-                  "data": {
-                    "errors": [
-                      {
-                        "id": "6698D8968BA1AA05",
-                        "code": "BadInput",
-                        "title": "Failed to process request",
-                        "detail": "Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0: Please verify if the calculation/unit id is correct and try again.",
-                        "source": {
-                          "parameter": "id"
-                        }
+                  "errors": [
+                    {
+                      "id": "6698D8968BA1AA05",
+                      "code": "BadInput",
+                      "title": "Failed to process request",
+                      "detail": "Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0: Please verify if the calculation/unit id is correct and try again.",
+                      "source": {
+                        "parameter": "id"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 }
               }
             }
@@ -13950,19 +13965,17 @@
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 },
                 "example": {
-                  "data": {
-                    "errors": [
-                      {
-                        "id": "6698D8968BA1AA05",
-                        "code": "BadInput",
-                        "title": "Failed to process request",
-                        "detail": "Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0: Please verify if the calculation/unit id is correct and try again.",
-                        "source": {
-                          "parameter": "id"
-                        }
+                  "errors": [
+                    {
+                      "id": "6698D8968BA1AA05",
+                      "code": "BadInput",
+                      "title": "Failed to process request",
+                      "detail": "Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0: Please verify if the calculation/unit id is correct and try again.",
+                      "source": {
+                        "parameter": "id"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 }
               }
             }
@@ -14233,19 +14246,17 @@
                   "$ref": "#/components/schemas/ClientErrorResponse"
                 },
                 "example": {
-                  "data": {
-                    "errors": [
-                      {
-                        "id": "6698D8968BA1AA05",
-                        "code": "BadInput",
-                        "title": "Failed to process request",
-                        "detail": "Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0: Please verify if the calculation/unit id is correct and try again.",
-                        "source": {
-                          "parameter": "id"
-                        }
+                  "errors": [
+                    {
+                      "id": "6698D8968BA1AA05",
+                      "code": "BadInput",
+                      "title": "Failed to process request",
+                      "detail": "Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0: Please verify if the calculation/unit id is correct and try again.",
+                      "source": {
+                        "parameter": "id"
                       }
-                    ]
-                  }
+                    }
+                  ]
                 }
               }
             }
@@ -18757,6 +18768,244 @@
           }
         }
       }
+    },
+    "/analytics/engines/pa/v3/calendars": {
+      "get": {
+        "tags": [
+          "Calendar"
+        ],
+        "summary": "Get PA calendars",
+        "description": "This endpoint lists all the calendar that can be applied to a PA calculation.",
+        "operationId": "getPACalendars",
+        "responses": {
+          "200": {
+            "description": "Expected response, returns the list of calendars.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PACalendarRoot"
+                },
+                "examples": {
+                  "200 - Sample list": {
+                    "value": {
+                      "data": {
+                        "SEVENDAY": {
+                          "name": "Seven Day"
+                        },
+                        "FIB": {
+                          "name": "India"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid authentication.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User is forbidden with current credentials",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Unsupported Accept header. Header needs to be set to application/json.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached. Wait till the time specified in Retry-After header value to make further requests.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              },
+              "X-FactSet-Api-RateLimit-Limit": {
+                "description": "Number of allowed requests for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Remaining": {
+                "description": "Number of requests left for the time window.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "X-FactSet-Api-RateLimit-Reset": {
+                "description": "Number of seconds remaining till rate limit resets.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Request timed out. Retry the request in sometime.",
+            "headers": {
+              "X-DataDirect-Request-Key": {
+                "description": "FactSet's request key header.",
+                "schema": {
+                  "type": "string",
+                  "description": "FactSet's request key header."
+                }
+              },
+              "X-FactSet-Api-Request-Key": {
+                "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication.",
+                "schema": {
+                  "type": "string",
+                  "description": "Key to uniquely identify an Analytics API request. Only available after successful authentication."
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -19007,10 +19256,6 @@
         }
       },
       "PADateParameters": {
-        "required": [
-          "enddate",
-          "frequency"
-        ],
         "type": "object",
         "properties": {
           "startdate": {
@@ -19020,11 +19265,18 @@
           },
           "enddate": {
             "type": "string",
-            "description": "Calculation's end date."
+            "description": "Calculation's end date.",
+            "nullable": true
           },
           "frequency": {
             "type": "string",
-            "description": "Calculation's frequency."
+            "description": "Calculation's frequency.",
+            "nullable": true
+          },
+          "calendar": {
+            "type": "string",
+            "description": "PA calendar code (SEVENDAY, FIVEDAY, ..) for the PA calculation.",
+            "nullable": true
           }
         },
         "description": "The date parameters for PA calculation."
@@ -20915,6 +21167,35 @@
             "nullable": true
           }
         }
+      },
+      "PACalendar": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the country exchange for calendar.",
+            "nullable": true
+          }
+        },
+        "description": "Details of the PA calendar."
+      },
+      "PACalendarRoot": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PACalendar"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "nullable": true
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -20944,6 +21225,9 @@
   "tags": [
     {
       "name": "Accounts"
+    },
+    {
+      "name": "Calendar"
     },
     {
       "name": "Columns"

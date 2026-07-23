@@ -36,12 +36,10 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         /// Initializes a new instance of the <see cref="FundDetailDates" /> class.
         /// </summary>
         /// <param name="registrationDate">The date on which it is filed in the registry.</param>
-        /// <param name="launchDate">The date on which the fund was first opened to investors.</param>
         /// <param name="liquidationDate">The date at which all investments have been divested.</param>
-        public FundDetailDates(DateTime registrationDate = default(DateTime), DateTime? launchDate = default(DateTime?), DateTime? liquidationDate = default(DateTime?))
+        public FundDetailDates(DateTime registrationDate = default(DateTime), DateTime? liquidationDate = default(DateTime?))
         {
             this.RegistrationDate = registrationDate;
-            this.LaunchDate = launchDate;
             this.LiquidationDate = liquidationDate;
         }
 
@@ -52,14 +50,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         [DataMember(Name = "registrationDate", EmitDefaultValue = false)]
         [JsonConverter(typeof(OpenAPIDateConverter))]
         public DateTime RegistrationDate { get; set; }
-
-        /// <summary>
-        /// The date on which the fund was first opened to investors
-        /// </summary>
-        /// <value>The date on which the fund was first opened to investors</value>
-        [DataMember(Name = "launchDate", EmitDefaultValue = true)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime? LaunchDate { get; set; }
 
         /// <summary>
         /// The date at which all investments have been divested
@@ -78,7 +68,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class FundDetailDates {\n");
             sb.Append("  RegistrationDate: ").Append(RegistrationDate).Append("\n");
-            sb.Append("  LaunchDate: ").Append(LaunchDate).Append("\n");
             sb.Append("  LiquidationDate: ").Append(LiquidationDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -121,11 +110,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                     this.RegistrationDate.Equals(input.RegistrationDate))
                 ) && 
                 (
-                    this.LaunchDate == input.LaunchDate ||
-                    (this.LaunchDate != null &&
-                    this.LaunchDate.Equals(input.LaunchDate))
-                ) && 
-                (
                     this.LiquidationDate == input.LiquidationDate ||
                     (this.LiquidationDate != null &&
                     this.LiquidationDate.Equals(input.LiquidationDate))
@@ -144,10 +128,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                 if (this.RegistrationDate != null)
                 {
                     hashCode = (hashCode * 59) + this.RegistrationDate.GetHashCode();
-                }
-                if (this.LaunchDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.LaunchDate.GetHashCode();
                 }
                 if (this.LiquidationDate != null)
                 {

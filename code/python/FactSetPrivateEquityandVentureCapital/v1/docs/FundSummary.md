@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **factset_fund_entity_id** | **str, none_type** | Unique FactSet identifier for the fund | [optional] 
 **fund_name** | **str, none_type** | Fund name | [optional] 
 **fund_status** | **str, none_type** | Current fund status | [optional] 
-**launch_date** | **date, none_type** | Fund launch date | [optional] 
 **amount_raised_usd** | **float, none_type** | Amount raised in USD | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -100,8 +100,8 @@ public class BrokerDetailApi {
    * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
-   * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+   * @param startDate Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
+   * @param endDate End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
    * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
@@ -111,6 +111,7 @@ public class BrokerDetailApi {
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
    * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
    * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
+   * @param includeDocId Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  (optional, default to false)
    * @return DetailResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -125,8 +126,8 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DetailResponse getFixedDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
-    return getFixedDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime).getData();
+  public DetailResponse getFixedDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime, Boolean includeDocId) throws ApiException {
+    return getFixedDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId).getData();
   }
 
   /**
@@ -134,8 +135,8 @@ public class BrokerDetailApi {
    * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;fixed\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
-   * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+   * @param startDate Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
+   * @param endDate End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
    * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
@@ -145,6 +146,7 @@ public class BrokerDetailApi {
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
    * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
    * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
+   * @param includeDocId Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  (optional, default to false)
    * @return ApiResponse&lt;DetailResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -159,7 +161,7 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DetailResponse> getFixedDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
+  public ApiResponse<DetailResponse> getFixedDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, String fiscalPeriodStart, String fiscalPeriodEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime, Boolean includeDocId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -194,6 +196,7 @@ public class BrokerDetailApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "brokerNames", brokerNames));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "updatesOnly", updatesOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortByInputDateTime", sortByInputDateTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeDocId", includeDocId));
 
     
     
@@ -312,8 +315,8 @@ public class BrokerDetailApi {
    * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
-   * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+   * @param startDate Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
+   * @param endDate End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
    * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
@@ -323,6 +326,7 @@ public class BrokerDetailApi {
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
    * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
    * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
+   * @param includeDocId Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  (optional, default to false)
    * @return DetailResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -337,8 +341,8 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public DetailResponse getRollingDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
-    return getRollingDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime).getData();
+  public DetailResponse getRollingDetail(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime, Boolean includeDocId) throws ApiException {
+    return getRollingDetailWithHttpInfo(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId).getData();
   }
 
   /**
@@ -346,8 +350,8 @@ public class BrokerDetailApi {
    * Updated intraday, the FactSet detail estimates apis provide individual broker-level estimates collected from over 800 sell-side analysts. This database contains 20+ years of broker history across more than 59,000 global companies. Content is provided for \&quot;rolling\&quot; fiscal periods. The consensus window default is 100 day window. 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  (required)
    * @param metrics Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
-   * @param startDate Start date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
-   * @param endDate End date for point in time of estimates expressed in YYYY-MM-DD format. (optional)
+   * @param startDate Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
+   * @param endDate End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. (optional)
    * @param frequency Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   (optional, default to D)
    * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
    * @param includeAll Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    (optional, default to false)
@@ -357,6 +361,7 @@ public class BrokerDetailApi {
    * @param brokerNames Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). (optional)
    * @param updatesOnly If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     (optional, default to false)
    * @param sortByInputDateTime When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  (optional, default to false)
+   * @param includeDocId Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  (optional, default to false)
    * @return ApiResponse&lt;DetailResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -371,7 +376,7 @@ public class BrokerDetailApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DetailResponse> getRollingDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime) throws ApiException {
+  public ApiResponse<DetailResponse> getRollingDetailWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, LocalDate startDate, LocalDate endDate, String frequency, String periodicity, Boolean includeAll, Integer relativeFiscalStart, Integer relativeFiscalEnd, String currency, java.util.List<String> brokerNames, Boolean updatesOnly, Boolean sortByInputDateTime, Boolean includeDocId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -406,6 +411,7 @@ public class BrokerDetailApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "brokerNames", brokerNames));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "updatesOnly", updatesOnly));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sortByInputDateTime", sortByInputDateTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeDocId", includeDocId));
 
     
     

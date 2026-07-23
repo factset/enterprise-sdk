@@ -49,9 +49,6 @@ class FundDetailDates {
             if (data.hasOwnProperty('registrationDate') && obj['registrationDate'] === undefined) {
                 obj['registrationDate'] = ApiClient.convertToType(data['registrationDate'], 'Date');
             }
-            if (data.hasOwnProperty('launchDate') && obj['launchDate'] === undefined) {
-                obj['launchDate'] = ApiClient.convertToType(data['launchDate'], 'Date');
-            }
             if (data.hasOwnProperty('liquidationDate') && obj['liquidationDate'] === undefined) {
                 obj['liquidationDate'] = ApiClient.convertToType(data['liquidationDate'], 'Date');
             }
@@ -68,12 +65,6 @@ class FundDetailDates {
  * @member {Date} registrationDate
  */
 FundDetailDates.prototype['registrationDate'] = undefined;
-
-/**
- * The date on which the fund was first opened to investors
- * @member {Date} launchDate
- */
-FundDetailDates.prototype['launchDate'] = undefined;
 
 /**
  * The date at which all investments have been divested

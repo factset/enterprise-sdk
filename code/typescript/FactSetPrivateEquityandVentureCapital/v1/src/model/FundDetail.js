@@ -80,9 +80,6 @@ class FundDetail {
             if (data.hasOwnProperty('features') && obj['features'] === undefined) {
                 obj['features'] = FundDetailFeatures.constructFromObject(data['features']);
             }
-            if (data.hasOwnProperty('strategyType') && obj['strategyType'] === undefined) {
-                obj['strategyType'] = ApiClient.convertToType(data['strategyType'], 'String');
-            }
             if (data.hasOwnProperty('fundOfFundAllocation') && obj['fundOfFundAllocation'] === undefined) {
                 obj['fundOfFundAllocation'] = FundDetailFundOfFundAllocation.constructFromObject(data['fundOfFundAllocation']);
             }
@@ -147,12 +144,6 @@ FundDetail.prototype['terms'] = undefined;
 FundDetail.prototype['features'] = undefined;
 
 /**
- * Indicate the fund strategy type.
- * @member {module:model/FundDetail.StrategyTypeEnum} strategyType
- */
-FundDetail.prototype['strategyType'] = undefined;
-
-/**
  * @member {module:model/FundDetailFundOfFundAllocation} fundOfFundAllocation
  */
 FundDetail.prototype['fundOfFundAllocation'] = undefined;
@@ -164,87 +155,6 @@ FundDetail.prototype['error'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>strategyType</code> property.
- * @enum {String}
- * @readonly
- */
-FundDetail['StrategyTypeEnum'] = {
-
-    /**
-     * value: "Infrastructure/Proj Fin"
-     * @const
-     */
-    "Infrastructure/Proj Fin": "Infrastructure/Proj Fin",
-
-    /**
-     * value: "Fund of Funds"
-     * @const
-     */
-    "Fund of Funds": "Fund of Funds",
-
-    /**
-     * value: "Buyout"
-     * @const
-     */
-    "Buyout": "Buyout",
-
-    /**
-     * value: "MBO"
-     * @const
-     */
-    "MBO": "MBO",
-
-    /**
-     * value: "Secondary"
-     * @const
-     */
-    "Secondary": "Secondary",
-
-    /**
-     * value: "Real Estate"
-     * @const
-     */
-    "Real Estate": "Real Estate",
-
-    /**
-     * value: "Mezzanine"
-     * @const
-     */
-    "Mezzanine": "Mezzanine",
-
-    /**
-     * value: "LBO"
-     * @const
-     */
-    "LBO": "LBO",
-
-    /**
-     * value: "Debt"
-     * @const
-     */
-    "Debt": "Debt",
-
-    /**
-     * value: "Seed Stage"
-     * @const
-     */
-    "Seed Stage": "Seed Stage",
-
-    /**
-     * value: "Early Stage"
-     * @const
-     */
-    "Early Stage": "Early Stage",
-
-    /**
-     * value: "Later Stage"
-     * @const
-     */
-    "Later Stage": "Later Stage"
-};
 
 
 

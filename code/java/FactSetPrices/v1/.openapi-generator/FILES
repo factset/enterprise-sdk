@@ -9,7 +9,9 @@ docs/Adjust.md
 docs/Batch.md
 docs/BatchDataRequest.md
 docs/BatchDataResponse.md
+docs/BatchOne.md
 docs/BatchProcessingApi.md
+docs/BatchResult.md
 docs/BatchStatus.md
 docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
@@ -106,6 +108,8 @@ src/main/java/com/factset/sdk/FactSetPrices/models/Adjust.java
 src/main/java/com/factset/sdk/FactSetPrices/models/Batch.java
 src/main/java/com/factset/sdk/FactSetPrices/models/BatchDataRequest.java
 src/main/java/com/factset/sdk/FactSetPrices/models/BatchDataResponse.java
+src/main/java/com/factset/sdk/FactSetPrices/models/BatchOne.java
+src/main/java/com/factset/sdk/FactSetPrices/models/BatchResult.java
 src/main/java/com/factset/sdk/FactSetPrices/models/BatchStatus.java
 src/main/java/com/factset/sdk/FactSetPrices/models/BatchStatusRequest.java
 src/main/java/com/factset/sdk/FactSetPrices/models/BatchStatusResponse.java

@@ -6,7 +6,7 @@ info:
   description: |
     Gain access to comprehensive global coverage for Equities & Fixed Income. Perform quick analytics by controlling the date ranges, currencies, and rolling periods, or simply request Open, High, Low, and Close prices. Easily connect pricing data with other core company data or alternative content sets using FactSet's hub and spoke symbology. <p>Equity and Fund Security types include Common Stock, ADR, GDR, Preferred, Closed-ended Fund, Exchange Traded Fund, Unit, Open-ended Fund, Exchange Traded Fund UVI, Exchange Traded Fund NAV, Preferred Equity, Non-Voting Depositary Receipt/Certificate, Alien/Foreign, Structured Product, and Temporary Instruments. Reference over 180,000+ active and inactive securities.</p><p>Fixed Income Security Types include Corporate Bonds, Treasury and Agency bonds, Government Bonds, and Municipals.</p><p><b>Rate limit is set to 25 requests per second</b>.</p>
   title: FactSet Prices API
-  version: 1.3.0
+  version: 1.3.1
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -18,18 +18,15 @@ paths:
     get:
       description: |
         Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency. Prices are updated and at different times across the different regions around the globe. The Prices API automatically defaults relative price dates to the local region which is determined by the local region of the requested security id. To learn more about relative dates please visit [OA Page 4627](https://my.apps.factset.com/oa/pages/4627)
-
-        */prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter.
       operationId: getSecurityPrices
       parameters:
-      - description: The requested list of security identifiers. Accepted ID types
-          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids
-          limit** =  2000 per non-batch request / 5000 per batch request*</p> *<p>Make
-          note, GET Method URL request lines are also limited to a total length of
-          8192 bytes (8KB). In cases where the service allows for thousands of ids,
-          which may lead to exceeding this request line limit of 8KB, its advised
-          for any requests with large request lines to be requested through the respective
-          "POST" method.</p>*
+      - description: |2
+
+          The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.*<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+
+           - Batch requests:
+                * Single day: up to 700 IDs per request
+                * Multi-day: up to 700 IDs per request
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -197,8 +194,6 @@ paths:
           **Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.**
 
           Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`.
-
-          When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
         explode: true
         in: query
         name: batch
@@ -318,8 +313,6 @@ paths:
       description: |2
 
         Gets security prices, Open, High, Low, Close, Volume, and currency for a specified date range and frequency.
-
-        */prices* endpoint currently supports Long Running asynchronous requests up to **10 minutes** via `batch` parameter. **Additional Approvals needed for access**. Id limits increased to **5000 ids** per request using batch parameter.
       operationId: getSecurityPricesForList
       requestBody:
         content:
@@ -2500,13 +2493,13 @@ paths:
         Gets market capitalization of list of ids for the company level, security level, calendar, frequency, and currency for a specified date range.
       operationId: getMarketValue
       parameters:
-      - description: The requested list of security identifiers. Accepted ID types
-          include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
-          <p>***ids limit** =  2000 per request*</p> *<p>Make note, GET Method URL
-          request lines are also limited to a total length of 8192 bytes (8KB). In
-          cases where the service allows for thousands of ids, which may lead to exceeding
-          this request line limit of 8KB, its advised for any requests with large
-          request lines to be requested through the respective "POST" method.</p>*
+      - description: |2
+
+          The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.*<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+
+           - Batch requests:
+                * Single day: up to 700 IDs per request
+                * Multi-day: up to 700 IDs per request
         examples:
           oneEquityId:
             summary: One Equity Market Identifier
@@ -2636,6 +2629,20 @@ paths:
         schema:
           type: string
         style: form
+      - description: |
+          Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 30 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
+          Once a batch request is submitted, use the corresponding `/batch/v1/status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/batch/v1/result` endpoint.
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          default: "N"
+          enum:
+          - "Y"
+          - "N"
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2648,6 +2655,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/marketValueResponse'
           description: Array of company market capitalization values.
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted.
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              example: batch/v1/status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
@@ -2720,6 +2744,7 @@ paths:
         of `ids` as of given date range and frequency.
       tags:
       - Market Value
+      x-factset-different-success-responses: true
       x-accepts: application/json
     post:
       description: Requests the market value for a list of `ids` as of given date
@@ -2749,6 +2774,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/marketValueResponse'
           description: Array of company market capitalization values.
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted.
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              example: batch/v1/status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
         "400":
           content:
             application/json:
@@ -2820,6 +2862,7 @@ paths:
       summary: Requests the market value for a list of `ids` as of given date range.
       tags:
       - Market Value
+      x-factset-different-success-responses: true
       x-contentType: application/json
       x-accepts: application/json
   /factset-prices/v1/high-low:
@@ -3475,6 +3518,10 @@ paths:
                   $ref: '#/components/examples/twoSecuritiesPrices'
                 One Month of Daily Prices for AAPL in March 2019:
                   $ref: '#/components/examples/oneMonthSecurityPrices'
+                Market Value of GOOGL as of July 07 2020:
+                  $ref: '#/components/examples/singleMarketValue'
+                Market Value for AAPL and TSLA as of March 29th 2019:
+                  $ref: '#/components/examples/multipleMarketValues'
               schema:
                 $ref: '#/components/schemas/BatchDataResponse'
           description: Request Response Object when batch request has completed and
@@ -3531,6 +3578,10 @@ paths:
                   $ref: '#/components/examples/twoSecuritiesPrices'
                 One Month of Daily Prices for AAPL in March 2019:
                   $ref: '#/components/examples/oneMonthSecurityPrices'
+                Market Value of GOOGL as of July 07 2020:
+                  $ref: '#/components/examples/singleMarketValue'
+                Market Value for AAPL and TSLA as of March 29th 2019:
+                  $ref: '#/components/examples/multipleMarketValues'
               schema:
                 $ref: '#/components/schemas/BatchDataResponse'
           description: Request Response Object when batch request has completed and
@@ -4731,6 +4782,7 @@ components:
         frequency: D
         calendar: FIVEDAY
         currency: USD
+        batch: "N"
     multipleMarketValuePost:
       description: Requesting One Year of Market Values on a monthly frequency for
         GOOGL and TSLA in Calendar 2019 Year
@@ -4745,6 +4797,7 @@ components:
         frequency: M
         calendar: FIVEDAY
         currency: USD
+        batch: "N"
     singleSecurityReferences:
       description: Single Security Reference Details
       summary: Single Security Reference Details
@@ -5198,14 +5251,29 @@ components:
         format: uuid
         type: string
       style: form
-    idsBatchMax5000:
-      description: The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.<p>***ids limit**
-        =  2000 per non-batch request / 5000 per batch request*</p> *<p>Make note,
-        GET Method URL request lines are also limited to a total length of 8192 bytes
-        (8KB). In cases where the service allows for thousands of ids, which may lead
-        to exceeding this request line limit of 8KB, its advised for any requests
-        with large request lines to be requested through the respective "POST" method.</p>*
+    batchOne:
+      description: |
+        Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 30 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
+        Once a batch request is submitted, use the corresponding `/batch/v1/status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/batch/v1/result` endpoint.
+      explode: true
+      in: query
+      name: batch
+      required: false
+      schema:
+        default: "N"
+        enum:
+        - "Y"
+        - "N"
+        type: string
+      style: form
+    pricesIds:
+      description: |2
+
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.*<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+
+         - Batch requests:
+              * Single day: up to 700 IDs per request
+              * Multi-day: up to 700 IDs per request
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
@@ -5234,6 +5302,36 @@ components:
         service allows for thousands of ids, which may lead to exceeding this request
         line limit of 8KB, its advised for any requests with large request lines to
         be requested through the respective "POST" method.</p>*
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+          - AAPL-USA
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+          - FDS-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 2000
+        minItems: 1
+        type: array
+      style: form
+    marketValueIds:
+      description: |2
+
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.*<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective "POST" method.</p>*
+
+         - Batch requests:
+              * Single day: up to 700 IDs per request
+              * Multi-day: up to 700 IDs per request
       examples:
         oneEquityId:
           summary: One Equity Market Identifier
@@ -5672,8 +5770,6 @@ components:
         **Additional Access Required. To gain access to this feature, reach out to your FactSet Account team or "Report Issue" above and our support teams can assist.**
 
         Once a batch request is submitted, use `batch/v1/status` to see if the job has completed. Once completed, retrieve the results of the request via `batch/v1/result`.
-
-        When using Batch, `ids` limit is increased to **5000** ids per request, though limits on query string via GET method still apply. It's advised to submit large lists of ids via POST method.
       explode: true
       in: query
       name: batch
@@ -5768,7 +5864,8 @@ components:
         ids:
           description: "The requested list of security identifiers. Accepted ID types\
             \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-            \ \n<p>ids limit =  2000 per non-batch request / 5000 per batch request</p>\n"
+            \ \n\n - Batch requests:\n      * Single day: up to 10,000 IDs per request\n\
+            \      * Multi-day: up to 5,000 IDs per request\n"
           example:
           - FDS-US
           items:
@@ -6811,11 +6908,15 @@ components:
         ids:
           description: |
             The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+
+              - Batch requests:
+                  * Single day: up to 10,000 IDs per request
+                  * Multi-day: up to 5,000 IDs per request
           example:
           - FDS-US
           items:
             type: string
-          maxItems: 2000
+          maxItems: 10000
           minItems: 1
           type: array
         startDate:
@@ -6838,10 +6939,20 @@ components:
           type: string
         calendar:
           $ref: '#/components/schemas/calendar'
+        batch:
+          $ref: '#/components/schemas/BatchOne'
       required:
       - ids
       title: Market Value Request Body
       type: object
+    BatchOne:
+      default: "N"
+      description: |
+        Enables the ability to asynchronously "batch" the request, supporting a long-running request. Upon requesting batch=Y, the service will respond back with an HTTP Status Code of 202. Once a batch request is submitted, use the corresponding `/batch/v1/status` and `/batch/v1/result` endpoints to retrieve the status and result.
+      enum:
+      - "Y"
+      - "N"
+      type: string
     marketValueResponse:
       example:
         data:
@@ -7464,10 +7575,25 @@ components:
       maxItems: 2000
       minItems: 1
       type: array
-    idsBatchMax5000:
+    marketValueIds:
+      description: |
+        The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.
+
+          - Batch requests:
+              * Single day: up to 10,000 IDs per request
+              * Multi-day: up to 5,000 IDs per request
+      example:
+      - FDS-US
+      items:
+        type: string
+      maxItems: 10000
+      minItems: 1
+      type: array
+    pricesIds:
       description: "The requested list of security identifiers. Accepted ID types\
         \ include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
-        \ \n<p>ids limit =  2000 per non-batch request / 5000 per batch request</p>\n"
+        \ \n\n - Batch requests:\n      * Single day: up to 10,000 IDs per request\n\
+        \      * Multi-day: up to 5,000 IDs per request\n"
       example:
       - FDS-US
       items:
@@ -7693,22 +7819,23 @@ components:
       type: object
     BatchDataResponse:
       example:
-        data: '{}'
+        data:
+        - null
+        - null
       properties:
         data:
-          description: |
-            The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
-            Please see the schema for that endpoint for the definition.
-          title: Batch Data
-          type: object
+          items:
+            $ref: '#/components/schemas/BatchResult'
+          type: array
+      required:
+      - data
       title: Batch Data Response
       type: object
-    BatchData:
-      description: |
-        The schema for the batched result is determined by the endpoint you used with the _batch_ parameter.
-        Please see the schema for that endpoint for the definition.
+    BatchResult:
+      oneOf:
+      - $ref: '#/components/schemas/price'
+      - $ref: '#/components/schemas/marketValue'
       title: Batch Data
-      type: object
     BatchStatusRequest:
       example:
         id: 2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c

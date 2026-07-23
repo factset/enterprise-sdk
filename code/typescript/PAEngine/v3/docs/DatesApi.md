@@ -53,7 +53,8 @@ const enddate = -1AY; // String | End Date
 const componentid = 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46; // String | Component Id
 const account = Client:/Folder1/Folder2/AccountName.ACCT; // String | Account ( Account Name ending with .ACCT or .ACTM )
 const opts = {
-  'startdate': -3AY // String | Start Date
+  'startdate': -3AY, // String | Start Date
+  'calendar': FIVEDAY // String | Calendar
 };
 
 // Call api endpoint
@@ -80,6 +81,7 @@ Name | Type | Description  | Notes
  **componentid** | **String**| Component Id | 
  **account** | **String**| Account ( Account Name ending with .ACCT or .ACTM ) | 
  **startdate** | **String**| Start Date | [optional] 
+ **calendar** | **String**| Calendar | [optional] 
 
 ### Return type
 

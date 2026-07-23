@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.SDK.PortfolioReportingBatcher.Client.OpenAP
 namespace FactSet.SDK.PortfolioReportingBatcher.Model
 {
     /// <summary>
-    /// Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF and Vault. Please see OA page 23173 for more details.
+    /// Used if the job needs to be executed for many dates periodically spaced, used for jobs types PA, ADF, dataPrep, and vault. Please see OA page 23173 for more details.
     /// </summary>
     [DataContract(Name = "JobOverridesCombinationsRoot_dateRange")]
     public partial class JobOverridesCombinationsRootDateRange : IEquatable<JobOverridesCombinationsRootDateRange>, IValidatableObject

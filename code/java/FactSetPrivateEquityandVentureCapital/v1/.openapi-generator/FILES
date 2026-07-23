@@ -42,7 +42,6 @@ docs/FundraisingRound.md
 docs/FundsApi.md
 docs/GPDetail.md
 docs/GPDetailFeatures.md
-docs/GPDetailInvestmentCriteria.md
 docs/GPDetailsResponse.md
 docs/GPFund.md
 docs/GPFundsResponse.md
@@ -149,7 +148,6 @@ src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/FundS
 src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/FundraisingRound.java
 src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/GPDetail.java
 src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/GPDetailFeatures.java
-src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/GPDetailInvestmentCriteria.java
 src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/GPDetailsResponse.java
 src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/GPFund.java
 src/main/java/com/factset/sdk/FactSetPrivateEquityandVentureCapital/models/GPFundsResponse.java

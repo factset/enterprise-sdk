@@ -45,7 +45,6 @@ from fds.sdk.FactSetPrivateEquityandVentureCapital.model.fund_summary import Fun
 from fds.sdk.FactSetPrivateEquityandVentureCapital.model.fundraising_round import FundraisingRound
 from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_detail import GPDetail
 from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_detail_features import GPDetailFeatures
-from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_detail_investment_criteria import GPDetailInvestmentCriteria
 from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_details_response import GPDetailsResponse
 from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_fund import GPFund
 from fds.sdk.FactSetPrivateEquityandVentureCapital.model.gp_funds_response import GPFundsResponse

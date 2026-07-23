@@ -33,94 +33,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
     public partial class FundDetail : IEquatable<FundDetail>, IValidatableObject
     {
         /// <summary>
-        /// Indicate the fund strategy type.
-        /// </summary>
-        /// <value>Indicate the fund strategy type.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum StrategyTypeEnum
-        {
-            /// <summary>
-            /// Enum InfrastructureProjFin for value: Infrastructure/Proj Fin
-            /// </summary>
-            [EnumMember(Value = "Infrastructure/Proj Fin")]
-            InfrastructureProjFin = 1,
-
-            /// <summary>
-            /// Enum FundOfFunds for value: Fund of Funds
-            /// </summary>
-            [EnumMember(Value = "Fund of Funds")]
-            FundOfFunds = 2,
-
-            /// <summary>
-            /// Enum Buyout for value: Buyout
-            /// </summary>
-            [EnumMember(Value = "Buyout")]
-            Buyout = 3,
-
-            /// <summary>
-            /// Enum MBO for value: MBO
-            /// </summary>
-            [EnumMember(Value = "MBO")]
-            MBO = 4,
-
-            /// <summary>
-            /// Enum Secondary for value: Secondary
-            /// </summary>
-            [EnumMember(Value = "Secondary")]
-            Secondary = 5,
-
-            /// <summary>
-            /// Enum RealEstate for value: Real Estate
-            /// </summary>
-            [EnumMember(Value = "Real Estate")]
-            RealEstate = 6,
-
-            /// <summary>
-            /// Enum Mezzanine for value: Mezzanine
-            /// </summary>
-            [EnumMember(Value = "Mezzanine")]
-            Mezzanine = 7,
-
-            /// <summary>
-            /// Enum LBO for value: LBO
-            /// </summary>
-            [EnumMember(Value = "LBO")]
-            LBO = 8,
-
-            /// <summary>
-            /// Enum Debt for value: Debt
-            /// </summary>
-            [EnumMember(Value = "Debt")]
-            Debt = 9,
-
-            /// <summary>
-            /// Enum SeedStage for value: Seed Stage
-            /// </summary>
-            [EnumMember(Value = "Seed Stage")]
-            SeedStage = 10,
-
-            /// <summary>
-            /// Enum EarlyStage for value: Early Stage
-            /// </summary>
-            [EnumMember(Value = "Early Stage")]
-            EarlyStage = 11,
-
-            /// <summary>
-            /// Enum LaterStage for value: Later Stage
-            /// </summary>
-            [EnumMember(Value = "Later Stage")]
-            LaterStage = 12
-
-        }
-
-
-        /// <summary>
-        /// Indicate the fund strategy type.
-        /// </summary>
-        /// <value>Indicate the fund strategy type.</value>
-        [DataMember(Name = "strategyType", EmitDefaultValue = true)]
-        public StrategyTypeEnum? StrategyType { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="FundDetail" /> class.
         /// </summary>
         /// <param name="requestId">Unique FactSet identifier for the fund used in request.</param>
@@ -132,10 +44,9 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
         /// <param name="investmentCriteria">investmentCriteria.</param>
         /// <param name="terms">terms.</param>
         /// <param name="features">features.</param>
-        /// <param name="strategyType">Indicate the fund strategy type..</param>
         /// <param name="fundOfFundAllocation">fundOfFundAllocation.</param>
         /// <param name="error">error.</param>
-        public FundDetail(string requestId = default(string), string factsetGpEntityId = default(string), string entityProfile = default(string), string fundStatus = default(string), FundDetailDates dates = default(FundDetailDates), FundDetailFinancialInfo financialInfo = default(FundDetailFinancialInfo), FundDetailInvestmentCriteria investmentCriteria = default(FundDetailInvestmentCriteria), FundDetailTerms terms = default(FundDetailTerms), FundDetailFeatures features = default(FundDetailFeatures), StrategyTypeEnum? strategyType = default(StrategyTypeEnum?), FundDetailFundOfFundAllocation fundOfFundAllocation = default(FundDetailFundOfFundAllocation), ErrorObjectResponse error = default(ErrorObjectResponse))
+        public FundDetail(string requestId = default(string), string factsetGpEntityId = default(string), string entityProfile = default(string), string fundStatus = default(string), FundDetailDates dates = default(FundDetailDates), FundDetailFinancialInfo financialInfo = default(FundDetailFinancialInfo), FundDetailInvestmentCriteria investmentCriteria = default(FundDetailInvestmentCriteria), FundDetailTerms terms = default(FundDetailTerms), FundDetailFeatures features = default(FundDetailFeatures), FundDetailFundOfFundAllocation fundOfFundAllocation = default(FundDetailFundOfFundAllocation), ErrorObjectResponse error = default(ErrorObjectResponse))
         {
             this.RequestId = requestId;
             this.FactsetGpEntityId = factsetGpEntityId;
@@ -146,7 +57,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
             this.InvestmentCriteria = investmentCriteria;
             this.Terms = terms;
             this.Features = features;
-            this.StrategyType = strategyType;
             this.FundOfFundAllocation = fundOfFundAllocation;
             this.Error = error;
         }
@@ -238,7 +148,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
             sb.Append("  InvestmentCriteria: ").Append(InvestmentCriteria).Append("\n");
             sb.Append("  Terms: ").Append(Terms).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
-            sb.Append("  StrategyType: ").Append(StrategyType).Append("\n");
             sb.Append("  FundOfFundAllocation: ").Append(FundOfFundAllocation).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
@@ -322,10 +231,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                     this.Features.Equals(input.Features))
                 ) && 
                 (
-                    this.StrategyType == input.StrategyType ||
-                    this.StrategyType.Equals(input.StrategyType)
-                ) && 
-                (
                     this.FundOfFundAllocation == input.FundOfFundAllocation ||
                     (this.FundOfFundAllocation != null &&
                     this.FundOfFundAllocation.Equals(input.FundOfFundAllocation))
@@ -382,7 +287,6 @@ namespace FactSet.SDK.FactSetPrivateEquityandVentureCapital.Model
                 {
                     hashCode = (hashCode * 59) + this.Features.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.StrategyType.GetHashCode();
                 if (this.FundOfFundAllocation != null)
                 {
                     hashCode = (hashCode * 59) + this.FundOfFundAllocation.GetHashCode();

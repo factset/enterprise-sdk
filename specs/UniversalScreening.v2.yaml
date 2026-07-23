@@ -1,63 +1,61 @@
 components:
   parameters:
     PaginationCursor:
-      description: Paging index (Initial request may omit)
-      in: query
-      name: _paginationCursor
+      description: 'Paging index (Initial request may omit)'
+      in: 'query'
+      name: '_paginationCursor'
       schema:
-        type: integer
-        format: int32
+        type: 'integer'
+        format: 'int32'
         minimum: 0
         default: 0
         example: 0
     PaginationLimit:
-      description: Page size limit (minumum 1000, default 10,000, maximum 100,000)
-      in: query
-      name: _paginationLimit
+      description: 'Page size limit (minumum 1000, default 10,000, maximum 100,000)'
+      in: 'query'
+      name: '_paginationLimit'
       schema:
-        type: integer
-        format: int32
+        type: 'integer'
+        format: 'int32'
         minimum: 1000
         maximum: 100000
         default: 10000
         example: 12345
     ScreenCalcID:
-      description: >-
-        Unique identifier for a job. "Job" refers to a screen calculation or
-        archival.
-      in: path
-      name: id
+      description: 'Unique identifier for a job. "Job" refers to a screen calculation or archival.'
+      in: 'path'
+      name: 'id'
       required: true
       schema:
-        type: string
-        format: uuid
-        example: 123e4567-e89b-12d3-a456-426655440000
+        type: 'string'
+        format: 'uuid'
+        example: '123e4567-e89b-12d3-a456-426655440000'
   requestBodies:
     submitArchiveOFDBRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ScreenArchiveOFDBParameters'
-      description: Data required for an archive to OFDB request
+      description: 'Data required for an archive to OFDB request'
     submitExportRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ScreenExportParameters'
-      description: Data required for an export request
+      description: 'Data required for an export request'
     submitCalcRequest:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ScreenCalcParameters'
-      description: Data required for a calculation request
+      description: 'Data required for a calculation request'
   responses:
     ActiveJobsResponse:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ActiveJobsData'
-      description: ActiveJobsResponse contains id of all of a user's active jobs
+      description: 'ActiveJobsResponse contains id of all of a user''s active jobs'
       headers:
         X-RateLimit-Limit-second:
           $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -74,7 +72,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ResourceStatusResponse'
-      description: Long-running job still in progress
+      description: 'Long-running job still in progress'
       headers:
         Location:
           $ref: '#/components/headers/StatusLocation'
@@ -95,7 +93,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ResourceStatusResponse'
-      description: Job completed
+      description: 'Job completed'
       headers:
         Location:
           $ref: '#/components/headers/ResultsLocation'
@@ -116,7 +114,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/PaginatedCalculationResponse'
-      description: Paginated Screen Results and Metadata
+      description: 'Paginated Screen Results and Metadata'
       headers:
         X-RateLimit-Limit-second:
           $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -142,9 +140,7 @@ components:
         text/plain:
           schema:
             $ref: '#/components/schemas/DatabaseExportResponse'
-      description: >-
-        Body of the requested export file. Content-type will be conditioned on
-        requested export type.
+      description: 'Body of the requested export file. Content-type will be conditioned on requested export type.'
       headers:
         X-RateLimit-Limit-second:
           $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -163,7 +159,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
-      description: Invalid request body.
+      description: 'Invalid request body.'
       headers:
         X-RateLimit-Limit-604800:
           $ref: '#/components/headers/X-RateLimit-Limit-604800'
@@ -180,7 +176,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
-      description: The requested screen could not be opened.
+      description: 'The requested screen could not be opened.'
       headers:
         X-RateLimit-Limit-second:
           $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -197,19 +193,19 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
-      description: Invalid or missing authentication.
+      description: 'Invalid or missing authentication.'
     Error403Response:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
-      description: User is not authorized for this operation.
+      description: 'User is not authorized for this operation.'
     Error404Response:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
-      description: Job ID not found.
+      description: 'Job ID not found.'
       headers:
         X-RateLimit-Limit-second:
           $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -226,7 +222,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
-      description: The results have been fetched for this ID.
+      description: 'The results have been fetched for this ID.'
       headers:
         X-RateLimit-Limit-second:
           $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -243,7 +239,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorArray'
-      description: Too many requests.
+      description: 'Too many requests.'
       headers:
         X-FactSet-Api-Units-Limit:
           $ref: '#/components/headers/X-FactSet-Api-Units-Limit'
@@ -258,21 +254,18 @@ components:
         Retry-After:
           $ref: '#/components/headers/RateLimit-Reset'
     Generic500ErrorResponse:
-      description: Internal Server Error
+      description: 'Internal Server Error'
       headers:
         Request-Key:
-          description: Provide this key when reporting this issue
+          description: 'Provide this key when reporting this issue'
           schema:
-            type: string
+            type: 'string'
     SubmitArchiveOFDBResponse:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResourceStatusResponse'
-      description: >-
-        Successful archive OFDB submission response, returns the job ID unique
-        to this archive and the URL in the Location header to check the status
-        of the archive.
+      description: 'Successful archive OFDB submission response, returns the job ID unique to this archive and the URL in the Location header to check the status of the archive.'
       headers:
         Location:
           $ref: '#/components/headers/StatusLocation'
@@ -295,10 +288,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/SubmitExportResponse'
-      description: >-
-        Successful export submission response, returns the job ID unique to this
-        export and the URL in the Location header to check the status of the
-        export.
+      description: 'Successful export submission response, returns the job ID unique to this export and the URL in the Location header to check the status of the export.'
       headers:
         Location:
           $ref: '#/components/headers/StatusLocation'
@@ -321,10 +311,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ResourceStatusResponse'
-      description: >-
-        Successful calculation submission response, returns the job ID unique to
-        this calculation and the URL in the Location header to check the status
-        of the calculation.
+      description: 'Successful calculation submission response, returns the job ID unique to this calculation and the URL in the Location header to check the status of the calculation.'
       headers:
         Location:
           $ref: '#/components/headers/StatusLocation'
@@ -344,454 +331,337 @@ components:
           $ref: '#/components/headers/RateLimit-Reset'
   schemas:
     ActiveJobsData:
-      description: Object containing active job IDs
+      description: 'Object containing active job IDs'
       properties:
         data:
           $ref: '#/components/schemas/ActiveJobIDs'
-      type: object
+      type: 'object'
     ActiveJobIDs:
       properties:
         id:
-          description: Array of active job IDs associated with the account
+          description: 'Array of active job IDs associated with the account'
           items:
-            type: string
-            format: uuid
-            example: 123e4567-e89b-12d3-a456-426655440000
-          type: array
+            type: 'string'
+            format: 'uuid'
+            example: '123e4567-e89b-12d3-a456-426655440000'
+          type: 'array'
           example:
-            - 123e4567-e89b-12d3-a456-426655440000
-            - 927876ca-2b99-477f-b50c-724e9b808945
-            - 43c51881-2d88-41ad-8aab-da014ec16857
-      description: Array of active job IDs associated with the account
-      type: object
+            - '123e4567-e89b-12d3-a456-426655440000'
+            - '927876ca-2b99-477f-b50c-724e9b808945'
+            - '43c51881-2d88-41ad-8aab-da014ec16857'
+      description: 'Array of active job IDs associated with the account'
+      type: 'object'
     ErrorArray:
-      description: An array of errors
+      description: 'An array of errors'
       properties:
         errors:
           items:
             $ref: '#/components/schemas/ErrorObject'
-          type: array
-          description: Array of Error Objects
+          type: 'array'
+          description: 'Array of Error Objects'
           example:
-            - code: parameterError
-              id: 123e4567-e89b-12d3-a456-426655440001
+            - code: 'parameterError'
+              id: '123e4567-e89b-12d3-a456-426655440001'
               source:
-                parameter: param1
-              title: param1 notFound
-            - code: universal_screening_parameterWarning
-              id: 123e4567-e89b-12d3-a456-426655440002
+                parameter: 'param1'
+              title: 'param1 notFound'
+            - code: 'universal_screening_parameterWarning'
+              id: '123e4567-e89b-12d3-a456-426655440002'
               source:
-                parameter: param2
-              title: The screen you are attempting to open is corrupt.
-      type: object
+                parameter: 'param2'
+              title: 'The screen you are attempting to open is corrupt.'
+      type: 'object'
     ErrorCode:
-      description: Factset API specific error codes
+      description: 'Factset API specific error codes'
       enum:
-        - notAuthenticated
-        - notAuthorized
-        - notFound
-        - endpointNotFound
-        - parameterError
-        - genericServerError
-        - resourceGone
-        - quantityLimitsExceeded
-        - universal_screening_parameterError
-        - universal_screening_parameterWarning
-      type: string
-      example: notAuthenticated
+        - 'notAuthenticated'
+        - 'notAuthorized'
+        - 'notFound'
+        - 'endpointNotFound'
+        - 'parameterError'
+        - 'genericServerError'
+        - 'resourceGone'
+        - 'quantityLimitsExceeded'
+        - 'universal_screening_parameterError'
+        - 'universal_screening_parameterWarning'
+      type: 'string'
+      example: 'notAuthenticated'
     ErrorObject:
       properties:
         code:
           $ref: '#/components/schemas/ErrorCode'
         id:
-          description: >-
-            A unique ID for the occurrence of the error. It is advised to log
-            this code and include it if you contact FactSet support desk.
-          type: string
-          format: uuid
-          example: 123e4567-e89b-12d3-a456-426655440002
+          description: 'A unique ID for the occurrence of the error. It is advised to log this code and include it if you contact FactSet support desk.'
+          type: 'string'
+          format: 'uuid'
+          example: '123e4567-e89b-12d3-a456-426655440002'
         source:
           $ref: '#/components/schemas/ErrorObjectSource'
         title:
-          description: A description of the error
-          type: string
-          example: Parameter Error
-      type: object
-      description: Associated Error Objects
+          description: 'A description of the error'
+          type: 'string'
+          example: 'Parameter Error'
+      type: 'object'
+      description: 'Associated Error Objects'
     ErrorObjectSource:
       properties:
         parameter:
-          description: Param ID
-          type: string
-          example: PARAM1
-      description: >-
-        For errors and warnings found in screens, contains the paramID the
-        error/warning belongs to
-      type: object
+          description: 'Param ID'
+          type: 'string'
+          example: 'PARAM1'
+      description: 'For errors and warnings found in screens, contains the paramID the error/warning belongs to'
+      type: 'object'
     PaginationResponse:
-      description: Information about the paginated data in this response.
+      description: 'Information about the paginated data in this response.'
       properties:
         isEstimatedTotal:
-          description: Denotes if the 'total' property is an estimation
-          type: boolean
+          description: 'Denotes if the ''total'' property is an estimation'
+          type: 'boolean'
           example: true
         next:
-          description: Next cursor to be sent, will be null when there are no more results
-          type: string
+          description: 'Next cursor to be sent, will be null when there are no more results'
+          type: 'string'
           nullable: true
         previous:
-          description: Previous cursor, currently not supported
-          type: string
+          description: 'Previous cursor, currently not supported'
+          type: 'string'
           nullable: true
         total:
-          description: Total number of rows in the screen
-          type: integer
+          description: 'Total number of rows in the screen'
+          type: 'integer'
           example: 2002
-      type: object
+      type: 'object'
     ResourceStatusResponse:
-      description: >-
-        ResourceStatusResponse contains information regarding the status of a
-        long-running job. "Job" refers to a screen calculation, archival, or
-        export.
+      description: 'ResourceStatusResponse contains information regarding the status of a long-running job. "Job" refers to a screen calculation, archival, or export.'
       properties:
         data:
-          description: Information about the status of the long-running job.
+          description: 'Information about the status of the long-running job.'
           properties:
             error:
               $ref: '#/components/schemas/ErrorObject'
             id:
-              description: ID of the submitted job
-              type: string
-              format: uuid
-              example: 123e4567-e89b-12d3-a456-426655440002
+              description: 'ID of the submitted job'
+              type: 'string'
+              format: 'uuid'
+              example: '123e4567-e89b-12d3-a456-426655440002'
             status:
-              description: >-
-                Current status of the job.\
-
-                `queued`: The job has not started.\
-
-                `executing`: The job is in progress.\
-
-                `created`: The job completed successfully.\
-
-                `failed`: The job failed. See the `error` property for more
-                information.\
-
-                `cancelled`: The job was cancelled before it could finish.
-              type: string
+              description: "Current status of the job.\\\n`queued`: The job has not started.\\\n`executing`: The job is in progress.\\\n`created`: The job completed successfully.\\\n`failed`: The job failed. See the `error` property for more information.\\\n`cancelled`: The job was cancelled before it could finish."
+              type: 'string'
               enum:
-                - queued
-                - executing
-                - created
-                - failed
-                - cancelled
-              example: queued
-          type: object
+                - 'queued'
+                - 'executing'
+                - 'created'
+                - 'failed'
+                - 'cancelled'
+              example: 'queued'
+          type: 'object'
           example:
             error:
               $ref: '#/components/examples/errorObjectExample'
-            id: 123e4567-e89b-12d3-a456-426655440000
-            status: queued
-      type: object
+            id: '123e4567-e89b-12d3-a456-426655440000'
+            status: 'queued'
+      type: 'object'
     SubmitExportResponse:
-      description: >-
-        SubmitExportResponse contains information regarding the start of a
-        long-running export job.
+      description: 'SubmitExportResponse contains information regarding the start of a long-running export job.'
       properties:
         data:
-          description: Information about the status of the long-running job.
+          description: 'Information about the status of the long-running job.'
           properties:
             id:
-              description: ID of the submitted job
-              type: string
-              format: uuid
-              example: 123e4567-e89b-12d3-a456-426655440002
+              description: 'ID of the submitted job'
+              type: 'string'
+              format: 'uuid'
+              example: '123e4567-e89b-12d3-a456-426655440002'
             status:
-              description: >-
-                Current status of the job.\
-
-                `queued`: The job has not started.\
-
-                `executing`: The job is in progress.\
-
-                `created`: The job completed successfully.\
-
-                `failed`: The job failed. See the `error` property for more
-                information.\
-
-                `cancelled`: The job was cancelled before it could finish.
-              type: string
+              description: "Current status of the job.\\\n`queued`: The job has not started.\\\n`executing`: The job is in progress.\\\n`created`: The job completed successfully.\\\n`failed`: The job failed. See the `error` property for more information.\\\n`cancelled`: The job was cancelled before it could finish."
+              type: 'string'
               enum:
-                - queued
-                - executing
-                - created
-                - failed
-                - cancelled
-              example: queued
-          type: object
+                - 'queued'
+                - 'executing'
+                - 'created'
+                - 'failed'
+                - 'cancelled'
+              example: 'queued'
+          type: 'object'
           example:
-            id: 123e4567-e89b-12d3-a456-426655440000
-            status: queued
-      type: object
+            id: '123e4567-e89b-12d3-a456-426655440000'
+            status: 'queued'
+      type: 'object'
     ResultsMetadata:
-      description: Metadata containing results pagination information
+      description: 'Metadata containing results pagination information'
       properties:
         pagination:
           $ref: '#/components/schemas/PaginationResponse'
-      type: object
+      type: 'object'
       example:
         pagination:
           $ref: '#/components/examples/paginationResponseExample'
     StachPackage:
-      description: >-
-        Stach v2 column oriented paginated screen results. Documentation
-        https://factset.github.io/stachschema/#/v2/README
-      type: object
+      description: 'Stach v2 column oriented paginated screen results. Documentation https://factset.github.io/stachschema/#/v2/README'
+      type: 'object'
     PaginatedCalculationResponse:
-      description: Paged results from screen calculation
+      description: 'Paged results from screen calculation'
       properties:
         meta:
           $ref: '#/components/schemas/ResultsMetadata'
         data:
           $ref: '#/components/schemas/StachPackage'
-      type: object
+      type: 'object'
     PdfExportResponse:
-      description: Base64 encoded byte-stream of the screen results exported as a PDF file.
-      type: string
-      format: binary
+      description: 'Base64 encoded byte-stream of the screen results exported as a PDF file.'
+      type: 'string'
+      format: 'binary'
     ExcelExportResponse:
-      description: >-
-        Base64 encoded byte-stream of the screen results exported as an Excel
-        file.
-      type: string
-      format: binary
+      description: 'Base64 encoded byte-stream of the screen results exported as an Excel file.'
+      type: 'string'
+      format: 'binary'
     CsvExportResponse:
-      description: Base64 encoded byte-stream of the screen results exported as a CSV file.
-      type: string
-      format: binary
+      description: 'Base64 encoded byte-stream of the screen results exported as a CSV file.'
+      type: 'string'
+      format: 'binary'
     DatabaseExportResponse:
-      description: >-
-        Base64 encoded byte-stream of the screen results exported as a legacy
-        Database file format.
-
-        Additional access required for this format.
-      type: string
-      format: binary
+      description: "Base64 encoded byte-stream of the screen results exported as a legacy Database file format.\nAdditional access required for this format."
+      type: 'string'
+      format: 'binary'
     CalculateMetadata:
-      description: Generic options that can be applied to endpoint output.
-      type: object
+      description: 'Generic options that can be applied to endpoint output.'
+      type: 'object'
       properties:
         sort:
-          description: >-
-            An array of parameter references to sort by to override the sort set
-            in the screen document.
-
-            Format is "#P.<parameter_name>" for ascending sort,
-            "-#P.<parameter_name>" for descending.
-
-            Will sort by references in order of appearance in the provided list,
-            i.e. will sort first by
-
-            the 0th reference, then the 1st reference and so on. Limit of 7
-            references.
+          description: "An array of parameter references to sort by to override the sort set in the screen document.\nFormat is \"#P.<parameter_name>\" for ascending sort, \"-#P.<parameter_name>\" for descending.\nWill sort by references in order of appearance in the provided list, i.e. will sort first by\nthe 0th reference, then the 1st reference and so on. Limit of 7 references."
           example:
             - '#P.P1'
             - '-#P.P2'
-          type: array
+          type: 'array'
           maxItems: 7
           items:
-            type: string
+            type: 'string'
     ScreenArchiveOFDBParameters:
-      description: Request body for screen archive request
+      description: 'Request body for screen archive request'
       properties:
         data:
-          description: Object containing archive request payload
+          description: 'Object containing archive request payload'
           properties:
             archiveOptions:
-              description: Archive-specific parameters
+              description: 'Archive-specific parameters'
               properties:
                 archiveDate:
-                  description: YYYYMMDD date to archive to
-                  type: string
-                  pattern: ^\d{8}$
+                  description: 'YYYYMMDD date to archive to'
+                  type: 'string'
+                  pattern: '^\d{8}$'
                   minLength: 8
                   maxLength: 8
                   example: '20201231'
                   nullable: true
                 archiveType:
-                  description: >-
-                    Type of archive.\
-
-                    `ofdbSymbols`: Archives the list of identifiers that passed
-                    the screen to an OFDB file.\
-
-                    `ofdb`: Archives the results of the screen to a time series
-                    OFDB. A mapping between Universal Screening and the OFDB
-                    must be created and saved in the screen.\
-
-                    `ofdbNts`: Archives the results of the screen to a non-time
-                    series OFDB. A mapping between Universal Screening and the
-                    OFDB database must be created and saved in the screen.\
-
-                    `ofdbQuickNts`: Archives the results of the screen to a
-                    non-time series OFDB without requiring a Universal
-                    Screening-to-OFDB map. By default, all columns in the screen
-                    will be archived to the OFDB. Each column's parameter
-                    reference name will be used as the OFDB field name. Use the
-                    `quickColumns` property to specify which parameters to
-                    archive.
-                  type: string
+                  description: "Type of archive.\\\n`ofdbSymbols`: Archives the list of identifiers that passed the screen to an OFDB file.\\\n`ofdb`: Archives the results of the screen to a time series OFDB. A mapping between Universal Screening and the OFDB must be created and saved in the screen.\\\n`ofdbNts`: Archives the results of the screen to a non-time series OFDB. A mapping between Universal Screening and the OFDB database must be created and saved in the screen.\\\n`ofdbQuickNts`: Archives the results of the screen to a non-time series OFDB without requiring a Universal Screening-to-OFDB map. By default, all columns in the screen will be archived to the OFDB. Each column's parameter reference name will be used as the OFDB field name. Use the `quickColumns` property to specify which parameters to archive."
+                  type: 'string'
                   enum:
-                    - ofdbSymbols
-                    - ofdb
-                    - ofdbNts
-                    - ofdbQuickNts
-                  example: ofdbSymbols
+                    - 'ofdbSymbols'
+                    - 'ofdb'
+                    - 'ofdbNts'
+                    - 'ofdbQuickNts'
+                  example: 'ofdbSymbols'
                 autoSymbolUpdates:
-                  description: Flag to enable automatic symbol updates
-                  type: boolean
+                  description: 'Flag to enable automatic symbol updates'
+                  type: 'boolean'
                   example: true
                 existed:
-                  description: Indicates that the output file exists
-                  type: boolean
+                  description: 'Indicates that the output file exists'
+                  type: 'boolean'
                   example: false
                 filename:
-                  description: OFDB Filename to archive to
-                  type: string
-                  example: personal:/screening_api_example_file.ofdb
+                  description: 'OFDB Filename to archive to'
+                  type: 'string'
+                  example: 'personal:/screening_api_example_file.ofdb'
                 overwriteData:
-                  description: >-
-                    If true and target file (or date for a time series file)
-                    exists, it will be cleared before archiving
-                  type: boolean
+                  description: 'If true and target file (or date for a time series file) exists, it will be cleared before archiving'
+                  type: 'boolean'
                   example: true
                 quickColumns:
-                  description: >-
-                    Space delimited list of parameter references to be archived,
-                    which are UPPERCASED with the #P. omitted
-                  type: string
+                  description: 'Space delimited list of parameter references to be archived, which are UPPERCASED with the #P. omitted'
+                  type: 'string'
                   nullable: true
-                  example: PARAM1 PARAM2
+                  example: 'PARAM1 PARAM2'
                 symbolType:
-                  description: >-
-                    The type of symbol to be saved to the SYMBOL field of the
-                    OFDB\
-
-                    `cusip`: Recommended. Primarily CUSIP for North American
-                    listed securities and SEDOL for the rest of the world.\
-
-                    `ticker`: Should only be used when writing to an existing
-                    OFDB that uses Tickers in the symbol column. Primarily
-                    Tickers for North American listed securities, QUICK Codes
-                    for Japanese listed securities, and SEDOL for the rest of
-                    the world. Applicable for equity screen archives.\
-
-                    `isin`: International Securities Identification Number
-                    (ISIN). Applicable for debt screen archives.
-                  type: string
+                  description: "The type of symbol to be saved to the SYMBOL field of the OFDB\\\n`cusip`: Recommended. Primarily CUSIP for North American listed securities and SEDOL for the rest of the world.\\\n`ticker`: Should only be used when writing to an existing OFDB that uses Tickers in the symbol column. Primarily Tickers for North American listed securities, QUICK Codes for Japanese listed securities, and SEDOL for the rest of the world. Applicable for equity screen archives.\\\n`isin`: International Securities Identification Number (ISIN). Applicable for debt screen archives."
+                  type: 'string'
                   enum:
-                    - cusip
-                    - ticker
-                    - isin
+                    - 'cusip'
+                    - 'ticker'
+                    - 'isin'
                   nullable: true
-                  example: cusip
+                  example: 'cusip'
                 timeSeries:
-                  description: Has no effect. Use the `archiveType` property.
-                  type: boolean
+                  description: 'Has no effect. Use the `archiveType` property.'
+                  type: 'boolean'
                   deprecated: true
                 unsplitHistory:
-                  description: Flag indicating split adjust
-                  type: boolean
+                  description: 'Flag indicating split adjust'
+                  type: 'boolean'
                   example: false
                 useReportOrder:
-                  description: If true, archive in report order
-                  type: boolean
+                  description: 'If true, archive in report order'
+                  type: 'boolean'
                   example: true
               required:
-                - filename
-                - archiveType
-              type: object
+                - 'filename'
+                - 'archiveType'
+              type: 'object'
             backtestDate:
-              description: >-
-                Specifies the backtest date used when running the screen,
-                replacing
-                  the backtest date saved in the screen, can be written in YYYYMMDD,
-                  MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
-                Requires additional access to use.
-              type: string
+              description: "Specifies the backtest date used when running the screen, replacing\n  the backtest date saved in the screen, can be written in YYYYMMDD,\n  MM/DD/YYYY or relative (0, -1, 0/-1/0) format.\nRequires additional access to use."
+              type: 'string'
               nullable: true
               example: '19951203'
             globalVariablesMap:
               additionalProperties:
-                type: string
-              description: >-
-                Modifies existing global variables for this calculation request,
-                temporarily adds them if they do not already exist
-
-                Variable names can only contain the characters A-Z (case
-                insensitive). Variable values must be non-empty.
-              type: object
+                type: 'string'
+              description: "Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist\nVariable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty."
+              type: 'object'
             legacyUniverseType:
-              description: >-
-                Universe type to open a Screen 1.0 document with\
-
-                `equity`: Uses the equity universe from the Screen 1.0
-                document.\
-
-                `debt`: Uses the debt universe from the Screen 1.0 document.\
-
-                `fund`: Uses the fund universe from the Screen 1.0 document.
-              type: string
+              description: "Universe type to open a Screen 1.0 document with\\\n`equity`: Uses the equity universe from the Screen 1.0 document.\\\n`debt`: Uses the debt universe from the Screen 1.0 document.\\\n`fund`: Uses the fund universe from the Screen 1.0 document."
+              type: 'string'
               enum:
-                - equity
-                - debt
-                - fund
-              default: equity
+                - 'equity'
+                - 'debt'
+                - 'fund'
+              default: 'equity'
               nullable: true
-              example: equity
+              example: 'equity'
             screenName:
-              description: Full file path to a valid screen
-              type: string
-              example: SAMPLE_SCREENS:KPI_AIR.USWEB
+              description: 'Full file path to a valid screen'
+              type: 'string'
+              example: 'SAMPLE_SCREENS:KPI_AIR.USWEB'
           required:
-            - screenName
-          type: object
+            - 'screenName'
+          type: 'object'
       required:
-        - data
-      type: object
+        - 'data'
+      type: 'object'
     ScreenExportParameters:
-      description: >-
-        Request body to calculate and then export a screen to a specified file
-        format.
+      description: 'Request body to calculate and then export a screen to a specified file format.'
       properties:
         meta:
           $ref: '#/components/schemas/CalculateMetadata'
         data:
-          description: Object containing screen and export data
+          description: 'Object containing screen and export data'
           properties:
             screenName:
-              description: File path to a valid screen
-              type: string
-              example: SAMPLE_SCREENS:KPI_AIR.USWEB
+              description: 'File path to a valid screen'
+              type: 'string'
+              example: 'SAMPLE_SCREENS:KPI_AIR.USWEB'
             file:
-              description: Data required for file export.
+              description: 'Data required for file export.'
               properties:
                 type:
-                  description: >-
-                    File format of the export. "text/csv" will ignore custom
-                    delimiters and use commas.
-
-                    For custom delimiters or legacy database type, use
-                    "text/plain".
-                  type: string
+                  description: "File format of the export. \"text/csv\" will ignore custom delimiters and use commas.\nFor custom delimiters or legacy database type, use \"text/plain\"."
+                  type: 'string'
                   enum:
-                    - >-
-                      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-                    - application/pdf
-                    - text/csv
-                    - text/plain
-                  example: >-
-                    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                    - 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                    - 'application/pdf'
+                    - 'text/csv'
+                    - 'text/plain'
+                  example: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
                 excelOptions:
                   $ref: '#/components/schemas/ExcelOptions'
                 delimitedOptions:
@@ -799,511 +669,356 @@ components:
                 pdfOptions:
                   $ref: '#/components/schemas/PdfOptions'
               required:
-                - type
+                - 'type'
             backtestDate:
-              description: >-
-                Specifies the backtest date used when running the screen,
-                replacing the backtest date saved in the screen, can be written
-                in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
-                Requires additional access to use.
-              type: string
+              description: 'Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.'
+              type: 'string'
               nullable: true
               example: '20040412'
             globalVariablesMap:
               additionalProperties:
-                type: string
-              description: >-
-                Modifies existing global variables for this calculation request,
-                temporarily adds them if they do not already exist
-
-                Variable names can only contain the characters A-Z (case
-                insensitive). Variable values must be non-empty.
-              type: object
+                type: 'string'
+              description: "Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist\nVariable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty."
+              type: 'object'
             legacyUniverseType:
-              description: >-
-                Universe type to open a Screen 1.0 document (.usscreen) with\
-
-                `equity`: Uses the equity universe from the Screen 1.0
-                document.\
-
-                `debt`: Uses the debt universe from the Screen 1.0 document.\
-
-                `fund`: Uses the fund universe from the Screen 1.0 document.
-              type: string
+              description: "Universe type to open a Screen 1.0 document (.usscreen) with\\\n`equity`: Uses the equity universe from the Screen 1.0 document.\\\n`debt`: Uses the debt universe from the Screen 1.0 document.\\\n`fund`: Uses the fund universe from the Screen 1.0 document."
+              type: 'string'
               enum:
-                - equity
-                - debt
-                - fund
-              default: equity
+                - 'equity'
+                - 'debt'
+                - 'fund'
+              default: 'equity'
               nullable: true
-              example: equity
+              example: 'equity'
             groupingInfo:
               $ref: '#/components/schemas/GroupingInfo'
           required:
-            - screenName
-            - file
-          type: object
+            - 'screenName'
+            - 'file'
+          type: 'object'
       required:
-        - data
-      type: object
+        - 'data'
+      type: 'object'
     ScreenCalcParameters:
-      description: Request body to calculate a screen.
+      description: 'Request body to calculate a screen.'
       properties:
         meta:
           $ref: '#/components/schemas/CalculateMetadata'
         data:
-          description: Object containing screen data
+          description: 'Object containing screen data'
           properties:
             backtestDate:
-              description: >-
-                Specifies the backtest date used when running the screen,
-                replacing the backtest date saved in the screen, can be written
-                in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format.
-                Requires additional access to use.
-              type: string
+              description: 'Specifies the backtest date used when running the screen, replacing the backtest date saved in the screen, can be written in YYYYMMDD, MM/DD/YYYY or relative (0, -1, 0/-1/0) format. Requires additional access to use.'
+              type: 'string'
               nullable: true
               example: '20040412'
             globalVariablesMap:
               additionalProperties:
-                type: string
-              description: >-
-                Modifies existing global variables for this calculation request,
-                temporarily adds them if they do not already exist
-
-                Variable names can only contain the characters A-Z (case
-                insensitive). Variable values must be non-empty.
-              type: object
+                type: 'string'
+              description: "Modifies existing global variables for this calculation request, temporarily adds them if they do not already exist\nVariable names can only contain the characters A-Z (case insensitive). Variable values must be non-empty."
+              type: 'object'
             legacyUniverseType:
-              description: >-
-                Universe type to open a Screen 1.0 document with\
-
-                `equity`: Uses the equity universe from the Screen 1.0
-                document.\
-
-                `debt`: Uses the debt universe from the Screen 1.0 document.\
-
-                `fund`: Uses the fund universe from the Screen 1.0 document.
-              type: string
+              description: "Universe type to open a Screen 1.0 document with\\\n`equity`: Uses the equity universe from the Screen 1.0 document.\\\n`debt`: Uses the debt universe from the Screen 1.0 document.\\\n`fund`: Uses the fund universe from the Screen 1.0 document."
+              type: 'string'
               enum:
-                - equity
-                - debt
-                - fund
-              default: equity
+                - 'equity'
+                - 'debt'
+                - 'fund'
+              default: 'equity'
               nullable: true
-              example: equity
+              example: 'equity'
             screenName:
-              description: File path to a valid screen
-              type: string
-              example: SAMPLE_SCREENS:KPI_AIR.USWEB
+              description: 'File path to a valid screen'
+              type: 'string'
+              example: 'SAMPLE_SCREENS:KPI_AIR.USWEB'
           required:
-            - screenName
-          type: object
+            - 'screenName'
+          type: 'object'
       required:
-        - data
-      type: object
+        - 'data'
+      type: 'object'
     DelimitedOptions:
-      description: Options applied to delimited output.
-      type: object
+      description: 'Options applied to delimited output.'
+      type: 'object'
       nullable: true
       properties:
         isDatabase:
-          description: >-
-            Output will be returned in a legacy database format.  Will be
-            ignored if file type of "text/csv" is
-
-            requested.  Default is false.  Additional access is required for
-            this format.
-          type: boolean
+          description: "Output will be returned in a legacy database format.  Will be ignored if file type of \"text/csv\" is\nrequested.  Default is false.  Additional access is required for this format."
+          type: 'boolean'
           example: true
           default: false
         delimiter:
-          description: >-
-            Specifies the delimiter used between each data point.  A comma is
-            the default delimiter;
-
-            if this argument is not specified, a comma delimiter will be used. 
-            If the file type of
-
-            "text/csv" is requested, this field will be ignored and a comma will
-            be used.
-          type: string
+          description: "Specifies the delimiter used between each data point.  A comma is the default delimiter;\nif this argument is not specified, a comma delimiter will be used.  If the file type of\n\"text/csv\" is requested, this field will be ignored and a comma will be used."
+          type: 'string'
           example: '|'
           default: ','
           nullable: true
         hideHeaderRows:
-          description: >-
-            Specifies whether column column headers should be included in the
-            output. By default,
-
-            the option is set to true.
-          type: boolean
+          description: "Specifies whether column column headers should be included in the output. By default,\nthe option is set to true."
+          type: 'boolean'
           example: false
           default: true
           nullable: true
         applyQuotedStrings:
-          description: |-
-            Specifies whether textual data should have quotes around it
-            (i.e., true will include quotes around textual values). By default,
-            the option is set to true.
-          type: boolean
+          description: "Specifies whether textual data should have quotes around it\n(i.e., true will include quotes around textual values). By default,\nthe option is set to true."
+          type: 'boolean'
           example: false
           default: true
           nullable: true
         applySavedNAFormatting:
-          description: >-
-            Specifies that the NA formatting specified in the column format menu
-            will be used to
-
-            indicate unavailable data in your output. By default, this option is
-            set to false,
-
-            which means "NA" will be used to indicate the data that is not
-            available.
-          type: boolean
+          description: "Specifies that the NA formatting specified in the column format menu will be used to\nindicate unavailable data in your output. By default, this option is set to false,\nwhich means \"NA\" will be used to indicate the data that is not available."
+          type: 'boolean'
           default: false
           example: true
           nullable: true
         applyFilters:
-          description: >-
-            Specifies whether the filters present in the screen should be
-            applied to the output.
-
-            By default, this option is set to false, which means that filters
-            will not be applied
-
-            and all securities passing the screen will be included in the
-            output.
-          type: boolean
+          description: "Specifies whether the filters present in the screen should be applied to the output.\nBy default, this option is set to false, which means that filters will not be applied\nand all securities passing the screen will be included in the output."
+          type: 'boolean'
           default: false
           nullable: true
           example: true
     ExcelOptions:
-      description: Options applied to Excel output.
-      type: object
+      description: 'Options applied to Excel output.'
+      type: 'object'
       nullable: true
       properties:
         isSummary:
-          description: >-
-            Specifies that a summary will be generated instead of the full
-            results output.
-
-            Only the "applyFilters" option will have any affect if this is true.
-            By default this
-
-            option is set to false.
-          type: boolean
+          description: "Specifies that a summary will be generated instead of the full results output.\nOnly the \"applyFilters\" option will have any affect if this is true. By default this\noption is set to false."
+          type: 'boolean'
           default: false
           example: false
           nullable: true
         applySavedNAFormatting:
-          description: >-
-            Specifies that the NA formatting specified in the column format menu
-            will be used to
-
-            indicate unavailable data in your output. By default, this option is
-            set to false,
-
-            which means "NA" will be used to indicate the data that is not
-            available.
-          type: boolean
+          description: "Specifies that the NA formatting specified in the column format menu will be used to\nindicate unavailable data in your output. By default, this option is set to false,\nwhich means \"NA\" will be used to indicate the data that is not available."
+          type: 'boolean'
           default: false
           example: true
           nullable: true
         applyFilters:
-          description: >-
-            Specifies whether the filters present in the screen should be
-            applied to the output.
-
-            By default, this option is set to false, which means that filters
-            will not be applied
-
-            and all securities passing the screen will be included in the
-            output.
-          type: boolean
+          description: "Specifies whether the filters present in the screen should be applied to the output.\nBy default, this option is set to false, which means that filters will not be applied\nand all securities passing the screen will be included in the output."
+          type: 'boolean'
           default: false
           example: false
           nullable: true
         applyAlternateRowShading:
-          description: >-
-            Specifies whether every other row shading should be applied to the
-            output. By default,
-
-            this option is set to false, which means that every other row
-            shading will not be included
-
-            in the download.
-          type: boolean
+          description: "Specifies whether every other row shading should be applied to the output. By default,\nthis option is set to false, which means that every other row shading will not be included\nin the download."
+          type: 'boolean'
           default: false
           example: true
           nullable: true
         applyExcelOutlining:
-          description: >-
-            Specifies that the Download Outline feature will be used when
-            putting the screen's groupings
-
-            into an Excel spreadsheet. By default, this option is set to false.
-          type: boolean
+          description: "Specifies that the Download Outline feature will be used when putting the screen's groupings\ninto an Excel spreadsheet. By default, this option is set to false."
+          type: 'boolean'
           default: false
           example: true
           nullable: true
         condenseTabsToOneSheet:
-          description: >-
-            Specifies whether the report will be downloaded into a single
-            spreadsheet, or into separate
-
-            sheets following the tabs in the report. By default, this option is
-            set to false.
-          type: boolean
+          description: "Specifies whether the report will be downloaded into a single spreadsheet, or into separate\nsheets following the tabs in the report. By default, this option is set to false."
+          type: 'boolean'
           default: false
           example: false
           nullable: true
         customTitle:
-          description: Sets a custom title for the download.
-          type: string
-          example: Custom Title
+          description: 'Sets a custom title for the download.'
+          type: 'string'
+          example: 'Custom Title'
           nullable: true
         customSubtitle:
-          description: Sets a custom subtitle for the download.
-          type: string
-          example: Custom Subtitle
+          description: 'Sets a custom subtitle for the download.'
+          type: 'string'
+          example: 'Custom Subtitle'
           nullable: true
     PdfOptions:
-      description: Options applied to PDF output.
-      type: object
+      description: 'Options applied to PDF output.'
+      type: 'object'
       nullable: true
       properties:
         applyAlternateRowShading:
-          description: >-
-            Specifies whether every other row shading should be applied to the
-            output. By default,
-
-            this option is set to false, which means that every other row
-            shading will not be included
-
-            in the download.
-          type: boolean
+          description: "Specifies whether every other row shading should be applied to the output. By default,\nthis option is set to false, which means that every other row shading will not be included\nin the download."
+          type: 'boolean'
           default: false
           example: true
           nullable: true
         applyFilters:
-          description: >-
-            Specifies whether the filters present in the screen should be
-            applied to the output.
-
-            By default, this option is set to false, which means that filters
-            will not be applied
-
-            and all securities passing the screen will be included in the
-            output.
-          type: boolean
+          description: "Specifies whether the filters present in the screen should be applied to the output.\nBy default, this option is set to false, which means that filters will not be applied\nand all securities passing the screen will be included in the output."
+          type: 'boolean'
           default: false
           example: false
           nullable: true
         applyTextWrapping:
-          description: >-
-            Specifies that the text in cells be wrapped if there are more
-            characters than can fit in
-
-            the space available. By default, this option is set to true.
-          type: boolean
+          description: "Specifies that the text in cells be wrapped if there are more characters than can fit in\nthe space available. By default, this option is set to true."
+          type: 'boolean'
           default: true
           example: true
           nullable: true
         orientationLandscape:
-          description: >-
-            Specifies the page orientation of the downloaded file. Value true
-            for Landscape, false
-
-            for Portrait. By default this is set to false.
-          type: boolean
+          description: "Specifies the page orientation of the downloaded file. Value true for Landscape, false\nfor Portrait. By default this is set to false."
+          type: 'boolean'
           default: false
           example: true
           nullable: true
         customTitle:
-          description: Sets a custom title for the download.
-          type: string
-          example: Custom Title
+          description: 'Sets a custom title for the download.'
+          type: 'string'
+          example: 'Custom Title'
           nullable: true
         customSubtitle:
-          description: Sets a custom subtitle for the download.
-          type: string
-          example: Custom Subtitle
+          description: 'Sets a custom subtitle for the download.'
+          type: 'string'
+          example: 'Custom Subtitle'
           nullable: true
     GroupingInfo:
-      description: Options for setting and displaying groups
-      type: object
+      description: 'Options for setting and displaying groups'
+      type: 'object'
       nullable: true
       properties:
         groupingState:
-          description: >-
-            Controls whether security data will be displayed or suppressed in
-            the report output. The argument option specified will overwrite any
-            group state saved in the screen.
-
-            SHOW_ALL_GROUPS - No security data is displayed. Only group titles,
-            group statistics, and overall statistics are visible.
-
-            COLLAPSE_ALL - Only the highest-level group and overall statistics
-            are visible.
-
-            EXPAND_ALL - Security data is displayed, along with all group
-            titles, group statistics, and overall statistics.
-          type: string
+          description: "Controls whether security data will be displayed or suppressed in the report output. The argument option specified will overwrite any group state saved in the screen.\nSHOW_ALL_GROUPS - No security data is displayed. Only group titles, group statistics, and overall statistics are visible.\nCOLLAPSE_ALL - Only the highest-level group and overall statistics are visible.\nEXPAND_ALL - Security data is displayed, along with all group titles, group statistics, and overall statistics."
+          type: 'string'
           enum:
-            - SHOW_ALL_GROUPS
-            - COLLAPSE_ALL
-            - EXPAND_ALL
+            - 'SHOW_ALL_GROUPS'
+            - 'COLLAPSE_ALL'
+            - 'EXPAND_ALL'
           nullable: true
-          example: EXPAND_ALL
+          example: 'EXPAND_ALL'
         customGrouping:
-          description: >-
-            Specifies parameters to be used as the grouping for the securities
-            in your screen. The grouping specified will replace all groupings
-            saved in the screen. Limit of 7 parameters.
+          description: 'Specifies parameters to be used as the grouping for the securities in your screen. The grouping specified will replace all groupings saved in the screen. Limit of 7 parameters.'
           items:
-            type: string
-            example: MY_SECTOR
+            type: 'string'
+            example: 'MY_SECTOR'
           maxItems: 7
-          type: array
+          type: 'array'
           example:
-            - MY_SECTOR
-            - MY_INDUSTRY
+            - 'MY_SECTOR'
+            - 'MY_INDUSTRY'
   headers:
     StatusLocation:
-      description: Relative location to poll for job status
+      description: 'Relative location to poll for job status'
       schema:
-        type: string
-        example: /v2/job/123e4567-e89b-12d3-a456-426655440000/status
+        type: 'string'
+        example: '/v2/job/123e4567-e89b-12d3-a456-426655440000/status'
     ResultsLocation:
-      description: Relative location to pick up screen results, calculate route only
+      description: 'Relative location to pick up screen results, calculate route only'
       schema:
-        type: string
-        example: /v2/job/123e4567-e89b-12d3-a456-426655440000
+        type: 'string'
+        example: '/v2/job/123e4567-e89b-12d3-a456-426655440000'
     X-FactSet-Api-PickUp-Progress:
-      description: Long-running operation progress
+      description: 'Long-running operation progress'
       schema:
-        type: string
-        example: 5/9
+        type: 'string'
+        example: '5/9'
     X-FactSet-Api-PickUp-Progress-Complete:
-      description: Long-running operation progress
+      description: 'Long-running operation progress'
       schema:
-        type: string
-        example: 9/9
+        type: 'string'
+        example: '9/9'
     X-FactSet-Api-Units-Limit:
-      description: Maximum number of concurrent jobs.
+      description: 'Maximum number of concurrent jobs.'
       schema:
-        type: string
+        type: 'string'
         example: '3'
     X-FactSet-Api-Units-Remaining:
-      description: Number of available concurrent jobs.
+      description: 'Number of available concurrent jobs.'
       schema:
-        type: string
+        type: 'string'
         example: '1'
     X-RateLimit-Limit-second:
-      description: Number of allowed requests per second.
+      description: 'Number of allowed requests per second.'
       schema:
-        type: string
+        type: 'string'
         example: '20'
     X-RateLimit-Remaining-second:
-      description: Number of remaining requests per second.
+      description: 'Number of remaining requests per second.'
       schema:
-        type: string
+        type: 'string'
         example: '15'
     X-RateLimit-Limit-604800:
-      description: Number of weekly jobs allowed.
+      description: 'Number of weekly jobs allowed.'
       schema:
-        type: string
+        type: 'string'
         example: '10'
     X-RateLimit-Remaining-604800:
-      description: Number of remaining weekly jobs.
+      description: 'Number of remaining weekly jobs.'
       schema:
-        type: string
+        type: 'string'
         example: '5'
     RateLimit-Limit:
-      description: Number of allowed requests for the time window.
+      description: 'Number of allowed requests for the time window.'
       schema:
-        type: string
+        type: 'string'
         example: '20'
     RateLimit-Remaining:
-      description: Number of remaining requests for the time window.
+      description: 'Number of remaining requests for the time window.'
       schema:
-        type: string
+        type: 'string'
         example: '15'
     RateLimit-Reset:
-      description: Time, in seconds, until the rate limit resets.
+      description: 'Time, in seconds, until the rate limit resets.'
       schema:
-        type: string
+        type: 'string'
         example: '1'
     Content-Disposition:
-      description: >-
-        Specifies response has an attachment and the filename with extension
-        that will match the content-type.
+      description: 'Specifies response has an attachment and the filename with extension that will match the content-type.'
       schema:
-        type: string
-        example: attachment; filename="KPI_AIR.pdf"
+        type: 'string'
+        example: 'attachment; filename="KPI_AIR.pdf"'
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   examples:
     errorObjectSourceExample:
       value:
-        parameter: param1
+        parameter: 'param1'
     errorObjectExample:
       value:
-        code: parameterError
-        id: 123e4567-e89b-12d3-a456-426655440001
+        code: 'parameterError'
+        id: '123e4567-e89b-12d3-a456-426655440001'
         source:
           $ref: '#/components/examples/errorObjectSourceExample'
-        title: param1 notFound
+        title: 'param1 notFound'
     paginationResponseExample:
       value:
         isEstimatedTotal: true
-        next: nextCursorSent
+        next: 'nextCursorSent'
         prev: null
         total: 98
 info:
-  description: >-
-    Through the Universal Screening API, you can access the power of FactSet's
-    Universal Screening Application.
-
-    Calculate and return the results of your saved Universal Screens.
-  title: Universal Screening API
-  version: 2.0.2
+  description: "Through the Universal Screening API, you can access the power of FactSet's Universal Screening Application.\nCalculate and return the results of your saved Universal Screens."
+  title: 'Universal Screening API'
+  version: '2.0.2'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
-openapi: 3.0.2
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+openapi: '3.0.2'
 servers:
-  - url: https://api.factset.com/universal-screening/v2
+  - url: 'https://api.factset.com/universal-screening/v2'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 externalDocs:
-  description: API Documentation
-  url: https://developer.factset.com/api-catalog/universal-screening-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/universal-screening-api'
 tags:
-  - name: Screening Operations
-    description: >-
-      Routes related to submitting, polling, or picking up results for Screening
-      operations.
-  - name: Job Management
-    description: Routes related to managing long-running jobs.
+  - name: 'Screening Operations'
+    description: 'Routes related to submitting, polling, or picking up results for Screening operations.'
+  - name: 'Job Management'
+    description: 'Routes related to managing long-running jobs.'
 paths:
   /job/archive:
     post:
-      description: Begins archive of screen to OFDB. Subject to rate limiting by serial.
-      operationId: submitArchiveOFDB
+      description: 'Begins archive of screen to OFDB. Subject to rate limiting by serial.'
+      operationId: 'submitArchiveOFDB'
       requestBody:
         $ref: '#/components/requestBodies/submitArchiveOFDBRequest'
       responses:
@@ -1318,13 +1033,11 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Screening Operations
+        - 'Screening Operations'
   /job/export:
     post:
-      description: >-
-        Begins the calculate and export of screen to specified file format.
-        Subject to rate limiting by serial.
-      operationId: submitExport
+      description: 'Begins the calculate and export of screen to specified file format. Subject to rate limiting by serial.'
+      operationId: 'submitExport'
       requestBody:
         $ref: '#/components/requestBodies/submitExportRequest'
       responses:
@@ -1339,11 +1052,11 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Screening Operations
+        - 'Screening Operations'
   /job/calculate:
     post:
-      description: Begins calculation of screen. Subject to rate limiting by serial.
-      operationId: submitCalculate
+      description: 'Begins calculation of screen. Subject to rate limiting by serial.'
+      operationId: 'submitCalculate'
       requestBody:
         $ref: '#/components/requestBodies/submitCalcRequest'
       responses:
@@ -1358,11 +1071,11 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Screening Operations
+        - 'Screening Operations'
   /job/{id}/status:
     get:
-      description: Polls the job with a given screen ID and returns job status
-      operationId: pollCalculate
+      description: 'Polls the job with a given screen ID and returns job status'
+      operationId: 'pollCalculate'
       parameters:
         - $ref: '#/components/parameters/ScreenCalcID'
       responses:
@@ -1383,13 +1096,11 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Screening Operations
+        - 'Screening Operations'
   /jobs:
     get:
-      description: >-
-        Retrieve list of all active job ids started by requester's
-        username-serial
-      operationId: getAllActiveJobs
+      description: 'Retrieve list of all active job ids started by requester''s username-serial'
+      operationId: 'getAllActiveJobs'
       responses:
         '200':
           $ref: '#/components/responses/ActiveJobsResponse'
@@ -1402,13 +1113,13 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Job Management
+        - 'Job Management'
     delete:
-      description: Delete all active jobs started by the requester's username-serial
-      operationId: deleteAllActiveJobs
+      description: 'Delete all active jobs started by the requester''s username-serial'
+      operationId: 'deleteAllActiveJobs'
       responses:
         '204':
-          description: No content
+          description: 'No content'
           headers:
             X-RateLimit-Limit-second:
               $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -1429,16 +1140,16 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Job Management
+        - 'Job Management'
   /job/{id}:
     delete:
-      description: Delete a specified job started by the requester's username-serial
-      operationId: deleteActiveJob
+      description: 'Delete a specified job started by the requester''s username-serial'
+      operationId: 'deleteActiveJob'
       parameters:
         - $ref: '#/components/parameters/ScreenCalcID'
       responses:
         '204':
-          description: No content
+          description: 'No content'
           headers:
             X-RateLimit-Limit-second:
               $ref: '#/components/headers/X-RateLimit-Limit-second'
@@ -1459,14 +1170,10 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Job Management
+        - 'Job Management'
     get:
-      description: >-
-        Retrieve results of complete screen calculation. Screens with more than
-        10,000 rows will be returned in a paginated format. Results may be
-        fetched in pages of 1,000 - 100,000 results with 10,000 being the
-        default page size.
-      operationId: getCalculateResults
+      description: 'Retrieve results of complete screen calculation. Screens with more than 10,000 rows will be returned in a paginated format. Results may be fetched in pages of 1,000 - 100,000 results with 10,000 being the default page size.'
+      operationId: 'getCalculateResults'
       parameters:
         - $ref: '#/components/parameters/ScreenCalcID'
         - $ref: '#/components/parameters/PaginationLimit'
@@ -1491,11 +1198,11 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Screening Operations
+        - 'Screening Operations'
   /job/{id}/export:
     get:
-      description: Retrieve results of an export request.
-      operationId: getExportResults
+      description: 'Retrieve results of an export request.'
+      operationId: 'getExportResults'
       parameters:
         - $ref: '#/components/parameters/ScreenCalcID'
       responses:
@@ -1518,4 +1225,4 @@ paths:
         '500':
           $ref: '#/components/responses/Generic500ErrorResponse'
       tags:
-        - Screening Operations
+        - 'Screening Operations'

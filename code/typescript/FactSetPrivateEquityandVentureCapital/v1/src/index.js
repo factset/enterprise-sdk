@@ -48,7 +48,6 @@ import FundSummary from './model/FundSummary';
 import FundraisingRound from './model/FundraisingRound';
 import GPDetail from './model/GPDetail';
 import GPDetailFeatures from './model/GPDetailFeatures';
-import GPDetailInvestmentCriteria from './model/GPDetailInvestmentCriteria';
 import GPDetailsResponse from './model/GPDetailsResponse';
 import GPFund from './model/GPFund';
 import GPFundsResponse from './model/GPFundsResponse';
@@ -342,12 +341,6 @@ export {
      * @property {module:model/GPDetailFeatures}
      */
     GPDetailFeatures,
-
-    /**
-     * The GPDetailInvestmentCriteria model constructor.
-     * @property {module:model/GPDetailInvestmentCriteria}
-     */
-    GPDetailInvestmentCriteria,
 
     /**
      * The GPDetailsResponse model constructor.

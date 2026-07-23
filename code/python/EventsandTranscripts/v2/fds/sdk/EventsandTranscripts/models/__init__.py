@@ -82,3 +82,4 @@ from fds.sdk.EventsandTranscripts.model.transcripts_request_meta import Transcri
 from fds.sdk.EventsandTranscripts.model.transcripts_request_meta_pagination import TranscriptsRequestMetaPagination
 from fds.sdk.EventsandTranscripts.model.transcripts_response import TranscriptsResponse
 from fds.sdk.EventsandTranscripts.model.transcripts_response_data import TranscriptsResponseData
+from fds.sdk.EventsandTranscripts.model.transcripts_result import TranscriptsResult

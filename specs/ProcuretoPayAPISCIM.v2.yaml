@@ -1,59 +1,57 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  title: FactSet SCIM API
-  version: 2.7.0
+  title: 'FactSet SCIM API'
+  version: '2.7.0'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
-  description: FactSet's SCIM API implementation.
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
+  description: 'FactSet''s SCIM API implementation.'
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
 servers:
-  - url: https://api.factset.com/scim/v2
-    description: Production environment
-  - url: https://api.uat.factset.com/scim/v2
-    description: UAT environment
+  - url: 'https://api.factset.com/scim/v2'
+    description: 'Production environment'
+  - url: 'https://api.uat.factset.com/scim/v2'
+    description: 'UAT environment'
 externalDocs:
-  description: API Documentation
-  url: https://developer.factset.com/api-catalog/procure-to-pay-api-scim
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/procure-to-pay-api-scim'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 tags:
-  - name: Service provider configuration
-    description: View the capabilities of the FactSet SCIM API.
-  - name: Schemas
-    description: View the schemas supported by the FactSet SCIM API.
-  - name: Users
-    description: View, create, replace, modify, or delete FactSet user accounts.
-  - name: Groups
-    description: View, replace, or modify FactSet user groups.
-  - name: Locations
-    description: View, create, replace, or modify FactSet location data.
-  - name: FirmDescriptions
-    description: View FactSet firm descriptions.
-  - name: UserClasses
-    description: View FactSet user classes.
-  - name: UserPositions
-    description: View FactSet user positions.
-  - name: Products
-    description: View FactSet products.
-  - name: Federations
-    description: View, replace, or modify FactSet federations.
-  - name: FileManagerAudit
-    description: View FactSet file manager data.
+  - name: 'Service provider configuration'
+    description: 'View the capabilities of the FactSet SCIM API.'
+  - name: 'Schemas'
+    description: 'View the schemas supported by the FactSet SCIM API.'
+  - name: 'Users'
+    description: 'View, create, replace, modify, or delete FactSet user accounts.'
+  - name: 'Groups'
+    description: 'View, replace, or modify FactSet user groups.'
+  - name: 'Locations'
+    description: 'View, create, replace, or modify FactSet location data.'
+  - name: 'FirmDescriptions'
+    description: 'View FactSet firm descriptions.'
+  - name: 'UserClasses'
+    description: 'View FactSet user classes.'
+  - name: 'UserPositions'
+    description: 'View FactSet user positions.'
+  - name: 'Products'
+    description: 'View FactSet products.'
+  - name: 'Federations'
+    description: 'View, replace, or modify FactSet federations.'
+  - name: 'FileManagerAudit'
+    description: 'View FactSet file manager data.'
 paths:
   /ServiceProviderConfig:
     get:
       tags:
-        - Service provider configuration
-      summary: Get service provider configuration.
-      description: >-
-        Get service provider configuration, which describes the SCIM
-        specification features available. See RFC 7644 section 4.
-      operationId: getServiceProviderConfig
+        - 'Service provider configuration'
+      summary: 'Get service provider configuration.'
+      description: 'Get service provider configuration, which describes the SCIM specification features available. See RFC 7644 section 4.'
+      operationId: 'getServiceProviderConfig'
       responses:
         '200':
           $ref: '#/components/responses/serviceProviderConfigSuccess'
@@ -66,10 +64,10 @@ paths:
   /Schemas:
     get:
       tags:
-        - Schemas
-      summary: Get a list of schemas.
-      description: Get a list of supported resource schemas. See RFC 7644 section 4.
-      operationId: getSchemas
+        - 'Schemas'
+      summary: 'Get a list of schemas.'
+      description: 'Get a list of supported resource schemas. See RFC 7644 section 4.'
+      operationId: 'getSchemas'
       parameters:
         - $ref: '#/components/parameters/startIndex'
         - $ref: '#/components/parameters/count'
@@ -87,10 +85,10 @@ paths:
   /Schemas/{id}:
     get:
       tags:
-        - Schemas
-      summary: Get a schema.
-      description: Get a specific schema. See RFC 7643 section 7.
-      operationId: getSchema
+        - 'Schemas'
+      summary: 'Get a schema.'
+      description: 'Get a specific schema. See RFC 7643 section 7.'
+      operationId: 'getSchema'
       parameters:
         - $ref: '#/components/parameters/resourceId'
       responses:
@@ -99,17 +97,15 @@ paths:
         '401':
           $ref: '#/components/responses/unauthorizedError'
         '404':
-          description: Schema not found.
+          description: 'Schema not found.'
           content:
             application/scim+json:
               schema:
                 $ref: '#/components/schemas/Error'
               example:
                 schemas:
-                  - urn:ietf:params:scim:api:messages:2.0:Error
-                detail: >-
-                  Schema urn:scim:schemas:extension:FactSet:Core:1.0:User not
-                  found
+                  - 'urn:ietf:params:scim:api:messages:2.0:Error'
+                detail: 'Schema urn:scim:schemas:extension:FactSet:Core:1.0:User not found'
                 status: '404'
         '429':
           $ref: '#/components/responses/tooManyRequestsError'
@@ -118,10 +114,10 @@ paths:
   /Users:
     get:
       tags:
-        - Users
-      summary: Get a list of users.
-      description: Get a list of user resources.
-      operationId: getUsers
+        - 'Users'
+      summary: 'Get a list of users.'
+      description: 'Get a list of user resources.'
+      operationId: 'getUsers'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/sortBy'
@@ -146,10 +142,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     post:
       tags:
-        - Users
-      summary: Create a user.
-      description: Create a user resource.
-      operationId: createUser
+        - 'Users'
+      summary: 'Create a user.'
+      description: 'Create a user resource.'
+      operationId: 'createUser'
       parameters:
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
@@ -172,10 +168,10 @@ paths:
   /Users/{id}:
     get:
       tags:
-        - Users
-      summary: Get a user.
-      description: Get a specific user resource.
-      operationId: getUser
+        - 'Users'
+      summary: 'Get a user.'
+      description: 'Get a specific user resource.'
+      operationId: 'getUser'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -196,10 +192,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     put:
       tags:
-        - Users
-      summary: Replace a user.
-      description: Replace a specific user resource with another provided user resource.
-      operationId: replaceUser
+        - 'Users'
+      summary: 'Replace a user.'
+      description: 'Replace a specific user resource with another provided user resource.'
+      operationId: 'replaceUser'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -224,12 +220,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     patch:
       tags:
-        - Users
-      summary: Patch a user.
-      description: >-
-        Modify a specific user resource (i.e. add, replace, or remove attributes
-        of a user resource.)
-      operationId: modifyUser
+        - 'Users'
+      summary: 'Patch a user.'
+      description: 'Modify a specific user resource (i.e. add, replace, or remove attributes of a user resource.)'
+      operationId: 'modifyUser'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -254,15 +248,15 @@ paths:
           $ref: '#/components/responses/notImplementedError'
     delete:
       tags:
-        - Users
-      summary: Delete a user.
-      description: Delete a specific user resource.
-      operationId: deleteUser
+        - 'Users'
+      summary: 'Delete a user.'
+      description: 'Delete a specific user resource.'
+      operationId: 'deleteUser'
       parameters:
         - $ref: '#/components/parameters/resourceId'
       responses:
         '204':
-          description: User successfully deleted.
+          description: 'User successfully deleted.'
         '401':
           $ref: '#/components/responses/unauthorizedError'
         '403':
@@ -276,10 +270,10 @@ paths:
   /Groups:
     get:
       tags:
-        - Groups
-      summary: Get a list of groups.
-      description: Get a list of group resources.
-      operationId: getGroups
+        - 'Groups'
+      summary: 'Get a list of groups.'
+      description: 'Get a list of group resources.'
+      operationId: 'getGroups'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/sortBy'
@@ -305,10 +299,10 @@ paths:
   /Group/{id}:
     get:
       tags:
-        - Groups
-      summary: Get a group.
-      description: Get a specific group resource.
-      operationId: getGroup
+        - 'Groups'
+      summary: 'Get a group.'
+      description: 'Get a specific group resource.'
+      operationId: 'getGroup'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -329,10 +323,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     put:
       tags:
-        - Groups
-      summary: Replace a group.
-      description: Replace a specific group resource with another provided group resource.
-      operationId: replaceGroup
+        - 'Groups'
+      summary: 'Replace a group.'
+      description: 'Replace a specific group resource with another provided group resource.'
+      operationId: 'replaceGroup'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -357,12 +351,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     patch:
       tags:
-        - Groups
-      summary: Patch a group.
-      description: >-
-        Modify a specific group resource (i.e. add, replace, or remove
-        attributes of a group resource.)
-      operationId: modifyGroup
+        - 'Groups'
+      summary: 'Patch a group.'
+      description: 'Modify a specific group resource (i.e. add, replace, or remove attributes of a group resource.)'
+      operationId: 'modifyGroup'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -388,10 +380,10 @@ paths:
   /Locations:
     get:
       tags:
-        - Locations
-      summary: Get a list of locations.
-      description: Get a list of location resources.
-      operationId: getLocations
+        - 'Locations'
+      summary: 'Get a list of locations.'
+      description: 'Get a list of location resources.'
+      operationId: 'getLocations'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/sortBy'
@@ -416,10 +408,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     post:
       tags:
-        - Locations
-      summary: Create a location.
-      description: Create a location resource.
-      operationId: createLocation
+        - 'Locations'
+      summary: 'Create a location.'
+      description: 'Create a location resource.'
+      operationId: 'createLocation'
       parameters:
         - $ref: '#/components/parameters/attributes'
         - $ref: '#/components/parameters/excludedAttributes'
@@ -442,10 +434,10 @@ paths:
   /Locations/{id}:
     get:
       tags:
-        - Locations
-      summary: Get a location.
-      description: Get a specific location resource.
-      operationId: getLocation
+        - 'Locations'
+      summary: 'Get a location.'
+      description: 'Get a specific location resource.'
+      operationId: 'getLocation'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -466,12 +458,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     put:
       tags:
-        - Locations
-      summary: Replace a location.
-      description: >-
-        Replace a specific location resource with another provided location
-        resource.
-      operationId: replaceLocation
+        - 'Locations'
+      summary: 'Replace a location.'
+      description: 'Replace a specific location resource with another provided location resource.'
+      operationId: 'replaceLocation'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -496,12 +486,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     patch:
       tags:
-        - Locations
-      summary: Patch a location.
-      description: >-
-        Modify a specific location resource (i.e. add, replace, or remove
-        attributes of a location resource.)
-      operationId: modifyLocation
+        - 'Locations'
+      summary: 'Patch a location.'
+      description: 'Modify a specific location resource (i.e. add, replace, or remove attributes of a location resource.)'
+      operationId: 'modifyLocation'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -527,10 +515,10 @@ paths:
   /FirmDescriptions:
     get:
       tags:
-        - FirmDescriptions
-      summary: Get a list of firm descriptions.
-      description: Get a list of firm description resources.
-      operationId: getFirmDescriptions
+        - 'FirmDescriptions'
+      summary: 'Get a list of firm descriptions.'
+      description: 'Get a list of firm description resources.'
+      operationId: 'getFirmDescriptions'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/sortBy'
@@ -556,10 +544,10 @@ paths:
   /FirmDescriptions/{id}:
     get:
       tags:
-        - FirmDescriptions
-      summary: Get a firm description.
-      description: Get a specific firm description resource.
-      operationId: getFirmDescription
+        - 'FirmDescriptions'
+      summary: 'Get a firm description.'
+      description: 'Get a specific firm description resource.'
+      operationId: 'getFirmDescription'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -581,10 +569,10 @@ paths:
   /UserClasses:
     get:
       tags:
-        - UserClasses
-      summary: Get a list of user classes.
-      description: Get a list of user class resources.
-      operationId: getUserClasses
+        - 'UserClasses'
+      summary: 'Get a list of user classes.'
+      description: 'Get a list of user class resources.'
+      operationId: 'getUserClasses'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/sortBy'
@@ -610,10 +598,10 @@ paths:
   /UserClasses/{id}:
     get:
       tags:
-        - UserClasses
-      summary: Get a user class.
-      description: Get a specific user class resource.
-      operationId: getUserClass
+        - 'UserClasses'
+      summary: 'Get a user class.'
+      description: 'Get a specific user class resource.'
+      operationId: 'getUserClass'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -635,10 +623,10 @@ paths:
   /UserPositions:
     get:
       tags:
-        - UserPositions
-      summary: Get a list of user positions.
-      description: Get a list of user position resources.
-      operationId: getUserPositions
+        - 'UserPositions'
+      summary: 'Get a list of user positions.'
+      description: 'Get a list of user position resources.'
+      operationId: 'getUserPositions'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/sortBy'
@@ -664,10 +652,10 @@ paths:
   /UserPositions/{id}:
     get:
       tags:
-        - UserPositions
-      summary: Get a user position.
-      description: Get a specific user position resource.
-      operationId: getUserPosition
+        - 'UserPositions'
+      summary: 'Get a user position.'
+      description: 'Get a specific user position resource.'
+      operationId: 'getUserPosition'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -689,10 +677,10 @@ paths:
   /Products:
     get:
       tags:
-        - Products
-      summary: Get a list of products.
-      description: Get a list of product resources.
-      operationId: getProducts
+        - 'Products'
+      summary: 'Get a list of products.'
+      description: 'Get a list of product resources.'
+      operationId: 'getProducts'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/sortBy'
@@ -718,10 +706,10 @@ paths:
   /Products/{id}:
     get:
       tags:
-        - Products
-      summary: Get a product.
-      description: Get a specific product resource.
-      operationId: getProduct
+        - 'Products'
+      summary: 'Get a product.'
+      description: 'Get a specific product resource.'
+      operationId: 'getProduct'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -743,10 +731,10 @@ paths:
   /Federations:
     get:
       tags:
-        - Federations
-      summary: Get a list of federations.
-      description: Get a list of federation resources.
-      operationId: getFederations
+        - 'Federations'
+      summary: 'Get a list of federations.'
+      description: 'Get a list of federation resources.'
+      operationId: 'getFederations'
       parameters:
         - $ref: '#/components/parameters/filter'
         - $ref: '#/components/parameters/startIndex'
@@ -770,10 +758,10 @@ paths:
   /Federations/{id}:
     get:
       tags:
-        - Federations
-      summary: Get a federation.
-      description: Get a specific federation resource.
-      operationId: getFederation
+        - 'Federations'
+      summary: 'Get a federation.'
+      description: 'Get a specific federation resource.'
+      operationId: 'getFederation'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -794,12 +782,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     put:
       tags:
-        - Federations
-      summary: Replace a federation.
-      description: >-
-        Replace a specific federation resource with another provided federation
-        resource.
-      operationId: replaceFederation
+        - 'Federations'
+      summary: 'Replace a federation.'
+      description: 'Replace a specific federation resource with another provided federation resource.'
+      operationId: 'replaceFederation'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -824,12 +810,10 @@ paths:
           $ref: '#/components/responses/internalServerError'
     patch:
       tags:
-        - Federations
-      summary: Patch a federation.
-      description: >-
-        Modify a specific federation resource (i.e. add, replace, or remove
-        attributes of a federation resource.)
-      operationId: modifyFederation
+        - 'Federations'
+      summary: 'Patch a federation.'
+      description: 'Modify a specific federation resource (i.e. add, replace, or remove attributes of a federation resource.)'
+      operationId: 'modifyFederation'
       parameters:
         - $ref: '#/components/parameters/resourceId'
         - $ref: '#/components/parameters/attributes'
@@ -853,12 +837,10 @@ paths:
   /FileManagerAudit:
     get:
       tags:
-        - FileManagerAudit
-      summary: Get File Manager audit data.
-      description: >-
-        Get a list of File Manager file paths and associated information, such
-        as user permissions.
-      operationId: getFileManagerAudit
+        - 'FileManagerAudit'
+      summary: 'Get File Manager audit data.'
+      description: 'Get a list of File Manager file paths and associated information, such as user permissions.'
+      operationId: 'getFileManagerAudit'
       responses:
         '200':
           $ref: '#/components/responses/fileManagerAuditSuccess'
@@ -873,138 +855,90 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
   parameters:
     resourceId:
-      name: id
-      description: ID of resource.
-      in: path
+      name: 'id'
+      description: 'ID of resource.'
+      in: 'path'
       schema:
-        type: string
+        type: 'string'
       required: true
     filter:
-      name: filter
-      description: >-
-        Resource filter string. See [RFC 7644 section
-        3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for
-        syntax. Note this API implementation also supports a non-standard "re"
-        operator for regular expression matching against string attributes. When
-        using the "re" operator, do not include slash characters as delimiters
-        (e.g. use "foo" instead of "/foo/".) Also note the case-sensitivity of
-        the regular expression corresponds to the "caseExact" characteristic of
-        the target attribute.
-      in: query
+      name: 'filter'
+      description: 'Resource filter string. See [RFC 7644 section 3.4.2.2](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for syntax. Note this API implementation also supports a non-standard "re" operator for regular expression matching against string attributes. When using the "re" operator, do not include slash characters as delimiters (e.g. use "foo" instead of "/foo/".) Also note the case-sensitivity of the regular expression corresponds to the "caseExact" characteristic of the target attribute.'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
       required: false
     sortBy:
-      name: sortBy
-      description: >-
-        Attribute to be used for sorting resources. See [RFC 7644 section
-        3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The
-        attribute name must be specified in standard attribute notation (see
-        [RFC 7644 section
-        3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use
-        the *sortOrder* parameter to specify whether resources should be sorted
-        in ascending or descending order.
-      in: query
+      name: 'sortBy'
+      description: 'Attribute to be used for sorting resources. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). The attribute name must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) Use the *sortOrder* parameter to specify whether resources should be sorted in ascending or descending order.'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
       required: false
     sortOrder:
-      name: sortOrder
-      description: >-
-        The order by which resources are to be sorted. See [RFC 7644 section
-        3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid
-        values are ''ascending'' (the default value) or ''descending''. This
-        parameter may not be used unless the *sortBy* parameter is also
-        specified.
-      in: query
+      name: 'sortOrder'
+      description: 'The order by which resources are to be sorted. See [RFC 7644 section 3.4.2.3](https://tools.ietf.org/html/rfc7644#section-3.4.2.3). Valid values are ''''ascending'''' (the default value) or ''''descending''''. This parameter may not be used unless the *sortBy* parameter is also specified.'
+      in: 'query'
       schema:
-        type: string
+        type: 'string'
       required: false
     startIndex:
-      name: startIndex
-      description: >-
-        Result start index. The one-based index of the first result to be
-        returned in the list of resources. For example, to exclude the first two
-        resources, use a *startIndex* value of 3. This parameter has a default
-        value of 1. This index applies *after* any resource filtration has been
-        applied as specified by the *filter* argument.
-      in: query
+      name: 'startIndex'
+      description: 'Result start index. The one-based index of the first result to be returned in the list of resources. For example, to exclude the first two resources, use a *startIndex* value of 3. This parameter has a default value of 1. This index applies *after* any resource filtration has been applied as specified by the *filter* argument.'
+      in: 'query'
       schema:
-        type: integer
+        type: 'integer'
       required: false
     count:
-      name: count
-      description: >-
-        Maximum resource count. The server will not return more resources than
-        this value, although it may return fewer.
-      in: query
+      name: 'count'
+      description: 'Maximum resource count. The server will not return more resources than this value, although it may return fewer.'
+      in: 'query'
       schema:
-        type: integer
+        type: 'integer'
       required: false
     attributes:
-      name: attributes
-      description: >-
-        Attribute whitelist filter string. A comma-separated list of resource
-        attribute names to be returned in the response, overriding the set of
-        attributes that would be returned by default. Attribute names must be
-        specified in standard attribute notation (see [RFC 7644 section
-        3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
-        parameter cannot be used with the *excludedAttributes* or
-        *additionalAttributes* parameters.
-      in: query
+      name: 'attributes'
+      description: 'Attribute whitelist filter string. A comma-separated list of resource attribute names to be returned in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *excludedAttributes* or *additionalAttributes* parameters.'
+      in: 'query'
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
       explode: false
       required: false
     excludedAttributes:
-      name: excludedAttributes
-      description: >-
-        Attribute blacklist filter string. A comma-separated list of resource
-        attribute names to be excluded in the response, overriding the set of
-        attributes that would be returned by default. Attribute names must be
-        specified in standard attribute notation (see [RFC 7644 section
-        3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
-        parameter cannot be used with the *attributes* or *additionalAttributes*
-        parameters.
-      in: query
+      name: 'excludedAttributes'
+      description: 'Attribute blacklist filter string. A comma-separated list of resource attribute names to be excluded in the response, overriding the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *additionalAttributes* parameters.'
+      in: 'query'
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
       explode: false
       required: false
     additionalAttributes:
-      name: additionalAttributes
-      description: >-
-        Non-standard attribute filter string. A comma-separated list of resource
-        attribute names to be included in the response, complementing the set of
-        attributes that would be returned by default. Attribute names must be
-        specified in standard attribute notation (see [RFC 7644 section
-        3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This
-        parameter cannot be used with the *attributes* or *excludedAttributes*
-        parameters.
-      in: query
+      name: 'additionalAttributes'
+      description: 'Non-standard attribute filter string. A comma-separated list of resource attribute names to be included in the response, complementing the set of attributes that would be returned by default. Attribute names must be specified in standard attribute notation (see [RFC 7644 section 3.10](https://datatracker.ietf.org/doc/html/rfc7644#section-3.10).) This parameter cannot be used with the *attributes* or *excludedAttributes* parameters.'
+      in: 'query'
       schema:
-        type: array
+        type: 'array'
         items:
-          type: string
+          type: 'string'
       explode: false
       required: false
   requestBodies:
     userResource:
-      description: User resource.
+      description: 'User resource.'
       required: true
       content:
         application/scim+json:
@@ -1014,28 +948,28 @@ components:
             Minimum:
               value:
                 schemas:
-                  - urn:ietf:params:scim:schemas:core:2.0:User
-                  - urn:scim:schemas:extension:FactSet:Core:1.0:User
+                  - 'urn:ietf:params:scim:schemas:core:2.0:User'
+                  - 'urn:scim:schemas:extension:FactSet:Core:1.0:User'
                 name:
-                  familyName: Doe
-                  givenName: John
-                email: jdoe@factset.com
+                  familyName: 'Doe'
+                  givenName: 'John'
+                email: 'jdoe@factset.com'
                 urn:scim:schemas:extension:FactSet:Core:1.0:User:
-                  username: FIN_WEALTH
+                  username: 'FIN_WEALTH'
                   location:
                     value: '1598276'
             Expanded:
               value:
                 schemas:
-                  - urn:ietf:params:scim:schemas:core:2.0:User
-                  - urn:scim:schemas:extension:FactSet:Core:1.0:User
-                externalId: C3574707-FFF9-433C-A17F-DFF806C72A7F
+                  - 'urn:ietf:params:scim:schemas:core:2.0:User'
+                  - 'urn:scim:schemas:extension:FactSet:Core:1.0:User'
+                externalId: 'C3574707-FFF9-433C-A17F-DFF806C72A7F'
                 name:
-                  familyName: Doe
-                  givenName: John
-                email: jdoe@factset.com
+                  familyName: 'Doe'
+                  givenName: 'John'
+                email: 'jdoe@factset.com'
                 urn:scim:schemas:extension:FactSet:Core:1.0:User:
-                  username: FIN_WEALTH
+                  username: 'FIN_WEALTH'
                   location:
                     value: '1598276'
                   userTaxonomyData:
@@ -1043,17 +977,17 @@ components:
                       value: '27'
                     userPosition:
                       value: '18'
-                  roleName: Wealth Manager
+                  roleName: 'Wealth Manager'
                   products:
                     - value: '1396'
                   federations:
-                    - value: 3ebd82c4-db65-4156-a9cc-890df9b63fbb
+                    - value: '3ebd82c4-db65-4156-a9cc-890df9b63fbb'
                       assertionValues:
-                        - value: exampleAssertionValue
-                    - value: d69a94b6-5f30-49f1-8d15-db42013c52bd
+                        - value: 'exampleAssertionValue'
+                    - value: 'd69a94b6-5f30-49f1-8d15-db42013c52bd'
                       assertionValues:
-                        - value: exampleAssertionValue
-                  invoiceId: 9QMD
+                        - value: 'exampleAssertionValue'
+                  invoiceId: '9QMD'
     patchUserResource:
       content:
         application/scim+json:
@@ -1061,13 +995,13 @@ components:
             $ref: '#/components/schemas/Patch'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+              - 'urn:ietf:params:scim:api:messages:2.0:PatchOp'
             Operations:
-              - op: replace
-                path: urn:scim:schemas:extension:FactSet:Core:1.0:User:roleName
-                value: Wealth Manager
+              - op: 'replace'
+                path: 'urn:scim:schemas:extension:FactSet:Core:1.0:User:roleName'
+                value: 'Wealth Manager'
     groupResource:
-      description: Group resource.
+      description: 'Group resource.'
       required: true
       content:
         application/scim+json:
@@ -1080,14 +1014,14 @@ components:
             $ref: '#/components/schemas/Patch'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+              - 'urn:ietf:params:scim:api:messages:2.0:PatchOp'
             Operations:
-              - op: add
-                path: members
+              - op: 'add'
+                path: 'members'
                 value:
-                  - value: FIN_WEALTH-123456
+                  - value: 'FIN_WEALTH-123456'
     locationResource:
-      description: Location resource.
+      description: 'Location resource.'
       required: true
       content:
         application/scim+json:
@@ -1100,13 +1034,13 @@ components:
             $ref: '#/components/schemas/Patch'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+              - 'urn:ietf:params:scim:api:messages:2.0:PatchOp'
             Operations:
-              - op: replace
-                path: externalId
-                value: exampleExternalId
+              - op: 'replace'
+                path: 'externalId'
+                value: 'exampleExternalId'
     federationResource:
-      description: Federation resource.
+      description: 'Federation resource.'
       required: true
       content:
         application/scim+json:
@@ -1119,1681 +1053,1479 @@ components:
             $ref: '#/components/schemas/Patch'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+              - 'urn:ietf:params:scim:api:messages:2.0:PatchOp'
             Operations:
-              - op: add
-                path: users
+              - op: 'add'
+                path: 'users'
                 value:
-                  - value: FDS_P2P_SCIM-1526135
+                  - value: 'FDS_P2P_SCIM-1526135'
                     assertionValues:
-                      - value: john.doe@example.com
+                      - value: 'john.doe@example.com'
   responses:
     invalidFilterError:
-      description: Invalid filter value provided.
+      description: 'Invalid filter value provided.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            scimType: invalidFilter
-            detail: Invalid filter value.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            scimType: 'invalidFilter'
+            detail: 'Invalid filter value.'
             status: '400'
     invalidResourceProvidedError:
-      description: Provided resource contains invalid data.
+      description: 'Provided resource contains invalid data.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            scimType: invalidValue
-            detail: Provided resource contains invalid data.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            scimType: 'invalidValue'
+            detail: 'Provided resource contains invalid data.'
             status: '400'
     invalidPatchRequestError:
-      description: Patch request invalid.
+      description: 'Patch request invalid.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            scimType: invalidValue
-            detail: Provided resource contains invalid data.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            scimType: 'invalidValue'
+            detail: 'Provided resource contains invalid data.'
             status: '400'
     unauthorizedError:
-      description: User has not been authenticated.
+      description: 'User has not been authenticated.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: FactSet credentials are missing or invalid.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'FactSet credentials are missing or invalid.'
             status: '401'
     forbiddenError:
-      description: User is not authorized to use this API.
+      description: 'User is not authorized to use this API.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM API.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'FIN_WEALTH-999999 is not authorized to use the FactSet SCIM API.'
             status: '403'
     tooManyRequestsError:
-      description: User is accessing this API too frequently.
+      description: 'User is accessing this API too frequently.'
       content:
         application/json:
           schema:
-            type: object
+            type: 'object'
             properties:
               message:
-                type: string
+                type: 'string'
             readOnly: true
             required:
-              - message
+              - 'message'
           example:
-            message: API rate limit exceeded
+            message: 'API rate limit exceeded'
     internalServerError:
-      description: Internal server error.
+      description: 'Internal server error.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
     notImplementedError:
-      description: Operation is not supported.
+      description: 'Operation is not supported.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: The requested operation is not currently supported.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'The requested operation is not currently supported.'
             status: '501'
     serviceProviderConfigSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/ServiceProviderConfig'
     schemaSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Schema'
     schemasSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/SchemaList'
     userSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/UserResource'
     usersSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/UserResourceList'
     userNotFoundError:
-      description: User not found.
+      description: 'User not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: User FIN_WEALTH-123456 was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'User FIN_WEALTH-123456 was not found.'
             status: '404'
     groupSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/GroupResource'
     groupsSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/GroupResourceList'
     groupNotFoundError:
-      description: Group not found.
+      description: 'Group not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: Group Domain btud - Pod 04 - CitrixApps - Cymba OMS was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'Group Domain btud - Pod 04 - CitrixApps - Cymba OMS was not found.'
             status: '404'
     locationSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/LocationResource'
     locationsSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/LocationResourceList'
     locationNotFoundError:
-      description: Location not found.
+      description: 'Location not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: Location 1598276 was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'Location 1598276 was not found.'
             status: '404'
     firmDescriptionSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/FirmDescriptionResource'
     firmDescriptionsSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/FirmDescriptionResourceList'
     firmDescriptionNotFoundError:
-      description: Firm description not found.
+      description: 'Firm description not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: FirmDescription 1 was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'FirmDescription 1 was not found.'
             status: '404'
     userClassSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/UserClassResource'
     userClassesSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/UserClassResourceList'
     userClassNotFoundError:
-      description: User class not found.
+      description: 'User class not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: UserClass 1 was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'UserClass 1 was not found.'
             status: '404'
     userPositionSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/UserPositionResource'
     userPositionsSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/UserPositionResourceList'
     userPositionNotFoundError:
-      description: User position not found.
+      description: 'User position not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: UserPosition 1 was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'UserPosition 1 was not found.'
             status: '404'
     productSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/ProductResource'
     productsSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/ProductResourceList'
     productNotFoundError:
-      description: Product not found.
+      description: 'Product not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: Product 6781 was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'Product 6781 was not found.'
             status: '404'
     federationSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/FederationResource'
     federationsSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/FederationResourceList'
     federationNotFoundError:
-      description: Federation not found.
+      description: 'Federation not found.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/Error'
           example:
             schemas:
-              - urn:ietf:params:scim:api:messages:2.0:Error
-            detail: Federation "foo" was not found.
+              - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            detail: 'Federation "foo" was not found.'
             status: '404'
     fileManagerAuditSuccess:
-      description: Success.
+      description: 'Success.'
       content:
         application/scim+json:
           schema:
             $ref: '#/components/schemas/FileManagerAudit'
   schemas:
     AuthenticationScheme:
-      type: object
+      type: 'object'
       properties:
         type:
-          type: string
-          description: The authentication scheme.
+          type: 'string'
+          description: 'The authentication scheme.'
           readOnly: true
         name:
-          type: string
-          description: The common authentication scheme name, e.g., HTTP Basic.
+          type: 'string'
+          description: 'The common authentication scheme name, e.g., HTTP Basic.'
           readOnly: true
         description:
-          type: string
-          description: A description of the authentication scheme.
+          type: 'string'
+          description: 'A description of the authentication scheme.'
           readOnly: true
         specUri:
-          type: string
-          format: url
-          description: >-
-            An HTTP-addressable URL pointing to the authentication scheme's
-            specification.
+          type: 'string'
+          format: 'url'
+          description: 'An HTTP-addressable URL pointing to the authentication scheme''s specification.'
           readOnly: true
         documentationUri:
-          type: string
-          format: url
-          description: >-
-            An HTTP-addressable URL pointing to the authentication scheme's
-            usage documentation.
+          type: 'string'
+          format: 'url'
+          description: 'An HTTP-addressable URL pointing to the authentication scheme''s usage documentation.'
           readOnly: true
       required:
-        - type
-        - name
-        - description
+        - 'type'
+        - 'name'
+        - 'description'
     ServiceProviderConfig:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
-          description: >-
-            An array containing the standard schema URI used for identifying a
-            service provider's configuration. See RFC 7643 section 5.
+          type: 'array'
+          description: 'An array containing the standard schema URI used for identifying a service provider''s configuration. See RFC 7643 section 5.'
           maxItems: 1
           items:
-            type: string
+            type: 'string'
             enum:
-              - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+              - 'urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig'
           example:
-            - urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig
+            - 'urn:ietf:params:scim:schemas:core:2.0:ServiceProviderConfig'
         documentationUri:
-          type: string
-          description: >-
-            An HTTP-addressable URL pointing to the service provider's
-            human-consumable help documentation.
+          type: 'string'
+          description: 'An HTTP-addressable URL pointing to the service provider''s human-consumable help documentation.'
           readOnly: true
-          example: https://developer-staging.factset.com/api-catalog/scim-api
+          example: 'https://developer-staging.factset.com/api-catalog/scim-api'
         patch:
-          type: object
-          description: A complex type that specifies PATCH configuration options.
+          type: 'object'
+          description: 'A complex type that specifies PATCH configuration options.'
           properties:
             supported:
-              type: boolean
-              description: >-
-                A Boolean value specifying whether or not the operation is
-                supported.
+              type: 'boolean'
+              description: 'A Boolean value specifying whether or not the operation is supported.'
               readOnly: true
               example: true
           required:
-            - supported
+            - 'supported'
           readOnly: true
         bulk:
-          type: object
-          description: A complex type that specifies bulk configuration options.
+          type: 'object'
+          description: 'A complex type that specifies bulk configuration options.'
           properties:
             supported:
-              type: boolean
-              description: >-
-                A Boolean value specifying whether or not the operation is
-                supported.
+              type: 'boolean'
+              description: 'A Boolean value specifying whether or not the operation is supported.'
               readOnly: true
               example: false
             maxOperations:
-              type: integer
-              description: An integer value specifying the maximum number of operations.
+              type: 'integer'
+              description: 'An integer value specifying the maximum number of operations.'
               readOnly: true
               example: 0
             maxPayloadSize:
-              type: integer
-              description: An integer value specifying the maximum payload size in bytes.
+              type: 'integer'
+              description: 'An integer value specifying the maximum payload size in bytes.'
               readOnly: true
               example: 0
           required:
-            - supported
-            - maxOperations
-            - maxPayloadSize
+            - 'supported'
+            - 'maxOperations'
+            - 'maxPayloadSize'
         filter:
-          type: object
-          description: A complex type that specifies FILTER options.
+          type: 'object'
+          description: 'A complex type that specifies FILTER options.'
           properties:
             supported:
-              type: boolean
-              description: >-
-                A Boolean value specifying whether or not the operation is
-                supported.
+              type: 'boolean'
+              description: 'A Boolean value specifying whether or not the operation is supported.'
               readOnly: true
               example: true
             maxResults:
-              type: integer
-              description: >-
-                An integer value specifying the maximum number of resources
-                returned in a response.
+              type: 'integer'
+              description: 'An integer value specifying the maximum number of resources returned in a response.'
               readOnly: true
               example: 1000
           required:
-            - supported
-            - maxResults
+            - 'supported'
+            - 'maxResults'
         changePassword:
-          type: object
-          description: >-
-            A complex type that specifies configuration options related to
-            changing a password.
+          type: 'object'
+          description: 'A complex type that specifies configuration options related to changing a password.'
           properties:
             supported:
-              type: boolean
-              description: >-
-                A Boolean value specifying whether or not the operation is
-                supported.
+              type: 'boolean'
+              description: 'A Boolean value specifying whether or not the operation is supported.'
               readOnly: true
               example: false
           required:
-            - supported
+            - 'supported'
         sort:
-          type: object
-          description: A complex type that specifies sort result options.
+          type: 'object'
+          description: 'A complex type that specifies sort result options.'
           properties:
             supported:
-              type: boolean
-              description: >-
-                A Boolean value specifying whether or not the operation is
-                supported.
+              type: 'boolean'
+              description: 'A Boolean value specifying whether or not the operation is supported.'
               readOnly: true
               example: true
           required:
-            - supported
+            - 'supported'
         etag:
-          type: object
-          description: A complex type that specifies ETag configuration options.
+          type: 'object'
+          description: 'A complex type that specifies ETag configuration options.'
           properties:
             supported:
-              type: boolean
-              description: >-
-                A Boolean value specifying whether or not the operation is
-                supported.
+              type: 'boolean'
+              description: 'A Boolean value specifying whether or not the operation is supported.'
               readOnly: true
               example: false
           required:
-            - supported
+            - 'supported'
         authenticationSchemes:
-          type: array
-          description: >-
-            A complex type that specifies supported authentication scheme
-            properties.
+          type: 'array'
+          description: 'A complex type that specifies supported authentication scheme properties.'
           items:
             $ref: '#/components/schemas/AuthenticationScheme'
           example:
-            - type: oauth2
-              name: OAuth 2.0
-              description: FactSet OAuth 2.0 authentication.
-              specUri: http://www.rfc-editor.org/info/rfc6749
-              documentationUrl: https://developer.factset.com/learn/authentication-oauth2
-            - type: httpbasic
-              name: HTTP Basic
-              description: FactSet API key authentication.
-              specUri: http://www.rfc-editor.org/info/rfc7617
-              documentationUrl: https://developer.factset.com/learn/authentication-api-key
+            - type: 'oauth2'
+              name: 'OAuth 2.0'
+              description: 'FactSet OAuth 2.0 authentication.'
+              specUri: 'http://www.rfc-editor.org/info/rfc6749'
+              documentationUrl: 'https://developer.factset.com/learn/authentication-oauth2'
+            - type: 'httpbasic'
+              name: 'HTTP Basic'
+              description: 'FactSet API key authentication.'
+              specUri: 'http://www.rfc-editor.org/info/rfc7617'
+              documentationUrl: 'https://developer.factset.com/learn/authentication-api-key'
       required:
-        - patch
-        - bulk
-        - filter
-        - changePassword
-        - sort
-        - etag
-        - authenticationSchemes
+        - 'patch'
+        - 'bulk'
+        - 'filter'
+        - 'changePassword'
+        - 'sort'
+        - 'etag'
+        - 'authenticationSchemes'
     Schema:
-      type: object
+      type: 'object'
       properties:
         id:
-          type: string
-          description: >-
-            The unique URI of the schema. When applicable, service providers
-            MUST specify the URI.
+          type: 'string'
+          description: 'The unique URI of the schema. When applicable, service providers MUST specify the URI.'
           readOnly: true
-          example: urn:scim:schemas:extension:FactSet:Core:1.0:User
+          example: 'urn:scim:schemas:extension:FactSet:Core:1.0:User'
         name:
-          type: string
-          description: >-
-            The schema's human-readable name.  When applicable, service
-            providers MUST specify the name, e.g., 'User'.
+          type: 'string'
+          description: 'The schema''s human-readable name.  When applicable, service providers MUST specify the name, e.g., ''User''.'
           readOnly: true
-          example: FactSet Core User
+          example: 'FactSet Core User'
         description:
-          type: string
-          description: >-
-            The schema's human-readable name.  When applicable, service
-            providers MUST specify the name, e.g., 'User'.
+          type: 'string'
+          description: 'The schema''s human-readable name.  When applicable, service providers MUST specify the name, e.g., ''User''.'
           readOnly: true
-          example: FactSet core user details
+          example: 'FactSet core user details'
         attributes:
-          type: array
-          description: A complex attribute that includes the attributes of a schema.
+          type: 'array'
+          description: 'A complex attribute that includes the attributes of a schema.'
           items:
             $ref: '#/components/schemas/SchemaAttribute'
           readOnly: true
           example:
-            - name: username
-              type: string
+            - name: 'username'
+              type: 'string'
               multiValued: false
-              description: >-
-                A FactSet "username" is FactSet's logical structure for grouping
-                serial numbers into like-groups based on roleName, geographical
-                location or line of business.
+              description: 'A FactSet "username" is FactSet''s logical structure for grouping serial numbers into like-groups based on roleName, geographical location or line of business.'
               required: true
               caseExact: false
-              mutability: immutable
-              returned: default
-              uniqueness: none
-            - name: serialNumber
-              type: string
+              mutability: 'immutable'
+              returned: 'default'
+              uniqueness: 'none'
+            - name: 'serialNumber'
+              type: 'string'
               multiValued: false
-              description: >-
-                A serial number represents an individual's unique FactSet
-                account identifier and base-workstation access. Serial numbers
-                are allocated to an individual when a valid RoleName is present.
+              description: 'A serial number represents an individual''s unique FactSet account identifier and base-workstation access. Serial numbers are allocated to an individual when a valid RoleName is present.'
               required: false
               caseExact: false
-              mutability: readOnly
-              returned: default
-              uniqueness: global
-            - name: location
-              type: complex
+              mutability: 'readOnly'
+              returned: 'default'
+              uniqueness: 'global'
+            - name: 'location'
+              type: 'complex'
               multiValued: false
-              description: The physical location associated with this user.
+              description: 'The physical location associated with this user.'
               required: false
               subAttributes:
-                - name: value
-                  type: string
+                - name: 'value'
+                  type: 'string'
                   multiValued: false
-                  description: Identifier of the Location.
+                  description: 'Identifier of the Location.'
                   required: true
                   caseExact: false
-                  mutability: readWrite
-                  returned: default
-                  uniqueness: none
-                - name: $ref
-                  type: reference
+                  mutability: 'readWrite'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: '$ref'
+                  type: 'reference'
                   referenceTypes:
-                    - Location
+                    - 'Location'
                   multiValued: false
-                  description: >-
-                    The URI corresponding to a SCIM resource that is this
-                    Location.
+                  description: 'The URI corresponding to a SCIM resource that is this Location.'
                   required: false
                   caseExact: false
-                  mutability: immutable
-                  returned: default
-                  uniqueness: none
-                - name: display
-                  type: string
+                  mutability: 'immutable'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'display'
+                  type: 'string'
                   multiValued: false
-                  description: A human-readable name, primarily used for display purposes.
+                  description: 'A human-readable name, primarily used for display purposes.'
                   required: false
                   caseExact: false
-                  mutability: immutable
-                  returned: default
-                  uniqueness: none
-              mutability: readWrite
-              returned: default
-            - name: userTaxonomyData
-              type: complex
+                  mutability: 'immutable'
+                  returned: 'default'
+                  uniqueness: 'none'
+              mutability: 'readWrite'
+              returned: 'default'
+            - name: 'userTaxonomyData'
+              type: 'complex'
               multiValued: false
-              description: >-
-                FactSet's classification of the user. Use taxonomy is composed
-                of a user class as well as a user position.
+              description: 'FactSet''s classification of the user. Use taxonomy is composed of a user class as well as a user position.'
               required: false
               subAttributes:
-                - name: userClass
-                  type: complex
+                - name: 'userClass'
+                  type: 'complex'
                   multiValued: false
-                  description: >-
-                    FactSet's classification of the user's class. The set of
-                    available user classes is based on the firm description
-                    associated with the user's location.
+                  description: 'FactSet''s classification of the user''s class. The set of available user classes is based on the firm description associated with the user''s location.'
                   required: true
                   subAttributes:
-                    - name: value
-                      type: string
+                    - name: 'value'
+                      type: 'string'
                       multiValued: false
-                      description: Identifier of the User Class.
+                      description: 'Identifier of the User Class.'
                       required: true
                       caseExact: false
-                      mutability: readWrite
-                      returned: default
-                      uniqueness: none
-                    - name: $ref
-                      type: reference
+                      mutability: 'readWrite'
+                      returned: 'default'
+                      uniqueness: 'none'
+                    - name: '$ref'
+                      type: 'reference'
                       referenceTypes:
-                        - UserClass
+                        - 'UserClass'
                       multiValued: false
-                      description: >-
-                        The URI corresponding to a SCIM resource that is this
-                        User Class.
+                      description: 'The URI corresponding to a SCIM resource that is this User Class.'
                       required: false
                       caseExact: false
-                      mutability: readOnly
-                      returned: default
-                      uniqueness: none
-                    - name: display
-                      type: string
+                      mutability: 'readOnly'
+                      returned: 'default'
+                      uniqueness: 'none'
+                    - name: 'display'
+                      type: 'string'
                       multiValued: false
-                      description: >-
-                        A human-readable name, primarily used for display
-                        purposes.
+                      description: 'A human-readable name, primarily used for display purposes.'
                       required: false
                       caseExact: false
-                      mutability: readOnly
-                      returned: default
-                      uniqueness: none
-                  mutability: readWrite
-                  returned: default
-                - name: userPosition
-                  type: complex
+                      mutability: 'readOnly'
+                      returned: 'default'
+                      uniqueness: 'none'
+                  mutability: 'readWrite'
+                  returned: 'default'
+                - name: 'userPosition'
+                  type: 'complex'
                   multiValued: false
-                  description: >-
-                    FactSet's classification of the user's position. The set of
-                    available user positions is based on the user's class.
+                  description: 'FactSet''s classification of the user''s position. The set of available user positions is based on the user''s class.'
                   required: true
                   subAttributes:
-                    - name: value
-                      type: string
+                    - name: 'value'
+                      type: 'string'
                       multiValued: false
-                      description: Identifier of the User Position.
+                      description: 'Identifier of the User Position.'
                       required: true
                       caseExact: false
-                      mutability: readWrite
-                      returned: default
-                      uniqueness: none
-                    - name: $ref
-                      type: reference
+                      mutability: 'readWrite'
+                      returned: 'default'
+                      uniqueness: 'none'
+                    - name: '$ref'
+                      type: 'reference'
                       referenceTypes:
-                        - UserPosition
+                        - 'UserPosition'
                       multiValued: false
-                      description: >-
-                        The URI corresponding to a SCIM resource that is this
-                        User Position.
+                      description: 'The URI corresponding to a SCIM resource that is this User Position.'
                       required: false
                       caseExact: false
-                      mutability: readOnly
-                      returned: default
-                      uniqueness: none
-                    - name: display
-                      type: string
+                      mutability: 'readOnly'
+                      returned: 'default'
+                      uniqueness: 'none'
+                    - name: 'display'
+                      type: 'string'
                       multiValued: false
-                      description: >-
-                        A human-readable name, primarily used for display
-                        purposes.
+                      description: 'A human-readable name, primarily used for display purposes.'
                       required: false
                       caseExact: false
-                      mutability: readOnly
-                      returned: default
-                      uniqueness: none
-                  mutability: readWrite
-                  returned: default
-              mutability: readWrite
-              returned: default
-            - name: roleName
-              type: string
+                      mutability: 'readOnly'
+                      returned: 'default'
+                      uniqueness: 'none'
+                  mutability: 'readWrite'
+                  returned: 'default'
+              mutability: 'readWrite'
+              returned: 'default'
+            - name: 'roleName'
+              type: 'string'
               multiValued: false
-              description: >-
-                Predetermined role of specific individual. Issues individual a
-                base FactSet workstation and serial number. If passed as NULL a
-                base-FactSet workstation will be allocated to the individual
-                granting the individual a FactSet SerialNumber
+              description: 'Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber'
               required: false
               caseExact: false
-              mutability: readWrite
-              returned: default
-              uniqueness: none
-            - name: products
-              type: complex
+              mutability: 'readWrite'
+              returned: 'default'
+              uniqueness: 'none'
+            - name: 'products'
+              type: 'complex'
               multiValued: true
-              description: >-
-                An array of FactSet products to allocate/remove from an
-                individual. Individual must have a FactSet serial number
-                associated with them.
+              description: 'An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.'
               required: false
               subAttributes:
-                - name: value
-                  type: string
+                - name: 'value'
+                  type: 'string'
                   multiValued: false
-                  description: Identifier of the product.
+                  description: 'Identifier of the product.'
                   required: true
                   caseExact: false
-                  mutability: immutable
-                  returned: default
-                  uniqueness: none
-                - name: $ref
-                  type: reference
+                  mutability: 'immutable'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: '$ref'
+                  type: 'reference'
                   referenceTypes:
-                    - Product
+                    - 'Product'
                   multiValued: false
-                  description: The URI corresponding to this product.
+                  description: 'The URI corresponding to this product.'
                   required: false
                   caseExact: false
-                  mutability: immutable
-                  returned: default
-                  uniqueness: none
-                - name: display
-                  type: string
+                  mutability: 'immutable'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'display'
+                  type: 'string'
                   multiValued: false
-                  description: A human-readable name, primarily used for display purposes.
+                  description: 'A human-readable name, primarily used for display purposes.'
                   required: false
                   caseExact: false
-                  mutability: immutable
-                  returned: default
-                  uniqueness: none
-                - name: rapidActivationStatus
-                  type: string
+                  mutability: 'immutable'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'rapidActivationStatus'
+                  type: 'string'
                   multiValued: false
-                  description: >-
-                    Whether the associated product has been activated for the
-                    current month. Possible values are "eligible" and "active".
+                  description: 'Whether the associated product has been activated for the current month. Possible values are "eligible" and "active".'
                   required: false
                   caseExact: false
                   canonicalValues:
-                    - eligible
-                    - active
-                  mutability: readOnly
-                  returned: request
-                  uniqueness: none
-                - name: activationHistoryMonths
-                  type: string
+                    - 'eligible'
+                    - 'active'
+                  mutability: 'readOnly'
+                  returned: 'request'
+                  uniqueness: 'none'
+                - name: 'activationHistoryMonths'
+                  type: 'string'
                   multiValued: false
-                  description: >-
-                    A list of the most recent three months (including the
-                    current month) during which the associated product has been
-                    activated.
+                  description: 'A list of the most recent three months (including the current month) during which the associated product has been activated.'
                   required: false
                   caseExact: false
-                  mutability: readOnly
-                  returned: request
-                  uniqueness: none
-              mutability: readWrite
-              returned: default
-            - name: pendingProductOrders
-              type: complex
+                  mutability: 'readOnly'
+                  returned: 'request'
+                  uniqueness: 'none'
+              mutability: 'readWrite'
+              returned: 'default'
+            - name: 'pendingProductOrders'
+              type: 'complex'
               multiValued: true
-              description: An array of pending FactSet product orders.
+              description: 'An array of pending FactSet product orders.'
               required: false
               subAttributes:
-                - name: product
-                  type: complex
+                - name: 'product'
+                  type: 'complex'
                   multiValued: false
-                  description: The FactSet product referenced by the order.
+                  description: 'The FactSet product referenced by the order.'
                   required: true
                   subAttributes:
-                    - name: value
-                      type: string
+                    - name: 'value'
+                      type: 'string'
                       multiValued: false
-                      description: Identifier of the product.
+                      description: 'Identifier of the product.'
                       required: true
                       caseExact: false
-                      mutability: readOnly
-                      returned: default
-                      uniqueness: none
-                    - name: $ref
-                      type: reference
+                      mutability: 'readOnly'
+                      returned: 'default'
+                      uniqueness: 'none'
+                    - name: '$ref'
+                      type: 'reference'
                       referenceTypes:
-                        - Product
+                        - 'Product'
                       multiValued: false
-                      description: The URI corresponding to this product.
+                      description: 'The URI corresponding to this product.'
                       required: true
                       caseExact: false
-                      mutability: readOnly
-                      returned: default
-                      uniqueness: none
-                    - name: display
-                      type: string
+                      mutability: 'readOnly'
+                      returned: 'default'
+                      uniqueness: 'none'
+                    - name: 'display'
+                      type: 'string'
                       multiValued: false
-                      description: >-
-                        A human-readable name, primarily used for display
-                        purposes.
+                      description: 'A human-readable name, primarily used for display purposes.'
                       required: true
                       caseExact: false
-                      mutability: readOnly
-                      returned: default
-                      uniqueness: none
-                  mutability: readOnly
-                  returned: default
-                - name: type
-                  type: string
+                      mutability: 'readOnly'
+                      returned: 'default'
+                      uniqueness: 'none'
+                  mutability: 'readOnly'
+                  returned: 'default'
+                - name: 'type'
+                  type: 'string'
                   multiValued: false
-                  description: Type of product order, e.g. ''Add'' or ''Remove''
+                  description: 'Type of product order, e.g. ''''Add'''' or ''''Remove'''''
                   required: true
                   caseExact: false
-                  mutability: readOnly
-                  returned: default
-                  uniqueness: none
-                - name: status
-                  type: string
+                  mutability: 'readOnly'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'status'
+                  type: 'string'
                   multiValued: false
-                  description: Status of the pending product order.
+                  description: 'Status of the pending product order.'
                   required: true
                   caseExact: false
-                  mutability: readOnly
-                  returned: default
-                  uniqueness: none
-                - name: transactionCode
-                  type: string
+                  mutability: 'readOnly'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'transactionCode'
+                  type: 'string'
                   multiValued: false
-                  description: A GUID that is the transaction code of the product order.
+                  description: 'A GUID that is the transaction code of the product order.'
                   required: true
                   caseExact: false
-                  mutability: readOnly
-                  returned: default
-                  uniqueness: none
-                - name: requested
-                  type: dateTime
+                  mutability: 'readOnly'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'requested'
+                  type: 'dateTime'
                   multiValued: false
-                  description: Date and time when product was ordered.
+                  description: 'Date and time when product was ordered.'
                   required: true
                   caseExact: false
-                  mutability: readOnly
-                  returned: default
-                  uniqueness: none
-              mutability: readOnly
-              returned: default
-            - name: federations
-              type: complex
+                  mutability: 'readOnly'
+                  returned: 'default'
+                  uniqueness: 'none'
+              mutability: 'readOnly'
+              returned: 'default'
+            - name: 'federations'
+              type: 'complex'
               multiValued: true
-              description: >-
-                References to the federations in which the user has at least one
-                assertion value.
+              description: 'References to the federations in which the user has at least one assertion value.'
               required: false
               subAttributes:
-                - name: value
-                  type: string
+                - name: 'value'
+                  type: 'string'
                   multiValued: false
-                  description: Identifier of the Federation.
+                  description: 'Identifier of the Federation.'
                   required: true
                   caseExact: false
-                  mutability: immutable
-                  returned: default
-                  uniqueness: none
-                - name: $ref
-                  type: reference
+                  mutability: 'immutable'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: '$ref'
+                  type: 'reference'
                   referenceTypes:
-                    - Federation
+                    - 'Federation'
                   multiValued: false
-                  description: >-
-                    The URI corresponding to a SCIM resource that is this
-                    Federation.
+                  description: 'The URI corresponding to a SCIM resource that is this Federation.'
                   required: false
                   caseExact: false
-                  mutability: readOnly
-                  returned: default
-                  uniqueness: none
-                - name: display
-                  type: string
+                  mutability: 'readOnly'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'display'
+                  type: 'string'
                   multiValued: false
-                  description: A human-readable name, primarily used for display purposes.
+                  description: 'A human-readable name, primarily used for display purposes.'
                   required: false
                   caseExact: false
-                  mutability: readOnly
-                  returned: default
-                  uniqueness: none
-                - name: assertionValues
-                  type: complex
+                  mutability: 'readOnly'
+                  returned: 'default'
+                  uniqueness: 'none'
+                - name: 'assertionValues'
+                  type: 'complex'
                   multiValued: true
-                  description: The assertion values the user has in this federation.
+                  description: 'The assertion values the user has in this federation.'
                   required: true
                   subAttributes:
-                    - name: value
-                      type: string
+                    - name: 'value'
+                      type: 'string'
                       multiValued: false
-                      description: The assertion value string itself.
+                      description: 'The assertion value string itself.'
                       required: true
                       caseExact: false
-                      mutability: immutable
-                      returned: default
-                      uniqueness: none
-                  mutability: readWrite
-                  returned: default
-              mutability: readWrite
-              returned: default
-              uniqueness: none
-            - name: invoiceId
-              type: string
+                      mutability: 'immutable'
+                      returned: 'default'
+                      uniqueness: 'none'
+                  mutability: 'readWrite'
+                  returned: 'default'
+              mutability: 'readWrite'
+              returned: 'default'
+              uniqueness: 'none'
+            - name: 'invoiceId'
+              type: 'string'
               multiValued: false
-              description: >-
-                The identifier of the invoice that should be associated with a
-                new user for billing purposes. Note once an invoice ID has been
-                assigned to a user, it cannot be modified via this API. If
-                invoice ID re-assignment is necessary, please contact your
-                FactSet representative.
+              description: 'The identifier of the invoice that should be associated with a new user for billing purposes. Note once an invoice ID has been assigned to a user, it cannot be modified via this API. If invoice ID re-assignment is necessary, please contact your FactSet representative.'
               required: false
               caseExact: true
-              mutability: immutable
-              returned: default
-              uniqueness: none
+              mutability: 'immutable'
+              returned: 'default'
+              uniqueness: 'none'
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: Schema
+              type: 'string'
+              example: 'Schema'
               readOnly: true
             location:
-              type: string
-              example: >-
-                https://api.factset.com/scim/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User'
               readOnly: true
           required:
-            - resourceType
-            - location
+            - 'resourceType'
+            - 'location'
       required:
-        - id
-        - name
-        - attributes
+        - 'id'
+        - 'name'
+        - 'attributes'
     SchemaAttribute:
-      type: object
+      type: 'object'
       properties:
         name:
-          type: string
-          description: The attribute's name.
+          type: 'string'
+          description: 'The attribute''s name.'
           readOnly: true
         type:
-          type: string
+          type: 'string'
           enum:
-            - string
-            - boolean
-            - decimal
-            - integer
-            - dateTime
-            - binary
-            - reference
-            - complex
-          description: The attribute's data type.
+            - 'string'
+            - 'boolean'
+            - 'decimal'
+            - 'integer'
+            - 'dateTime'
+            - 'binary'
+            - 'reference'
+            - 'complex'
+          description: 'The attribute''s data type.'
           readOnly: true
         multiValued:
-          type: boolean
-          description: A Boolean value indicating an attribute's plurality.
+          type: 'boolean'
+          description: 'A Boolean value indicating an attribute''s plurality.'
           readOnly: true
         description:
-          type: string
-          description: A human-readable description of the attribute.
+          type: 'string'
+          description: 'A human-readable description of the attribute.'
           readOnly: true
         required:
-          type: boolean
-          description: A boolean value indicating whether or not the attribute is required.
+          type: 'boolean'
+          description: 'A boolean value indicating whether or not the attribute is required.'
           readOnly: true
         canonicalValues:
-          type: array
-          description: >-
-            A collection of canonical values.  When applicable, service
-            providers MUST specify the canonical types, e.g.,  'work', 'home'.
+          type: 'array'
+          description: 'A collection of canonical values.  When applicable, service providers MUST specify the canonical types, e.g.,  ''work'', ''home''.'
           items:
-            type: string
+            type: 'string'
           readOnly: true
         caseExact:
-          type: boolean
-          description: >-
-            A Boolean value indicating whether or not a string attribute is case
-            sensitive.
+          type: 'boolean'
+          description: 'A Boolean value indicating whether or not a string attribute is case sensitive.'
           readOnly: true
         mutability:
-          type: string
+          type: 'string'
           enum:
-            - readOnly
-            - readWrite
-            - immutable
-            - writeOnly
-          description: Indicates whether or not an attribute is modifiable.
+            - 'readOnly'
+            - 'readWrite'
+            - 'immutable'
+            - 'writeOnly'
+          description: 'Indicates whether or not an attribute is modifiable.'
           readOnly: true
         returned:
-          type: string
+          type: 'string'
           enum:
-            - always
-            - never
-            - default
-            - request
-          description: >-
-            Indicates when an attribute is returned in a response (e.g., to a
-            query).
+            - 'always'
+            - 'never'
+            - 'default'
+            - 'request'
+          description: 'Indicates when an attribute is returned in a response (e.g., to a query).'
           readOnly: true
         uniqueness:
-          type: string
+          type: 'string'
           enum:
-            - none
-            - server
-            - global
-          description: Indicates how unique a value must be.
+            - 'none'
+            - 'server'
+            - 'global'
+          description: 'Indicates how unique a value must be.'
           readOnly: true
         referenceTypes:
-          type: array
-          description: >-
-            Used only with an attribute of type 'reference'.  Specifies a SCIM
-            resourceType that a reference attribute MAY refer to, e.g., 'User'.
+          type: 'array'
+          description: 'Used only with an attribute of type ''reference''.  Specifies a SCIM resourceType that a reference attribute MAY refer to, e.g., ''User''.'
           items:
-            type: string
+            type: 'string'
           readOnly: true
         subAttributes:
-          type: array
-          description: Used to define the sub-attributes of a complex attribute.
+          type: 'array'
+          description: 'Used to define the sub-attributes of a complex attribute.'
           items:
             $ref: '#/components/schemas/SchemaSubAttribute'
           readOnly: true
       required:
-        - name
-        - type
-        - multiValued
+        - 'name'
+        - 'type'
+        - 'multiValued'
     SchemaSubAttribute:
-      type: object
+      type: 'object'
       properties:
         name:
-          type: string
-          description: The attribute's name.
+          type: 'string'
+          description: 'The attribute''s name.'
           readOnly: true
         type:
-          type: string
+          type: 'string'
           enum:
-            - string
-            - boolean
-            - decimal
-            - integer
-            - dateTime
-            - binary
-            - reference
-            - complex
-          description: The attribute's data type.
+            - 'string'
+            - 'boolean'
+            - 'decimal'
+            - 'integer'
+            - 'dateTime'
+            - 'binary'
+            - 'reference'
+            - 'complex'
+          description: 'The attribute''s data type.'
           readOnly: true
         multiValued:
-          type: boolean
-          description: A Boolean value indicating an attribute's plurality.
+          type: 'boolean'
+          description: 'A Boolean value indicating an attribute''s plurality.'
           readOnly: true
         description:
-          type: string
-          description: A human-readable description of the attribute.
+          type: 'string'
+          description: 'A human-readable description of the attribute.'
           readOnly: true
         required:
-          type: boolean
-          description: A boolean value indicating whether or not the attribute is required.
+          type: 'boolean'
+          description: 'A boolean value indicating whether or not the attribute is required.'
           readOnly: true
         canonicalValues:
-          type: array
-          description: >-
-            A collection of canonical values.  When applicable, service
-            providers MUST specify the canonical types, e.g.,  'work', 'home'.
+          type: 'array'
+          description: 'A collection of canonical values.  When applicable, service providers MUST specify the canonical types, e.g.,  ''work'', ''home''.'
           items:
-            type: string
+            type: 'string'
           readOnly: true
         caseExact:
-          type: boolean
-          description: >-
-            A Boolean value indicating whether or not a string attribute is case
-            sensitive.
+          type: 'boolean'
+          description: 'A Boolean value indicating whether or not a string attribute is case sensitive.'
           readOnly: true
         mutability:
-          type: string
+          type: 'string'
           enum:
-            - readOnly
-            - readWrite
-            - immutable
-            - writeOnly
-          description: Indicates whether or not an attribute is modifiable.
+            - 'readOnly'
+            - 'readWrite'
+            - 'immutable'
+            - 'writeOnly'
+          description: 'Indicates whether or not an attribute is modifiable.'
           readOnly: true
         returned:
-          type: string
+          type: 'string'
           enum:
-            - always
-            - never
-            - default
-            - request
-          description: >-
-            Indicates when an attribute is returned in a response (e.g., to a
-            query).
+            - 'always'
+            - 'never'
+            - 'default'
+            - 'request'
+          description: 'Indicates when an attribute is returned in a response (e.g., to a query).'
           readOnly: true
         uniqueness:
-          type: string
+          type: 'string'
           enum:
-            - none
-            - server
-            - global
-          description: Indicates how unique a value must be.
+            - 'none'
+            - 'server'
+            - 'global'
+          description: 'Indicates how unique a value must be.'
           readOnly: true
         referenceTypes:
-          type: array
-          description: >-
-            Used only with an attribute of type 'reference'.  Specifies a SCIM
-            resourceType that a reference attribute MAY refer to, e.g., 'User'.
+          type: 'array'
+          description: 'Used only with an attribute of type ''reference''.  Specifies a SCIM resourceType that a reference attribute MAY refer to, e.g., ''User''.'
           items:
-            type: string
+            type: 'string'
           readOnly: true
       required:
-        - name
-        - type
-        - multiValued
+        - 'name'
+        - 'type'
+        - 'multiValued'
     SchemaList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/Schema'
     UserResource:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:schemas:core:2.0:User
-            - urn:scim:schemas:extension:FactSet:Core:1.0:User
-            - urn:scim:schemas:extension:FactSet:VRS:1.0:User
+            - 'urn:ietf:params:scim:schemas:core:2.0:User'
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:User'
+            - 'urn:scim:schemas:extension:FactSet:VRS:1.0:User'
         id:
-          type: string
+          type: 'string'
           readOnly: true
-          example: FIN_WEALTH-123456
+          example: 'FIN_WEALTH-123456'
         externalId:
-          type: string
-          description: >-
-            An arbitrary identifier for the resource defined by the client. This
-            can assist the client locate the resource through the use of search
-            filters.
-          example: C3574707-FFF9-433C-A17F-DFF806C72A7F
+          type: 'string'
+          description: 'An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.'
+          example: 'C3574707-FFF9-433C-A17F-DFF806C72A7F'
         userName:
-          type: string
-          description: >-
-            Unique identifier for the User, typically used by the user to
-            directly authenticate to the service provider. Each User MUST
-            include a non-empty userName value.  This identifier MUST be unique
-            across the service provider's entire set of Users.
+          type: 'string'
+          description: 'Unique identifier for the User, typically used by the user to directly authenticate to the service provider. Each User MUST include a non-empty userName value.  This identifier MUST be unique across the service provider''s entire set of Users.'
           readOnly: true
-          example: FIN_WEALTH-123456
+          example: 'FIN_WEALTH-123456'
         name:
-          type: object
-          description: >-
-            The components of the user's real name. Providers MAY return just
-            the full name as a single string in the formatted sub-attribute, or
-            they MAY return just the individual component attributes using the
-            other sub-attributes, or they MAY return both.  If both variants are
-            returned, they SHOULD be describing the same name, with the
-            formatted name indicating how the component attributes should be
-            combined.
+          type: 'object'
+          description: 'The components of the user''s real name. Providers MAY return just the full name as a single string in the formatted sub-attribute, or they MAY return just the individual component attributes using the other sub-attributes, or they MAY return both.  If both variants are returned, they SHOULD be describing the same name, with the formatted name indicating how the component attributes should be combined.'
           properties:
             familyName:
-              type: string
-              description: >-
-                The family name of the User, or last name in most Western
-                languages (e.g., 'Jensen' given the full name 'Ms. Barbara J
-                Jensen, III').
-              example: Doe
+              type: 'string'
+              description: 'The family name of the User, or last name in most Western languages (e.g., ''Jensen'' given the full name ''Ms. Barbara J Jensen, III'').'
+              example: 'Doe'
             givenName:
-              type: string
-              description: >-
-                The given name of the User, or first name in most Western
-                languages (e.g., 'Barbara' given the full name 'Ms. Barbara J
-                Jensen, III').
-              example: John
+              type: 'string'
+              description: 'The given name of the User, or first name in most Western languages (e.g., ''Barbara'' given the full name ''Ms. Barbara J Jensen, III'').'
+              example: 'John'
           required:
-            - familyName
-            - givenName
+            - 'familyName'
+            - 'givenName'
         email:
-          type: string
-          format: email
-          description: >-
-            Email addresses for the user.  The value SHOULD be canonicalized by
-            the service provider, e.g., 'bjensen@example.com' instead of
-            'bjensen@EXAMPLE.COM'.
-          example: jdoe@factset.com
+          type: 'string'
+          format: 'email'
+          description: 'Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., ''bjensen@example.com'' instead of ''bjensen@EXAMPLE.COM''.'
+          example: 'jdoe@factset.com'
         phoneNumbers:
-          type: array
-          description: >-
-            Phone numbers for the User.  The value SHOULD be canonicalized by
-            the service provider according to the format specified in RFC 3966,
-            e.g., 'tel:+1-201-555-0123'. Canonical type values of 'main',
-            'work', 'mobile', and 'home'.
+          type: 'array'
+          description: 'Phone numbers for the User.  The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., ''tel:+1-201-555-0123''. Canonical type values of ''main'', ''work'', ''mobile'', and ''home''.'
           items:
             $ref: '#/components/schemas/UserResourcePhoneNumber'
           readOnly: true
         groups:
-          type: array
-          description: >-
-            A list of groups to which the user belongs, either through direct
-            membership, through nested groups, or dynamically calculated.
+          type: 'array'
+          description: 'A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.'
           items:
             $ref: '#/components/schemas/UserResourceGroup'
           readOnly: true
         urn:scim:schemas:extension:FactSet:Core:1.0:User:
-          type: object
+          type: 'object'
           properties:
             username:
-              type: string
-              description: >-
-                A FactSet "username" is FactSet's logical structure for grouping
-                serial numbers into like-groups based on roleName, geographical
-                location or line of business.
-              example: FIN_WEALTH
+              type: 'string'
+              description: 'A FactSet "username" is FactSet''s logical structure for grouping serial numbers into like-groups based on roleName, geographical location or line of business.'
+              example: 'FIN_WEALTH'
             serialNumber:
-              type: string
-              description: >-
-                A serial number represents an individual's unique FactSet
-                account identifier and base-workstation access. Serial numbers
-                are allocated to an individual when a valid RoleName is present.
+              type: 'string'
+              description: 'A serial number represents an individual''s unique FactSet account identifier and base-workstation access. Serial numbers are allocated to an individual when a valid RoleName is present.'
               readOnly: true
               example: '123456'
             uniqueId:
-              type: string
-              description: User identifier from the legacy User Provisioning API.
+              type: 'string'
+              description: 'User identifier from the legacy User Provisioning API.'
               readOnly: true
-              example: 1592F40D-40CF-445B-BDFD-38300F507891
+              example: '1592F40D-40CF-445B-BDFD-38300F507891'
             location:
               $ref: '#/components/schemas/LocationResourceReference'
             userTaxonomyData:
-              type: object
-              description: >-
-                FactSet's classification of the user. Use taxonomy is composed
-                of a user class as well as a user position.
+              type: 'object'
+              description: 'FactSet''s classification of the user. Use taxonomy is composed of a user class as well as a user position.'
               properties:
                 userClass:
                   $ref: '#/components/schemas/UserClassResourceReference'
                 userPosition:
                   $ref: '#/components/schemas/UserPositionResourceReference'
               required:
-                - userClass
-                - userPosition
+                - 'userClass'
+                - 'userPosition'
             roleName:
-              type: string
-              description: >-
-                Predetermined role of specific individual. Issues individual a
-                base FactSet workstation and serial number. If passed as NULL a
-                base-FactSet workstation will be allocated to the individual
-                granting the individual a FactSet SerialNumber
-              example: Wealth Manager
+              type: 'string'
+              description: 'Predetermined role of specific individual. Issues individual a base FactSet workstation and serial number. If passed as NULL a base-FactSet workstation will be allocated to the individual granting the individual a FactSet SerialNumber'
+              example: 'Wealth Manager'
             department:
-              type: string
-              description: Description of user's role/workflow within your organization.
-              example: Sales
+              type: 'string'
+              description: 'Description of user''s role/workflow within your organization.'
+              example: 'Sales'
               readOnly: true
             royaltyClass:
-              type: string
-              description: >-
-                Determines the type of client the individual and the royalty fee
-                to be remitted to FactSet for the individual. Expected Royalty
-                Class values will be provided to you by your FactSet account
-                representative.
+              type: 'string'
+              description: 'Determines the type of client the individual and the royalty fee to be remitted to FactSet for the individual. Expected Royalty Class values will be provided to you by your FactSet account representative.'
             products:
-              type: array
-              description: >-
-                An array of FactSet products to allocate/remove from an
-                individual. Individual must have a FactSet serial number
-                associated with them.
+              type: 'array'
+              description: 'An array of FactSet products to allocate/remove from an individual. Individual must have a FactSet serial number associated with them.'
               items:
-                $ref: >-
-                  #/components/schemas/ProductResourceReferenceWithRapidActivationInfo
+                $ref: '#/components/schemas/ProductResourceReferenceWithRapidActivationInfo'
             pendingProductOrders:
-              type: array
-              description: An array of pending FactSet product orders.
+              type: 'array'
+              description: 'An array of pending FactSet product orders.'
               items:
                 $ref: '#/components/schemas/PendingProductOrder'
               readOnly: true
             federations:
-              type: array
-              description: >-
-                References to the federations in which the user has at least one
-                assertion value.
+              type: 'array'
+              description: 'References to the federations in which the user has at least one assertion value.'
               items:
                 $ref: '#/components/schemas/FederationResourceReference'
             invoiceId:
-              type: string
-              description: >-
-                The identifier of the invoice that should be associated with a
-                new user for billing purposes. Note once an invoice ID has been
-                assigned to a user, it cannot be modified via this API. If
-                invoice ID re-assignment is necessary, please contact your
-                FactSet representative.
-              example: 9QMD
+              type: 'string'
+              description: 'The identifier of the invoice that should be associated with a new user for billing purposes. Note once an invoice ID has been assigned to a user, it cannot be modified via this API. If invoice ID re-assignment is necessary, please contact your FactSet representative.'
+              example: '9QMD'
           required:
-            - username
+            - 'username'
         urn:scim:schemas:extension:FactSet:VRS:1.0:User:
-          type: object
+          type: 'object'
           properties:
             domainData:
-              type: array
-              description: A set of attributes pertaining to individual Vermilion domains.
+              type: 'array'
+              description: 'A set of attributes pertaining to individual Vermilion domains.'
               items:
                 $ref: '#/components/schemas/UserResourceVRSDomainData'
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: User
+              type: 'string'
+              example: 'User'
             created:
-              type: string
-              format: date-time
+              type: 'string'
+              format: 'date-time'
               example: '2019-02-11T15:33:31.077+00:00'
             lastModified:
-              type: string
-              format: date-time
+              type: 'string'
+              format: 'date-time'
               example: '2019-06-07T08:59:37+00:00'
             location:
-              type: string
-              example: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456'
           readOnly: true
       required:
-        - name
-        - email
+        - 'name'
+        - 'email'
     UserResourcePhoneNumber:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Phone number of the User.
+          type: 'string'
+          description: 'Phone number of the User.'
           readOnly: true
-          example: tel:5558675309
+          example: 'tel:5558675309'
         display:
-          type: string
-          description: >-
-            A human-readable name, primarily used for display purposes. 
-            READ-ONLY.
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.  READ-ONLY.'
           readOnly: true
-          example: (555) 867-5309
+          example: '(555) 867-5309'
         type:
-          type: string
-          description: >-
-            A label indicating the attribute's function, e.g., 'work', 'home',
-            'mobile'.
+          type: 'string'
+          description: 'A label indicating the attribute''s function, e.g., ''work'', ''home'', ''mobile''.'
           readOnly: true
-          example: work
+          example: 'work'
         primary:
-          type: boolean
-          description: >-
-            A Boolean value indicating the 'primary' or preferred attribute
-            value for this attribute, e.g., the preferred phone number or
-            primary phone number.  The primary attribute value 'true' MUST
-            appear no more than once.
+          type: 'boolean'
+          description: 'A Boolean value indicating the ''primary'' or preferred attribute value for this attribute, e.g., the preferred phone number or primary phone number.  The primary attribute value ''true'' MUST appear no more than once.'
           readOnly: true
           example: true
     UserResourceGroup:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: The identifier of the User's group.
+          type: 'string'
+          description: 'The identifier of the User''s group.'
           readOnly: true
-          example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+          example: 'Domain btud - Pod 04 - CitrixApps - Cymba OMS'
         $ref:
-          type: string
-          description: >-
-            The URI of the corresponding 'Group' resource to which the user
-            belongs.
+          type: 'string'
+          description: 'The URI of the corresponding ''Group'' resource to which the user belongs.'
           readOnly: true
-          example: >-
-            https://api.factset.com/scim/v2/Groups/Domain%20btud%20-%20Pod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
+          example: 'https://api.factset.com/scim/v2/Groups/Domain%20btud%20-%20Pod%2004%20-%20CitrixApps%20-%20Cymba%20OMS'
         display:
-          type: string
-          description: >-
-            A human-readable name, primarily used for display purposes. 
-            READ-ONLY.
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.  READ-ONLY.'
           readOnly: true
-          example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+          example: 'Domain btud - Pod 04 - CitrixApps - Cymba OMS'
     UserResourceVRSDomainData:
-      type: object
+      type: 'object'
       properties:
         domainCode:
-          type: string
-          description: Unique identifier for the Vermilion domain.
-          example: btud
+          type: 'string'
+          description: 'Unique identifier for the Vermilion domain.'
+          example: 'btud'
         tenancies:
-          type: object
-          description: List of tenancies where the User exists in the associated domain.
+          type: 'object'
+          description: 'List of tenancies where the User exists in the associated domain.'
           properties:
             value:
-              type: string
-              description: Name of a tenant.
-              example: MASTER
+              type: 'string'
+              description: 'Name of a tenant.'
+              example: 'MASTER'
           required:
-            - value
+            - 'value'
         isAdministrator:
-          type: boolean
-          description: Whether the User is an administrator in the associated domain.
+          type: 'boolean'
+          description: 'Whether the User is an administrator in the associated domain.'
           example: false
         password:
-          type: string
-          description: >-
-            Password of the User in the associated domain. May be null upon
-            creation of the User, but afterward may not change from a non-null
-            to a null value.
+          type: 'string'
+          description: 'Password of the User in the associated domain. May be null upon creation of the User, but afterward may not change from a non-null to a null value.'
       required:
-        - domainCode
-        - isAdministrator
+        - 'domainCode'
+        - 'isAdministrator'
     UserResourceList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/UserResource'
     GroupResource:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:schemas:core:2.0:Group
-            - urn:scim:schemas:extension:FactSet:Core:1.0:Group
-            - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
-            - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+            - 'urn:ietf:params:scim:schemas:core:2.0:Group'
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:Group'
+            - 'urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group'
+            - 'urn:scim:schemas:extension:FactSet:VRS:1.0:Group'
         id:
-          type: string
-          example: eh:btud:Pod 04 - CitrixApps - Cymba OMS
+          type: 'string'
+          example: 'eh:btud:Pod 04 - CitrixApps - Cymba OMS'
           readOnly: true
         externalId:
-          type: string
-          description: >-
-            An arbitrary identifier for the resource defined by the client. This
-            can assist the client locate the resource through the use of search
-            filters.
-          example: B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9
+          type: 'string'
+          description: 'An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.'
+          example: 'B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9'
         displayName:
-          type: string
-          description: A human-readable name for the Group.
-          example: Domain btud - Pod 04 - CitrixApps - Cymba OMS
+          type: 'string'
+          description: 'A human-readable name for the Group.'
+          example: 'Domain btud - Pod 04 - CitrixApps - Cymba OMS'
         description:
-          type: string
-          description: A description for the Group.
-          example: Group representing access to the Cymba OMS application.
+          type: 'string'
+          description: 'A description for the Group.'
+          example: 'Group representing access to the Cymba OMS application.'
         members:
-          type: array
-          description: A list of members of the Group.
+          type: 'array'
+          description: 'A list of members of the Group.'
           items:
             $ref: '#/components/schemas/GroupResourceMember'
         urn:scim:schemas:extension:FactSet:Core:1.0:Group:
-          type: object
+          type: 'object'
           properties:
             type:
-              type: string
-              description: >-
-                A FactSet-specific string identifying the type of group. This
-                value is also used as a prefix for all group resource
-                identifiers of a given type.
-              example: eh
+              type: 'string'
+              description: 'A FactSet-specific string identifying the type of group. This value is also used as a prefix for all group resource identifiers of a given type.'
+              example: 'eh'
           required:
-            - type
+            - 'type'
         urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group:
-          type: object
+          type: 'object'
           properties:
             domainCode:
-              type: string
-              description: Domain code of the Enterprise Hosting pod containing this group.
+              type: 'string'
+              description: 'Domain code of the Enterprise Hosting pod containing this group.'
               readOnly: true
-              example: btud
+              example: 'btud'
           required:
-            - domainCode
+            - 'domainCode'
           readOnly: true
         urn:scim:schemas:extension:FactSet:VRS:1.0:Group:
-          type: object
+          type: 'object'
           properties:
             tenant:
-              type: string
-              description: The tenant this role is in
-              example: QA
+              type: 'string'
+              description: 'The tenant this role is in'
+              example: 'QA'
             domainCode:
-              type: string
-              description: >-
-                Domain code of Enterprise Hosting pod in which user resides.
-                REQUIRED.
-              example: btud
+              type: 'string'
+              description: 'Domain code of Enterprise Hosting pod in which user resides. REQUIRED.'
+              example: 'btud'
           required:
-            - domainCode
+            - 'domainCode'
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: Group
+              type: 'string'
+              example: 'Group'
             created:
-              type: string
-              format: date-time
+              type: 'string'
+              format: 'date-time'
               example: '2019-02-11T15:33:31.077+00:00'
             lastModified:
-              type: string
-              format: date-time
+              type: 'string'
+              format: 'date-time'
               example: '2019-06-07T08:59:37+00:00'
             location:
-              type: string
-              example: >-
-                https://api.factset.com/scim/v2/Groups/eh%3Abtud%3APod%2004%20-%20CitrixApps%20-%20Cymba%20OMS
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/Groups/eh%3Abtud%3APod%2004%20-%20CitrixApps%20-%20Cymba%20OMS'
           readOnly: true
       required:
-        - displayName
+        - 'displayName'
     GroupResourceMember:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Identifier of the member of this Group.
-          example: FIN_WEALTH-123456
+          type: 'string'
+          description: 'Identifier of the member of this Group.'
+          example: 'FIN_WEALTH-123456'
         $ref:
-          type: string
-          description: >-
-            The URI corresponding to a SCIM resource that is a member of this
-            Group.
-          example: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+          type: 'string'
+          description: 'The URI corresponding to a SCIM resource that is a member of this Group.'
+          example: 'https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456'
         type:
-          type: string
-          description: A label indicating the type of resource, e.g., 'User' or 'Group'.
-          example: User
+          type: 'string'
+          description: 'A label indicating the type of resource, e.g., ''User'' or ''Group''.'
+          example: 'User'
     GroupResourceList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/GroupResource'
     LocationResourceFirmDescription:
       allOf:
         - $ref: '#/components/schemas/FirmDescriptionResourceReference'
-        - description: >-
-            The firm description associated with this location. Users created in
-            this location must have a user class available to this firm
-            description.
+        - description: 'The firm description associated with this location. Users created in this location must have a user class available to this firm description.'
     LocationResourceManagingLocation:
       allOf:
         - $ref: '#/components/schemas/LocationResourceReference'
-        - description: >-
-            FactSet location ID managing this location for a Research
-            Entitlements Administrator and requesting location-based
-            entitlements for all managed locations associated.
+        - description: 'FactSet location ID managing this location for a Research Entitlements Administrator and requesting location-based entitlements for all managed locations associated.'
         - readOnly: true
     LocationResourceMainLocation:
       allOf:
         - $ref: '#/components/schemas/LocationResourceReference'
-        - description: >-
-            The managing or otherwise parent location associated with this
-            location. All locations associated with the mainLocation are viewed
-            as related and within the same business unit in FactSet's CRM
-            systems.
+        - description: 'The managing or otherwise parent location associated with this location. All locations associated with the mainLocation are viewed as related and within the same business unit in FactSet''s CRM systems.'
         - readOnly: true
     LocationResource:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:scim:schemas:extension:FactSet:Core:1.0:Location
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:Location'
         id:
-          type: string
+          type: 'string'
           example: '1598276'
           readOnly: true
         externalId:
-          type: string
-          description: >-
-            An arbitrary identifier for the resource defined by the client. This
-            can assist the client locate the resource through the use of search
-            filters.
-          example: 4ECB41D6-FC6D-4511-8A50-0A88D0D6EE6A
+          type: 'string'
+          description: 'An arbitrary identifier for the resource defined by the client. This can assist the client locate the resource through the use of search filters.'
+          example: '4ECB41D6-FC6D-4511-8A50-0A88D0D6EE6A'
         name:
-          type: string
-          description: Name of the location.
-          example: FIN Wealth Management
+          type: 'string'
+          description: 'Name of the location.'
+          example: 'FIN Wealth Management'
         description:
-          type: string
-          description: Description of the location.
+          type: 'string'
+          description: 'Description of the location.'
         address1:
-          type: string
-          description: First line of location's address.
-          example: 601 Main Avenue
+          type: 'string'
+          description: 'First line of location''s address.'
+          example: '601 Main Avenue'
         address2:
-          type: string
-          description: Second line of location's address.
-          example: Factset - First Floor
+          type: 'string'
+          description: 'Second line of location''s address.'
+          example: 'Factset - First Floor'
         address3:
-          type: string
-          description: Third line of location's address.
+          type: 'string'
+          description: 'Third line of location''s address.'
         locality:
-          type: string
-          description: City of location.
-          example: Norwalk
+          type: 'string'
+          description: 'City of location.'
+          example: 'Norwalk'
         region:
-          type: string
-          description: State or province of location.
-          example: Connecticut
+          type: 'string'
+          description: 'State or province of location.'
+          example: 'Connecticut'
         postalCode:
-          type: string
-          description: Postal code of location.
+          type: 'string'
+          description: 'Postal code of location.'
           example: '06850'
         country:
-          type: string
-          description: Country of location.
-          example: United States
+          type: 'string'
+          description: 'Country of location.'
+          example: 'United States'
         phoneNumber:
-          type: string
-          description: Phone number of location.
-          example: (555) 123-4567
+          type: 'string'
+          description: 'Phone number of location.'
+          example: '(555) 123-4567'
           readOnly: true
         firmDescription:
           $ref: '#/components/schemas/LocationResourceFirmDescription'
         emailDomains:
-          type: array
-          description: >-
-            The domain names that are valid for use with email addresses
-            associated with users in this location.
+          type: 'array'
+          description: 'The domain names that are valid for use with email addresses associated with users in this location.'
           items:
-            type: string
+            type: 'string'
           example:
-            - foo.com
+            - 'foo.com'
         partnerAssertedEntityId:
-          type: string
-          description: >-
-            Identifier assigned to the Corporate Entity. Value is provided as
-            "fsymEntityId" from FactSet's Symbology API.
+          type: 'string'
+          description: 'Identifier assigned to the Corporate Entity. Value is provided as "fsymEntityId" from FactSet''s Symbology API.'
         companyAgreementUrls:
-          type: array
-          description: >-
-            Provides FactSet with signed documents allowing entitlement to
-            pre-established exchanges for individuals associated with the
-            location. Document URL provided must be available over the public
-            internet.
+          type: 'array'
+          description: 'Provides FactSet with signed documents allowing entitlement to pre-established exchanges for individuals associated with the location. Document URL provided must be available over the public internet.'
           items:
             $ref: '#/components/schemas/LocationResourceCompanyAgreementUrl'
         managedLocations:
-          type: array
-          description: >-
-            Lists FactSet locations managed by Research Entitlements
-            Administrators at this location for requesting location-based
-            research entitlements.
+          type: 'array'
+          description: 'Lists FactSet locations managed by Research Entitlements Administrators at this location for requesting location-based research entitlements.'
           items:
             $ref: '#/components/schemas/LocationResourceReference'
         managingLocation:
@@ -2801,744 +2533,679 @@ components:
         mainLocation:
           $ref: '#/components/schemas/LocationResourceMainLocation'
         usernames:
-          type: array
-          description: The FactSet usernames that are valid for users in this location.
+          type: 'array'
+          description: 'The FactSet usernames that are valid for users in this location.'
           items:
-            type: string
+            type: 'string'
           example:
-            - FOO
-            - BAR
+            - 'FOO'
+            - 'BAR'
           readOnly: true
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: Location
+              type: 'string'
+              example: 'Location'
             created:
-              type: string
+              type: 'string'
               example: '2019-02-11T08:44:19+00:00'
             lastModified:
-              type: string
+              type: 'string'
               example: '2021-01-12T03:11:13+00:00'
             location:
-              type: string
-              example: https://api.factset.com/scim/v2/Locations/1598276
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/Locations/1598276'
           readOnly: true
       required:
-        - name
-        - address1
-        - locality
-        - postalCode
-        - country
-        - firmDescription
+        - 'name'
+        - 'address1'
+        - 'locality'
+        - 'postalCode'
+        - 'country'
+        - 'firmDescription'
     LocationResourceCompanyAgreementUrl:
-      type: object
+      type: 'object'
       properties:
         $ref:
-          type: string
-          format: url
-          description: >-
-            The company agreement URL for authorizing pre-established Exchange
-            Entitlements for this location. This URL must use either the "http"
-            or "https" schemas and the URL must be available for download by
-            FactSet systems.
-          example: https://example-corp.com/company_agreements.pdf
+          type: 'string'
+          format: 'url'
+          description: 'The company agreement URL for authorizing pre-established Exchange Entitlements for this location. This URL must use either the "http" or "https" schemas and the URL must be available for download by FactSet systems.'
+          example: 'https://example-corp.com/company_agreements.pdf'
       required:
-        - $ref
+        - '$ref'
     LocationResourceList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/LocationResource'
     LocationResourceReference:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Identifier of the Location.
+          type: 'string'
+          description: 'Identifier of the Location.'
           example: '1598276'
         $ref:
-          type: string
-          description: The URI corresponding to a SCIM resource that is this Location.
-          example: https://api.factset.com/scim/v2/Locations/1598276
+          type: 'string'
+          description: 'The URI corresponding to a SCIM resource that is this Location.'
+          example: 'https://api.factset.com/scim/v2/Locations/1598276'
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: FIN Wealth Management
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'FIN Wealth Management'
       required:
-        - value
+        - 'value'
     FirmDescriptionResource:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:scim:schemas:extension:FactSet:Core:1.0:FirmDescription
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:FirmDescription'
         id:
-          type: string
+          type: 'string'
           example: '3'
           readOnly: true
         name:
-          type: string
-          description: Name of the firm description.
+          type: 'string'
+          description: 'Name of the firm description.'
           readOnly: true
-          example: Wealth Management
+          example: 'Wealth Management'
         userClasses:
-          type: array
-          description: >-
-            The user classes available to the firm description. Users created in
-            a location with this firm description must have one of these user
-            classes.
+          type: 'array'
+          description: 'The user classes available to the firm description. Users created in a location with this firm description must have one of these user classes.'
           items:
             $ref: '#/components/schemas/UserClassResourceReference'
           example:
             - value: '0'
-              $ref: https://api.factset.com/scim/v2/UserClasses/0
-              display: Pending Assignment
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/0'
+              display: 'Pending Assignment'
             - value: '2'
-              $ref: https://api.factset.com/scim/v2/UserClasses/2
-              display: Buy-Side Research
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/2'
+              display: 'Buy-Side Research'
             - value: '3'
-              $ref: https://api.factset.com/scim/v2/UserClasses/3
-              display: Performance/Risk Management
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/3'
+              display: 'Performance/Risk Management'
             - value: '4'
-              $ref: https://api.factset.com/scim/v2/UserClasses/4
-              display: Trading
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/4'
+              display: 'Trading'
             - value: '5'
-              $ref: https://api.factset.com/scim/v2/UserClasses/5
-              display: Client Services/Sales/Marketing
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/5'
+              display: 'Client Services/Sales/Marketing'
             - value: '6'
-              $ref: https://api.factset.com/scim/v2/UserClasses/6
-              display: Wealth/Advisory
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/6'
+              display: 'Wealth/Advisory'
             - value: '20'
-              $ref: https://api.factset.com/scim/v2/UserClasses/20
-              display: Application Developer
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/20'
+              display: 'Application Developer'
             - value: '27'
-              $ref: https://api.factset.com/scim/v2/UserClasses/27
-              display: IT/Production Support
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/27'
+              display: 'IT/Production Support'
             - value: '28'
-              $ref: https://api.factset.com/scim/v2/UserClasses/27
-              display: Machine
+              $ref: 'https://api.factset.com/scim/v2/UserClasses/27'
+              display: 'Machine'
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: FirmDescription
+              type: 'string'
+              example: 'FirmDescription'
             location:
-              type: string
-              example: https://api.factset.com/scim/v2/FirmDescriptions/3
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/FirmDescriptions/3'
           readOnly: true
       required:
-        - name
+        - 'name'
     FirmDescriptionResourceList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/FirmDescriptionResource'
     FirmDescriptionResourceReference:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Identifier of the Firm Description.
+          type: 'string'
+          description: 'Identifier of the Firm Description.'
           example: '3'
         $ref:
-          type: string
-          description: >-
-            The URI corresponding to a SCIM resource that is this Firm
-            Description.
-          example: https://api.factset.com/scim/v2/FirmDescriptions/3
+          type: 'string'
+          description: 'The URI corresponding to a SCIM resource that is this Firm Description.'
+          example: 'https://api.factset.com/scim/v2/FirmDescriptions/3'
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: Wealth Management
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'Wealth Management'
       required:
-        - value
+        - 'value'
     UserClassResource:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:scim:schemas:extension:FactSet:Core:1.0:UserClass
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:UserClass'
         id:
-          type: string
+          type: 'string'
           example: '4'
           readOnly: true
         name:
-          type: string
-          description: Name of the user class.
+          type: 'string'
+          description: 'Name of the user class.'
           readOnly: true
-          example: Trading
+          example: 'Trading'
         userPositions:
-          type: array
-          description: The user positions available to this user class.
+          type: 'array'
+          description: 'The user positions available to this user class.'
           items:
             $ref: '#/components/schemas/UserPositionResourceReference'
           example:
             - value: '0'
-              $ref: https://api.factset.com/scim/v2/UserPositions/0
-              display: Pending Assignment
+              $ref: 'https://api.factset.com/scim/v2/UserPositions/0'
+              display: 'Pending Assignment'
             - value: '3'
-              $ref: https://api.factset.com/scim/v2/UserPositions/3
-              display: Other
+              $ref: 'https://api.factset.com/scim/v2/UserPositions/3'
+              display: 'Other'
             - value: '30'
-              $ref: https://api.factset.com/scim/v2/UserPositions/30
-              display: Head Trader
+              $ref: 'https://api.factset.com/scim/v2/UserPositions/30'
+              display: 'Head Trader'
             - value: '31'
-              $ref: https://api.factset.com/scim/v2/UserPositions/31
-              display: Trader
+              $ref: 'https://api.factset.com/scim/v2/UserPositions/31'
+              display: 'Trader'
             - value: '68'
-              $ref: https://api.factset.com/scim/v2/UserPositions/68
-              display: Assistant
+              $ref: 'https://api.factset.com/scim/v2/UserPositions/68'
+              display: 'Assistant'
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: UserClass
+              type: 'string'
+              example: 'UserClass'
             location:
-              type: string
-              example: https://api.factset.com/scim/v2/UserClasses/4
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/UserClasses/4'
           readOnly: true
       required:
-        - name
+        - 'name'
     UserClassResourceList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/UserClassResource'
     UserClassResourceReference:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Identifier of the User Class.
+          type: 'string'
+          description: 'Identifier of the User Class.'
           example: '20'
         $ref:
-          type: string
-          description: The URI corresponding to a SCIM resource that is this User Class.
-          example: https://api.factset.com/scim/v2/UserClasses/20
+          type: 'string'
+          description: 'The URI corresponding to a SCIM resource that is this User Class.'
+          example: 'https://api.factset.com/scim/v2/UserClasses/20'
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: Application Developer
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'Application Developer'
       required:
-        - value
+        - 'value'
     UserPositionResource:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:scim:schemas:extension:FactSet:Core:1.0:UserPosition
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:UserPosition'
         id:
-          type: string
+          type: 'string'
           example: '31'
           readOnly: true
         name:
-          type: string
-          description: Name of the user position.
+          type: 'string'
+          description: 'Name of the user position.'
           readOnly: true
-          example: Trader
+          example: 'Trader'
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: UserPosition
+              type: 'string'
+              example: 'UserPosition'
             location:
-              type: string
-              example: https://api.factset.com/scim/v2/UserPositions/31
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/UserPositions/31'
           readOnly: true
       required:
-        - name
+        - 'name'
     UserPositionResourceList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/UserPositionResource'
     UserPositionResourceReference:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Identifier of the User Position.
+          type: 'string'
+          description: 'Identifier of the User Position.'
           example: '46'
         $ref:
-          type: string
-          description: The URI corresponding to a SCIM resource that is this User Position.
-          example: https://api.factset.com/scim/v2/UserPositions/46
+          type: 'string'
+          description: 'The URI corresponding to a SCIM resource that is this User Position.'
+          example: 'https://api.factset.com/scim/v2/UserPositions/46'
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: Application Developer
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'Application Developer'
       required:
-        - value
+        - 'value'
     ProductResource:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:scim:schemas:extension:FactSet:Core:1.0:Product
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:Product'
         id:
-          type: string
+          type: 'string'
           example: '6781'
           readOnly: true
         name:
-          type: string
-          description: Name of product.
+          type: 'string'
+          description: 'Name of product.'
           readOnly: true
-          example: FactSet Identity
+          example: 'FactSet Identity'
         description:
-          type: string
-          description: Details of product.
+          type: 'string'
+          description: 'Details of product.'
           readOnly: true
-          example: >-
-            This workstation product will provide the user with a serial number
-            and a "blanket" login. Examples of when this can be used is for web
-            only users, notify clients, or to give users minimal access.
+          example: 'This workstation product will provide the user with a serial number and a "blanket" login. Examples of when this can be used is for web only users, notify clients, or to give users minimal access.'
         groupDescription:
-          type: string
-          description: >-
-            Description of the group the product belongs in, e.g. Exchange,
-            Product, Database, Workstation, etc.
+          type: 'string'
+          description: 'Description of the group the product belongs in, e.g. Exchange, Product, Database, Workstation, etc.'
           readOnly: true
-          example: Workstations
+          example: 'Workstations'
         workstation:
-          type: boolean
-          description: >-
-            A boolean representing whether the product is base-level access to
-            FactSet, issuing the individual's serial number. Only one Product
-            "id" per individual will have this value set to true.
+          type: 'boolean'
+          description: 'A boolean representing whether the product is base-level access to FactSet, issuing the individual''s serial number. Only one Product "id" per individual will have this value set to true.'
           readOnly: true
           example: true
         orderable:
-          type: boolean
-          description: Whether the product can be ordered by the current client.
+          type: 'boolean'
+          description: 'Whether the product can be ordered by the current client.'
           readOnly: true
           example: true
         requiresApproval:
-          type: string
+          type: 'string'
           enum:
-            - FactSet
-            - Vendor
-          description: >-
-            A description of the type of approval required before an order for
-            this product can be fulfilled. This value is null for those products
-            that do not require any approval.
+            - 'FactSet'
+            - 'Vendor'
+          description: 'A description of the type of approval required before an order for this product can be fulfilled. This value is null for those products that do not require any approval.'
           readOnly: true
-          example: FactSet
+          example: 'FactSet'
         trialAvailable:
-          type: boolean
-          description: >-
-            Whether a temporary trial use of this product is available for
-            users.
+          type: 'boolean'
+          description: 'Whether a temporary trial use of this product is available for users.'
           readOnly: true
           example: true
         whitelist:
-          type: boolean
-          description: >-
-            Whether the product appears in the requester's product whitelist.
-            Presence in the product whitelist means the requester is authorized
-            to order this product for other users.
+          type: 'boolean'
+          description: 'Whether the product appears in the requester''s product whitelist. Presence in the product whitelist means the requester is authorized to order this product for other users.'
           readOnly: true
           example: true
         meta:
-          type: object
+          type: 'object'
           properties:
             resourceType:
-              type: string
-              example: Product
+              type: 'string'
+              example: 'Product'
             location:
-              type: string
-              example: https://api.factset.com/scim/v2/Products/6781
+              type: 'string'
+              example: 'https://api.factset.com/scim/v2/Products/6781'
           readOnly: true
       required:
-        - orderable
-        - trialAvailable
-        - whitelist
+        - 'orderable'
+        - 'trialAvailable'
+        - 'whitelist'
     ProductResourceList:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
+          type: 'array'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
+          type: 'integer'
           example: 1
         Resources:
-          type: array
+          type: 'array'
           items:
             $ref: '#/components/schemas/ProductResource'
     ProductResourceReference:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Identifier of the product.
+          type: 'string'
+          description: 'Identifier of the product.'
           example: '6781'
         $ref:
-          type: string
-          description: The URI corresponding to this product.
-          example: https://api.factset.com/scim/v2/Products/6781
+          type: 'string'
+          description: 'The URI corresponding to this product.'
+          example: 'https://api.factset.com/scim/v2/Products/6781'
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: FactSet Identity
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'FactSet Identity'
       required:
-        - value
+        - 'value'
     ProductResourceReferenceWithRapidActivationInfo:
-      type: object
+      type: 'object'
       properties:
         value:
-          type: string
-          description: Identifier of the product.
+          type: 'string'
+          description: 'Identifier of the product.'
           example: '11'
         $ref:
-          type: string
-          description: The URI corresponding to this product.
-          example: https://api.factset.com/scim/v2/Products/11
+          type: 'string'
+          description: 'The URI corresponding to this product.'
+          example: 'https://api.factset.com/scim/v2/Products/11'
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: Exchange NYSE American and Regionals - RT
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'Exchange NYSE American and Regionals - RT'
         rapidActivationStatus:
-          type: string
+          type: 'string'
           enum:
-            - active
-            - eligible
-          description: >-
-            Whether the associated product has been activated for the current
-            month. Possible values are "eligible" and "active".
-          example: active
+            - 'active'
+            - 'eligible'
+          description: 'Whether the associated product has been activated for the current month. Possible values are "eligible" and "active".'
+          example: 'active'
         activationHistoryMonths:
-          type: array
-          description: >-
-            A list of the most recent three months (including the current month)
-            during which the associated product has been activated.
+          type: 'array'
+          description: 'A list of the most recent three months (including the current month) during which the associated product has been activated.'
           items:
-            type: string
+            type: 'string'
           example:
-            - 2025-08
-            - 2025-07
-            - 2025-06
+            - '2025-08'
+            - '2025-07'
+            - '2025-06'
       required:
-        - value
+        - 'value'
     PendingProductOrder:
-      type: object
+      type: 'object'
       properties:
         product:
           $ref: '#/components/schemas/ProductResourceReference'
         type:
-          type: string
+          type: 'string'
           enum:
-            - Add
-            - Remove
-          description: Type of product order, e.g. 'Add' or 'Remove'.
-          example: Add
+            - 'Add'
+            - 'Remove'
+          description: 'Type of product order, e.g. ''Add'' or ''Remove''.'
+          example: 'Add'
           readOnly: true
         status:
-          type: string
+          type: 'string'
           enum:
-            - Processing
-            - Pending approval
-          description: Status of the pending product order.
-          example: Pending approval
+            - 'Processing'
+            - 'Pending approval'
+          description: 'Status of the pending product order.'
+          example: 'Pending approval'
           readOnly: true
         transactionCode:
-          type: string
-          description: A GUID that is the transaction code of the product order.
-          example: a8389967-e1ab-4987-822b-86b15857ad09
+          type: 'string'
+          description: 'A GUID that is the transaction code of the product order.'
+          example: 'a8389967-e1ab-4987-822b-86b15857ad09'
           readOnly: true
         requested:
-          type: string
-          format: date-time
-          description: Date and time when product was ordered.
+          type: 'string'
+          format: 'date-time'
+          description: 'Date and time when product was ordered.'
           example: '2019-06-07T08:59:37+00:00'
           readOnly: true
       required:
-        - product
-        - type
-        - status
-        - transactionCode
-        - requested
+        - 'product'
+        - 'type'
+        - 'status'
+        - 'transactionCode'
+        - 'requested'
     FederationResourceReference:
-      type: object
-      description: A reference to a Federation resource.
+      type: 'object'
+      description: 'A reference to a Federation resource.'
       properties:
         value:
-          type: string
-          format: uuid
-          description: Identifier of the Federation.
-          example: d69a94b6-5f30-49f1-8d15-db42013c52bd
+          type: 'string'
+          format: 'uuid'
+          description: 'Identifier of the Federation.'
+          example: 'd69a94b6-5f30-49f1-8d15-db42013c52bd'
         $ref:
-          type: string
-          description: The URI corresponding to a SCIM resource that is this Federation.
-          example: >-
-            https://api.factset.com/scim/v2/Federations/d69a94b6-5f30-49f1-8d15-db42013c52bd
+          type: 'string'
+          description: 'The URI corresponding to a SCIM resource that is this Federation.'
+          example: 'https://api.factset.com/scim/v2/Federations/d69a94b6-5f30-49f1-8d15-db42013c52bd'
           readOnly: true
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: FooBar SAML federation
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'FooBar SAML federation'
           readOnly: true
         assertionValues:
-          type: array
-          description: >-
-            References to the federations in which the user has at least one
-            assertion value.
+          type: 'array'
+          description: 'References to the federations in which the user has at least one assertion value.'
           items:
             $ref: '#/components/schemas/FederationResourceReferenceAssertionValue'
       required:
-        - value
-        - assertionValues
+        - 'value'
+        - 'assertionValues'
     FederationResourceReferenceAssertionValue:
-      type: object
-      description: A container for a user's assertion value in a particular federation.
+      type: 'object'
+      description: 'A container for a user''s assertion value in a particular federation.'
       properties:
         value:
-          type: string
-          description: The assertion value string itself.
-          example: john.doe@example.com
+          type: 'string'
+          description: 'The assertion value string itself.'
+          example: 'john.doe@example.com'
       required:
-        - value
+        - 'value'
     FederationResourceLocation:
       allOf:
         - $ref: '#/components/schemas/LocationResourceReference'
-        - description: FactSet location associated with this identity provider.
+        - description: 'FactSet location associated with this identity provider.'
         - readOnly: true
     FederationResource:
-      type: object
-      description: >-
-        Represents an authentication relationship between FactSet and a client
-        firm for web technologies that facilitate single sign-on (SSO) access to
-        FactSet services, such as SAML.
+      type: 'object'
+      description: 'Represents an authentication relationship between FactSet and a client firm for web technologies that facilitate single sign-on (SSO) access to FactSet services, such as SAML.'
       properties:
         schemas:
-          type: array
-          description: A list of schema URIs in use by the resource.
+          type: 'array'
+          description: 'A list of schema URIs in use by the resource.'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:scim:schemas:extension:FactSet:Core:1.0:Federation
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:Federation'
         id:
-          type: string
-          format: uuid
-          description: The Globally Unique Identifier (GUID) of the federation.
-          example: d69a94b6-5f30-49f1-8d15-db42013c52bd
+          type: 'string'
+          format: 'uuid'
+          description: 'The Globally Unique Identifier (GUID) of the federation.'
+          example: 'd69a94b6-5f30-49f1-8d15-db42013c52bd'
           readOnly: true
         name:
-          type: string
-          description: Name of federation.
+          type: 'string'
+          description: 'Name of federation.'
           readOnly: true
-          example: FooBar SAML federation
+          example: 'FooBar SAML federation'
         entityId:
-          type: string
-          format: url
-          description: The entity identifier of the corresponding identity provider.
+          type: 'string'
+          format: 'url'
+          description: 'The entity identifier of the corresponding identity provider.'
           readOnly: true
-          example: https://idp.example.org/SAML2
+          example: 'https://idp.example.org/SAML2'
         metadataUrl:
-          type: string
-          format: url
-          description: Public link to the IdP's metadata.xml.
+          type: 'string'
+          format: 'url'
+          description: 'Public link to the IdP''s metadata.xml.'
           readOnly: true
-          example: https://idp.example.org/metadata
+          example: 'https://idp.example.org/metadata'
         singleSignOnServiceUrl:
-          type: string
-          format: url
-          description: >-
-            Destination client browsers are directed to, at the IdP, for Single
-            Sign-on Protocol Message exchange.
+          type: 'string'
+          format: 'url'
+          description: 'Destination client browsers are directed to, at the IdP, for Single Sign-on Protocol Message exchange.'
           readOnly: true
-          example: https://idp.example.org/SAML2/SSO/Redirect
+          example: 'https://idp.example.org/SAML2/SSO/Redirect'
         requestBinding:
-          type: string
-          description: Preferred HTTP method for IdP's singleSignOnServiceUrl destination.
+          type: 'string'
+          description: 'Preferred HTTP method for IdP''s singleSignOnServiceUrl destination.'
           readOnly: true
-          example: REDIRECT
+          example: 'REDIRECT'
         certificates:
-          type: array
-          description: >-
-            Public x509 certificate values the Service Provider can expect
-            Single Sign-on messages to be signed with from the IdP.
+          type: 'array'
+          description: 'Public x509 certificate values the Service Provider can expect Single Sign-on messages to be signed with from the IdP.'
           items:
-            type: string
-            format: byte
-            example: >-
-              MIIDtDCCApygAwIBAgIGAYUvDQhXMA0GCSqGSIb3DQEBCwUAMIGaMQswCQYDVQQGEwJVUzETMBEG
-              A1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU
-              MBIGA1UECwwLU1NPUHJvdmlkZXIxGzAZBgNVBAMMEmV1cm9uZXh0LWNvcnBvcmF0ZTEcMBoGCSqG
-              SIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0yMjEyMjAxMDIwMDFaFw0zMjEyMjAxMDIxMDFaMIGa
-              MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj
-              bzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGzAZBgNVBAMMEmV1cm9uZXh0
-              LWNvcnBvcmF0ZTEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCASIwDQYJKoZIhvcNAQEB
-              BQADggEPADCCAQoCggEBAL2Oq4DHw58QJiNKfNprq6J+AIcyXw+3MJp9UJ2a+km+d85Ql20nf+J8
-              6HGCXwBlH/c/tRxfATj2MfG5koHkuJCy3K5S/s625tWcFkr1ebvLpJHStqDMQIyTievgOaWT3Lyz
-              cJ5nly5dTTqabGP8r4GMuL3ao2e6l9ryoGC747bwvUqXaw7P+YGHU/Ouk4+vSi/nIoTN1d5ljLY4
-              pyixCU1AI8BhaS8W4YTbreajsrs27ePy4EUBXwlyOUrVJrT7PDHxYrvaVzRTV33anGPVR7qXhjxd
-              Du0PtGDFF26fbW5DdP0GMCU8F82jmk3GR0pemxlG5ZI1/EaU/1+pwzq4b10CAwEAATANBgkqhkiG
-              9w0BAQsFAAOCAQEAouU12yOKZTJuAXgVjuPWABYYpXOOFfOy4SxakOGCcqoDFJPpiEsXcFqe3qIs
-              63QVL5z7+7o0hmTejwpgA+gfPIdl/Pppld+RX0E/FqJI2GxVIZWZcL0B14PYfW++AJEXVglcu1j1
-              hrlwv2viNqo+Vdpge/SmN+ew8gfZdZ02caBN1qbye+VqSrLW+6iJOsN4voBg+tOVqyhcChBzmDDW
-              Eooc/nFjONgTJXJ9loKFjT+nukYcwm8PNTGHMaYY7J+jaZiDxloC8qvjKcJOehg6os4zDhp81t9/
-              RD/TsmdT288qWB698ER4L8AOHc6EzldVskRcIG/4SiW0WmCYTiMX0w==
+            type: 'string'
+            format: 'byte'
+            example: 'MIIDtDCCApygAwIBAgIGAYUvDQhXMA0GCSqGSIb3DQEBCwUAMIGaMQswCQYDVQQGEwJVUzETMBEG A1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU MBIGA1UECwwLU1NPUHJvdmlkZXIxGzAZBgNVBAMMEmV1cm9uZXh0LWNvcnBvcmF0ZTEcMBoGCSqG SIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0yMjEyMjAxMDIwMDFaFw0zMjEyMjAxMDIxMDFaMIGa MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj bzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGzAZBgNVBAMMEmV1cm9uZXh0 LWNvcnBvcmF0ZTEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCASIwDQYJKoZIhvcNAQEB BQADggEPADCCAQoCggEBAL2Oq4DHw58QJiNKfNprq6J+AIcyXw+3MJp9UJ2a+km+d85Ql20nf+J8 6HGCXwBlH/c/tRxfATj2MfG5koHkuJCy3K5S/s625tWcFkr1ebvLpJHStqDMQIyTievgOaWT3Lyz cJ5nly5dTTqabGP8r4GMuL3ao2e6l9ryoGC747bwvUqXaw7P+YGHU/Ouk4+vSi/nIoTN1d5ljLY4 pyixCU1AI8BhaS8W4YTbreajsrs27ePy4EUBXwlyOUrVJrT7PDHxYrvaVzRTV33anGPVR7qXhjxd Du0PtGDFF26fbW5DdP0GMCU8F82jmk3GR0pemxlG5ZI1/EaU/1+pwzq4b10CAwEAATANBgkqhkiG 9w0BAQsFAAOCAQEAouU12yOKZTJuAXgVjuPWABYYpXOOFfOy4SxakOGCcqoDFJPpiEsXcFqe3qIs 63QVL5z7+7o0hmTejwpgA+gfPIdl/Pppld+RX0E/FqJI2GxVIZWZcL0B14PYfW++AJEXVglcu1j1 hrlwv2viNqo+Vdpge/SmN+ew8gfZdZ02caBN1qbye+VqSrLW+6iJOsN4voBg+tOVqyhcChBzmDDW Eooc/nFjONgTJXJ9loKFjT+nukYcwm8PNTGHMaYY7J+jaZiDxloC8qvjKcJOehg6os4zDhp81t9/ RD/TsmdT288qWB698ER4L8AOHc6EzldVskRcIG/4SiW0WmCYTiMX0w=='
           readOnly: true
         location:
           $ref: '#/components/schemas/FederationResourceLocation'
         autoSyncUsernames:
-          type: array
-          description: >-
-            List of FactSet usernames automatically mapped into the federation
-            with email address expected as contents of 'nameID'.
+          type: 'array'
+          description: 'List of FactSet usernames automatically mapped into the federation with email address expected as contents of ''nameID''.'
           items:
-            type: string
+            type: 'string'
           readOnly: true
           example:
-            - FDS_P2P_SCIM
+            - 'FDS_P2P_SCIM'
         users:
-          type: array
-          description: >-
-            A list of mappings for users between their assertion value(s) as
-            provided by this identity provider and their corresponding FactSet
-            username-serial.
+          type: 'array'
+          description: 'A list of mappings for users between their assertion value(s) as provided by this identity provider and their corresponding FactSet username-serial.'
           items:
             $ref: '#/components/schemas/FederationResourceUser'
       required:
-        - name
-        - entityId
-        - singleSignOnServiceUrl
-        - requestBinding
-        - certificates
-        - location
+        - 'name'
+        - 'entityId'
+        - 'singleSignOnServiceUrl'
+        - 'requestBinding'
+        - 'certificates'
+        - 'location'
     FederationResourceUser:
-      type: object
-      description: A reference to a User resource that is associated with a federation.
+      type: 'object'
+      description: 'A reference to a User resource that is associated with a federation.'
       properties:
         value:
-          type: string
-          description: Identifier of the User.
-          example: FDS_P2P_SCIM-1526135
+          type: 'string'
+          description: 'Identifier of the User.'
+          example: 'FDS_P2P_SCIM-1526135'
         $ref:
-          type: string
-          description: The URI corresponding to a SCIM resource that is this User.
-          example: https://api.factset.com/scim/v2/Users/FDS_P2P_SCIM-1526135
+          type: 'string'
+          description: 'The URI corresponding to a SCIM resource that is this User.'
+          example: 'https://api.factset.com/scim/v2/Users/FDS_P2P_SCIM-1526135'
         display:
-          type: string
-          description: A human-readable name, primarily used for display purposes.
-          example: John Doe
+          type: 'string'
+          description: 'A human-readable name, primarily used for display purposes.'
+          example: 'John Doe'
         assertionValues:
-          type: array
-          description: A list of assertion value(s) provided by this identity provider.
+          type: 'array'
+          description: 'A list of assertion value(s) provided by this identity provider.'
           items:
             $ref: '#/components/schemas/FederationResourceUserAssertionValue'
       required:
-        - users
-        - assertionValues
+        - 'users'
+        - 'assertionValues'
     FederationResourceUserAssertionValue:
-      type: object
-      description: A container for a user's assertion value in a particular federation.
+      type: 'object'
+      description: 'A container for a user''s assertion value in a particular federation.'
       properties:
         value:
-          type: string
-          description: The assertion value string itself.
-          example: john.doe@example.com
+          type: 'string'
+          description: 'The assertion value string itself.'
+          example: 'john.doe@example.com'
       required:
-        - value
+        - 'value'
     FederationResourceList:
-      type: object
-      description: A list of federation resources returned as a response to a query.
+      type: 'object'
+      description: 'A list of federation resources returned as a response to a query.'
       properties:
         schemas:
-          type: array
-          description: >-
-            An array containing the standard schema URI used for SCIM query
-            responses.
+          type: 'array'
+          description: 'An array containing the standard schema URI used for SCIM query responses.'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:ListResponse
+            - 'urn:ietf:params:scim:api:messages:2.0:ListResponse'
         totalResults:
-          type: integer
-          description: >-
-            The total number of federation resources returned as a response to a
-            query.
+          type: 'integer'
+          description: 'The total number of federation resources returned as a response to a query.'
           example: 1
         Resources:
-          type: array
-          description: The federation resources returned as a response to a query.
+          type: 'array'
+          description: 'The federation resources returned as a response to a query.'
           items:
             $ref: '#/components/schemas/FederationResource'
     FileManagerAudit:
-      type: array
+      type: 'array'
       items:
         $ref: '#/components/schemas/FileManagerAuditItem'
       example:
-        - username: fds_demo_va_sc
+        - username: 'fds_demo_va_sc'
           paths:
             /sc/fds_demo_va_sc/:
               - entity:
-                  name: fds_demo_eur:245600
-                  type: user
+                  name: 'fds_demo_eur:245600'
+                  type: 'user'
                 permissions:
                   read: true
                   write: true
@@ -3549,175 +3216,149 @@ components:
                   maintain: true
                 inheritance-distance: 0
     FileManagerAuditItem:
-      type: object
+      type: 'object'
       properties:
         username:
-          type: string
-          description: The FactSet username associated with the file paths.
+          type: 'string'
+          description: 'The FactSet username associated with the file paths.'
         paths:
-          type: object
-          description: Object containing all file paths and their associated attributes.
+          type: 'object'
+          description: 'Object containing all file paths and their associated attributes.'
           additionalProperties:
-            type: array
-            description: A file path and its associated attributes.
+            type: 'array'
+            description: 'A file path and its associated attributes.'
             items:
               $ref: '#/components/schemas/FileManagerAuditItemAdditionalProperty'
       required:
-        - username
-        - paths
+        - 'username'
+        - 'paths'
     FileManagerAuditItemAdditionalProperty:
-      type: object
-      description: Attributes of the file.
+      type: 'object'
+      description: 'Attributes of the file.'
       properties:
         entity:
-          type: object
-          description: The entity associated with the file's attributes.
+          type: 'object'
+          description: 'The entity associated with the file''s attributes.'
           properties:
             name:
-              type: string
-              description: The name of the entity.
+              type: 'string'
+              description: 'The name of the entity.'
             type:
-              type: string
-              description: The type of the entity.
+              type: 'string'
+              description: 'The type of the entity.'
           required:
-            - name
-            - type
+            - 'name'
+            - 'type'
         permissions:
-          type: object
-          description: >-
-            Object describing the permissions the associated entity has
-            regarding the associated file.
+          type: 'object'
+          description: 'Object describing the permissions the associated entity has regarding the associated file.'
           properties:
             read:
-              type: boolean
-              description: >-
-                Whether the associated entity has permission to read the
-                associated file.
+              type: 'boolean'
+              description: 'Whether the associated entity has permission to read the associated file.'
             write:
-              type: boolean
-              description: >-
-                Whether the associated entity has permission to write the
-                associated file.
+              type: 'boolean'
+              description: 'Whether the associated entity has permission to write the associated file.'
             maintain:
-              type: boolean
-              description: >-
-                Whether the associated entity has permission to maintain the
-                associated file.
+              type: 'boolean'
+              description: 'Whether the associated entity has permission to maintain the associated file.'
           required:
-            - read
-            - write
-            - maintain
+            - 'read'
+            - 'write'
+            - 'maintain'
         permission-override:
-          type: object
+          type: 'object'
           properties:
             read:
-              type: boolean
+              type: 'boolean'
             write:
-              type: boolean
+              type: 'boolean'
             maintain:
-              type: boolean
+              type: 'boolean'
           required:
-            - read
-            - write
-            - maintain
+            - 'read'
+            - 'write'
+            - 'maintain'
         inheritance-distance:
-          type: integer
+          type: 'integer'
       required:
-        - entity
-        - permissions
+        - 'entity'
+        - 'permissions'
     Patch:
-      type: object
-      description: >-
-        The request body used for the HTTP PATCH server function (see RFC 7644
-        section 3.5.2.) This can be used to alter an individual SCIM resource.
+      type: 'object'
+      description: 'The request body used for the HTTP PATCH server function (see RFC 7644 section 3.5.2.) This can be used to alter an individual SCIM resource.'
       properties:
         schemas:
-          type: array
-          description: >-
-            An array containing the standard schema URI used for SCIM PATCH
-            requests.
+          type: 'array'
+          description: 'An array containing the standard schema URI used for SCIM PATCH requests.'
           maxItems: 1
           items:
-            type: string
+            type: 'string'
             enum:
-              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+              - 'urn:ietf:params:scim:api:messages:2.0:PatchOp'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:PatchOp
+            - 'urn:ietf:params:scim:api:messages:2.0:PatchOp'
         Operations:
-          type: array
-          description: >-
-            The list of PATCH operations that should be applied for the PATCH
-            request.
+          type: 'array'
+          description: 'The list of PATCH operations that should be applied for the PATCH request.'
           items:
             $ref: '#/components/schemas/PatchOperation'
     PatchOperation:
-      type: object
-      description: An individual PATCH operation that is part of a PATCH request.
+      type: 'object'
+      description: 'An individual PATCH operation that is part of a PATCH request.'
       properties:
         op:
-          type: string
-          description: >-
-            Indicates the HTTP PATCH operation to perform. For details on the
-            "add" operation, see RFC 7644 section 3.5.2.1. For details on the
-            "remove" operation, see RFC 7644 section 3.5.2.2. For details on the
-            "replace" operation, see RFC 7644 section 3.5.2.3.
+          type: 'string'
+          description: 'Indicates the HTTP PATCH operation to perform. For details on the "add" operation, see RFC 7644 section 3.5.2.1. For details on the "remove" operation, see RFC 7644 section 3.5.2.2. For details on the "replace" operation, see RFC 7644 section 3.5.2.3.'
           enum:
-            - add
-            - remove
-            - replace
+            - 'add'
+            - 'remove'
+            - 'replace'
         path:
-          type: string
-          description: >-
-            Describes the target of the HTTP PATCH operation. This is optional
-            for "add" and "replace" operations and is required for "remove"
-            operations.
+          type: 'string'
+          description: 'Describes the target of the HTTP PATCH operation. This is optional for "add" and "replace" operations and is required for "remove" operations.'
         value:
           $ref: '#/components/schemas/PatchOperationValue'
     PatchOperationValue:
       anyOf:
-        - type: array
+        - type: 'array'
           items: {}
-        - type: boolean
-        - type: number
-        - type: object
-        - type: string
-      description: >-
-        The content that should be added or replaced in a PATCH operation. This
-        is required for "add" and "replace" operations and is not applicable for
-        "remove" operations.
+        - type: 'boolean'
+        - type: 'number'
+        - type: 'object'
+        - type: 'string'
+      description: 'The content that should be added or replaced in a PATCH operation. This is required for "add" and "replace" operations and is not applicable for "remove" operations.'
     Error:
-      type: object
+      type: 'object'
       properties:
         schemas:
-          type: array
-          description: >-
-            An array containing the standard schema URI used for identifying an
-            error. See RFC 7644 section 3.12.
+          type: 'array'
+          description: 'An array containing the standard schema URI used for identifying an error. See RFC 7644 section 3.12.'
           items:
-            type: string
+            type: 'string'
           example:
-            - urn:ietf:params:scim:api:messages:2.0:Error
-            - urn:scim:schemas:extension:FactSet:Core:1.0:Error
+            - 'urn:ietf:params:scim:api:messages:2.0:Error'
+            - 'urn:scim:schemas:extension:FactSet:Core:1.0:Error'
         scimType:
-          type: string
+          type: 'string'
           enum:
-            - invalidFilter
-            - tooMany
-            - uniqueness
-            - mutability
-            - invalidSyntax
-            - invalidPath
-            - noTarget
-            - invalidValue
-            - invalidVers
-            - sensitive
-          example: invalidValue
+            - 'invalidFilter'
+            - 'tooMany'
+            - 'uniqueness'
+            - 'mutability'
+            - 'invalidSyntax'
+            - 'invalidPath'
+            - 'noTarget'
+            - 'invalidValue'
+            - 'invalidVers'
+            - 'sensitive'
+          example: 'invalidValue'
         detail:
-          type: string
-          description: A detailed human-readable message.
-          example: An unhandled exception occurred.
+          type: 'string'
+          description: 'A detailed human-readable message.'
+          example: 'An unhandled exception occurred.'
         status:
-          type: string
+          type: 'string'
           enum:
             - '307'
             - '308'
@@ -3730,37 +3371,33 @@ components:
             - '413'
             - '500'
             - '501'
-          description: HTTP status code.
+          description: 'HTTP status code.'
           example: '500'
         urn:scim:schemas:extension:FactSet:Core:1.0:Error:
-          type: object
+          type: 'object'
           properties:
             id:
-              type: integer
-              description: FactSet-specific error identifier.
+              type: 'integer'
+              description: 'FactSet-specific error identifier.'
               example: 7001
               readOnly: true
             name:
-              type: string
-              description: FactSet-specific unique error name.
-              example: DependencyMisconfigurationError
+              type: 'string'
+              description: 'FactSet-specific unique error name.'
+              example: 'DependencyMisconfigurationError'
               readOnly: true
             documentationUrl:
-              type: string
-              format: url
-              description: >-
-                URL to the documentation for the error on the FactSet support
-                website.
-              example: https://support.factset.com/docs/SCIM/errors.htm#7001
+              type: 'string'
+              format: 'url'
+              description: 'URL to the documentation for the error on the FactSet support website.'
+              example: 'https://support.factset.com/docs/SCIM/errors.htm#7001'
               readOnly: true
             requestKey:
-              type: string
-              description: >-
-                FactSet-specific unique identifier referencing the HTTP request
-                associated with the error.
-              example: 3AED15D328F69C7A
+              type: 'string'
+              description: 'FactSet-specific unique identifier referencing the HTTP request associated with the error.'
+              example: '3AED15D328F69C7A'
               readOnly: true
           required:
-            - id
-            - documentationUrl
-            - requestKey
+            - 'id'
+            - 'documentationUrl'
+            - 'requestKey'

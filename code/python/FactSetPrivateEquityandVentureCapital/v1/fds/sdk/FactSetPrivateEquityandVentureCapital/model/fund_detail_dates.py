@@ -83,7 +83,6 @@ class FundDetailDates(ModelNormal):
         """
         return {
             'registration_date': (date,),  # noqa: E501
-            'launch_date': (date, none_type,),  # noqa: E501
             'liquidation_date': (date, none_type,),  # noqa: E501
         }
 
@@ -94,7 +93,6 @@ class FundDetailDates(ModelNormal):
 
     attribute_map = {
         'registration_date': 'registrationDate',  # noqa: E501
-        'launch_date': 'launchDate',  # noqa: E501
         'liquidation_date': 'liquidationDate',  # noqa: E501
     }
 
@@ -140,7 +138,6 @@ class FundDetailDates(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             registration_date (date): The date on which it is filed in the registry. [optional]  # noqa: E501
-            launch_date (date, none_type): The date on which the fund was first opened to investors. [optional]  # noqa: E501
             liquidation_date (date, none_type): The date at which all investments have been divested. [optional]  # noqa: E501
         """
 
@@ -224,7 +221,6 @@ class FundDetailDates(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             registration_date (date): The date on which it is filed in the registry. [optional]  # noqa: E501
-            launch_date (date, none_type): The date on which the fund was first opened to investors. [optional]  # noqa: E501
             liquidation_date (date, none_type): The date at which all investments have been divested. [optional]  # noqa: E501
         """
 

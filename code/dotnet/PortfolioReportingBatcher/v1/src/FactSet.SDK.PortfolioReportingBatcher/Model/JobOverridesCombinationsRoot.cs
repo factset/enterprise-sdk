@@ -35,11 +35,11 @@ namespace FactSet.SDK.PortfolioReportingBatcher.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="JobOverridesCombinationsRoot" /> class.
         /// </summary>
-        /// <param name="accounts">An array of accounts, used for jobs types PA, ADF, PUB, and Vault.</param>
-        /// <param name="dates">An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details.</param>
+        /// <param name="accounts">An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault.</param>
+        /// <param name="dates">An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details.</param>
         /// <param name="dateRange">dateRange.</param>
-        /// <param name="tasks">Used only for jobs where type is ADF, PA, PUB, or vault.</param>
-        /// <param name="allTasks">boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks.</param>
+        /// <param name="tasks">Used only for jobs where type is ADF, PA, PUB, dataPrep or vault.</param>
+        /// <param name="allTasks">boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks.</param>
         public JobOverridesCombinationsRoot(List<string> accounts = default(List<string>), List<DateTime> dates = default(List<DateTime>), JobOverridesCombinationsRootDateRange dateRange = default(JobOverridesCombinationsRootDateRange), List<string> tasks = default(List<string>), bool allTasks = default(bool))
         {
             this.Accounts = accounts;
@@ -50,16 +50,16 @@ namespace FactSet.SDK.PortfolioReportingBatcher.Model
         }
 
         /// <summary>
-        /// An array of accounts, used for jobs types PA, ADF, PUB, and Vault
+        /// An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault
         /// </summary>
-        /// <value>An array of accounts, used for jobs types PA, ADF, PUB, and Vault</value>
+        /// <value>An array of accounts, used for jobs types PA, ADF, PUB, dataPrep, and vault</value>
         [DataMember(Name = "accounts", EmitDefaultValue = false)]
         public List<string> Accounts { get; set; }
 
         /// <summary>
-        /// An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details
+        /// An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details
         /// </summary>
-        /// <value>An array of dates, used for jobs types PA, ADF, PUB, and Vault. Please see OA Page 23173 for more details</value>
+        /// <value>An array of dates, used for jobs types PA, ADF, PUB, dataPrep, and vault. Please see OA Page 23173 for more details</value>
         [DataMember(Name = "dates", EmitDefaultValue = false)]
         public List<DateTime> Dates { get; set; }
 
@@ -70,16 +70,16 @@ namespace FactSet.SDK.PortfolioReportingBatcher.Model
         public JobOverridesCombinationsRootDateRange DateRange { get; set; }
 
         /// <summary>
-        /// Used only for jobs where type is ADF, PA, PUB, or vault
+        /// Used only for jobs where type is ADF, PA, PUB, dataPrep or vault
         /// </summary>
-        /// <value>Used only for jobs where type is ADF, PA, PUB, or vault</value>
+        /// <value>Used only for jobs where type is ADF, PA, PUB, dataPrep or vault</value>
         [DataMember(Name = "tasks", EmitDefaultValue = false)]
         public List<string> Tasks { get; set; }
 
         /// <summary>
-        /// boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks
+        /// boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks
         /// </summary>
-        /// <value>boolean flag to indicate if all tasks for given ADF, PA, PUB, or vault job should be run, e.g. if account is newly created and not yet added to any tasks</value>
+        /// <value>boolean flag to indicate if all tasks for given ADF, PA, PUB, dataPrep or vault job should be run, e.g. if account is newly created and not yet added to any tasks</value>
         [DataMember(Name = "allTasks", EmitDefaultValue = true)]
         public bool AllTasks { get; set; }
 

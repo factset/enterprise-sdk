@@ -27,9 +27,9 @@ using OpenAPIDateConverter = FactSet.SDK.PortfolioReportingBatcher.Client.OpenAP
 namespace FactSet.SDK.PortfolioReportingBatcher.Model
 {
     /// <summary>
-    /// PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault
+    /// PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching
     /// </summary>
-    /// <value>PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault</value>
+    /// <value>PA - Portfolio Analysis, PUB - Publisher, ADF - Analytics DataFeed, PI - Portfolio Insight, PD - Portfolio Dashboard, vault - Portfolio Vault, dataPrep - Data Prep Batching</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum JobTypes
     {
@@ -67,7 +67,13 @@ namespace FactSet.SDK.PortfolioReportingBatcher.Model
         /// Enum Vault for value: vault
         /// </summary>
         [EnumMember(Value = "vault")]
-        Vault = 6
+        Vault = 6,
+
+        /// <summary>
+        /// Enum DataPrep for value: dataPrep
+        /// </summary>
+        [EnumMember(Value = "dataPrep")]
+        DataPrep = 7
 
     }
 

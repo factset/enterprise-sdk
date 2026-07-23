@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: PA Engine API
-  version: 3.16.0
+  version: 3.23.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/pa-engine-api
@@ -20,6 +20,7 @@ security:
 - FactSetOAuth2: []
 tags:
 - name: Accounts
+- name: Calendar
 - name: Columns
 - name: ColumnStatistics
 - name: Components
@@ -1574,6 +1575,7 @@ paths:
                       dates:
                         enddate: "0"
                         frequency: Single
+                        calendar: FIVEDAY
                       snapshot: true
                       path: pa3_documents:/pa_api_default_document-rbics;report51566341-6c7c-367d-2286-0cdd3ae16b64;tile1
                       name: Multiple Portfolios
@@ -1949,14 +1951,13 @@ paths:
           content:
             application/json:
               example:
-                data:
-                  errors:
-                  - id: 6698D8968BA1AA05
-                    code: BadInput
-                    title: Failed to process request
-                    detail: Invalid path provided client:/example_path
-                    source:
-                      parameter: path
+                errors:
+                - id: 6698D8968BA1AA05
+                  code: BadInput
+                  title: Failed to process request
+                  detail: Invalid path provided client:/example_path
+                  source:
+                    parameter: path
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid path provided
@@ -2422,6 +2423,16 @@ paths:
         schema:
           description: Account ( Account Name ending with .ACCT or .ACTM )
           example: Client:/Folder1/Folder2/AccountName.ACCT
+          type: string
+        style: form
+      - description: Calendar
+        explode: true
+        in: query
+        name: calendar
+        required: false
+        schema:
+          description: Calendar
+          example: FIVEDAY
           type: string
         style: form
       responses:
@@ -5818,6 +5829,7 @@ paths:
                         startdate: ""
                         enddate: "20240508"
                         frequency: Single
+                        calendar: FIVEDAY
                       currencyisocode: USD
                   meta:
                     contentorganization: None
@@ -5841,6 +5853,7 @@ paths:
                         startdate: ""
                         enddate: "20240508"
                         frequency: Single
+                        calendar: SEVENDAY
                       currencyisocode: USD
                   meta:
                     contentorganization: None
@@ -5862,6 +5875,7 @@ paths:
                         startdate: ""
                         enddate: "20240508"
                         frequency: Single
+                        calendar: FIVEDAY
                       currencyisocode: USD
                     "2":
                       componentid: 8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B
@@ -5875,6 +5889,7 @@ paths:
                         startdate: "20240507"
                         enddate: "20240508"
                         frequency: Daily
+                        calendar: FIB
                       currencyisocode: USD
                   meta:
                     contentorganization: None
@@ -7921,6 +7936,7 @@ paths:
                         startdate: ""
                         enddate: "20240508"
                         frequency: Single
+                        calendar: FIVEDAY
                       currencyisocode: USD
                   meta:
                     contentorganization: None
@@ -7944,6 +7960,7 @@ paths:
                         startdate: ""
                         enddate: "20240508"
                         frequency: Single
+                        calendar: SEVENDAY
                       currencyisocode: USD
                   meta:
                     contentorganization: None
@@ -7965,6 +7982,7 @@ paths:
                         startdate: ""
                         enddate: "20240508"
                         frequency: Single
+                        calendar: FIVEDAY
                       currencyisocode: USD
                     "2":
                       componentid: 8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B
@@ -7978,6 +7996,7 @@ paths:
                         startdate: "20240507"
                         enddate: "20240508"
                         frequency: Daily
+                        calendar: FIB
                       currencyisocode: USD
                   meta:
                     contentorganization: None
@@ -11225,16 +11244,14 @@ paths:
           content:
             application/json:
               example:
-                data:
-                  errors:
-                  - id: 6698D8968BA1AA05
-                    code: BadInput
-                    title: Failed to process request
-                    detail: 'Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0:
-                      Please verify if the calculation/unit id is correct and try
-                      again.'
-                    source:
-                      parameter: id
+                errors:
+                - id: 6698D8968BA1AA05
+                  code: BadInput
+                  title: Failed to process request
+                  detail: 'Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0:
+                    Please verify if the calculation/unit id is correct and try again.'
+                  source:
+                    parameter: id
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -11605,16 +11622,14 @@ paths:
           content:
             application/json:
               example:
-                data:
-                  errors:
-                  - id: 6698D8968BA1AA05
-                    code: BadInput
-                    title: Failed to process request
-                    detail: 'Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0:
-                      Please verify if the calculation/unit id is correct and try
-                      again.'
-                    source:
-                      parameter: id
+                errors:
+                - id: 6698D8968BA1AA05
+                  code: BadInput
+                  title: Failed to process request
+                  detail: 'Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0:
+                    Please verify if the calculation/unit id is correct and try again.'
+                  source:
+                    parameter: id
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -11872,16 +11887,14 @@ paths:
           content:
             application/json:
               example:
-                data:
-                  errors:
-                  - id: 6698D8968BA1AA05
-                    code: BadInput
-                    title: Failed to process request
-                    detail: 'Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0:
-                      Please verify if the calculation/unit id is correct and try
-                      again.'
-                    source:
-                      parameter: id
+                errors:
+                - id: 6698D8968BA1AA05
+                  code: BadInput
+                  title: Failed to process request
+                  detail: 'Invalid calculation 9c36da006b9c45018a8cb3d12a3c3238:unit-0:
+                    Please verify if the calculation/unit id is correct and try again.'
+                  source:
+                    parameter: id
               schema:
                 $ref: '#/components/schemas/ClientErrorResponse'
           description: Invalid identifier provided.
@@ -16178,6 +16191,235 @@ paths:
       tags:
       - UnlinkedPATemplates
       x-accepts: application/json
+  /analytics/engines/pa/v3/calendars:
+    get:
+      description: This endpoint lists all the calendar that can be applied to a PA
+        calculation.
+      operationId: getPACalendars
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200 - Sample list":
+                  value:
+                    data:
+                      SEVENDAY:
+                        name: Seven Day
+                      FIB:
+                        name: India
+              schema:
+                $ref: '#/components/schemas/PACalendarRoot'
+          description: Expected response, returns the list of calendars.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "403":
+          description: User is forbidden with current credentials
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "406":
+          description: Unsupported Accept header. Header needs to be set to application/json.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "429":
+          description: Rate limit reached. Wait till the time specified in Retry-After
+            header value to make further requests.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Limit:
+              description: Number of allowed requests for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Remaining:
+              description: Number of requests left for the time window.
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-FactSet-Api-RateLimit-Reset:
+              description: Number of seconds remaining till rate limit resets.
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+        "503":
+          description: Request timed out. Retry the request in sometime.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+            X-FactSet-Api-Request-Key:
+              description: Key to uniquely identify an Analytics API request. Only
+                available after successful authentication.
+              explode: false
+              schema:
+                description: Key to uniquely identify an Analytics API request. Only
+                  available after successful authentication.
+                type: string
+              style: simple
+      summary: Get PA calendars
+      tags:
+      - Calendar
+      x-accepts: application/json
 components:
   schemas:
     AccountDirectories:
@@ -16428,6 +16670,7 @@ components:
     PADateParameters:
       description: The date parameters for PA calculation.
       example:
+        calendar: calendar
         enddate: enddate
         startdate: startdate
         frequency: frequency
@@ -16438,13 +16681,16 @@ components:
           type: string
         enddate:
           description: Calculation's end date.
+          nullable: true
           type: string
         frequency:
           description: Calculation's frequency.
+          nullable: true
           type: string
-      required:
-      - enddate
-      - frequency
+        calendar:
+          description: PA calendar code (SEVENDAY, FIVEDAY, ..) for the PA calculation.
+          nullable: true
+          type: string
       type: object
     PAComponent:
       example:
@@ -16452,6 +16698,7 @@ components:
         path: path
         name: name
         dates:
+          calendar: calendar
           enddate: enddate
           startdate: startdate
           frequency: frequency
@@ -16513,6 +16760,7 @@ components:
           path: path
           name: name
           dates:
+            calendar: calendar
             enddate: enddate
             startdate: startdate
             frequency: frequency
@@ -17120,6 +17368,7 @@ components:
         - id: id
           frequency: frequency
         dates:
+          calendar: calendar
           enddate: enddate
           startdate: startdate
           frequency: frequency
@@ -17254,6 +17503,7 @@ components:
             - id: id
               frequency: frequency
             dates:
+              calendar: calendar
               enddate: enddate
               startdate: startdate
               frequency: frequency
@@ -17907,6 +18157,7 @@ components:
         - id: id
           frequency: frequency
         dates:
+          calendar: calendar
           enddate: enddate
           startdate: startdate
           frequency: frequency
@@ -17991,6 +18242,7 @@ components:
           - id: id
             frequency: frequency
           dates:
+            calendar: calendar
             enddate: enddate
             startdate: startdate
             frequency: frequency
@@ -18053,6 +18305,7 @@ components:
             - id: id
               frequency: frequency
             dates:
+              calendar: calendar
               enddate: enddate
               startdate: startdate
               frequency: frequency
@@ -18189,6 +18442,7 @@ components:
           - id: id
             frequency: frequency
           dates:
+            calendar: calendar
             enddate: enddate
             startdate: startdate
             frequency: frequency
@@ -18245,6 +18499,7 @@ components:
             - id: id
               frequency: frequency
             dates:
+              calendar: calendar
               enddate: enddate
               startdate: startdate
               frequency: frequency
@@ -18298,6 +18553,7 @@ components:
           - id: id
             frequency: frequency
           dates:
+            calendar: calendar
             enddate: enddate
             startdate: startdate
             frequency: frequency
@@ -18371,6 +18627,7 @@ components:
             - id: id
               frequency: frequency
             dates:
+              calendar: calendar
               enddate: enddate
               startdate: startdate
               frequency: frequency
@@ -18428,6 +18685,7 @@ components:
         - id: id
           frequency: frequency
         dates:
+          calendar: calendar
           enddate: enddate
           startdate: startdate
           frequency: frequency
@@ -18536,6 +18794,7 @@ components:
           - id: id
             frequency: frequency
           dates:
+            calendar: calendar
             enddate: enddate
             startdate: startdate
             frequency: frequency
@@ -18677,6 +18936,7 @@ components:
         - id: id
           frequency: frequency
         dates:
+          calendar: calendar
           enddate: enddate
           startdate: startdate
           frequency: frequency
@@ -18774,6 +19034,7 @@ components:
           - id: id
             frequency: frequency
           dates:
+            calendar: calendar
             enddate: enddate
             startdate: startdate
             frequency: frequency
@@ -18825,6 +19086,7 @@ components:
           frequency: frequency
         description: description
         dates:
+          calendar: calendar
           enddate: enddate
           startdate: startdate
           frequency: frequency
@@ -18951,6 +19213,7 @@ components:
             frequency: frequency
           description: description
           dates:
+            calendar: calendar
             enddate: enddate
             startdate: startdate
             frequency: frequency
@@ -19156,6 +19419,33 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/UnlinkedPATemplateCategoryAndTypeDetails'
+        meta:
+          nullable: true
+          type: object
+      required:
+      - data
+      type: object
+    PACalendar:
+      description: Details of the PA calendar.
+      example:
+        name: name
+      properties:
+        name:
+          description: Name of the country exchange for calendar.
+          nullable: true
+          type: string
+      type: object
+    PACalendarRoot:
+      example:
+        data:
+          key:
+            name: name
+        meta: '{}'
+      properties:
+        data:
+          additionalProperties:
+            $ref: '#/components/schemas/PACalendar'
+          type: object
         meta:
           nullable: true
           type: object

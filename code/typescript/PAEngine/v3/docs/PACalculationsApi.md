@@ -731,7 +731,7 @@ const apiInstance = new PACalculationsApi();
 const opts = {
   'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation.
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'pACalculationParametersRoot': {"data":{"1":{"componentid":"8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B","accounts":[{"id":"LION:100D-GB","holdingsmode":"B&H"}],"benchmarks":[{"id":"LION:OEF-US","holdingsmode":"B&H"}],"dates":{"startdate":"","enddate":"20240508","frequency":"Single"},"currencyisocode":"USD"}},"meta":{"contentorganization":"None","stachContentOrganization":"SimplifiedRow","contenttype":"Json","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
+  'pACalculationParametersRoot': {"data":{"1":{"componentid":"8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B","accounts":[{"id":"LION:100D-GB","holdingsmode":"B&H"}],"benchmarks":[{"id":"LION:OEF-US","holdingsmode":"B&H"}],"dates":{"startdate":"","enddate":"20240508","frequency":"Single","calendar":"FIVEDAY"},"currencyisocode":"USD"}},"meta":{"contentorganization":"None","stachContentOrganization":"SimplifiedRow","contenttype":"Json","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint
@@ -835,7 +835,7 @@ const id = "id_example"; // String | from url, provided from the location header
 const opts = {
   'xFactSetApiLongRunningDeadline': 10, // Number | Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation
   'cacheControl': "cacheControl_example", // String | Standard HTTP header.  Accepts max-stale.
-  'pACalculationParametersRoot': {"data":{"1":{"componentid":"8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B","accounts":[{"id":"LION:100D-GB","holdingsmode":"B&H"}],"benchmarks":[{"id":"LION:OEF-US","holdingsmode":"B&H"}],"dates":{"startdate":"","enddate":"20240508","frequency":"Single"},"currencyisocode":"USD"}},"meta":{"contentorganization":"None","stachContentOrganization":"SimplifiedRow","contenttype":"Json","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
+  'pACalculationParametersRoot': {"data":{"1":{"componentid":"8A4863688B9360E09957CF79684E68F85D5F4E514E657B6F24D00D5E928E7A1B","accounts":[{"id":"LION:100D-GB","holdingsmode":"B&H"}],"benchmarks":[{"id":"LION:OEF-US","holdingsmode":"B&H"}],"dates":{"startdate":"","enddate":"20240508","frequency":"Single","calendar":"FIVEDAY"},"currencyisocode":"USD"}},"meta":{"contentorganization":"None","stachContentOrganization":"SimplifiedRow","contenttype":"Json","format":"JsonStach"}} // PACalculationParametersRoot | Calculation Parameters
 };
 
 // Call api endpoint

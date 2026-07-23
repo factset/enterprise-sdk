@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Used for PA, ADF, and Vault job types only. Will determine the frequency between the start and end dates. Please note that &#39;weekly&#39; frequency is not available for Vault job type and &#39;single&#39; frequency is only available for PA job type.
+ * Applicable only to PA, ADF, dataPrep, and vault job types. Specifies the frequency used between the start and end dates. Note: &#39;Weekly&#39; is not supported for dataPrep or vault; &#39;Single&#39; is supported only for PA; and &#39;Quarterly&#39; and &#39;Annually&#39; are supported only for dataPrep.
  */
 public enum Frequency {
   
@@ -36,6 +36,10 @@ public enum Frequency {
   MONTHLY("monthly"),
   
   WEEKLY("weekly"),
+  
+  QUARTERLY("quarterly"),
+  
+  ANNUALLY("annually"),
   
   SINGLE("single");
 

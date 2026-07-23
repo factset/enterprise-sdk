@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getFixedDetail
 
-> DetailResponse getFixedDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime)
+> DetailResponse getFixedDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId)
 
 Estimates detail data for fixed fiscal periods
 
@@ -64,8 +64,8 @@ public class Example {
         BrokerDetailApi apiInstance = new BrokerDetailApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
         java.util.List<String> metrics = Arrays.asList(); // java.util.List<String> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-        LocalDate startDate = LocalDate.parse("2019-07-30"); // LocalDate | Start date for point in time of estimates expressed in YYYY-MM-DD format.
-        LocalDate endDate = LocalDate.parse("2019-08-30"); // LocalDate | End date for point in time of estimates expressed in YYYY-MM-DD format.
+        LocalDate startDate = LocalDate.parse("2019-07-30"); // LocalDate | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted.
+        LocalDate endDate = LocalDate.parse("2019-08-30"); // LocalDate | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted.
         String frequency = "D"; // String | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  
         String periodicity = "ANN"; // String | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  
         Boolean includeAll = false; // Boolean | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   
@@ -75,8 +75,9 @@ public class Example {
         java.util.List<String> brokerNames = Arrays.asList(); // java.util.List<String> | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
         Boolean updatesOnly = false; // Boolean | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    
         Boolean sortByInputDateTime = false; // Boolean | When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. 
+        Boolean includeDocId = false; // Boolean | Controls whether the `docId` field is included in the response.   * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.   * **FALSE** = Omits the `docId` field from the response. (default) 
         try {
-            DetailResponse result = apiInstance.getFixedDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime);
+            DetailResponse result = apiInstance.getFixedDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, fiscalPeriodStart, fiscalPeriodEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -97,8 +98,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  |
  **metrics** | **List&lt;String&gt;**| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  |
- **startDate** | **LocalDate**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
- **endDate** | **LocalDate**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **startDate** | **LocalDate**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
+ **endDate** | **LocalDate**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
  **frequency** | **String**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to D] [enum: D, W, AM, AQ, AY]
  **periodicity** | **String**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] [default to ANN] [enum: ANN, QTR, SEMI]
  **includeAll** | **Boolean**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] [default to false]
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
  **brokerNames** | **List&lt;String&gt;**| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional]
  **updatesOnly** | **Boolean**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] [default to false]
  **sortByInputDateTime** | **Boolean**| When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  | [optional] [default to false]
+ **includeDocId** | **Boolean**| Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  | [optional] [default to false]
 
 ### Return type
 
@@ -234,7 +236,7 @@ Name | Type | Description  | Notes
 
 ## getRollingDetail
 
-> DetailResponse getRollingDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime)
+> DetailResponse getRollingDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId)
 
 FactSet estimates detail data for rolling fiscal periods
 
@@ -285,8 +287,8 @@ public class Example {
         BrokerDetailApi apiInstance = new BrokerDetailApi(defaultClient);
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p> <p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p> 
         java.util.List<String> metrics = Arrays.asList(); // java.util.List<String> | Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
-        LocalDate startDate = LocalDate.parse("2019-07-30"); // LocalDate | Start date for point in time of estimates expressed in YYYY-MM-DD format.
-        LocalDate endDate = LocalDate.parse("2019-08-30"); // LocalDate | End date for point in time of estimates expressed in YYYY-MM-DD format.
+        LocalDate startDate = LocalDate.parse("2019-07-30"); // LocalDate | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted.
+        LocalDate endDate = LocalDate.parse("2019-08-30"); // LocalDate | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted.
         String frequency = "D"; // String | Controls the frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** = Quarterly, based on the start date.   * **AY** = Actual Annual, based on the start date.  
         String periodicity = "ANN"; // String | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  
         Boolean includeAll = false; // Boolean | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   
@@ -296,8 +298,9 @@ public class Example {
         java.util.List<String> brokerNames = Arrays.asList(); // java.util.List<String> | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
         Boolean updatesOnly = false; // Boolean | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    
         Boolean sortByInputDateTime = false; // Boolean | When set to true, results will be sorted by `inputDateTime` in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response. 
+        Boolean includeDocId = false; // Boolean | Controls whether the `docId` field is included in the response.   * **TRUE** = Returns the `docId` field, a unique identifier linking the estimate to the corresponding investment report in FactSet's Investment Research API.   * **FALSE** = Omits the `docId` field from the response. (default) 
         try {
-            DetailResponse result = apiInstance.getRollingDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime);
+            DetailResponse result = apiInstance.getRollingDetail(ids, metrics, startDate, endDate, frequency, periodicity, includeAll, relativeFiscalStart, relativeFiscalEnd, currency, brokerNames, updatesOnly, sortByInputDateTime, includeDocId);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -318,8 +321,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ids** | **List&lt;String&gt;**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. &lt;p&gt;&lt;b&gt;Performance Note:&lt;/b&gt; Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.&lt;/p&gt; &lt;p&gt;If requesting long historical data, limit the history to &lt;b&gt;10 years per metric per ID&lt;/b&gt;.&lt;/p&gt;  |
  **metrics** | **List&lt;String&gt;**| Requested metrics. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  |
- **startDate** | **LocalDate**| Start date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
- **endDate** | **LocalDate**| End date for point in time of estimates expressed in YYYY-MM-DD format. | [optional]
+ **startDate** | **LocalDate**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
+ **endDate** | **LocalDate**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional]
  **frequency** | **String**| Controls the frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).         * **AQ** &#x3D; Quarterly, based on the start date.   * **AY** &#x3D; Actual Annual, based on the start date.   | [optional] [default to D] [enum: D, W, AM, AQ, AY]
  **periodicity** | **String**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] [default to ANN] [enum: ANN, QTR, SEMI]
  **includeAll** | **Boolean**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] [default to false]
@@ -329,6 +332,7 @@ Name | Type | Description  | Notes
  **brokerNames** | **List&lt;String&gt;**| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional]
  **updatesOnly** | **Boolean**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] [default to false]
  **sortByInputDateTime** | **Boolean**| When set to true, results will be sorted by &#x60;inputDateTime&#x60; in descending order (latest records first). This ensures the most recent estimate revisions are returned first in the response.  | [optional] [default to false]
+ **includeDocId** | **Boolean**| Controls whether the &#x60;docId&#x60; field is included in the response.   * **TRUE** &#x3D; Returns the &#x60;docId&#x60; field, a unique identifier linking the estimate to the corresponding investment report in FactSet&#39;s Investment Research API.   * **FALSE** &#x3D; Omits the &#x60;docId&#x60; field from the response. (default)  | [optional] [default to false]
 
 ### Return type
 

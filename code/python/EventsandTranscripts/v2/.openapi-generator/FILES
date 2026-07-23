@@ -82,6 +82,7 @@ docs/TranscriptsRequestMeta.md
 docs/TranscriptsRequestMetaPagination.md
 docs/TranscriptsResponse.md
 docs/TranscriptsResponseData.md
+docs/TranscriptsResult.md
 fds/__init__.py
 fds/sdk/EventsandTranscripts/__init__.py
 fds/sdk/EventsandTranscripts/api/__init__.py
@@ -168,6 +169,7 @@ fds/sdk/EventsandTranscripts/model/transcripts_request_meta.py
 fds/sdk/EventsandTranscripts/model/transcripts_request_meta_pagination.py
 fds/sdk/EventsandTranscripts/model/transcripts_response.py
 fds/sdk/EventsandTranscripts/model/transcripts_response_data.py
+fds/sdk/EventsandTranscripts/model/transcripts_result.py
 fds/sdk/EventsandTranscripts/model_utils.py
 fds/sdk/EventsandTranscripts/models/__init__.py
 fds/sdk/EventsandTranscripts/rest.py

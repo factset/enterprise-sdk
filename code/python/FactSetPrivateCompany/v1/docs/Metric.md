@@ -5,7 +5,7 @@ Metric Object
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metric** | **str, none_type** | Data item to be used as &#x60;metrics&#x60; input in &#x60;/factset-private-company/v#/&#x60; endpoint. | [optional] 
+**metric** | **str, none_type** | Data item to be used as &#x60;metrics&#x60; input in &#x60;/private-company/v#/&#x60; endpoint. | [optional] 
 **description** | **str, none_type** | Description of the metric. | [optional] 
 **category** | **str, none_type** | Corresponding endpoint to input metric item. For example, metrics returning the category &#39;FINANCIALS&#39; should be used in the &#x60;/financials&#x60; endpoint. The same follows data items falling in the category for NON_PERIODIC, which would be used in the &#x60;/non-periodic&#x60; endpoint. | [optional] 
 **factor** | **int, none_type** | The factor for the metric (e.g. 1000 &#x3D; thousands). | [optional] 
