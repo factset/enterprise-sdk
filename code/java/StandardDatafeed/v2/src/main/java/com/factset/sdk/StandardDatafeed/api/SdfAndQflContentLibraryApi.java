@@ -79,6 +79,7 @@ public class SdfAndQflContentLibraryApi {
    * @param startDateRelative The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:  - Dates provided in &#x60;startDate&#x60; and &#x60;endDate&#x60; along with &#x60;schema&#x60; parameter: The returned dataset is limited to a maximum of latest 30 days&#39; worth of records. - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - *If both &#x60;startDate&#x60; and &#x60;startDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;startDate&#x60; or &#x60;startDateRelative&#x60;, the API will not return any data.*  (optional)
    * @param endDate The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD.  (optional)
    * @param endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  (optional)
+   * @param excludeRelatedBundles Specifies whether to restrict the response to only the bundle(s) specified in the &#x60;bundle&#x60; parameter.  - &#x60;false&#x60;: the response includes files for the requested bundle(s) as well as any related bundles. - &#x60;true&#x60;: the response is restricted to only the files for the specified &#x60;bundle&#x60;; related bundles are excluded from the results.  (optional, default to false)
    * @param paginationLimit Specifies the number of results to return per page. (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional, default to 0)
    * @param sort Enables sorting data in ascending or descending chronological order based on startDate.  (optional, default to [\&quot;-startDate\&quot;])
@@ -95,8 +96,8 @@ public class SdfAndQflContentLibraryApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ListFile getListFiles(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
-    return getListFilesWithHttpInfo(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, paginationLimit, paginationOffset, sort).getData();
+  public ListFile getListFiles(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Boolean excludeRelatedBundles, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
+    return getListFilesWithHttpInfo(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, excludeRelatedBundles, paginationLimit, paginationOffset, sort).getData();
   }
 
   /**
@@ -109,6 +110,7 @@ public class SdfAndQflContentLibraryApi {
    * @param startDateRelative The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:  - Dates provided in &#x60;startDate&#x60; and &#x60;endDate&#x60; along with &#x60;schema&#x60; parameter: The returned dataset is limited to a maximum of latest 30 days&#39; worth of records. - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - *If both &#x60;startDate&#x60; and &#x60;startDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;startDate&#x60; or &#x60;startDateRelative&#x60;, the API will not return any data.*  (optional)
    * @param endDate The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD.  (optional)
    * @param endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  (optional)
+   * @param excludeRelatedBundles Specifies whether to restrict the response to only the bundle(s) specified in the &#x60;bundle&#x60; parameter.  - &#x60;false&#x60;: the response includes files for the requested bundle(s) as well as any related bundles. - &#x60;true&#x60;: the response is restricted to only the files for the specified &#x60;bundle&#x60;; related bundles are excluded from the results.  (optional, default to false)
    * @param paginationLimit Specifies the number of results to return per page. (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional, default to 0)
    * @param sort Enables sorting data in ascending or descending chronological order based on startDate.  (optional, default to [\&quot;-startDate\&quot;])
@@ -125,7 +127,7 @@ public class SdfAndQflContentLibraryApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ListFile> getListFilesWithHttpInfo(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
+  public ApiResponse<ListFile> getListFilesWithHttpInfo(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Boolean excludeRelatedBundles, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -144,6 +146,7 @@ public class SdfAndQflContentLibraryApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDateRelative", startDateRelative));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDateRelative", endDateRelative));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludeRelatedBundles", excludeRelatedBundles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_sort", sort));
@@ -185,6 +188,7 @@ public class SdfAndQflContentLibraryApi {
    * @param startDateRelative The earliest date of the feed file the API should fetch based on the file timestamp.    - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - *If both &#x60;startDate&#x60; and &#x60;startDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;startDate&#x60; or &#x60;startDateRelative&#x60;, the API will not return any data.*  (optional)
    * @param endDate The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD.  (optional)
    * @param endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  (optional)
+   * @param excludeRelatedBundles Specifies whether to restrict the response to only the bundle(s) specified in the &#x60;bundle&#x60; parameter.  - &#x60;false&#x60;: the response includes files for the requested bundle(s) as well as any related bundles. - &#x60;true&#x60;: the response is restricted to only the files for the specified &#x60;bundle&#x60;; related bundles are excluded from the results.  (optional, default to false)
    * @param paginationLimit Specifies the number of results to return per page. (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional, default to 0)
    * @param sort Enables sorting data in ascending or descending chronological order based on startDate.  (optional, default to [\&quot;-startDate\&quot;])
@@ -201,8 +205,8 @@ public class SdfAndQflContentLibraryApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public HistoricalFile gethistoricalFiles(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
-    return gethistoricalFilesWithHttpInfo(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, paginationLimit, paginationOffset, sort).getData();
+  public HistoricalFile gethistoricalFiles(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Boolean excludeRelatedBundles, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
+    return gethistoricalFilesWithHttpInfo(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, excludeRelatedBundles, paginationLimit, paginationOffset, sort).getData();
   }
 
   /**
@@ -215,6 +219,7 @@ public class SdfAndQflContentLibraryApi {
    * @param startDateRelative The earliest date of the feed file the API should fetch based on the file timestamp.    - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - *If both &#x60;startDate&#x60; and &#x60;startDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;startDate&#x60; or &#x60;startDateRelative&#x60;, the API will not return any data.*  (optional)
    * @param endDate The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD.  (optional)
    * @param endDateRelative The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  (optional)
+   * @param excludeRelatedBundles Specifies whether to restrict the response to only the bundle(s) specified in the &#x60;bundle&#x60; parameter.  - &#x60;false&#x60;: the response includes files for the requested bundle(s) as well as any related bundles. - &#x60;true&#x60;: the response is restricted to only the files for the specified &#x60;bundle&#x60;; related bundles are excluded from the results.  (optional, default to false)
    * @param paginationLimit Specifies the number of results to return per page. (optional, default to 20)
    * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional, default to 0)
    * @param sort Enables sorting data in ascending or descending chronological order based on startDate.  (optional, default to [\&quot;-startDate\&quot;])
@@ -231,7 +236,7 @@ public class SdfAndQflContentLibraryApi {
        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<HistoricalFile> gethistoricalFilesWithHttpInfo(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
+  public ApiResponse<HistoricalFile> gethistoricalFilesWithHttpInfo(String schema, String bundle, String type, String startDate, Integer startDateRelative, String endDate, Integer endDateRelative, Boolean excludeRelatedBundles, Integer paginationLimit, Integer paginationOffset, java.util.List<String> sort) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -250,6 +255,7 @@ public class SdfAndQflContentLibraryApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDateRelative", startDateRelative));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDateRelative", endDateRelative));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "excludeRelatedBundles", excludeRelatedBundles));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "_sort", sort));

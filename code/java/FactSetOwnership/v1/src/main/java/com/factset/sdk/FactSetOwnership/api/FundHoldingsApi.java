@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetOwnership.models.AssetType;
+import com.factset.sdk.FactSetOwnership.models.Batch;
 import com.factset.sdk.FactSetOwnership.models.BatchStatusResponse;
 import com.factset.sdk.FactSetOwnership.models.ErrorResponse;
 import com.factset.sdk.FactSetOwnership.models.FundHoldingsRequest;
@@ -259,7 +261,7 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public GetOwnershipHoldingsResponseWrapper getOwnershipHoldings(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
+  public GetOwnershipHoldingsResponseWrapper getOwnershipHoldings(java.util.List<String> ids, String date, String topn, AssetType assetType, String currency, Batch batch) throws ApiException {
     return getOwnershipHoldingsWithHttpInfo(ids, date, topn, assetType, currency, batch).getData();
   }
 
@@ -286,7 +288,7 @@ public class FundHoldingsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetOwnershipHoldingsResponseWrapper> getOwnershipHoldingsWithHttpInfo(java.util.List<String> ids, String date, String topn, String assetType, String currency, String batch) throws ApiException {
+  public ApiResponse<GetOwnershipHoldingsResponseWrapper> getOwnershipHoldingsWithHttpInfo(java.util.List<String> ids, String date, String topn, AssetType assetType, String currency, Batch batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set

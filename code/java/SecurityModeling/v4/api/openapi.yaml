@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Security Modeling API
-  version: 4.0.0
+  version: 4.0.1
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/security-modeling-api
@@ -37,7 +37,7 @@ paths:
                   data:
                   - securityName: SECURITY_BOND
                     location: CLIENT
-                    asofdate: "19000101"
+                    asOfDate: "19000101"
                     securityType: BOND
             schema:
               $ref: '#/components/schemas/SMRetrieveParametersRoot'
@@ -51,7 +51,7 @@ paths:
                     data:
                     - securityName: SECURITY_BOND
                       location: client
-                      asofdate: "19000101"
+                      asOfDate: "19000101"
                       fields:
                         securityType: bond
                         "144aFlag": 1
@@ -477,7 +477,7 @@ paths:
                   data:
                   - securityName: Bond_Security
                     location: Client
-                    asofdate: "20250101"
+                    asOfDate: "20250101"
                     securityType: BOND
             schema:
               $ref: '#/components/schemas/SMDeleteParametersRoot'
@@ -1353,9 +1353,9 @@ components:
     SMRetrieveParameters:
       example:
         securityName: securityName
-        asofdate: asofdate
         securityType: BOND
         location: location
+        asOfDate: asOfDate
         fields: fields
       properties:
         securityName:
@@ -1363,7 +1363,7 @@ components:
         location:
           nullable: true
           type: string
-        asofdate:
+        asOfDate:
           nullable: true
           type: string
         securityType:
@@ -1464,29 +1464,29 @@ components:
       example:
         data:
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields: fields
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields: fields
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields: fields
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields: fields
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields: fields
       properties:
         data:
@@ -1500,8 +1500,8 @@ components:
     SMRetrieveResponse:
       example:
         securityName: securityName
-        asofdate: asofdate
         location: location
+        asOfDate: asOfDate
         fields:
           key: ""
         error:
@@ -1525,7 +1525,7 @@ components:
         location:
           nullable: true
           type: string
-        asofdate:
+        asOfDate:
           nullable: true
           type: string
         fields:
@@ -1541,8 +1541,8 @@ components:
       example:
         data:
         - securityName: securityName
-          asofdate: asofdate
           location: location
+          asOfDate: asOfDate
           fields:
             key: ""
           error:
@@ -1555,8 +1555,8 @@ components:
             title: title
           status: Created
         - securityName: securityName
-          asofdate: asofdate
           location: location
+          asOfDate: asOfDate
           fields:
             key: ""
           error:
@@ -1579,9 +1579,9 @@ components:
     SMCreateParameters:
       example:
         securityName: securityName
-        asofdate: asofdate
         securityType: BOND
         location: location
+        asOfDate: asOfDate
         fields:
           key: ""
       properties:
@@ -1590,7 +1590,7 @@ components:
         location:
           nullable: true
           type: string
-        asofdate:
+        asOfDate:
           nullable: true
           type: string
         fields:
@@ -1636,33 +1636,33 @@ components:
       example:
         data:
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields:
             key: ""
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields:
             key: ""
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields:
             key: ""
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields:
             key: ""
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
           fields:
             key: ""
       properties:
@@ -1829,16 +1829,16 @@ components:
     SMDeleteParameters:
       example:
         securityName: securityName
-        asofdate: asofdate
         securityType: BOND
         location: location
+        asOfDate: asOfDate
       properties:
         securityName:
           type: string
         location:
           nullable: true
           type: string
-        asofdate:
+        asOfDate:
           nullable: true
           type: string
         securityType:
@@ -1875,25 +1875,25 @@ components:
       example:
         data:
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
         - securityName: securityName
-          asofdate: asofdate
           securityType: BOND
           location: location
+          asOfDate: asOfDate
       properties:
         data:
           items:

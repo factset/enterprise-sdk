@@ -8,7 +8,7 @@ Market Value Request Body
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ids** | **java.util.List&lt;String&gt;** | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request  | 
+**ids** | **java.util.List&lt;String&gt;** | The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Non-Batch requests:       * Single day: up to 200 IDs per request       * Multi-day: up to 50 IDs per request    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request  | 
 **startDate** | **String** | The start date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  |  [optional]
 **endDate** | **String** | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to previous close. Future dates (T+1) are not accepted in this endpoint.  |  [optional]
 **frequency** | **Frequency** |  |  [optional]

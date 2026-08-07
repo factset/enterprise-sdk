@@ -8,6 +8,14 @@ build.gradle
 docs/Aum.md
 docs/AumRequest.md
 docs/AumResponse.md
+docs/Batch.md
+docs/BatchErrorObject.md
+docs/BatchErrorResponse.md
+docs/BatchProcessingApi.md
+docs/BatchResult.md
+docs/BatchResultResponse.md
+docs/BatchStatus.md
+docs/BatchStatusResponse.md
 docs/BenchmarkDetails.md
 docs/BenchmarkDetailsRequest.md
 docs/BenchmarkDetailsResponse.md
@@ -134,6 +142,7 @@ src/main/java/com/factset/sdk/FactSetFunds/RFC3339DateFormat.java
 src/main/java/com/factset/sdk/FactSetFunds/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetFunds/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetFunds/StringUtil.java
+src/main/java/com/factset/sdk/FactSetFunds/api/BatchProcessingApi.java
 src/main/java/com/factset/sdk/FactSetFunds/api/DistributionsApi.java
 src/main/java/com/factset/sdk/FactSetFunds/api/FundFlowsAumApi.java
 src/main/java/com/factset/sdk/FactSetFunds/api/GroupHoldingsApi.java
@@ -153,6 +162,13 @@ src/main/java/com/factset/sdk/FactSetFunds/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/FactSetFunds/models/Aum.java
 src/main/java/com/factset/sdk/FactSetFunds/models/AumRequest.java
 src/main/java/com/factset/sdk/FactSetFunds/models/AumResponse.java
+src/main/java/com/factset/sdk/FactSetFunds/models/Batch.java
+src/main/java/com/factset/sdk/FactSetFunds/models/BatchErrorObject.java
+src/main/java/com/factset/sdk/FactSetFunds/models/BatchErrorResponse.java
+src/main/java/com/factset/sdk/FactSetFunds/models/BatchResult.java
+src/main/java/com/factset/sdk/FactSetFunds/models/BatchResultResponse.java
+src/main/java/com/factset/sdk/FactSetFunds/models/BatchStatus.java
+src/main/java/com/factset/sdk/FactSetFunds/models/BatchStatusResponse.java
 src/main/java/com/factset/sdk/FactSetFunds/models/BenchmarkDetails.java
 src/main/java/com/factset/sdk/FactSetFunds/models/BenchmarkDetailsRequest.java
 src/main/java/com/factset/sdk/FactSetFunds/models/BenchmarkDetailsResponse.java

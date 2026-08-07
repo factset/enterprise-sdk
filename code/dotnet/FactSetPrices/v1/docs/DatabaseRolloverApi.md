@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Gets the latest relative rollover date for the database.
 
-Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p> 
+Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p> 
 
 ### Example
 
@@ -114,7 +114,7 @@ This endpoint does not need any parameter.
 
 Gets the latest relative rollover date for the database.
 
-Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p> 
+Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p> 
 
 ### Example
 

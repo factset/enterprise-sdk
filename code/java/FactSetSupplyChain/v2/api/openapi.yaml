@@ -1,0 +1,2505 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |
+    FactSet Supply Chain Relationships data exposes and classifies the business
+    relationships and interconnections among global companies.
+
+    Relationship information is sourced from trusted primary sources and
+    reverse-linked to non-disclosing parties, creating a comprehensive and
+    consistent relationship graph.
+
+    Access the complex networks of companies' key customers, suppliers,
+    competitors, and strategic partners, including both direct
+    (named by company) and reverse (named by other companies) relationships.
+
+    Over **43,000 companies** are actively covered and involved in more than
+    **735,000 relationships**.
+
+    Sources include primary public sources such as:
+
+    - SEC 10-K annual filings
+    - Investor presentations
+    - Press releases
+
+    This API provides the following endpoints:
+
+    - `/supply-chain` — Retrieve supplier and customer relationships with
+      centrality measures, relevance grades, and revenue percentages
+    - `/relationships` — Retrieve competitor and partner relationships with
+      sector overlap and relationship keywords
+
+    **Rate limits**
+
+    - 10 requests per second
+    - 10 concurrent requests per user
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Supply Chain API
+  version: 2.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-supply-chain-api
+servers:
+- description: Production
+  url: https://api.factset.com/content/factset-supply-chain/v2
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Retrieve supplier and customer relationships for requested entities,
+    including subsidiaries, revenue percentages, relevance grades, centrality measures,
+    and relationship keywords.
+  name: Supply Chain
+- description: Retrieve competitor and partner relationships for requested entities.
+    The response schema varies based on the `relationshipType` parameter - competitor
+    responses include overlapping sector counts, while partner responses include specific
+    partner type classifications.
+  name: Relationships
+- description: Manage asynchronous requests by checking their status and retrieving
+    results for long-running batch jobs."
+  name: Batch Processing
+paths:
+  /supply-chain:
+    get:
+      description: |
+        Retrieve supplier and customer relationships for the requested
+        entity or entities.
+
+        Includes:
+
+        - subsidiaries
+        - revenue percentages
+        - relevance grades
+        - centrality measures
+        - relationship keywords
+
+        Use the `relationshipType` parameter to filter by:
+
+        - `CUSTOMER`
+        - `SUPPLIER`
+
+        Historical data can be accessed only with the Historical product
+        subscription. If the product is not subscribed, data for the latest
+        available period will be returned.
+      operationId: listSupplyChain
+      parameters:
+      - description: The requested identifier. FactSet identifiers, tickers, CUSIP,
+          SEDOL, and ISIN are accepted inputs.<p><strong>IDs limit</strong> = 20 per
+          non-batch request and 1000 per batch request.</p><p>Make note, <strong>GET</strong>
+          Method URL request lines are also limited to a total length of 8192 bytes
+          (8 KB). In cases where the service allows for large numbers of IDs, which
+          may lead to exceeding this request line limit of 8 KB, it is advised that
+          requests with large request lines be made through the respective <strong>POST</strong>
+          method.</p>
+        examples:
+          oneId:
+            summary: One Entity Identifier
+            value:
+            - 000C7F-E
+          multipleIds:
+            summary: Multiple Entity Identifiers
+            value:
+            - 000C7F-E
+            - 0FPWZD-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: |-
+          Controls the type of supply chain relationship returned.
+            * **CUSTOMER** = Returns entities to which the source company sells products/services.
+            * **SUPPLIER** = Returns entities from which the source company purchases goods or services.
+        example: CUSTOMER
+        explode: true
+        in: query
+        name: relationshipType
+        required: false
+        schema:
+          $ref: '#/components/schemas/SupplyChainRelationshipType'
+        style: form
+      - description: The date requested in YYYY-MM-DD format. If left blank, the API
+          will default to the most recent available data. Future dates (T+1) are not
+          accepted in this endpoint.
+        example: 2025-12-31
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateSchema'
+        style: form
+      - description: |
+          A specific set of attributes to return in the response.
+          If omitted, all fields are returned.
+        explode: false
+        in: query
+        name: fields
+        required: false
+        schema:
+          $ref: '#/components/schemas/SupplyChainFields'
+        style: form
+      - description: |
+          Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
+          Once a batch request is submitted, use the corresponding `/batch-status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/batch-result` endpoint.
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          $ref: '#/components/schemas/Batch'
+        style: form
+      - description: Specifies the number of results to return per page.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 5
+          maximum: 500
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Supply Chain relationships for successful entity:
+                  $ref: '#/components/examples/supplyChainResponseExample'
+                Supply Chain relationships for partial success:
+                  $ref: '#/components/examples/supplyChainResponsePartialExample'
+              schema:
+                $ref: '#/components/schemas/SupplyChainResponse'
+          description: Successful response containing supply chain relationships for
+            the requested entity IDs.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+                Bad Request - Data Not Found:
+                  $ref: '#/components/examples/dataNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Get supply chain relationships for requested entities.
+      tags:
+      - Supply Chain
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieve supplier and customer relationships for a large list of
+        entity IDs.
+
+        Includes:
+
+        - subsidiaries
+        - revenue percentages
+        - relevance grades
+        - centrality measures
+        - relationship keywords
+
+        Use the `relationshipType` parameter to filter by:
+
+        - `CUSTOMER`
+        - `SUPPLIER`
+
+        Historical data can be accessed only with the Historical product
+        subscription. If the product is not subscribed, data for the latest
+        available period will be returned.
+      operationId: listSupplyChainForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for Supply Chain:
+                $ref: '#/components/examples/postSupplyChain'
+            schema:
+              $ref: '#/components/schemas/SupplyChainRequest'
+        description: The Supply Chain request body, allowing the user to specify a
+          list of IDs.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Supply Chain relationships for successful entity:
+                  $ref: '#/components/examples/supplyChainResponseExample'
+                Supply Chain relationships for partial success:
+                  $ref: '#/components/examples/supplyChainResponsePartialExample'
+              schema:
+                $ref: '#/components/schemas/SupplyChainResponse'
+          description: Successful response containing supply chain relationships for
+            the large list of entity IDs.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+                Bad Request - Data Not Found:
+                  $ref: '#/components/examples/dataNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Get supply chain relationships for a large list of entity IDs.
+      tags:
+      - Supply Chain
+      x-contentType: application/json
+      x-accepts: application/json
+  /relationships:
+    get:
+      description: |
+        Retrieve competitor or partner relationships for the requested
+        entity or entities.
+
+        Use the `relationshipType` parameter to select one or more
+        relationship types.
+
+        Historical data can be accessed only with the Historical product
+        subscription. If the product is not subscribed, data for the latest
+        available period will be returned.
+      operationId: listRelationships
+      parameters:
+      - description: The requested identifier. FactSet identifiers, tickers, CUSIP,
+          SEDOL, and ISIN are accepted inputs.<p><strong>IDs limit</strong> = 20 per
+          non-batch request and 1000 per batch request.</p><p>Make note, <strong>GET</strong>
+          Method URL request lines are also limited to a total length of 8192 bytes
+          (8 KB). In cases where the service allows for large numbers of IDs, which
+          may lead to exceeding this request line limit of 8 KB, it is advised that
+          requests with large request lines be made through the respective <strong>POST</strong>
+          method.</p>
+        examples:
+          oneId:
+            summary: One Entity Identifier
+            value:
+            - 000C7F-E
+          multipleIds:
+            summary: Multiple Entity Identifiers
+            value:
+            - 000C7F-E
+            - 0FPWZD-E
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        style: form
+      - description: |-
+          Controls the relationship types returned in the response. Multiple relationship types can be selected simultaneously.
+
+            * **COMPETITOR** = Returns entities disclosed by the source company as competitors or rivals.
+
+            * **ALL_PARTNERS** = Returns all available partner relationship types in a single response.
+
+            * **PARTNER_DISTRIBUTION** = Returns distribution partnership relationships.
+
+            * **PARTNER_EQUITY_INVESTMENT** = Returns equity investment partnership relationships.
+
+            * **PARTNER_INTEGRATED_PRODUCT_OFFERING** = Returns integrated product offering partnerships.
+
+            * **PARTNER_INVESTORS** = Returns investor-related partnership relationships.
+
+            * **PARTNER_JOINT_VENTURE** = Returns joint venture partnership relationships.
+
+            * **PARTNER_IN_LICENSING** = Returns in-licensing partnership relationships.
+
+            * **PARTNER_OUT_LICENSING** = Returns out-licensing partnership relationships.
+
+            * **PARTNER_MANUFACTURING** = Returns manufacturing partnership relationships.
+
+            * **PARTNER_MARKETING** = Returns marketing partnership relationships.
+
+            * **PARTNER_RESEARCH_COLLABORATION** = Returns research collaboration partnership relationships.
+        example:
+        - COMPETITOR
+        - PARTNER_MARKETING
+        explode: true
+        in: query
+        name: relationshipType
+        required: false
+        schema:
+          $ref: '#/components/schemas/RelationshipsRelationshipType'
+        style: form
+      - description: The date requested in YYYY-MM-DD format. If left blank, the API
+          will default to the most recent available data. Future dates (T+1) are not
+          accepted in this endpoint.
+        example: 2025-12-31
+        explode: true
+        in: query
+        name: date
+        required: false
+        schema:
+          $ref: '#/components/schemas/DateSchema'
+        style: form
+      - description: |
+          A specific set of attributes to return in the response. If omitted, all fields are returned.
+        explode: false
+        in: query
+        name: fields
+        required: false
+        schema:
+          $ref: '#/components/schemas/RelationshipsFields'
+        style: form
+      - description: |
+          Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
+          Once a batch request is submitted, use the corresponding `/batch-status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/batch-result` endpoint.
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          $ref: '#/components/schemas/Batch'
+        style: form
+      - description: Specifies the number of results to return per page.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 5
+          maximum: 500
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Competitor relationships for one successful entity:
+                  $ref: '#/components/examples/competitorResponseExample'
+                Competitor relationships for partial successful entities:
+                  $ref: '#/components/examples/competitorResponsePartialExample'
+                Partner relationships for one successful entity:
+                  $ref: '#/components/examples/partnerResponseExample'
+                Partner relationships for partial successful entities:
+                  $ref: '#/components/examples/partnerResponsePartialExample'
+              schema:
+                $ref: '#/components/schemas/RelationshipsResponse'
+          description: The Relationships response object. The schema of each item
+            in the `data` array depends on the `relationshipType` parameter.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+                Bad Request - Data Not Found:
+                  $ref: '#/components/examples/dataNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Get competitor or partner relationships for requested entities.
+      tags:
+      - Relationships
+      x-accepts: application/json
+    post:
+      description: |
+        Retrieve competitor or partner relationships for the requested
+        entity or entities.
+
+        Use the `relationshipType` parameter to select one or more
+        relationship types.
+
+        Historical data can be accessed only with the Historical product
+        subscription. If the product is not subscribed, data for the latest
+        available period will be returned.
+      operationId: listRelationshipsForList
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for Competitors for AAPL and MSFT:
+                $ref: '#/components/examples/postCompetitor'
+              Request for Partners for AAPL and MSFT:
+                $ref: '#/components/examples/postPartner'
+            schema:
+              $ref: '#/components/schemas/RelationshipsRequest'
+        description: The Relationships request body, allowing the user to specify
+          a list of IDs and relationship type.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Competitor relationships for one successful entity:
+                  $ref: '#/components/examples/competitorResponseExample'
+                Competitor relationships for partial successful entities:
+                  $ref: '#/components/examples/competitorResponsePartialExample'
+                Partner relationships for one successful entity:
+                  $ref: '#/components/examples/partnerResponseExample'
+                Partner relationships for partial successful entities:
+                  $ref: '#/components/examples/partnerResponsePartialExample'
+              schema:
+                $ref: '#/components/schemas/RelationshipsResponse'
+          description: The Relationships response object. The schema of each item
+            in the `data` array depends on the `relationshipType` parameter.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+                Bad Request - Data Not Found:
+                  $ref: '#/components/examples/dataNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Get competitor or partner relationships for a large list of entity
+        IDs.
+      tags:
+      - Relationships
+      x-contentType: application/json
+      x-accepts: application/json
+  /batch-status:
+    get:
+      deprecated: false
+      description: Return the status for the underlying batch request that is specified
+        by the ID.
+      operationId: getBatchStatus
+      parameters:
+      - allowEmptyValue: false
+        description: Batch Request identifier.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: The batch Request has been completed and the response has been
+            created.
+          headers:
+            Location:
+              description: Path to Batch Request result.
+              example: batch-result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: The batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+                Bad Request - Data Not Found:
+                  $ref: '#/components/examples/dataNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource was not found.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns the status for a Batch Request
+      tags:
+      - Batch Processing
+      x-accepts: application/json
+  /batch-result:
+    get:
+      description: |
+        Returns the response data for the underlying batch request that is specified by the ID. The response structure will be based on the endpoint that initiated the batch request.
+      operationId: getBatchData
+      parameters:
+      - allowEmptyValue: false
+        description: Batch Request identifier.
+        explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Supply Chain relationships for successful entity:
+                  $ref: '#/components/examples/supplyChainResponseExample'
+                Competitor relationships for one successful entity:
+                  $ref: '#/components/examples/competitorResponseExample'
+                Partner relationships for one successful entity:
+                  $ref: '#/components/examples/partnerResponseExample'
+              schema:
+                $ref: '#/components/schemas/BatchResultResponse'
+          description: The long-running request has been completed and the result
+            is created. The response structure will be based on the endpoint that
+            initiated the batch request.
+        "202":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: The batch Request has not finished and the result has NOT been
+            created.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+                Bad Request - Data Not Found:
+                  $ref: '#/components/examples/dataNotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested resource was not found.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns the response for a Batch Request
+      tags:
+      - Batch Processing
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+components:
+  examples:
+    postSupplyChain:
+      description: Request payload example for Supply Chain endpoint with entity IDs
+        and relationship type
+      summary: Supply Chain request object
+      value:
+        data:
+          ids:
+          - 000C7F-E
+          - 0FPWZD-E
+          relationshipType: CUSTOMER
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    supplyChainResponseExample:
+      description: Example response from the Supply Chain endpoint showing supply
+        chain relationships and centrality metrics for an entity
+      summary: Successful Supply Chain response for one successful entity.
+      value:
+        data:
+        - requestId: 000C7F-E
+          date: 2026-04-01
+          items:
+          - entityId: 05MCSG-E
+            entityName: Foxconn Technology Group
+            relationshipType: CUSTOMER
+            direction: DIRECT
+            revenuePct: 15.97
+            relevanceGrade: 8
+            supplierSubsidiaries:
+            - name: Foxconn Precision Electronics
+              entityId: 0FPE01-E
+            - name: Foxconn Assembly LLC
+              entityId: 0FAL02-E
+            customerSubsidiaries:
+            - name: Apple iPhone Division
+              entityId: 0AIP01-E
+            - name: Dell Consumer Products
+              entityId: 0DCP02-E
+            centrality:
+              degree: 0.842697
+              eigenvector: 5.420991
+              productKatz: 5.460563
+              cashKatz: 0.556619
+              customer: 0.268328
+              supplier: 0.030261
+            relationshipKeywords:
+            - - electronics manufacturing
+              - consumer devices
+            - - smartphones
+            - - semiconductor assembly
+        meta:
+          pagination:
+            total: 201
+            isEstimatedTotal: false
+    supplyChainResponsePartialExample:
+      description: Partial success response with mixed valid and invalid request identifiers.
+      summary: Successful Supply Chain response for partial successful entities.
+      value:
+        data:
+        - requestId: 000C7F-E
+          date: 2026-04-01
+          items:
+          - entityId: 05MCSG-E
+            entityName: Foxconn Technology Group
+            relationshipType: CUSTOMER
+            direction: DIRECT
+            revenuePct: 15.97
+            relevanceGrade: 8
+            supplierSubsidiaries:
+            - name: Foxconn Precision Electronics
+              entityId: 0FPE01-E
+            - name: Foxconn Assembly LLC
+              entityId: 0FAL02-E
+            customerSubsidiaries:
+            - name: Apple iPhone Division
+              entityId: 0AIP01-E
+            - name: Dell Consumer Products
+              entityId: 0DCP02-E
+            centrality:
+              degree: 0.842697
+              eigenvector: 5.420991
+              productKatz: 5.460563
+              cashKatz: 0.556619
+              customer: 0.268328
+              supplier: 0.030261
+            relationshipKeywords:
+            - - electronics manufacturing
+              - consumer devices
+            - - smartphones
+            - - semiconductor assembly
+        - requestId: INVALID-US
+          error:
+            code: NotFound
+            title: Entity Not Found
+            id: err-7f93ab12
+            detail: The requested identifier 'INVALID-US' could not be resolved to
+              a valid entity.
+            source:
+              parameter: ids[2]
+              value: INVALID-US
+        - requestId: '@@@@'
+          error:
+            code: ValidationError
+            title: Invalid Parameter
+            id: err-5a21dc88
+            detail: The parameter 'ids' contains an improperly formatted identifier.
+            source:
+              parameter: ids[3]
+              value: '@@@@'
+        meta:
+          pagination:
+            total: 201
+            isEstimatedTotal: false
+    postCompetitor:
+      description: Request payload example for Competitor endpoint with entity IDs
+        and relationship type
+      summary: Competitor request object
+      value:
+        data:
+          ids:
+          - 000C7F-E
+          - 0FPWZD-E
+          relationshipType:
+          - COMPETITOR
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    competitorResponseExample:
+      description: Example response containing competitor relationship data with entity
+        information and network centrality metrics
+      summary: Successful Competitor response for one successful entity
+      value:
+        data:
+        - requestId: 000C7F-E
+          date: 2026-04-01
+          items:
+          - entityId: 0FPWZD-E
+            entityName: Microsoft Corp.
+            relationshipType: COMPETITOR
+            direction: DIRECT
+            requestIdSubsidiaries:
+            - name: Microsoft Cloud Division
+              entityId: 0MCD01-E
+            targetSubsidiaries:
+            - name: Google Cloud
+              entityId: 000C7F-E
+            overlappingSectorCount: 41
+            relationshipKeywords:
+            - - smartphones
+              - operating systems
+            - - cloud computing
+        meta:
+          pagination:
+            total: 201
+            isEstimatedTotal: false
+    competitorResponsePartialExample:
+      description: Example response containing competitor relationship data with entity
+        information and network centrality metrics
+      summary: Successful Competitor response for partial successful entities
+      value:
+        data:
+        - requestId: 000C7F-E
+          date: 2026-04-01
+          items:
+          - entityId: 0FPWZD-E
+            entityName: Microsoft Corp.
+            relationshipType: COMPETITOR
+            direction: DIRECT
+            requestIdSubsidiaries:
+            - name: Microsoft Cloud Division
+              entityId: 0MCD01-E
+            targetSubsidiaries:
+            - name: Google Cloud
+              entityId: 000C7F-E
+            overlappingSectorCount: 41
+            relationshipKeywords:
+            - - smartphones
+              - operating systems
+            - - cloud computing
+        - requestId: INVALID-US
+          error:
+            code: NotFound
+            title: Entity Not Found
+            id: err-7f93ab12
+            detail: The requested identifier 'INVALID-US' could not be resolved to
+              a valid entity.
+            source:
+              parameter: ids[2]
+              value: INVALID-US
+        - requestId: '@@@@'
+          error:
+            code: ValidationError
+            title: Invalid Parameter
+            id: err-5a21dc88
+            detail: The parameter 'ids' contains an improperly formatted identifier.
+            source:
+              parameter: ids[3]
+              value: '@@@@'
+        meta:
+          pagination:
+            total: 201
+            isEstimatedTotal: false
+    postPartner:
+      description: Request payload example for Partner endpoint with entity IDs and
+        relationship type
+      summary: Partners request object
+      value:
+        data:
+          ids:
+          - 000C7F-E
+          - 0FPWZD-E
+          relationshipType:
+          - PARTNER_MANUFACTURING
+    partnerResponseExample:
+      description: Example response from the Partner endpoint showing partner relationships
+        with subsidiary details and keywords
+      summary: Successful Partner response for one successful entity.
+      value:
+        data:
+        - requestId: 000C7F-E
+          date: 2026-04-01
+          items:
+          - entityId: 006WQ5-E
+            entityName: Samsung Electronics Co. Ltd.
+            relationshipType: PARTNER_MANUFACTURING
+            direction: DIRECT
+            requestIdSubsidiaries:
+            - name: Samsung Semiconductor Division
+              entityId: 0SSD01-E
+            targetSubsidiaries:
+            - name: Samsung Display
+              entityId: 0B6S9V-E
+            relationshipKeywords:
+            - - display manufacturing
+              - OLED
+            - - panel supply
+        meta:
+          pagination:
+            total: 201
+            isEstimatedTotal: false
+    partnerResponsePartialExample:
+      description: Example response from the Partner endpoint showing partner relationships
+        with subsidiary details and keywords
+      summary: Successful Partner response for partial successful entities.
+      value:
+        data:
+        - requestId: 000C7F-E
+          date: 2026-04-01
+          items:
+          - entityId: 006WQ5-E
+            entityName: Samsung Electronics Co. Ltd.
+            relationshipType: PARTNER_MANUFACTURING
+            direction: DIRECT
+            requestIdSubsidiaries:
+            - name: Samsung Semiconductor Division
+              entityId: 0SSD01-E
+            targetSubsidiaries:
+            - name: Samsung Display
+              entityId: 0B6S9V-E
+            relationshipKeywords:
+            - - display manufacturing
+              - OLED
+            - - panel supply
+        - requestId: INVALID-US
+          error:
+            code: NotFound
+            title: Entity Not Found
+            id: err-7f93ab12
+            detail: The requested identifier 'INVALID-US' could not be resolved to
+              a valid entity.
+            source:
+              parameter: ids[2]
+              value: INVALID-US
+        - requestId: '@@@@'
+          error:
+            code: ValidationError
+            title: Invalid Parameter
+            id: err-5a21dc88
+            detail: The parameter 'ids' contains an improperly formatted identifier.
+            source:
+              parameter: ids[3]
+              value: '@@@@'
+        meta:
+          pagination:
+            total: 201
+            isEstimatedTotal: false
+    badRequestRequiredParameter:
+      description: Example response for a bad request due to missing required parameter
+      summary: Bad Request - Missing Required Parameter
+      value:
+        errors:
+        - code: Bad Request
+          title: Missing Required Parameter
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: The parameter 'ids' is required and may not be empty.
+    badRequestInvalidParameters:
+      description: Example response for a bad request due to invalid parameter values
+      summary: Bad Request - Invalid Parameters
+      value:
+        errors:
+        - code: Bad Request
+          title: Invalid Parameter
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: The parameter 'relationshipType' must be one of [Customer, Supplier].
+    unauthenticated:
+      description: Example response for an unauthenticated request
+      summary: User Authentication Failed
+      value:
+        errors:
+        - code: Unauthorized
+          title: User Authentication Failed
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+            successfully generated an API KEY for the IP range you are connecting
+            from.
+    forbidden:
+      description: Example response for a forbidden request due to insufficient permissions
+      summary: Forbidden
+      value:
+        errors:
+        - code: Forbidden
+          title: Access Denied
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+            to access.
+    notFound:
+      description: Example response when the requested endpoint does not exist
+      summary: Endpoint Not Found
+      value:
+        errors:
+        - code: Not Found
+          title: Endpoint Not Found
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: The requested endpoint does not exist.
+    dataNotFound:
+      description: Example response when no data is found for the requested identifiers
+      summary: Data Not Found
+      value:
+        errors:
+        - code: Not Found
+          title: Data Not Found
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: No data found for the requested identifiers.
+    unsupportedMediaType:
+      description: Example response when the Content-Type header is not set to application/json
+      summary: Unsupported Media Type
+      value:
+        errors:
+        - code: Unsupported Media Type
+          title: Unsupported Media Type
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: The Content-Type header must be set to 'application/json'.
+    unprocessableEntity:
+      description: Example response when request validation fails or parameters exceed
+        limits
+      summary: Validation Error
+      value:
+        errors:
+        - code: Unprocessable Entity
+          title: Validation Error
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: The parameter 'ids' exceeds the maximum allowed limit of 200.
+    notWritable:
+      description: Example response when an internal error occurs that prevents writing
+        data
+      summary: Internal Server Error - Not Writable
+      value:
+        errors:
+        - code: Internal Server Error
+          title: Not Writable
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: An internal error occurred. Please try again later.
+    generalException:
+      description: Example response when an unexpected internal server error occurs
+      summary: Internal Server Error - General Exception
+      value:
+        errors:
+        - code: Internal Server Error
+          title: General Exception
+          id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+          detail: An unexpected error occurred on the server. Please try again later.
+  parameters:
+    ids:
+      description: The requested identifier. FactSet identifiers, tickers, CUSIP,
+        SEDOL, and ISIN are accepted inputs.<p><strong>IDs limit</strong> = 20 per
+        non-batch request and 1000 per batch request.</p><p>Make note, <strong>GET</strong>
+        Method URL request lines are also limited to a total length of 8192 bytes
+        (8 KB). In cases where the service allows for large numbers of IDs, which
+        may lead to exceeding this request line limit of 8 KB, it is advised that
+        requests with large request lines be made through the respective <strong>POST</strong>
+        method.</p>
+      examples:
+        oneId:
+          summary: One Entity Identifier
+          value:
+          - 000C7F-E
+        multipleIds:
+          summary: Multiple Entity Identifiers
+          value:
+          - 000C7F-E
+          - 0FPWZD-E
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 1000
+        minItems: 1
+        type: array
+      style: form
+    _paginationLimit:
+      description: Specifies the number of results to return per page.
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 5
+        maximum: 500
+        type: integer
+      style: form
+    _paginationOffset:
+      description: Specifies the starting point for pagination. This parameter is
+        used to identify the beginning of next set of results.
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        default: 0
+        type: integer
+      style: form
+    batch:
+      description: |
+        Enables the ability to asynchronously "batch" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.
+        Once a batch request is submitted, use the corresponding `/batch-status` endpoint to see if the job has been completed. Once completed, retrieve the results of the request via the `/batch-result` endpoint.
+      explode: true
+      in: query
+      name: batch
+      required: false
+      schema:
+        $ref: '#/components/schemas/Batch'
+      style: form
+    batchId:
+      allowEmptyValue: false
+      description: Batch Request identifier.
+      explode: true
+      in: query
+      name: id
+      required: true
+      schema:
+        format: uuid
+        type: string
+      style: form
+    supplyChainRelationshipType:
+      description: |-
+        Controls the type of supply chain relationship returned.
+          * **CUSTOMER** = Returns entities to which the source company sells products/services.
+          * **SUPPLIER** = Returns entities from which the source company purchases goods or services.
+      example: CUSTOMER
+      explode: true
+      in: query
+      name: relationshipType
+      required: false
+      schema:
+        $ref: '#/components/schemas/SupplyChainRelationshipType'
+      style: form
+    relationshipsRelationshipType:
+      description: |-
+        Controls the relationship types returned in the response. Multiple relationship types can be selected simultaneously.
+
+          * **COMPETITOR** = Returns entities disclosed by the source company as competitors or rivals.
+
+          * **ALL_PARTNERS** = Returns all available partner relationship types in a single response.
+
+          * **PARTNER_DISTRIBUTION** = Returns distribution partnership relationships.
+
+          * **PARTNER_EQUITY_INVESTMENT** = Returns equity investment partnership relationships.
+
+          * **PARTNER_INTEGRATED_PRODUCT_OFFERING** = Returns integrated product offering partnerships.
+
+          * **PARTNER_INVESTORS** = Returns investor-related partnership relationships.
+
+          * **PARTNER_JOINT_VENTURE** = Returns joint venture partnership relationships.
+
+          * **PARTNER_IN_LICENSING** = Returns in-licensing partnership relationships.
+
+          * **PARTNER_OUT_LICENSING** = Returns out-licensing partnership relationships.
+
+          * **PARTNER_MANUFACTURING** = Returns manufacturing partnership relationships.
+
+          * **PARTNER_MARKETING** = Returns marketing partnership relationships.
+
+          * **PARTNER_RESEARCH_COLLABORATION** = Returns research collaboration partnership relationships.
+      example:
+      - COMPETITOR
+      - PARTNER_MARKETING
+      explode: true
+      in: query
+      name: relationshipType
+      required: false
+      schema:
+        $ref: '#/components/schemas/RelationshipsRelationshipType'
+      style: form
+    supplyChainFields:
+      description: |
+        A specific set of attributes to return in the response.
+        If omitted, all fields are returned.
+      explode: false
+      in: query
+      name: fields
+      required: false
+      schema:
+        $ref: '#/components/schemas/SupplyChainFields'
+      style: form
+    relationshipsFields:
+      description: |
+        A specific set of attributes to return in the response. If omitted, all fields are returned.
+      explode: false
+      in: query
+      name: fields
+      required: false
+      schema:
+        $ref: '#/components/schemas/RelationshipsFields'
+      style: form
+    date:
+      description: The date requested in YYYY-MM-DD format. If left blank, the API
+        will default to the most recent available data. Future dates (T+1) are not
+        accepted in this endpoint.
+      example: 2025-12-31
+      explode: true
+      in: query
+      name: date
+      required: false
+      schema:
+        $ref: '#/components/schemas/DateSchema'
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameters'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "message" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            User Authentication - Failed:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            Bad Request - Endpoint Not Found:
+              $ref: '#/components/examples/notFound'
+            Bad Request - Data Not Found:
+              $ref: '#/components/examples/dataNotFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The requested resource was not found.
+    "415":
+      content:
+        application/json:
+          examples:
+            Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "422":
+      content:
+        application/json:
+          examples:
+            Validation Error:
+              $ref: '#/components/examples/unprocessableEntity'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+        Check the required parameters and their value constraints.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - Not Writable:
+              $ref: '#/components/examples/notWritable'
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error.
+  schemas:
+    IdentifierResponseFields:
+      additionalProperties: true
+      description: Reusable component containing the standard `requestId` field used
+        in response objects
+      properties:
+        requestId:
+          description: The requested identifier sent as input.
+          example: 000C7F-E
+          type: string
+        date:
+          description: The requested date in YYYY-MM-DD format.
+          example: 2025-02-26
+          format: date
+          nullable: true
+          type: string
+      title: Common Identifier and Date Response Fields
+      type: object
+    EntityResponseFields:
+      additionalProperties: true
+      description: Reusable component containing standard entity fields used in relationship
+        response objects
+      properties:
+        entityId:
+          description: Unique FactSet-generated identifier representing the related
+            entity. Six alpha-numeric characters with a -E suffix (XXXXXX-E).
+          example: 05MCSG-E
+          type: string
+        entityName:
+          description: The proper name of the related entity.
+          example: Apple Inc.
+          type: string
+      title: Common Entity Response Fields
+      type: object
+    RelationshipTypeEnum:
+      description: Supported relationship types
+      enum:
+      - COMPETITOR
+      - ALL_PARTNERS
+      - PARTNER_DISTRIBUTION
+      - PARTNER_EQUITY_INVESTMENT
+      - PARTNER_INTEGRATED_PRODUCT_OFFERING
+      - PARTNER_INVESTORS
+      - PARTNER_JOINT_VENTURE
+      - PARTNER_IN_LICENSING
+      - PARTNER_OUT_LICENSING
+      - PARTNER_MANUFACTURING
+      - PARTNER_MARKETING
+      - PARTNER_RESEARCH_COLLABORATION
+      title: Relationship Type Names
+      type: string
+    SupplyChainFieldsEnum:
+      description: Supported field names for Supply Chain responses
+      enum:
+      - supplierSubsidiaries
+      - customerSubsidiaries
+      - relationshipKeywords
+      - revenuePct
+      - relevanceGrade
+      - centrality
+      - direction
+      title: Supply Chain Field Names
+      type: string
+    SupplyChainFields:
+      description: |
+        A specific set of attributes to return in the response. If omitted, all fields are returned.
+      items:
+        $ref: '#/components/schemas/SupplyChainFieldsEnum'
+      title: Supply Chain Response Attributes
+      type: array
+      uniqueItems: true
+    RelationshipsFieldsEnum:
+      description: Supported field names for Relationships responses
+      enum:
+      - requestIdSubsidiaries
+      - targetSubsidiaries
+      - overlappingSectorCount
+      - relationshipKeywords
+      - direction
+      title: Relationships Field Names
+      type: string
+    RelationshipsFields:
+      description: |
+        A specific set of attributes to return in the response.
+        If omitted, all fields are returned.
+      items:
+        $ref: '#/components/schemas/RelationshipsFieldsEnum'
+      title: Relationships Response Attributes
+      type: array
+      uniqueItems: true
+    Subsidiary:
+      description: |
+        Subsidiary information including the subsidiary name and its FactSet-generated entity identifier, if available.
+      properties:
+        name:
+          description: The proper name of the subsidiary.
+          example: NASA
+          nullable: true
+          type: string
+        entityId:
+          description: Unique FactSet-generated identifier representing the subsidiary
+            entity. Six alpha-numeric characters with a `-E` suffix (XXXXXX-E).
+          example: 0RXZ3R-E
+          nullable: true
+          type: string
+      title: Subsidiary
+      type: object
+    RequestMeta:
+      description: meta definition for pagination
+      example:
+        pagination:
+          offset: 0
+          limit: 100
+      properties:
+        pagination:
+          $ref: '#/components/schemas/RequestPagination'
+      type: object
+    RequestPagination:
+      description: Object defining the pagination attributes for an endpoint request.
+      example:
+        offset: 0
+        limit: 100
+      properties:
+        limit:
+          default: 20
+          description: The maximum number of records to return. The default is 20.
+          example: 100
+          format: int32
+          maximum: 500
+          minimum: 1
+          type: integer
+        offset:
+          default: 0
+          description: The number of records to skip before the first record to return.
+            The default is 0.
+          example: 0
+          format: int32
+          maximum: 2147483147
+          minimum: 0
+          type: integer
+      type: object
+    ResponseMeta:
+      description: Metadata object for the API response.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ResponsePagination'
+      title: Response Meta
+      type: object
+    ResponsePagination:
+      description: Pagination object for the API response.
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of records the API returns for a particular query.
+          format: int64
+          type: integer
+        isEstimatedTotal:
+          description: Boolean value that represents whether the total count of records
+            returned is exact or an estimate. This is defaulted to False as the API
+            should always return the exact count.
+          type: boolean
+      title: Pagination
+      type: object
+    BatchStatusResponse:
+      description: Batch Status Response
+      example:
+        data:
+          startTime: 2000-01-23T04:56:07.000+00:00
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          endTime: 2000-01-23T04:56:07.000+00:00
+          error:
+            code: Bad Request
+            id: id
+            detail: The parameter 'ids' should be valid and may not be empty.
+            source:
+              pointer: pointer
+              parameter: parameter
+              value: value
+            title: Invalid Parameter
+          status: QUEUED
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchStatus'
+      required:
+      - data
+      title: Batch Status Response
+      type: object
+    BatchStatus:
+      description: Batch Status object
+      example:
+        startTime: 2000-01-23T04:56:07.000+00:00
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        endTime: 2000-01-23T04:56:07.000+00:00
+        error:
+          code: Bad Request
+          id: id
+          detail: The parameter 'ids' should be valid and may not be empty.
+          source:
+            pointer: pointer
+            parameter: parameter
+            value: value
+          title: Invalid Parameter
+        status: QUEUED
+      properties:
+        id:
+          description: the id of batch request.
+          format: uuid
+          type: string
+        startTime:
+          description: Time when the batch request is started. This is in Eastern
+            Time Zone. The date-time format is expressed as `[YYYY-MM-DD]T[HH:MM:SSS]`,
+            following ISO 8601.
+          format: date-time
+          type: string
+        endTime:
+          description: Time when the batch request is ended. This is in Eastern Time
+            Zone. The date-time format is expressed as `[YYYY-MM-DD]T[HH:MM:SSS]`,
+            following ISO 8601.
+          format: date-time
+          nullable: true
+          type: string
+        status:
+          description: Status of the batch request
+          enum:
+          - QUEUED
+          - EXECUTING
+          - CREATED
+          - FAILED
+          type: string
+        error:
+          $ref: '#/components/schemas/ErrorObject'
+      title: Batch Status
+      type: object
+    BatchResultResponse:
+      description: Batch Response object
+      example:
+        data:
+        - null
+        - null
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Batch Response object
+          items:
+            $ref: '#/components/schemas/BatchResult'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      required:
+      - data
+      title: Batch Data Response
+      type: object
+    BatchResult:
+      description: Batch Response object
+      discriminator:
+        mapping:
+          Supplychain: '#/components/schemas/SupplyChain'
+          Relationships: '#/components/schemas/Relationships'
+        propertyName: type
+      oneOf:
+      - $ref: '#/components/schemas/SupplyChain'
+      - $ref: '#/components/schemas/Relationships'
+      title: Batch Data
+    Batch:
+      default: "N"
+      description: Enables the ability to asynchronously "batch" the request, supporting
+        a long-running request. Upon requesting batch=Y, the service will respond
+        back with an HTTP Status Code of 202. Once a batch request is submitted, use
+        the corresponding `/batch-status` and `/batch-result` endpoints to retrieve
+        the status and result.
+      enum:
+      - "Y"
+      - "N"
+      type: string
+    SupplyChainRequest:
+      description: Supply Chain Request
+      example:
+        data:
+          date: 2025-12-31T00:00:00.000+0000
+          relationshipType: CUSTOMER
+          ids:
+          - 000C7F-E
+          - 0FPWZD-E
+          fields:
+          - null
+          - null
+        meta:
+          pagination:
+            offset: 0
+            limit: 100
+      properties:
+        data:
+          $ref: '#/components/schemas/SupplyChainRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      title: Supply Chain Request
+      type: object
+    SupplyChainResponse:
+      description: Response containing an array of supply chain relationship objects
+      example:
+        data:
+        - null
+        - null
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: Array of Supply Chain Objects
+          items:
+            $ref: '#/components/schemas/SupplyChain'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      title: Supply Chain Response
+      type: object
+    SupplyChain:
+      allOf:
+      - $ref: '#/components/schemas/IdentifierResponseFields'
+      - $ref: '#/components/schemas/SupplyChain_allOf'
+      description: Comprehensive supply chain relationship information for an entity
+        including subsidiaries, revenue percentages, relevance grades, centrality
+        measures, and relationship keywords
+      title: Supply Chain Relationship Object
+      type: object
+    SupplyChainItem:
+      allOf:
+      - $ref: '#/components/schemas/EntityResponseFields'
+      - $ref: '#/components/schemas/SupplyChainItem_allOf'
+      description: A single supply chain relationship record containing entity details,
+        relationship type, centrality measures, subsidiary details, revenue percentages,
+        relevance grades, and relationship keywords.
+      title: Supply Chain Item
+      type: object
+    RelationshipsRequest:
+      description: Relationships Request for competitor or partner data
+      example:
+        data:
+          date: 2025-12-31T00:00:00.000+0000
+          relationshipType:
+          - COMPETITOR
+          - PARTNER_MARKETING
+          ids:
+          - 000C7F-E
+          - 0FPWZD-E
+          fields:
+          - null
+          - null
+        meta:
+          pagination:
+            offset: 0
+            limit: 100
+      properties:
+        data:
+          $ref: '#/components/schemas/RelationshipsRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      title: Relationships Request
+      type: object
+    RelationshipsResponse:
+      description: |
+        Response containing an array of relationship objects. The schema of each item depends on the `relationshipType` parameter.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
+      properties:
+        data:
+          description: |
+            Array of relationship objects - type depends on `relationshipType` parameter.
+          items:
+            $ref: '#/components/schemas/Relationships'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      title: Relationships Response
+      type: object
+    Relationships:
+      allOf:
+      - $ref: '#/components/schemas/IdentifierResponseFields'
+      - $ref: '#/components/schemas/Relationships_allOf'
+      description: Relationship information for an entity, grouped by request identifier
+        and date, with all relationship details nested within items.
+      title: Relationships Object
+      type: object
+    RelationshipsItem:
+      allOf:
+      - $ref: '#/components/schemas/EntityResponseFields'
+      - $ref: '#/components/schemas/RelationshipsItem_allOf'
+      description: |
+        Unified relationship object representing either a competitor or partner. Certain fields are conditionally present based on `relationshipType`.
+      title: Relationships Item
+      type: object
+    Ids:
+      description: The requested list of security identifiers. Accepted ID types include
+        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p><strong>IDs
+        limit</strong> = 20 per non-batch request and 1000 per batch request.</p><p>
+        Make Note, <strong>GET</strong> method URL request lines are limited to a
+        total length of 8192 bytes (8 KB). For requests with large numbers of identifiers
+        that may exceed this limit, use the corresponding <strong>POST</strong> method
+        where available.</p>
+      example:
+      - 000C7F-E
+      - 0FPWZD-E
+      items:
+        type: string
+      maxItems: 1000
+      minItems: 1
+      type: array
+    SupplyChainRelationshipType:
+      default: CUSTOMER
+      description: |-
+        Controls the type of supply chain relationship returned.
+          * **CUSTOMER** = Returns entities to which the source company sells products/services.
+          * **SUPPLIER** = Returns entities from which the source company purchases goods or services.
+      enum:
+      - CUSTOMER
+      - SUPPLIER
+      example: CUSTOMER
+      title: relationshipType
+      type: string
+    RelationshipsRelationshipType:
+      default:
+      - COMPETITOR
+      description: |-
+        Controls the relationship types returned in the response. Multiple relationship types can be selected simultaneously.
+
+          * **COMPETITOR** = Returns entities disclosed by the source company as competitors or rivals.
+
+          * **ALL_PARTNERS** = Returns all available partner relationship types in a single response.
+
+          * **PARTNER_DISTRIBUTION** = Returns distribution partnership relationships.
+
+          * **PARTNER_EQUITY_INVESTMENT** = Returns equity investment partnership relationships.
+
+          * **PARTNER_INTEGRATED_PRODUCT_OFFERING** = Returns integrated product offering partnerships.
+
+          * **PARTNER_INVESTORS** = Returns investor-related partnership relationships.
+
+          * **PARTNER_JOINT_VENTURE** = Returns joint venture partnership relationships.
+
+          * **PARTNER_IN_LICENSING** = Returns in-licensing partnership relationships.
+
+          * **PARTNER_OUT_LICENSING** = Returns out-licensing partnership relationships.
+
+          * **PARTNER_MANUFACTURING** = Returns manufacturing partnership relationships.
+
+          * **PARTNER_MARKETING** = Returns marketing partnership relationships.
+
+          * **PARTNER_RESEARCH_COLLABORATION** = Returns research collaboration partnership relationships.
+      example:
+      - COMPETITOR
+      - PARTNER_MARKETING
+      items:
+        $ref: '#/components/schemas/RelationshipTypeEnum'
+      title: relationshipType
+      type: array
+    DateSchema:
+      description: The date requested in **YYYY-MM-DD** format. If left blank, the
+        API will default to the most recent available data. Future dates (T+1) are
+        not accepted in this endpoint.
+      example: 2025-12-31
+      format: date
+      type: string
+    ErrorResponse:
+      description: Default Error Response
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      title: Error Response
+      type: object
+    ErrorObject:
+      description: Error object containing status code, error message, and detailed
+        explanation
+      example:
+        code: Bad Request
+        id: id
+        detail: The parameter 'ids' should be valid and may not be empty.
+        source:
+          pointer: pointer
+          parameter: parameter
+          value: value
+        title: Invalid Parameter
+      nullable: true
+      properties:
+        code:
+          description: Machine-readable error code indicating the error category.
+            Common values are BadRequest, ValidationError, Unauthorized, Forbidden,
+            NotFound, UnsupportedMediaType, InternalServerError
+          example: Bad Request
+          type: string
+        title:
+          description: The plain text error message
+          example: Invalid Parameter
+          type: string
+        id:
+          description: Unique error instance identifier for tracking
+          type: string
+        detail:
+          description: Error details explanation
+          example: The parameter 'ids' should be valid and may not be empty.
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+      type: object
+    SupplyChainRequest_data:
+      description: Request payload containing the list of entity identifiers and optional
+        filter parameters
+      example:
+        date: 2025-12-31T00:00:00.000+0000
+        relationshipType: CUSTOMER
+        ids:
+        - 000C7F-E
+        - 0FPWZD-E
+        fields:
+        - null
+        - null
+      properties:
+        ids:
+          description: The requested list of security identifiers. Accepted ID types
+            include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p><strong>IDs
+            limit</strong> = 20 per non-batch request and 1000 per batch request.</p><p>
+            Make Note, <strong>GET</strong> method URL request lines are limited to
+            a total length of 8192 bytes (8 KB). For requests with large numbers of
+            identifiers that may exceed this limit, use the corresponding <strong>POST</strong>
+            method where available.</p>
+          example:
+          - 000C7F-E
+          - 0FPWZD-E
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        relationshipType:
+          $ref: '#/components/schemas/SupplyChainRelationshipType'
+        date:
+          description: The date requested in **YYYY-MM-DD** format. If left blank,
+            the API will default to the most recent available data. Future dates (T+1)
+            are not accepted in this endpoint.
+          example: 2025-12-31
+          format: date
+          type: string
+        fields:
+          description: |
+            A specific set of attributes to return in the response. If omitted, all fields are returned.
+          items:
+            $ref: '#/components/schemas/SupplyChainFieldsEnum'
+          title: Supply Chain Response Attributes
+          type: array
+          uniqueItems: true
+        batch:
+          $ref: '#/components/schemas/Batch'
+      required:
+      - ids
+      type: object
+    SupplyChain_allOf:
+      properties:
+        type:
+          description: Discriminator object for supplychain
+          enum:
+          - SUPPLY_CHAIN
+          example: SUPPLY_CHAIN
+          type: string
+        error:
+          $ref: '#/components/schemas/ErrorObject'
+        items:
+          description: Array of supply chain relationship items for the given requestId
+            and date.
+          items:
+            $ref: '#/components/schemas/SupplyChainItem'
+          type: array
+      type: object
+    SupplyChainItem_allOf_centrality:
+      description: |
+        Centrality metrics representing the entity's relative importance and connectivity within the supply chain network.
+      nullable: true
+      properties:
+        degree:
+          description: Degree centrality represents the number of direct connections
+            with suppliers and customers. The value is normalized by the number of
+            entities in the supply chain database at each calculation date.
+          example: 0.842697
+          format: double
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: number
+        eigenvector:
+          description: Eigenvector centrality assigns higher scores to companies connected
+            to well-connected firms. This measure is calculated in an undirected network,
+            meaning both supplier-customer and customer-supplier relationships are
+            considered. All scores are normalized by L2 norm at each calculation date.
+          example: 5.420991
+          format: double
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: number
+        productKatz:
+          description: Katz centrality assesses both direct and downstream connections
+            while reducing the influence of indirect connections based on distance.
+            PRODUCT_KATZ reflects the impact of both direct and indirect suppliers.
+            All scores are normalized by L2 norm at each calculation date.
+          example: 5.460563
+          format: double
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: number
+        cashKatz:
+          description: Katz centrality assesses both direct and downstream connections
+            while reducing the influence of indirect connections based on distance.
+            CASH_KATZ reflects the impact of both direct and indirect customers. All
+            scores are normalized by L2 norm at each calculation date.
+          example: 0.556619
+          format: double
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: number
+        customer:
+          description: Customer centrality is derived from the HITS (Hyperlink-Induced
+            Topic Search) algorithm, assigning higher scores to customers connected
+            to suppliers relied upon by many other customers. All scores are normalized
+            by L1 norm at each calculation date.
+          example: 0.268328
+          format: double
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: number
+        supplier:
+          description: Supplier centrality is derived from the HITS (Hyperlink-Induced
+            Topic Search) algorithm, assigning high scores to suppliers connected
+            to customers with high customer centrality. All scores are normalized
+            by L1 norm at each calculation date.
+          example: 0.030261
+          format: double
+          maximum: 100
+          minimum: 0
+          nullable: true
+          type: number
+      type: object
+    SupplyChainItem_allOf:
+      properties:
+        relationshipType:
+          description: Code denoting the type of relationship. For supply chain endpoints,
+            values are CUSTOMER or SUPPLIER.
+          enum:
+          - CUSTOMER
+          - SUPPLIER
+          example: CUSTOMER
+          type: string
+        direction:
+          description: Indicates whether the relationship is direct, reverse, or mutual.
+            A direct relationship is disclosed by the source company, while a reverse
+            relationship is disclosed by another company regarding the source company.
+            A mutual relationship indicates that both companies have disclosed the
+            relationship.
+          enum:
+          - DIRECT
+          - REVERSE
+          - MUTUAL
+          example: DIRECT
+          nullable: true
+          type: string
+        revenuePct:
+          description: Percentage of revenue that the source company derived from
+            this relationship in the reporting period. This field is only applicable
+            to relationships reported as Customer and only then for those cases where
+            the reporting company provides a percentage.
+          example: 15.97
+          format: double
+          nullable: true
+          type: number
+        relevanceGrade:
+          description: Integer value between 1 and 10,000 indicating the relevance
+            factors' grade for this relationship. A higher grade indicates a more
+            significant supply chain relationship.
+          example: 8
+          format: int32
+          maximum: 10000
+          minimum: 0
+          nullable: true
+          type: integer
+        supplierSubsidiaries:
+          description: List of supplier subsidiaries involved in this relationship.
+            Only present when a subsidiary is disclosed as the specific entity involved
+            in a relationship.
+          example:
+          - name: NASA
+            entityId: 0RXZ3R-E
+          - name: JAXA
+            entityId: 0645P3-E
+          items:
+            $ref: '#/components/schemas/Subsidiary'
+          nullable: true
+          type: array
+        customerSubsidiaries:
+          description: List of customer subsidiaries involved in this relationship.
+            Only present when a subsidiary is disclosed as the specific entity involved
+            in a relationship.
+          example:
+          - name: Honeywell Aerospace & Defense
+            entityId: 000KYG-E
+          - name: Lockheed Martin Aeronautics
+            entityId: 0A1BCD-E
+          items:
+            $ref: '#/components/schemas/Subsidiary'
+          nullable: true
+          type: array
+        centrality:
+          $ref: '#/components/schemas/SupplyChainItem_allOf_centrality'
+        relationshipKeywords:
+          description: Related keywords associated with the relationship to assist
+            in discovering additional related data. Each inner array represents a
+            grouped set of related keywords.
+          example:
+          - - NASA Air Traffic Management
+            - ecoDemonstrator Explorer
+          - - X-37B
+          - - O3b mPOWER Satellites
+          - - CST-100 Starliner
+          - - U.S. Air Force Research Laboratories
+            - Ghost Bat
+          items:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: array
+      type: object
+    RelationshipsRequest_data:
+      description: Request payload containing the list of entity identifiers, relationship
+        type, and optional filter parameters
+      example:
+        date: 2025-12-31T00:00:00.000+0000
+        relationshipType:
+        - COMPETITOR
+        - PARTNER_MARKETING
+        ids:
+        - 000C7F-E
+        - 0FPWZD-E
+        fields:
+        - null
+        - null
+      properties:
+        ids:
+          description: The requested list of security identifiers. Accepted ID types
+            include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent IDs.<p><strong>IDs
+            limit</strong> = 20 per non-batch request and 1000 per batch request.</p><p>
+            Make Note, <strong>GET</strong> method URL request lines are limited to
+            a total length of 8192 bytes (8 KB). For requests with large numbers of
+            identifiers that may exceed this limit, use the corresponding <strong>POST</strong>
+            method where available.</p>
+          example:
+          - 000C7F-E
+          - 0FPWZD-E
+          items:
+            type: string
+          maxItems: 1000
+          minItems: 1
+          type: array
+        relationshipType:
+          default:
+          - COMPETITOR
+          description: |-
+            Controls the relationship types returned in the response. Multiple relationship types can be selected simultaneously.
+
+              * **COMPETITOR** = Returns entities disclosed by the source company as competitors or rivals.
+
+              * **ALL_PARTNERS** = Returns all available partner relationship types in a single response.
+
+              * **PARTNER_DISTRIBUTION** = Returns distribution partnership relationships.
+
+              * **PARTNER_EQUITY_INVESTMENT** = Returns equity investment partnership relationships.
+
+              * **PARTNER_INTEGRATED_PRODUCT_OFFERING** = Returns integrated product offering partnerships.
+
+              * **PARTNER_INVESTORS** = Returns investor-related partnership relationships.
+
+              * **PARTNER_JOINT_VENTURE** = Returns joint venture partnership relationships.
+
+              * **PARTNER_IN_LICENSING** = Returns in-licensing partnership relationships.
+
+              * **PARTNER_OUT_LICENSING** = Returns out-licensing partnership relationships.
+
+              * **PARTNER_MANUFACTURING** = Returns manufacturing partnership relationships.
+
+              * **PARTNER_MARKETING** = Returns marketing partnership relationships.
+
+              * **PARTNER_RESEARCH_COLLABORATION** = Returns research collaboration partnership relationships.
+          example:
+          - COMPETITOR
+          - PARTNER_MARKETING
+          items:
+            $ref: '#/components/schemas/RelationshipTypeEnum'
+          title: relationshipType
+          type: array
+        date:
+          description: The date requested in **YYYY-MM-DD** format. If left blank,
+            the API will default to the most recent available data. Future dates (T+1)
+            are not accepted in this endpoint.
+          example: 2025-12-31
+          format: date
+          type: string
+        fields:
+          description: |
+            A specific set of attributes to return in the response.
+            If omitted, all fields are returned.
+          items:
+            $ref: '#/components/schemas/RelationshipsFieldsEnum'
+          title: Relationships Response Attributes
+          type: array
+          uniqueItems: true
+        batch:
+          $ref: '#/components/schemas/Batch'
+      required:
+      - ids
+      type: object
+    Relationships_allOf:
+      properties:
+        type:
+          description: Discriminator object for relationships
+          enum:
+          - RELATIONSHIPS
+          example: RELATIONSHIPS
+          type: string
+        error:
+          $ref: '#/components/schemas/ErrorObject'
+        items:
+          description: Array of relationship items for the given requestId and date.
+          items:
+            $ref: '#/components/schemas/RelationshipsItem'
+          type: array
+      type: object
+    RelationshipsItem_allOf:
+      properties:
+        relationshipType:
+          $ref: '#/components/schemas/RelationshipTypeEnum'
+        direction:
+          description: Indicates whether the relationship is direct, reverse, or mutual.
+            A direct relationship is disclosed by the source company, while a reverse
+            relationship is disclosed by another company regarding the source company.
+            A mutual relationship indicates that both companies have disclosed the
+            relationship.
+          enum:
+          - DIRECT
+          - REVERSE
+          - MUTUAL
+          example: DIRECT
+          nullable: true
+          type: string
+        requestIdSubsidiaries:
+          description: List of requesting entity subsidiaries involved in this relationship.
+          example:
+          - name: Nuance Communications, Inc.
+            entityId: 0FPWZD-E
+          - name: Nuance Health Division
+            entityId: 0NH123-E
+          items:
+            $ref: '#/components/schemas/Subsidiary'
+          nullable: true
+          type: array
+        targetSubsidiaries:
+          description: List of related entity subsidiaries involved in this relationship.
+          example:
+          - name: Google Cloud
+            entityId: 000C7F-E
+          - name: Google AI
+            entityId: 0GAI01-E
+          items:
+            $ref: '#/components/schemas/Subsidiary'
+          nullable: true
+          type: array
+        overlappingSectorCount:
+          description: Number of sectors to which both the requesting entity and the
+            related entity are mapped. A higher count indicates greater overlap in
+            business operations. This field is applicable only for COMPETITOR relationships
+            and will be omitted for PARTNER relationships.
+          example: 41
+          nullable: true
+          type: integer
+        relationshipKeywords:
+          description: Related keywords associated with the relationship to assist
+            in discovering additional related data. Each inner array represents a
+            grouped set of related keywords.
+          example:
+          - - smartphones
+            - consumer electronics
+          - - 5G devices
+          - - semiconductors
+            - chip manufacturing
+          items:
+            items:
+              type: string
+            type: array
+          nullable: true
+          type: array
+      type: object
+    ErrorObject_source:
+      description: Reference to error source
+      example:
+        pointer: pointer
+        parameter: parameter
+        value: value
+      nullable: true
+      properties:
+        parameter:
+          description: Query parameter that caused the error (e.g., "ids[3]")
+          type: string
+        pointer:
+          description: JSON Pointer to request body field that caused the error
+          type: string
+        value:
+          description: The actual value that caused the error
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

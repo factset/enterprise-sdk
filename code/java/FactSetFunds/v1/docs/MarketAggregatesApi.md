@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getMarketAggregates
 
-> MarketAggregatesResponse getMarketAggregates(ids, startDate, endDate, frequency, currency)
+> GetMarketAggregatesResponseWrapper getMarketAggregates(ids, startDate, endDate, frequency, currency, batch)
 
 Get market aggregates for a requested time series.
 
@@ -33,6 +33,7 @@ import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
 import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.MarketAggregatesApi;
+import com.factset.sdk.FactSetFunds.api.MarketAggregatesApi.GetMarketAggregatesResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -59,14 +60,23 @@ public class Example {
         //   .setPassword("YOUR PASSWORD");
 
         MarketAggregatesApi apiInstance = new MarketAggregatesApi(defaultClient);
-        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
+        java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit = 1000 per request(Non batch)   - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 1500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method. 
         String startDate = "2018-12-31"; // String | The `start date` requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period. 
         String endDate = "2019-12-31"; // String | The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period. 
         String frequency = "D"; // String | Controls the display frequency of the data returned.   * **D** = Daily   * **W** = Weekly, based on the last day of the week of the start date.   * **M** = Monthly, based on the last trading day of the month.   * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** = Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** = Fiscal Quarter of the company.   * **AY** = Actual Annual, based on the start date.   * **CY** = Calendar Annual, based on the last trading day of the calendar year.   * **FY** = Fiscal Annual, based on the last trading day of the company's fiscal year.    
         String currency = "LOCAL"; // String | Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470). 
+        String batch = "Y"; // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.    
         try {
-            MarketAggregatesResponse result = apiInstance.getMarketAggregates(ids, startDate, endDate, frequency, currency);
-            System.out.println(result);
+            GetMarketAggregatesResponseWrapper result = apiInstance.getMarketAggregates(ids, startDate, endDate, frequency, currency, batch);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // MarketAggregatesResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling MarketAggregatesApi#getMarketAggregates");
@@ -84,15 +94,16 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **List&lt;String&gt;**| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  |
+ **ids** | **List&lt;String&gt;**| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit &#x3D; 1000 per request(Non batch)   - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 1500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method.  |
  **startDate** | **String**| The &#x60;start date&#x60; requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  | [optional]
  **endDate** | **String**| The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  | [optional]
  **frequency** | **String**| Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     | [optional] [default to M] [enum: D, W, M, AM, CQ, FQ, AY, CY, FY]
  **currency** | **String**| Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  | [optional] [default to LOCAL]
+ **batch** | **String**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.     | [optional] [default to N] [enum: Y, N]
 
 ### Return type
 
-[**MarketAggregatesResponse**](MarketAggregatesResponse.md)
+GetMarketAggregatesResponseWrapper
 
 ### Authorization
 
@@ -107,6 +118,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Market Aggregates response object. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -116,7 +128,7 @@ Name | Type | Description  | Notes
 
 ## getMarketAggregatesForList
 
-> MarketAggregatesResponse getMarketAggregatesForList(marketAggregatesRequest)
+> GetMarketAggregatesForListResponseWrapper getMarketAggregatesForList(marketAggregatesRequest)
 
 Get market aggregates for a requested time series.
 
@@ -138,6 +150,7 @@ import com.factset.sdk.FactSetFunds.Configuration;
 import com.factset.sdk.FactSetFunds.auth.*;
 import com.factset.sdk.FactSetFunds.models.*;
 import com.factset.sdk.FactSetFunds.api.MarketAggregatesApi;
+import com.factset.sdk.FactSetFunds.api.MarketAggregatesApi.GetMarketAggregatesForListResponseWrapper;
 
 import com.factset.sdk.utils.authentication.ConfidentialClient;
 
@@ -166,8 +179,16 @@ public class Example {
         MarketAggregatesApi apiInstance = new MarketAggregatesApi(defaultClient);
         MarketAggregatesRequest marketAggregatesRequest = new MarketAggregatesRequest(); // MarketAggregatesRequest | The Market Aggregates request body, allowing the user to specify a list of ids and date range.
         try {
-            MarketAggregatesResponse result = apiInstance.getMarketAggregatesForList(marketAggregatesRequest);
-            System.out.println(result);
+            GetMarketAggregatesForListResponseWrapper result = apiInstance.getMarketAggregatesForList(marketAggregatesRequest);
+            switch(result.getStatusCode()) {
+            
+                case 200:
+                    System.out.println(result.getResponse200()); // MarketAggregatesResponse
+            
+                case 202:
+                    System.out.println(result.getResponse202()); // BatchStatusResponse
+            
+            }
 
         } catch (ApiException e) {
             System.err.println("Exception when calling MarketAggregatesApi#getMarketAggregatesForList");
@@ -189,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MarketAggregatesResponse**](MarketAggregatesResponse.md)
+GetMarketAggregatesForListResponseWrapper
 
 ### Authorization
 
@@ -204,6 +225,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Market Aggregates response object. |  -  |
+| **202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 | **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 | **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 | **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

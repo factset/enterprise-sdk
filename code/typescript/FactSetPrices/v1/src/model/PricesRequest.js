@@ -26,7 +26,7 @@ class PricesRequest {
      * Constructs a new <code>PricesRequest</code>.
      * Prices Request Body
      * @alias module:model/PricesRequest
-     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request 
+     * @param ids {Array.<String>} The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Non-Batch requests:       * Single day: up to 200 IDs per request       * Multi-day: up to 50 IDs per request   - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request 
      */
     constructor(ids) { 
         
@@ -86,7 +86,7 @@ class PricesRequest {
 }
 
 /**
- * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request 
+ * The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Non-Batch requests:       * Single day: up to 200 IDs per request       * Multi-day: up to 50 IDs per request   - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request 
  * @member {Array.<String>} ids
  */
 PricesRequest.prototype['ids'] = undefined;

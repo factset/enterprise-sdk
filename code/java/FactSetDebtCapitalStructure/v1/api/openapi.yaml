@@ -20,7 +20,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Debt Capital Structure API
-  version: 1.0.0
+  version: 1.2.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-dcs-api
@@ -31,8 +31,516 @@ security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- name: Reference
+- name: Details
+- name: Totals
+- name: Liquidity
+- name: Metrics
 paths:
+  /details-summary:
+    get:
+      description: "Gets totals for instruments of varying types such as Revolving\
+        \ Credit, Term Loans,  ST Debt Total, Notes/Bonds, and Other. \n"
+      operationId: getDetailsSummary
+      parameters:
+      - description: "The requested list of security identifiers. Accepted ID types\
+          \ include Market Tickers,  SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
+          \ \n"
+        examples:
+          oneEquityId:
+            summary: One Equity Market Identifier
+            value:
+            - IBM-US
+          multipleEquityIds:
+            summary: Multiple Equity Market Identifiers
+            value:
+            - IBM-US
+            - FDS-US
+            - AAPL-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 200
+          minItems: 1
+          type: array
+        style: form
+      - description: |
+          Periodicity or frequency of the fiscal periods, where
+            * **ANN**  = Annual Original,
+            * **QTR**  = Quarterly
+        examples:
+          ANN:
+            summary: ANN - Annual
+            value: ANN
+          QTR:
+            summary: QTR - Quarterly
+            value: QTR
+        explode: false
+        in: query
+        name: periodicity
+        required: true
+        schema:
+          enum:
+          - ANN
+          - QTR
+          type: string
+        style: form
+      - description: |
+          The date of the period requested in YYYY-MM-DD format.  Future dates (T+1) are not accepted in this endpoint.
+        example: 2024-01-01
+        explode: false
+        in: query
+        name: startDate
+        required: true
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: |
+          Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: LOCAL
+          example: USD
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Details Summary Response:
+                  $ref: '#/components/examples/resultOfDetailsSummary'
+              schema:
+                $ref: '#/components/schemas/DetailsSummaryResponse'
+          description: Details summary object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns debt instrument totals details for specified list of companies.
+      tags:
+      - Details
+      x-accepts: application/json
+  /metrics:
+    get:
+      description: |
+        Gets available metrics to use in other endpoints
+      operationId: getMetrics
+      parameters:
+      - description: |
+          Filters the list of available DCS metrics by endpoint.  -
+            * **DCS Totals** = DCS Totals
+            * **Liquidity** = Liquidity
+        examples:
+          DCS_Totals:
+            summary: DCS Totals
+            value: DCS_Totals
+          Liquidity:
+            summary: Liquidity
+            value: Liquidity
+        explode: true
+        in: query
+        name: category
+        required: false
+        schema:
+          enum:
+          - DCS Totals
+          - Liquidity
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Metrics Response:
+                  $ref: '#/components/examples/resultOfMetrics'
+              schema:
+                $ref: '#/components/schemas/MetricsResponse'
+          description: Metrics object
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns available DCS metrics to use in other endpoints.
+      tags:
+      - Metrics
+      x-accepts: application/json
+  /dcs-totals:
+    post:
+      description: |
+        Returns debt instruments totals.
+      operationId: getDcsTotalsPost
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for Debt Instrument Totals in Date Range:
+                $ref: '#/components/examples/dcsRequestAll'
+            schema:
+              $ref: '#/components/schemas/DCSRequest'
+        description: Request object for `DCS Totals`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Debt Instrument Totals in Date Range:
+                  $ref: '#/components/examples/dcsResponseAll'
+              schema:
+                $ref: '#/components/schemas/DcsResponse'
+          description: Array of details
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Retrieves debt instrument totals for specified metrics and date ranges.
+      tags:
+      - Totals
+      x-contentType: application/json
+      x-accepts: application/json
+  /liquidity:
+    post:
+      description: |
+        Gets liquidity detail and summary information (includes all instrument details).
+      operationId: getLiquidityPost
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request for Liquidity in Date Range:
+                $ref: '#/components/examples/liquidityRequestAll'
+            schema:
+              $ref: '#/components/schemas/LiquidityRequest'
+        description: Request object for `Liquidity`.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Result of Liquidity:
+                  $ref: '#/components/examples/liquidityResponseAll'
+              schema:
+                $ref: '#/components/schemas/LiquidityResponse'
+          description: Array of details
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Not Found:
+                  $ref: '#/components/examples/badRequestNotFound'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Bad Request - Endpoint Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns liquidity information for specified metrics and date ranges.
+      tags:
+      - Liquidity
+      x-contentType: application/json
+      x-accepts: application/json
   /details:
     post:
       description: |
@@ -139,7 +647,7 @@ paths:
           description: Internal Server Error.
       summary: Returns debt instruments for a list of companies.
       tags:
-      - Reference
+      - Details
       x-contentType: application/json
       x-accepts: application/json
   /details-interim:
@@ -249,7 +757,7 @@ paths:
       summary: Returns most recently available debt instrument data for a list of
         companies.
       tags:
-      - Reference
+      - Details
       x-contentType: application/json
       x-accepts: application/json
 components:
@@ -262,17 +770,42 @@ components:
           - IBM-US
           periodicity: ANN
           date: 2023-12-31
+          currency: USD
     interimDetailsRequestAll:
       summary: Detail request for company id.
       value:
         data:
           ids:
           - IBM-US
+          currency: USD
+    dcsRequestAll:
+      summary: Debt Capital Structure Totals request for company id.
+      value:
+        data:
+          ids:
+          - IBM-US
+          startDate: 2023-12-31
+          endDate: 2024-12-31
+          frequency: AM
+          metrics:
+          - total_st_debt
+          currency: USD
+    liquidityRequestAll:
+      summary: Liquidity request for company id.
+      value:
+        data:
+          ids:
+          - IBM-US
+          startDate: 2019-12-31
+          term: SHORT_TERM
+          metrics:
+          - total_revolver_amount_avail_debt
     detailsResponseAll:
       summary: Details response for company id.
       value:
         data:
-        - instrumentId: FDS1R56X6
+        - requestId: IBM-USA
+          instrumentId: FDS1R56X6
           instrumentType: Revolving Credit
           description: Unsec. Rev. Facility
           seniority: Senior Secured
@@ -284,7 +817,99 @@ components:
           issueDate: 2020-11-19
           reportDate: 2020-11-19
           maturityDate: 2020-11-19
-          requestId: IBM-USA
+    dcsResponseAll:
+      summary: Debt Capital Structure Totals response for company id.
+      value:
+        data:
+        - requestId: IBM-USA
+          fysmId: SJY281-R
+          metric: total_st_debt
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          reportDate: 2024-12-31
+          date: 2025-12-31
+          currency: USD
+          value: 5089
+    liquidityResponseAll:
+      summary: Liquidity response for company id.
+      value:
+        data:
+        - requestId: IBM-USA
+          fysmId: SJY281-R
+          metric: total_revolver_amount_avail_debt
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          reportDate: 2024-12-31
+          currency: USD
+          value: 5089
+          instrumentId: FDS1R56X6
+          instrumentType: Revolving Credit
+          description: Unsec. Rev. Facility
+          facilityAmount: 2500
+          amountOutstanding: 0
+          borrowingBase: 2500
+          maturityDate: 2020-11-19
+    resultOfDetailsSummary:
+      summary: Details Summary for Single Company ID
+      value:
+        data:
+        - requestId: IBM-US
+          fysmId: SJY281-R
+          reportDate: 2024-12-31
+          fiscalYear: 2024
+          totalShortTermDebt: 5089
+          totalLongTermDebt: 54943
+          totalRevolvingCredit: 0
+          totalTermDebt: 212
+          totalBondDebt: 54901.8
+          otherDebt: -170.8
+          netLongTermDebt: 49884
+          totalDebt: 54973
+          currency: USD
+    resultOfMetrics:
+      summary: Metrics response example
+      value:
+        data:
+        - metric: total_st_debt
+          description: Total short-term debt
+          category: DCS detail summary
+        - metric: total_revolver_debt
+          description: Total long-term revolver debt
+          category: DCS detail summary
+        - metric: total_term_loan_debt
+          description: Total long-term loan debt
+          category: DCS detail summary
+    resultOfDcsTotals:
+      summary: DCS Totals response example
+      value:
+        data:
+        - requestId: IBM-US
+          fsymId: SJY281-R
+          metric: total_st_debt
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          reportDate: 2024-12-31
+          currency: USD
+          value: 5089
+    resultOfLiquidity:
+      summary: Liquidity response example
+      value:
+        data:
+        - requestId: IBM-USA
+          fysmId: SJY281-R
+          metric: total_revolver_amount_avail_debt
+          fiscalYear: 2024
+          fiscalEndDate: 2024-12-31
+          reportDate: 2024-12-31
+          currency: USD
+          value: 5089
+          instrumentId: FDS1R56X6
+          instrumentType: Revolving Credit
+          description: Unsec. Rev. Facility
+          facilityAmount: 2500
+          amountOutstanding: 0
+          borrowingBase: 2500
+          maturityDate: 2020-11-19
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
@@ -428,6 +1053,159 @@ components:
           code: Internal Server Error
           title: Unexpected error
           detail: An unexpected error occurred. Please `Report Issue` to FactSet.
+  parameters:
+    ids:
+      description: "The requested list of security identifiers. Accepted ID types\
+        \ include Market Tickers,  SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.\
+        \ \n"
+      examples:
+        oneEquityId:
+          summary: One Equity Market Identifier
+          value:
+          - IBM-US
+        multipleEquityIds:
+          summary: Multiple Equity Market Identifiers
+          value:
+          - IBM-US
+          - FDS-US
+          - AAPL-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 200
+        minItems: 1
+        type: array
+      style: form
+    periodicity:
+      description: |
+        Periodicity or frequency of the fiscal periods, where
+          * **ANN**  = Annual Original,
+          * **QTR**  = Quarterly
+      examples:
+        ANN:
+          summary: ANN - Annual
+          value: ANN
+        QTR:
+          summary: QTR - Quarterly
+          value: QTR
+      explode: false
+      in: query
+      name: periodicity
+      required: true
+      schema:
+        enum:
+        - ANN
+        - QTR
+        type: string
+      style: form
+    startDate:
+      description: |
+        The date of the period requested in YYYY-MM-DD format.  Future dates (T+1) are not accepted in this endpoint.
+      example: 2024-01-01
+      explode: false
+      in: query
+      name: startDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    endDate:
+      description: The date of the period requested in YYYY-MM-DD format. Future dates
+        (T+1) are not accepted in this endpoint.
+      example: 2024-03-01
+      explode: false
+      in: query
+      name: endDate
+      required: false
+      schema:
+        format: date
+        type: string
+      style: form
+    frequency:
+      description: "Controls the frequency of the data returned.\n  * **D** = Daily\n\
+        \  * **W** = Weekly, based on the last day of the week of the start date.\n\
+        \  * **AM** = Monthly, based on the start date (e.g., if the start date is\
+        \ June 16, data is displayed for June 16, May 16, April 16 etc.).      \n\
+        \  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual Annual,\
+        \ based on the start date.\n"
+      example: AM
+      explode: false
+      in: query
+      name: frequency
+      required: true
+      schema:
+        enum:
+        - D
+        - W
+        - AM
+        - AQ
+        - AY
+        type: string
+      style: form
+    category:
+      description: |
+        Filters the list of available DCS metrics by endpoint.  -
+          * **DCS Totals** = DCS Totals
+          * **Liquidity** = Liquidity
+      examples:
+        DCS_Totals:
+          summary: DCS Totals
+          value: DCS_Totals
+        Liquidity:
+          summary: Liquidity
+          value: Liquidity
+      explode: true
+      in: query
+      name: category
+      required: false
+      schema:
+        enum:
+        - DCS Totals
+        - Liquidity
+        type: string
+      style: form
+    metrics:
+      description: |
+        The requested `metric` input, representing the debt instruments data item. For a definition of the item please use the `/metrics` endpoint.
+      examples:
+        oneItem:
+          summary: One debt item
+          value:
+          - TOTAL_DEBT
+        multipleItems:
+          summary: Multiple debt items
+          value:
+          - TOTAL_DEBT
+          - TOTAL_LT_NET_DEBT
+      explode: false
+      in: query
+      name: metrics
+      required: true
+      schema:
+        items:
+          example: total_debt
+          type: string
+        maxItems: 100
+        minItems: 1
+        type: array
+      style: form
+    currency:
+      description: |
+        Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+      explode: true
+      in: query
+      name: currency
+      required: false
+      schema:
+        default: LOCAL
+        example: USD
+        type: string
+      style: form
   responses:
     "400":
       content:
@@ -507,14 +1285,568 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
       description: Internal Server Error.
   schemas:
+    DetailsSummaryResponse:
+      description: Details Summary Response
+      example:
+        data:
+        - totalShortTermDebt: 5089
+          fsymId: SJY281-R
+          totalDebt: 54973
+          totalBondDebt: 54901.8
+          totalLongTermDebt: 54943
+          reportDate: 2017-12-30T00:00:00.000+0000
+          requestId: IBM-US
+          totalTermDebt: 212
+          currency: USD
+          fiscalYear: 2017
+          totalRevolvingCredit: 2790
+          netLongTermDebt: 49884
+          otherDebt: -170.8
+        - totalShortTermDebt: 5089
+          fsymId: SJY281-R
+          totalDebt: 54973
+          totalBondDebt: 54901.8
+          totalLongTermDebt: 54943
+          reportDate: 2017-12-30T00:00:00.000+0000
+          requestId: IBM-US
+          totalTermDebt: 212
+          currency: USD
+          fiscalYear: 2017
+          totalRevolvingCredit: 2790
+          netLongTermDebt: 49884
+          otherDebt: -170.8
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DetailsSummary'
+          type: array
+      title: Details Summary Response
+      type: object
+    DetailsSummary:
+      description: Summary Object
+      example:
+        totalShortTermDebt: 5089
+        fsymId: SJY281-R
+        totalDebt: 54973
+        totalBondDebt: 54901.8
+        totalLongTermDebt: 54943
+        reportDate: 2017-12-30T00:00:00.000+0000
+        requestId: IBM-US
+        totalTermDebt: 212
+        currency: USD
+        fiscalYear: 2017
+        totalRevolvingCredit: 2790
+        netLongTermDebt: 49884
+        otherDebt: -170.8
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          example: IBM-US
+          type: string
+        fsymId:
+          description: FactSet Regional Security Identifier representing the specific
+            data series for the requested `requestId`.
+          example: SJY281-R
+          nullable: true
+          type: string
+        reportDate:
+          description: Returns the issuer's fiscal report date per the filing for
+            the period and date(s) requested.
+          example: 2017-12-30
+          format: date
+          nullable: true
+          type: string
+        fiscalYear:
+          description: Fiscal year of the reported period in YYYY format.
+          example: 2017
+          nullable: true
+          type: integer
+        totalShortTermDebt:
+          description: Returns the total short term debt for the date(s) requested.
+          example: 5089
+          format: float
+          nullable: true
+          type: number
+        totalLongTermDebt:
+          description: Returns the total long term debt for the date(s) requested.
+          example: 54943
+          format: float
+          nullable: true
+          type: number
+        totalRevolvingCredit:
+          description: Returns the total revolving credit for the date(s) requested.
+          example: 2790
+          format: float
+          nullable: true
+          type: number
+        totalTermDebt:
+          description: Returns the total term debt for the date(s) requested.
+          example: 212
+          format: float
+          nullable: true
+          type: number
+        totalBondDebt:
+          description: Returns the total bond debt for the date(s) requested.
+          example: 54901.8
+          format: float
+          nullable: true
+          type: number
+        otherDebt:
+          description: Returns all other debt associated with an identifier for the
+            date(s) requested.
+          example: -170.8
+          format: float
+          nullable: true
+          type: number
+        netLongTermDebt:
+          description: Returns the net long term debt for the date(s) requested.
+          example: 49884
+          format: float
+          nullable: true
+          type: number
+        totalDebt:
+          description: Returns the total debt for the date(s) requested.
+          example: 54973
+          format: float
+          nullable: true
+          type: number
+        currency:
+          description: 'Currency code for the data. For a list of currency ISO codes,
+            visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
+      title: Details Summary
+      type: object
+    DcsResponse:
+      description: Debt Capital Structure Totals Response
+      example:
+        data:
+        - date: 2020-11-19T00:00:00.000+0000
+          reportDate: 2020-11-19T00:00:00.000+0000
+          fysmId: SJY281-R
+          metric: total_st_debt
+          requestId: IBM-US
+          currency: USD
+          fiscalYear: 2017
+        - date: 2020-11-19T00:00:00.000+0000
+          reportDate: 2020-11-19T00:00:00.000+0000
+          fysmId: SJY281-R
+          metric: total_st_debt
+          requestId: IBM-US
+          currency: USD
+          fiscalYear: 2017
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DcsResponseFields'
+          type: array
+      title: Debt Capital Structure Totals Response
+      type: object
+    DcsResponseFields:
+      description: Debt Capital Structure Totals Response
+      example:
+        date: 2020-11-19T00:00:00.000+0000
+        reportDate: 2020-11-19T00:00:00.000+0000
+        fysmId: SJY281-R
+        metric: total_st_debt
+        requestId: IBM-US
+        currency: USD
+        fiscalYear: 2017
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          example: IBM-US
+          type: string
+        fysmId:
+          description: Identifier that was used for the request.
+          example: SJY281-R
+          type: string
+        metric:
+          description: The requested `metric` input, representing the Liquidity data
+            item. For a definition of the item please use the `/metrics` endpoint.
+          example: total_st_debt
+          nullable: true
+          type: string
+        fiscalYear:
+          description: Fiscal year of the reported period in YYYY format.
+          example: 2017
+          nullable: true
+          type: integer
+        reportDate:
+          description: Reporting date for the debt instrument.
+          example: 2020-11-19
+          format: date
+          nullable: true
+          type: string
+        date:
+          description: Date for the period requested expressed in YYYY-MM-DD format
+          example: 2020-11-19
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: 'Currency code for the data. For a list of currency ISO codes,
+            visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
+        value:
+          $ref: '#/components/schemas/DCSValue'
+      title: Debt Capital Structure Totals Response
+      type: object
+    DCSValue:
+      description: |
+        Value of the data metric requested. Depending on the metric, can be either a string or a numeric (double) value.
+      nullable: true
+      oneOf:
+      - type: string
+      - format: double
+        nullable: true
+        type: number
+    LiquidityResponse:
+      description: Liquidity Response
+      example:
+        data:
+        - instrumentType: Revolving Credit
+          fysmId: IBM-US
+          amountOutstanding: 250
+          instrumentId: FDS1R56X6
+          description: Unsec. Rev. Facility
+          facilityAmount: 2500
+          reportDate: 2020-11-19T00:00:00.000+0000
+          metric: total_revolver_amount_avail_debt
+          requestId: IBM-US
+          maturityDate: 2020-11-19T00:00:00.000+0000
+          currency: USD
+          fiscalYear: 2017
+          borrowingBase: 2500
+        - instrumentType: Revolving Credit
+          fysmId: IBM-US
+          amountOutstanding: 250
+          instrumentId: FDS1R56X6
+          description: Unsec. Rev. Facility
+          facilityAmount: 2500
+          reportDate: 2020-11-19T00:00:00.000+0000
+          metric: total_revolver_amount_avail_debt
+          requestId: IBM-US
+          maturityDate: 2020-11-19T00:00:00.000+0000
+          currency: USD
+          fiscalYear: 2017
+          borrowingBase: 2500
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/LiquidityResponseFields'
+          type: array
+      title: Liquidity Response
+      type: object
+    LiquidityResponseFields:
+      description: Liquidity Response
+      example:
+        instrumentType: Revolving Credit
+        fysmId: IBM-US
+        amountOutstanding: 250
+        instrumentId: FDS1R56X6
+        description: Unsec. Rev. Facility
+        facilityAmount: 2500
+        reportDate: 2020-11-19T00:00:00.000+0000
+        metric: total_revolver_amount_avail_debt
+        requestId: IBM-US
+        maturityDate: 2020-11-19T00:00:00.000+0000
+        currency: USD
+        fiscalYear: 2017
+        borrowingBase: 2500
+      properties:
+        requestId:
+          description: Identifier that was used for the request.
+          example: IBM-US
+          type: string
+        fysmId:
+          description: Identifier that was used for the request.
+          example: IBM-US
+          type: string
+        metric:
+          description: The requested `metric` input, representing the Liquidity data
+            item. For a definition of the item please use the `/metrics` endpoint.
+          example: total_revolver_amount_avail_debt
+          nullable: true
+          type: string
+        fiscalYear:
+          description: Fiscal year of the reported period in YYYY format.
+          example: 2017
+          nullable: true
+          type: integer
+        reportDate:
+          description: Reporting date for the debt instrument.
+          example: 2020-11-19
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: 'Currency code for the data. For a list of currency ISO codes,
+            visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          example: USD
+          nullable: true
+          type: string
+        value:
+          $ref: '#/components/schemas/LiquidityValue'
+        instrumentId:
+          description: Identifier for the debt instrument.
+          example: FDS1R56X6
+          nullable: true
+          type: string
+        instrumentType:
+          description: Type of debt instrument.
+          enum:
+          - Revolving Credit
+          - Term Loans
+          - ST Debt Total
+          - Notes/Bonds
+          - Other
+          example: Revolving Credit
+          nullable: true
+          type: string
+        description:
+          description: Description of the debt instrument.
+          example: Unsec. Rev. Facility
+          nullable: true
+          type: string
+        amountOutstanding:
+          description: Balance sheet amount outstanding.
+          example: 250
+          nullable: true
+          type: number
+        facilityAmount:
+          description: Facility Amount for liquidity.
+          example: 2500
+          nullable: true
+          type: number
+        borrowingBase:
+          description: Borrowing Base for liquidity.
+          example: 2500
+          nullable: true
+          type: number
+        maturityDate:
+          description: Maturity date for the debt instrument.
+          example: 2020-11-19
+          format: date
+          nullable: true
+          type: string
+      title: Liquidity Response
+      type: object
+    LiquidityValue:
+      description: |
+        Value of the data metric requested. Depending on the metric, can be either a string or a numeric (double) value.
+      nullable: true
+      oneOf:
+      - type: string
+      - format: double
+        nullable: true
+        type: number
+    MetricsResponse:
+      description: Metrics Response
+      example:
+        data:
+        - metric: total_lt_secured_debt
+          description: Total long-term secured debt
+          category: secured/unsecured
+        - metric: total_lt_secured_debt
+          description: Total long-term secured debt
+          category: secured/unsecured
+      properties:
+        data:
+          description: |
+            Array of metric objects representing the data items that can be requested from the Debt Capital Structure API.
+          items:
+            $ref: '#/components/schemas/Metric'
+          type: array
+      title: Metrics Response
+      type: object
+    Metric:
+      description: Metric Object
+      example:
+        metric: total_lt_secured_debt
+        description: Total long-term secured debt
+        category: secured/unsecured
+      properties:
+        metric:
+          description: Data item to be used as `metrics` input in `/dcs-totals/v#/`
+            endpoint.
+          example: total_lt_secured_debt
+          nullable: true
+          type: string
+        description:
+          description: Description of the metric.
+          example: Total long-term secured debt
+          nullable: true
+          type: string
+        category:
+          description: Corresponding endpoint to input metric item.
+          example: secured/unsecured
+          nullable: true
+          type: string
+      type: object
+    DCSTotalsResponse:
+      description: DCS Totals Response
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DcsResponseFields'
+          type: array
+      title: DCS Totals Response
+      type: object
+    DCSRequest:
+      description: DCS Totals Request
+      example:
+        data:
+          endDate: 2018-12-01T00:00:00.000+0000
+          ids:
+          - FDS-US
+          currency: USD
+          metrics:
+          - '["total_st_debt"]'
+          - '["total_st_debt"]'
+          startDate: 2017-12-01T00:00:00.000+0000
+          frequency: AM
+      properties:
+        data:
+          $ref: '#/components/schemas/DCSRequestBody'
+      required:
+      - data
+      title: DCS Totals Request
+      type: object
+    DCSRequestBody:
+      description: DCS Totals Request Body
+      example:
+        endDate: 2018-12-01T00:00:00.000+0000
+        ids:
+        - FDS-US
+        currency: USD
+        metrics:
+        - '["total_st_debt"]'
+        - '["total_st_debt"]'
+        startDate: 2017-12-01T00:00:00.000+0000
+        frequency: AM
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 25 IDs are supported.
+          example:
+          - FDS-US
+          items:
+            type: string
+          type: array
+        startDate:
+          description: |
+            The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2017-12-01
+          format: date
+          title: StartDate
+          type: string
+        endDate:
+          description: |
+            The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2018-12-01
+          format: date
+          title: EndDate
+          type: string
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        metrics:
+          description: |
+            Requested List of Financial Statement Items or Ratios.
+          items:
+            example: '["total_st_debt"]'
+            maxItems: 100
+            minItems: 1
+            type: string
+          title: Metrics
+          type: array
+        currency:
+          default: LOCAL
+          description: |
+            Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          title: Currency
+          type: string
+      required:
+      - ids
+      - metrics
+      - startDate
+      title: DCS Totals Request Body
+      type: object
+    LiquidityRequest:
+      description: Liquidity Request
+      example:
+        data:
+          ids:
+          - FDS-US
+          term: SHORT_TERM
+          metrics:
+          - '["total_st_debt"]'
+          - '["total_st_debt"]'
+          startDate: 2017-12-01T00:00:00.000+0000
+      properties:
+        data:
+          $ref: '#/components/schemas/LiquidityRequestBody'
+      required:
+      - data
+      title: Liquidity
+      type: object
+    LiquidityRequestBody:
+      description: Liquidity Request Body
+      example:
+        ids:
+        - FDS-US
+        term: SHORT_TERM
+        metrics:
+        - '["total_st_debt"]'
+        - '["total_st_debt"]'
+        startDate: 2017-12-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: |
+            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 25 IDs are supported.
+          example:
+          - FDS-US
+          items:
+            type: string
+          type: array
+        startDate:
+          description: |
+            The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+          example: 2017-12-01
+          format: date
+          title: StartDate
+          type: string
+        term:
+          $ref: '#/components/schemas/Term'
+        metrics:
+          description: |
+            Requested List of Financial Statement Items or Ratios.
+          items:
+            example: '["total_st_debt"]'
+            maxItems: 100
+            minItems: 1
+            type: string
+          title: Metrics
+          type: array
+      required:
+      - ids
+      - metrics
+      - startDate
+      title: Liquidity Request Body
+      type: object
     DetailsRequest:
       description: Details Request
       example:
         data:
-          date: 2017-12-01T00:00:00.000+0000
+          date: 2023-12-31T00:00:00.000+0000
           periodicity: QTR
           ids:
           - FDS-US
+          currency: USD
       properties:
         data:
           $ref: '#/components/schemas/DetailsRequestBody'
@@ -525,10 +1857,11 @@ components:
     DetailsRequestBody:
       description: Details Request Body
       example:
-        date: 2017-12-01T00:00:00.000+0000
+        date: 2023-12-31T00:00:00.000+0000
         periodicity: QTR
         ids:
         - FDS-US
+        currency: USD
       properties:
         ids:
           description: |
@@ -541,11 +1874,16 @@ components:
         periodicity:
           $ref: '#/components/schemas/Periodicity'
         date:
-          description: |
-            The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
-          example: 2017-12-01
+          description: Date in YYYY-MM-DD format.
+          example: 2023-12-31
           format: date
-          title: AsOfDate
+          type: string
+        currency:
+          default: LOCAL
+          description: |
+            Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          title: Currency
           type: string
       required:
       - ids
@@ -557,6 +1895,7 @@ components:
         data:
           ids:
           - FDS-US
+          currency: USD
       properties:
         data:
           $ref: '#/components/schemas/InterimDetailsRequestBody'
@@ -569,6 +1908,7 @@ components:
       example:
         ids:
         - FDS-US
+        currency: USD
       properties:
         ids:
           description: |
@@ -578,6 +1918,13 @@ components:
           items:
             type: string
           type: array
+        currency:
+          default: LOCAL
+          description: |
+            Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          title: Currency
+          type: string
       required:
       - ids
       title: Interim Details Request Body
@@ -652,7 +1999,7 @@ components:
           nullable: true
           type: string
         description:
-          description: Desription of the debt instrument.
+          description: Description of the debt instrument.
           example: Unsec. Rev. Facility
           nullable: true
           type: string
@@ -746,6 +2093,11 @@ components:
           type: string
       title: Detail Object
       type: object
+    Date:
+      description: Date in YYYY-MM-DD format.
+      example: 2023-12-31
+      format: date
+      type: string
     Ids:
       description: |
         The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 25 IDs are supported.
@@ -766,12 +2118,66 @@ components:
       example: QTR
       title: Periodicity
       type: string
-    AsOfDate:
+    StartDate:
       description: |
         The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
       example: 2017-12-01
       format: date
-      title: AsOfDate
+      title: StartDate
+      type: string
+    EndDate:
+      description: |
+        The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
+      example: 2018-12-01
+      format: date
+      title: EndDate
+      type: string
+    Frequency:
+      default: AM
+      description: |
+        Controls the frequency of the data returned.
+          * **D** = Daily
+          * **W** = Weekly, based on the last day of the week of the start date.
+          * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).
+          * **AQ** = Quarterly, based on the start date
+          * **AY** = Actual Annual, based on the start date.
+      enum:
+      - D
+      - W
+      - AM
+      - AQ
+      - AY
+      example: AM
+      title: Frequency
+      type: string
+    Term:
+      default: SHORT_TERM
+      description: |
+        Specifies whether to select short-term or long-term liquidity options.
+          * **SHORT_TERM** = Short Term.
+          * **LONG_TERM** = Long Term.
+      enum:
+      - SHORT_TERM
+      - LONG_TERM
+      example: SHORT_TERM
+      title: Term
+      type: string
+    Metrics:
+      description: |
+        Requested List of Financial Statement Items or Ratios.
+      items:
+        example: '["total_st_debt"]'
+        maxItems: 100
+        minItems: 1
+        type: string
+      title: Metrics
+      type: array
+    Currency:
+      default: LOCAL
+      description: |
+        Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).
+      example: USD
+      title: Currency
       type: string
     ErrorResponse:
       description: Error Default Response

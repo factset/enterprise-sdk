@@ -13,6 +13,7 @@ docs/BatchResult.md
 docs/BatchResultResponse.md
 docs/BatchStatus.md
 docs/BatchStatusResponse.md
+docs/CompanyReportsApi.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
@@ -29,6 +30,14 @@ docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
 docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/Meta.md
+docs/MetaRequest.md
+docs/OwnershipSummary.md
+docs/OwnershipSummaryRequest.md
+docs/OwnershipSummaryRequestData.md
+docs/OwnershipSummaryResponse.md
+docs/Pagination.md
+docs/PaginationRequest.md
 docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
@@ -63,6 +72,7 @@ src/main/java/com/factset/sdk/FactSetOwnership/ServerConfiguration.java
 src/main/java/com/factset/sdk/FactSetOwnership/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetOwnership/StringUtil.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/BatchProcessingApi.java
+src/main/java/com/factset/sdk/FactSetOwnership/api/CompanyReportsApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/FundHoldingsApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/SecurityHoldersApi.java
 src/main/java/com/factset/sdk/FactSetOwnership/api/ShortInterestApi.java
@@ -97,6 +107,14 @@ src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactions.
 src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactionsRequest.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactionsRequestData.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/InstitutionalTransactionsResponse.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/Meta.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/MetaRequest.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/OwnershipSummary.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/OwnershipSummaryRequest.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/OwnershipSummaryRequestData.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/OwnershipSummaryResponse.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/Pagination.java
+src/main/java/com/factset/sdk/FactSetOwnership/models/PaginationRequest.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/PeriodOfMeasure.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/RowExclusion.java
 src/main/java/com/factset/sdk/FactSetOwnership/models/SecurityHolders.java

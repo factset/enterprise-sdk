@@ -11,13 +11,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetOwnership.models.Batch;
 import com.factset.sdk.FactSetOwnership.models.BatchStatusResponse;
 import com.factset.sdk.FactSetOwnership.models.ErrorResponse;
+import com.factset.sdk.FactSetOwnership.models.Frequency;
+import com.factset.sdk.FactSetOwnership.models.HolderType;
 import com.factset.sdk.FactSetOwnership.models.InsiderTransactionsRequest;
 import com.factset.sdk.FactSetOwnership.models.InsiderTransactionsResponse;
 import com.factset.sdk.FactSetOwnership.models.InstitutionalTransactionsRequest;
 import com.factset.sdk.FactSetOwnership.models.InstitutionalTransactionsResponse;
 import java.time.LocalDate;
+import com.factset.sdk.FactSetOwnership.models.PeriodOfMeasure;
+import com.factset.sdk.FactSetOwnership.models.RowExclusion;
+import com.factset.sdk.FactSetOwnership.models.TopNHolders;
+import com.factset.sdk.FactSetOwnership.models.TransactionType;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -435,6 +442,8 @@ public class TransactionsApi {
    * @param rowExclusion Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  (optional, default to DB)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
+   * @param paginationLimit Specifies the number of results to return per page. (optional)
+   * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)
    * @return GetOwnershipInsiderTransactionsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -449,8 +458,8 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public GetOwnershipInsiderTransactionsResponseWrapper getOwnershipInsiderTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
-    return getOwnershipInsiderTransactionsWithHttpInfo(ids, startDate, endDate, transactionType, rowExclusion, currency, batch).getData();
+  public GetOwnershipInsiderTransactionsResponseWrapper getOwnershipInsiderTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, TransactionType transactionType, RowExclusion rowExclusion, String currency, Batch batch, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getOwnershipInsiderTransactionsWithHttpInfo(ids, startDate, endDate, transactionType, rowExclusion, currency, batch, paginationLimit, paginationOffset).getData();
   }
 
   /**
@@ -463,6 +472,8 @@ public class TransactionsApi {
    * @param rowExclusion Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.   * **DB** &#x3D;  Derivative and Blank Transaction Types - excludes both derivative and blank transaction types.   * **B** &#x3D; Blank Transaction Types - excludes only blank transaction types.   * **N** &#x3D;   None - includes all transaction types without exclusion.  (optional, default to DB)
    * @param currency Currency code for adjusting prices. Default is Local. For a list of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470). (optional, default to LOCAL)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
+   * @param paginationLimit Specifies the number of results to return per page. (optional)
+   * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)
    * @return ApiResponse&lt;GetOwnershipInsiderTransactionsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -477,7 +488,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetOwnershipInsiderTransactionsResponseWrapper> getOwnershipInsiderTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String transactionType, String rowExclusion, String currency, String batch) throws ApiException {
+  public ApiResponse<GetOwnershipInsiderTransactionsResponseWrapper> getOwnershipInsiderTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, TransactionType transactionType, RowExclusion rowExclusion, String currency, Batch batch, Integer paginationLimit, Integer paginationOffset) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -511,6 +522,8 @@ public class TransactionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "rowExclusion", rowExclusion));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
 
     
     
@@ -558,6 +571,8 @@ public class TransactionsApi {
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
+   * @param paginationLimit Specifies the number of results to return per page. (optional)
+   * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)
    * @return GetOwnershipInstitutionalTransactionsResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -572,8 +587,8 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public GetOwnershipInstitutionalTransactionsResponseWrapper getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
-    return getOwnershipInstitutionalTransactionsWithHttpInfo(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch).getData();
+  public GetOwnershipInstitutionalTransactionsResponseWrapper getOwnershipInstitutionalTransactions(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, Frequency frequency, TopNHolders topNHolders, HolderType holderType, PeriodOfMeasure periodOfMeasure, Batch batch, Integer paginationLimit, Integer paginationOffset) throws ApiException {
+    return getOwnershipInstitutionalTransactionsWithHttpInfo(ids, startDate, endDate, currency, frequency, topNHolders, holderType, periodOfMeasure, batch, paginationLimit, paginationOffset).getData();
   }
 
   /**
@@ -588,6 +603,8 @@ public class TransactionsApi {
    * @param holderType Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.   * **F** &#x3D; Institutions   * **M** &#x3D; Mutual Funds   * **S** &#x3D;  Insiders/Stakeholders   * **FS** &#x3D; Institutions/Insiders   * **B** &#x3D; Beneficial Owners  (optional, default to F)
    * @param periodOfMeasure Determines the range over which the code calculates change for Percent Ownership and Position Change.   * **1M** &#x3D; 1 Month (last 30 days)   * **3M** &#x3D; 3 Months (last 90 days)   * **6M** &#x3D; 6 Months (last 180 days)   * **12M** &#x3D; 12 Months (last 365 days)  (optional, default to 6M)
    * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes.  When &#x60;batch&#x3D;Y&#x60;, the service will respond with an HTTP Status Code of 202.  Once a batch request is submitted, use batch status to see if the job has been completed.  Once completed, retrieve the results of the request via batch-result. When using Batch, ids     limit is increased to  1000 ids per request, though limits on query string via GET method still apply.  It&#39;s advised to submit large lists of ids via POST method.  (optional, default to N)
+   * @param paginationLimit Specifies the number of results to return per page. (optional)
+   * @param paginationOffset Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. (optional)
    * @return ApiResponse&lt;GetOwnershipInstitutionalTransactionsResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -602,7 +619,7 @@ public class TransactionsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetOwnershipInstitutionalTransactionsResponseWrapper> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, String frequency, String topNHolders, String holderType, String periodOfMeasure, String batch) throws ApiException {
+  public ApiResponse<GetOwnershipInstitutionalTransactionsResponseWrapper> getOwnershipInstitutionalTransactionsWithHttpInfo(java.util.List<String> ids, LocalDate startDate, LocalDate endDate, String currency, Frequency frequency, TopNHolders topNHolders, HolderType holderType, PeriodOfMeasure periodOfMeasure, Batch batch, Integer paginationLimit, Integer paginationOffset) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -638,6 +655,8 @@ public class TransactionsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "holderType", holderType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "periodOfMeasure", periodOfMeasure));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationLimit", paginationLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "_paginationOffset", paginationOffset));
 
     
     

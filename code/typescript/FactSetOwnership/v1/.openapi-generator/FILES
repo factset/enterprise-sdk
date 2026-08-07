@@ -12,6 +12,7 @@ docs/BatchResult.md
 docs/BatchResultResponse.md
 docs/BatchStatus.md
 docs/BatchStatusResponse.md
+docs/CompanyReportsApi.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
@@ -28,6 +29,14 @@ docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
 docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/Meta.md
+docs/MetaRequest.md
+docs/OwnershipSummary.md
+docs/OwnershipSummaryRequest.md
+docs/OwnershipSummaryRequestData.md
+docs/OwnershipSummaryResponse.md
+docs/Pagination.md
+docs/PaginationRequest.md
 docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
@@ -47,6 +56,7 @@ mocha.opts
 package.json
 src/ApiClient.js
 src/api/BatchProcessingApi.js
+src/api/CompanyReportsApi.js
 src/api/FundHoldingsApi.js
 src/api/SecurityHoldersApi.js
 src/api/ShortInterestApi.js
@@ -74,6 +84,14 @@ src/model/InstitutionalTransactions.js
 src/model/InstitutionalTransactionsRequest.js
 src/model/InstitutionalTransactionsRequestData.js
 src/model/InstitutionalTransactionsResponse.js
+src/model/Meta.js
+src/model/MetaRequest.js
+src/model/OwnershipSummary.js
+src/model/OwnershipSummaryRequest.js
+src/model/OwnershipSummaryRequestData.js
+src/model/OwnershipSummaryResponse.js
+src/model/Pagination.js
+src/model/PaginationRequest.js
 src/model/PeriodOfMeasure.js
 src/model/RowExclusion.js
 src/model/SecurityHolders.js

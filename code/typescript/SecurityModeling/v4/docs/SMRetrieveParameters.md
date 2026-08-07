@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **securityName** | **String** |  | 
 **location** | **String** |  | [optional] 
-**asofdate** | **String** |  | [optional] 
+**asOfDate** | **String** |  | [optional] 
 **securityType** | **String** |  | [optional] 
 **fields** | **String** |  | [optional] 
 

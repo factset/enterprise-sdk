@@ -12,6 +12,7 @@ docs/BatchResult.md
 docs/BatchResultResponse.md
 docs/BatchStatus.md
 docs/BatchStatusResponse.md
+docs/CompanyReportsApi.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
@@ -28,6 +29,14 @@ docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
 docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/Meta.md
+docs/MetaRequest.md
+docs/OwnershipSummary.md
+docs/OwnershipSummaryRequest.md
+docs/OwnershipSummaryRequestData.md
+docs/OwnershipSummaryResponse.md
+docs/Pagination.md
+docs/PaginationRequest.md
 docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
@@ -44,6 +53,7 @@ docs/TransactionType.md
 docs/TransactionsApi.md
 git_push.sh
 src/FactSet.SDK.FactSetOwnership/Api/BatchProcessingApi.cs
+src/FactSet.SDK.FactSetOwnership/Api/CompanyReportsApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/FundHoldingsApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/SecurityHoldersApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/ShortInterestApi.cs
@@ -88,6 +98,14 @@ src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactions.cs
 src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactionsRequest.cs
 src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactionsRequestData.cs
 src/FactSet.SDK.FactSetOwnership/Model/InstitutionalTransactionsResponse.cs
+src/FactSet.SDK.FactSetOwnership/Model/Meta.cs
+src/FactSet.SDK.FactSetOwnership/Model/MetaRequest.cs
+src/FactSet.SDK.FactSetOwnership/Model/OwnershipSummary.cs
+src/FactSet.SDK.FactSetOwnership/Model/OwnershipSummaryRequest.cs
+src/FactSet.SDK.FactSetOwnership/Model/OwnershipSummaryRequestData.cs
+src/FactSet.SDK.FactSetOwnership/Model/OwnershipSummaryResponse.cs
+src/FactSet.SDK.FactSetOwnership/Model/Pagination.cs
+src/FactSet.SDK.FactSetOwnership/Model/PaginationRequest.cs
 src/FactSet.SDK.FactSetOwnership/Model/PeriodOfMeasure.cs
 src/FactSet.SDK.FactSetOwnership/Model/RowExclusion.cs
 src/FactSet.SDK.FactSetOwnership/Model/SecurityHolders.cs

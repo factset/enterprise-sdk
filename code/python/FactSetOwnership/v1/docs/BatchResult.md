@@ -6,7 +6,7 @@ Batch Result Item
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_id** | **str** | Identifier that was used in the request. | [optional] 
-**fsym_id** | **str, none_type** | FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier. | [optional] 
+**fsym_id** | **str** | FactSet Security Identifier of Fund. Identifies the security level id of the Fund requested (not-representing the underlying holding). Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S). All equity and fixed income securities that exist on FactSet are allocated a security-level permanent identifier. | [optional] 
 **date** | **date, none_type** | Date of the reported holding in YYYY-MM-DD format. For more details regarding date resolution, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262). | [optional] 
 **currency** | **str, none_type** | Currency code. The service will default to the funds local currency. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 
 **adj_holding** | **float, none_type** | Adjusted number of shares held. All positions and prices are adjusted for splits and name changes, but they are not adjusted for spinoffs or mergers. If a given company announces a split today, FactSet&#39;s Ownership data will reflect that split either tomorrow or the day after, depending upon the time in which the FactSet Symbology team makes record of the change. For more details, visit [Online Assistant Page #11262](https://oa.apps.factset.com/pages/11262). | [optional] 
@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **is_derivative** | **bool, none_type** | Returns a Derivative/Non-Derivative flag for the transactions that occurred between the specified start and end dates. Returns true for Derivative and false for Non-Derivative. | [optional] 
 **is_direct** | **bool, none_type** | Returns a direct/indirect flag for the transactions that occurred between the specified start and end dates. | [optional] 
 **trade_type** | **str, none_type** | Returns an acquisition/disposition flag for the transactions that occurred between the specified start and end dates. | [optional] 
+**transaction_code** | **str, none_type** | Returns the transaction detail code for the transaction. | [optional] 
+**transaction_code_description** | **str, none_type** | Returns the description of the transaction detail code for the transaction. | [optional] 
 **form_type** | **str, none_type** | Returns the form types for the transactions that occurred between the specified start and end dates. | [optional] 
 **transaction_date** | **str, none_type** | Returns the transaction dates for the transactions that occurred between the specified start and end dates. | [optional] 
 **shares_owned** | **float, none_type** | Returns the shares owned data for the transactions that occurred between the specified start and end dates. | [optional] 
@@ -42,7 +44,12 @@ Name | Type | Description | Notes
 **market_val** | **float, none_type** | Returns market value data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
 **period_of_measure** | **str, none_type** | Returns the range over which the code calculates change for Percent Ownership and Position Change. | [optional] 
 **report_date** | **date, none_type** | Returns the report date for the transactions that occurred between the specified start and end dates. | [optional] 
-**as_of_date** | **date, none_type** | Date on which the specified data or information is accurate or relevant. | [optional] 
+**as_of_date** | **date, none_type** | Date as of which the ownership data is current. | [optional] 
+**shares_outstanding** | **float, none_type** | Number of shares outstanding for the security. | [optional] 
+**percent_total_outstanding** | **float, none_type** | Position held as a percentage of the total outstanding shares of the security. | [optional] 
+**percent_institutional_outstanding** | **float, none_type** | Position held by institutional holders as a percentage of total outstanding shares. | [optional] 
+**percent_top_ten_institutional** | **float, none_type** | Position held by the top 10 institutional holders as a percentage of total outstanding shares. | [optional] 
+**percent_insider_outstanding** | **float, none_type** | Position held by insiders as a percentage of total outstanding shares. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

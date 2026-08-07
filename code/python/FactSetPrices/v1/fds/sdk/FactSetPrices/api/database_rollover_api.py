@@ -162,7 +162,7 @@ class DatabaseRolloverApi(object):
     ) -> RolloverResponse:
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
@@ -204,7 +204,7 @@ class DatabaseRolloverApi(object):
     ) -> typing.Tuple[RolloverResponse, int, typing.MutableMapping]:
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
 
@@ -250,7 +250,7 @@ class DatabaseRolloverApi(object):
     ) -> "ApplyResult[RolloverResponse]":
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
 
@@ -291,7 +291,7 @@ class DatabaseRolloverApi(object):
     ) -> "ApplyResult[typing.Tuple[RolloverResponse, int, typing.MutableMapping]]":
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
 
@@ -333,7 +333,7 @@ class DatabaseRolloverApi(object):
     ) -> RolloverResponse:
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a synchronous HTTP request. Returns the http data only
 
 
@@ -375,7 +375,7 @@ class DatabaseRolloverApi(object):
     ) -> typing.Tuple[RolloverResponse, int, typing.MutableMapping]:
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a synchronous HTTP request. Returns http data, http status and headers
 
 
@@ -421,7 +421,7 @@ class DatabaseRolloverApi(object):
     ) -> "ApplyResult[RolloverResponse]":
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
 
 
@@ -462,7 +462,7 @@ class DatabaseRolloverApi(object):
     ) -> "ApplyResult[typing.Tuple[RolloverResponse, int, typing.MutableMapping]]":
         """Gets the latest relative rollover date for the database.  # noqa: E501
 
-        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **eastern time zone**.  <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE. </p>   # noqa: E501
+        Gets zero relative date and last update time for FactSet databases. The dates represent the date that the rollover event happened; the date and time is in **UTC**. <p>Depending on the ids requested and their respective regions, a requested startDate or endDate used in the various Prices API may reflect different previous close dates. This relative \"zero\" date, meaning - as of yesterday's close - will vary across global regions. This API is designed to help production systems account for regional rollover dates to know when to trigger their processes for different regions to reflect the latest close. The response gives context for AMERICAS, ASIA PACIFIC, and EUROPE.</p>   # noqa: E501
         This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
 
 

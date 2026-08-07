@@ -23,6 +23,7 @@ from fds.sdk.FactSetOwnership.model.fund_holding import FundHolding
 from fds.sdk.FactSetOwnership.model.fund_holdings_request import FundHoldingsRequest
 from fds.sdk.FactSetOwnership.model.fund_holdings_response import FundHoldingsResponse
 from fds.sdk.FactSetOwnership.model.holder_type import HolderType
+from fds.sdk.FactSetOwnership.model.id_company_reports import IdCompanyReports
 from fds.sdk.FactSetOwnership.model.id_fund_holdings import IdFundHoldings
 from fds.sdk.FactSetOwnership.model.id_holders import IdHolders
 from fds.sdk.FactSetOwnership.model.id_transactions import IdTransactions
@@ -34,6 +35,14 @@ from fds.sdk.FactSetOwnership.model.institutional_transactions import Institutio
 from fds.sdk.FactSetOwnership.model.institutional_transactions_request import InstitutionalTransactionsRequest
 from fds.sdk.FactSetOwnership.model.institutional_transactions_request_data import InstitutionalTransactionsRequestData
 from fds.sdk.FactSetOwnership.model.institutional_transactions_response import InstitutionalTransactionsResponse
+from fds.sdk.FactSetOwnership.model.meta import Meta
+from fds.sdk.FactSetOwnership.model.meta_request import MetaRequest
+from fds.sdk.FactSetOwnership.model.ownership_summary import OwnershipSummary
+from fds.sdk.FactSetOwnership.model.ownership_summary_request import OwnershipSummaryRequest
+from fds.sdk.FactSetOwnership.model.ownership_summary_request_data import OwnershipSummaryRequestData
+from fds.sdk.FactSetOwnership.model.ownership_summary_response import OwnershipSummaryResponse
+from fds.sdk.FactSetOwnership.model.pagination import Pagination
+from fds.sdk.FactSetOwnership.model.pagination_request import PaginationRequest
 from fds.sdk.FactSetOwnership.model.period_of_measure import PeriodOfMeasure
 from fds.sdk.FactSetOwnership.model.row_exclusion import RowExclusion
 from fds.sdk.FactSetOwnership.model.security_holders import SecurityHolders

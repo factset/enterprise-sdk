@@ -1,0 +1,12 @@
+# factsetbanks.ExposureAllOf
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**requestId** | **String** | The identifier as submitted in the request (e.g., ticker or entity ID) | [optional] 
+**fiscalEndDate** | **Date** | Fiscal period end date in YYYY-MM-DD format | [optional] 
+**country** | **String** | ISO 3166-1 alpha-2 country code | [optional] 
+**currency** | **String** | Currency code for financial values (ISO 4217). Null for percentage or count metrics. For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470). | [optional] 
+
+

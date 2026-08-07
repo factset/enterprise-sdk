@@ -1,0 +1,19 @@
+
+
+# ExposureResponse
+
+Response containing country exposure data from FFIEC Form 009a.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**data** | [**java.util.List&lt;Exposure&gt;**](Exposure.md) | Array of country exposure data from FFIEC Form 009a. Each row represents one metric for one country.  Data is returned in a flat structure with one row per entity-country-metric combination.  |  [optional]
+**meta** | [**Meta**](Meta.md) |  |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

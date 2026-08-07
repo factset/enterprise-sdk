@@ -1,5 +1,62 @@
 # Breaking Changes
 
+## 2026-08-07 FactSet Debt Capital Structure API v1: Tag and Schema Renamed
+
+The `Reference` tag was renamed to `Details`, and the `AsOfDate` schema was renamed to `StartDate`. Tag names become class names in generated SDKs, so `ReferenceApi` is now `DetailsApi` — this breaks strongly-typed clients (Java, .NET, TypeScript) at compile time, and Python callers referencing `ReferenceApi` will get an `ImportError`/`AttributeError` at runtime. The `AsOfDate` schema rename similarly changes the generated model class name wherever it's referenced.
+
+Also adds 4 new endpoints: `/details-summary`, `/metrics`, `/dcs-totals`, `/liquidity`.
+
+**New versions:** dotnet 2.0.0, java 2.0.0, python 2.0.0, typescript 2.0.0
+
+**Migration:** Update any references to `ReferenceApi` to use `DetailsApi` instead. Update any references to the `AsOfDate` model/type to use `StartDate` instead.
+
+**Affected SDKs:**
+- FactSet Debt Capital Structure (API v1)
+
+## 2026-08-07 SecurityModeling API v4: Request/Response Field Renamed
+
+The `asofdate` field was renamed to `asOfDate` in `SMCreateParameters`, `SMDeleteParameters`, and `SMRetrieveParameters` (request bodies), and in `SMRetrieveResponse` (response body). The old field name no longer exists in the spec, so this is a rename rather than an addition — it breaks strongly-typed clients (Java, .NET, TypeScript) at compile time, and Python callers reading or setting `asofdate` will get an `AttributeError`/`TypeError` at runtime.
+
+**New versions:** dotnet 2.0.0, java 2.0.0, python 3.0.0, typescript 2.0.0
+
+**Migration:** Update any code reading or setting `asofdate` on `SMCreateParameters`, `SMDeleteParameters`, `SMRetrieveParameters`, or `SMRetrieveResponse` to use `asOfDate` instead.
+
+**Affected SDKs:**
+- Security Modeling (API v4)
+
+## 2026-08-07 FactSet Ownership API v1: New Optional Parameters and Parameter Type Changes (Java, .NET, Python)
+
+The `_paginationLimit` and `_paginationOffset` optional query parameters were added to the `getOwnershipInsiderTransactions` and `getOwnershipInstitutionalTransactions` endpoints — breaking for Java, where optional parameters are positional. Separately, several existing parameters (`transactionType`, `rowExclusion`, `batch`, and others) moved from an inline enum schema to a named, referenced schema. The allowed values didn't change, but the generated *type* did: Java gets an enum class instead of `String`, and .NET gets a nullable enum instead of `string?` — breaking for both even without the new pagination parameters. Python's type handling changes too. TypeScript is unaffected (no shipped `.d.ts`, JSDoc-only change).
+
+**New versions:** dotnet 2.0.0, java 3.0.0, python 3.0.0 (typescript: minor bump only, 2.5.0)
+
+**Migration:** For Java, add `null` (or actual values) for the new `_paginationLimit`/`_paginationOffset` parameters — the compiler will flag exact call sites. For Java, .NET, and Python, update any code that depended on `transactionType`/`rowExclusion`/`batch`/etc. being a plain string type to use the new generated enum type instead (the string values themselves are unchanged).
+
+**Affected SDKs:**
+- FactSet Ownership (API v1, Java, .NET, Python)
+
+## 2026-08-07 FactSet Funds API v1: New Batch Support Changes Return Types (All Languages)
+
+A new optional `batch` parameter was added to `getGroupHoldings`/`getMarketAggregates` (and their `ForList` variants), together with a new `202 Accepted` response carrying a distinct `BatchStatusResponse` schema alongside the existing `200` response. Adding a second, differently-shaped success response forces the generator to synthesize a wrapper/union return type for these methods in every language, not just the parameter-signature change in Java. In Java this compounds with the usual positional-argument break.
+
+**New versions:** dotnet 3.0.0, java 5.0.0, python 4.0.0, typescript 4.0.0
+
+**Migration:** Update code calling `getGroupHoldings()`/`getMarketAggregates()` (and `ForList` variants) to handle the new wrapped/union return type in all languages. For Java, also add `null` (or an actual value) for the new `batch` parameter — the compiler will flag exact call sites.
+
+**Affected SDKs:**
+- FactSet Funds (API v1, all languages)
+
+## 2026-08-07 Standard Datafeed API v2: New Parameter Inserted Mid-List Changes Method Signatures (Java, .NET)
+
+A new optional query parameter `excludeRelatedBundles` was added to the bundle-listing endpoints, but it's inserted *before* the existing `_paginationLimit`/`_paginationOffset`/`_sort` parameters rather than appended after them. This breaks Java as usual (positional arguments), and also breaks .NET for positional callers, since the parameters after the insertion point shift too — .NET's usual protection (trailing default values) only holds when a new parameter is appended last, not inserted mid-list. Python and TypeScript are unaffected.
+
+**New versions:** dotnet 2.0.0, java 2.0.0 (python 2.1.0, typescript 2.1.0: minor bump only)
+
+**Migration:** Add a value (or `null`/default) for the new `excludeRelatedBundles` parameter at its correct position in any Java or positional .NET calls to `getListFilesWithHttpInfo()`/`getHistoricalFilesWithHttpInfo()`. The compiler will flag exact call sites; .NET callers using named arguments are unaffected.
+
+**Affected SDKs:**
+- Standard Datafeed (API v2, Java, .NET)
+
 ## 2026-07-21 EventsAndTranscripts API v2: `ids` No Longer Required, Response Type Renamed
 
 The `ids` query parameter on `getTranscriptsInvestorSlides` and `getTranscriptsIntelligence` lost its `required: true` flag. Since optional parameters are positional in generated method signatures, this reshuffles arguments in every language. Additionally, `TranscriptsResponseData`'s discriminator mapping now points to a new `TranscriptsResult` schema instead of `DocumentResult`, changing the generated class name for that polymorphic response.

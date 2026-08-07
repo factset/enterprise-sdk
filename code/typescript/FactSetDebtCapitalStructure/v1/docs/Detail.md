@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **instrumentId** | **String** | Identifier for the debt instrument. | [optional] 
 **instrumentType** | **String** | Type of debt instrument. | [optional] 
-**description** | **String** | Desription of the debt instrument. | [optional] 
+**description** | **String** | Description of the debt instrument. | [optional] 
 **seniority** | **String** | Textual description of the instrument seniority type: * **Senior Unsecured** * **Senior Secured** * **Senior Subordinated** * **Collateralized** * **Subordinated** * **Junior** * **Junior Subordinated** * **Senior Conv.** &#x3D; Senior Convertible * **Senior Sub. Conv.** &#x3D; Senior Subordinated Convertible * **Sub. Conv.** &#x3D; Subordinated Convertible * **Junior Conv.** &#x3D; Junior Convertible * **Junior Sub. Conv.** &#x3D; Junior Subordinated Convertible * **Preferred** * **Other**  | [optional] 
 **amountOutstanding** | **Number** | Balance sheet amount outstanding. | [optional] 
 **currency** | **String** | Currency code for the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470). | [optional] 

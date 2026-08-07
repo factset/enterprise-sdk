@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.reference_api import ReferenceApi
+#   from .api.details_api import DetailsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.FactSetDebtCapitalStructure.api.reference_api import ReferenceApi
+from fds.sdk.FactSetDebtCapitalStructure.api.details_api import DetailsApi
+from fds.sdk.FactSetDebtCapitalStructure.api.liquidity_api import LiquidityApi
+from fds.sdk.FactSetDebtCapitalStructure.api.metrics_api import MetricsApi
+from fds.sdk.FactSetDebtCapitalStructure.api.totals_api import TotalsApi

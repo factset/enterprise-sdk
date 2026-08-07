@@ -1,6 +1,6 @@
 openapi: '3.0.0'
 info:
-  version: '1.6.0'
+  version: '1.7.0'
   title: 'FactSet Funds API'
   contact:
     name: 'FactSet Research Systems'
@@ -36,6 +36,8 @@ tags:
     description: 'Check the Fund''s current status and database availability'
   - name: 'Screening Operations'
     description: 'Enables data search, filtering, retrieval, and custom content set management with field metadata access.'
+  - name: 'Batch Processing'
+    description: 'Gets the batch processing data for the list of IDs, date range, etc.'
 paths:
   /factset-funds/v1/summary:
     get:
@@ -981,9 +983,10 @@ paths:
       operationId: 'getGroupHoldings'
       description: "Retrieves the holding percentages for the group and funds specified. Available groups are:\n  * **ASSET** = Asset Class\n  * **ASSETISTYP** = Issue Type with Asset Class\n  * **CAPGRP** = Cap Group\n  * **CNTRY** = Country\n  * **EXCHANGE** = Exchange\n  * **INDUSTRY** = Industry\n  * **ISSUE_TYPE** = Issue Type\n  * **REGION** = Region\n  * **SECTOR** = Sector\n  * **ULTPARENT** = Ultimate Parent\n"
       parameters:
-        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/IdsBatchGet'
         - $ref: '#/components/parameters/asOfDate'
         - $ref: '#/components/parameters/group'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: 'The Group Holdings response object.'
@@ -994,6 +997,21 @@ paths:
               examples:
                 Country Holdings for SPAXX-US:
                   $ref: '#/components/examples/groupHoldings'
+        '202':
+          description: 'Batch request has been accepted.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: 'Path to Batch Request status.'
+              schema:
+                type: 'string'
+              example: 'batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -1004,6 +1022,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - 'Group Holdings'
@@ -1027,6 +1046,21 @@ paths:
               examples:
                 Country Holdings for SPAXX-US:
                   $ref: '#/components/examples/groupHoldings'
+        '202':
+          description: 'Batch request has been accepted.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: 'Path to Batch Request status.'
+              schema:
+                type: 'string'
+              example: 'batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -1037,6 +1071,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /factset-funds/v1/aggregates/market:
     get:
       tags:
@@ -1045,11 +1080,12 @@ paths:
       operationId: 'getMarketAggregates'
       description: "Retrieves FactSet market aggregate data for the funds and date range specified.\n"
       parameters:
-        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/IdsBatchGetMarket'
         - $ref: '#/components/parameters/startDate'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/frequency'
         - $ref: '#/components/parameters/currency'
+        - $ref: '#/components/parameters/Batch'
       responses:
         '200':
           description: 'The Market Aggregates response object.'
@@ -1060,6 +1096,21 @@ paths:
               examples:
                 Market Aggregates for AGG-US:
                   $ref: '#/components/examples/marketAggregates'
+        '202':
+          description: 'Batch request has been accepted.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: 'Path to Batch Request status.'
+              schema:
+                type: 'string'
+              example: 'batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -1070,6 +1121,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
     post:
       tags:
         - 'Market Aggregates'
@@ -1093,6 +1145,21 @@ paths:
               examples:
                 Market Aggregates for AGG-US:
                   $ref: '#/components/examples/marketAggregates'
+        '202':
+          description: 'Batch request has been accepted.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+          headers:
+            Location:
+              description: 'Path to Batch Request status.'
+              schema:
+                type: 'string'
+              example: 'batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -1103,6 +1170,7 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+      x-factset-different-success-responses: true
   /factset-funds/v1/status:
     get:
       tags:
@@ -1466,6 +1534,99 @@ paths:
           $ref: '#/components/responses/415'
         '500':
           $ref: '#/components/responses/500'
+  /factset-funds/v1/batch-status:
+    get:
+      tags:
+        - 'Batch Processing'
+      summary: 'Returns the status for a Batch Request'
+      description: 'Return the status for the underlying batch request that is specified by the id.'
+      operationId: 'getBatchStatus'
+      parameters:
+        - $ref: '#/components/parameters/batchId'
+      responses:
+        '201':
+          description: 'The batch Request has been completed and the response has been created.'
+          headers:
+            Location:
+              description: 'Path to Batch Request result.'
+              schema:
+                type: 'string'
+              example: 'batch-result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Status Done:
+                  $ref: '#/components/examples/BatchStatusDoneResponse'
+        '202':
+          description: 'The batch Request has not finished and the result has NOT been created.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Status Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Status Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+                Batch Status Failed:
+                  $ref: '#/components/examples/BatchStatusFailedResponse'
+        '400':
+          $ref: '#/components/responses/batch400'
+        '401':
+          $ref: '#/components/responses/batch401'
+        '403':
+          $ref: '#/components/responses/batch403'
+        '404':
+          $ref: '#/components/responses/batch404'
+        '500':
+          $ref: '#/components/responses/batch500'
+      deprecated: false
+  /factset-funds/v1/batch-result:
+    get:
+      tags:
+        - 'Batch Processing'
+      summary: 'Returns the response for a Batch Request'
+      description: "Returns the response data for the underlying batch request that is specified by the id.\n\nBy default, this endpoint will return data as JSON. If you wish to receive your data in CSV format, you can edit the header to have the \"accept\" parameter as \"text/csv\" instead of \"application/json\".\n"
+      operationId: 'getBatchData'
+      parameters:
+        - $ref: '#/components/parameters/batchId'
+      responses:
+        '200':
+          description: 'Request Response Object when the batch request has been completed and the response is created'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchResultResponse'
+              examples:
+                Holdings group:
+                  $ref: '#/components/examples/groupHoldings'
+                Market Aggregates:
+                  $ref: '#/components/examples/marketAggregates'
+        '202':
+          description: 'The batch Request has not finished and the result has NOT been created.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+              examples:
+                Batch Request Queued:
+                  $ref: '#/components/examples/BatchStatusQueuedResponse'
+                Batch Request Executing:
+                  $ref: '#/components/examples/BatchStatusExecutingResponse'
+        '400':
+          $ref: '#/components/responses/batch400'
+        '401':
+          $ref: '#/components/responses/batch401'
+        '403':
+          $ref: '#/components/responses/batch403'
+        '404':
+          $ref: '#/components/responses/batch404'
+        '500':
+          $ref: '#/components/responses/batch500'
+      deprecated: false
+      x-factset-different-success-responses: true
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -1478,6 +1639,25 @@ components:
       type: 'http'
       scheme: 'basic'
   parameters:
+    Batch:
+      name: 'batch'
+      in: 'query'
+      description: "Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202.\nOnce a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.   \n"
+      schema:
+        type: 'string'
+        enum:
+          - 'Y'
+          - 'N'
+        default: 'N'
+    batchId:
+      name: 'id'
+      in: 'query'
+      description: 'Batch Request identifier.'
+      schema:
+        type: 'string'
+        format: 'uuid'
+      required: true
+      allowEmptyValue: false
     ids:
       name: 'ids'
       in: 'query'
@@ -1499,6 +1679,50 @@ components:
           summary: 'Multiple Market Identifiers'
           value:
             - 'MABAX-US'
+            - 'FCNTX-US'
+    IdsBatchGet:
+      name: 'ids'
+      in: 'query'
+      schema:
+        type: 'array'
+        items:
+          type: 'string'
+        minItems: 1
+        maxItems: 1500
+      required: true
+      explode: false
+      description: "The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:\n\n  - ids limit = 1000 per request(Non batch)\n\n  - Batch requests:\n      * Single day: up to 1500 IDs per request\n      * Multi-day: up to 500 IDs per request\n\n GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method.\n"
+      examples:
+        oneId:
+          summary: 'One Market Identifier'
+          value:
+            - 'SPAXX-US'
+        multipleIds:
+          summary: 'Multiple Market Identifiers'
+          value:
+            - 'SPAXX-US'
+            - 'FCNTX-US'
+    IdsBatchGetMarket:
+      name: 'ids'
+      in: 'query'
+      schema:
+        type: 'array'
+        items:
+          type: 'string'
+        minItems: 1
+        maxItems: 1500
+      required: true
+      explode: false
+      description: "The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:\n\n  - ids limit = 1000 per request(Non batch)\n  - Batch requests:\n      * Single day: up to 1500 IDs per request\n      * Multi-day: up to 1500 IDs per request\n\n GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method.\n"
+      examples:
+        oneId:
+          summary: 'One Market Identifier'
+          value:
+            - 'SPAXX-US'
+        multipleIds:
+          summary: 'Multiple Market Identifiers'
+          value:
+            - 'SPAXX-US'
             - 'FCNTX-US'
     lang:
       name: 'lang'
@@ -1716,6 +1940,101 @@ components:
             - 'Factset Fundamentals'
             - 'Factset Funds'
   schemas:
+    Batch:
+      description: "Enables asynchronous \"batch\" processing for long-running requests, supporting durations up to 20 minutes.\nWhen batch=Y is specified, the service responds with HTTP Status Code 202 (Accepted) indicating that the request has been received and is being processed.\nUse the batch status endpoint to check job progress, and retrieve results using the batch-result endpoint once processing is complete.\n\nIt is recommended to use the POST method for large ID lists, as GET requests are still subject to URL query string length limits.\n"
+      type: 'string'
+      enum:
+        - 'Y'
+        - 'N'
+      default: 'N'
+    BatchResultResponse:
+      title: 'Batch Data Response'
+      type: 'object'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'array'
+          items:
+            $ref: '#/components/schemas/BatchResult'
+    BatchResult:
+      title: 'Batch Data'
+      oneOf:
+        - $ref: '#/components/schemas/groupHolding'
+        - $ref: '#/components/schemas/marketAggregate'
+      discriminator:
+        propertyName: 'resultType'
+        mapping:
+          groupHolding: '#/components/schemas/groupHolding'
+          marketAggregate: '#/components/schemas/marketAggregate'
+    BatchErrorResponse:
+      type: 'object'
+      nullable: true
+      title: 'Error Response'
+      description: 'Error Default Response'
+      properties:
+        errors:
+          type: 'array'
+          nullable: true
+          description: 'An array containing errors'
+          items:
+            $ref: '#/components/schemas/BatchErrorObject'
+    BatchStatusResponse:
+      title: 'Batch Status Response'
+      type: 'object'
+      properties:
+        data:
+          $ref: '#/components/schemas/BatchStatus'
+    BatchStatus:
+      title: 'Batch Status'
+      type: 'object'
+      properties:
+        id:
+          type: 'string'
+          format: 'uuid'
+          description: 'the id of batch request.'
+        startTime:
+          type: 'string'
+          format: 'date-time'
+          description: 'Time when the batch request is started. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.'
+        endTime:
+          type: 'string'
+          format: 'date-time'
+          description: 'Time when the batch request is ended. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.'
+          nullable: true
+        status:
+          type: 'string'
+          enum:
+            - 'queued'
+            - 'executing'
+            - 'created'
+            - 'failed'
+        error:
+          $ref: '#/components/schemas/BatchErrorObject'
+    BatchErrorObject:
+      type: 'object'
+      nullable: true
+      properties:
+        id:
+          description: 'A UUID for this particular occurrence of the problem.'
+          type: 'string'
+          nullable: true
+          example: 'adb01824-252f-4420-b0c6-35a1e3507ef5'
+        code:
+          description: 'status'
+          type: 'string'
+          nullable: true
+          example: 'GenericError'
+        title:
+          description: 'The plain text error message'
+          type: 'string'
+          nullable: true
+          example: 'Validation Error'
+        detail:
+          description: 'A more detailed explanation of the specific error occurrence'
+          type: 'string'
+          nullable: true
+          example: 'The Batch Request was not found. It has probably expired.'
     summariesRequest:
       title: 'Summaries Request Body'
       description: 'Summaries Request Body'
@@ -3017,11 +3336,13 @@ components:
       type: 'object'
       properties:
         ids:
-          $ref: '#/components/schemas/ids'
+          $ref: '#/components/schemas/IdsBatchPost'
         asOfDate:
           $ref: '#/components/schemas/asOfDate'
         group:
           $ref: '#/components/schemas/group'
+        batch:
+          $ref: '#/components/schemas/Batch'
       required:
         - 'ids'
     groupHoldingsResponse:
@@ -3112,7 +3433,7 @@ components:
       type: 'object'
       properties:
         ids:
-          $ref: '#/components/schemas/ids'
+          $ref: '#/components/schemas/IdsBatchPostMarket'
         startDate:
           $ref: '#/components/schemas/startDate'
         endDate:
@@ -3121,6 +3442,8 @@ components:
           $ref: '#/components/schemas/frequency'
         currency:
           $ref: '#/components/schemas/currency'
+        batch:
+          $ref: '#/components/schemas/Batch'
       required:
         - 'ids'
     marketAggregatesResponse:
@@ -3816,6 +4139,26 @@ components:
           type: 'string'
           description: 'The field value.'
           example: 'Apple Inc.'
+    IdsBatchPost:
+      type: 'array'
+      items:
+        type: 'string'
+      minItems: 1
+      maxItems: 3000
+      description: "The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:\n\n  - ids limit = 1000 per request(Non batch)  \n  - Batch requests:\n      * Single day: up to 3000 IDs per request\n      * Multi-day: up to 500 IDs per request\n      \n"
+      example:
+        - 'SPAXX'
+        - 'FCNTX'
+    IdsBatchPostMarket:
+      type: 'array'
+      items:
+        type: 'string'
+      minItems: 1
+      maxItems: 5000
+      description: "The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:\n  \n  - ids limit = 1000 per request(Non batch)\n  - Batch requests:\n      * Single day: up to 5000 IDs per request\n      * Multi-day: up to 1500 IDs per request\n      \n"
+      example:
+        - 'SPAXX'
+        - 'FCNTX'
     ids:
       type: 'array'
       items:
@@ -4059,7 +4402,146 @@ components:
               $ref: '#/components/examples/notWritable'
             Internal Server Error - General Exception:
               $ref: '#/components/examples/generalException'
+    batch400:
+      description: 'Bad Request.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BatchErrorResponse'
+          examples:
+            Batch Bad Request:
+              $ref: '#/components/examples/batchBadRequest'
+    batch401:
+      description: 'Authentication Failed'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BatchErrorResponse'
+          examples:
+            Batch Unauthenticated:
+              $ref: '#/components/examples/batchUnauthenticatedError'
+    batch403:
+      description: 'Authorization Failed'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BatchErrorResponse'
+          examples:
+            Batch Unauthorized:
+              $ref: '#/components/examples/batchUnauthorizedError'
+    batch404:
+      description: 'Resource not found.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BatchErrorResponse'
+          examples:
+            Batch Request Not Found:
+              $ref: '#/components/examples/batchNotFound'
+    batch500:
+      description: 'Server Error.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BatchErrorResponse'
+          examples:
+            Batch Server Error:
+              $ref: '#/components/examples/batchServerError'
   examples:
+    BatchStatusDoneResponse:
+      description: 'Batch Status Done Response'
+      value:
+        data:
+          id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+          status: 'created'
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: '2021-06-29T18:34:55.402Z'
+          error: null
+    BatchStatusQueuedResponse:
+      description: 'Batch Status Queued Response'
+      value:
+        data:
+          id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+          status: 'queued'
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: null
+          error: null
+    BatchStatusExecutingResponse:
+      description: 'Batch Status Executing Response'
+      value:
+        data:
+          id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+          status: 'executing'
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: null
+          error: null
+    BatchStatusAcceptedResponse:
+      description: 'Batch Status Accepted Response'
+      value:
+        data:
+          id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+          status: 'queued'
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: null
+          error: null
+    BatchStatusFailedResponse:
+      description: 'Batch Status Failed Response'
+      value:
+        data:
+          id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+          status: 'failed'
+          startTime: '2021-06-29T18:34:52.168Z'
+          endTime: '2021-06-29T18:34:55.402Z'
+          error:
+            id: '2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+            code: 'GenericError'
+            title: 'Incorrect date format'
+            detail: 'the date parameter must be in YYYY-MM-DD format'
+    batchNotFound:
+      summary: 'Not Found'
+      description: 'The requested item was not found.'
+      value:
+        errors:
+          - id: '403d5c67-b4ab-4cfa-b8e3-7afa7030d3af'
+            code: 'Not Found'
+            title: 'Not Found'
+            detail: 'The Batch Request was not found. It has probably expired.'
+    batchBadRequest:
+      summary: 'Bad Request'
+      description: 'The request could not be processed due to invalid input.'
+      value:
+        errors:
+          - id: '5e3b6f2a-1c4d-4e8f-9a2b-7d6c5e4f3a2b'
+            code: 'Bad Request'
+            title: 'Bad Request'
+            detail: 'Required request parameter ''id'' for method parameter type UUID is not present'
+    batchUnauthorizedError:
+      summary: 'Unauthorized'
+      description: 'The request was understood but access to the resource is forbidden.'
+      value:
+        errors:
+          - id: '44d06a95-9e9c-4998-b4ff-0c1451f8c9bc'
+            code: 'Forbidden'
+            title: 'User Not Authorized'
+            detail: 'User is not authorized for the id/endpoint requested, please reach out to FactSet for support'
+    batchUnauthenticatedError:
+      summary: 'Unauthenticated'
+      description: 'The request lacks valid authentication credentials.'
+      value:
+        errors:
+          - id: 'fd5a51ff-02cf-48ec-b9b1-913d64863b0'
+            code: 'Not Authenticated'
+            title: 'Unauthenticated USERNAME-SERIAL.'
+            detail: 'User is not authenticated properly'
+    batchServerError:
+      summary: 'Server Error'
+      description: 'An unexpected error occurred while processing the Batch Request.'
+      value:
+        errors:
+          - id: '9f8e7d6c-5b4a-3c2d-1e0f-9a8b7c6d5e4f'
+            code: 'Internal Server Error'
+            title: 'An unexpected error happened.'
+            detail: 'The service you have requested has encountered an error'
     postSummary:
       summary: 'Fund Summary for MABAX and FCNTX'
       value:

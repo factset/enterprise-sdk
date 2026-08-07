@@ -55,7 +55,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SecurityModelingApi();
 const opts = {
-  'sMDeleteParametersRoot': {"data":[{"securityName":"Bond_Security","location":"Client","asofdate":"20250101","securityType":"BOND"}]} // SMDeleteParametersRoot | 
+  'sMDeleteParametersRoot': {"data":[{"securityName":"Bond_Security","location":"Client","asOfDate":"20250101","securityType":"BOND"}]} // SMDeleteParametersRoot | 
 };
 
 // Call api endpoint
@@ -215,7 +215,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new SecurityModelingApi();
 const opts = {
-  'sMRetrieveParametersRoot': {"data":[{"securityName":"SECURITY_BOND","location":"CLIENT","asofdate":"19000101","securityType":"BOND"}]} // SMRetrieveParametersRoot | 
+  'sMRetrieveParametersRoot': {"data":[{"securityName":"SECURITY_BOND","location":"CLIENT","asOfDate":"19000101","securityType":"BOND"}]} // SMRetrieveParametersRoot | 
 };
 
 // Call api endpoint

@@ -30,7 +30,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Standard DataFeed (SDF) Download API
-  version: 2.0.0
+  version: 2.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/standard-datafeed-api
@@ -303,6 +303,19 @@ paths:
           format: int32
           type: integer
         style: form
+      - description: |
+          Specifies whether to restrict the response to only the bundle(s) specified in the `bundle` parameter.
+
+          - `false`: the response includes files for the requested bundle(s) as well as any related bundles.
+          - `true`: the response is restricted to only the files for the specified `bundle`; related bundles are excluded from the results.
+        explode: true
+        in: query
+        name: excludeRelatedBundles
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       - description: Specifies the number of results to return per page.
         explode: true
         in: query
@@ -500,6 +513,19 @@ paths:
         schema:
           format: int32
           type: integer
+        style: form
+      - description: |
+          Specifies whether to restrict the response to only the bundle(s) specified in the `bundle` parameter.
+
+          - `false`: the response includes files for the requested bundle(s) as well as any related bundles.
+          - `true`: the response is restricted to only the files for the specified `bundle`; related bundles are excluded from the results.
+        explode: true
+        in: query
+        name: excludeRelatedBundles
+        required: false
+        schema:
+          default: false
+          type: boolean
         style: form
       - description: Specifies the number of results to return per page.
         explode: true
@@ -858,6 +884,20 @@ components:
       schema:
         format: int32
         type: integer
+      style: form
+    excludeRelatedBundles:
+      description: |
+        Specifies whether to restrict the response to only the bundle(s) specified in the `bundle` parameter.
+
+        - `false`: the response includes files for the requested bundle(s) as well as any related bundles.
+        - `true`: the response is restricted to only the files for the specified `bundle`; related bundles are excluded from the results.
+      explode: true
+      in: query
+      name: excludeRelatedBundles
+      required: false
+      schema:
+        default: false
+        type: boolean
       style: form
     _paginationLimit:
       description: Specifies the number of results to return per page.

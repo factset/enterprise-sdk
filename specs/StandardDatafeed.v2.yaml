@@ -2,7 +2,7 @@ openapi: '3.0.0'
 info:
   title: 'Standard DataFeed (SDF) Download API'
   description: "[The Standard DataFeed (SDF) Download API](https://www.factset.com/marketplace/catalog/product/factset-standard-datafeed-download-api) \nprovides an alternative method for users to request and retrieve SDF packages (schemas & bundles). \nThis service is not a direct replacement and does not have 100% feature parity with the Loader Application. \nThis API provides an alternative for users who are unable to utilize the Loader application due to the following reasons:\n\n* Inability to install 3rd party executables due to Corporate Security policies.\n\n* Inability to utilize the Loader application due to limitations or restrictions with the environment used to consume Standard Datafeed.\n\n* Clients who are utilizing existing delivery methods like FTP, who may want to use a more secure & modern solution.\n\nThis API allows users to retrieve\n\n* Both SDF and the QFL (Quant Factor Library (Factor Family & Factor Groups)) packages they have subscriptions for, with data available since January 1, 1995.\n\nAdditional parameters are available to filter requests to get the exact files users are looking for.\n\nQFL data is delivered through Content API & Bulk Data API (SDF API).\n\n* Content API: Provides direct access to FactSet-hosted QFL data. Suitable for interactive, ad hoc QFL requests. Constraints on large extracts. Costs are based on consumption, i.e. more calls can result in more costs.\n\n* Bulk Data API: Provides access to download locations of zip files for client download. Suitable for production processes within a client environment. Cost is based on the use case and fixed unless scope changes (same as other SDFs).\n\nPlease find all the content-related comprehensive documentation [here](https://my.apps.factset.com/oa/pages/15222).\n"
-  version: '2.0.0'
+  version: '2.1.0'
   contact:
     name: 'FactSet Research Systems'
     email: 'api@factset.com'
@@ -161,6 +161,7 @@ paths:
         - $ref: '#/components/parameters/startDateRelative'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/endDateRelative'
+        - $ref: '#/components/parameters/excludeRelatedBundles'
         - $ref: '#/components/parameters/_paginationLimit'
         - $ref: '#/components/parameters/_paginationOffset'
         - $ref: '#/components/parameters/_sort'
@@ -234,6 +235,7 @@ paths:
         - $ref: '#/components/parameters/startDateRelativeHistorical'
         - $ref: '#/components/parameters/endDate'
         - $ref: '#/components/parameters/endDateRelative'
+        - $ref: '#/components/parameters/excludeRelatedBundles'
         - $ref: '#/components/parameters/_paginationLimit'
         - $ref: '#/components/parameters/_paginationOffset'
         - $ref: '#/components/parameters/_sort'
@@ -402,6 +404,14 @@ components:
       schema:
         type: 'integer'
         format: 'int32'
+    excludeRelatedBundles:
+      name: 'excludeRelatedBundles'
+      in: 'query'
+      description: "Specifies whether to restrict the response to only the bundle(s) specified in the `bundle` parameter.\n\n- `false`: the response includes files for the requested bundle(s) as well as any related bundles.\n- `true`: the response is restricted to only the files for the specified `bundle`; related bundles are excluded from the results.\n"
+      required: false
+      schema:
+        type: 'boolean'
+        default: false
     _paginationLimit:
       name: '_paginationLimit'
       in: 'query'

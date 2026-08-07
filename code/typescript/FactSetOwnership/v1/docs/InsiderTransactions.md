@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **isDerivative** | **Boolean** | Returns a Derivative/Non-Derivative flag for the transactions that occurred between the specified start and end dates. Returns true for Derivative and false for Non-Derivative. | [optional] 
 **isDirect** | **Boolean** | Returns a direct/indirect flag for the transactions that occurred between the specified start and end dates. | [optional] 
 **tradeType** | **String** | Returns an acquisition/disposition flag for the transactions that occurred between the specified start and end dates. | [optional] 
+**transactionCode** | **String** | Returns the transaction detail code for the transaction. | [optional] 
+**transactionCodeDescription** | **String** | Returns the description of the transaction detail code for the transaction. | [optional] 
 **formType** | **String** | Returns the form types for the transactions that occurred between the specified start and end dates. | [optional] 
 **transactionDate** | **String** | Returns the transaction dates for the transactions that occurred between the specified start and end dates. | [optional] 
 **sharesOwned** | **Number** | Returns the shares owned data for the transactions that occurred between the specified start and end dates. | [optional] 

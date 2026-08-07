@@ -7,6 +7,14 @@ README.md
 docs/Aum.md
 docs/AumRequest.md
 docs/AumResponse.md
+docs/Batch.md
+docs/BatchErrorObject.md
+docs/BatchErrorResponse.md
+docs/BatchProcessingApi.md
+docs/BatchResult.md
+docs/BatchResultResponse.md
+docs/BatchStatus.md
+docs/BatchStatusResponse.md
 docs/BenchmarkDetails.md
 docs/BenchmarkDetailsRequest.md
 docs/BenchmarkDetailsResponse.md
@@ -72,6 +80,8 @@ docs/GroupHoldingsResponse.md
 docs/HelperApi.md
 docs/HistogramData.md
 docs/Ids.md
+docs/IdsBatchPost.md
+docs/IdsBatchPostMarket.md
 docs/JoinType.md
 docs/Lang.md
 docs/Managers.md
@@ -121,6 +131,7 @@ docs/SummariesResponse.md
 fds/__init__.py
 fds/sdk/FactSetFunds/__init__.py
 fds/sdk/FactSetFunds/api/__init__.py
+fds/sdk/FactSetFunds/api/batch_processing_api.py
 fds/sdk/FactSetFunds/api/distributions_api.py
 fds/sdk/FactSetFunds/api/fund_flows__aum_api.py
 fds/sdk/FactSetFunds/api/group_holdings_api.py
@@ -137,6 +148,13 @@ fds/sdk/FactSetFunds/model/__init__.py
 fds/sdk/FactSetFunds/model/aum.py
 fds/sdk/FactSetFunds/model/aum_request.py
 fds/sdk/FactSetFunds/model/aum_response.py
+fds/sdk/FactSetFunds/model/batch.py
+fds/sdk/FactSetFunds/model/batch_error_object.py
+fds/sdk/FactSetFunds/model/batch_error_response.py
+fds/sdk/FactSetFunds/model/batch_result.py
+fds/sdk/FactSetFunds/model/batch_result_response.py
+fds/sdk/FactSetFunds/model/batch_status.py
+fds/sdk/FactSetFunds/model/batch_status_response.py
 fds/sdk/FactSetFunds/model/benchmark_details.py
 fds/sdk/FactSetFunds/model/benchmark_details_request.py
 fds/sdk/FactSetFunds/model/benchmark_details_response.py
@@ -198,6 +216,8 @@ fds/sdk/FactSetFunds/model/group_holdings_request.py
 fds/sdk/FactSetFunds/model/group_holdings_response.py
 fds/sdk/FactSetFunds/model/histogram_data.py
 fds/sdk/FactSetFunds/model/ids.py
+fds/sdk/FactSetFunds/model/ids_batch_post.py
+fds/sdk/FactSetFunds/model/ids_batch_post_market.py
 fds/sdk/FactSetFunds/model/join_type.py
 fds/sdk/FactSetFunds/model/lang.py
 fds/sdk/FactSetFunds/model/managers.py

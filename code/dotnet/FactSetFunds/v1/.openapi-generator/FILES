@@ -7,6 +7,14 @@ appveyor.yml
 docs/Aum.md
 docs/AumRequest.md
 docs/AumResponse.md
+docs/Batch.md
+docs/BatchErrorObject.md
+docs/BatchErrorResponse.md
+docs/BatchProcessingApi.md
+docs/BatchResult.md
+docs/BatchResultResponse.md
+docs/BatchStatus.md
+docs/BatchStatusResponse.md
 docs/BenchmarkDetails.md
 docs/BenchmarkDetailsRequest.md
 docs/BenchmarkDetailsResponse.md
@@ -115,6 +123,7 @@ docs/Summaries.md
 docs/SummariesRequest.md
 docs/SummariesResponse.md
 git_push.sh
+src/FactSet.SDK.FactSetFunds/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetFunds/Api/DistributionsApi.cs
 src/FactSet.SDK.FactSetFunds/Api/FundFlowsAUMApi.cs
 src/FactSet.SDK.FactSetFunds/Api/GroupHoldingsApi.cs
@@ -144,6 +153,13 @@ src/FactSet.SDK.FactSetFunds/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.FactSetFunds/Model/Aum.cs
 src/FactSet.SDK.FactSetFunds/Model/AumRequest.cs
 src/FactSet.SDK.FactSetFunds/Model/AumResponse.cs
+src/FactSet.SDK.FactSetFunds/Model/Batch.cs
+src/FactSet.SDK.FactSetFunds/Model/BatchErrorObject.cs
+src/FactSet.SDK.FactSetFunds/Model/BatchErrorResponse.cs
+src/FactSet.SDK.FactSetFunds/Model/BatchResult.cs
+src/FactSet.SDK.FactSetFunds/Model/BatchResultResponse.cs
+src/FactSet.SDK.FactSetFunds/Model/BatchStatus.cs
+src/FactSet.SDK.FactSetFunds/Model/BatchStatusResponse.cs
 src/FactSet.SDK.FactSetFunds/Model/BenchmarkDetails.cs
 src/FactSet.SDK.FactSetFunds/Model/BenchmarkDetailsRequest.cs
 src/FactSet.SDK.FactSetFunds/Model/BenchmarkDetailsResponse.cs

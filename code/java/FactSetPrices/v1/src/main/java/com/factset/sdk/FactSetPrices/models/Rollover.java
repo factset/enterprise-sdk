@@ -78,11 +78,11 @@ public class Rollover implements Serializable {
   }
 
    /**
-   * Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
+   * Time of last zero date rollover for the Americas. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
    * @return americasRollTime
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
+  @ApiModelProperty(value = "Time of last zero date rollover for the Americas. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
   @JsonIgnore
 
   public OffsetDateTime getAmericasRollTime() {
@@ -112,11 +112,11 @@ public class Rollover implements Serializable {
   }
 
    /**
-   * Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.
+   * Current relative zero date for the Americas. The date is in UTC and is expressed as YYYY-MM-DD.
    * @return americasZeroDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Wed Jun 17 00:00:00 UTC 2020", value = "Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.")
+  @ApiModelProperty(example = "Wed Jun 17 00:00:00 UTC 2020", value = "Current relative zero date for the Americas. The date is in UTC and is expressed as YYYY-MM-DD.")
   @JsonIgnore
 
   public LocalDate getAmericasZeroDate() {
@@ -146,11 +146,11 @@ public class Rollover implements Serializable {
   }
 
    /**
-   * Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
+   * Time of last zero date rollover for Asia/Pacific. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
    * @return asiapacificRollTime
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
+  @ApiModelProperty(value = "Time of last zero date rollover for Asia/Pacific. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
   @JsonIgnore
 
   public OffsetDateTime getAsiapacificRollTime() {
@@ -180,11 +180,11 @@ public class Rollover implements Serializable {
   }
 
    /**
-   * Current relative zero date for Asia/Pacific. This is in Eastern Time Zone
+   * Current relative zero date for Asia/Pacific. The date is in UTC and is expressed as YYYY-MM-DD.
    * @return asiapacificZeroDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Thu Jun 18 00:00:00 UTC 2020", value = "Current relative zero date for Asia/Pacific. This is in Eastern Time Zone")
+  @ApiModelProperty(example = "Thu Jun 18 00:00:00 UTC 2020", value = "Current relative zero date for Asia/Pacific. The date is in UTC and is expressed as YYYY-MM-DD.")
   @JsonIgnore
 
   public LocalDate getAsiapacificZeroDate() {
@@ -214,11 +214,11 @@ public class Rollover implements Serializable {
   }
 
    /**
-   * Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
+   * Time of last zero date rollover for Europe. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
    * @return europeRollTime
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
+  @ApiModelProperty(value = "Time of last zero date rollover for Europe. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.")
   @JsonIgnore
 
   public OffsetDateTime getEuropeRollTime() {
@@ -248,11 +248,11 @@ public class Rollover implements Serializable {
   }
 
    /**
-   * Current relative zero date for Europe. This is in Eastern Time Zone
+   * Current relative zero date for Europe. The date is in UTC and is expressed as YYYY-MM-DD.
    * @return europeZeroDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "Wed Jun 17 00:00:00 UTC 2020", value = "Current relative zero date for Europe. This is in Eastern Time Zone")
+  @ApiModelProperty(example = "Wed Jun 17 00:00:00 UTC 2020", value = "Current relative zero date for Europe. The date is in UTC and is expressed as YYYY-MM-DD.")
   @JsonIgnore
 
   public LocalDate getEuropeZeroDate() {

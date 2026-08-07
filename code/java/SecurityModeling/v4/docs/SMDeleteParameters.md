@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **securityName** | **String** |  | 
 **location** | **String** |  |  [optional]
-**asofdate** | **String** |  |  [optional]
+**asOfDate** | **String** |  |  [optional]
 **securityType** | [**SecurityTypeEnum**](#SecurityTypeEnum) |  |  [optional]
 
 

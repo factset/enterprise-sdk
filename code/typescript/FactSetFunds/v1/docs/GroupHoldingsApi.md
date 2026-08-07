@@ -50,18 +50,32 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 // FactSetApiKey.password = 'API-KEY';
 
 const apiInstance = new GroupHoldingsApi();
-const ids = ["MABAX-US"]; // [String] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
+const ids = ["SPAXX-US"]; // [String] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit = 1000 per request(Non batch)    - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method. 
 const opts = {
   'asOfDate': 2024-02-20, // String | As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period. 
-  'group': "'CNTRY'" // String | Controls the group of the data returned.   * **ASSET** = Asset Class   * **ASSETISTYP** = Issue Type with Asset Class   * **CAPGRP** = Cap Group   * **CNTRY** = Country   * **EXCHANGE** = Exchange   * **INDUSTRY** = Industry   * **ISSUE_TYPE** = Issue Type   * **REGION** = Region   * **SECTOR** = Sector   * **ULTPARENT** = Ultimate Parent       
+  'group': "'CNTRY'", // String | Controls the group of the data returned.   * **ASSET** = Asset Class   * **ASSETISTYP** = Issue Type with Asset Class   * **CAPGRP** = Cap Group   * **CNTRY** = Country   * **EXCHANGE** = Exchange   * **INDUSTRY** = Industry   * **ISSUE_TYPE** = Issue Type   * **REGION** = Region   * **SECTOR** = Sector   * **ULTPARENT** = Ultimate Parent       
+  'batch': "'N'" // String | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.    
 };
 
 // Call api endpoint
 apiInstance.getGroupHoldings(ids, opts).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: GetGroupHoldingsResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // GroupHoldingsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);
@@ -76,9 +90,10 @@ apiInstance.getGroupHoldings(ids, opts).then(
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**[String]**](String.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  | 
+ **ids** | [**[String]**](String.md)| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit &#x3D; 1000 per request(Non batch)    - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method.  | 
  **asOfDate** | **String**| As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  | [optional] 
  **group** | **String**| Controls the group of the data returned.   * **ASSET** &#x3D; Asset Class   * **ASSETISTYP** &#x3D; Issue Type with Asset Class   * **CAPGRP** &#x3D; Cap Group   * **CNTRY** &#x3D; Country   * **EXCHANGE** &#x3D; Exchange   * **INDUSTRY** &#x3D; Industry   * **ISSUE_TYPE** &#x3D; Issue Type   * **REGION** &#x3D; Region   * **SECTOR** &#x3D; Sector   * **ULTPARENT** &#x3D; Ultimate Parent        | [optional] [default to &#39;CNTRY&#39;]
+ **batch** | **String**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.     | [optional] [default to &#39;N&#39;]
 
 ### Return type
 
@@ -141,8 +156,21 @@ const groupHoldingsRequest = new factsetfunds.GroupHoldingsRequest(); // GroupHo
 apiInstance.getGroupHoldingsForList(groupHoldingsRequest).then(
   data => {
 
-    console.log('API called successfully. Returned data:');
-    console.log(data);
+      // data is a responsewrapper: GetGroupHoldingsForListResponseWrapper
+      switch (data.statusCode) {
+
+          case 200:
+             // GroupHoldingsResponse
+             console.log(data.getResponse200());
+             break;
+
+          case 202:
+             // BatchStatusResponse
+             console.log(data.getResponse202());
+             break;
+
+      }
+
   },
   error => {
     console.error(error);

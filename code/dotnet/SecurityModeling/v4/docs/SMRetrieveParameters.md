@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SecurityName** | **string** |  | 
 **Location** | **string** |  | [optional] 
-**Asofdate** | **string** |  | [optional] 
+**AsOfDate** | **string** |  | [optional] 
 **SecurityType** | **string** |  | [optional] 
 **Fields** | **string** |  | [optional] 
 

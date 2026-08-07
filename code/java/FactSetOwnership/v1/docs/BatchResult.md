@@ -8,6 +8,7 @@ Batch Result Item
 * [FundHolding](FundHolding.md)
 * [InsiderTransactions](InsiderTransactions.md)
 * [InstitutionalTransactions](InstitutionalTransactions.md)
+* [OwnershipSummary](OwnershipSummary.md)
 * [SecurityHolders](SecurityHolders.md)
 
 ## Example
@@ -17,6 +18,7 @@ import com.factset.sdk.FactSetOwnership.models.BatchResult;
 import com.factset.sdk.FactSetOwnership.models.FundHolding;
 import com.factset.sdk.FactSetOwnership.models.InsiderTransactions;
 import com.factset.sdk.FactSetOwnership.models.InstitutionalTransactions;
+import com.factset.sdk.FactSetOwnership.models.OwnershipSummary;
 import com.factset.sdk.FactSetOwnership.models.SecurityHolders;
 
 public class Example {
@@ -43,6 +45,13 @@ public class Example {
         exampleBatchResult.setActualInstance(exampleInstitutionalTransactions);
         // to get back the InstitutionalTransactions set earlier
         InstitutionalTransactions testInstitutionalTransactions = (InstitutionalTransactions) exampleBatchResult.getActualInstance();
+
+        // create a new OwnershipSummary
+        OwnershipSummary exampleOwnershipSummary = new OwnershipSummary();
+        // set BatchResult to OwnershipSummary
+        exampleBatchResult.setActualInstance(exampleOwnershipSummary);
+        // to get back the OwnershipSummary set earlier
+        OwnershipSummary testOwnershipSummary = (OwnershipSummary) exampleBatchResult.getActualInstance();
 
         // create a new SecurityHolders
         SecurityHolders exampleSecurityHolders = new SecurityHolders();

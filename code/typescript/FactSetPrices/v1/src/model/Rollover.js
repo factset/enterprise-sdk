@@ -73,37 +73,37 @@ class Rollover {
 }
 
 /**
- * Time of last zero date rollover for the Americas. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
+ * Time of last zero date rollover for the Americas. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
  * @member {Date} americasRollTime
  */
 Rollover.prototype['americasRollTime'] = undefined;
 
 /**
- * Current relative zero date for the Americas. Date is expressed in Eastern Time and expressed as YYYY-MM-DD.
+ * Current relative zero date for the Americas. The date is in UTC and is expressed as YYYY-MM-DD.
  * @member {Date} americasZeroDate
  */
 Rollover.prototype['americasZeroDate'] = undefined;
 
 /**
- * Time of last zero date rollover for Asia/Pacific. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
+ * Time of last zero date rollover for Asia/Pacific. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
  * @member {Date} asiapacificRollTime
  */
 Rollover.prototype['asiapacificRollTime'] = undefined;
 
 /**
- * Current relative zero date for Asia/Pacific. This is in Eastern Time Zone
+ * Current relative zero date for Asia/Pacific. The date is in UTC and is expressed as YYYY-MM-DD.
  * @member {Date} asiapacificZeroDate
  */
 Rollover.prototype['asiapacificZeroDate'] = undefined;
 
 /**
- * Time of last zero date rollover for Europe. This is in Eastern Time Zone. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
+ * Time of last zero date rollover for Europe. This is in UTC. The date-time format is expressed as [YYYY-MM-DD]T[HH:MM:SSS], following ISO 8601.
  * @member {Date} europeRollTime
  */
 Rollover.prototype['europeRollTime'] = undefined;
 
 /**
- * Current relative zero date for Europe. This is in Eastern Time Zone
+ * Current relative zero date for Europe. The date is in UTC and is expressed as YYYY-MM-DD.
  * @member {Date} europeZeroDate
  */
 Rollover.prototype['europeZeroDate'] = undefined;

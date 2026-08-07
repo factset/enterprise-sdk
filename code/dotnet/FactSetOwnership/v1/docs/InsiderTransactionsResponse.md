@@ -6,6 +6,7 @@ insiderTransactions response
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | [**List&lt;InsiderTransactions&gt;**](InsiderTransactions.md) | Array of Insider Transactions | [optional] 
+**Meta** | [**Meta**](Meta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

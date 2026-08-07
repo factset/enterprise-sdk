@@ -1,0 +1,478 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Off-Platform Integrations API - V1",
+    "description": "The Off-Platform Integrations API delivers shared utilities for managing integrations and workflows that operate outside FactSet's environment. Designed to support both ad hoc and scheduled workflows, it powers integrations with CRM platforms such as Salesforce and Microsoft Dynamics, while remaining flexible enough for teams to adopt across other external platforms.",
+    "contact": {
+      "name": "FactSet Research Systems",
+      "url": "https://developer.factset.com/contact",
+      "email": "api@factset.com"
+    },
+    "license": {
+      "name": "Apache License, Version 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/check-caccess": {
+      "post": {
+        "summary": "Check access for a list of encrypted CACCESS codes",
+        "description": "Accepts an array of up to 25 encrypted CACCESS codes in 'data' and returns an array of result objects. On successful decryption of all codes, returns 200 with each result containing the encrypted code and a boolean 'hasAccess'. If decryption fails for any code, returns 400 with an 'errors' array containing the decryption errors and, if any codes decrypted successfully, a 'data' array with those results. Returns 400 with an 'errors' envelope for malformed input or if more than 25 codes are submitted, and 401 if the user is not authenticated.\n\nEach CACCESS code must be encrypted using **AES-256-CBC** before being sent. To obtain the encryption key and integration guidance, contact [research-integrations-dev@factset.com](mailto:research-integrations-dev@factset.com).",
+        "operationId": "checkCACCESS",
+        "tags": [
+          "Check CACCESS"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessCheckRequest"
+              },
+              "examples": {
+                "single": {
+                  "value": {
+                    "data": [
+                      "/XxVRQQ+WzvlXOoNtF+0j9qmoMRFR0ox/a9qhoPX0YwP"
+                    ]
+                  }
+                },
+                "multiple": {
+                  "value": {
+                    "data": [
+                      "/XxVRQQ+WzvlXOoNtF+0j9qmoMRFR0ox/a9qhoPX0YwP",
+                      "DX6S9AYy20sHYgZJZdHVbeWdcgAa4Zl1FD+cAb4aYbWy"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All codes decrypted successfully. Returns a list of encrypted CACCESS codes and their access status.",
+            "headers": {
+              "api-version": {
+                "$ref": "#/components/headers/ApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccessCheckResponse"
+                },
+                "examples": {
+                  "single": {
+                    "value": {
+                      "data": [
+                        {
+                          "encryptedCode": "/XxVRQQ+WzvlXOoNtF+0j9qmoMRFR0ox/a9qhoPX0YwP",
+                          "hasAccess": true
+                        }
+                      ]
+                    }
+                  },
+                  "multiple": {
+                    "value": {
+                      "data": [
+                        {
+                          "encryptedCode": "/XxVRQQ+WzvlXOoNtF+0j9qmoMRFR0ox/a9qhoPX0YwP",
+                          "hasAccess": true
+                        },
+                        {
+                          "encryptedCode": "DX6S9AYy20sHYgZJZdHVbeWdcgAa4Zl1FD+cAb4aYbWy",
+                          "hasAccess": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - either the request body is malformed/missing, more than 25 codes were submitted, or one or more codes could not be decrypted. Validation errors return an 'errors' envelope; decryption failures return an 'errors' array containing decryption errors and, if any codes decrypted successfully, a 'data' array with those results.",
+            "headers": {
+              "api-version": {
+                "$ref": "#/components/headers/ApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "missingData": {
+                    "summary": "Missing or malformed request body",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567890",
+                          "code": "requestBodyInvalid",
+                          "title": "Request body is invalid."
+                        }
+                      ]
+                    }
+                  },
+                  "invalidData": {
+                    "summary": "Invalid data array",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567893",
+                          "code": "requestBodyInvalid",
+                          "title": "'data' is invalid! must be an array of strings."
+                        }
+                      ]
+                    }
+                  },
+                  "dataTooLarge": {
+                    "summary": "More than 25 codes submitted",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567895",
+                          "code": "requestBodyInvalid",
+                          "title": "'data' exceeds the maximum limit of 25 codes per request."
+                        }
+                      ]
+                    }
+                  },
+                  "decryptionFailure": {
+                    "summary": "One or more codes could not be decrypted",
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "f91440a4-3441-4ef9-a6f1-947663475868",
+                          "code": "decryptionFailed",
+                          "title": "Failed to decrypt the provided code.",
+                          "source": {
+                            "value": "invalidBase64=="
+                          }
+                        }
+                      ],
+                      "data": [
+                        {
+                          "encryptedCode": "/XxVRQQ+WzvlXOoNtF+0j9qmoMRFR0ox/a9qhoPX0YwP",
+                          "hasAccess": true
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated - authentication credentials are missing or invalid",
+            "headers": {
+              "api-version": {
+                "$ref": "#/components/headers/ApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567891",
+                          "code": "notAuthenticated",
+                          "title": "Authentication credentials are missing or invalid."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - authenticated user does not have the required access",
+            "headers": {
+              "api-version": {
+                "$ref": "#/components/headers/ApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567894",
+                          "code": "notAuthorized",
+                          "title": "Client does not the have required CACCESS: 07CRM"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request Timeout - the request body took too long to arrive (limit: 10s)",
+            "headers": {
+              "api-version": {
+                "$ref": "#/components/headers/ApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567896",
+                          "code": "bodyTimeout",
+                          "title": "Request body took too long to arrive"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {
+              "api-version": {
+                "$ref": "#/components/headers/ApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567892",
+                          "code": "internalServerError",
+                          "title": "An unexpected error occurred."
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable - request processing timed out (limit: 25s)",
+            "headers": {
+              "api-version": {
+                "$ref": "#/components/headers/ApiVersion"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "default": {
+                    "value": {
+                      "errors": [
+                        {
+                          "id": "b1e2c3d4-e5f6-7890-abcd-ef1234567897",
+                          "code": "requestTimeout",
+                          "title": "Request processing timed out"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorItem": {
+        "type": "object",
+        "description": "Represents a single error returned in a response.",
+        "required": [
+          "id",
+          "code",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "A unique identifier for this error instance."
+          },
+          "code": {
+            "type": "string",
+            "description": "A machine-readable error code."
+          },
+          "title": {
+            "type": "string",
+            "description": "A human-readable summary of the error."
+          },
+          "source": {
+            "type": "object",
+            "description": "An optional object identifying the source of the error.",
+            "properties": {
+              "value": {
+                "$ref": "#/components/schemas/EncryptedCACCESSCode"
+              }
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Standard error response envelope returned on all non-successful responses.",
+        "required": [
+          "errors"
+        ],
+        "properties": {
+          "errors": {
+            "type": "array",
+            "description": "A list of one or more errors that describe why the request failed.",
+            "items": {
+              "$ref": "#/components/schemas/ErrorItem"
+            }
+          },
+          "data": {
+            "type": "array",
+            "description": "Present only when some codes were successfully decrypted alongside failures. Contains the results for the successfully decrypted codes.",
+            "items": {
+              "$ref": "#/components/schemas/AccessCheckResult"
+            }
+          }
+        }
+      },
+      "EncryptedCACCESSCode": {
+        "type": "string",
+        "minLength": 1,
+        "description": "An encrypted CACCESS code string."
+      },
+      "AccessCheckRequest": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EncryptedCACCESSCode"
+            },
+            "minItems": 1,
+            "maxItems": 25,
+            "description": "List of encrypted CACCESS codes to check. Maximum 25 codes per request."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request payload wrapping the list of encrypted CACCESS codes."
+      },
+      "AccessCheckResult": {
+        "type": "object",
+        "description": "Result object for a single encrypted CACCESS code.",
+        "required": [
+          "encryptedCode",
+          "hasAccess"
+        ],
+        "properties": {
+          "encryptedCode": {
+            "$ref": "#/components/schemas/EncryptedCACCESSCode"
+          },
+          "hasAccess": {
+            "type": "boolean",
+            "description": "Whether the authenticated user has caccess for this code."
+          }
+        }
+      },
+      "AccessCheckResponse": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessCheckResult"
+            },
+            "description": "List of encrypted CACCESS codes and their access results."
+          }
+        },
+        "description": "Response payload wrapping the caccess results."
+      }
+    },
+    "headers": {
+      "ApiVersion": {
+        "description": "The version of the API that processed the request.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "securitySchemes": {
+      "FactSetOAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.factset.com/as/token.oauth2",
+            "scopes": {}
+          }
+        }
+      },
+      "FactSetApiKey": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Check CACCESS",
+      "description": "Endpoint for checking CACCESS codes associated to a user"
+    }
+  ],
+  "security": [
+    {
+      "FactSetApiKey": []
+    },
+    {
+      "FactSetOAuth2": []
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://developer.factset.com/api-catalog/off-platform-integrations-api"
+  },
+  "servers": [
+    {
+      "url": "https://api.factset.com/services/off-platform-integrations-api/v1",
+      "description": "Production Server"
+    }
+  ]
+}

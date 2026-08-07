@@ -106,10 +106,10 @@ class MarketValueIds(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
+            args[0] ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Non-Batch requests:       * Single day: up to 200 IDs per request       * Multi-day: up to 50 IDs per request    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
 
         Keyword Args:
-            value ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
+            value ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Non-Batch requests:       * Single day: up to 200 IDs per request       * Multi-day: up to 50 IDs per request    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -196,10 +196,10 @@ class MarketValueIds(ModelSimple):
         Note that value can be passed either in args or in kwargs, but not in both.
 
         Args:
-            args[0] ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
+            args[0] ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Non-Batch requests:       * Single day: up to 200 IDs per request       * Multi-day: up to 50 IDs per request    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
 
         Keyword Args:
-            value ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
+            value ([str]): The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids.    - Non-Batch requests:       * Single day: up to 200 IDs per request       * Multi-day: up to 50 IDs per request    - Batch requests:       * Single day: up to 10,000 IDs per request       * Multi-day: up to 5,000 IDs per request .  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

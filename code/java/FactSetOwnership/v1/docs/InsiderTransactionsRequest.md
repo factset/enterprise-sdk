@@ -9,6 +9,7 @@ Insider Transactions Request
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**InsiderTransactionsRequestData**](InsiderTransactionsRequestData.md) |  | 
+**meta** | [**MetaRequest**](MetaRequest.md) |  |  [optional]
 
 
 ## Implemented Interfaces

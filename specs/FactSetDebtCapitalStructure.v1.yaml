@@ -1,61 +1,183 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  version: 1.0.0
-  title: FactSet Debt Capital Structure API
+  version: '1.2.0'
+  title: 'FactSet Debt Capital Structure API'
   contact:
-    name: FactSet Research Systems
-    email: api@factset.com
-    url: https://developer.factset.com/contact
-  description: >
-    The FactSet Debt Capital Structure API offers insights into public and
-    private company debt financing for 69,000+ entities globally. Analyze at the
-    individual-instrument level through summary and detailed information of the
-    debt structure with history available back through 2006. Instrument types
-    covered include Revolving Credit, Term Loans, Notes, and Bonds. 
-
-
-    **How to Programmatically Download API Specification file:**
-
-
-    Please use the below link to download the FactSet Debt Capital Structure API
-    Specification file in .yaml. You must be authorized for this API to extract.
-    This specification can then be used for Codegen to create your own SDKs. You
-    can also access by selecting the "Download Spec" button to the right of the
-    version below.
-
-
-    [https://api.factset.com/content/factset-dcs/v1/spec/swagger.yaml](https://api.factset.com/content/factset-dcs/v1/spec/swagger.yaml)
-
-
-    This API is rate-limited to 10 requests per second and 10 concurrent
-    requests per user.
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
+  description: "The FactSet Debt Capital Structure API offers insights into public and private company debt financing for 69,000+ entities globally. Analyze at the individual-instrument level through summary and detailed information of the debt structure with history available back through 2006. Instrument types covered include Revolving Credit, Term Loans, Notes, and Bonds. \n\n**How to Programmatically Download API Specification file:**\n\nPlease use the below link to download the FactSet Debt Capital Structure API Specification file in .yaml. You must be authorized for this API to extract. This specification can then be used for Codegen to create your own SDKs. You can also access by selecting the \"Download Spec\" button to the right of the version below.\n\n[https://api.factset.com/content/factset-dcs/v1/spec/swagger.yaml](https://api.factset.com/content/factset-dcs/v1/spec/swagger.yaml)\n\nThis API is rate-limited to 10 requests per second and 10 concurrent requests per user.\n"
   license:
-    name: Apache License, Version 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
 externalDocs:
-  description: API Documentation
-  url: https://developer.factset.com/api-catalog/factset-dcs-api
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/factset-dcs-api'
 servers:
-  - url: https://api.factset.com/content/factset-dcs/v1
-    description: Production
+  - url: 'https://api.factset.com/content/factset-dcs/v1'
+    description: 'Production'
 security:
   - FactSetApiKey: []
   - FactSetOAuth2: []
 tags:
-  - name: Reference
+  - name: 'Details'
+  - name: 'Totals'
+  - name: 'Liquidity'
+  - name: 'Metrics'
 paths:
+  /details-summary:
+    get:
+      tags:
+        - 'Details'
+      summary: 'Returns debt instrument totals details for specified list of companies.'
+      description: "Gets totals for instruments of varying types such as Revolving Credit, Term Loans,  ST Debt Total, Notes/Bonds, and Other. \n"
+      operationId: 'getDetailsSummary'
+      parameters:
+        - $ref: '#/components/parameters/ids'
+        - $ref: '#/components/parameters/periodicity'
+        - $ref: '#/components/parameters/startDate'
+        - $ref: '#/components/parameters/currency'
+      responses:
+        '200':
+          description: 'Details summary object'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DetailsSummaryResponse'
+              examples:
+                Details Summary Response:
+                  $ref: '#/components/examples/resultOfDetailsSummary'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /metrics:
+    get:
+      tags:
+        - 'Metrics'
+      summary: 'Returns available DCS metrics to use in other endpoints.'
+      description: "Gets available metrics to use in other endpoints\n"
+      operationId: 'getMetrics'
+      parameters:
+        - $ref: '#/components/parameters/category'
+      responses:
+        '200':
+          description: 'Metrics object'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricsResponse'
+              examples:
+                Metrics Response:
+                  $ref: '#/components/examples/resultOfMetrics'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /dcs-totals:
+    post:
+      tags:
+        - 'Totals'
+      summary: 'Retrieves debt instrument totals for specified metrics and date ranges.'
+      description: "Returns debt instruments totals.\n"
+      operationId: 'getDcsTotalsPost'
+      requestBody:
+        required: true
+        description: 'Request object for `DCS Totals`.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DCSRequest'
+            examples:
+              Request for Debt Instrument Totals in Date Range:
+                $ref: '#/components/examples/dcsRequestAll'
+      responses:
+        '200':
+          description: 'Array of details'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DcsResponse'
+              examples:
+                Result of Debt Instrument Totals in Date Range:
+                  $ref: '#/components/examples/dcsResponseAll'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
+  /liquidity:
+    post:
+      tags:
+        - 'Liquidity'
+      summary: 'Returns liquidity information for specified metrics and date ranges.'
+      description: "Gets liquidity detail and summary information (includes all instrument details).\n"
+      operationId: 'getLiquidityPost'
+      requestBody:
+        required: true
+        description: 'Request object for `Liquidity`.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LiquidityRequest'
+            examples:
+              Request for Liquidity in Date Range:
+                $ref: '#/components/examples/liquidityRequestAll'
+      responses:
+        '200':
+          description: 'Array of details'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LiquidityResponse'
+              examples:
+                Result of Liquidity:
+                  $ref: '#/components/examples/liquidityResponseAll'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '500':
+          $ref: '#/components/responses/500'
   /details:
     post:
       tags:
-        - Reference
-      summary: Returns debt instruments for a list of companies.
-      description: >
-        Gets instruments of varying types such as Revolving Credit, Term Loans,
-        ST Debt Total, Notes/Bonds, and Other.
-      operationId: getDetailsList
+        - 'Details'
+      summary: 'Returns debt instruments for a list of companies.'
+      description: "Gets instruments of varying types such as Revolving Credit, Term Loans, ST Debt Total, Notes/Bonds, and Other.\n"
+      operationId: 'getDetailsList'
       requestBody:
         required: true
-        description: Request object for `Details`.
+        description: 'Request object for `Details`.'
         content:
           application/json:
             schema:
@@ -65,7 +187,7 @@ paths:
                 $ref: '#/components/examples/detailsRequestAll'
       responses:
         '200':
-          description: Array of details
+          description: 'Array of details'
           content:
             application/json:
               schema:
@@ -88,19 +210,13 @@ paths:
   /details-interim:
     post:
       tags:
-        - Reference
-      summary: >-
-        Returns most recently available debt instrument data for a list of
-        companies.
-      description: >
-        Gets instruments of varying types such as Revolving Credit, Term Loans,
-        ST Debt Total, Notes/Bonds, and Other. The data returned by this
-        endpoint is for the interim period and only returns the most recently
-        available value.
-      operationId: getInterimDetailsList
+        - 'Details'
+      summary: 'Returns most recently available debt instrument data for a list of companies.'
+      description: "Gets instruments of varying types such as Revolving Credit, Term Loans, ST Debt Total, Notes/Bonds, and Other. The data returned by this endpoint is for the interim period and only returns the most recently available value.\n"
+      operationId: 'getInterimDetailsList'
       requestBody:
         required: true
-        description: Request object for `Details`.
+        description: 'Request object for `Details`.'
         content:
           application/json:
             schema:
@@ -110,7 +226,7 @@ paths:
                 $ref: '#/components/examples/interimDetailsRequestAll'
       responses:
         '200':
-          description: Array of interim details
+          description: 'Array of interim details'
           content:
             application/json:
               schema:
@@ -133,245 +249,728 @@ paths:
 components:
   securitySchemes:
     FactSetOAuth2:
-      type: oauth2
+      type: 'oauth2'
       flows:
         clientCredentials:
-          tokenUrl: https://auth.factset.com/as/token.oauth2
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
           scopes: {}
     FactSetApiKey:
-      type: http
-      scheme: basic
+      type: 'http'
+      scheme: 'basic'
+  parameters:
+    ids:
+      name: 'ids'
+      in: 'query'
+      schema:
+        type: 'array'
+        items:
+          type: 'string'
+        minItems: 1
+        maxItems: 200
+      description: "The requested list of security identifiers. Accepted ID types include Market Tickers,  SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. \n"
+      examples:
+        oneEquityId:
+          summary: 'One Equity Market Identifier'
+          value:
+            - 'IBM-US'
+        multipleEquityIds:
+          summary: 'Multiple Equity Market Identifiers'
+          value:
+            - 'IBM-US'
+            - 'FDS-US'
+            - 'AAPL-US'
+      required: true
+      explode: false
+    periodicity:
+      name: 'periodicity'
+      in: 'query'
+      schema:
+        type: 'string'
+        enum:
+          - 'ANN'
+          - 'QTR'
+      description: "Periodicity or frequency of the fiscal periods, where\n  * **ANN**  = Annual Original,\n  * **QTR**  = Quarterly\n"
+      examples:
+        ANN:
+          summary: 'ANN - Annual'
+          value: 'ANN'
+        QTR:
+          summary: 'QTR - Quarterly'
+          value: 'QTR'
+      required: true
+      explode: false
+    startDate:
+      name: 'startDate'
+      in: 'query'
+      schema:
+        type: 'string'
+        format: 'date'
+      description: "The date of the period requested in YYYY-MM-DD format.  Future dates (T+1) are not accepted in this endpoint.\n"
+      example: '2024-01-01'
+      required: true
+      explode: false
+    endDate:
+      name: 'endDate'
+      in: 'query'
+      description: 'The date of the period requested in YYYY-MM-DD format. Future dates (T+1) are not accepted in this endpoint.'
+      required: false
+      schema:
+        type: 'string'
+        format: 'date'
+      example: '2024-03-01'
+      explode: false
+    frequency:
+      name: 'frequency'
+      in: 'query'
+      schema:
+        type: 'string'
+        enum:
+          - 'D'
+          - 'W'
+          - 'AM'
+          - 'AQ'
+          - 'AY'
+      description: "Controls the frequency of the data returned.\n  * **D** = Daily\n  * **W** = Weekly, based on the last day of the week of the start date.\n  * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).      \n  * **AQ** = Quarterly, based on the start date.\n  * **AY** = Actual Annual, based on the start date.\n"
+      example: 'AM'
+      required: true
+      explode: false
+    category:
+      name: 'category'
+      in: 'query'
+      schema:
+        type: 'string'
+        enum:
+          - 'DCS Totals'
+          - 'Liquidity'
+      required: false
+      description: "Filters the list of available DCS metrics by endpoint.  -\n  * **DCS Totals** = DCS Totals\n  * **Liquidity** = Liquidity\n"
+      examples:
+        DCS_Totals:
+          summary: 'DCS Totals'
+          value: 'DCS_Totals'
+        Liquidity:
+          summary: 'Liquidity'
+          value: 'Liquidity'
+    metrics:
+      name: 'metrics'
+      in: 'query'
+      description: "The requested `metric` input, representing the debt instruments data item. For a definition of the item please use the `/metrics` endpoint.\n"
+      required: true
+      schema:
+        type: 'array'
+        items:
+          type: 'string'
+          example: 'total_debt'
+        minItems: 1
+        maxItems: 100
+      explode: false
+      examples:
+        oneItem:
+          summary: 'One debt item'
+          value:
+            - 'TOTAL_DEBT'
+        multipleItems:
+          summary: 'Multiple debt items'
+          value:
+            - 'TOTAL_DEBT'
+            - 'TOTAL_LT_NET_DEBT'
+    currency:
+      name: 'currency'
+      in: 'query'
+      description: "Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).\n"
+      required: false
+      schema:
+        type: 'string'
+        default: 'LOCAL'
+        example: 'USD'
   schemas:
+    DetailsSummaryResponse:
+      title: 'Details Summary Response'
+      description: 'Details Summary Response'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          items:
+            $ref: '#/components/schemas/DetailsSummary'
+    DetailsSummary:
+      title: 'Details Summary'
+      description: 'Summary Object'
+      type: 'object'
+      properties:
+        requestId:
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'IBM-US'
+        fsymId:
+          type: 'string'
+          description: 'FactSet Regional Security Identifier representing the specific data series for the requested `requestId`.'
+          example: 'SJY281-R'
+          nullable: true
+        reportDate:
+          description: 'Returns the issuer''s fiscal report date per the filing for the period and date(s) requested.'
+          type: 'string'
+          format: 'date'
+          example: '2017-12-30'
+          nullable: true
+        fiscalYear:
+          description: 'Fiscal year of the reported period in YYYY format.'
+          type: 'integer'
+          example: 2017
+          nullable: true
+        totalShortTermDebt:
+          description: 'Returns the total short term debt for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: 5089
+          nullable: true
+        totalLongTermDebt:
+          description: 'Returns the total long term debt for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: 54943
+          nullable: true
+        totalRevolvingCredit:
+          description: 'Returns the total revolving credit for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: 2790
+          nullable: true
+        totalTermDebt:
+          description: 'Returns the total term debt for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: 212
+          nullable: true
+        totalBondDebt:
+          description: 'Returns the total bond debt for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: 54901.8
+          nullable: true
+        otherDebt:
+          description: 'Returns all other debt associated with an identifier for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: -170.8
+          nullable: true
+        netLongTermDebt:
+          description: 'Returns the net long term debt for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: 49884
+          nullable: true
+        totalDebt:
+          description: 'Returns the total debt for the date(s) requested.'
+          type: 'number'
+          format: 'float'
+          example: 54973
+          nullable: true
+        currency:
+          description: 'Currency code for the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          type: 'string'
+          example: 'USD'
+          nullable: true
+    DcsResponse:
+      title: 'Debt Capital Structure Totals Response'
+      description: 'Debt Capital Structure Totals Response'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          items:
+            $ref: '#/components/schemas/DcsResponseFields'
+    DcsResponseFields:
+      title: 'Debt Capital Structure Totals Response'
+      description: 'Debt Capital Structure Totals Response'
+      type: 'object'
+      properties:
+        requestId:
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'IBM-US'
+        fysmId:
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'SJY281-R'
+        metric:
+          description: 'The requested `metric` input, representing the Liquidity data item. For a definition of the item please use the `/metrics` endpoint.'
+          type: 'string'
+          example: 'total_st_debt'
+          nullable: true
+        fiscalYear:
+          description: 'Fiscal year of the reported period in YYYY format.'
+          type: 'integer'
+          example: 2017
+          nullable: true
+        reportDate:
+          description: 'Reporting date for the debt instrument.'
+          type: 'string'
+          format: 'date'
+          example: '2020-11-19'
+          nullable: true
+        date:
+          description: 'Date for the period requested expressed in YYYY-MM-DD format'
+          type: 'string'
+          format: 'date'
+          example: '2020-11-19'
+          nullable: true
+        currency:
+          description: 'Currency code for the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          type: 'string'
+          example: 'USD'
+          nullable: true
+        value:
+          $ref: '#/components/schemas/DCSValue'
+    DCSValue:
+      description: "Value of the data metric requested. Depending on the metric, can be either a string or a numeric (double) value.\n"
+      oneOf:
+        - type: 'string'
+        - type: 'number'
+          format: 'double'
+          nullable: true
+      nullable: true
+    LiquidityResponse:
+      title: 'Liquidity Response'
+      description: 'Liquidity Response'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          items:
+            $ref: '#/components/schemas/LiquidityResponseFields'
+    LiquidityResponseFields:
+      title: 'Liquidity Response'
+      description: 'Liquidity Response'
+      type: 'object'
+      properties:
+        requestId:
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'IBM-US'
+        fysmId:
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'IBM-US'
+        metric:
+          description: 'The requested `metric` input, representing the Liquidity data item. For a definition of the item please use the `/metrics` endpoint.'
+          type: 'string'
+          example: 'total_revolver_amount_avail_debt'
+          nullable: true
+        fiscalYear:
+          description: 'Fiscal year of the reported period in YYYY format.'
+          type: 'integer'
+          example: 2017
+          nullable: true
+        reportDate:
+          description: 'Reporting date for the debt instrument.'
+          type: 'string'
+          format: 'date'
+          example: '2020-11-19'
+          nullable: true
+        currency:
+          description: 'Currency code for the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          type: 'string'
+          example: 'USD'
+          nullable: true
+        value:
+          $ref: '#/components/schemas/LiquidityValue'
+        instrumentId:
+          description: 'Identifier for the debt instrument.'
+          type: 'string'
+          example: 'FDS1R56X6'
+          nullable: true
+        instrumentType:
+          description: 'Type of debt instrument.'
+          type: 'string'
+          enum:
+            - 'Revolving Credit'
+            - 'Term Loans'
+            - 'ST Debt Total'
+            - 'Notes/Bonds'
+            - 'Other'
+          example: 'Revolving Credit'
+          nullable: true
+        description:
+          description: 'Description of the debt instrument.'
+          type: 'string'
+          example: 'Unsec. Rev. Facility'
+          nullable: true
+        amountOutstanding:
+          type: 'number'
+          description: 'Balance sheet amount outstanding.'
+          example: 250
+          nullable: true
+        facilityAmount:
+          type: 'number'
+          description: 'Facility Amount for liquidity.'
+          example: 2500
+          nullable: true
+        borrowingBase:
+          type: 'number'
+          description: 'Borrowing Base for liquidity.'
+          example: 2500
+          nullable: true
+        maturityDate:
+          description: 'Maturity date for the debt instrument.'
+          type: 'string'
+          format: 'date'
+          example: '2020-11-19'
+          nullable: true
+    LiquidityValue:
+      description: "Value of the data metric requested. Depending on the metric, can be either a string or a numeric (double) value.\n"
+      oneOf:
+        - type: 'string'
+        - type: 'number'
+          format: 'double'
+          nullable: true
+      nullable: true
+    MetricsResponse:
+      title: 'Metrics Response'
+      description: 'Metrics Response'
+      type: 'object'
+      properties:
+        data:
+          description: "Array of metric objects representing the data items that can be requested from the Debt Capital Structure API.\n"
+          type: 'array'
+          items:
+            $ref: '#/components/schemas/Metric'
+    Metric:
+      description: 'Metric Object'
+      type: 'object'
+      properties:
+        metric:
+          description: 'Data item to be used as `metrics` input in `/dcs-totals/v#/` endpoint.'
+          type: 'string'
+          example: 'total_lt_secured_debt'
+          nullable: true
+        description:
+          description: 'Description of the metric.'
+          type: 'string'
+          example: 'Total long-term secured debt'
+          nullable: true
+        category:
+          description: 'Corresponding endpoint to input metric item.'
+          type: 'string'
+          example: 'secured/unsecured'
+          nullable: true
+    DCSTotalsResponse:
+      title: 'DCS Totals Response'
+      description: 'DCS Totals Response'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          items:
+            $ref: '#/components/schemas/DcsResponseFields'
+    DCSRequest:
+      title: 'DCS Totals Request'
+      description: 'DCS Totals Request'
+      type: 'object'
+      properties:
+        data:
+          $ref: '#/components/schemas/DCSRequestBody'
+      required:
+        - 'data'
+    DCSRequestBody:
+      title: 'DCS Totals Request Body'
+      description: 'DCS Totals Request Body'
+      type: 'object'
+      properties:
+        ids:
+          $ref: '#/components/schemas/Ids'
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        endDate:
+          $ref: '#/components/schemas/EndDate'
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        metrics:
+          $ref: '#/components/schemas/Metrics'
+        currency:
+          $ref: '#/components/schemas/Currency'
+      required:
+        - 'ids'
+        - 'startDate'
+        - 'metrics'
+    LiquidityRequest:
+      title: 'Liquidity'
+      description: 'Liquidity Request'
+      type: 'object'
+      properties:
+        data:
+          $ref: '#/components/schemas/LiquidityRequestBody'
+      required:
+        - 'data'
+    LiquidityRequestBody:
+      title: 'Liquidity Request Body'
+      description: 'Liquidity Request Body'
+      type: 'object'
+      properties:
+        ids:
+          $ref: '#/components/schemas/Ids'
+        startDate:
+          $ref: '#/components/schemas/StartDate'
+        term:
+          $ref: '#/components/schemas/Term'
+        metrics:
+          $ref: '#/components/schemas/Metrics'
+      required:
+        - 'ids'
+        - 'startDate'
+        - 'metrics'
     DetailsRequest:
-      title: Details Request
-      description: Details Request
-      type: object
+      title: 'Details Request'
+      description: 'Details Request'
+      type: 'object'
       properties:
         data:
           $ref: '#/components/schemas/DetailsRequestBody'
       required:
-        - data
+        - 'data'
     DetailsRequestBody:
-      title: Details Request Body
-      description: Details Request Body
-      type: object
+      title: 'Details Request Body'
+      description: 'Details Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/Ids'
         periodicity:
           $ref: '#/components/schemas/Periodicity'
         date:
-          $ref: '#/components/schemas/AsOfDate'
+          $ref: '#/components/schemas/Date'
+        currency:
+          $ref: '#/components/schemas/Currency'
       required:
-        - ids
+        - 'ids'
     InterimDetailsRequest:
-      title: Interim Details Request
-      description: Interim Details Request
-      type: object
+      title: 'Interim Details Request'
+      description: 'Interim Details Request'
+      type: 'object'
       properties:
         data:
           $ref: '#/components/schemas/InterimDetailsRequestBody'
       required:
-        - data
+        - 'data'
     InterimDetailsRequestBody:
-      title: Interim Details Request Body
-      description: Interim Details Request Body
-      type: object
+      title: 'Interim Details Request Body'
+      description: 'Interim Details Request Body'
+      type: 'object'
       properties:
         ids:
           $ref: '#/components/schemas/Ids'
+        currency:
+          $ref: '#/components/schemas/Currency'
       required:
-        - ids
+        - 'ids'
     DetailsResponse:
-      type: object
-      title: Details Response
+      type: 'object'
+      title: 'Details Response'
       properties:
         data:
-          description: Array of Details Objects
-          type: array
+          description: 'Array of Details Objects'
+          type: 'array'
           items:
             $ref: '#/components/schemas/Detail'
     Detail:
-      title: Detail Object
-      type: object
+      title: 'Detail Object'
+      type: 'object'
       properties:
         instrumentId:
-          description: Identifier for the debt instrument.
-          type: string
-          example: FDS1R56X6
+          description: 'Identifier for the debt instrument.'
+          type: 'string'
+          example: 'FDS1R56X6'
           nullable: true
         instrumentType:
-          description: Type of debt instrument.
-          type: string
+          description: 'Type of debt instrument.'
+          type: 'string'
           enum:
-            - Revolving Credit
-            - Term Loans
-            - ST Debt Total
-            - Notes/Bonds
-            - Other
-          example: Revolving Credit
+            - 'Revolving Credit'
+            - 'Term Loans'
+            - 'ST Debt Total'
+            - 'Notes/Bonds'
+            - 'Other'
+          example: 'Revolving Credit'
           nullable: true
         description:
-          description: Desription of the debt instrument.
-          type: string
-          example: Unsec. Rev. Facility
+          description: 'Description of the debt instrument.'
+          type: 'string'
+          example: 'Unsec. Rev. Facility'
           nullable: true
         seniority:
-          description: |
-            Textual description of the instrument seniority type:
-            * **Senior Unsecured**
-            * **Senior Secured**
-            * **Senior Subordinated**
-            * **Collateralized**
-            * **Subordinated**
-            * **Junior**
-            * **Junior Subordinated**
-            * **Senior Conv.** = Senior Convertible
-            * **Senior Sub. Conv.** = Senior Subordinated Convertible
-            * **Sub. Conv.** = Subordinated Convertible
-            * **Junior Conv.** = Junior Convertible
-            * **Junior Sub. Conv.** = Junior Subordinated Convertible
-            * **Preferred**
-            * **Other**
-          type: string
+          description: "Textual description of the instrument seniority type:\n* **Senior Unsecured**\n* **Senior Secured**\n* **Senior Subordinated**\n* **Collateralized**\n* **Subordinated**\n* **Junior**\n* **Junior Subordinated**\n* **Senior Conv.** = Senior Convertible\n* **Senior Sub. Conv.** = Senior Subordinated Convertible\n* **Sub. Conv.** = Subordinated Convertible\n* **Junior Conv.** = Junior Convertible\n* **Junior Sub. Conv.** = Junior Subordinated Convertible\n* **Preferred**\n* **Other**\n"
+          type: 'string'
           enum:
-            - Senior Unsecured
-            - Senior Secured
-            - Senior Subordinated
-            - Collateralized
-            - Subordinated
-            - Junior
-            - Junion Subordinated
-            - Senior Conv.
-            - Senior Sub. Conv.
-            - Sub. Conv.
-            - Junior Conv.
-            - Junion Sub. Conv.
-            - Preferred
-            - Other
-          example: Senior Secured
+            - 'Senior Unsecured'
+            - 'Senior Secured'
+            - 'Senior Subordinated'
+            - 'Collateralized'
+            - 'Subordinated'
+            - 'Junior'
+            - 'Junion Subordinated'
+            - 'Senior Conv.'
+            - 'Senior Sub. Conv.'
+            - 'Sub. Conv.'
+            - 'Junior Conv.'
+            - 'Junion Sub. Conv.'
+            - 'Preferred'
+            - 'Other'
+          example: 'Senior Secured'
           nullable: true
         amountOutstanding:
-          type: number
-          description: Balance sheet amount outstanding.
+          type: 'number'
+          description: 'Balance sheet amount outstanding.'
           example: 250
           nullable: true
         currency:
-          description: >-
-            Currency code for the data. For a list of currency ISO codes, visit
-            [Online Assistant Page
-            #1470](https://oa.apps.factset.com/pages/1470).
-          type: string
-          example: USD
+          description: 'Currency code for the data. For a list of currency ISO codes, visit [Online Assistant Page #1470](https://oa.apps.factset.com/pages/1470).'
+          type: 'string'
+          example: 'USD'
           nullable: true
         couponRate:
-          type: number
-          description: Coupon rate for the debt instrument.
+          type: 'number'
+          description: 'Coupon rate for the debt instrument.'
           example: 2.9
           nullable: true
         couponType:
-          description: Type of debt instrument.
-          type: string
+          description: 'Type of debt instrument.'
+          type: 'string'
           enum:
-            - Variable
-            - Fixed
-            - Cond
-            - Zero
-          example: Variable
+            - 'Variable'
+            - 'Fixed'
+            - 'Cond'
+            - 'Zero'
+          example: 'Variable'
           nullable: true
         yieldToWorst:
-          type: number
-          description: Most recent annual yield to worst value for the debt instrument.
+          type: 'number'
+          description: 'Most recent annual yield to worst value for the debt instrument.'
           example: 2.9
           nullable: true
         issueDate:
-          description: Issue date for the debt instrument.
-          type: string
-          format: date
+          description: 'Issue date for the debt instrument.'
+          type: 'string'
+          format: 'date'
           example: '2020-11-19'
           nullable: true
         reportDate:
-          description: Reporting date for the debt instrument.
-          type: string
-          format: date
+          description: 'Reporting date for the debt instrument.'
+          type: 'string'
+          format: 'date'
           example: '2020-11-19'
           nullable: true
         maturityDate:
-          description: Maturity date for the debt instrument.
-          type: string
-          format: date
+          description: 'Maturity date for the debt instrument.'
+          type: 'string'
+          format: 'date'
           example: '2020-11-19'
           nullable: true
         requestId:
-          description: Identifier that was used for the request.
-          type: string
-          example: IBM-USA
+          description: 'Identifier that was used for the request.'
+          type: 'string'
+          example: 'IBM-USA'
+    Date:
+      type: 'string'
+      format: 'date'
+      description: 'Date in YYYY-MM-DD format.'
+      example: '2023-12-31'
     Ids:
-      type: array
+      type: 'array'
       items:
-        type: string
-      description: >
-        The requested list of security identifiers. Accepted ID types include
-        Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum
-        of 25 IDs are supported.
+        type: 'string'
+      description: "The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. Maximum of 25 IDs are supported.\n"
       example:
-        - FDS-US
+        - 'FDS-US'
     Periodicity:
-      title: Periodicity
-      type: string
-      description: |
-        Periodicity of the fiscal periods, where
-          * **ANN** = Annual Original,
-          * **QTR** = Quarterly
+      title: 'Periodicity'
+      type: 'string'
+      description: "Periodicity of the fiscal periods, where\n  * **ANN** = Annual Original,\n  * **QTR** = Quarterly\n"
       enum:
-        - ANN
-        - QTR
-      default: ANN
-      example: QTR
-    AsOfDate:
-      title: AsOfDate
-      type: string
-      format: date
-      description: >
-        The date of the period requested in **YYYY-MM-DD** format. Future dates
-        (T+1) are not accepted in this endpoint.
+        - 'ANN'
+        - 'QTR'
+      default: 'ANN'
+      example: 'QTR'
+    StartDate:
+      title: 'StartDate'
+      type: 'string'
+      format: 'date'
+      description: "The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.\n"
       example: '2017-12-01'
+    EndDate:
+      title: 'EndDate'
+      type: 'string'
+      format: 'date'
+      description: "The date of the period requested in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.\n"
+      example: '2018-12-01'
+    Frequency:
+      title: 'Frequency'
+      type: 'string'
+      description: "Controls the frequency of the data returned.\n  * **D** = Daily\n  * **W** = Weekly, based on the last day of the week of the start date.\n  * **AM** = Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).\n  * **AQ** = Quarterly, based on the start date\n  * **AY** = Actual Annual, based on the start date.\n"
+      enum:
+        - 'D'
+        - 'W'
+        - 'AM'
+        - 'AQ'
+        - 'AY'
+      default: 'AM'
+      example: 'AM'
+    Term:
+      title: 'Term'
+      type: 'string'
+      description: "Specifies whether to select short-term or long-term liquidity options.\n  * **SHORT_TERM** = Short Term.\n  * **LONG_TERM** = Long Term.\n"
+      enum:
+        - 'SHORT_TERM'
+        - 'LONG_TERM'
+      default: 'SHORT_TERM'
+      example: 'SHORT_TERM'
+    Metrics:
+      title: 'Metrics'
+      type: 'array'
+      description: "Requested List of Financial Statement Items or Ratios.\n"
+      items:
+        type: 'string'
+        minItems: 1
+        maxItems: 100
+        example:
+          - 'total_st_debt'
+    Currency:
+      title: 'Currency'
+      type: 'string'
+      description: "Currency code for currency values. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).\n"
+      default: 'LOCAL'
+      example: 'USD'
     ErrorResponse:
-      type: object
-      title: Error Response
-      description: Error Default Response
+      type: 'object'
+      title: 'Error Response'
+      description: 'Error Default Response'
       properties:
         errors:
-          type: array
-          description: An array containing errors
+          type: 'array'
+          description: 'An array containing errors'
           items:
             $ref: '#/components/schemas/ErrorObject'
     ErrorObject:
-      type: object
+      type: 'object'
       properties:
         id:
-          description: A UUID for this particular occurrence of the problem.
-          type: string
-          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          description: 'A UUID for this particular occurrence of the problem.'
+          type: 'string'
+          example: 'adb01824-252f-4420-b0c6-35a1e3507ef5'
         code:
-          description: status
-          type: string
-          example: Bad Request
+          description: 'status'
+          type: 'string'
+          example: 'Bad Request'
         title:
-          description: The plain text error message
-          type: string
-          example: Validation Error
+          description: 'The plain text error message'
+          type: 'string'
+          example: 'Validation Error'
         detail:
-          description: The detailed error message
-          type: string
-          example: >-
-            The request body is malformed. Please review the request body and
-            try again.
+          description: 'The detailed error message'
+          type: 'string'
+          example: 'The request body is malformed. Please review the request body and try again.'
   responses:
     '400':
-      description: >-
-        Bad Request. This can occur for several reasons. Please review the
-        "message" for more details.
+      description: 'Bad Request. This can occur for several reasons. Please review the "message" for more details.'
       content:
         application/json:
           schema:
@@ -392,12 +991,7 @@ components:
             Bad Request - Read Timeout:
               $ref: '#/components/examples/badRequestReadTimeout'
     '401':
-      description: >-
-        Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
-        successfully generated an API KEY for the IP range you are connecting
-        from. For more help, select the **Report Issue** in the top right corner
-        of this Developer Portal specification card and choose Connectivity 401
-        or 403 Responses.
+      description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
       content:
         application/json:
           schema:
@@ -406,11 +1000,7 @@ components:
             Bad Request - Date Format:
               $ref: '#/components/examples/unauthenticated'
     '403':
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       content:
         application/json:
           schema:
@@ -419,7 +1009,7 @@ components:
             Bad Request - Date Format:
               $ref: '#/components/examples/forbidden'
     '404':
-      description: The requested endpoint could not be found.
+      description: 'The requested endpoint could not be found.'
       content:
         application/json:
           schema:
@@ -428,11 +1018,7 @@ components:
             Bad Request - Endpoint Not Found:
               $ref: '#/components/examples/notFound'
     '415':
-      description: >-
-        Unsupported Media Type. This error may be returned when the caller sends
-        a resource in a format that is not accepted by the server. This can be
-        fixed by ensuring that Content-Type header is set to the correct value.
-        In this instance, "application/json" would be the appropriate value.
+      description: 'Unsupported Media Type. This error may be returned when the caller sends a resource in a format that is not accepted by the server. This can be fixed by ensuring that Content-Type header is set to the correct value. In this instance, "application/json" would be the appropriate value.'
       content:
         application/json:
           schema:
@@ -441,7 +1027,7 @@ components:
             Bad Request - Date Format:
               $ref: '#/components/examples/unsupportedMediaType'
     '500':
-      description: Internal Server Error.
+      description: 'Internal Server Error.'
       content:
         application/json:
           schema:
@@ -453,199 +1039,267 @@ components:
               $ref: '#/components/examples/generalException'
   examples:
     detailsRequestAll:
-      summary: Detail request for company id.
+      summary: 'Detail request for company id.'
       value:
         data:
           ids:
-            - IBM-US
-          periodicity: ANN
+            - 'IBM-US'
+          periodicity: 'ANN'
           date: '2023-12-31'
+          currency: 'USD'
     interimDetailsRequestAll:
-      summary: Detail request for company id.
+      summary: 'Detail request for company id.'
       value:
         data:
           ids:
-            - IBM-US
-    detailsResponseAll:
-      summary: Details response for company id.
+            - 'IBM-US'
+          currency: 'USD'
+    dcsRequestAll:
+      summary: 'Debt Capital Structure Totals request for company id.'
       value:
         data:
-          - instrumentId: FDS1R56X6
-            instrumentType: Revolving Credit
-            description: Unsec. Rev. Facility
-            seniority: Senior Secured
+          ids:
+            - 'IBM-US'
+          startDate: '2023-12-31'
+          endDate: '2024-12-31'
+          frequency: 'AM'
+          metrics:
+            - 'total_st_debt'
+          currency: 'USD'
+    liquidityRequestAll:
+      summary: 'Liquidity request for company id.'
+      value:
+        data:
+          ids:
+            - 'IBM-US'
+          startDate: '2019-12-31'
+          term: 'SHORT_TERM'
+          metrics:
+            - 'total_revolver_amount_avail_debt'
+    detailsResponseAll:
+      summary: 'Details response for company id.'
+      value:
+        data:
+          - requestId: 'IBM-USA'
+            instrumentId: 'FDS1R56X6'
+            instrumentType: 'Revolving Credit'
+            description: 'Unsec. Rev. Facility'
+            seniority: 'Senior Secured'
             amountOutstanding: 250
-            currency: USD
+            currency: 'USD'
             couponRate: 2.9
-            couponType: Variable
+            couponType: 'Variable'
             yieldToWorst: 3.77
             issueDate: '2020-11-19'
             reportDate: '2020-11-19'
             maturityDate: '2020-11-19'
-            requestId: IBM-USA
+    dcsResponseAll:
+      summary: 'Debt Capital Structure Totals response for company id.'
+      value:
+        data:
+          - requestId: 'IBM-USA'
+            fysmId: 'SJY281-R'
+            metric: 'total_st_debt'
+            fiscalYear: 2024
+            fiscalEndDate: '2024-12-31'
+            reportDate: '2024-12-31'
+            date: '2025-12-31'
+            currency: 'USD'
+            value: 5089
+    liquidityResponseAll:
+      summary: 'Liquidity response for company id.'
+      value:
+        data:
+          - requestId: 'IBM-USA'
+            fysmId: 'SJY281-R'
+            metric: 'total_revolver_amount_avail_debt'
+            fiscalYear: 2024
+            fiscalEndDate: '2024-12-31'
+            reportDate: '2024-12-31'
+            currency: 'USD'
+            value: 5089
+            instrumentId: 'FDS1R56X6'
+            instrumentType: 'Revolving Credit'
+            description: 'Unsec. Rev. Facility'
+            facilityAmount: 2500
+            amountOutstanding: 0
+            borrowingBase: 2500
+            maturityDate: '2020-11-19'
+    resultOfDetailsSummary:
+      summary: 'Details Summary for Single Company ID'
+      value:
+        data:
+          - requestId: 'IBM-US'
+            fysmId: 'SJY281-R'
+            reportDate: '2024-12-31'
+            fiscalYear: 2024
+            totalShortTermDebt: 5089
+            totalLongTermDebt: 54943
+            totalRevolvingCredit: 0
+            totalTermDebt: 212
+            totalBondDebt: 54901.8
+            otherDebt: -170.8
+            netLongTermDebt: 49884
+            totalDebt: 54973
+            currency: 'USD'
+    resultOfMetrics:
+      summary: 'Metrics response example'
+      value:
+        data:
+          - metric: 'total_st_debt'
+            description: 'Total short-term debt'
+            category: 'DCS detail summary'
+          - metric: 'total_revolver_debt'
+            description: 'Total long-term revolver debt'
+            category: 'DCS detail summary'
+          - metric: 'total_term_loan_debt'
+            description: 'Total long-term loan debt'
+            category: 'DCS detail summary'
+    resultOfDcsTotals:
+      summary: 'DCS Totals response example'
+      value:
+        data:
+          - requestId: 'IBM-US'
+            fsymId: 'SJY281-R'
+            metric: 'total_st_debt'
+            fiscalYear: 2024
+            fiscalEndDate: '2024-12-31'
+            reportDate: '2024-12-31'
+            currency: 'USD'
+            value: 5089
+    resultOfLiquidity:
+      summary: 'Liquidity response example'
+      value:
+        data:
+          - requestId: 'IBM-USA'
+            fysmId: 'SJY281-R'
+            metric: 'total_revolver_amount_avail_debt'
+            fiscalYear: 2024
+            fiscalEndDate: '2024-12-31'
+            reportDate: '2024-12-31'
+            currency: 'USD'
+            value: 5089
+            instrumentId: 'FDS1R56X6'
+            instrumentType: 'Revolving Credit'
+            description: 'Unsec. Rev. Facility'
+            facilityAmount: 2500
+            amountOutstanding: 0
+            borrowingBase: 2500
+            maturityDate: '2020-11-19'
     badRequestDateFormat:
-      summary: Bad Request - Date Format
-      description: >-
-        This bad request occurs when a request doesn't use the YYYY-MM-DD in the
-        date parameters. To resolve, convert your date to YYYY-MM-DD.
+      summary: 'Bad Request - Date Format'
+      description: 'This bad request occurs when a request doesn''t use the YYYY-MM-DD in the date parameters. To resolve, convert your date to YYYY-MM-DD.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Bad Request
-            title: >-
-              The date parameter must be in the following date format:
-              YYYY-MM-DD
-            detail: >-
-              The date parameter must be in the following date format:
-              YYYY-MM-DD
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Bad Request'
+            title: 'The date parameter must be in the following date format: YYYY-MM-DD'
+            detail: 'The date parameter must be in the following date format: YYYY-MM-DD'
     badRequestNotFound:
-      summary: Bad Request - Data Not Found
-      description: >-
-        This bad request occurs when a request doesn't have data for requested
-        identifier. To resolve, give valid parameters.
+      summary: 'Bad Request - Data Not Found'
+      description: 'This bad request occurs when a request doesn''t have data for requested identifier. To resolve, give valid parameters.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Bad Request
-            title: The requested data could not be found
-            detail: No data exists for the provided criteria or identifier.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Bad Request'
+            title: 'The requested data could not be found'
+            detail: 'No data exists for the provided criteria or identifier.'
     badRequestRequiredParameter:
-      summary: Bad Request - Required Parameter Missing
-      description: >-
-        This error message occurs when the request does not include the required
-        parameters. Required parameters are indicated with a red asterisks
-        symbol in the specification file.
+      summary: 'Bad Request - Required Parameter Missing'
+      description: 'This error message occurs when the request does not include the required parameters. Required parameters are indicated with a red asterisks symbol in the specification file.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Bad Request
-            title: Missing/Invalid Parameters.
-            detail: The parameter 'ids' is required and may not be empty.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Bad Request'
+            title: 'Missing/Invalid Parameters.'
+            detail: 'The parameter ''ids'' is required and may not be empty.'
     badRequestFutureDate:
-      summary: Bad Request - Future Date
-      description: >-
-        This error message occurs when a future date is requested in the
-        startDate and endDate parameters. Please revise your request to include
-        dates as of today's current date or any prior historical date.
+      summary: 'Bad Request - Future Date'
+      description: 'This error message occurs when a future date is requested in the startDate and endDate parameters. Please revise your request to include dates as of today''s current date or any prior historical date.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Bad Request
-            title: Missing/Invalid Parameters
-            detail: >-
-              The use of future dates is not applicable in this endpoint. Please
-              revise your request to include dates up to today's current date.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Bad Request'
+            title: 'Missing/Invalid Parameters'
+            detail: 'The use of future dates is not applicable in this endpoint. Please revise your request to include dates up to today''s current date.'
     badRequestInvalidParameters:
-      summary: Bad Request - Invalid Parameters
-      description: >-
-        This error message occurs when a request parameter is used in which is
-        not recognized by the service. Please revise your request to include
-        only the parameters listed in the specification. Typical causes are
-        spelling mistakes and use of improper casing.
+      summary: 'Bad Request - Invalid Parameters'
+      description: 'This error message occurs when a request parameter is used in which is not recognized by the service. Please revise your request to include only the parameters listed in the specification. Typical causes are spelling mistakes and use of improper casing.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Bad Request
-            title: Missing/Invalid Parameters
-            detail: >-
-              Invalid Parameter (s): fakeParameterName1 fakeParameterName2.
-              Please modify your request to use parameters outlined in the
-              specification for this endpoint.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Bad Request'
+            title: 'Missing/Invalid Parameters'
+            detail: 'Invalid Parameter (s): fakeParameterName1 fakeParameterName2. Please modify your request to use parameters outlined in the specification for this endpoint.'
     badRequestMalformedJSON:
-      summary: Bad Request - Malformed JSON Request
-      description: >-
-        This error may be returned when the request body is specified as JSON,
-        but is not in proper JSON format.
+      summary: 'Bad Request - Malformed JSON Request'
+      description: 'This error may be returned when the request body is specified as JSON, but is not in proper JSON format.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Bad Request
-            title: Malformed JSON Request
-            detail: >-
-              The request body is malformed. Please review the request body and
-              try again.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Bad Request'
+            title: 'Malformed JSON Request'
+            detail: 'The request body is malformed. Please review the request body and try again.'
     badRequestReadTimeout:
-      summary: Bad Request - Read Timeout
-      description: >-
-        This error may be returned if it takes more than 29 seconds to hear back
-        from the fql service.
+      summary: 'Bad Request - Read Timeout'
+      description: 'This error may be returned if it takes more than 29 seconds to hear back from the fql service.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Bad Request
-            title: Read Timeout
-            detail: The request took too long. Try again with a smaller request.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Bad Request'
+            title: 'Read Timeout'
+            detail: 'The request took too long. Try again with a smaller request.'
     unauthenticated:
-      summary: User Authentication Failed
-      description: >-
-        This occurs when a user is not properly authenticated or recognized by
-        the service. Please double check the USERNAME-SERIAL and API-Key used to
-        request and ensure you are within the IP range specified for the Key.
-        Report Issue under 401 error for help with troubleshooting.
+      summary: 'User Authentication Failed'
+      description: 'This occurs when a user is not properly authenticated or recognized by the service. Please double check the USERNAME-SERIAL and API-Key used to request and ensure you are within the IP range specified for the Key. Report Issue under 401 error for help with troubleshooting.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Unauthorized
-            title: User Authentication Failed.
-            detail: User Authentication Failed.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Unauthorized'
+            title: 'User Authentication Failed.'
+            detail: 'User Authentication Failed.'
     forbidden:
-      summary: Forbidden
-      description: >-
-        The USERNAME-SERIAL attempted to request the endpoint is not authorized
-        to access. The request was a legal request, but the server is refusing
-        to respond. Please reach out to FactSet Account Team for assistance with
-        authorization.
+      summary: 'Forbidden'
+      description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Forbidden
-            title: User Authorization Failed.
-            detail: >-
-              User is not authorized for the id requested, please reach out to
-              FactSet for support
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Forbidden'
+            title: 'User Authorization Failed.'
+            detail: 'User is not authorized for the id requested, please reach out to FactSet for support'
     notFound:
-      summary: Not Found
-      description: The requested endpoint could not be found.
+      summary: 'Not Found'
+      description: 'The requested endpoint could not be found.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Not Found
-            title: No data found
-            detail: The requested endpoint could not be found.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Not Found'
+            title: 'No data found'
+            detail: 'The requested endpoint could not be found.'
     unsupportedMediaType:
-      summary: Unsupported Media Type
-      description: >-
-        This bad request occurs when the media type passed in the request is not
-        supported. Currently the APIs only support 'application/json'.
+      summary: 'Unsupported Media Type'
+      description: 'This bad request occurs when the media type passed in the request is not supported. Currently the APIs only support ''application/json''.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Unsupported Media Type
-            title: Unsupported Media Type
-            detail: >-
-              text/html media type is not supported. Supported media types are
-              application/json.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Unsupported Media Type'
+            title: 'Unsupported Media Type'
+            detail: 'text/html media type is not supported. Supported media types are application/json.'
     notWritable:
-      summary: Internal Server Error - Not Writable
-      description: >-
-        This error may be returned when the server encounters an error writing
-        the JSON response.
+      summary: 'Internal Server Error - Not Writable'
+      description: 'This error may be returned when the server encounters an error writing the JSON response.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Internal Server Error
-            title: Error writing JSON output
-            detail: >-
-              The server encountered an error writing the JSON response. Please
-              `Report Issue` to FactSet.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Internal Server Error'
+            title: 'Error writing JSON output'
+            detail: 'The server encountered an error writing the JSON response. Please `Report Issue` to FactSet.'
     generalException:
-      summary: Internal Server Error - General Exception
-      description: >-
-        This is the most general error that can be returned to by the service.
-        Please `Report Issue` to FactSet.
+      summary: 'Internal Server Error - General Exception'
+      description: 'This is the most general error that can be returned to by the service. Please `Report Issue` to FactSet.'
       value:
         errors:
-          - id: adb01824-252f-4420-b0c6
-            code: Internal Server Error
-            title: Unexpected error
-            detail: An unexpected error occurred. Please `Report Issue` to FactSet.
+          - id: 'adb01824-252f-4420-b0c6'
+            code: 'Internal Server Error'
+            title: 'Unexpected error'
+            detail: 'An unexpected error occurred. Please `Report Issue` to FactSet.'

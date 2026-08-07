@@ -5,12 +5,12 @@ info:
     name: FactSet Research Systems
     url: https://developer.factset.com/contact
   description: |
-    FactSet's Fund Ownership API gives access to both **Holdings**, **Holders**, **Transactions**, and **Short Interest** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position details held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders. FactSet also provides extensive insider and institutional transactions data for multiple countries including the United States, China, and Canada.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stakeholders from around 110 countries. For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
+    FactSet's Fund Ownership API gives access to both **Holdings**, **Holders**, **Transactions**, **Short Interest**, and **Company Reports** data.<p> Factset's Holdings endpoints gives access to all the underlying securities and their position details held within a given fund. Fund Types supported include Open-End Mutual Funds, Closed-end Mutual Funds, and Exchange Traded Funds. Security Holders information retrieves all "holder types" and their positions across institutions, funds, insiders, and stakeholders. FactSet also provides extensive insider and institutional transactions data for multiple countries including the United States, China, and Canada.</p><p>The FactSet Ownership and Mutual Funds database collects global equity ownership data for approximately 50,000 institutions, 60,000 unique Mutual Fund portfolios, and 400,000 Insider/Stakeholders from around 110 countries. For more details review our [Data Collection](https://my.apps.factset.com/oa/cms/oaAttachment/87e162be-f2d1-4f40-a85b-bfb1b020d270/20079) methodology. </p>
   license:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Ownership API
-  version: 1.3.0
+  version: 1.4.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-ownership-api
@@ -33,6 +33,8 @@ tags:
 - description: Operations for retrieving insider and institutional transaction details
     for securities across multiple countries.
   name: Transactions
+- description: Operations for retrieving current ownership summary data for companies.
+  name: Company Reports
 - description: Operations for managing and retrieving results from long-running batch
     requests.
   name: Batch Processing
@@ -100,12 +102,7 @@ paths:
         name: assetType
         required: false
         schema:
-          default: EQ
-          enum:
-          - ALL
-          - EQ
-          - FI
-          type: string
+          $ref: '#/components/schemas/assetType'
         style: form
       - description: Currency code for adjusting prices. Default is Local. For a list
           of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
@@ -131,11 +128,7 @@ paths:
         name: batch
         required: false
         schema:
-          default: "N"
-          enum:
-          - "Y"
-          - "N"
-          type: string
+          $ref: '#/components/schemas/Batch'
         style: form
       responses:
         "200":
@@ -393,14 +386,7 @@ paths:
         name: holderType
         required: false
         schema:
-          default: F
-          enum:
-          - F
-          - M
-          - S
-          - FS
-          - B
-          type: string
+          $ref: '#/components/schemas/holderType'
         style: form
       - description: Limits number of holdings or holders displayed by the top *n*
           securities based on positions Market Value. Default is ALL, otherwise use
@@ -448,11 +434,7 @@ paths:
         name: batch
         required: false
         schema:
-          default: "N"
-          enum:
-          - "Y"
-          - "N"
-          type: string
+          $ref: '#/components/schemas/Batch'
         style: form
       responses:
         "200":
@@ -740,15 +722,7 @@ paths:
         name: transactionType
         required: false
         schema:
-          default: A
-          enum:
-          - A
-          - P
-          - S
-          - PS
-          - O
-          - M
-          type: string
+          $ref: '#/components/schemas/transactionType'
         style: form
       - description: |
           Controls the exlcusion of specific transaction rows from the data returned. By default, the service will exclude Derivative and Blank Transaction Types.
@@ -760,12 +734,7 @@ paths:
         name: rowExclusion
         required: false
         schema:
-          default: DB
-          enum:
-          - DB
-          - B
-          - "N"
-          type: string
+          $ref: '#/components/schemas/rowExclusion'
         style: form
       - description: Currency code for adjusting prices. Default is Local. For a list
           of currency ISO codes, visit [Online Assistant Page 1470](https://oa.apps.factset.com/pages/1470).
@@ -791,11 +760,24 @@ paths:
         name: batch
         required: false
         schema:
-          default: "N"
-          enum:
-          - "Y"
-          - "N"
-          type: string
+          $ref: '#/components/schemas/Batch'
+        style: form
+      - description: Specifies the number of results to return per page.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
         style: form
       responses:
         "200":
@@ -1091,15 +1073,7 @@ paths:
         name: frequency
         required: false
         schema:
-          default: M
-          enum:
-          - M
-          - MTD
-          - CQ
-          - CQTD
-          - CY
-          - CYTD
-          type: string
+          $ref: '#/components/schemas/frequency'
         style: form
       - description: |
           Specifies the number of top holders whose data is returned.
@@ -1114,15 +1088,7 @@ paths:
         name: topNHolders
         required: false
         schema:
-          default: "25"
-          enum:
-          - ALL
-          - "5"
-          - "10"
-          - "25"
-          - "50"
-          - "100"
-          type: string
+          $ref: '#/components/schemas/topNHolders'
         style: form
       - description: |
           Controls the Holder Type of the data returned. By default, the service will return Institutional Holders. Requesting All Holders is not currently supported. Only a single Holder Type is allowed per request.
@@ -1136,14 +1102,7 @@ paths:
         name: holderType
         required: false
         schema:
-          default: F
-          enum:
-          - F
-          - M
-          - S
-          - FS
-          - B
-          type: string
+          $ref: '#/components/schemas/holderType'
         style: form
       - description: |
           Determines the range over which the code calculates change for Percent Ownership and Position Change.
@@ -1156,13 +1115,7 @@ paths:
         name: periodOfMeasure
         required: false
         schema:
-          default: 6M
-          enum:
-          - 1M
-          - 3M
-          - 6M
-          - 12M
-          type: string
+          $ref: '#/components/schemas/periodOfMeasure'
         style: form
       - description: "Enables the ability to asynchronously \"batch\" the request,\
           \ supporting a long-running request for up to 20 minutes. \nWhen `batch=Y`,\
@@ -1177,11 +1130,24 @@ paths:
         name: batch
         required: false
         schema:
-          default: "N"
-          enum:
-          - "Y"
-          - "N"
-          type: string
+          $ref: '#/components/schemas/Batch'
+        style: form
+      - description: Specifies the number of results to return per page.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Specifies the starting point for pagination. This parameter is
+          used to identify the beginning of next set of results.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          type: integer
         style: form
       responses:
         "200":
@@ -1635,6 +1601,272 @@ paths:
       - Short Interest
       x-contentType: application/json
       x-accepts: application/json
+  /company-reports/summary:
+    get:
+      description: |
+        Get current only ownership summary data for a list of requested identifiers.
+      operationId: getOwnershipCompanyReportsSummary
+      parameters:
+      - description: |-
+          Requested list of identifiers.
+
+          _**ids limit** = 10 per request_
+        examples:
+          singleIdentifer:
+            summary: Single identifier
+            value:
+            - TSLA-US
+          multipleIdentifers:
+            summary: Multiple identifiers
+            value:
+            - TSLA-US
+            - AAPL-US
+            - MSFT-US
+        explode: false
+        in: query
+        name: ids
+        required: true
+        schema:
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        style: form
+      - description: "Enables the ability to asynchronously \"batch\" the request,\
+          \ supporting a long-running request for up to 20 minutes. \nWhen `batch=Y`,\
+          \ the service will respond with an HTTP Status Code of 202. \nOnce a batch\
+          \ request is submitted, use batch status to see if the job has been completed.\
+          \ \nOnce completed, retrieve the results of the request via batch-result.\
+          \ When using Batch, ids     limit is increased to \n1000 ids per request,\
+          \ though limits on query string via GET method still apply. \nIt's advised\
+          \ to submit large lists of ids via POST method.\n"
+        explode: true
+        in: query
+        name: batch
+        required: false
+        schema:
+          $ref: '#/components/schemas/Batch'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Single identifier request - Ownership Summary Example:
+                  $ref: '#/components/examples/ownershipSummarySingle'
+                Multiple identifier request - Ownership Summary Example:
+                  $ref: '#/components/examples/ownershipSummaryMultiple'
+              schema:
+                $ref: '#/components/schemas/OwnershipSummaryResponse'
+          description: Ownership Summary Response.
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted.
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get current only ownership summary data for a list of requested identifiers.
+      tags:
+      - Company Reports
+      x-factset-different-success-responses: true
+      x-accepts: application/json
+    post:
+      description: Get current only ownership summary data for a list of requested
+        identifiers.
+      operationId: postOwnershipCompanyReportsSummary
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Request to fetch the Ownership Summary details for TSLA-US:
+                $ref: '#/components/examples/ownershipSummaryPostRequest'
+            schema:
+              $ref: '#/components/schemas/OwnershipSummaryRequest'
+        description: Requesting Ownership Summary Details
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Single identifier request - Ownership Summary Example:
+                  $ref: '#/components/examples/ownershipSummarySingle'
+                Multiple identifier request - Ownership Summary Example:
+                  $ref: '#/components/examples/ownershipSummaryMultiple'
+              schema:
+                $ref: '#/components/schemas/OwnershipSummaryResponse'
+          description: Ownership Summary Response.
+        "202":
+          content:
+            application/json:
+              examples:
+                Batch Request Accepted:
+                  $ref: '#/components/examples/BatchStatusAcceptedResponse'
+              schema:
+                $ref: '#/components/schemas/BatchStatusResponse'
+          description: Batch request has been accepted.
+          headers:
+            Location:
+              description: Path to Batch Request status.
+              example: batch-status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c
+              explode: false
+              schema:
+                type: string
+              style: simple
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/badRequestDateFormat'
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Future Date:
+                  $ref: '#/components/examples/badRequestFutureDate'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameters'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+                Bad Request - Read Timeout:
+                  $ref: '#/components/examples/badRequestReadTimeout'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "message" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "415":
+          content:
+            application/json:
+              examples:
+                Bad Request - Date Format:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - Not Writable:
+                  $ref: '#/components/examples/notWritable'
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+          description: Internal Server Error.
+      summary: Get current only ownership summary data for a list of requested identifiers.
+      tags:
+      - Company Reports
+      x-factset-different-success-responses: true
+      x-contentType: application/json
+      x-accepts: application/json
   /batch-status:
     get:
       deprecated: false
@@ -1847,6 +2079,8 @@ paths:
                   $ref: '#/components/examples/insiderTransactionsSingle'
                 Institutional Transactions Batch Result:
                   $ref: '#/components/examples/institutionalTransactionsSingle'
+                Ownership Summary Batch Result:
+                  $ref: '#/components/examples/ownershipSummarySingle'
               schema:
                 $ref: '#/components/schemas/BatchResultResponse'
           description: Returns the request's response object after the batch request
@@ -2461,6 +2695,9 @@ components:
           filingDate: 2025-02-11
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2479,6 +2716,9 @@ components:
           filingDate: 2025-02-11
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2497,6 +2737,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2515,6 +2758,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2533,6 +2779,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2551,6 +2800,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2569,9 +2821,16 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
+        meta:
+          pagination:
+            total: 20
+            isEstimatedTotal: false
     insiderTransactionsMultiple:
       description: 'Returns Insider Transaction Details for the following securities:
         TSLA-US and AAPL-US'
@@ -2593,6 +2852,9 @@ components:
           filingDate: 2025-02-11
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2611,6 +2873,9 @@ components:
           filingDate: 2025-02-11
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2629,6 +2894,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2647,6 +2915,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2665,6 +2936,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2683,6 +2957,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2701,6 +2978,9 @@ components:
           filingDate: 2025-02-06
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: TSLA-US
@@ -2719,6 +2999,9 @@ components:
           filingDate: 2025-02-05
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: AAPL-US
@@ -2737,6 +3020,10 @@ components:
           filingDate: 2025-02-05
           isDerivative: false
           isDirect: true
+          transactionCode: F
+          transactionCodeDescription: Payment of exercise price or tax liability by
+            delivering/withholding secs incident to the receipt/exercise/vesting pursuant
+            to Rule 16b-3
           tradeType: Acquisition
           formType: "4"
           requestId: AAPL-US
@@ -2755,6 +3042,10 @@ components:
           filingDate: 2025-02-05
           isDerivative: false
           isDirect: true
+          transactionCode: F
+          transactionCodeDescription: Payment of exercise price or tax liability by
+            delivering/withholding secs incident to the receipt/exercise/vesting pursuant
+            to Rule 16b-3
           tradeType: Acquisition
           formType: "4"
           requestId: AAPL-US
@@ -2773,6 +3064,10 @@ components:
           filingDate: 2025-02-05
           isDerivative: false
           isDirect: true
+          transactionCode: F
+          transactionCodeDescription: Payment of exercise price or tax liability by
+            delivering/withholding secs incident to the receipt/exercise/vesting pursuant
+            to Rule 16b-3
           tradeType: Acquisition
           formType: "4"
           requestId: AAPL-US
@@ -2790,6 +3085,9 @@ components:
           filingDate: 2024-12-19
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: AAPL-US
@@ -2808,6 +3106,9 @@ components:
           filingDate: 2024-12-19
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: AAPL-US
@@ -2826,9 +3127,16 @@ components:
           filingDate: 2024-12-19
           isDerivative: false
           isDirect: true
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           tradeType: Disposition
           formType: "4"
           requestId: AAPL-US
+        meta:
+          pagination:
+            total: 20
+            isEstimatedTotal: false
     insiderTransactionsPostRequest:
       description: Requesting insider transactions details for TSLA-US.
       summary: Request body for Insider Transactions.
@@ -2842,6 +3150,10 @@ components:
           rowExclusion: DB
           currency: USD
           batch: "N"
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
     institutionalTransactionsPostRequest:
       description: Requesting institutional transactions details for TSLA-US.
       summary: Request body for Institutional Transactions.
@@ -2857,6 +3169,10 @@ components:
           frequency: MTD
           currency: USD
           batch: "N"
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
     institutionalTransactionsSingle:
       description: 'Returns the top 10 Institutional Transactions for the following
         security: TSLA-US'
@@ -2973,6 +3289,10 @@ components:
           periodOfMeasure: 6M
           currency: USD
           requestId: TSLA-US
+        meta:
+          pagination:
+            total: 20
+            isEstimatedTotal: false
     institutionalTransactionsMultiple:
       description: 'Returns the top 10 Institutional Transactions for the following
         security: TSLA-US and AAPL-US'
@@ -3199,6 +3519,10 @@ components:
           periodOfMeasure: 6M
           currency: USD
           requestId: AAPL-US
+        meta:
+          pagination:
+            total: 20
+            isEstimatedTotal: false
     BatchStatusAcceptedResponse:
       description: Batch Status Accepted Response
       value:
@@ -3376,6 +3700,50 @@ components:
           daysToCover: 1.59
           shortInterestPct: null
           shortInterestFloatPct: null
+    ownershipSummarySingle:
+      description: 'Returns Ownership Summary information for the following security:
+        TSLA-US'
+      summary: Single Identifier - Ownership Summary Example.
+      value:
+        data:
+        - requestId: TSLA-US
+          fsymId: Q2YN1N-R
+          sharesOutstanding: 3225.448889
+          percentTotalOutstanding: 65.8
+          percentInstitutionalOutstanding: 49.97
+          percentTopTenInstitutional: 22.64
+          percentInsiderOutstanding: 15.84
+          asOfDate: 2025-09-22
+    ownershipSummaryMultiple:
+      description: 'Returns Ownership Summary information for the following securities:
+        TSLA-US and AAPL-US'
+      summary: Multiple Identifier - Ownership Summary Example.
+      value:
+        data:
+        - requestId: TSLA-US
+          fsymId: Q2YN1N-R
+          sharesOutstanding: 3225.448889
+          percentTotalOutstanding: 65.8
+          percentInstitutionalOutstanding: 49.97
+          percentTopTenInstitutional: 22.64
+          percentInsiderOutstanding: 15.84
+          asOfDate: 2025-09-22
+        - requestId: AAPL-US
+          fsymId: MH33D6-R
+          sharesOutstanding: 14840.39
+          percentTotalOutstanding: 64.6
+          percentInstitutionalOutstanding: 64.54
+          percentTopTenInstitutional: 28.35
+          percentInsiderOutstanding: 0.1
+          asOfDate: 2025-09-22
+    ownershipSummaryPostRequest:
+      description: Requesting ownership summary details for TSLA-US.
+      summary: Request body for Ownership Summary.
+      value:
+        data:
+          ids:
+          - TSLA-US
+          batch: "N"
     badRequestDateFormat:
       description: This bad request occurs when a request doesn't use the YYYY-MM-DD
         in the date parameters. To resolve, convert your date to YYYY-MM-DD.
@@ -3612,12 +3980,7 @@ components:
       name: assetType
       required: false
       schema:
-        default: EQ
-        enum:
-        - ALL
-        - EQ
-        - FI
-        type: string
+        $ref: '#/components/schemas/assetType'
       style: form
     idHolders:
       description: Requested list of security identifiers. <p>***ids limit** =  1
@@ -3663,6 +4026,33 @@ components:
         minItems: 1
         type: array
       style: form
+    idCompanyReports:
+      description: |-
+        Requested list of identifiers.
+
+        _**ids limit** = 10 per request_
+      examples:
+        singleIdentifer:
+          summary: Single identifier
+          value:
+          - TSLA-US
+        multipleIdentifers:
+          summary: Multiple identifiers
+          value:
+          - TSLA-US
+          - AAPL-US
+          - MSFT-US
+      explode: false
+      in: query
+      name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 10
+        minItems: 1
+        type: array
+      style: form
     startDate:
       description: |
         The start date requested for a given date range in **YYYY-MM-DD** format. Future dates (T+1) are not accepted in this endpoint.
@@ -3701,15 +4091,7 @@ components:
       name: topNHolders
       required: false
       schema:
-        default: "25"
-        enum:
-        - ALL
-        - "5"
-        - "10"
-        - "25"
-        - "50"
-        - "100"
-        type: string
+        $ref: '#/components/schemas/topNHolders'
       style: form
     frequency:
       description: |
@@ -3725,15 +4107,7 @@ components:
       name: frequency
       required: false
       schema:
-        default: M
-        enum:
-        - M
-        - MTD
-        - CQ
-        - CQTD
-        - CY
-        - CYTD
-        type: string
+        $ref: '#/components/schemas/frequency'
       style: form
     currency:
       description: Currency code for adjusting prices. Default is Local. For a list
@@ -3760,14 +4134,7 @@ components:
       name: holderType
       required: false
       schema:
-        default: F
-        enum:
-        - F
-        - M
-        - S
-        - FS
-        - B
-        type: string
+        $ref: '#/components/schemas/holderType'
       style: form
     transactionType:
       description: |
@@ -3783,15 +4150,7 @@ components:
       name: transactionType
       required: false
       schema:
-        default: A
-        enum:
-        - A
-        - P
-        - S
-        - PS
-        - O
-        - M
-        type: string
+        $ref: '#/components/schemas/transactionType'
       style: form
     periodOfMeasure:
       description: |
@@ -3805,13 +4164,7 @@ components:
       name: periodOfMeasure
       required: false
       schema:
-        default: 6M
-        enum:
-        - 1M
-        - 3M
-        - 6M
-        - 12M
-        type: string
+        $ref: '#/components/schemas/periodOfMeasure'
       style: form
     rowExclusion:
       description: |
@@ -3824,12 +4177,7 @@ components:
       name: rowExclusion
       required: false
       schema:
-        default: DB
-        enum:
-        - DB
-        - B
-        - "N"
-        type: string
+        $ref: '#/components/schemas/rowExclusion'
       style: form
     batch:
       description: "Enables the ability to asynchronously \"batch\" the request, supporting\
@@ -3845,11 +4193,7 @@ components:
       name: batch
       required: false
       schema:
-        default: "N"
-        enum:
-        - "Y"
-        - "N"
-        type: string
+        $ref: '#/components/schemas/Batch'
       style: form
     batchId:
       allowEmptyValue: false
@@ -3863,6 +4207,25 @@ components:
       schema:
         format: uuid
         type: string
+      style: form
+    _paginationLimit:
+      description: Specifies the number of results to return per page.
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        type: integer
+      style: form
+    _paginationOffset:
+      description: Specifies the starting point for pagination. This parameter is
+        used to identify the beginning of next set of results.
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        type: integer
       style: form
   responses:
     "400":
@@ -4062,9 +4425,15 @@ components:
           - FDS-US
           currency: USD
           startDate: 2020-06-30T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 100
       properties:
         data:
           $ref: '#/components/schemas/InsiderTransactionsRequestData'
+        meta:
+          $ref: '#/components/schemas/MetaRequest'
       required:
       - data
       title: Insider Transactions Request
@@ -4127,9 +4496,15 @@ components:
           - FDS-US
           currency: USD
           startDate: 2020-06-30T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 100
       properties:
         data:
           $ref: '#/components/schemas/InstitutionalTransactionsRequestData'
+        meta:
+          $ref: '#/components/schemas/MetaRequest'
       required:
       - data
       title: Institutional Transactions Request
@@ -4186,6 +4561,40 @@ components:
       - ids
       - startDate
       title: Institutional Transactions Request Body
+      type: object
+    OwnershipSummaryRequest:
+      description: Ownership Summary Request
+      example:
+        data:
+          ids:
+          - TSLA-US
+      properties:
+        data:
+          $ref: '#/components/schemas/ownershipSummaryRequestData'
+      required:
+      - data
+      title: Ownership Summary Request
+      type: object
+    ownershipSummaryRequestData:
+      description: Ownership Summary Request Body elements
+      example:
+        ids:
+        - TSLA-US
+      properties:
+        ids:
+          description: List of identifiers.
+          example:
+          - TSLA-US
+          items:
+            type: string
+          maxItems: 10
+          minItems: 1
+          type: array
+        batch:
+          $ref: '#/components/schemas/Batch'
+      required:
+      - ids
+      title: Ownership Summary Request Body
       type: object
     ShortInterestRequest:
       description: Short Interest Request
@@ -4343,6 +4752,9 @@ components:
         fsymId: Q2YN1N-R
         holderTitle: Director
         isDerivative: false
+        transactionCode: S
+        transactionCodeDescription: Open market or private sale of non-derivative
+          or derivative security
         transactionDate: 2024-11-15
         holderId: S155166
         shares: -1900
@@ -4438,6 +4850,17 @@ components:
           example: Disposition
           nullable: true
           type: string
+        transactionCode:
+          description: Returns the transaction detail code for the transaction.
+          example: S
+          nullable: true
+          type: string
+        transactionCodeDescription:
+          description: Returns the description of the transaction detail code for
+            the transaction.
+          example: Open market or private sale of non-derivative or derivative security
+          nullable: true
+          type: string
         formType:
           description: Returns the form types for the transactions that occurred between
             the specified start and end dates.
@@ -4463,6 +4886,61 @@ components:
           nullable: true
           type: boolean
       title: Insider Transactions
+      type: object
+    MetaRequest:
+      description: meta definition for pagination
+      example:
+        pagination:
+          offset: 0
+          limit: 100
+      properties:
+        pagination:
+          $ref: '#/components/schemas/PaginationRequest'
+      type: object
+    PaginationRequest:
+      description: Object defining the pagination attributes for an endpoint request.
+      example:
+        offset: 0
+        limit: 100
+      properties:
+        limit:
+          description: The maximum number of records to return.
+          example: 100
+          format: int32
+          type: integer
+        offset:
+          description: The number of records to skip before the first record to return.
+          example: 0
+          format: int32
+          type: integer
+      type: object
+    Meta:
+      description: Array of metadata objects.
+      example:
+        pagination:
+          total: 0
+          isEstimatedTotal: true
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      title: Meta
+      type: object
+    Pagination:
+      description: List of pagination objects
+      example:
+        total: 0
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of records the API returns for a particular query.
+          format: int64
+          type: integer
+        isEstimatedTotal:
+          description: Boolean value that represents whether the total count of records
+            returned is exact or an estimate. This is defaulted to False as the API
+            should always return the exact count.
+          type: boolean
+      title: Pagination
       type: object
     institutionalTransactions:
       description: institutionalTransactions response object
@@ -4787,6 +5265,9 @@ components:
           fsymId: Q2YN1N-R
           holderTitle: Director
           isDerivative: false
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           transactionDate: 2024-11-15
           holderId: S155166
           shares: -1900
@@ -4804,6 +5285,9 @@ components:
           fsymId: Q2YN1N-R
           holderTitle: Director
           isDerivative: false
+          transactionCode: S
+          transactionCodeDescription: Open market or private sale of non-derivative
+            or derivative security
           transactionDate: 2024-11-15
           holderId: S155166
           shares: -1900
@@ -4815,12 +5299,18 @@ components:
           netValueChange: 60800.34
           isDirect: true
           tradeType: Disposition
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
       properties:
         data:
           description: Array of Insider Transactions
           items:
             $ref: '#/components/schemas/insiderTransactions'
           type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
       title: Insider Transactions Response
       type: object
     InstitutionalTransactionsResponse:
@@ -4849,13 +5339,113 @@ components:
           periodOfMeasure: 6M
           asOfDate: 2017-12-30T00:00:00.000+0000
           posChange: 7722331.34
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: true
       properties:
         data:
           description: Array of Institutional Transactions
           items:
             $ref: '#/components/schemas/institutionalTransactions'
           type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
       title: Institutional Transactions Response
+      type: object
+    ownershipSummary:
+      description: Ownership Summary response object
+      example:
+        percentInstitutionalOutstanding: 49.97
+        requestId: TSLA-US
+        fsymId: Q2YN1N-R
+        percentTotalOutstanding: 65.8
+        percentTopTenInstitutional: 22.64
+        percentInsiderOutstanding: 15.84
+        sharesOutstanding: 3225.448889
+        asOfDate: 2025-09-22T00:00:00.000+0000
+      properties:
+        requestId:
+          description: Identifier that was used in the request.
+          example: TSLA-US
+          type: string
+        fsymId:
+          description: FactSet Security Identifier of Fund. Identifies the security
+            level id of the Fund requested (not-representing the underlying holding).
+            Six alpha-numeric characters, excluding vowels, with an -S suffix (XXXXXX-S).
+            All equity and fixed income securities that exist on FactSet are allocated
+            a security-level permanent identifier.
+          example: Q2YN1N-R
+          type: string
+        sharesOutstanding:
+          description: Number of shares outstanding for the security.
+          example: 3225.448889
+          format: double
+          nullable: true
+          type: number
+        percentTotalOutstanding:
+          description: Position held as a percentage of the total outstanding shares
+            of the security.
+          example: 65.8
+          format: double
+          nullable: true
+          type: number
+        percentInstitutionalOutstanding:
+          description: Position held by institutional holders as a percentage of total
+            outstanding shares.
+          example: 49.97
+          format: double
+          nullable: true
+          type: number
+        percentTopTenInstitutional:
+          description: Position held by the top 10 institutional holders as a percentage
+            of total outstanding shares.
+          example: 22.64
+          format: double
+          nullable: true
+          type: number
+        percentInsiderOutstanding:
+          description: Position held by insiders as a percentage of total outstanding
+            shares.
+          example: 15.84
+          format: double
+          nullable: true
+          type: number
+        asOfDate:
+          description: Date as of which the ownership data is current.
+          example: 2025-09-22
+          format: date
+          nullable: true
+          type: string
+      title: Ownership Summary
+      type: object
+    OwnershipSummaryResponse:
+      description: Ownership Summary response
+      example:
+        data:
+        - percentInstitutionalOutstanding: 49.97
+          requestId: TSLA-US
+          fsymId: Q2YN1N-R
+          percentTotalOutstanding: 65.8
+          percentTopTenInstitutional: 22.64
+          percentInsiderOutstanding: 15.84
+          sharesOutstanding: 3225.448889
+          asOfDate: 2025-09-22T00:00:00.000+0000
+        - percentInstitutionalOutstanding: 49.97
+          requestId: TSLA-US
+          fsymId: Q2YN1N-R
+          percentTotalOutstanding: 65.8
+          percentTopTenInstitutional: 22.64
+          percentInsiderOutstanding: 15.84
+          sharesOutstanding: 3225.448889
+          asOfDate: 2025-09-22T00:00:00.000+0000
+      properties:
+        data:
+          description: Array of Ownership Summary Items
+          items:
+            $ref: '#/components/schemas/ownershipSummary'
+          type: array
+      title: Ownership Summary Response
       type: object
     ShortInterestResponse:
       description: ShortInterest response
@@ -4991,6 +5581,15 @@ components:
       items:
         type: string
       maxItems: 1000
+      minItems: 1
+      type: array
+    idCompanyReports:
+      description: List of identifiers.
+      example:
+      - TSLA-US
+      items:
+        type: string
+      maxItems: 10
       minItems: 1
       type: array
     requestedDate:
@@ -5228,12 +5827,14 @@ components:
           securityHolders: '#/components/schemas/securityHolders'
           insiderTransactions: '#/components/schemas/insiderTransactions'
           institutionalTransactions: '#/components/schemas/institutionalTransactions'
+          ownershipSummary: '#/components/schemas/ownershipSummary'
         propertyName: type
       oneOf:
       - $ref: '#/components/schemas/fundHolding'
       - $ref: '#/components/schemas/securityHolders'
       - $ref: '#/components/schemas/insiderTransactions'
       - $ref: '#/components/schemas/institutionalTransactions'
+      - $ref: '#/components/schemas/ownershipSummary'
       title: Batch Result Item
     errorResponse_subErrors:
       description: subErrors related to the error message. Null if not applicable.

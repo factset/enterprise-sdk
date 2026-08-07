@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetFunds.models.BatchStatusResponse;
 import com.factset.sdk.FactSetFunds.models.ErrorResponse;
 import com.factset.sdk.FactSetFunds.models.MarketAggregatesRequest;
 import com.factset.sdk.FactSetFunds.models.MarketAggregatesResponse;
@@ -31,6 +32,7 @@ public class MarketAggregatesApi {
   private static final Map<Integer, GenericType> getMarketAggregatesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMarketAggregatesResponseTypeMap.put(200, new GenericType<MarketAggregatesResponse>(){});
+    getMarketAggregatesResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getMarketAggregatesResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getMarketAggregatesResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getMarketAggregatesResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -41,6 +43,7 @@ public class MarketAggregatesApi {
   private static final Map<Integer, GenericType> getMarketAggregatesForListResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getMarketAggregatesForListResponseTypeMap.put(200, new GenericType<MarketAggregatesResponse>(){});
+    getMarketAggregatesForListResponseTypeMap.put(202, new GenericType<BatchStatusResponse>(){});
     getMarketAggregatesForListResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
     getMarketAggregatesForListResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getMarketAggregatesForListResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
@@ -49,6 +52,170 @@ public class MarketAggregatesApi {
   }
 
   
+ /**
+   * Wrapper to support GET /factset-funds/v1/aggregates/market returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code MarketAggregatesResponse }<br>The Market Aggregates response object.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetMarketAggregatesResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     MarketAggregatesResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetMarketAggregatesResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetMarketAggregatesResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public MarketAggregatesResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (MarketAggregatesResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetMarketAggregatesResponseWrapper other = (GetMarketAggregatesResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetMarketAggregatesResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
+ /**
+   * Wrapper to support POST /factset-funds/v1/aggregates/market returning different types
+   * per status code.
+   *
+   * <p>
+   * Responses:
+   * <ul>
+   *   <li>200 : {@code MarketAggregatesResponse }<br>The Market Aggregates response object.</li>
+   * 
+   *   <li>202 : {@code BatchStatusResponse }<br>Batch request has been accepted.</li>
+   * </ul>
+   *
+   * <p>
+   * Example:
+   * <pre>{@code
+   * GetMarketAggregatesForListResponseWrapper response = ...;
+   * switch (response.statusCode) {
+   *   case 200:
+   *     MarketAggregatesResponse data200 = response.getResponse200();
+   *     break;
+   *   case 202:
+   *     BatchStatusResponse data202 = response.getResponse202();
+   *     break;
+   *  }
+   * }</pre>
+   */
+  public static class GetMarketAggregatesForListResponseWrapper {
+    public final int statusCode;
+    public final Object response;
+
+    public GetMarketAggregatesForListResponseWrapper(int statusCode, Object response) {
+      this.statusCode = statusCode;
+      this.response = response;
+    }
+
+    public int getStatusCode() { return statusCode; }
+    public Object getResponse() { return response; }
+    
+    public MarketAggregatesResponse getResponse200() throws ApiException {
+      if (this.statusCode != 200) {
+        throw new ApiException(500, "Invalid response getter called. getResponse200 can't return a " + this.statusCode + " response");
+      }
+      return (MarketAggregatesResponse) this.response;
+    }
+    
+    public BatchStatusResponse getResponse202() throws ApiException {
+      if (this.statusCode != 202) {
+        throw new ApiException(500, "Invalid response getter called. getResponse202 can't return a " + this.statusCode + " response");
+      }
+      return (BatchStatusResponse) this.response;
+    }
+    
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+      GetMarketAggregatesForListResponseWrapper other = (GetMarketAggregatesForListResponseWrapper) o;
+      return this.statusCode == other.statusCode &&
+        Objects.equals(this.response, other.response);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(statusCode, response);
+    }
+
+    @Override
+    public String toString() {
+      return "class GetMarketAggregatesForListResponseWrapper {\n"
+       + "    statusCode: " + statusCode + "\n"
+       + "    response: "
+       + Objects.toString(response).replace("\n", "\n    ")
+       + "\n}";
+    }
+  }
+
+
 
 
   /**
@@ -72,17 +239,19 @@ public class MarketAggregatesApi {
   /**
    * Get market aggregates for a requested time series.
    * Retrieves FactSet market aggregate data for the funds and date range specified. 
-   * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
+   * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit &#x3D; 1000 per request(Non batch)   - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 1500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method.  (required)
    * @param startDate The &#x60;start date&#x60; requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     (optional, default to M)
    * @param currency Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to LOCAL)
-   * @return MarketAggregatesResponse
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.     (optional, default to N)
+   * @return GetMarketAggregatesResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> The Market Aggregates response object. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -90,24 +259,26 @@ public class MarketAggregatesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public MarketAggregatesResponse getMarketAggregates(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency) throws ApiException {
-    return getMarketAggregatesWithHttpInfo(ids, startDate, endDate, frequency, currency).getData();
+  public GetMarketAggregatesResponseWrapper getMarketAggregates(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency, String batch) throws ApiException {
+    return getMarketAggregatesWithHttpInfo(ids, startDate, endDate, frequency, currency, batch).getData();
   }
 
   /**
    * Get market aggregates for a requested time series.
    * Retrieves FactSet market aggregate data for the funds and date range specified. 
-   * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  (required)
+   * @param ids The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit &#x3D; 1000 per request(Non batch)   - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 1500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method.  (required)
    * @param startDate The &#x60;start date&#x60; requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
    * @param endDate The end date requested for a given date range in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
    * @param frequency Controls the display frequency of the data returned.   * **D** &#x3D; Daily   * **W** &#x3D; Weekly, based on the last day of the week of the start date.   * **M** &#x3D; Monthly, based on the last trading day of the month.   * **AM** &#x3D; Monthly, based on the start date (e.g., if the start date is June 16, data is displayed for June 16, May 16, April 16 etc.).   * **CQ** &#x3D; Quarterly based on the last trading day of the calendar quarter (March, June, September, or December).   * **FQ** &#x3D; Fiscal Quarter of the company.   * **AY** &#x3D; Actual Annual, based on the start date.   * **CY** &#x3D; Calendar Annual, based on the last trading day of the calendar year.   * **FY** &#x3D; Fiscal Annual, based on the last trading day of the company&#39;s fiscal year.     (optional, default to M)
    * @param currency Controls the Currency conversion of the Fund. By default, the currency will use the funds local currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470).  (optional, default to LOCAL)
-   * @return ApiResponse&lt;MarketAggregatesResponse&gt;
+   * @param batch Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.     (optional, default to N)
+   * @return ApiResponse&lt;GetMarketAggregatesResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> The Market Aggregates response object. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -115,7 +286,7 @@ public class MarketAggregatesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<MarketAggregatesResponse> getMarketAggregatesWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency) throws ApiException {
+  public ApiResponse<GetMarketAggregatesResponseWrapper> getMarketAggregatesWithHttpInfo(java.util.List<String> ids, String startDate, String endDate, String frequency, String currency, String batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -137,6 +308,7 @@ public class MarketAggregatesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "frequency", frequency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currency", currency));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "batch", batch));
 
     
     
@@ -155,26 +327,34 @@ public class MarketAggregatesApi {
 
 
     ApiResponse<
+        Object
         
-        MarketAggregatesResponse
       
     > apiResponse = apiClient.invokeAPI("MarketAggregatesApi.getMarketAggregates", localVarPath, "GET", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getMarketAggregatesResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    GetMarketAggregatesResponseWrapper responseWrapper = new GetMarketAggregatesResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetMarketAggregatesResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
   /**
    * Get market aggregates for a requested time series.
    * Retrieves FactSet market aggregate data for the funds and date range specified. 
    * @param marketAggregatesRequest The Market Aggregates request body, allowing the user to specify a list of ids and date range. (required)
-   * @return MarketAggregatesResponse
+   * @return GetMarketAggregatesForListResponseWrapper
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> The Market Aggregates response object. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -182,7 +362,7 @@ public class MarketAggregatesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public MarketAggregatesResponse getMarketAggregatesForList(MarketAggregatesRequest marketAggregatesRequest) throws ApiException {
+  public GetMarketAggregatesForListResponseWrapper getMarketAggregatesForList(MarketAggregatesRequest marketAggregatesRequest) throws ApiException {
     return getMarketAggregatesForListWithHttpInfo(marketAggregatesRequest).getData();
   }
 
@@ -190,12 +370,13 @@ public class MarketAggregatesApi {
    * Get market aggregates for a requested time series.
    * Retrieves FactSet market aggregate data for the funds and date range specified. 
    * @param marketAggregatesRequest The Market Aggregates request body, allowing the user to specify a list of ids and date range. (required)
-   * @return ApiResponse&lt;MarketAggregatesResponse&gt;
+   * @return ApiResponse&lt;GetMarketAggregatesForListResponseWrapper&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> The Market Aggregates response object. </td><td>  -  </td></tr>
+       <tr><td> 202 </td><td> Batch request has been accepted. </td><td>  * Location - Path to Batch Request result. <br>  </td></tr>
        <tr><td> 400 </td><td> Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
@@ -203,7 +384,7 @@ public class MarketAggregatesApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<MarketAggregatesResponse> getMarketAggregatesForListWithHttpInfo(MarketAggregatesRequest marketAggregatesRequest) throws ApiException {
+  public ApiResponse<GetMarketAggregatesForListResponseWrapper> getMarketAggregatesForListWithHttpInfo(MarketAggregatesRequest marketAggregatesRequest) throws ApiException {
     Object localVarPostBody = marketAggregatesRequest;
     
     // verify the required parameter 'marketAggregatesRequest' is set
@@ -238,14 +419,21 @@ public class MarketAggregatesApi {
 
 
     ApiResponse<
+        Object
         
-        MarketAggregatesResponse
       
     > apiResponse = apiClient.invokeAPI("MarketAggregatesApi.getMarketAggregatesForList", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getMarketAggregatesForListResponseTypeMap, false);
 
-    return apiResponse;
+    int statusCode = apiResponse.getStatusCode();
+    GetMarketAggregatesForListResponseWrapper responseWrapper = new GetMarketAggregatesForListResponseWrapper(
+      statusCode,
+      apiResponse.getData()
+    );
+
+    return new ApiResponse<GetMarketAggregatesForListResponseWrapper>(statusCode, apiResponse.getHeaders(), responseWrapper);
+
 
   }
 }

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **SecurityName** | **string** |  | [optional] 
 **Status** | **string** |  | [optional] 
 **Location** | **string** |  | [optional] 
-**Asofdate** | **string** |  | [optional] 
+**AsOfDate** | **string** |  | [optional] 
 **Fields** | **Dictionary&lt;string, Object&gt;** | A map of dynamic key-value pairs representing security fields. | 
 **Error** | [**Error**](Error.md) |  | [optional] 
 

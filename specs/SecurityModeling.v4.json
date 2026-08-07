@@ -12,7 +12,7 @@
       "name": "Apache License, Version 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "4.0.0"
+    "version": "4.0.1"
   },
   "servers": [
     {
@@ -41,7 +41,7 @@
                       {
                         "securityName": "SECURITY_BOND",
                         "location": "CLIENT",
-                        "asofdate": "19000101",
+                        "asOfDate": "19000101",
                         "securityType": "BOND"
                       }
                     ]
@@ -84,7 +84,7 @@
                         {
                           "securityName": "SECURITY_BOND",
                           "location": "client",
-                          "asofdate": "19000101",
+                          "asOfDate": "19000101",
                           "fields": {
                             "securityType": "bond",
                             "144aFlag": 1,
@@ -670,7 +670,7 @@
                       {
                         "securityName": "Bond_Security",
                         "location": "Client",
-                        "asofdate": "20250101",
+                        "asOfDate": "20250101",
                         "securityType": "BOND"
                       }
                     ]
@@ -1884,7 +1884,7 @@
             "type": "string",
             "nullable": true
           },
-          "asofdate": {
+          "asOfDate": {
             "type": "string",
             "nullable": true
           },
@@ -2034,7 +2034,7 @@
             "type": "string",
             "nullable": true
           },
-          "asofdate": {
+          "asOfDate": {
             "type": "string",
             "nullable": true
           },
@@ -2077,7 +2077,7 @@
             "type": "string",
             "nullable": true
           },
-          "asofdate": {
+          "asOfDate": {
             "type": "string",
             "nullable": true
           },
@@ -2187,7 +2187,7 @@
             "type": "string",
             "nullable": true
           },
-          "asofdate": {
+          "asOfDate": {
             "type": "string",
             "nullable": true
           },

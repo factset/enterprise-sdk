@@ -11,8 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.FactSetOwnership.models.Batch;
 import com.factset.sdk.FactSetOwnership.models.BatchStatusResponse;
 import com.factset.sdk.FactSetOwnership.models.ErrorResponse;
+import com.factset.sdk.FactSetOwnership.models.HolderType;
 import com.factset.sdk.FactSetOwnership.models.SecurityHoldersRequest;
 import com.factset.sdk.FactSetOwnership.models.SecurityHoldersResponse;
 
@@ -259,7 +261,7 @@ public class SecurityHoldersApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public GetSecurityHoldersResponseWrapper getSecurityHolders(java.util.List<String> ids, String holderType, String topn, String date, String currency, String batch) throws ApiException {
+  public GetSecurityHoldersResponseWrapper getSecurityHolders(java.util.List<String> ids, HolderType holderType, String topn, String date, String currency, Batch batch) throws ApiException {
     return getSecurityHoldersWithHttpInfo(ids, holderType, topn, date, currency, batch).getData();
   }
 
@@ -286,7 +288,7 @@ public class SecurityHoldersApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GetSecurityHoldersResponseWrapper> getSecurityHoldersWithHttpInfo(java.util.List<String> ids, String holderType, String topn, String date, String currency, String batch) throws ApiException {
+  public ApiResponse<GetSecurityHoldersResponseWrapper> getSecurityHoldersWithHttpInfo(java.util.List<String> ids, HolderType holderType, String topn, String date, String currency, Batch batch) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set

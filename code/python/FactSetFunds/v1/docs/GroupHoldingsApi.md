@@ -61,15 +61,23 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
     api_instance = group_holdings_api.GroupHoldingsApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    ids = ["MABAX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. <p>***ids limit** =  1000 per request*</p> *<p>Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>* 
+    ids = ["SPAXX-US"] # [str] | The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit = 1000 per request(Non batch)    - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method. 
     as_of_date = "2024-02-20" # str | As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  (optional)
     group = "CNTRY" # str | Controls the group of the data returned.   * **ASSET** = Asset Class   * **ASSETISTYP** = Issue Type with Asset Class   * **CAPGRP** = Cap Group   * **CNTRY** = Country   * **EXCHANGE** = Exchange   * **INDUSTRY** = Industry   * **ISSUE_TYPE** = Issue Type   * **REGION** = Region   * **SECTOR** = Sector   * **ULTPARENT** = Ultimate Parent        (optional) if omitted the server will use the default value of "CNTRY"
+    batch = "N" # str | Enables the ability to asynchronously \"batch\" the request, supporting a long-running request for up to 20 minutes. Upon requesting batch=Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.     (optional) if omitted the server will use the default value of "N"
 
     try:
         # Get group holdings for a specific date and group.
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_group_holdings(ids, as_of_date=as_of_date, group=group)
+        api_response_wrapper = api_instance.get_group_holdings(ids, as_of_date=as_of_date, group=group, batch=batch)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -82,13 +90,17 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **[str]**| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs. &lt;p&gt;***ids limit** &#x3D;  1000 per request*&lt;/p&gt; *&lt;p&gt;Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \&quot;POST\&quot; method.&lt;/p&gt;*  |
+ **ids** | **[str]**| The requested fund identifier. FactSet Identifiers, tickers, CUSIP, SEDOL, and ISIN are accepted inputs.  Request Limits:    - ids limit &#x3D; 1000 per request(Non batch)    - Batch requests:       * Single day: up to 1500 IDs per request       * Multi-day: up to 500 IDs per request   GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of IDs, which may lead to exceeding this request line limit, it is advised that large request payloads be sent using the respective POST method.  |
  **as_of_date** | **str**| As of date for historical group holdings in **YYYY-MM-DD** format. If left blank, the API will default to latest available completed period.  | [optional]
  **group** | **str**| Controls the group of the data returned.   * **ASSET** &#x3D; Asset Class   * **ASSETISTYP** &#x3D; Issue Type with Asset Class   * **CAPGRP** &#x3D; Cap Group   * **CNTRY** &#x3D; Country   * **EXCHANGE** &#x3D; Exchange   * **INDUSTRY** &#x3D; Industry   * **ISSUE_TYPE** &#x3D; Issue Type   * **REGION** &#x3D; Region   * **SECTOR** &#x3D; Sector   * **ULTPARENT** &#x3D; Ultimate Parent        | [optional] if omitted the server will use the default value of "CNTRY"
+ **batch** | **str**| Enables the ability to asynchronously \&quot;batch\&quot; the request, supporting a long-running request for up to 20 minutes. Upon requesting batch&#x3D;Y, the service will respond with an HTTP Status Code of 202. Once a batch request is submitted, use batch status to see if the job has been completed. Once completed, retrieve the results of the request via batch-result.     | [optional] if omitted the server will use the default value of "N"
 
 ### Return type
 
-[**GroupHoldingsResponse**](GroupHoldingsResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**GroupHoldingsResponse**](GroupHoldingsResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -105,6 +117,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The Group Holdings response object. |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
@@ -166,15 +179,23 @@ with fds.sdk.FactSetFunds.ApiClient(configuration) as api_client:
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     group_holdings_request = GroupHoldingsRequest(
-        ids=Ids(["MABAX","FCNTX"]),
+        ids=IdsBatchPost(["SPAXX","FCNTX"]),
         as_of_date="2024-02-20",
         group=Group("CNTRY"),
+        batch=Batch("N"),
     ) # GroupHoldingsRequest | The Group Holdings request body, allowing the user to specify a list of ids, date, and group.
 
     try:
         # Get group holdings for a specific date and group.
         # example passing only required values which don't have defaults set
-        api_response = api_instance.get_group_holdings_for_list(group_holdings_request)
+        api_response_wrapper = api_instance.get_group_holdings_for_list(group_holdings_request)
+
+        # This endpoint returns a response wrapper that contains different types of responses depending on the query.
+        # To access the correct response type, you need to perform one additional step, as shown below.
+        if api_response_wrapper.get_status_code() == 200:
+            api_response = api_response_wrapper.get_response_200()
+        if api_response_wrapper.get_status_code() == 202:
+            api_response = api_response_wrapper.get_response_202()
 
         pprint(api_response)
 
@@ -191,7 +212,10 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GroupHoldingsResponse**](GroupHoldingsResponse.md)
+The endpoint generates varying objects correlating with the successful status code, encapsulated within a response wrapper housing the appropriate object. The response wrapper includes the subsequent response types:
+- **200**: [**GroupHoldingsResponse**](GroupHoldingsResponse.md)
+- **202**: [**BatchStatusResponse**](BatchStatusResponse.md)
+
 
 ### Authorization
 
@@ -208,6 +232,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The Group Holdings response object. |  -  |
+**202** | Batch request has been accepted. |  * Location - Path to Batch Request result. <br>  |
 **400** | Bad Request. This can occur for several reasons. Please review the \&quot;message\&quot; for more details. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the **Report Issue** in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## getListFiles
 
-> ListFile getListFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, paginationLimit, paginationOffset, sort)
+> ListFile getListFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, excludeRelatedBundles, paginationLimit, paginationOffset, sort)
 
 Returns delta &amp; full files for the schemas.
 
@@ -72,11 +72,12 @@ public class Example {
         Integer startDateRelative = 56; // Integer | The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:  - Dates provided in `startDate` and `endDate` along with `schema` parameter: The returned dataset is limited to a maximum of latest 30 days' worth of records. - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either `startDate` or `startDateRelative` should be used, but not both.* - *If both `startDate` and `startDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `startDate` or `startDateRelative`, the API will not return any data.* 
         String endDate = "2023-01-28"; // String | The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD. 
         Integer endDateRelative = 56; // Integer | The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either `endDate` or `endDateRelative` should be used, but not both.* - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.* 
+        Boolean excludeRelatedBundles = false; // Boolean | Specifies whether to restrict the response to only the bundle(s) specified in the `bundle` parameter.  - `false`: the response includes files for the requested bundle(s) as well as any related bundles. - `true`: the response is restricted to only the files for the specified `bundle`; related bundles are excluded from the results. 
         Integer paginationLimit = 20; // Integer | Specifies the number of results to return per page.
         Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on startDate. 
         try {
-            ListFile result = apiInstance.getListFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, paginationLimit, paginationOffset, sort);
+            ListFile result = apiInstance.getListFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, excludeRelatedBundles, paginationLimit, paginationOffset, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -102,6 +103,7 @@ Name | Type | Description  | Notes
  **startDateRelative** | **Integer**| The earliest date of the feed file the API should fetch based on the file timestamp. Consider the following points:  - Dates provided in &#x60;startDate&#x60; and &#x60;endDate&#x60; along with &#x60;schema&#x60; parameter: The returned dataset is limited to a maximum of latest 30 days&#39; worth of records. - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - *If both &#x60;startDate&#x60; and &#x60;startDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;startDate&#x60; or &#x60;startDateRelative&#x60;, the API will not return any data.*  | [optional]
  **endDate** | **String**| The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD.  | [optional]
  **endDateRelative** | **Integer**| The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  | [optional]
+ **excludeRelatedBundles** | **Boolean**| Specifies whether to restrict the response to only the bundle(s) specified in the &#x60;bundle&#x60; parameter.  - &#x60;false&#x60;: the response includes files for the requested bundle(s) as well as any related bundles. - &#x60;true&#x60;: the response is restricted to only the files for the specified &#x60;bundle&#x60;; related bundles are excluded from the results.  | [optional] [default to false]
  **paginationLimit** | **Integer**| Specifies the number of results to return per page. | [optional] [default to 20]
  **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on startDate.  | [optional] [enum: startDate, -startDate]
@@ -132,7 +134,7 @@ Name | Type | Description  | Notes
 
 ## gethistoricalFiles
 
-> HistoricalFile gethistoricalFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, paginationLimit, paginationOffset, sort)
+> HistoricalFile gethistoricalFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, excludeRelatedBundles, paginationLimit, paginationOffset, sort)
 
 Returns full historic data of specified schema and bundle.
 
@@ -190,11 +192,12 @@ public class Example {
         Integer startDateRelative = 56; // Integer | The earliest date of the feed file the API should fetch based on the file timestamp.    - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either `startDate` or `startDateRelative` should be used, but not both.* - *If both `startDate` and `startDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `startDate` or `startDateRelative`, the API will not return any data.* 
         String endDate = "2023-01-28"; // String | The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD. 
         Integer endDateRelative = 56; // Integer | The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: '0' for today, '-1' for yesterday, '-2' for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either `endDate` or `endDateRelative` should be used, but not both.* - *If both `endDate` and `endDateRelative` are provided in the same request, the API will return an error.* - *If users provide future dates in requests for `endDate` or `endDateRelative`, the API will not return any data.* 
+        Boolean excludeRelatedBundles = false; // Boolean | Specifies whether to restrict the response to only the bundle(s) specified in the `bundle` parameter.  - `false`: the response includes files for the requested bundle(s) as well as any related bundles. - `true`: the response is restricted to only the files for the specified `bundle`; related bundles are excluded from the results. 
         Integer paginationLimit = 20; // Integer | Specifies the number of results to return per page.
         Integer paginationOffset = 0; // Integer | Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results.
         java.util.List<String> sort = Arrays.asList(); // java.util.List<String> | Enables sorting data in ascending or descending chronological order based on startDate. 
         try {
-            HistoricalFile result = apiInstance.gethistoricalFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, paginationLimit, paginationOffset, sort);
+            HistoricalFile result = apiInstance.gethistoricalFiles(schema, bundle, type, startDate, startDateRelative, endDate, endDateRelative, excludeRelatedBundles, paginationLimit, paginationOffset, sort);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -220,6 +223,7 @@ Name | Type | Description  | Notes
  **startDateRelative** | **Integer**| The earliest date of the feed file the API should fetch based on the file timestamp.    - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;startDate&#x60; or &#x60;startDateRelative&#x60; should be used, but not both.* - *If both &#x60;startDate&#x60; and &#x60;startDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;startDate&#x60; or &#x60;startDateRelative&#x60;, the API will not return any data.*  | [optional]
  **endDate** | **String**| The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Should be absolute - YYYY-MM-DD.  | [optional]
  **endDateRelative** | **Integer**| The latest date of the feed file the API should fetch for based on the file timestamp.  - Format: Specify the date using a relative term as an integer: &#39;0&#39; for today, &#39;-1&#39; for yesterday, &#39;-2&#39; for two days ago, and so forth. Negative values are used to represent past dates.  *Note:* - *Either &#x60;endDate&#x60; or &#x60;endDateRelative&#x60; should be used, but not both.* - *If both &#x60;endDate&#x60; and &#x60;endDateRelative&#x60; are provided in the same request, the API will return an error.* - *If users provide future dates in requests for &#x60;endDate&#x60; or &#x60;endDateRelative&#x60;, the API will not return any data.*  | [optional]
+ **excludeRelatedBundles** | **Boolean**| Specifies whether to restrict the response to only the bundle(s) specified in the &#x60;bundle&#x60; parameter.  - &#x60;false&#x60;: the response includes files for the requested bundle(s) as well as any related bundles. - &#x60;true&#x60;: the response is restricted to only the files for the specified &#x60;bundle&#x60;; related bundles are excluded from the results.  | [optional] [default to false]
  **paginationLimit** | **Integer**| Specifies the number of results to return per page. | [optional] [default to 20]
  **paginationOffset** | **Integer**| Specifies the starting point for pagination. This parameter is used to identify the beginning of next set of results. | [optional] [default to 0]
  **sort** | **List&lt;String&gt;**| Enables sorting data in ascending or descending chronological order based on startDate.  | [optional] [enum: startDate, -startDate]

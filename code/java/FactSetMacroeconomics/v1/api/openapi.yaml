@@ -1,0 +1,2157 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |
+    The FactSet Macroeconomics API provides access to economic calendar events and historical time series data for global economic indicators. Use the reference endpoints to discover available indicators, regions, and FDS codes before querying event or series data.
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Macroeconomics API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/economics-api
+servers:
+- url: https://api.factset.com/content/economics/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Historical economic time series data with support for frequency conversion
+    and data transformation.
+  name: As-Reported Economics
+- description: Economic calendar events with release dates, actual values, consensus
+    estimates, and prior period data.
+  name: Economic Events Calendar
+- description: Reference values for indicators, regions, and FDS codes used for filtering
+    and discovery.
+  name: Reference Data
+paths:
+  /economic-events:
+    get:
+      description: Returns economic calendar events for a specified date range, with
+        optional filtering by country, indicator, and FDS code. Use `/meta/events`
+        to discover available filter values (indicators, countries, FDS codes).
+      operationId: getEconomicEvents
+      parameters:
+      - description: |
+          FDS code to filter events by a specific economic indicator.
+          Use the `/meta/events?type=fds-codes` endpoint to retrieve all available codes.
+
+          - **Required:** startDate and endDate parameters must be provided when using this filter
+        explode: false
+        in: query
+        name: fdsCode
+        required: false
+        schema:
+          example: CPIMOM@US
+          type: string
+        style: form
+      - description: |
+          Economic indicator name for filtering events.
+          Use the `/meta/events?type=indicators` endpoint to retrieve available indicators.
+
+          - **Required:** startDate and endDate parameters must be provided when using this filter
+        explode: true
+        in: query
+        name: indicator
+        required: false
+        schema:
+          example: PRCPI
+          type: string
+        style: form
+      - description: |
+          ISO country code for filtering events by country. Use the `/meta/events?type=countries` endpoint to retrieve available country codes.
+        explode: true
+        in: query
+        name: countryCode
+        required: false
+        schema:
+          example: US
+          type: string
+        style: form
+      - description: |
+          Time zone for event dates and times in GMT offset format (e.g., GMT-5, GMT, GMT+9). Use the `/meta/events?type=TIMEZONES` endpoint to retrieve available time zone values. If left blank, the default time zone is GMT.
+        explode: true
+        in: query
+        name: timeZone
+        required: false
+        schema:
+          default: GMT
+          example: GMT+05:00
+          type: string
+        style: form
+      - description: |
+          Start date for the query range.
+
+          - **Required:** when `fdsCode` or `indicator` is specified
+          - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+          - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          example: 2024-01-01
+          format: date
+          type: string
+        style: form
+      - description: |
+          End date for the query range.
+
+          - **Required:** when `fdsCode` or `indicator` is specified
+          - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+          - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          example: 2024-03-28
+          format: date
+          type: string
+        style: form
+      - description: |
+          Comma-separated list of fields to include in the `items` array for each event. Common event fields (`requestedFdsCode`, `eventName`, `countryCode`, `indicator`) are always returned. When omitted, all available fields in the items array are returned.
+
+          **Available fields (for items array):**
+          | Field | Description |
+          |---|---|
+          | `eventDateTime` | Scheduled release date and time (UTC) |
+          | `period` | Reference period covered by the data |
+          | `actual` | Released actual value |
+          | `prior` | Value from the prior period |
+          | `consensus` | Consensus market estimate |
+          | `surprise` | Difference between actual and consensus |
+        examples:
+          coreOnly:
+            summary: Core value fields only
+            value:
+            - eventDateTime
+            - actual
+            - consensus
+          full:
+            summary: All item fields (default behavior)
+            value:
+            - eventDateTime
+            - period
+            - actual
+            - prior
+            - consensus
+            - surprise
+        explode: false
+        in: query
+        name: fields
+        required: false
+        schema:
+          items:
+            enum:
+            - eventDateTime
+            - period
+            - actual
+            - prior
+            - consensus
+            - surprise
+            type: string
+          maxItems: 6
+          type: array
+        style: form
+      - description: |
+          Maximum number of results to return per page. If not specified, the default page size is applied.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          example: 25
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: |
+          Number of results to skip before returning the first result. Used for pagination in combination with `_paginationLimit`.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          example: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200Response:
+                  $ref: '#/components/examples/EventSearchExample'
+              schema:
+                $ref: '#/components/schemas/EventResponse'
+          description: Successfully retrieved economic events.
+        "400":
+          content:
+            application/json:
+              examples:
+                malformedQueryString:
+                  $ref: '#/components/examples/MalformedQueryString'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Bad Request. The request contains syntax errors or is malformed (e.g., malformed JSON, invalid protocol formatting, illegal characters in query strings). The server cannot parse the request.
+        "401":
+          content:
+            application/json:
+              examples:
+                authenticationFailed:
+                  $ref: '#/components/examples/Unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated - API authentication failed. Ensure you have successfully generated a valid API key, included the API key in your request via Basic Auth, and the API key is valid for your IP range. For help with connectivity issues, please contact FactSet support.
+        "403":
+          content:
+            application/json:
+              examples:
+                authorizationFailed:
+                  $ref: '#/components/examples/Forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Forbidden - You do not have permission to access this endpoint or resource. Your API key or account may not have the required access level. Please reach out to your FactSet Account Team for assistance with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/NotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Not Found - The requested endpoint or resource does not exist. Please verify that the endpoint path is correct, all required path parameters are provided, and the resource identifier (if any) is valid.
+        "422":
+          content:
+            application/json:
+              examples:
+                invalidDateFormat:
+                  $ref: '#/components/examples/BadRequest'
+                invalidParameterValue:
+                  $ref: '#/components/examples/BadRequestInvalidParameterFormat'
+                missingRequiredParameter:
+                  $ref: '#/components/examples/BadRequestMissingRequiredParameter'
+                invalidEnumValue:
+                  $ref: '#/components/examples/UnprocessableEntity'
+                invalidDateRange:
+                  $ref: '#/components/examples/InvalidDateRange'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity - Your request data was syntactically correct but semantically invalid. This can occur for validation errors such as invalid date format, invalid parameter values, missing required parameters, invalid enum values, or invalid date ranges. Check the required parameters and their value constraints.
+        "429":
+          content:
+            application/json:
+              examples:
+                RateLimitExceeded:
+                  $ref: '#/components/examples/RateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Too Many Requests - You have exceeded the allowed request rate for this API. Please wait and retry your request after some time.
+        "500":
+          content:
+            application/json:
+              examples:
+                serverError:
+                  $ref: '#/components/examples/InternalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Internal Server Error - An unexpected error occurred on the server. Please try your request again. If the problem persists, contact FactSet support and provide the error ID from the response for investigation.
+      summary: Retrieve economic calendar events
+      tags:
+      - Economic Events Calendar
+      x-accepts: application/json
+  /as-reported-economics:
+    get:
+      description: Returns as-reported economic time series data for a given series
+        ID, with optional frequency conversion and data transformation. Use `/meta/series`
+        to discover available series IDs.
+      operationId: getAsReportedEconomics
+      parameters:
+      - description: |
+          The Series ID identifying the economic series to retrieve.
+          Use the `/meta/series` endpoint to get a list of available series IDs.
+        explode: true
+        in: query
+        name: seriesId
+        required: true
+        schema:
+          example: FRBRIFSPPCD90@US
+          type: string
+        style: form
+      - description: |
+          Start date for the query range.
+
+          - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          example: 2026-01-01
+          format: date
+          type: string
+        style: form
+      - description: |
+          End date for the query range.
+
+          - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          example: 2026-07-01
+          format: date
+          type: string
+        style: form
+      - description: |
+          ISO country code for filtering events by country. Use the `/meta/events?type=countries` endpoint to retrieve available country codes.
+        explode: true
+        in: query
+        name: countryCode
+        required: false
+        schema:
+          example: US
+          type: string
+        style: form
+      - description: |
+          Controls the output frequency of the data returned. The supported frequencies are:
+
+          - **D**: Daily.
+          - **W**: Weekly.
+          - **M**: Monthly.
+          - **Q**: Quarterly.
+          - **Y**: Yearly.
+
+          When `frequency` is not specified: If multiple frequencies are available for the seriesId, data is returned at the highest frequency (e.g., monthly over quarterly). If only one frequency is available, data is returned at that frequency.
+        explode: true
+        in: query
+        name: frequency
+        required: false
+        schema:
+          enum:
+          - D
+          - W
+          - M
+          - Q
+          - "Y"
+          example: D
+          type: string
+        style: form
+      - description: |
+          Maximum number of results to return per page. If not specified, the default page size is applied.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          example: 25
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: |
+          Number of results to skip before returning the first result. Used for pagination in combination with `_paginationLimit`.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          example: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200Response:
+                  $ref: '#/components/examples/AsReportedEconomicsExample'
+              schema:
+                $ref: '#/components/schemas/AsReportedEconomicsResponse'
+          description: Successfully retrieved as-reported economic data.
+        "400":
+          content:
+            application/json:
+              examples:
+                malformedQueryString:
+                  $ref: '#/components/examples/MalformedQueryString'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Bad Request. The request contains syntax errors or is malformed (e.g., malformed JSON, invalid protocol formatting, illegal characters in query strings). The server cannot parse the request.
+        "401":
+          content:
+            application/json:
+              examples:
+                authenticationFailed:
+                  $ref: '#/components/examples/Unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated - API authentication failed. Ensure you have successfully generated a valid API key, included the API key in your request via Basic Auth, and the API key is valid for your IP range. For help with connectivity issues, please contact FactSet support.
+        "403":
+          content:
+            application/json:
+              examples:
+                authorizationFailed:
+                  $ref: '#/components/examples/Forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Forbidden - You do not have permission to access this endpoint or resource. Your API key or account may not have the required access level. Please reach out to your FactSet Account Team for assistance with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/NotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Not Found - The requested endpoint or resource does not exist. Please verify that the endpoint path is correct, all required path parameters are provided, and the resource identifier (if any) is valid.
+        "422":
+          content:
+            application/json:
+              examples:
+                invalidDateFormat:
+                  $ref: '#/components/examples/BadRequest'
+                invalidParameterValue:
+                  $ref: '#/components/examples/BadRequestInvalidParameterFormat'
+                missingRequiredParameter:
+                  $ref: '#/components/examples/BadRequestMissingRequiredParameter'
+                invalidEnumValue:
+                  $ref: '#/components/examples/UnprocessableEntity'
+                invalidDateRange:
+                  $ref: '#/components/examples/InvalidDateRange'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity - Your request data was syntactically correct but semantically invalid. This can occur for validation errors such as invalid date format, invalid parameter values, missing required parameters, invalid enum values, or invalid date ranges. Check the required parameters and their value constraints.
+        "429":
+          content:
+            application/json:
+              examples:
+                RateLimitExceeded:
+                  $ref: '#/components/examples/RateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Too Many Requests - You have exceeded the allowed request rate for this API. Please wait and retry your request after some time.
+        "500":
+          content:
+            application/json:
+              examples:
+                serverError:
+                  $ref: '#/components/examples/InternalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Internal Server Error - An unexpected error occurred on the server. Please try your request again. If the problem persists, contact FactSet support and provide the error ID from the response for investigation.
+      summary: Retrieve as-reported economic time series data
+      tags:
+      - As-Reported Economics
+      x-accepts: application/json
+  /event-count:
+    get:
+      description: |
+        Returns the number of economic events per calendar day for a specified date range. Weekends can be included or excluded via the `includeWeekends` parameter.
+
+        Note: The response includes only dates with one or more events. Dates with no events are omitted from the response.
+      operationId: getEconomicEventsCount
+      parameters:
+      - description: |
+          Start date for the query range.
+
+          - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+          - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+        explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          example: 2024-01-01
+          format: date
+          type: string
+        style: form
+      - description: |
+          End date for the query range.
+
+          - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+          - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+        explode: true
+        in: query
+        name: endDate
+        required: false
+        schema:
+          example: 2024-03-01
+          format: date
+          type: string
+        style: form
+      - description: Returned daily counts include weekends by default. Set this to
+          `false` to exclude weekends.
+        explode: true
+        in: query
+        name: includeWeekends
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      - description: |
+          Maximum number of results to return per page. If not specified, the default page size is applied.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          example: 25
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: |
+          Number of results to skip before returning the first result. Used for pagination in combination with `_paginationLimit`.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          example: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                default200Response:
+                  $ref: '#/components/examples/EventCountDefaultExample'
+              schema:
+                $ref: '#/components/schemas/EventCountResponse'
+          description: Successfully retrieved economic events count.
+        "400":
+          content:
+            application/json:
+              examples:
+                malformedQueryString:
+                  $ref: '#/components/examples/MalformedQueryString'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Bad Request. The request contains syntax errors or is malformed (e.g., malformed JSON, invalid protocol formatting, illegal characters in query strings). The server cannot parse the request.
+        "401":
+          content:
+            application/json:
+              examples:
+                authenticationFailed:
+                  $ref: '#/components/examples/Unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated - API authentication failed. Ensure you have successfully generated a valid API key, included the API key in your request via Basic Auth, and the API key is valid for your IP range. For help with connectivity issues, please contact FactSet support.
+        "403":
+          content:
+            application/json:
+              examples:
+                authorizationFailed:
+                  $ref: '#/components/examples/Forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Forbidden - You do not have permission to access this endpoint or resource. Your API key or account may not have the required access level. Please reach out to your FactSet Account Team for assistance with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/NotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Not Found - The requested endpoint or resource does not exist. Please verify that the endpoint path is correct, all required path parameters are provided, and the resource identifier (if any) is valid.
+        "422":
+          content:
+            application/json:
+              examples:
+                invalidDateFormat:
+                  $ref: '#/components/examples/BadRequest'
+                invalidParameterValue:
+                  $ref: '#/components/examples/BadRequestInvalidParameterFormat'
+                missingRequiredParameter:
+                  $ref: '#/components/examples/BadRequestMissingRequiredParameter'
+                invalidEnumValue:
+                  $ref: '#/components/examples/UnprocessableEntity'
+                invalidDateRange:
+                  $ref: '#/components/examples/InvalidDateRange'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity - Your request data was syntactically correct but semantically invalid. This can occur for validation errors such as invalid date format, invalid parameter values, missing required parameters, invalid enum values, or invalid date ranges. Check the required parameters and their value constraints.
+        "429":
+          content:
+            application/json:
+              examples:
+                RateLimitExceeded:
+                  $ref: '#/components/examples/RateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Too Many Requests - You have exceeded the allowed request rate for this API. Please wait and retry your request after some time.
+        "500":
+          content:
+            application/json:
+              examples:
+                serverError:
+                  $ref: '#/components/examples/InternalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Internal Server Error - An unexpected error occurred on the server. Please try your request again. If the problem persists, contact FactSet support and provide the error ID from the response for investigation.
+      summary: Retrieve economic events count
+      tags:
+      - Economic Events Calendar
+      x-accepts: application/json
+  /meta/events:
+    get:
+      description: Returns reference values for filtering and discovery. Use this
+        endpoint to discover available indicators, countries, and FDS codes.
+      operationId: getEconomicEventReferenceData
+      parameters:
+      - description: |
+          Specifies the type of reference data to return. The supported values are:
+
+          - `INDICATORS`: Returns available economic indicator codes for use with the `indicator` filter.
+          - `COUNTRIES`: Returns supported country codes for use with the `countryCode` filter.
+          - `FDS_CODES`: Returns available FDS codes.
+          - `TIMEZONES`: Returns supported timezone values for use with the `timeZone` filter.
+        explode: true
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - INDICATORS
+          - COUNTRIES
+          - FDS_CODES
+          - TIMEZONES
+          example: INDICATORS
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                indicatorsExample:
+                  $ref: '#/components/examples/IndicatorsExample'
+                regionsExample:
+                  $ref: '#/components/examples/RegionsExample'
+                fdsCodesExample:
+                  $ref: '#/components/examples/FdsCodesExample'
+                timezonesExample:
+                  $ref: '#/components/examples/TimezonesExample'
+              schema:
+                $ref: '#/components/schemas/MetaEventsResponse'
+          description: Successful response containing reference data.
+        "400":
+          content:
+            application/json:
+              examples:
+                malformedQueryString:
+                  $ref: '#/components/examples/MalformedQueryString'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Bad Request. The request contains syntax errors or is malformed (e.g., malformed JSON, invalid protocol formatting, illegal characters in query strings). The server cannot parse the request.
+        "401":
+          content:
+            application/json:
+              examples:
+                authenticationFailed:
+                  $ref: '#/components/examples/Unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated - API authentication failed. Ensure you have successfully generated a valid API key, included the API key in your request via Basic Auth, and the API key is valid for your IP range. For help with connectivity issues, please contact FactSet support.
+        "403":
+          content:
+            application/json:
+              examples:
+                authorizationFailed:
+                  $ref: '#/components/examples/Forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Forbidden - You do not have permission to access this endpoint or resource. Your API key or account may not have the required access level. Please reach out to your FactSet Account Team for assistance with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/NotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Not Found - The requested endpoint or resource does not exist. Please verify that the endpoint path is correct, all required path parameters are provided, and the resource identifier (if any) is valid.
+        "422":
+          content:
+            application/json:
+              examples:
+                invalidDateFormat:
+                  $ref: '#/components/examples/BadRequest'
+                invalidParameterValue:
+                  $ref: '#/components/examples/BadRequestInvalidParameterFormat'
+                missingRequiredParameter:
+                  $ref: '#/components/examples/BadRequestMissingRequiredParameter'
+                invalidEnumValue:
+                  $ref: '#/components/examples/UnprocessableEntity'
+                invalidDateRange:
+                  $ref: '#/components/examples/InvalidDateRange'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity - Your request data was syntactically correct but semantically invalid. This can occur for validation errors such as invalid date format, invalid parameter values, missing required parameters, invalid enum values, or invalid date ranges. Check the required parameters and their value constraints.
+        "429":
+          content:
+            application/json:
+              examples:
+                RateLimitExceeded:
+                  $ref: '#/components/examples/RateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Too Many Requests - You have exceeded the allowed request rate for this API. Please wait and retry your request after some time.
+        "500":
+          content:
+            application/json:
+              examples:
+                serverError:
+                  $ref: '#/components/examples/InternalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Internal Server Error - An unexpected error occurred on the server. Please try your request again. If the problem persists, contact FactSet support and provide the error ID from the response for investigation.
+      summary: Retrieve reference data for events
+      tags:
+      - Reference Data
+      x-accepts: application/json
+  /meta/series:
+    get:
+      description: Returns series metadata with FDS code mappings. Use this endpoint
+        to discover available series, categories, and FDS code associations.
+      operationId: getFdsCodeMapping
+      parameters:
+      - description: Text to search for within series names. Restricts results to
+          only series that match the provided search text.
+        explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          example: GDP
+          type: string
+        style: form
+      - description: |
+          Filter series by major category. The supported categories are:
+
+          - `ECONOMICS`: Economic indicators and metrics.
+          - `INTEREST_RATES`: Interest rate data and related metrics.
+
+          Multiple categories can be provided as comma-separated values.
+        examples:
+          singleCategory:
+            summary: Single category
+            value:
+            - ECONOMICS
+          multipleCategories:
+            summary: Multiple categories
+            value:
+            - ECONOMICS
+            - INTEREST_RATES
+        explode: false
+        in: query
+        name: category
+        required: false
+        schema:
+          items:
+            enum:
+            - ECONOMICS
+            - INTEREST_RATES
+            type: string
+          type: array
+        style: form
+      - description: |
+          ISO country code for filtering events by country. Use the `/meta/events?type=countries` endpoint to retrieve available country codes.
+        explode: true
+        in: query
+        name: countryCode
+        required: false
+        schema:
+          example: US
+          type: string
+        style: form
+      - description: |
+          Maximum number of results to return per page. If not specified, the default page size is applied.
+        explode: true
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 25
+          example: 25
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: |
+          Number of results to skip before returning the first result. Used for pagination in combination with `_paginationLimit`.
+        explode: true
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          example: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                singleFdsCode:
+                  $ref: '#/components/examples/FdsCodeMappingSingleExample'
+                filteredByIndicator:
+                  $ref: '#/components/examples/FdsCodeMappingFilteredExample'
+                partialResults:
+                  $ref: '#/components/examples/FdsCodeMappingPartialExample'
+              schema:
+                $ref: '#/components/schemas/MetaSeriesResponse'
+          description: Successfully retrieved economic series metadata.
+        "400":
+          content:
+            application/json:
+              examples:
+                malformedQueryString:
+                  $ref: '#/components/examples/MalformedQueryString'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Bad Request. The request contains syntax errors or is malformed (e.g., malformed JSON, invalid protocol formatting, illegal characters in query strings). The server cannot parse the request.
+        "401":
+          content:
+            application/json:
+              examples:
+                authenticationFailed:
+                  $ref: '#/components/examples/Unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unauthenticated - API authentication failed. Ensure you have successfully generated a valid API key, included the API key in your request via Basic Auth, and the API key is valid for your IP range. For help with connectivity issues, please contact FactSet support.
+        "403":
+          content:
+            application/json:
+              examples:
+                authorizationFailed:
+                  $ref: '#/components/examples/Forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Forbidden - You do not have permission to access this endpoint or resource. Your API key or account may not have the required access level. Please reach out to your FactSet Account Team for assistance with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                endpointNotFound:
+                  $ref: '#/components/examples/NotFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Not Found - The requested endpoint or resource does not exist. Please verify that the endpoint path is correct, all required path parameters are provided, and the resource identifier (if any) is valid.
+        "422":
+          content:
+            application/json:
+              examples:
+                invalidDateFormat:
+                  $ref: '#/components/examples/BadRequest'
+                invalidParameterValue:
+                  $ref: '#/components/examples/BadRequestInvalidParameterFormat'
+                missingRequiredParameter:
+                  $ref: '#/components/examples/BadRequestMissingRequiredParameter'
+                invalidEnumValue:
+                  $ref: '#/components/examples/UnprocessableEntity'
+                invalidDateRange:
+                  $ref: '#/components/examples/InvalidDateRange'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity - Your request data was syntactically correct but semantically invalid. This can occur for validation errors such as invalid date format, invalid parameter values, missing required parameters, invalid enum values, or invalid date ranges. Check the required parameters and their value constraints.
+        "429":
+          content:
+            application/json:
+              examples:
+                RateLimitExceeded:
+                  $ref: '#/components/examples/RateLimitExceeded'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Too Many Requests - You have exceeded the allowed request rate for this API. Please wait and retry your request after some time.
+        "500":
+          content:
+            application/json:
+              examples:
+                serverError:
+                  $ref: '#/components/examples/InternalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Internal Server Error - An unexpected error occurred on the server. Please try your request again. If the problem persists, contact FactSet support and provide the error ID from the response for investigation.
+      summary: Retrieve reference data for series
+      tags:
+      - Reference Data
+      x-accepts: application/json
+components:
+  examples:
+    EventSearchExample:
+      description: Returns a list of economic events matching the specified date range
+        and country filters.
+      summary: Economic events for a date range and country
+      value:
+        data:
+        - requestedFdsCode: CPIMOM@US
+          countryCode: US
+          indicator: PRCPI
+          items:
+          - eventDateTime: 2024-03-12T17:30:00+05:00
+            eventName: CPI SA M/M - United States
+            period: Feb
+            actual: 0.4%
+            prior: 0.3%
+            consensus: 0.4%
+            surprise: 0.0%
+          - eventDateTime: 2024-02-13T18:30:00+05:00
+            eventName: CPI SA M/M - United States
+            period: Jan
+            actual: 0.3%
+            prior: 0.2%
+            consensus: 0.2%
+            surprise: 0.1%
+          - eventDateTime: 2024-01-11T18:30:00+05:00
+            eventName: CPI SA M/M - United States
+            period: Dec
+            actual: 0.3%
+            prior: 0.1%
+            consensus: 0.2%
+            surprise: 0.1%
+        meta:
+          pagination:
+            total: 3
+            isEstimatedTotal: false
+    AsReportedEconomicsExample:
+      description: Returns historical daily economic time series data for Federal
+        Reserve interest rate series.
+      summary: As-reported economic time series data
+      value:
+        data:
+        - seriesId: FRBRIFSPPCD90@US
+          countryCode: US
+          items:
+          - periodDate: 2026-06-26
+            value: 3.72
+            units: Percent
+          - periodDate: 2026-06-17
+            value: 3.67
+            units: Percent
+          - periodDate: 2026-06-16
+            value: 3.69
+            units: Percent
+          - periodDate: 2026-06-15
+            value: 3.69
+            units: Percent
+          - periodDate: 2026-06-10
+            value: 3.67
+            units: Percent
+        meta:
+          pagination:
+            total: 60
+            isEstimatedTotal: false
+    EventCountDefaultExample:
+      description: Returns the number of economic events scheduled for each calendar
+        day within the requested date range.
+      summary: Event count per day
+      value:
+        data:
+        - date: 2026-02-01
+          count: 3
+        - date: 2026-02-02
+          count: 5
+        - date: 2026-02-03
+          count: 2
+        meta:
+          pagination:
+            total: 28
+            isEstimatedTotal: false
+    IndicatorsExample:
+      description: Returns all available economic indicator codes and their category
+        names for use as filter values.
+      summary: Available economic indicators
+      value:
+        data:
+        - itemType: INDICATOR
+          code: BANKCRED
+          name: BANKING & CREDIT
+        - itemType: INDICATOR
+          code: LMEMP
+          name: LABOR MARKET - EMPLOYMENT
+        - itemType: INDICATOR
+          code: PRCPI
+          name: PRICES - CONSUMER (CPI)
+        - itemType: INDICATOR
+          code: NAGDP
+          name: NATIONAL ACCOUNTS - GDP
+    RegionsExample:
+      description: Returns all available country codes supported by the economic events
+        endpoints.
+      summary: Available countries
+      value:
+        data:
+        - itemType: COUNTRY
+          code: US
+          name: United States
+        - itemType: COUNTRY
+          code: IN
+          name: India
+        - itemType: COUNTRY
+          code: GB
+          name: United Kingdom
+        - itemType: COUNTRY
+          code: EU
+          name: European Union
+    FdsCodesExample:
+      description: Returns available FDS codes with their descriptions, country, event
+        name, and source.
+      summary: Available FDS codes
+      value:
+        data:
+        - itemType: FDS_CODE
+          code: GDPPIQYOY@US
+          country: United States
+          eventName: GDP Chain Price SA Y/Y
+          sourceName: BEA - US Bureau of Economic Analysis
+        - itemType: FDS_CODE
+          code: FDIQ@US
+          country: United States
+          eventName: Foreign Direct Investment
+          sourceName: BEA - US Bureau of Economic Analysis
+    TimezonesExample:
+      description: Returns supported time zone values in GMT offset format for use
+        with the `timeZone` parameter.
+      summary: Available time zones
+      value:
+        data:
+        - itemType: TIMEZONE
+          code: GMT+09:30
+          description: ACT
+        - itemType: TIMEZONE
+          code: GMT+10:00
+          description: AET
+        - itemType: TIMEZONE
+          code: GMT+00:00
+          description: Africa/Abidjan
+        - itemType: TIMEZONE
+          code: GMT+01:00
+          description: Africa/Algiers
+        - itemType: TIMEZONE
+          code: GMT
+          description: GMT
+    FdsCodeMappingSingleExample:
+      description: Returns the series ID, FDS code, name, category, and unit details
+        for a single series lookup with hierarchy path.
+      summary: Single series metadata
+      value:
+        data:
+        - seriesId: ABMI
+          seriesName: GDP at Market Prices, Chain Volume, 2019 Prices, SA - United
+            Kingdom
+          fdsCodes:
+          - GDPQOQ@GB
+          - GDPQOYOY@GB
+          category: Economic and Commodities
+          subcategory: Income
+          subcategoryCode: AB
+          countryCodes:
+          - GB
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+    FdsCodeMappingFilteredExample:
+      description: Returns only the series metadata that match the requested category
+        filter with hierarchy information.
+      summary: Series metadata filtered by category
+      value:
+        data:
+        - seriesId: ABMI
+          seriesName: GDP at Market Prices, Chain Volume, 2019 Prices, SA - United
+            Kingdom
+          fdsCodes:
+          - GDPQOQ@GB
+          - GDPQOYOY@GB
+          category: Economic and Commodities
+          subcategory: Income
+          subcategoryCode: AB
+          countryCodes:
+          - GB
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+    MalformedQueryString:
+      description: Query string contains illegal characters or syntax errors that
+        prevent parsing.
+      summary: Bad Request - Malformed Query String
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Malformed Request
+          detail: 'Invalid character in query string: [ is not allowed. Query string
+            must use valid URL encoding.'
+    BadRequest:
+      description: This error occurs when a request does not use the YYYY-MM-DD format
+        in date parameters.
+      summary: Unprocessable Entity - Invalid Date Format
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Validation Error
+          detail: 'The date parameter `startDate` must be in the following date format:
+            YYYY-MM-DD'
+    BadRequestInvalidParameterFormat:
+      description: Invalid parameter value that does not match expected format.
+      summary: Bad Request - Invalid Parameters
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Invalid Parameter
+          detail: 'Invalid Parameter(s): invalidParam. Please modify your request
+            to use parameters outlined in the specification for this endpoint.'
+    BadRequestMissingRequiredParameter:
+      description: Required parameter not included in request.
+      summary: Bad Request - Missing Required Parameter
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Missing Required Parameter
+          detail: A required parameter is missing from the request. Please verify
+            that all required parameters are provided in your request.
+    Unauthenticated:
+      description: API key missing, invalid, or not authorized for IP range.
+      summary: User Authentication Failed
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Unauthenticated
+          title: Authentication Failed
+          detail: User Authentication Failed.
+    Forbidden:
+      description: User account does not have permission to access this endpoint.
+      summary: Forbidden
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef6
+          code: Forbidden
+          title: Authentication Failed
+          detail: USERNAME-SERIAL does not have permission to use /economics /v1/{endpoint}
+    NotFound:
+      description: The requested endpoint or resource could not be found.
+      summary: Not Found
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef7
+          code: Not Found
+          title: No endpoint found
+          detail: The requested endpoint could not be found.
+    UnprocessableEntity:
+      description: Request is valid but contains semantic errors.
+      summary: Unprocessable Entity - Validation Error
+      value:
+        errors:
+        - id: aac34dc2-eca4-4773-9878-6eacfa62e666
+          code: Bad Request
+          title: Invalid Parameter
+          detail: 'The parameter ''frequency'' value ''X'' is invalid. Valid values
+            are: D, W, M, Q, Y.'
+    InvalidDateRange:
+      description: End date is before start date.
+      summary: Unprocessable Entity - Invalid Date Range
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: ValidationError
+          title: Invalid Date Range
+          detail: The `endDate` (2026-01-01) cannot be before `startDate` (2026-03-01).
+            Please verify the date range.
+    RateLimitExceeded:
+      description: Request rate limit has been exceeded.
+      summary: Too Many Requests - Rate Limit Exceeded
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef8
+          code: Too Many Requests
+          title: Rate Limit Exceeded
+          detail: You have exceeded the allowed number of requests for this time window.
+            Please wait and try again later.
+    InternalServerError:
+      description: Unexpected server error occurred.
+      summary: Internal Server Error
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef9
+          code: Internal Server Error
+          title: Unexpected Error
+          detail: An unexpected error occurred while processing your request. Please
+            try again later.
+    FdsCodeMappingPartialExample:
+      description: |
+        Demonstrates the response when requesting series filtered by country code. Only series with data for the specified country are returned, with full hierarchy information for each.
+      summary: Partial results — filtered by country
+      value:
+        data:
+        - seriesId: ABMI
+          seriesName: GDP at Market Prices, Chain Volume, 2019 Prices, SA - United
+            Kingdom
+          fdsCodes:
+          - GDPQOQ@GB
+          - GDPQOYOY@GB
+          category: Economic and Commodities
+          subcategory: Income
+          subcategoryCode: AB
+          countryCodes:
+          - GB
+        - seriesId: ANNX
+          seriesName: GDP at Market Prices, Year on Year - United Kingdom
+          fdsCodes:
+          - GDPF@GB
+          - GDPFYOY@GB
+          category: Economic and Commodities
+          subcategory: Gross Output
+          subcategoryCode: GO
+          countryCodes:
+          - GB
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
+  parameters:
+    fdsCode:
+      description: |
+        FDS code to filter events by a specific economic indicator.
+        Use the `/meta/events?type=fds-codes` endpoint to retrieve all available codes.
+
+        - **Required:** startDate and endDate parameters must be provided when using this filter
+      explode: false
+      in: query
+      name: fdsCode
+      required: false
+      schema:
+        example: CPIMOM@US
+        type: string
+      style: form
+    countryCode:
+      description: |
+        ISO country code for filtering events by country. Use the `/meta/events?type=countries` endpoint to retrieve available country codes.
+      explode: true
+      in: query
+      name: countryCode
+      required: false
+      schema:
+        example: US
+        type: string
+      style: form
+    indicator:
+      description: |
+        Economic indicator name for filtering events.
+        Use the `/meta/events?type=indicators` endpoint to retrieve available indicators.
+
+        - **Required:** startDate and endDate parameters must be provided when using this filter
+      explode: true
+      in: query
+      name: indicator
+      required: false
+      schema:
+        example: PRCPI
+        type: string
+      style: form
+    seriesId:
+      description: |
+        The Series ID identifying the economic series to retrieve.
+        Use the `/meta/series` endpoint to get a list of available series IDs.
+      explode: true
+      in: query
+      name: seriesId
+      required: true
+      schema:
+        example: FRBRIFSPPCD90@US
+        type: string
+      style: form
+    searchText:
+      description: Text to search for within series names. Restricts results to only
+        series that match the provided search text.
+      explode: true
+      in: query
+      name: searchText
+      required: false
+      schema:
+        example: GDP
+        type: string
+      style: form
+    startDate:
+      description: |
+        Start date for the query range.
+
+        - **Required:** when `fdsCode` or `indicator` is specified
+        - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+        - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        example: 2024-01-01
+        format: date
+        type: string
+      style: form
+    endDate:
+      description: |
+        End date for the query range.
+
+        - **Required:** when `fdsCode` or `indicator` is specified
+        - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+        - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        example: 2024-03-28
+        format: date
+        type: string
+      style: form
+    startDateCount:
+      description: |
+        Start date for the query range.
+
+        - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+        - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        example: 2024-01-01
+        format: date
+        type: string
+      style: form
+    endDateCount:
+      description: |
+        End date for the query range.
+
+        - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+        - **Maximum date range limit:** The maximum date range limit between `startDate` and `endDate` is up to 90 days. Requests with date ranges exceeding 90 days will result in a validation error.
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        example: 2024-03-01
+        format: date
+        type: string
+      style: form
+    reportedStartDate:
+      description: |
+        Start date for the query range.
+
+        - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+      explode: true
+      in: query
+      name: startDate
+      required: false
+      schema:
+        example: 2026-01-01
+        format: date
+        type: string
+      style: form
+    reportedEndDate:
+      description: |
+        End date for the query range.
+
+        - **Default:** If both `startDate` and `endDate` are omitted, the API defaults to the most recent available calendar day
+      explode: true
+      in: query
+      name: endDate
+      required: false
+      schema:
+        example: 2026-07-01
+        format: date
+        type: string
+      style: form
+    timeZone:
+      description: |
+        Time zone for event dates and times in GMT offset format (e.g., GMT-5, GMT, GMT+9). Use the `/meta/events?type=TIMEZONES` endpoint to retrieve available time zone values. If left blank, the default time zone is GMT.
+      explode: true
+      in: query
+      name: timeZone
+      required: false
+      schema:
+        default: GMT
+        example: GMT+05:00
+        type: string
+      style: form
+    frequency:
+      description: |
+        Controls the output frequency of the data returned. The supported frequencies are:
+
+        - **D**: Daily.
+        - **W**: Weekly.
+        - **M**: Monthly.
+        - **Q**: Quarterly.
+        - **Y**: Yearly.
+
+        When `frequency` is not specified: If multiple frequencies are available for the seriesId, data is returned at the highest frequency (e.g., monthly over quarterly). If only one frequency is available, data is returned at that frequency.
+      explode: true
+      in: query
+      name: frequency
+      required: false
+      schema:
+        enum:
+        - D
+        - W
+        - M
+        - Q
+        - "Y"
+        example: D
+        type: string
+      style: form
+    referenceType:
+      description: |
+        Specifies the type of reference data to return. The supported values are:
+
+        - `INDICATORS`: Returns available economic indicator codes for use with the `indicator` filter.
+        - `COUNTRIES`: Returns supported country codes for use with the `countryCode` filter.
+        - `FDS_CODES`: Returns available FDS codes.
+        - `TIMEZONES`: Returns supported timezone values for use with the `timeZone` filter.
+      explode: true
+      in: query
+      name: type
+      required: true
+      schema:
+        enum:
+        - INDICATORS
+        - COUNTRIES
+        - FDS_CODES
+        - TIMEZONES
+        example: INDICATORS
+        type: string
+      style: form
+    includeWeekends:
+      description: Returned daily counts include weekends by default. Set this to
+        `false` to exclude weekends.
+      explode: true
+      in: query
+      name: includeWeekends
+      required: false
+      schema:
+        default: true
+        type: boolean
+      style: form
+    category:
+      description: |
+        Filter series by major category. The supported categories are:
+
+        - `ECONOMICS`: Economic indicators and metrics.
+        - `INTEREST_RATES`: Interest rate data and related metrics.
+
+        Multiple categories can be provided as comma-separated values.
+      examples:
+        singleCategory:
+          summary: Single category
+          value:
+          - ECONOMICS
+        multipleCategories:
+          summary: Multiple categories
+          value:
+          - ECONOMICS
+          - INTEREST_RATES
+      explode: false
+      in: query
+      name: category
+      required: false
+      schema:
+        items:
+          enum:
+          - ECONOMICS
+          - INTEREST_RATES
+          type: string
+        type: array
+      style: form
+    paginationLimit:
+      description: |
+        Maximum number of results to return per page. If not specified, the default page size is applied.
+      explode: true
+      in: query
+      name: _paginationLimit
+      required: false
+      schema:
+        default: 25
+        example: 25
+        format: int32
+        maximum: 1000
+        minimum: 1
+        type: integer
+      style: form
+    paginationOffset:
+      description: |
+        Number of results to skip before returning the first result. Used for pagination in combination with `_paginationLimit`.
+      explode: true
+      in: query
+      name: _paginationOffset
+      required: false
+      schema:
+        default: 0
+        example: 0
+        format: int32
+        minimum: 0
+        type: integer
+      style: form
+    economicEventFields:
+      description: |
+        Comma-separated list of fields to include in the `items` array for each event. Common event fields (`requestedFdsCode`, `eventName`, `countryCode`, `indicator`) are always returned. When omitted, all available fields in the items array are returned.
+
+        **Available fields (for items array):**
+        | Field | Description |
+        |---|---|
+        | `eventDateTime` | Scheduled release date and time (UTC) |
+        | `period` | Reference period covered by the data |
+        | `actual` | Released actual value |
+        | `prior` | Value from the prior period |
+        | `consensus` | Consensus market estimate |
+        | `surprise` | Difference between actual and consensus |
+      examples:
+        coreOnly:
+          summary: Core value fields only
+          value:
+          - eventDateTime
+          - actual
+          - consensus
+        full:
+          summary: All item fields (default behavior)
+          value:
+          - eventDateTime
+          - period
+          - actual
+          - prior
+          - consensus
+          - surprise
+      explode: false
+      in: query
+      name: fields
+      required: false
+      schema:
+        items:
+          enum:
+          - eventDateTime
+          - period
+          - actual
+          - prior
+          - consensus
+          - surprise
+          type: string
+        maxItems: 6
+        type: array
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            malformedQueryString:
+              $ref: '#/components/examples/MalformedQueryString'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Bad Request. The request contains syntax errors or is malformed (e.g., malformed JSON, invalid protocol formatting, illegal characters in query strings). The server cannot parse the request.
+    "401":
+      content:
+        application/json:
+          examples:
+            authenticationFailed:
+              $ref: '#/components/examples/Unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Unauthenticated - API authentication failed. Ensure you have successfully generated a valid API key, included the API key in your request via Basic Auth, and the API key is valid for your IP range. For help with connectivity issues, please contact FactSet support.
+    "403":
+      content:
+        application/json:
+          examples:
+            authorizationFailed:
+              $ref: '#/components/examples/Forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Forbidden - You do not have permission to access this endpoint or resource. Your API key or account may not have the required access level. Please reach out to your FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            endpointNotFound:
+              $ref: '#/components/examples/NotFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Not Found - The requested endpoint or resource does not exist. Please verify that the endpoint path is correct, all required path parameters are provided, and the resource identifier (if any) is valid.
+    "422":
+      content:
+        application/json:
+          examples:
+            invalidDateFormat:
+              $ref: '#/components/examples/BadRequest'
+            invalidParameterValue:
+              $ref: '#/components/examples/BadRequestInvalidParameterFormat'
+            missingRequiredParameter:
+              $ref: '#/components/examples/BadRequestMissingRequiredParameter'
+            invalidEnumValue:
+              $ref: '#/components/examples/UnprocessableEntity'
+            invalidDateRange:
+              $ref: '#/components/examples/InvalidDateRange'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Unprocessable Entity - Your request data was syntactically correct but semantically invalid. This can occur for validation errors such as invalid date format, invalid parameter values, missing required parameters, invalid enum values, or invalid date ranges. Check the required parameters and their value constraints.
+    "429":
+      content:
+        application/json:
+          examples:
+            RateLimitExceeded:
+              $ref: '#/components/examples/RateLimitExceeded'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Too Many Requests - You have exceeded the allowed request rate for this API. Please wait and retry your request after some time.
+    "500":
+      content:
+        application/json:
+          examples:
+            serverError:
+              $ref: '#/components/examples/InternalServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Internal Server Error - An unexpected error occurred on the server. Please try your request again. If the problem persists, contact FactSet support and provide the error ID from the response for investigation.
+  schemas:
+    EventResponse:
+      description: Response object containing economic event records for calendar
+        view.
+      example:
+        data: []
+        meta:
+          pagination:
+            total: 0
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: List of economic events.
+          example: []
+          items:
+            $ref: '#/components/schemas/Event'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      title: Economic Events Response
+      type: object
+    Event:
+      description: Economic event with common metadata and array of release records.
+      properties:
+        requestedFdsCode:
+          description: FDS code provided in the `fdsCode` request parameter (echoed
+            back). Returns `null` if `fdsCode` was not provided in the request.
+          example: GDPQOQ@GB
+          nullable: true
+          type: string
+        countryCode:
+          description: ISO country code where the economic event occurred. Use the
+            `/meta/events?type=countries` endpoint to retrieve available country codes.
+            This field echoes the `countryCode` filter supplied in the request and
+            returns `null` when no `countryCode` filter is specified.
+          example: US
+          type: string
+        indicator:
+          description: Economic category or metric measured by this event. Use the
+            `/meta/events?type=indicators` endpoint to retrieve available indicators.
+            This field echoes the `indicator` filter supplied in the request and returns
+            `null` when no `indicator` filter is specified.
+          example: Non-Farm Payrolls
+          type: string
+        items:
+          description: Array of release records for this economic event, including
+            scheduled and historical releases.
+          example: []
+          items:
+            $ref: '#/components/schemas/EventRelease'
+          type: array
+      type: object
+    EventRelease:
+      description: A single release record for an economic event, containing scheduled
+        or historical release data.
+      properties:
+        eventDateTime:
+          description: Scheduled release date and time in UTC.
+          example: 2026-02-25T08:00:00Z
+          format: date-time
+          type: string
+        eventName:
+          description: Name of the economic event.
+          example: Non-Farm Payrolls M/M - United States
+          type: string
+        period:
+          description: Period identifier for the data covered by this release. Values
+            may represent months (e.g., "Jan", "Mar"), quarters (e.g., "Q1", "Q4"),
+            or other period formats such as "06/22", depending on the economic indicator.
+          example: Mar
+          nullable: true
+          type: string
+        actual:
+          description: Officially released value for this economic indicator, including
+            units. Returns null for upcoming events or where no official figure has
+            been published.
+          example: 0.3%
+          nullable: true
+          type: string
+        prior:
+          description: Value from the immediately preceding period (including units),
+            included for comparison with the current release. Returns null if not
+            available.
+          example: 0.2%
+          nullable: true
+          type: string
+        consensus:
+          description: Consensus market estimate for this release (including units).
+            Returns null for events without published estimates.
+          example: 0.25%
+          nullable: true
+          type: string
+        surprise:
+          description: A measure of how the actual released value compared to the
+            market consensus estimate. Returns null if either `actual` or `consensus`
+            is unavailable.
+          example: -3000
+          nullable: true
+          type: string
+      type: object
+    AsReportedEconomicsResponse:
+      description: Response object containing as-reported economic time series data
+        with series metadata to reduce duplication.
+      example:
+        data: []
+        meta:
+          pagination:
+            total: 42
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of economic series records with time series data points.
+          example: []
+          items:
+            $ref: '#/components/schemas/AsReportedEconomicsSeries'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      title: As-Reported Economics Response
+      type: object
+    AsReportedEconomicsSeries:
+      description: Economic series with common metadata and array of time series data
+        points.
+      properties:
+        seriesId:
+          description: Unique identifier for this economic data series.
+          example: 111NGDP_RPCH
+          type: string
+        countryCode:
+          description: ISO country code for the series.
+          example: US
+          type: string
+        items:
+          description: Array of time series data points containing period date and
+            value.
+          example: []
+          items:
+            $ref: '#/components/schemas/EconomicTimeSeries'
+          type: array
+      type: object
+    EconomicTimeSeries:
+      description: Economic time series data point containing the reporting period
+        and value.
+      properties:
+        periodDate:
+          description: Date representing the reporting period this data point covers,
+            in `YYYY-MM-DD` format.
+          example: 2025-07-01
+          format: date
+          type: string
+        value:
+          description: Reported value of the economic indicator for this period.
+          example: 578650
+          nullable: true
+          type: number
+        units:
+          description: Unit of measurement for the value (e.g., `Percent`, `Millions
+            of GBP`, `Thousands of Persons`).
+          example: Percent
+          nullable: true
+          type: string
+      type: object
+    EventCountResponse:
+      description: Response object containing event count summary data.
+      example:
+        data: []
+        meta:
+          pagination:
+            total: 42
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: An array of event count items.
+          example: []
+          items:
+            $ref: '#/components/schemas/EventCountItem'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      type: object
+    EventCountItem:
+      description: The total number of economic events scheduled or released on a
+        specific calendar date.
+      properties:
+        date:
+          description: The calendar date for which event counts are summarized.
+          example: 2026-02-01
+          format: date
+          type: string
+        count:
+          description: Total number of economic events scheduled or released on this
+            date. Use alongside `/economic-events` to fetch full details for high-count
+            days.
+          example: 5
+          type: integer
+      type: object
+    MetaEventsResponse:
+      description: Response object containing reference values for filtering and metadata.
+        Fields vary by reference type (indicators and countries include `name`; FDS
+        codes include `country`, `eventName`, and `sourceName`).
+      example:
+        data: []
+      properties:
+        data:
+          description: An array of reference items. Field structure depends on the
+            requested `type` parameter.
+          example: []
+          items:
+            $ref: '#/components/schemas/ReferenceItem'
+          type: array
+      title: Economic Events Reference Response
+      type: object
+    ReferenceItem:
+      description: Reference item representing either an indicator, country, FDS code,
+        or timezone. The structure depends on the requested type parameter.
+      discriminator:
+        mapping:
+          INDICATOR: '#/components/schemas/ReferenceItemIndicator'
+          COUNTRY: '#/components/schemas/ReferenceItemCountry'
+          FDS_CODE: '#/components/schemas/ReferenceItemFdsCode'
+          TIMEZONE: '#/components/schemas/ReferenceItemTimezone'
+        propertyName: itemType
+      oneOf:
+      - $ref: '#/components/schemas/ReferenceItemIndicator'
+      - $ref: '#/components/schemas/ReferenceItemCountry'
+      - $ref: '#/components/schemas/ReferenceItemFdsCode'
+      - $ref: '#/components/schemas/ReferenceItemTimezone'
+    ReferenceItemIndicator:
+      description: Reference data item for an economic indicator.
+      properties:
+        itemType:
+          $ref: '#/components/schemas/ItemTypeIndicator'
+        code:
+          description: |
+            Machine-readable code for this indicator. Use this value in filter parameters such as `indicator` when querying other endpoints (e.g., `BANKCRED`).
+          example: BANKCRED
+          type: string
+        name:
+          description: Human-readable display name for the economic indicator.
+          example: BANKING & CREDIT
+          type: string
+      required:
+      - code
+      - itemType
+      - name
+      type: object
+    ReferenceItemCountry:
+      description: Reference data item for a country.
+      properties:
+        itemType:
+          $ref: '#/components/schemas/ItemTypeCountry'
+        code:
+          description: |
+            ISO country code for this reference item. Use this value in filter parameters such as `countryCode` when querying other endpoints (e.g., `US`).
+          example: US
+          type: string
+        name:
+          description: Human-readable display name for the country.
+          example: United States
+          type: string
+      required:
+      - code
+      - itemType
+      - name
+      type: object
+    ReferenceItemFdsCode:
+      description: Reference data item for an FDS code.
+      properties:
+        itemType:
+          $ref: '#/components/schemas/ItemTypeFdsCode'
+        code:
+          description: |
+            Machine-readable FDS code for this reference item. Use this value in filter parameters such as `fdsCode` when querying other endpoints (e.g., `GDPPIQYOY@US`).
+          example: GDPPIQYOY@US
+          type: string
+        country:
+          description: Country name.
+          example: United States
+          type: string
+        eventName:
+          description: Name of the economic event associated with this FDS code.
+          example: GDP Chain Price SA Y/Y
+          type: string
+        sourceName:
+          description: Source organization or data provider.
+          example: BEA - US Bureau of Economic Analysis
+          type: string
+      required:
+      - code
+      - country
+      - eventName
+      - itemType
+      - sourceName
+      type: object
+    ReferenceItemTimezone:
+      description: Reference data item for a time zone.
+      properties:
+        itemType:
+          $ref: '#/components/schemas/ItemTypeTimezone'
+        code:
+          description: |
+            Time zone value in GMT offset format for use with the `timeZone` parameter.
+          example: GMT+09:30
+          type: string
+        description:
+          description: IANA time zone name or abbreviation representing the GMT offset.
+          example: ACT
+          type: string
+      required:
+      - code
+      - itemType
+      type: object
+    ItemTypeIndicator:
+      description: Discriminator value indicating this is an indicator reference item.
+      enum:
+      - INDICATOR
+      example: INDICATOR
+      type: string
+    ItemTypeCountry:
+      description: Discriminator value indicating this is a country reference item.
+      enum:
+      - COUNTRY
+      example: COUNTRY
+      type: string
+    ItemTypeFdsCode:
+      description: Discriminator value indicating this is an FDS code reference item.
+      enum:
+      - FDS_CODE
+      example: FDS_CODE
+      type: string
+    ItemTypeTimezone:
+      description: Discriminator value indicating this is a time zone reference item.
+      enum:
+      - TIMEZONE
+      example: TIMEZONE
+      type: string
+    ResponseMeta:
+      description: Metadata object containing pagination information for the response.
+      example:
+        pagination:
+          total: 42
+          isEstimatedTotal: false
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ResponseMeta_pagination'
+      title: Pagination Metadata
+      type: object
+    ErrorResponse:
+      description: Error response wrapper.
+      properties:
+        errors:
+          description: Collection of encountered errors.
+          example: []
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      type: object
+    ErrorObject:
+      description: Error object containing status code, error message, and detailed
+        explanation.
+      nullable: true
+      properties:
+        id:
+          description: Unique error instance identifier for tracking purposes.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          format: uuid
+          type: string
+        code:
+          description: Machine-readable error code indicating the error category.
+            Common values are Bad Request, ValidationError, Forbidden, Not Found,
+            Unsupported Media Type, Too Many Requests, Internal Server Error.
+          example: Bad Request
+          type: string
+        title:
+          description: The plain text error message.
+          example: Invalid Parameter Format
+          type: string
+        detail:
+          description: Detailed error description with actionable guidance.
+          example: 'The `startDate` parameter must be in YYYY-MM-DD format. Received:
+            02/01/2026'
+          type: string
+      type: object
+    MetaSeriesResponse:
+      description: Response object containing economic series metadata.
+      example:
+        data: []
+        meta:
+          pagination:
+            total: 42
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of economic series records.
+          example: []
+          items:
+            $ref: '#/components/schemas/SeriesMetadata'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      title: Series Metadata Response
+      type: object
+    SeriesMetadata:
+      description: Economic series metadata including identifier, name, classification,
+        hierarchy path, and associated FDS codes.
+      properties:
+        seriesId:
+          description: Unique series identifier for this economic data series. Pass
+            this as the `seriesId` parameter in the `/as-reported-economics` endpoint
+            to retrieve time series data.
+          example: ABMI
+          type: string
+        seriesName:
+          description: Display name of the economic series.
+          example: GDP at Market Prices, Chain Volume, 2019 Prices, SA - United Kingdom
+          type: string
+        fdsCodes:
+          description: One or more FDS codes associated with this economic series.
+          example:
+          - GDPQOQ@GB
+          items:
+            type: string
+          type: array
+        category:
+          description: Category classification for this economic series. Examples
+            include Economic and Commodities, Interest Rates.
+          example: Economic and Commodities
+          type: string
+        subcategory:
+          description: Name of the deepest subcategory level for this economic series.
+          example: Income
+          type: string
+        subcategoryCode:
+          description: Two-letter classification code for the subcategory.
+          example: AB
+          type: string
+        countryCodes:
+          description: List of ISO country codes for which this series has data.
+          example:
+          - GB
+          items:
+            type: string
+          type: array
+      type: object
+    ResponseMeta_pagination:
+      description: Pagination details for the response.
+      example:
+        total: 42
+        isEstimatedTotal: false
+      properties:
+        total:
+          description: Total number of entries in the result set.
+          example: 42
+          format: int32
+          type: integer
+        isEstimatedTotal:
+          description: Flag indicating that the value of `total` is estimated.
+          example: false
+          type: boolean
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

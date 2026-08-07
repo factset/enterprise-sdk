@@ -7,6 +7,14 @@ README.md
 docs/Aum.md
 docs/AumRequest.md
 docs/AumResponse.md
+docs/Batch.md
+docs/BatchErrorObject.md
+docs/BatchErrorResponse.md
+docs/BatchProcessingApi.md
+docs/BatchResult.md
+docs/BatchResultResponse.md
+docs/BatchStatus.md
+docs/BatchStatusResponse.md
 docs/BenchmarkDetails.md
 docs/BenchmarkDetailsRequest.md
 docs/BenchmarkDetailsResponse.md
@@ -118,6 +126,7 @@ git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
+src/api/BatchProcessingApi.js
 src/api/DistributionsApi.js
 src/api/FundFlowsAUMApi.js
 src/api/GroupHoldingsApi.js
@@ -130,6 +139,13 @@ src/index.js
 src/model/Aum.js
 src/model/AumRequest.js
 src/model/AumResponse.js
+src/model/Batch.js
+src/model/BatchErrorObject.js
+src/model/BatchErrorResponse.js
+src/model/BatchResult.js
+src/model/BatchResultResponse.js
+src/model/BatchStatus.js
+src/model/BatchStatusResponse.js
 src/model/BenchmarkDetails.js
 src/model/BenchmarkDetailsRequest.js
 src/model/BenchmarkDetailsResponse.js

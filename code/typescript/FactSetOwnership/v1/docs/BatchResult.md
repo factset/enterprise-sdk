@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 **isDerivative** | **Boolean** | Returns a Derivative/Non-Derivative flag for the transactions that occurred between the specified start and end dates. Returns true for Derivative and false for Non-Derivative. | [optional] 
 **isDirect** | **Boolean** | Returns a direct/indirect flag for the transactions that occurred between the specified start and end dates. | [optional] 
 **tradeType** | **String** | Returns an acquisition/disposition flag for the transactions that occurred between the specified start and end dates. | [optional] 
+**transactionCode** | **String** | Returns the transaction detail code for the transaction. | [optional] 
+**transactionCodeDescription** | **String** | Returns the description of the transaction detail code for the transaction. | [optional] 
 **formType** | **String** | Returns the form types for the transactions that occurred between the specified start and end dates. | [optional] 
 **transactionDate** | **String** | Returns the transaction dates for the transactions that occurred between the specified start and end dates. | [optional] 
 **sharesOwned** | **Number** | Returns the shares owned data for the transactions that occurred between the specified start and end dates. | [optional] 
@@ -41,6 +43,11 @@ Name | Type | Description | Notes
 **marketVal** | **Number** | Returns market value data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
 **periodOfMeasure** | **String** | Returns the range over which the code calculates change for Percent Ownership and Position Change. | [optional] 
 **reportDate** | **Date** | Returns the report date for the transactions that occurred between the specified start and end dates. | [optional] 
-**asOfDate** | **Date** | Date on which the specified data or information is accurate or relevant. | [optional] 
+**asOfDate** | **Date** | Date as of which the ownership data is current. | [optional] 
+**sharesOutstanding** | **Number** | Number of shares outstanding for the security. | [optional] 
+**percentTotalOutstanding** | **Number** | Position held as a percentage of the total outstanding shares of the security. | [optional] 
+**percentInstitutionalOutstanding** | **Number** | Position held by institutional holders as a percentage of total outstanding shares. | [optional] 
+**percentTopTenInstitutional** | **Number** | Position held by the top 10 institutional holders as a percentage of total outstanding shares. | [optional] 
+**percentInsiderOutstanding** | **Number** | Position held by insiders as a percentage of total outstanding shares. | [optional] 
 
 

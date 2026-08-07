@@ -70,7 +70,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
             SMDeleteParameters(
                 security_name="security_name_example",
                 location="location_example",
-                asofdate="asofdate_example",
+                as_of_date="as_of_date_example",
                 security_type="BOND",
             ),
         ],
@@ -284,7 +284,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
             SMRetrieveParameters(
                 security_name="security_name_example",
                 location="location_example",
-                asofdate="asofdate_example",
+                as_of_date="as_of_date_example",
                 security_type="BOND",
                 fields="fields_example",
             ),
@@ -598,7 +598,7 @@ with fds.sdk.SecurityModeling.ApiClient(configuration) as api_client:
             SMCreateParameters(
                 security_name="security_name_example",
                 location="location_example",
-                asofdate="asofdate_example",
+                as_of_date="as_of_date_example",
                 fields=FieldsMap(
                     key=None,
                 ),

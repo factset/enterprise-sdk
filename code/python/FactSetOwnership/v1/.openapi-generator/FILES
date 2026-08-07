@@ -12,6 +12,7 @@ docs/BatchResult.md
 docs/BatchResultResponse.md
 docs/BatchStatus.md
 docs/BatchStatusResponse.md
+docs/CompanyReportsApi.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Frequency.md
@@ -20,6 +21,7 @@ docs/FundHoldingsApi.md
 docs/FundHoldingsRequest.md
 docs/FundHoldingsResponse.md
 docs/HolderType.md
+docs/IdCompanyReports.md
 docs/IdFundHoldings.md
 docs/IdHolders.md
 docs/IdTransactions.md
@@ -31,6 +33,14 @@ docs/InstitutionalTransactions.md
 docs/InstitutionalTransactionsRequest.md
 docs/InstitutionalTransactionsRequestData.md
 docs/InstitutionalTransactionsResponse.md
+docs/Meta.md
+docs/MetaRequest.md
+docs/OwnershipSummary.md
+docs/OwnershipSummaryRequest.md
+docs/OwnershipSummaryRequestData.md
+docs/OwnershipSummaryResponse.md
+docs/Pagination.md
+docs/PaginationRequest.md
 docs/PeriodOfMeasure.md
 docs/RowExclusion.md
 docs/SecurityHolders.md
@@ -49,6 +59,7 @@ fds/__init__.py
 fds/sdk/FactSetOwnership/__init__.py
 fds/sdk/FactSetOwnership/api/__init__.py
 fds/sdk/FactSetOwnership/api/batch_processing_api.py
+fds/sdk/FactSetOwnership/api/company_reports_api.py
 fds/sdk/FactSetOwnership/api/fund_holdings_api.py
 fds/sdk/FactSetOwnership/api/security_holders_api.py
 fds/sdk/FactSetOwnership/api/short_interest_api.py
@@ -72,6 +83,7 @@ fds/sdk/FactSetOwnership/model/fund_holding.py
 fds/sdk/FactSetOwnership/model/fund_holdings_request.py
 fds/sdk/FactSetOwnership/model/fund_holdings_response.py
 fds/sdk/FactSetOwnership/model/holder_type.py
+fds/sdk/FactSetOwnership/model/id_company_reports.py
 fds/sdk/FactSetOwnership/model/id_fund_holdings.py
 fds/sdk/FactSetOwnership/model/id_holders.py
 fds/sdk/FactSetOwnership/model/id_transactions.py
@@ -83,6 +95,14 @@ fds/sdk/FactSetOwnership/model/institutional_transactions.py
 fds/sdk/FactSetOwnership/model/institutional_transactions_request.py
 fds/sdk/FactSetOwnership/model/institutional_transactions_request_data.py
 fds/sdk/FactSetOwnership/model/institutional_transactions_response.py
+fds/sdk/FactSetOwnership/model/meta.py
+fds/sdk/FactSetOwnership/model/meta_request.py
+fds/sdk/FactSetOwnership/model/ownership_summary.py
+fds/sdk/FactSetOwnership/model/ownership_summary_request.py
+fds/sdk/FactSetOwnership/model/ownership_summary_request_data.py
+fds/sdk/FactSetOwnership/model/ownership_summary_response.py
+fds/sdk/FactSetOwnership/model/pagination.py
+fds/sdk/FactSetOwnership/model/pagination_request.py
 fds/sdk/FactSetOwnership/model/period_of_measure.py
 fds/sdk/FactSetOwnership/model/row_exclusion.py
 fds/sdk/FactSetOwnership/model/security_holders.py

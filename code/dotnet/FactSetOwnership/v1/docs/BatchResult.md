@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **IsDerivative** | **bool?** | Returns a Derivative/Non-Derivative flag for the transactions that occurred between the specified start and end dates. Returns true for Derivative and false for Non-Derivative. | [optional] 
 **IsDirect** | **bool?** | Returns a direct/indirect flag for the transactions that occurred between the specified start and end dates. | [optional] 
 **TradeType** | **string** | Returns an acquisition/disposition flag for the transactions that occurred between the specified start and end dates. | [optional] 
+**TransactionCode** | **string** | Returns the transaction detail code for the transaction. | [optional] 
+**TransactionCodeDescription** | **string** | Returns the description of the transaction detail code for the transaction. | [optional] 
 **FormType** | **string** | Returns the form types for the transactions that occurred between the specified start and end dates. | [optional] 
 **TransactionDate** | **string** | Returns the transaction dates for the transactions that occurred between the specified start and end dates. | [optional] 
 **SharesOwned** | **decimal?** | Returns the shares owned data for the transactions that occurred between the specified start and end dates. | [optional] 
@@ -42,7 +44,12 @@ Name | Type | Description | Notes
 **MarketVal** | **double?** | Returns market value data for the holders of the security whose ownership activity matches the specified change type. | [optional] 
 **PeriodOfMeasure** | **string** | Returns the range over which the code calculates change for Percent Ownership and Position Change. | [optional] 
 **ReportDate** | **DateTime?** | Returns the report date for the transactions that occurred between the specified start and end dates. | [optional] 
-**AsOfDate** | **DateTime?** | Date on which the specified data or information is accurate or relevant. | [optional] 
+**AsOfDate** | **DateTime?** | Date as of which the ownership data is current. | [optional] 
+**SharesOutstanding** | **double?** | Number of shares outstanding for the security. | [optional] 
+**PercentTotalOutstanding** | **double?** | Position held as a percentage of the total outstanding shares of the security. | [optional] 
+**PercentInstitutionalOutstanding** | **double?** | Position held by institutional holders as a percentage of total outstanding shares. | [optional] 
+**PercentTopTenInstitutional** | **double?** | Position held by the top 10 institutional holders as a percentage of total outstanding shares. | [optional] 
+**PercentInsiderOutstanding** | **double?** | Position held by insiders as a percentage of total outstanding shares. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

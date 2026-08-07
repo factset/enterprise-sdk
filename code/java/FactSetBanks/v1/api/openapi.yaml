@@ -1,0 +1,4896 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |
+    The FactSet Banks API provides comprehensive banking industry data including regulatory financials, performance metrics, branch networks, and specialized reporting across US, Canadian, and Australian institutions.
+
+    **Key Features:**
+    - Multi-jurisdiction regulatory financials (US, Canada, Australia)
+    - Unified endpoint structure for banks, credit unions, and specialty finance
+    - UBPR performance metrics and peer group analysis
+    - Branch and ATM location data with market share
+    - Country exposure and risk metrics
+    - Regulatory filings (10-D, UCC-1)
+    - Deposit rates and specialty finance reporting
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Banks API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-banks-api
+servers:
+- description: Production
+  url: https://api.factset.com/content/factset-banks/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Regulatory financial statements across jurisdictions (US, Canada, Australia)
+  name: Financials
+- description: Branch and ATM locations with geographic data and market share
+  name: Branches
+- description: UBPR ratios, performance metrics, and peer group analysis
+  name: UBPR Performance
+- description: Country exposure and risk concentration data (Form 009a)
+  name: Exposure
+- description: Regulatory filings including 10-D and UCC-1
+  name: Filings
+- description: Deposit rates and product-level pricing data
+  name: Deposit Rates
+- description: Form ADV (AUM) and FOCUS reports for specialty finance institutions
+  name: Specialty Finance
+- description: Metric definitions
+  name: Metrics
+paths:
+  /financials:
+    post:
+      description: |
+        Returns regulatory financial statements for banks and financial institutions. Use the `coverage` field to specify the data source:
+
+        * **US** — US banks, thrifts, and depository institutions (FFIEC/FDIC/Federal Reserve sources). Covers 11,000+ bank holding companies (forms FR Y-9C/SP/LP/15) and 10,000+ banking institutions (FFIEC 031/041/051/101/102), with history back to 1991 for BHCs and 2002 for institutions. Includes demographics (charter class, specialization, established and deposit-insurance dates) and 3,000+ metrics covering profitability, capital adequacy (Basel III), loan/deposit composition, asset quality, yields, and funding costs. Also includes industry aggregates for 800+ US banking institutions with annual, quarterly, LTM, and YTD data since 2010.
+        * **CANADA** — Canadian banks regulated by OSFI. 148+ institutions; 800+ data items; history since 2017. Balance sheet data is updated monthly; supplementary reports (Capital Components, Credit Losses, Derivative Contracts, Foreign Bank Branch, Income Statement) are updated quarterly.
+        * **AUSTRALIA** — Australian banks regulated by APRA. 100+ institutions, interim-period balance sheet data; LTM history since 2002; 30+ data items.
+        * **CREDIT_UNION** — US credit unions regulated by NCUA. 5,800+ credit unions, quarterly data since 2017; 2,400+ data items.
+
+        Find available metrics via [`/metrics`](#operation/getMetrics) with:
+
+        * **category**: `FINANCIALS`
+        * **subcategory**: `US`, `CANADA`, `AUSTRALIA`, `CREDIT_UNION`, `INDUSTRY`
+      operationId: getFinancials
+      requestBody:
+        content:
+          application/json:
+            examples:
+              US Bank Request:
+                $ref: '#/components/examples/FinancialsRequestUSBank'
+              Canadian Bank Request:
+                $ref: '#/components/examples/FinancialsRequestCanadianBank'
+              Australian Bank Request:
+                $ref: '#/components/examples/FinancialsRequestAustralianBank'
+              Credit Union Request:
+                $ref: '#/components/examples/FinancialsRequestCreditUnion'
+            schema:
+              $ref: '#/components/schemas/FinancialsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                US Bank Response:
+                  $ref: '#/components/examples/FinancialsResponseUSBank'
+                Canadian Bank Response:
+                  $ref: '#/components/examples/FinancialsResponseCanadianBank'
+                Australian Bank Response:
+                  $ref: '#/components/examples/FinancialsResponseAustralianBank'
+                Credit Union Response:
+                  $ref: '#/components/examples/FinancialsResponseCreditUnion'
+              schema:
+                $ref: '#/components/schemas/FinancialsResponse'
+          description: Successful response with financial statement data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns bank financial statement data
+      tags:
+      - Financials
+      x-factset-sdk-main-example: true
+      x-contentType: application/json
+      x-accepts: application/json
+  /branches:
+    post:
+      description: |
+        Returns branch and location data for banks and financial institutions. Use the `coverage` field to specify the data source:
+
+        * **US** — FDIC-insured bank branches with branch counts and deposit market share by county, ZIP, and MSA. 85,000+ current branches across 9,000+ banks and BHCs. Sourced from the FDIC Summary of Deposits (annual) and Institutions and Locations (weekly). Current-only feed; deposit balances as of the most recent June 30.
+        * **CREDIT_UNION** — US credit union branches and ATMs with service flags. 5,800+ credit unions, 21,000+ branches, and 17,000+ ATM addresses; reported quarterly since September 2022.
+        * **AUSTRALIA** — Service channel locations with remoteness classifications. 149+ banks; 30,000+ branches, 47,000+ ATMs, 6,600+ other face-to-face, and 4.9M+ EFTPOS channels. Annual data as of June 30.
+        * **GLOBAL** — Global bank branches and ATMs ex-US with country, region, city, lat/long, postal, and street details where available. 300,000+ banks, 800,000+ locations, 180+ countries. Current-only feed.
+      operationId: getBranches
+      requestBody:
+        content:
+          application/json:
+            examples:
+              US Bank Branches:
+                $ref: '#/components/examples/BranchesRequestUSBank'
+              Credit Union Branches:
+                $ref: '#/components/examples/BranchesRequestCreditUnion'
+              Australia Branches:
+                $ref: '#/components/examples/BranchesRequestAustralia'
+              Global Branches:
+                $ref: '#/components/examples/BranchesRequestGlobal'
+            schema:
+              $ref: '#/components/schemas/BranchesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                US Bank Branches:
+                  $ref: '#/components/examples/USBranchesResponseExample'
+                Credit Union Branches:
+                  $ref: '#/components/examples/CUBranchesResponseExample'
+                Australia Bank Branches:
+                  $ref: '#/components/examples/AustraliaBranchesResponseExample'
+                Global Bank Branches:
+                  $ref: '#/components/examples/GlobalBranchesResponseExample'
+              schema:
+                $ref: '#/components/schemas/BranchesResponse'
+          description: Branch and location data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns bank branch and location data
+      tags:
+      - Branches
+      x-contentType: application/json
+      x-accepts: application/json
+  /ubpr:
+    post:
+      description: |
+        Returns Uniform Bank Performance Report (UBPR) metrics — financial ratios, peer group rankings, and performance analytics — sourced from FFIEC reports of condition and income (call reports). Supports analysis of earnings, liquidity, capital, asset/liability management, and growth across three data views: the bank's own data, peer group data (banks similar in size and economic environment), and percentile rankings.
+
+        Covers 10,000+ insured commercial banks and FDIC-supervised savings banks across 249 peer groups. Quarterly history since 2002; 1,600+ data items.
+
+        Find available metrics via [`/metrics`](#operation/getMetrics) with:
+
+        * **category**: `PERFORMANCE`
+        * **subcategory**: `UBPR`
+      operationId: getPerformance
+      requestBody:
+        content:
+          application/json:
+            examples:
+              UBPR Performance Request:
+                $ref: '#/components/examples/PerformanceRequestExample'
+            schema:
+              $ref: '#/components/schemas/PerformanceRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UBPR Performance - Peer Group Rankings:
+                  $ref: '#/components/examples/PerformanceResponseExample'
+                UBPR Performance - Institution Ratios:
+                  $ref: '#/components/examples/PerformanceInstitutionResponseExample'
+              schema:
+                $ref: '#/components/schemas/PerformanceResponse'
+          description: Performance metrics data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns UBPR performance metrics
+      tags:
+      - UBPR Performance
+      x-contentType: application/json
+      x-accepts: application/json
+  /country-exposure:
+    post:
+      description: |
+        Returns Form 009a country exposure data — the distribution by country of claims on foreigners held by US banks — for screening countries and assessing risks in US bank lending activities. Viewable by metric and by country.
+
+        Covers ~100 US commercial banks; history since 2013. Updated quarterly.
+
+        Find available metrics via [`/metrics`](#operation/getMetrics) with:
+
+        * **category**: `EXPOSURE`
+        * **subcategory**: `COUNTRY`
+      operationId: getCountryExposure
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Country Exposure Request:
+                $ref: '#/components/examples/ExposureRequestExample'
+            schema:
+              $ref: '#/components/schemas/ExposureRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Country Exposure:
+                  $ref: '#/components/examples/ExposureResponseExample'
+              schema:
+                $ref: '#/components/schemas/ExposureResponse'
+          description: Country exposure data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns country exposure data (Form 009a)
+      tags:
+      - Exposure
+      x-contentType: application/json
+      x-accepts: application/json
+  /ten-d:
+    post:
+      description: |
+        Returns SEC Form 10-D distribution reports for bank-issued asset-backed securities — pool performance and credit enhancement data including payments received, delinquencies, defaults, and cash flow distributions. Offers more frequent (monthly) insight into credit card receivables than 8-K/10-K filings.
+
+        Covers credit cards (110 data items) and auto loans (254 data items). History since 2017. Updated monthly.
+
+        Find available metrics via [`/metrics`](#operation/getMetrics) with:
+
+        * **category**: `FILINGS`
+        * **subcategory**: `TEN_D`
+      operationId: getTenDFilings
+      requestBody:
+        content:
+          application/json:
+            examples:
+              "10-D Filing Request":
+                $ref: '#/components/examples/Filings10DRequestExample'
+            schema:
+              $ref: '#/components/schemas/TenDFilingsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "10-D Filing":
+                  $ref: '#/components/examples/Filings10DResponseExample'
+              schema:
+                $ref: '#/components/schemas/Filings10DResponse'
+          description: 10-D filing data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Form 10-D distribution reports
+      tags:
+      - Filings
+      x-contentType: application/json
+      x-accepts: application/json
+  /ucc1:
+    post:
+      description: |
+        Returns UCC-1 financing statement filings — notices filed by creditors of an interest in a debtor's personal property. Includes secured party (banking institution), debtor name, and filing details such as expiration date.
+
+        Covers 4,500+ banking institutions; history since 2002. Updated monthly.
+      operationId: getUcc1Filings
+      requestBody:
+        content:
+          application/json:
+            examples:
+              UCC-1 Filing Request:
+                $ref: '#/components/examples/FilingsUCC1RequestExample'
+            schema:
+              $ref: '#/components/schemas/Ucc1FilingsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                UCC-1 Filing:
+                  $ref: '#/components/examples/FilingsUCC1ResponseExample'
+              schema:
+                $ref: '#/components/schemas/FilingsUCC1Response'
+          description: UCC-1 filing data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns UCC-1 filings data
+      tags:
+      - Filings
+      x-contentType: application/json
+      x-accepts: application/json
+  /deposit-rates:
+    post:
+      description: |
+        Returns current and historical deposit rates from US banks and credit unions — APY, previous APY, national APY averages, terms, and minimum balances — across CD, Savings, Interest Checking, Money Market, Fixed IRA, and Variable IRA products. Identifies where banks offer better rates than geographic competitors.
+
+        Covers 500+ financial institutions (US banks, credit unions, internet banks); 40+ data items.
+      operationId: getRates
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Deposit Rates Request:
+                $ref: '#/components/examples/RatesRequestExample'
+            schema:
+              $ref: '#/components/schemas/RatesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Deposit Rates:
+                  $ref: '#/components/examples/RatesResponseExample'
+              schema:
+                $ref: '#/components/schemas/RatesResponse'
+          description: Deposit rates data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns deposit rates
+      tags:
+      - Deposit Rates
+      x-contentType: application/json
+      x-accepts: application/json
+  /aum:
+    post:
+      description: |
+        Returns SEC Form ADV assets under management data for investment advisers — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.
+
+        Form ADV history since 2017. Updated annually.
+
+        Find available metrics via [`/metrics`](#operation/getMetrics) with:
+
+        * **category**: `FINANCIALS`
+        * **subcategory**: `SPECIALTY_FINANCE`
+      operationId: getAUM
+      requestBody:
+        content:
+          application/json:
+            examples:
+              AUM Request:
+                $ref: '#/components/examples/AUMRequestExample'
+            schema:
+              $ref: '#/components/schemas/AUMRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Form ADV AUM:
+                  $ref: '#/components/examples/AUMResponseExample'
+              schema:
+                $ref: '#/components/schemas/AUMResponse'
+          description: Form ADV AUM data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns Form ADV AUM data
+      tags:
+      - Specialty Finance
+      x-contentType: application/json
+      x-accepts: application/json
+  /focus:
+    post:
+      description: |
+        Returns FOCUS report financial data for SEC-registered broker-dealers, derived from Form X-17A-5 — income statement, balance sheet, and net capital data covering financial and operating status.
+
+        Covers 3,000+ broker-dealers; 300+ data items; history since 2015. Updated annually.
+
+        Income statement data is rarely reported by filers, so it is expected that users will see income statement values populated infrequently.
+
+        Find available metrics via [`/metrics`](#operation/getMetrics) with:
+
+        * **category**: `FINANCIALS`
+        * **subcategory**: `SPECIALTY_FINANCE`
+      operationId: getFOCUS
+      requestBody:
+        content:
+          application/json:
+            examples:
+              FOCUS Request:
+                $ref: '#/components/examples/FOCUSRequestExample'
+            schema:
+              $ref: '#/components/schemas/FOCUSRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                FOCUS Report:
+                  $ref: '#/components/examples/FOCUSResponseExample'
+              schema:
+                $ref: '#/components/schemas/FOCUSResponse'
+          description: FOCUS report data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns FOCUS report data
+      tags:
+      - Specialty Finance
+      x-contentType: application/json
+      x-accepts: application/json
+  /metrics:
+    get:
+      description: |
+        Returns list of available metrics that can be used in the metrics parameter of related endpoints.
+
+        Use this endpoint to discover available financial metrics, their definitions, and metadata. Filter by category and subcategory to narrow results.
+
+        **For methodology definitions**, reference the `oaPageId` or `oaUrl` response items to launch the available methodology page.
+      operationId: getMetrics
+      parameters:
+      - description: |
+          Free-text search to filter metrics whose metric code or description contains the supplied text. Case-insensitive partial matching.
+        example: return on assets
+        explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |
+          Filter metrics by major category:
+          - **FINANCIALS** - Financial statement data, demographics, and core institution identifiers (US, Canada, Australia, Credit Union, Industry, Specialty Finance). Endpoint: `/financials`, `/aum`, `/focus`
+          - **FILINGS** - Regulatory filing data (10-D). Endpoint: `/ten-d`
+          - **PERFORMANCE** - Uniform Bank Performance Report (UBPR) metrics. Endpoint: `/ubpr`
+          - **EXPOSURE** - Country exposure data (Form 009a). Endpoint: `/country-exposure`
+        explode: true
+        in: query
+        name: category
+        required: false
+        schema:
+          enum:
+          - FINANCIALS
+          - FILINGS
+          - PERFORMANCE
+          - EXPOSURE
+          type: string
+        style: form
+      - description: |
+          Sub-category filter for the primary category:
+          - **US** - United States regulatory financials. Endpoint: `/financials`
+          - **CANADA** - Canadian OSFI regulatory financials. Endpoint: `/financials`
+          - **AUSTRALIA** - Australian regulatory financials. Endpoint: `/financials`
+          - **CREDIT_UNION** - Credit union financial data. Endpoint: `/financials`
+          - **INDUSTRY** - Industry-level financial aggregates. Endpoint: `/financials`
+          - **SPECIALTY_FINANCE** - Specialty finance industry data including FOCUS reports, Form ADV, and Business Development Corporations. Endpoint: `/aum`, `/focus`
+          - **TEN_D** - Form 10-D securitization filings. Endpoint: `/ten-d`
+          - **UBPR** - Uniform Bank Performance Report metrics. Endpoint: `/ubpr`
+          - **COUNTRY** - Country exposure metrics. Endpoint: `/country-exposure`
+        explode: true
+        in: query
+        name: subcategory
+        required: false
+        schema:
+          enum:
+          - US
+          - CANADA
+          - AUSTRALIA
+          - CREDIT_UNION
+          - INDUSTRY
+          - SPECIALTY_FINANCE
+          - TEN_D
+          - UBPR
+          - COUNTRY
+          type: string
+        style: form
+      - description: Filter by metric data type
+        explode: true
+        in: query
+        name: dataType
+        required: false
+        schema:
+          enum:
+          - string
+          - number
+          - date
+          - boolean
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Metrics Response:
+                  $ref: '#/components/examples/MetricsResponseExample'
+              schema:
+                $ref: '#/components/schemas/MetricsResponse'
+          description: Available metrics data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns available metrics and their definitions
+      tags:
+      - Metrics
+      x-accepts: application/json
+components:
+  examples:
+    badRequestRequiredParameter:
+      description: This error message occurs when the request does not include the
+        required parameters. Required parameters are indicated with a red asterisk
+        symbol in the specification file.
+      summary: Bad Request - Required Parameter Missing
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Missing Required Parameter
+          detail: The parameter 'ids' is required and may not be empty.
+    badRequestInvalidParameter:
+      description: This error message occurs when a request parameter is not recognized
+        or contains an invalid value. Please revise your request to use parameters
+        and values outlined in the specification.
+      summary: Bad Request - Invalid Parameter
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Invalid Parameter
+          detail: 'The ''coverage'' field must be one of: US, CANADA, AUSTRALIA, CREDIT_UNION'
+    badRequestMalformedJSON:
+      description: This error may be returned when the request body is specified as
+        JSON but is not in proper JSON format.
+      summary: Bad Request - Malformed JSON Request
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Malformed JSON Request
+          detail: Malformed JSON Request
+    unauthenticated:
+      description: This occurs when a user is not properly authenticated or recognized
+        by the service. Please double check the USERNAME-SERIAL and API-Key used to
+        request and ensure you are within the IP range specified for the Key.
+      summary: User Authentication Failed
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Bad Request
+          title: Authentication Failed
+          detail: User Authentication Failed.
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request an endpoint it is not
+        authorized to access. Please reach out to your FactSet Account Team for assistance
+        with authorization.
+      summary: Forbidden
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Forbidden
+          title: Authentication Failed
+          detail: USERNAME-SERIAL does not have permission to use /factset-banks/v1/{endpoint}
+    notFound:
+      description: The requested endpoint could not be found.
+      summary: Not Found
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Not Found
+          title: No endpoint found
+          detail: The requested endpoint could not be found.
+    unsupportedMediaType:
+      description: This bad request occurs when the media type passed in the request
+        is not supported. Currently the APIs only support 'application/json'.
+      summary: Unsupported Media Type
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Unsupported Media Type
+          title: Unsupported Media Type
+          detail: text/html media type is not supported. Supported media types are
+            application/json
+    unprocessableEntityDateRange:
+      description: This error occurs when startDate is after endDate.
+      summary: Validation Error - Invalid Date Range
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: ValidationError
+          title: Invalid Date Range
+          detail: startDate '2024-12-31' cannot be after endDate '2024-01-01'
+    unprocessableEntityMetricCode:
+      description: This error occurs when one or more metric codes supplied in the
+        request are not valid for the requested coverage or endpoint.
+      summary: Validation Error - Invalid Metric Code
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: ValidationError
+          title: Invalid Metric Code
+          detail: The metric 'INVALID_METRIC' is not valid. Use the /metrics endpoint
+            to retrieve available metric codes.
+    generalException:
+      description: This is the most general error that can be returned by the service.
+        Please Report Issue to FactSet.
+      summary: Internal Server Error - General Exception
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: Internal Server Error
+          title: Internal Server Error
+          detail: An unexpected error occurred. Please try again later or contact
+            FactSet support.
+    BranchesRequestUSBank:
+      summary: US Bank branches request
+      value:
+        data:
+          ids:
+          - 0016MM-E
+          coverage: US
+          marketShareType: COUNTY
+          stateCode: FL
+    BranchesRequestCreditUnion:
+      summary: Credit Union branches request
+      value:
+        data:
+          ids:
+          - 06R9SD-E
+          coverage: CREDIT_UNION
+          stateCode: MI
+          city: Mishawaka
+          locationType: BRANCH
+    BranchesRequestAustralia:
+      summary: Australia branches request
+      value:
+        data:
+          ids:
+          - NAB-AU
+          coverage: AUSTRALIA
+          stateName: Queensland
+          serviceChannelType: BRANCH
+    BranchesRequestGlobal:
+      summary: Global branches request
+      value:
+        data:
+          ids:
+          - 000CKK-E
+          coverage: GLOBAL
+          locationType: BRANCH
+    FinancialsRequestUSBank:
+      summary: US Bank financials request
+      value:
+        data:
+          ids:
+          - 000SV1-E
+          coverage: US
+          periodicity: ANN
+          startDate: 2017-09-01
+          endDate: 2018-03-01
+          metrics:
+          - FB_ASSETS
+          currency: USD
+    FinancialsRequestCreditUnion:
+      summary: Credit Union financials request
+      value:
+        data:
+          ids:
+          - 05G9TD-E
+          coverage: CREDIT_UNION
+          periodicity: ANN
+          startDate: 2022-01-01
+          endDate: 2022-12-31
+          metrics:
+          - BS_LIAB_SHR_EQ_TOT
+          currency: USD
+    FinancialsRequestCanadianBank:
+      summary: Canadian Bank financials request
+      value:
+        data:
+          ids:
+          - BMO-CA
+          coverage: CANADA
+          periodicity: ANN
+          startDate: 2018-01-01
+          endDate: 2018-12-31
+          metrics:
+          - bs_fc_mtge_nres
+          - bs_fc_mtge_res
+          currency: CAD
+    FinancialsRequestAustralianBank:
+      summary: Australian Bank financials request
+      value:
+        data:
+          ids:
+          - NAB-AU
+          coverage: AUSTRALIA
+          periodicity: ANN
+          startDate: 2019-01-01
+          endDate: 2019-12-31
+          metrics:
+          - BS_CASH_DEP_FINS_INST
+          currency: AUD
+    FinancialsResponseUSBank:
+      summary: US Bank financials response
+      value:
+        data:
+        - requestId: 000SV1-E
+          entityProperName: The Old Point National Bank of Phoebus
+          factsetEntityId: 000SV1-E
+          coverage: US
+          fiscalEndDate: 2023-12-31
+          metric: FB_ASSETS
+          value: 1105.266
+          currency: USD
+          description: Total Assets
+          bankTypeDescription: Bank Institution
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    MetricsResponseExample:
+      summary: Available metrics response
+      value:
+        data:
+        - metric: FB_ASSETS
+          category: FINANCIALS
+          subcategory: US
+          dataType: number
+          description: Total assets on the balance sheet from US regulatory reports
+          oaPageId: "17959"
+          oaUrl: https://my.apps.factset.com/oa/pages/17959
+        - metric: FF_ROA
+          category: PERFORMANCE
+          subcategory: UBPR
+          dataType: number
+          description: Net income divided by average total assets. UBPR performance
+            metric measuring overall profitability.
+          oaPageId: "12345"
+          oaUrl: https://my.apps.factset.com/oa/pages/12345
+        - metric: CB_CLAIMS_EXCL_DERIV_GT
+          category: EXPOSURE
+          subcategory: COUNTRY
+          dataType: number
+          description: Cross-border claims outstanding after mandated adjustments
+            for transfer of exposure (excluding derivative products)
+          oaPageId: null
+          oaUrl: null
+        - metric: PRIN_RECEIV_END
+          category: FILINGS
+          subcategory: TEN_D
+          dataType: number
+          description: Principal receivables balance at the end of the reporting period
+            from Form 10-D filings
+          oaPageId: null
+          oaUrl: null
+        - metric: FSF_FR_ASSETS
+          category: FINANCIALS
+          subcategory: SPECIALTY_FINANCE
+          dataType: number
+          description: Total assets from FOCUS Report for specialty finance institutions
+            including broker-dealers and business development corporations
+          oaPageId: null
+          oaUrl: null
+        meta:
+          pagination:
+            total: 1250
+            isEstimatedTotal: false
+    FinancialsResponseCanadianBank:
+      summary: Canadian Bank financials response
+      value:
+        data:
+        - requestId: BMO-CA
+          entityProperName: Bank of Montreal
+          factsetEntityId: 000CKX-E
+          coverage: CANADA
+          reportEndDate: 2018-02-28
+          reportPeriod: M2
+          metric: bs_fc_mtge_nres
+          value: 5985135
+          currency: CAD
+          description: Foreign Non-residential
+        - requestId: BMO-CA
+          entityProperName: Bank of Montreal
+          factsetEntityId: 000CKX-E
+          coverage: CANADA
+          reportEndDate: 2018-02-28
+          reportPeriod: M2
+          metric: bs_fc_mtge_res
+          value: 11124884
+          currency: CAD
+          description: Foreign Residential
+    FinancialsResponseAustralianBank:
+      summary: Australian Bank financials response
+      value:
+        data:
+        - requestId: NAB-AU
+          entityProperName: National Australia Bank Ltd.
+          factsetEntityId: 000QVD-E
+          coverage: AUSTRALIA
+          fiscalEndDate: 2019-01-31
+          reportDescription: Bonds, Notes and Long-Term Borrowings
+          metric: bs-bond-note-lt-bor
+          value: 35304.1
+          currency: AUD
+          description: Bonds, notes and long-term borrowings have a residual term
+            to maturity of more than one year. These include loans and debt securities.
+        - requestId: NAB-AU
+          entityProperName: National Australia Bank Ltd.
+          factsetEntityId: 000QVD-E
+          coverage: AUSTRALIA
+          fiscalEndDate: 2019-01-31
+          reportDescription: Cash and Deposits with Financial Institutions
+          metric: bs-cash-dep-fins-inst
+          value: 16476.1
+          currency: AUD
+          description: Cash and deposits with financial institutions comprise Australian
+            and foreign currency notes and coins, unallocated gold and total funds
+            on deposit at other financial institutions.
+    FinancialsResponseCreditUnion:
+      summary: Credit Union financials response
+      value:
+        data:
+        - requestId: 05G9TD-E
+          entityProperName: America's First Federal Credit Union
+          factsetEntityId: 05G9TD-E
+          coverage: CREDIT_UNION
+          fiscalEndDate: 2022-12-31
+          reportDescription: Loans & Leases
+          report: Loans and Leases
+          currency: USD
+          metric: lns-com-nsd-re
+          value: 2259035
+          description: Commercial Loans/Lines Of Credit Not Real Estate Secured
+        - requestId: 05G9TD-E
+          entityProperName: America's First Federal Credit Union
+          factsetEntityId: 05G9TD-E
+          coverage: CREDIT_UNION
+          fiscalEndDate: 2022-12-31
+          reportDescription: Loans & Leases
+          report: Loans and Leases
+          currency: USD
+          metric: lns-com-sd-re
+          value: 14869556
+          description: Commercial Loans/Lines Of Credit Real Estate Secured
+        - requestId: 05G9TD-E
+          entityProperName: America's First Federal Credit Union
+          factsetEntityId: 05G9TD-E
+          coverage: CREDIT_UNION
+          fiscalEndDate: 2022-12-31
+          reportDescription: Loan Information YTD
+          report: Loans and Leases
+          currency: USD
+          metric: lns-grant-ytd
+          value: 957781298
+          description: Loans Granted YTD
+    PerformanceRequestExample:
+      summary: UBPR performance metrics request
+      value:
+        data:
+          ids:
+          - 001QS1-E
+          periodicity: QTR
+          startDate: 2000-01-01
+          endDate: 2026-12-31
+          currency: USD
+          metrics:
+          - av_ea_aa
+          - av_liab_aa
+          - bs_accept_oth_ass
+        meta:
+          pagination:
+            limit: 10
+            offset: 0
+    PerformanceResponseExample:
+      summary: UBPR performance metrics response
+      value:
+        data:
+        - requestId: 001QS1-E
+          factsetEntityId: 001QS1-E
+          fiscalEndDate: 2023-12-31
+          metric: av-ea-aa
+          peerGroupName: Asset Peer Group Undefined
+          peerGroupRank: 43
+          value: 95.06
+        - requestId: 001QS1-E
+          factsetEntityId: 001QS1-E
+          fiscalEndDate: 2023-12-31
+          metric: av-liab-aa
+          peerGroupName: Asset Peer Group Undefined
+          peerGroupRank: 38
+          value: 62.5
+        - requestId: 001QS1-E
+          factsetEntityId: 001QS1-E
+          fiscalEndDate: 2023-12-31
+          metric: bs-accept-oth-ass
+          peerGroupName: Asset Peer Group Undefined
+          peerGroupRank: 12
+          value: 185.05
+    USBranchesResponseExample:
+      summary: US bank branches response
+      value:
+        data:
+        - requestId: 0016MM-E
+          factsetEntityId: 0016MM-E
+          coverage: US
+          branchCount: 1
+          branchType: Full service brick and mortar branch
+          totalDeposits: 103574.25
+          depositMarketSharePct: 0.531064
+          marketShareType: COUNTY
+          marketShareCode: "12021"
+          locationDescription: Florida, Collier
+        - requestId: 0016MM-E
+          factsetEntityId: 0016MM-E
+          coverage: US
+          branchCount: 3
+          branchType: Full service brick and mortar branch
+          totalDeposits: 87234.5
+          depositMarketSharePct: 0.4121
+          marketShareType: ZIP
+          marketShareCode: "34102"
+          locationDescription: Florida, Naples
+    GlobalBranchesResponseExample:
+      summary: Global bank branches response
+      value:
+        data:
+        - requestId: 000CKK-E
+          factsetEntityId: 000CKK-E
+          entityProperName: Bank of Hawaii Corp.
+          coverage: GLOBAL
+          latitude: 7.341382
+          longitude: 134.472081
+          isoCountry: PW
+          region: null
+          locationCity: Palau
+          locationPostalCode: "96940"
+          locationStreet: 340 Main Rd.
+        - requestId: 000CKK-E
+          factsetEntityId: 000CKK-E
+          entityProperName: Bank of Hawaii Corp.
+          coverage: GLOBAL
+          latitude: 13.464691
+          longitude: 144.749609
+          isoCountry: GU
+          region: null
+          locationCity: Guam
+          locationPostalCode: "96910"
+          locationStreet: 400 Route 8
+    AustraliaBranchesResponseExample:
+      summary: Australian bank branches response
+      value:
+        data:
+        - requestId: 00DY6N-E
+          factsetEntityId: 00DY6N-E
+          entityProperName: Suncorp-Metway Ltd.
+          coverage: AUSTRALIA
+          locationId: 33754
+          serviceChannelType: ATMS
+          numServiceChannel: 2
+          latitude: -19.27141
+          longitude: 146.79021
+          state: Queensland
+          remotenessArea: Outer Regional Australia
+          sa2Code: 601041022
+          address: Channel Court Shopping Centre, John Street, Townsville, Queensland,
+            4810, Australia
+        - requestId: 00DY6N-E
+          factsetEntityId: 00DY6N-E
+          entityProperName: Suncorp-Metway Ltd.
+          coverage: AUSTRALIA
+          locationId: 33812
+          serviceChannelType: BRANCH
+          numServiceChannel: 1
+          latitude: -27.470125
+          longitude: 153.021072
+          state: Queensland
+          remotenessArea: Major Cities of Australia
+          sa2Code: 305031114
+          address: Level 18, 36 Wickham Terrace, Brisbane City, Queensland, 4000,
+            Australia
+    CUBranchesResponseExample:
+      summary: Credit union branches response
+      value:
+        data:
+        - requestId: 06R9SD-E
+          entityProperName: United Federal Credit Union (Michigan)
+          factsetEntityId: 06R9SD-E
+          coverage: CREDIT_UNION
+          branchSite: Edison Lakes - Branch 34
+          atmSite: null
+          isMainOffice: false
+          hasMemberServices: true
+          hasAtm: true
+          hasDriveThru: true
+          addressId: 2606
+          siteType: BRANCH_OFFICE
+          locationCity: Mishawaka
+          stateProvince: IN
+          locationPostalCode: "46545"
+          locationStreet: 4840 N Main St
+          isoCountry: US
+          latitude: 41.703783
+          longitude: -86.182498
+    ExposureRequestExample:
+      summary: Country exposure request
+      value:
+        data:
+          ids:
+          - 000BY7-E
+          startDate: 2023-01-01
+          endDate: 2023-12-31
+          country: AU
+          currency: USD
+          metrics:
+          - CB_CLAIMS_EXCL_DERIV_GT
+          - CLAIMS_DERIV_GT
+          - CLAIMS_GT
+    ExposureResponseExample:
+      summary: Country exposure response
+      value:
+        data:
+        - requestId: 000BY7-E
+          entityProperName: American Express Co.
+          factsetEntityId: 000BY7-E
+          fiscalEndDate: 2016-06-30
+          currency: USD
+          country: AU
+          metric: CB_CLAIMS_EXCL_DERIV_GT
+          value: 1535
+          description: Amount of Cross-border Claims Outstanding After Mandated Adjustments
+            for Transfer of Exposure (excluding derivative products)
+        - requestId: 000BY7-E
+          entityProperName: American Express Co.
+          factsetEntityId: 000BY7-E
+          fiscalEndDate: 2016-06-30
+          currency: USD
+          country: AU
+          metric: CLAIMS_DERIV_GT
+          value: 145
+          description: Amount of Gross Claims Outstanding from Derivative Products
+            after Mandated Adjustments for Transfer of Exposure
+        - requestId: 000BY7-E
+          entityProperName: American Express Co.
+          factsetEntityId: 000BY7-E
+          fiscalEndDate: 2016-06-30
+          currency: USD
+          country: AU
+          metric: CLAIMS_GT
+          value: 1680
+          description: Gross Claims Outstanding after Mandated Adjustments for Transfer
+            of Exposure
+    Filings10DRequestExample:
+      summary: 10-D filing request
+      value:
+        data:
+          ids:
+          - 00DZFB-E
+          startDate: 2024-01-01
+          endDate: 2024-12-31
+          currency: USD
+          metrics:
+          - RECEIV_DELQ_1_29_PCT
+          - RECEIV_DELQ_1_29
+          - RECEIV_CURR_PCT
+    Filings10DResponseExample:
+      summary: 10-D filing response
+      value:
+        data:
+        - requestId: 00DZFB-E
+          entityProperName: Barclays Dryrock Issuance Trust
+          factsetEntityId: 00DZFB-E
+          ultimateParentProperName: Barclays PLC
+          factsetUltimateParentEntityId: 05H4C8-E
+          filingDate: 2024-10-18
+          reportingMonth: Sep
+          reportingYear: 2024
+          metric: RECEIV_DELQ_1_29_PCT
+          value: 1.702086
+          description: Receivables As % Of Pool Balance - Delinquent - 1-29 Days
+        - requestId: 00DZFB-E
+          entityProperName: Barclays Dryrock Issuance Trust
+          factsetEntityId: 00DZFB-E
+          ultimateParentProperName: Barclays PLC
+          factsetUltimateParentEntityId: 05H4C8-E
+          filingDate: 2024-10-18
+          reportingMonth: Sep
+          reportingYear: 2024
+          currency: USD
+          metric: RECEIV_DELQ_1_29
+          value: 129.624467
+          description: Receivables - Delinquent - 1-29 Days
+        - requestId: 00DZFB-E
+          entityProperName: Barclays Dryrock Issuance Trust
+          factsetEntityId: 00DZFB-E
+          ultimateParentProperName: Barclays PLC
+          factsetUltimateParentEntityId: 05H4C8-E
+          filingDate: 2024-10-18
+          reportingMonth: Sep
+          reportingYear: 2024
+          metric: RECEIV_CURR_PCT
+          value: 97.567651
+          description: Receivables As % Of Pool Balance - Current
+    FilingsUCC1RequestExample:
+      summary: UCC-1 filing request
+      value:
+        data:
+          ids:
+          - 000SV1-E
+          startDate: 2020-01-01
+          endDate: 2025-12-31
+    FilingsUCC1ResponseExample:
+      summary: UCC-1 filing response
+      value:
+        data:
+        - requestId: 000SV1-E
+          entityProperName: The Old Point National Bank of Phoebus
+          factsetEntityId: 000SV1-E
+          vendorFilingId: VA-20250411260959
+          debtorName: Jas Realty LLC
+          filingState: VA
+          effectiveDate: 2025-04-11
+          expirationDate: 2030-04-11
+        - requestId: 000SV1-E
+          entityProperName: The Old Point National Bank of Phoebus
+          factsetEntityId: 000SV1-E
+          vendorFilingId: VA-20250411260960
+          debtorName: Meadows Cmpg Inc
+          filingState: VA
+          effectiveDate: 2025-04-11
+          expirationDate: 2030-04-11
+    RatesRequestExample:
+      summary: Deposit rates request
+      value:
+        data:
+          ids:
+          - 002J58-E
+          startDate: 2020-01-01
+          endDate: 2024-12-31
+          currency: USD
+          depositProduct: Savings
+          term: 0 Month
+        meta:
+          pagination:
+            limit: 5
+    RatesResponseExample:
+      summary: Deposit rates response
+      value:
+        data:
+        - requestId: 000ZKS-E
+          factsetEntityId: 000ZKS-E
+          entityProperName: Lakeland Bancorp, Inc.
+          asOfDate: 2024-06-07
+          currency: USD
+          depositProduct: Savings
+          term: 0 Month
+          depositCategory: 10000 to 100000
+          apyRate: 0.05
+          prevApyRate: 0.05
+          nationalApyAvgRate: 1.880224
+          apyAvgRate: null
+          prevApyAvgRate: null
+          state: null
+          minDeposit: null
+          maxDeposit: null
+          onlineDesc: null
+          isSpecialOffer: null
+        - requestId: 002J58-E
+          factsetEntityId: 002J58-E
+          entityProperName: MUFG Union Bank, NA
+          asOfDate: 2023-04-14
+          currency: USD
+          depositProduct: Certificate of Deposit
+          term: 1 Year
+          depositCategory: null
+          apyRate: null
+          prevApyRate: null
+          nationalApyAvgRate: 3.40131
+          apyAvgRate: 0.1625
+          prevApyAvgRate: 0.05
+          state: null
+          minDeposit: null
+          maxDeposit: null
+          onlineDesc: null
+          isSpecialOffer: null
+    AUMRequestExample:
+      summary: Form ADV AUM request
+      value:
+        data:
+          ids:
+          - 000BJX-E
+          startDate: 2023-01-01
+          endDate: 2023-12-31
+          currency: USD
+          metrics:
+          - aum_tot
+          - aum_discre
+          - aum_hnwi
+    FOCUSRequestExample:
+      summary: FOCUS report request
+      value:
+        data:
+          ids:
+          - 000P2Z-E
+          startDate: 2010-01-01
+          endDate: 2020-12-31
+          currency: USD
+          metrics:
+          - FSF_FR_NET_CAP
+          - FSF_FR_COMMISS_FEE_INC
+          - FSF_FR_COMMISS_FEE_EXP
+    AUMResponseExample:
+      summary: Form ADV AUM response
+      value:
+        data:
+        - requestId: 000BJX-E
+          factsetEntityId: 000BJX-E
+          entityProperName: Vanguard Group Inc.
+          fiscalEndDate: 2018-12-31
+          filingDate: 2019-03-28
+          currency: USD
+          metric: aum_tot
+          value: 2512170.637
+          description: Total Assets Under Management
+          reportType: AUM
+        - requestId: 000BJX-E
+          factsetEntityId: 000BJX-E
+          entityProperName: Vanguard Group Inc.
+          fiscalEndDate: 2018-12-31
+          filingDate: 2019-03-28
+          currency: USD
+          metric: aum_discre
+          value: 2483042.049
+          description: Discretionary AUM
+          reportType: AUM
+        - requestId: 000BJX-E
+          factsetEntityId: 000BJX-E
+          entityProperName: Vanguard Group Inc.
+          fiscalEndDate: 2018-12-31
+          filingDate: 2019-03-28
+          currency: USD
+          metric: aum_hnwi
+          value: 1301011.857
+          description: AUM for High-Net-Worth Individuals
+          reportType: AUM
+    FOCUSResponseExample:
+      summary: FOCUS report response
+      value:
+        data:
+        - requestId: 000P2Z-E
+          factsetEntityId: 000P2Z-E
+          entityProperName: Jefferies Financial Group, Inc.
+          fiscalEndDate: 2019-11-30
+          currency: USD
+          metric: FSF_FR_COMMISS_FEE_EXP
+          value: 223140
+          description: Commission and Fee Expense
+          reportType: FOCUS
+        - requestId: 000P2Z-E
+          factsetEntityId: 000P2Z-E
+          entityProperName: Jefferies Financial Group, Inc.
+          fiscalEndDate: 2019-11-30
+          currency: USD
+          metric: FSF_FR_COMMISS_FEE_INC
+          value: 2202764
+          description: Commission and Fee Income
+          reportType: FOCUS
+        - requestId: 000P2Z-E
+          factsetEntityId: 000P2Z-E
+          entityProperName: Jefferies Financial Group, Inc.
+          fiscalEndDate: 2021-11-30
+          currency: USD
+          metric: FSF_FR_NET_CAP
+          value: 2230000
+          reportType: FOCUS
+          description: Net Capital
+    PerformanceInstitutionResponseExample:
+      summary: UBPR performance metrics response - institution-level ratios
+      value:
+        data:
+        - requestId: 001QS1-E
+          entityProperName: Citizens Community Bancorp Ltd.
+          factsetEntityId: 001QS1-E
+          fiscalEndDate: 2023-12-31
+          metric: av-ea-aa
+          currency: USD
+          peerGroupName: null
+          peerGroupRank: null
+          value: 95.06
+        - requestId: 001QS1-E
+          entityProperName: Citizens Community Bancorp Ltd.
+          factsetEntityId: 001QS1-E
+          fiscalEndDate: 2023-12-31
+          metric: av-liab-aa
+          currency: USD
+          peerGroupName: null
+          peerGroupRank: null
+          value: 62.5
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request - Missing Required Parameter:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+            Bad Request - Invalid Parameter:
+              $ref: '#/components/examples/badRequestInvalidParameter'
+            Bad Request - Malformed JSON:
+              $ref: '#/components/examples/badRequestMalformedJSON'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request. This can occur for several reasons. Please review
+        the "detail" for more details.
+    "401":
+      content:
+        application/json:
+          examples:
+            User Authentication - Failed:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have
+        successfully generated an API KEY for the IP range you are connecting from.
+        For more help, select the **Report Issue** in the top right corner of this
+        Developer Portal specification card and choose Connectivity 401 or 403 Responses.
+    "403":
+      content:
+        application/json:
+          examples:
+            Forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was a legal request, but the server is refusing to
+        respond. Please reach out to FactSet Account Team for assistance with authorization.
+    "404":
+      content:
+        application/json:
+          examples:
+            Not Found:
+              $ref: '#/components/examples/notFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The requested endpoint could not be found.
+    "415":
+      content:
+        application/json:
+          examples:
+            Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unsupported Media Type. This error may be returned when the caller
+        sends a resource in a format that is not accepted by the server. This can
+        be fixed by ensuring that Content-Type header is set to the correct value.
+        In this instance, "application/json" would be the appropriate value.
+    "422":
+      content:
+        application/json:
+          examples:
+            Validation Error - Invalid Date Range:
+              $ref: '#/components/examples/unprocessableEntityDateRange'
+            Validation Error - Invalid Metric Code:
+              $ref: '#/components/examples/unprocessableEntityMetricCode'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: |
+        Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+        Check the required parameters and their value constraints.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error - General Exception:
+              $ref: '#/components/examples/generalException'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error.
+  schemas:
+    Ids:
+      description: Array of security identifiers. Accepted ID types include Market
+        Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+      example:
+      - 000BDX-E
+      items:
+        type: string
+      minItems: 1
+      type: array
+    USStateCode:
+      description: Two-letter US state or territory code (ISO 3166-2:US).
+      enum:
+      - AL
+      - AK
+      - AZ
+      - AR
+      - CA
+      - CO
+      - CT
+      - DE
+      - FL
+      - GA
+      - HI
+      - ID
+      - IL
+      - IN
+      - IA
+      - KS
+      - KY
+      - LA
+      - ME
+      - MD
+      - MA
+      - MI
+      - MN
+      - MS
+      - MO
+      - MT
+      - NE
+      - NV
+      - NH
+      - NJ
+      - NM
+      - NY
+      - NC
+      - ND
+      - OH
+      - OK
+      - OR
+      - PA
+      - RI
+      - SC
+      - SD
+      - TN
+      - TX
+      - UT
+      - VT
+      - VA
+      - WA
+      - WV
+      - WI
+      - WY
+      - DC
+      - PR
+      - VI
+      - GU
+      - AS
+      - MP
+      type: string
+    FinancialsRequest:
+      description: Request body for financial data endpoints.
+      example:
+        data:
+          coverage: US
+          endDate: 2023-12-31T00:00:00.000+0000
+          periodicity: ANN
+          ids:
+          - 000BDX-E
+          currency: USD
+          metrics:
+          - FB_SM_BHC_ASSETS
+          startDate: 2023-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/FinancialsRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    PerformanceRequest:
+      description: Request body for UBPR performance metrics.
+      example:
+        data:
+          endDate: 2023-12-31T00:00:00.000+0000
+          periodicity: ANN
+          ids:
+          - 000BDX-E
+          currency: USD
+          metrics:
+          - FF_ROA
+          - FF_ROE
+          startDate: 2023-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/PerformanceRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    BranchesRequest:
+      description: Request body for bank branch and location data.
+      example:
+        data:
+          coverage: US
+          country: CA
+          locationNames:
+          - Nassau
+          - Suffolk
+          hasDriveThru: true
+          hasMemberServices: true
+          hasAtm: true
+          zipCodes:
+          - "11501"
+          - "11701"
+          city: San Francisco
+          postalCode: "94102"
+          locationType: ALL
+          marketShareType: ALL
+          maxBranchCount: 6
+          minTotalDeposits: 1000
+          stateName: New South Wales
+          countyFipsCodes:
+          - "36059"
+          - "36103"
+          maxTotalDeposits: 0.8008281904610115
+          serviceChannelType: ALL
+          ids:
+          - 000BDX-E
+          minBranchCount: 1
+          region: "ON"
+          isMainOffice: true
+          msaCodes:
+          - "35620"
+          branchTypes:
+          - Full service brick and mortar branch
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/BranchesRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    ExposureRequest:
+      description: Request body for country exposure data.
+      example:
+        data:
+          country: AU
+          endDate: 2023-12-31T00:00:00.000+0000
+          ids:
+          - 000BDX-E
+          currency: USD
+          metrics:
+          - CB_CLAIMS_EXCL_DERIV_GT
+          - CLAIMS_DERIV_GT
+          - CLAIMS_GT
+          startDate: 2023-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/ExposureRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    TenDFilingsRequest:
+      description: Request body for Form 10-D securitization filing data.
+      example:
+        data:
+          endDate: 2024-12-31T00:00:00.000+0000
+          ids:
+          - 000BDX-E
+          currency: USD
+          metrics:
+          - PRIN_RECEIV_END
+          - RECEIV_CURR
+          - RECEIV_DELQ_30_OVER
+          startDate: 2024-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/TenDFilingsRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    Ucc1FilingsRequest:
+      description: Request body for UCC-1 financing statement data.
+      example:
+        data:
+          endDate: 2024-12-31T00:00:00.000+0000
+          ids:
+          - 000BDX-E
+          filingState: VA
+          debtorName: Jas Realty LLC
+          startDate: 2024-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/Ucc1FilingsRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    RatesRequest:
+      description: Request body for deposit rate data.
+      example:
+        data:
+          endDate: 2024-12-31T00:00:00.000+0000
+          depositProduct: Savings
+          ids:
+          - 000BDX-E
+          currency: USD
+          term: 1 Year
+          startDate: 2024-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/RatesRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    AUMRequest:
+      description: Request body for Form ADV AUM data.
+      example:
+        data:
+          endDate: 2023-12-31T00:00:00.000+0000
+          ids:
+          - 000BDX-E
+          currency: USD
+          metrics:
+          - aum_tot
+          - aum_discre
+          - aum_hnwi
+          startDate: 2023-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/AUMRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    FOCUSRequest:
+      description: Request body for FOCUS report data.
+      example:
+        data:
+          endDate: 2023-12-31T00:00:00.000+0000
+          ids:
+          - 000BDX-E
+          currency: USD
+          metrics:
+          - FSF_FR_NET_CAP
+          - FSF_FR_COMMISS_FEE_INC
+          startDate: 2023-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/FOCUSRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    PaginationRequest:
+      description: Pagination parameters to control the size and offset of results
+        returned.
+      example:
+        offset: 0
+        limit: 801
+      properties:
+        limit:
+          default: 100
+          description: Maximum number of results to return per request.
+          format: int32
+          maximum: 10000
+          minimum: 1
+          type: integer
+        offset:
+          default: 0
+          description: Number of results to skip. Use with limit for paging through
+            results.
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+    RequestMeta:
+      description: Optional request metadata for pagination control.
+      example:
+        pagination:
+          offset: 0
+          limit: 801
+      properties:
+        pagination:
+          $ref: '#/components/schemas/PaginationRequest'
+      type: object
+    CurrencyCode:
+      description: Currency code (ISO 4217). For a list of currency codes, see [OA
+        Page 1470](https://my.apps.factset.com/oa/pages/1470).
+      example: USD
+      maxLength: 3
+      minLength: 3
+      nullable: true
+      type: string
+    EntityIdentification:
+      additionalProperties: true
+      description: Common entity identification fields.
+      properties:
+        entityProperName:
+          description: Institution legal name
+          example: JPMorgan Chase Bank, National Association
+          nullable: true
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 000BDX-E
+          nullable: true
+          type: string
+      type: object
+    MetricValueBase:
+      additionalProperties: true
+      description: Common fields for metric-based data.
+      properties:
+        metric:
+          description: Metric code
+          example: FB_ASSETS
+          nullable: true
+          type: string
+        value:
+          description: Metric value
+          example: 1234567.89
+          nullable: true
+          type: number
+        description:
+          description: Detailed description of the metric
+          nullable: true
+          type: string
+      type: object
+    StartDateFiscal:
+      description: |
+        Filters for fiscal periods ending on or after this date in YYYY-MM-DD format.
+        Use with `endDate` for a date range, or alone to return all periods from this date forward.
+        If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+      example: 2023-01-01
+      format: date
+      type: string
+    EndDateFiscal:
+      description: |
+        Filters for fiscal periods ending on or before this date in YYYY-MM-DD format.
+        Use with `startDate` for a date range, or alone to return the most recent period on or before this date.
+        If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+      example: 2023-12-31
+      format: date
+      type: string
+    StartDateFiling:
+      description: |
+        Filters for filings with a `filingDate` on or after this date in YYYY-MM-DD format.
+        Use with `endDate` for a date range, or alone to return all filings from this date forward.
+        If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+      example: 2024-01-01
+      format: date
+      type: string
+    EndDateFiling:
+      description: |
+        Filters for filings with a `filingDate` on or before this date in YYYY-MM-DD format.
+        Use with `startDate` for a date range, or alone to return the most recent filings on or before this date.
+        If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+      example: 2024-12-31
+      format: date
+      type: string
+    StartDateUCC1:
+      description: |
+        Filters for UCC-1 filings with an `effectiveDate` on or after this date in YYYY-MM-DD format.
+        Use with `endDate` for a date range, or alone to return all filings from this date forward.
+        If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+      example: 2024-01-01
+      format: date
+      type: string
+    EndDateUCC1:
+      description: |
+        Filters for UCC-1 filings with an `effectiveDate` on or before this date in YYYY-MM-DD format.
+        Use with `startDate` for a date range, or alone to return all filings up to this date.
+        If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+      example: 2024-12-31
+      format: date
+      type: string
+    StartDateRates:
+      description: |
+        Filters for deposit rate records with an `asOfDate` on or after this date in YYYY-MM-DD format.
+        Use with `endDate` for a date range, or alone to return all records from this date forward.
+        If both `startDate` and `endDate` are omitted, the most recent available rates are returned.
+      example: 2024-01-01
+      format: date
+      type: string
+    EndDateRates:
+      description: |
+        Filters for deposit rate records with an `asOfDate` on or before this date in YYYY-MM-DD format.
+        Use with `startDate` for a date range, or alone to return the most recent rates on or before this date.
+        If both `startDate` and `endDate` are omitted, the most recent available rates are returned.
+      example: 2024-12-31
+      format: date
+      type: string
+    Pagination:
+      description: Pagination metadata for the response.
+      example:
+        total: 2500
+        isEstimatedTotal: false
+      properties:
+        total:
+          description: Total number of records available for the query.
+          example: 2500
+          format: int32
+          type: integer
+        isEstimatedTotal:
+          description: Whether the total count is an estimate. False indicates an
+            exact count.
+          example: false
+          type: boolean
+      required:
+      - isEstimatedTotal
+      - total
+      type: object
+    Meta:
+      description: Response metadata including pagination and request tracking information.
+      example:
+        requestedIds: 5
+        pagination:
+          total: 2500
+          isEstimatedTotal: false
+        failedIds:
+        - INVALID-ID-1
+        - INVALID-ID-2
+        - INVALID-ID-3
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        requestedIds:
+          description: Total number of identifiers submitted in the request.
+          example: 5
+          format: int32
+          type: integer
+        failedIds:
+          description: Identifiers from the request that failed (invalid format, empty,
+            or not found). Empty array when all submitted identifiers resolved successfully.
+          example:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+          items:
+            type: string
+          type: array
+      required:
+      - pagination
+      type: object
+    FinancialsResponse:
+      description: Response containing regulatory financial statement data.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: Array of financial metrics, one row per metric
+          items:
+            $ref: '#/components/schemas/Financial'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    PerformanceResponse:
+      description: Response containing UBPR performance metrics.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: Array of UBPR performance metrics. Returns data from three
+            sources — institution ratios, peer group rankings, and peer group statistics.
+            Each row represents one metric for one entity/peer group and time period.
+          items:
+            $ref: '#/components/schemas/Performance'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    BranchesResponse:
+      description: Response containing branch and location data.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of branch and location data. Structure varies by coverage type:
+            * **US** — Aggregated branch counts and deposit market share by geographic area
+            * **CREDIT_UNION** — Individual credit union branch/ATM locations
+            * **AUSTRALIA** — Individual service channel locations
+            * **GLOBAL** — Individual branch locations (ex-US)
+          items:
+            $ref: '#/components/schemas/Branch'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    ExposureResponse:
+      description: Response containing country exposure data from FFIEC Form 009a.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of country exposure data from FFIEC Form 009a. Each row represents one metric for one country.
+
+            Data is returned in a flat structure with one row per entity-country-metric combination.
+          items:
+            $ref: '#/components/schemas/Exposure'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    Filings10DResponse:
+      description: Response containing Form 10-D securitization distribution report
+        data.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of Form 10-D securitization distribution report data. Each row represents one metric for one filing period.
+
+            Data is returned in a flat structure with one row per entity-filing-metric combination.
+          items:
+            $ref: '#/components/schemas/Filing10D'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    FilingsUCC1Response:
+      description: Response containing UCC-1 financing statement data.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of UCC-1 financing statement filings. Each row represents one financing statement.
+
+            Data includes secured party (bank/lender) and debtor information with filing details.
+          items:
+            $ref: '#/components/schemas/FilingUCC1'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    RatesResponse:
+      description: Response containing deposit rate data.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of deposit rate data. Structure varies based on data type:
+            - **Product rates by balance tier**: One row per product-term-balance tier combination
+            - **Average product rates**: One row per product-term combination
+            - **Location-specific rates**: One row per product-term-state-deposit range combination
+          items:
+            $ref: '#/components/schemas/Rate'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    AUMResponse:
+      description: Response containing Form ADV AUM data.
+      example:
+        data:
+        - reportType: AUM
+          factsetEntityId: 000BJX-E
+          metric: aum_tot
+          filingDate: 2019-03-28T00:00:00.000+0000
+          requestId: 000BJX-E
+          entityProperName: Vanguard Group Inc.
+          description: Total Assets Under Management
+          currency: USD
+          value: 2512170.637
+          fiscalEndDate: 2018-12-31T00:00:00.000+0000
+        - reportType: AUM
+          factsetEntityId: 000BJX-E
+          metric: aum_tot
+          filingDate: 2019-03-28T00:00:00.000+0000
+          requestId: 000BJX-E
+          entityProperName: Vanguard Group Inc.
+          description: Total Assets Under Management
+          currency: USD
+          value: 2512170.637
+          fiscalEndDate: 2018-12-31T00:00:00.000+0000
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of Form ADV AUM metrics. Each row represents one metric for an entity and period.
+          items:
+            $ref: '#/components/schemas/SpecialtyFinanceAUM'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    FOCUSResponse:
+      description: Response containing FOCUS report data.
+      example:
+        data:
+        - reportType: FOCUS
+          factsetEntityId: 000P2Z-E
+          metric: FSF_FR_NET_CAP
+          requestId: 000P2Z-E
+          entityProperName: Jefferies Financial Group, Inc.
+          description: Net Capital
+          currency: USD
+          value: 2230000
+          fiscalEndDate: 2019-11-30T00:00:00.000+0000
+        - reportType: FOCUS
+          factsetEntityId: 000P2Z-E
+          metric: FSF_FR_NET_CAP
+          requestId: 000P2Z-E
+          entityProperName: Jefferies Financial Group, Inc.
+          description: Net Capital
+          currency: USD
+          value: 2230000
+          fiscalEndDate: 2019-11-30T00:00:00.000+0000
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of FOCUS report metrics. Each row represents one metric for a broker-dealer and period.
+          items:
+            $ref: '#/components/schemas/SpecialtyFinanceFOCUS'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    USCoverage:
+      description: Coverage identifier for US banks, thrifts, and depository institutions
+        (FFIEC/FDIC)
+      enum:
+      - US
+      example: US
+      type: string
+    CanadaCoverage:
+      description: Coverage identifier for Canadian banks regulated by OSFI
+      enum:
+      - CANADA
+      example: CANADA
+      type: string
+    AustraliaCoverage:
+      description: Coverage identifier for Australian banks regulated by APRA
+      enum:
+      - AUSTRALIA
+      example: AUSTRALIA
+      type: string
+    CreditUnionCoverage:
+      description: Coverage identifier for US credit unions regulated by NCUA
+      enum:
+      - CREDIT_UNION
+      example: CREDIT_UNION
+      type: string
+    GlobalCoverage:
+      description: Coverage identifier for global branch location data
+      enum:
+      - GLOBAL
+      example: GLOBAL
+      type: string
+    AUMReportType:
+      description: Report type identifier for Form ADV assets under management
+      enum:
+      - AUM
+      example: AUM
+      type: string
+    FOCUSReportType:
+      description: Report type identifier for FOCUS report financial data
+      enum:
+      - FOCUS
+      example: FOCUS
+      type: string
+    USFinancial:
+      additionalProperties: true
+      description: A single row of US regulatory financial data for one entity, period,
+        and metric.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: 000SV1-E
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: JPMorgan Chase Bank, National Association
+          nullable: true
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 000BDX-E
+          nullable: true
+          type: string
+        metric:
+          description: Metric code
+          example: FB_ASSETS
+          nullable: true
+          type: string
+        value:
+          description: Metric value
+          example: 1234567.89
+          nullable: true
+          type: number
+        description:
+          description: Detailed description of the metric
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/USCoverage'
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        bankTypeDescription:
+          description: Bank type description
+          example: Bank Institution
+          nullable: true
+          type: string
+        fiscalEndDate:
+          description: Fiscal period end date in YYYY-MM-DD format
+          example: 2023-12-31
+          format: date
+          nullable: true
+          type: string
+      required:
+      - coverage
+      type: object
+    CanadaFinancial:
+      additionalProperties: true
+      description: A single row of Canadian regulatory financial data for one entity,
+        period, and metric.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: BMO-CA
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: Bank of Montreal
+          nullable: true
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 000CKX-E
+          nullable: true
+          type: string
+        metric:
+          description: Metric code
+          example: bs_fc_mtge_nres
+          nullable: true
+          type: string
+        value:
+          description: Metric value
+          example: 1234567.89
+          nullable: true
+          type: number
+        description:
+          description: Detailed description of the metric
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/CanadaCoverage'
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        reportEndDate:
+          description: Date corresponding to the end of the report period in YYYY-MM-DD
+            format
+          example: 2023-12-31
+          format: date
+          nullable: true
+          type: string
+        reportPeriod:
+          description: 'Period used in the report. Format: `M#` where `#` is the month
+            number (e.g., `M1` for January, `M12` for December).'
+          example: M2
+          nullable: true
+          type: string
+      required:
+      - coverage
+      type: object
+    AustraliaFinancial:
+      additionalProperties: true
+      description: A single row of Australian regulatory financial data for one entity,
+        period, and metric.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: NAB-AU
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: National Australia Bank Ltd.
+          nullable: true
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 000QVD-E
+          nullable: true
+          type: string
+        metric:
+          description: Metric code
+          example: bs-bond-note-lt-bor
+          nullable: true
+          type: string
+        value:
+          description: Metric value
+          example: 1234567.89
+          nullable: true
+          type: number
+        description:
+          description: Detailed description of the metric
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/AustraliaCoverage'
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        fiscalEndDate:
+          description: Fiscal period end date in YYYY-MM-DD format
+          example: 2023-12-31
+          format: date
+          nullable: true
+          type: string
+        reportDescription:
+          description: Standardized line item description from the source report
+          example: Bonds, Notes and Long-Term Borrowings
+          nullable: true
+          type: string
+      required:
+      - coverage
+      type: object
+    CreditUnionFinancial:
+      additionalProperties: true
+      description: A single row of US credit union regulatory financial data for one
+        entity, period, and metric.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: 05G9TD-E
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: America's First Federal Credit Union
+          nullable: true
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 05G9TD-E
+          nullable: true
+          type: string
+        metric:
+          description: Metric code
+          example: lns-com-nsd-re
+          nullable: true
+          type: string
+        value:
+          description: Metric value
+          example: 1234567.89
+          nullable: true
+          type: number
+        description:
+          description: Detailed description of the metric
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/CreditUnionCoverage'
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        fiscalEndDate:
+          description: Fiscal period end date in YYYY-MM-DD format
+          example: 2022-12-31
+          format: date
+          nullable: true
+          type: string
+        reportDescription:
+          description: Standardized line item description from the source report
+          example: Loans & Leases
+          nullable: true
+          type: string
+        report:
+          description: Report code
+          example: Loans and Leases
+          nullable: true
+          type: string
+      required:
+      - coverage
+      type: object
+    Financial:
+      description: A single row of regulatory financial data for one entity, period,
+        and metric. Structure varies by coverage type.
+      discriminator:
+        mapping:
+          US: '#/components/schemas/USFinancial'
+          CANADA: '#/components/schemas/CanadaFinancial'
+          AUSTRALIA: '#/components/schemas/AustraliaFinancial'
+          CREDIT_UNION: '#/components/schemas/CreditUnionFinancial'
+        propertyName: coverage
+      oneOf:
+      - $ref: '#/components/schemas/USFinancial'
+      - $ref: '#/components/schemas/CanadaFinancial'
+      - $ref: '#/components/schemas/AustraliaFinancial'
+      - $ref: '#/components/schemas/CreditUnionFinancial'
+    Performance:
+      allOf:
+      - $ref: '#/components/schemas/Performance_allOf'
+      - $ref: '#/components/schemas/EntityIdentification'
+      - $ref: '#/components/schemas/MetricValueBase'
+      description: A single row of UBPR performance data for one entity, metric, and
+        reporting period.
+    USBranch:
+      additionalProperties: true
+      description: A single row of US bank branch count and deposit market share data
+        by geographic area.
+      properties:
+        requestId:
+          description: Request identifier
+          example: 0016MM-E
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 0016MM-E
+          nullable: true
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: JPMorgan Chase Bank, National Association
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/USCoverage'
+        branchCount:
+          description: Number of branches in this location
+          example: 1
+          nullable: true
+          type: integer
+        branchType:
+          description: |
+            Type of branch. Known values include:
+            * "Full service brick and mortar branch"
+            * "Full service retail branch"
+            * "Limited service branch"
+            * "Limited service drive-thru only"
+            * "Limited service administrative office"
+            * "Limited service mobile or seasonal"
+            * "Limited service military"
+            * "Limited service messenger"
+            * "Limited service facility office"
+            * "Limited service loan production"
+            * "Limited service consumer credit"
+            * "Limited service trust"
+
+            The backing dataset may introduce additional values; treat this list as non-exhaustive.
+          example: Full service brick and mortar branch
+          nullable: true
+          type: string
+        totalDeposits:
+          description: Total deposits in thousands
+          example: 103574.25
+          format: double
+          nullable: true
+          type: number
+        depositMarketSharePct:
+          description: Deposit market share percentage
+          example: 0.531064
+          format: double
+          nullable: true
+          type: number
+        marketShareType:
+          description: |
+            Market share geographic type:
+            * **COUNTY** — Aggregated by FIPS county code (5-digit FIPS `marketShareCode`)
+            * **ZIP** — Aggregated by ZIP code (5-digit ZIP `marketShareCode`)
+            * **MSA** — Aggregated by Metropolitan Statistical Area (MSA `marketShareCode`)
+            * **STATE** — One row per state (2-letter state `marketShareCode`)
+          enum:
+          - COUNTY
+          - ZIP
+          - MSA
+          - STATE
+          example: COUNTY
+          nullable: true
+          type: string
+        marketShareCode:
+          description: Geographic code — FIPS county, ZIP, or MSA code
+          example: "12021"
+          nullable: true
+          type: string
+        locationDescription:
+          description: Location description
+          example: Florida, Collier
+          nullable: true
+          type: string
+      required:
+      - coverage
+      type: object
+    CreditUnionBranch:
+      additionalProperties: true
+      description: A single US credit union branch or ATM location record.
+      properties:
+        requestId:
+          description: Request identifier
+          example: 06R9SD-E
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 06R9SD-E
+          nullable: true
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: United Federal Credit Union (Michigan)
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/CreditUnionCoverage'
+        branchSite:
+          description: Branch site name
+          example: Edison Lakes - Branch 34
+          nullable: true
+          type: string
+        atmSite:
+          description: ATM site name
+          example: Edison Lakes - Branch 34
+          nullable: true
+          type: string
+        isMainOffice:
+          description: Main office flag
+          example: false
+          nullable: true
+          type: boolean
+        hasMemberServices:
+          description: Has member services flag
+          example: true
+          nullable: true
+          type: boolean
+        hasAtm:
+          description: Has ATM on-site flag
+          example: true
+          nullable: true
+          type: boolean
+        hasDriveThru:
+          description: Has drive-thru service flag
+          example: true
+          nullable: true
+          type: boolean
+        addressId:
+          description: Unique address identifier
+          example: 2606
+          nullable: true
+          type: integer
+        siteType:
+          description: Type of site
+          enum:
+          - BRANCH_OFFICE
+          - CORPORATE_OFFICE
+          - OTHER
+          example: BRANCH_OFFICE
+          nullable: true
+          type: string
+        locationCity:
+          description: City name
+          example: Mishawaka
+          nullable: true
+          type: string
+        stateProvince:
+          description: US state 2-letter code
+          example: IN
+          nullable: true
+          type: string
+        locationPostalCode:
+          description: ZIP code
+          example: "46545"
+          nullable: true
+          type: string
+        locationStreet:
+          description: Street address
+          example: 4840 N Main St
+          nullable: true
+          type: string
+        isoCountry:
+          description: ISO country code
+          example: US
+          nullable: true
+          type: string
+        latitude:
+          description: Latitude coordinate
+          example: 41.703783
+          format: double
+          nullable: true
+          type: number
+        longitude:
+          description: Longitude coordinate
+          example: -86.182498
+          format: double
+          nullable: true
+          type: number
+      required:
+      - coverage
+      type: object
+    AustraliaBranch:
+      additionalProperties: true
+      description: A single Australian bank branch or service channel location record.
+      properties:
+        requestId:
+          description: Request identifier
+          example: 00DY6N-E
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 00DY6N-E
+          nullable: true
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: Suncorp-Metway Ltd.
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/AustraliaCoverage'
+        locationId:
+          description: Unique location identifier
+          example: 33754
+          nullable: true
+          type: integer
+        serviceChannelType:
+          description: Type of service channel
+          enum:
+          - BRANCH
+          - ATMS
+          - OTHER_FACE_TO_FACE
+          example: ATMS
+          nullable: true
+          type: string
+        numServiceChannel:
+          description: Number of service channels at this location
+          example: 2
+          nullable: true
+          type: integer
+        remotenessArea:
+          description: Remoteness classification
+          example: Outer Regional Australia
+          nullable: true
+          type: string
+        sa2Code:
+          description: Statistical Area Level 2 code - ABS
+          example: 601041022
+          nullable: true
+          type: integer
+        state:
+          description: Australian state or territory full name
+          example: Queensland
+          nullable: true
+          type: string
+        address:
+          description: Full address
+          example: Channel Court Shopping Centre, John Street, Kingston Park, Kingston,
+            Hobart, Kingborough, Tasmania, 7050, Australia
+          nullable: true
+          type: string
+        latitude:
+          description: Latitude coordinate
+          example: -19.27141
+          format: double
+          nullable: true
+          type: number
+        longitude:
+          description: Longitude coordinate
+          example: 146.79021
+          format: double
+          nullable: true
+          type: number
+      required:
+      - coverage
+      type: object
+    GlobalBranch:
+      additionalProperties: true
+      description: A single global bank branch location record (ex-US).
+      properties:
+        requestId:
+          description: Request identifier
+          example: 000CKK-E
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 000CKK-E
+          nullable: true
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: Bank of Hawaii Corp.
+          nullable: true
+          type: string
+        coverage:
+          $ref: '#/components/schemas/GlobalCoverage'
+        isoCountry:
+          description: ISO country code
+          example: PW
+          nullable: true
+          type: string
+        region:
+          description: ISO 3166-2 subdivision code, subdivision part only (e.g., "ON"
+            for Ontario, "CA" for California)
+          example: "ON"
+          nullable: true
+          type: string
+        locationCity:
+          description: City name
+          example: Palau
+          nullable: true
+          type: string
+        locationPostalCode:
+          description: Postal code
+          example: "96940"
+          nullable: true
+          type: string
+        locationStreet:
+          description: Street address
+          example: 340 Main Rd.
+          nullable: true
+          type: string
+        latitude:
+          description: Latitude coordinate
+          example: 7.341382
+          format: double
+          nullable: true
+          type: number
+        longitude:
+          description: Longitude coordinate
+          example: 134.472081
+          format: double
+          nullable: true
+          type: number
+      required:
+      - coverage
+      type: object
+    Branch:
+      description: A single row of branch or location data. Structure varies by coverage
+        type.
+      discriminator:
+        mapping:
+          US: '#/components/schemas/USBranch'
+          CREDIT_UNION: '#/components/schemas/CreditUnionBranch'
+          AUSTRALIA: '#/components/schemas/AustraliaBranch'
+          GLOBAL: '#/components/schemas/GlobalBranch'
+        propertyName: coverage
+      oneOf:
+      - $ref: '#/components/schemas/USBranch'
+      - $ref: '#/components/schemas/CreditUnionBranch'
+      - $ref: '#/components/schemas/AustraliaBranch'
+      - $ref: '#/components/schemas/GlobalBranch'
+    Exposure:
+      allOf:
+      - $ref: '#/components/schemas/Exposure_allOf'
+      - $ref: '#/components/schemas/EntityIdentification'
+      - $ref: '#/components/schemas/MetricValueBase'
+      description: A single row of country exposure data for one entity, country,
+        and metric.
+    Filing10D:
+      allOf:
+      - $ref: '#/components/schemas/Filing10D_allOf'
+      - $ref: '#/components/schemas/EntityIdentification'
+      - $ref: '#/components/schemas/MetricValueBase'
+      description: A single row of Form 10-D securitization distribution report data
+        for one entity and metric.
+    FilingUCC1:
+      allOf:
+      - $ref: '#/components/schemas/FilingUCC1_allOf'
+      - $ref: '#/components/schemas/EntityIdentification'
+      description: A single UCC-1 financing statement record.
+    Rate:
+      allOf:
+      - $ref: '#/components/schemas/Rate_allOf'
+      - $ref: '#/components/schemas/EntityIdentification'
+      description: A single row of deposit rate data.
+    SpecialtyFinanceAUM:
+      additionalProperties: true
+      description: A single row of Form ADV assets under management data for one entity
+        and metric.
+      example:
+        reportType: AUM
+        factsetEntityId: 000BJX-E
+        metric: aum_tot
+        filingDate: 2019-03-28T00:00:00.000+0000
+        requestId: 000BJX-E
+        entityProperName: Vanguard Group Inc.
+        description: Total Assets Under Management
+        currency: USD
+        value: 2512170.637
+        fiscalEndDate: 2018-12-31T00:00:00.000+0000
+      properties:
+        requestId:
+          description: Request identifier, typically the entity identifier submitted
+            in the request
+          example: 000BJX-E
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: Vanguard Group Inc.
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 000BJX-E
+          type: string
+        metric:
+          description: Metric code
+          example: aum_tot
+          type: string
+        value:
+          description: Metric value
+          example: 2512170.637
+          nullable: true
+          type: number
+        description:
+          description: Detailed description of the metric
+          example: Total Assets Under Management
+          nullable: true
+          type: string
+        fiscalEndDate:
+          description: Fiscal period end date in YYYY-MM-DD format
+          example: 2018-12-31
+          format: date
+          nullable: true
+          type: string
+        filingDate:
+          description: Date the Form ADV filing was submitted
+          example: 2019-03-28
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        reportType:
+          $ref: '#/components/schemas/AUMReportType'
+      required:
+      - reportType
+      - requestId
+      type: object
+    SpecialtyFinanceFOCUS:
+      additionalProperties: true
+      description: A single row of FOCUS report financial data for one broker-dealer
+        and metric.
+      example:
+        reportType: FOCUS
+        factsetEntityId: 000P2Z-E
+        metric: FSF_FR_NET_CAP
+        requestId: 000P2Z-E
+        entityProperName: Jefferies Financial Group, Inc.
+        description: Net Capital
+        currency: USD
+        value: 2230000
+        fiscalEndDate: 2019-11-30T00:00:00.000+0000
+      properties:
+        requestId:
+          description: Request identifier, typically the entity identifier submitted
+            in the request
+          example: 000P2Z-E
+          type: string
+        entityProperName:
+          description: Institution legal name
+          example: Jefferies Financial Group, Inc.
+          type: string
+        factsetEntityId:
+          description: FactSet entity identifier
+          example: 000P2Z-E
+          type: string
+        metric:
+          description: Metric code
+          example: FSF_FR_NET_CAP
+          type: string
+        value:
+          description: Metric value
+          example: 2230000
+          nullable: true
+          type: number
+        description:
+          description: Detailed description of the metric
+          example: Net Capital
+          nullable: true
+          type: string
+        fiscalEndDate:
+          description: Fiscal period end date in YYYY-MM-DD format
+          example: 2019-11-30
+          format: date
+          nullable: true
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        reportType:
+          $ref: '#/components/schemas/FOCUSReportType'
+      required:
+      - reportType
+      - requestId
+      type: object
+    MetricsResponse:
+      description: Response containing available metric definitions.
+      example:
+        data:
+        - oaUrl: https://my.apps.factset.com/oa/pages/17959
+          metric: FF_ROA
+          oaPageId: "17959"
+          dataType: string
+          description: description
+          category: PERFORMANCE
+          subcategory: UBPR
+        - oaUrl: https://my.apps.factset.com/oa/pages/17959
+          metric: FF_ROA
+          oaPageId: "17959"
+          dataType: string
+          description: description
+          category: PERFORMANCE
+          subcategory: UBPR
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: Array of available metrics
+          items:
+            $ref: '#/components/schemas/Metric'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    Metric:
+      description: Definition and metadata for a single available metric.
+      example:
+        oaUrl: https://my.apps.factset.com/oa/pages/17959
+        metric: FF_ROA
+        oaPageId: "17959"
+        dataType: string
+        description: description
+        category: PERFORMANCE
+        subcategory: UBPR
+      properties:
+        metric:
+          description: Metric code identifier
+          example: FF_ROA
+          type: string
+        category:
+          description: Primary category of the metric
+          enum:
+          - FINANCIALS
+          - FILINGS
+          - PERFORMANCE
+          - EXPOSURE
+          example: PERFORMANCE
+          type: string
+        subcategory:
+          description: Sub-category classification
+          enum:
+          - US
+          - CANADA
+          - AUSTRALIA
+          - CREDIT_UNION
+          - INDUSTRY
+          - SPECIALTY_FINANCE
+          - TEN_D
+          - UBPR
+          - COUNTRY
+          example: UBPR
+          type: string
+        dataType:
+          description: Data type of metric values
+          enum:
+          - string
+          - number
+          - date
+          - boolean
+          type: string
+        description:
+          description: Detailed description of the metric
+          type: string
+        oaPageId:
+          description: Online Assistant page ID for methodology
+          example: "17959"
+          nullable: true
+          type: string
+        oaUrl:
+          description: Online Assistant URL for methodology
+          example: https://my.apps.factset.com/oa/pages/17959
+          nullable: true
+          type: string
+      type: object
+    ErrorResponse:
+      description: Object representing an error response.
+      properties:
+        errors:
+          description: An array of error objects.
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      required:
+      - errors
+      type: object
+    ErrorObject:
+      description: An object representing an error.
+      properties:
+        code:
+          description: Machine-readable error code
+          type: string
+        title:
+          description: Human-readable error summary
+          type: string
+        id:
+          description: Unique error instance identifier for tracking
+          format: uuid
+          type: string
+        detail:
+          description: Detailed error explanation
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorObject_source'
+      required:
+      - code
+      - id
+      - title
+      type: object
+    FinancialsRequest_data:
+      description: Financial data query parameters.
+      example:
+        coverage: US
+        endDate: 2023-12-31T00:00:00.000+0000
+        periodicity: ANN
+        ids:
+        - 000BDX-E
+        currency: USD
+        metrics:
+        - FB_SM_BHC_ASSETS
+        startDate: 2023-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        periodicity:
+          description: |
+            Periodicity or frequency of the fiscal periods, where
+              * **ANN**  = Annual - Original
+              * **QTR**  = Quarterly - Original
+              * **SEMI** = Semi-Annual
+
+            If omitted, defaults to `ANN`.
+          enum:
+          - ANN
+          - QTR
+          - SEMI
+          example: ANN
+          type: string
+        startDate:
+          description: |
+            Filters for fiscal periods ending on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all periods from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for fiscal periods ending on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return the most recent period on or before this date.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-12-31
+          format: date
+          type: string
+        coverage:
+          description: |
+            Data source region or institution type.
+              * **US** — US banks, thrifts, and depository institutions, including bank holding companies (FFIEC/FDIC)
+              * **CANADA** — Canadian banks regulated by OSFI
+              * **AUSTRALIA** — Australian banks regulated by APRA
+              * **CREDIT_UNION** — US credit unions regulated by NCUA
+          enum:
+          - US
+          - CANADA
+          - AUSTRALIA
+          - CREDIT_UNION
+          example: US
+          type: string
+        metrics:
+          description: |
+            Array of metric codes to retrieve. Use the `/metrics` endpoint to retrieve the full list of available metric codes and their definitions.
+          example:
+          - FB_SM_BHC_ASSETS
+          items:
+            type: string
+          minItems: 1
+          type: array
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+      required:
+      - coverage
+      - ids
+      - metrics
+      type: object
+    PerformanceRequest_data:
+      description: UBPR performance metrics query parameters.
+      example:
+        endDate: 2023-12-31T00:00:00.000+0000
+        periodicity: ANN
+        ids:
+        - 000BDX-E
+        currency: USD
+        metrics:
+        - FF_ROA
+        - FF_ROE
+        startDate: 2023-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        periodicity:
+          description: |
+            Periodicity of the UBPR fiscal periods, where
+              * **ANN** = Annual
+              * **QTR** = Quarterly
+
+            If omitted, defaults to `ANN`.
+          enum:
+          - ANN
+          - QTR
+          example: ANN
+          type: string
+        startDate:
+          description: |
+            Filters for fiscal periods ending on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all periods from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for fiscal periods ending on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return the most recent period on or before this date.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-12-31
+          format: date
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        metrics:
+          description: |
+            Array of UBPR metric codes to retrieve. Examples include financial ratios, performance metrics, and peer group statistics. Use the `/metrics` endpoint to retrieve the full list of available metric codes and their definitions.
+          example:
+          - FF_ROA
+          - FF_ROE
+          items:
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - ids
+      - metrics
+      type: object
+    BranchesRequest_data:
+      description: Branch query parameters.
+      example:
+        coverage: US
+        country: CA
+        locationNames:
+        - Nassau
+        - Suffolk
+        hasDriveThru: true
+        hasMemberServices: true
+        hasAtm: true
+        zipCodes:
+        - "11501"
+        - "11701"
+        city: San Francisco
+        postalCode: "94102"
+        locationType: ALL
+        marketShareType: ALL
+        maxBranchCount: 6
+        minTotalDeposits: 1000
+        stateName: New South Wales
+        countyFipsCodes:
+        - "36059"
+        - "36103"
+        maxTotalDeposits: 0.8008281904610115
+        serviceChannelType: ALL
+        ids:
+        - 000BDX-E
+        minBranchCount: 1
+        region: "ON"
+        isMainOffice: true
+        msaCodes:
+        - "35620"
+        branchTypes:
+        - Full service brick and mortar branch
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        coverage:
+          description: |
+            Data source region or institution type:
+            * **US** — US FDIC-insured bank branches — branch counts and deposit market share by county, ZIP, and MSA
+            * **CREDIT_UNION** — US credit union individual locations (NCUA)
+            * **AUSTRALIA** — Australian bank service channels (APRA)
+            * **GLOBAL** — Global bank locations (ex-US)
+          enum:
+          - US
+          - CREDIT_UNION
+          - AUSTRALIA
+          - GLOBAL
+          example: US
+          type: string
+        marketShareType:
+          default: ALL
+          description: |
+            Geographic aggregation level for US FDIC deposit data (Applicable only to US):
+            * **COUNTY** — Aggregated by FIPS county code (`marketShareCode` = 5-digit FIPS)
+            * **ZIP** — Aggregated by ZIP code (`marketShareCode` = 5-digit ZIP)
+            * **MSA** — Aggregated by Metropolitan Statistical Area (`marketShareCode` = MSA code)
+            * **STATE** — One row per state (the only rows carrying a populated `state_province_code` in the underlying data)
+            * **ALL** — All aggregation levels (default)
+
+            Use the `stateCode` filter alongside any `marketShareType` to narrow
+            results to a single state — e.g. `stateCode=NY` with
+            `marketShareType=COUNTY` returns every New York county row.
+          enum:
+          - COUNTY
+          - ZIP
+          - MSA
+          - STATE
+          - ALL
+          type: string
+        stateCode:
+          $ref: '#/components/schemas/USStateCode'
+        countyFipsCodes:
+          description: |
+            Filter by 5-digit FIPS county codes (e.g. "36059" = Nassau, NY).
+            Implicitly narrows results to county-type rows. (Applicable only to US)
+          example:
+          - "36059"
+          - "36103"
+          items:
+            type: string
+          type: array
+        msaCodes:
+          description: |
+            Filter by MSA (Metropolitan Statistical Area) codes (e.g. "35620" = NY-Newark-Jersey City).
+            Implicitly narrows results to msa-type rows. (Applicable only to US)
+          example:
+          - "35620"
+          items:
+            type: string
+          type: array
+        zipCodes:
+          description: |
+            Filter by 5-digit ZIP codes. Implicitly narrows results to zip-type rows. (Applicable only to US)
+          example:
+          - "11501"
+          - "11701"
+          items:
+            type: string
+          type: array
+        locationNames:
+          description: |
+            Case-insensitive substring match against the county/city portion of `locationDescription`
+            (e.g. ["Nassau", "Suffolk"] to match "New York, Nassau" and "New York, Suffolk").
+            Use this when you know the place name but not the FIPS/MSA code. (Applicable only to US)
+          example:
+          - Nassau
+          - Suffolk
+          items:
+            type: string
+          type: array
+        branchTypes:
+          description: |
+            Filter by branch type string (matches the `branchType` response field exactly).
+            (Applicable only to US)
+          example:
+          - Full service brick and mortar branch
+          items:
+            type: string
+          type: array
+        minTotalDeposits:
+          description: |
+            Minimum `totalDeposits` (in thousands) to include. (Applicable only to US)
+          example: 1000
+          type: number
+        maxTotalDeposits:
+          description: |
+            Maximum `totalDeposits` (in thousands) to include. (Applicable only to US)
+          type: number
+        minBranchCount:
+          description: Minimum `branchCount` to include. (Applicable only to US)
+          example: 1
+          type: integer
+        maxBranchCount:
+          description: Maximum `branchCount` to include. (Applicable only to US)
+          type: integer
+        stateName:
+          description: Australian state or territory full name filter (Applicable
+            only to AUSTRALIA)
+          example: New South Wales
+          type: string
+        city:
+          description: City name filter (Applicable only to CREDIT_UNION, GLOBAL)
+          example: San Francisco
+          type: string
+        postalCode:
+          description: Postal/ZIP code filter (Applicable only to CREDIT_UNION, GLOBAL)
+          example: "94102"
+          type: string
+        locationType:
+          default: ALL
+          description: Type of location to return (Applicable only to CREDIT_UNION,
+            GLOBAL)
+          enum:
+          - BRANCH
+          - ATM
+          - ALL
+          type: string
+        serviceChannelType:
+          default: ALL
+          description: Type of service channel (Applicable only to AUSTRALIA)
+          enum:
+          - BRANCH
+          - ATMS
+          - OTHER_FACE_TO_FACE
+          - ALL
+          type: string
+        country:
+          description: ISO country code filter (Applicable only to GLOBAL)
+          example: CA
+          type: string
+        region:
+          description: State/province/territory code (Applicable only to GLOBAL)
+          example: "ON"
+          type: string
+        isMainOffice:
+          description: Return only main office/headquarters (Applicable only to CREDIT_UNION)
+          type: boolean
+        hasDriveThru:
+          description: Filter for locations with drive-thru service (Applicable only
+            to CREDIT_UNION)
+          type: boolean
+        hasMemberServices:
+          description: Filter for locations with full member services (Applicable
+            only to CREDIT_UNION)
+          type: boolean
+        hasAtm:
+          description: Filter for locations with ATM on-site (Applicable only to CREDIT_UNION)
+          type: boolean
+      required:
+      - coverage
+      - ids
+      type: object
+    ExposureRequest_data:
+      description: Country exposure query parameters.
+      example:
+        country: AU
+        endDate: 2023-12-31T00:00:00.000+0000
+        ids:
+        - 000BDX-E
+        currency: USD
+        metrics:
+        - CB_CLAIMS_EXCL_DERIV_GT
+        - CLAIMS_DERIV_GT
+        - CLAIMS_GT
+        startDate: 2023-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            Filters for fiscal periods ending on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all periods from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for fiscal periods ending on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return the most recent period on or before this date.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-12-31
+          format: date
+          type: string
+        country:
+          description: Filter by ISO 3166-1 alpha-2 country code (e.g., "AU", "GB").
+            Omit to retrieve all countries.
+          example: AU
+          maxLength: 2
+          minLength: 2
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        metrics:
+          description: |
+            Array of country exposure metric codes to retrieve. Available metrics include:
+            - CB_CLAIMS_EXCL_DERIV_GT: Cross-border claims excluding derivatives
+            - CLAIMS_DERIV_GT: Gross claims from derivative products
+            - CLAIMS_GT: Total cross-border and local claims
+            - LR_CLAIMS_EXCL_DERIV_GT: Local resident claims excluding derivatives
+            - CLAIMS_GT_BK: Claims by borrower type - Banks
+            - CLAIMS_GT_NBFI: Claims by borrower type - Non-bank financial institutions
+            - CLAIMS_GT_PUB: Claims by borrower type - Public sector
+            - CLAIMS_GT_OTH: Claims by borrower type - Other
+
+            Omit to retrieve all available metrics. Use the `/metrics` endpoint to retrieve the full list of available metric codes and their definitions.
+          example:
+          - CB_CLAIMS_EXCL_DERIV_GT
+          - CLAIMS_DERIV_GT
+          - CLAIMS_GT
+          items:
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - ids
+      - metrics
+      type: object
+    TenDFilingsRequest_data:
+      description: Form 10-D filing query parameters.
+      example:
+        endDate: 2024-12-31T00:00:00.000+0000
+        ids:
+        - 000BDX-E
+        currency: USD
+        metrics:
+        - PRIN_RECEIV_END
+        - RECEIV_CURR
+        - RECEIV_DELQ_30_OVER
+        startDate: 2024-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            Filters for filings with a `filingDate` on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all filings from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for filings with a `filingDate` on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return the most recent filings on or before this date.
+            If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+          example: 2024-12-31
+          format: date
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        metrics:
+          description: |
+            Array of Form 10-D metric codes to retrieve. Available metrics include:
+            - Principal Receivables: PRIN_RECEIV_BEG, PRIN_RECEIV_END, PRIN_RECEIV_NET_CHG
+            - Finance Charge Receivables: FIN_CHRG_RECEIV_BEG, FIN_CHRG_RECEIV_END, FIN_CHRG_RECEIV_NET_CHG
+            - Current/Delinquent: RECEIV_CURR, RECEIV_DELQ_1_29, RECEIV_DELQ_30_59, RECEIV_DELQ_60_89, RECEIV_DELQ_90_119, RECEIV_DELQ_120_149, RECEIV_DELQ_150_179, RECEIV_DELQ_180_OVER
+            - Delinquency Percentages: RECEIV_CURR_PCT, RECEIV_DELQ_1_29_PCT, RECEIV_DELQ_30_OVER, RECEIV_DELQ_60_OVER, RECEIV_DELQ_90_OVER, RECEIV_DELQ_120_OVER, RECEIV_DELQ_150_OVER
+            - Number of Receivables: NO_RECEIV_DELQ_1_29, NO_RECEIV_DELQ_30_59, NO_RECEIV_DELQ_TOT
+            - Monthly Collections: MTC_PRIN, MTC_FIN_CHRG_TOT, MTC_FIN_CHRG_FEE, MTC_INVEST_INC, MTC_ICF, MTC_RECOV
+
+            Use the `/metrics` endpoint to retrieve the full list of available metric codes and their definitions.
+          example:
+          - PRIN_RECEIV_END
+          - RECEIV_CURR
+          - RECEIV_DELQ_30_OVER
+          items:
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - ids
+      - metrics
+      type: object
+    Ucc1FilingsRequest_data:
+      description: UCC-1 filing query parameters.
+      example:
+        endDate: 2024-12-31T00:00:00.000+0000
+        ids:
+        - 000BDX-E
+        filingState: VA
+        debtorName: Jas Realty LLC
+        startDate: 2024-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            Filters for UCC-1 filings with an `effectiveDate` on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all filings from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for UCC-1 filings with an `effectiveDate` on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return all filings up to this date.
+            If both `startDate` and `endDate` are omitted, the most recent 30 days of filings are returned.
+          example: 2024-12-31
+          format: date
+          type: string
+        filingState:
+          description: Filter by US state code (e.g., "VA", "CA", "NY"). Omit to retrieve
+            all states.
+          example: VA
+          type: string
+        debtorName:
+          description: Filter by debtor name. Supports partial matching. Omit to retrieve
+            all debtors.
+          example: Jas Realty LLC
+          type: string
+      required:
+      - ids
+      type: object
+    RatesRequest_data:
+      description: Deposit rate query parameters.
+      example:
+        endDate: 2024-12-31T00:00:00.000+0000
+        depositProduct: Savings
+        ids:
+        - 000BDX-E
+        currency: USD
+        term: 1 Year
+        startDate: 2024-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            Filters for deposit rate records with an `asOfDate` on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all records from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent available rates are returned.
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for deposit rate records with an `asOfDate` on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return the most recent rates on or before this date.
+            If both `startDate` and `endDate` are omitted, the most recent available rates are returned.
+          example: 2024-12-31
+          format: date
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        depositProduct:
+          description: |
+            Filter by deposit product type (e.g., "Savings", "Certificate of Deposit", "Fixed Rate IRA"). Omit to retrieve all products.
+          example: Savings
+          type: string
+        term:
+          description: |
+            Filter by product term (e.g., "0 Month", "1 Year", "18 Months", "All"). Omit to retrieve all terms.
+          example: 1 Year
+          type: string
+        state:
+          $ref: '#/components/schemas/USStateCode'
+      required:
+      - ids
+      type: object
+    AUMRequest_data:
+      description: Form ADV AUM query parameters.
+      example:
+        endDate: 2023-12-31T00:00:00.000+0000
+        ids:
+        - 000BDX-E
+        currency: USD
+        metrics:
+        - aum_tot
+        - aum_discre
+        - aum_hnwi
+        startDate: 2023-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            Filters for fiscal periods ending on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all periods from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for fiscal periods ending on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return the most recent period on or before this date.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-12-31
+          format: date
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        metrics:
+          description: |
+            Array of AUM metric codes to retrieve.
+
+            - Total AUM: aum_tot, aum_discre, aum_non_discre
+            - AUM by Client Type: aum_hnwi, aum_indiv_excl_hnwi, aum_bk_thrift, aum_invest_co, aum_bdc, aum_piv, aum_pension_psp, aum_char_org, aum_state_muni, aum_oth_invest_adv, aum_ins_co, aum_swf_foi, aum_corp_oth_bus
+            - Geographic: aum_us_per, aum_non_us_per
+
+            Omit to retrieve all available metrics. Use the `/metrics` endpoint to retrieve the full list of available metric codes and their definitions.
+          example:
+          - aum_tot
+          - aum_discre
+          - aum_hnwi
+          items:
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - ids
+      - metrics
+      type: object
+    FOCUSRequest_data:
+      description: FOCUS report query parameters.
+      example:
+        endDate: 2023-12-31T00:00:00.000+0000
+        ids:
+        - 000BDX-E
+        currency: USD
+        metrics:
+        - FSF_FR_NET_CAP
+        - FSF_FR_COMMISS_FEE_INC
+        startDate: 2023-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of security identifiers. Accepted ID types include Market
+            Tickers, SEDOL, ISINs, CUSIPs, or FactSet Entity IDs.
+          example:
+          - 000BDX-E
+          items:
+            type: string
+          minItems: 1
+          type: array
+        startDate:
+          description: |
+            Filters for fiscal periods ending on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all periods from this date forward.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters for fiscal periods ending on or before this date in YYYY-MM-DD format.
+            Use with `startDate` for a date range, or alone to return the most recent period on or before this date.
+            If both `startDate` and `endDate` are omitted, the most recent available period is returned.
+          example: 2023-12-31
+          format: date
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        metrics:
+          description: |
+            Array of FOCUS metric codes to retrieve.
+
+            - Income Statement: FSF_FR_COMMISS_FEE_INC, FSF_FR_COMMISS_FEE_EXP, FSF_FR_COMMISS_FEE_EXP_OTH
+            - Balance Sheet: Various asset and liability metrics
+            - Net Capital: FSF_FR_NET_CAP, FSF_FR_FM_NET_CAP_REQ, FSF_FR_FM_NET_CAP_REQ_ALT
+
+            Omit to retrieve all available metrics. Use the `/metrics` endpoint to retrieve the full list of available metric codes and their definitions.
+          example:
+          - FSF_FR_NET_CAP
+          - FSF_FR_COMMISS_FEE_INC
+          items:
+            type: string
+          minItems: 1
+          type: array
+      required:
+      - ids
+      - metrics
+      type: object
+    Performance_allOf:
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: 001QS1-E
+          type: string
+        fiscalEndDate:
+          description: Fiscal period end date in YYYY-MM-DD format.
+          example: 2023-12-31
+          format: date
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        peerGroupName:
+          description: |
+            Descriptive name of the FFIEC peer group. Peer groups are curated sets of similar banks used to benchmark how an institution performs relative to its peers.
+          example: Asset Peer Group Undefined
+          nullable: true
+          type: string
+        peerGroupRank:
+          description: The percentile ranking (0-99) of the institution within its
+            peer group for a given ratio.
+          example: 75
+          format: int32
+          maximum: 99
+          minimum: 0
+          nullable: true
+          type: integer
+      type: object
+    Exposure_allOf:
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: 000BY7-E
+          type: string
+        fiscalEndDate:
+          description: Fiscal period end date in YYYY-MM-DD format
+          example: 2016-06-30
+          format: date
+          type: string
+        country:
+          description: ISO 3166-1 alpha-2 country code
+          example: AU
+          maxLength: 2
+          minLength: 2
+          type: string
+        currency:
+          description: Currency code for financial values (ISO 4217). Null for percentage
+            or count metrics. For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+      type: object
+    Filing10D_allOf:
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: 00DZFB-E
+          type: string
+        ultimateParentProperName:
+          description: Ultimate parent company name
+          example: Barclays PLC
+          nullable: true
+          type: string
+        factsetUltimateParentEntityId:
+          description: Ultimate parent FactSet entity identifier
+          example: 05H4C8-E
+          nullable: true
+          type: string
+        filingDate:
+          description: Date when the 10-D form was filed
+          example: 2024-10-18
+          format: date
+          nullable: true
+          type: string
+        reportingMonth:
+          description: Month covered by the report
+          example: Sep
+          nullable: true
+          type: string
+        reportingYear:
+          description: Year covered by the report
+          example: 2024
+          nullable: true
+          type: integer
+        currency:
+          description: Currency code for financial values (ISO 4217). Null for percentage
+            or count metrics. For a list of currency codes, see [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+      type: object
+    FilingUCC1_allOf:
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: 000SV1-E
+          type: string
+        vendorFilingId:
+          description: Vendor filing identifier. Format varies by state.
+          example: VA-20250411260959
+          type: string
+        debtorName:
+          description: Name of the party granting security interest.
+          example: Jas Realty LLC
+          type: string
+        filingState:
+          description: US state code where the UCC-1 was filed.
+          example: VA
+          type: string
+        effectiveDate:
+          description: Date when the financing statement becomes effective.
+          example: 2025-04-11
+          format: date
+          type: string
+        expirationDate:
+          description: Date when the financing statement expires (typically 5 years
+            from effective date).
+          example: 2030-04-11
+          format: date
+          type: string
+      type: object
+    Rate_allOf:
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID)
+          example: 000ZKS-E
+          type: string
+        asOfDate:
+          description: Date the rate became effective
+          example: 2024-06-07
+          format: date
+          type: string
+        currency:
+          description: Currency code (ISO 4217). For a list of currency codes, see
+            [OA Page 1470](https://my.apps.factset.com/oa/pages/1470).
+          example: USD
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
+        depositProduct:
+          description: Deposit product type, e.g., "Savings", "Certificate of Deposit",
+            "Fixed Rate IRA"
+          example: Savings
+          type: string
+        term:
+          description: Product term, e.g., "0 Month", "1 Year", "18 Months", "All"
+          example: 0 Month
+          type: string
+        depositCategory:
+          description: Balance tier category, e.g., "Up to 2500", "10000 to 100000",
+            "Over 250000". Only present for product rates by balance tier.
+          example: 10000 to 100000
+          nullable: true
+          type: string
+        apyRate:
+          description: Annual Percentage Yield rate. Only present for product rates
+            by balance tier.
+          example: 0.05
+          format: double
+          nullable: true
+          type: number
+        prevApyRate:
+          description: Previous Annual Percentage Yield rate. Only present for product
+            rates by balance tier and average product rates.
+          example: 0.05
+          format: double
+          nullable: true
+          type: number
+        nationalApyAvgRate:
+          description: National average Annual Percentage Yield rate. Available for
+            product rates by balance tier and average product rates.
+          example: 1.880224
+          format: double
+          nullable: true
+          type: number
+        apyAvgRate:
+          description: Average Annual Percentage Yield rate. Only present for average
+            product rates and location-specific rates.
+          example: 0.1625
+          format: double
+          nullable: true
+          type: number
+        prevApyAvgRate:
+          description: Previous average Annual Percentage Yield rate. Only present
+            for average product rates.
+          example: 0.05
+          format: double
+          nullable: true
+          type: number
+        state:
+          description: Two-letter US state or territory code (ISO 3166-2:US). Only
+            present for location-specific rates.
+          example: AZ
+          nullable: true
+          type: string
+        minDeposit:
+          description: Minimum deposit amount. Only present for location-specific
+            rates.
+          example: 500.5
+          format: double
+          nullable: true
+          type: number
+        maxDeposit:
+          description: Maximum deposit amount. 0 indicates no maximum. Only present
+            for location-specific rates.
+          example: 99999.5
+          format: double
+          nullable: true
+          type: number
+        onlineDesc:
+          description: Online availability indicator. Only present for location-specific
+            rates.
+          example: online
+          nullable: true
+          type: string
+        isSpecialOffer:
+          description: Indicates whether the rate is a special promotional offer.
+            Only present for location-specific rates.
+          example: true
+          nullable: true
+          type: boolean
+      type: object
+    ErrorObject_source:
+      description: |
+        Reference to the request field that caused the error.
+        For POST requests, `pointer` is used (JSON Pointer to the request body field, e.g. `/ids/1`).
+        For GET requests, `parameter` is used (query parameter name, e.g. `ids[3]`).
+      properties:
+        pointer:
+          description: |
+            JSON Pointer (RFC 6901) to the request body field that caused the error.
+            Used for POST requests (e.g., `/ids/1` for the second element of the `ids` array).
+          example: /ids/1
+          type: string
+        parameter:
+          description: |
+            Query parameter name that caused the error.
+            Used for GET requests (e.g., `ids[3]`).
+          example: ids[3]
+          type: string
+        value:
+          description: The actual value that caused the error.
+          example: INVALID-ID
+          type: string
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+x-factset-sdk-has-main-example: true
+

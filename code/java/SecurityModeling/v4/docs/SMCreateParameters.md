@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **securityName** | **String** |  | 
 **location** | **String** |  |  [optional]
-**asofdate** | **String** |  |  [optional]
+**asOfDate** | **String** |  |  [optional]
 **fields** | **Map&lt;String, Object&gt;** | A map of dynamic key-value pairs representing security fields. | 
 **securityType** | [**SecurityTypeEnum**](#SecurityTypeEnum) |  |  [optional]
 
