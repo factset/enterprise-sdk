@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getCount**](ResearchApi.md#getCount) | **POST** /count | Returns the count of documents for specified source.
 [**getInvestmentResearchData**](ResearchApi.md#getInvestmentResearchData) | **POST** /search | Retrieve investment research documents and related metadata within FactSet coverage.
+[**getPurchaseLinks**](ResearchApi.md#getPurchaseLinks) | **POST** /purchase-amr | Retrieve purchase links and metadata for specified research documents.
 
 
 
@@ -156,6 +157,85 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InvestmentResearchResponse**](InvestmentResearchResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## getPurchaseLinks
+
+> PurchaseResponse getPurchaseLinks(purchaseRequest)
+
+Retrieve purchase links and metadata for specified research documents.
+
+Returns a purchase link (link to the full document) along with document metadata for each requested document ID. Primarily used for documents sourced from Aftermarket Research (AMR), where full-document access is via a purchase link distinct from the preview link returned by &#x60;/search&#x60;.  **Note:** A successful request to this endpoint is treated as a purchase and counts toward the pool subscription. If the same research report is requested again more than 24 hours after the original request, that later request counts toward the individual user&#39;s subscription count instead. 
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, ResearchApi } = require('@factset/sdk-investmentresearch');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new ResearchApi();
+const purchaseRequest = new investmentresearch.PurchaseRequest(); // PurchaseRequest | 
+
+// Call api endpoint
+apiInstance.getPurchaseLinks(purchaseRequest).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **purchaseRequest** | [**PurchaseRequest**](PurchaseRequest.md)|  | 
+
+### Return type
+
+[**PurchaseResponse**](PurchaseResponse.md)
 
 ### Authorization
 

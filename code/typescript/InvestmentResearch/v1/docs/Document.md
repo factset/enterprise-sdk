@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **headline** | **String** | Concise title or summary of the research story or document. | [optional] 
-**source** | **String** | Provides source of the document.  • FRC – FactSet Research Connect | [optional] 
+**source** | **String** | Provides source of the document.  • **FRC**: FactSet Research Connect  • **AMR**: Aftermarket Research | [optional] 
 **primaryIds** | **[String]** | Refers to the main company a particular document refers to. | [optional] 
 **allIds** | **[String]** | Refers to all companies mentioned in the document. This could also include the primary company id as well. | [optional] 
 **categories** | **[String]** | Provides the category of the document, list is provided by the &#x60;/meta/categories&#x60; endpoint. | [optional] 
 **storyDateTime** | **Date** | Publish date and time of the latest version, in RFC 3339 format (a subset of ISO 8601), e.g., 2024-07-03T14:00:00Z (UTC). | [optional] 
-**link** | **String** | The link to download the document. | [optional] 
+**link** | **String** | The link to download the document.  **Note:** For documents with &#x60;source: AMR&#x60; (Aftermarket Research), this is a preview link only. To access the full document, call the &#x60;/purchase-amr&#x60; endpoint with the &#x60;documentId&#x60; to retrieve the &#x60;purchaseLink&#x60;. | [optional] 
 **contributorName** | **String** | Research specific metadata providing the name of the research contributor. | [optional] 
 **contributorId** | **Number** | Research specific metadata providing the ID of the research contributor. | [optional] 
 **analystName** | **[String]** | Research specific metadata providing the name of the analyst(s) who wrote the research. | [optional] 

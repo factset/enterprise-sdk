@@ -339,7 +339,7 @@ public class MetaApi {
   }
   /**
    * Returns the research contributors&#39; details.
-   * Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view.
+   * Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view. This endpoint is applicable to FactSet Research Connect (FRC) contributors only.
    * @return ResearchContributorResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -358,7 +358,7 @@ public class MetaApi {
 
   /**
    * Returns the research contributors&#39; details.
-   * Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view.
+   * Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view. This endpoint is applicable to FactSet Research Connect (FRC) contributors only.
    * @return ApiResponse&lt;ResearchContributorResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

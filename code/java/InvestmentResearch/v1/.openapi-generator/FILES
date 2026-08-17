@@ -13,6 +13,7 @@ docs/CountRequest.md
 docs/CountRequestBody.md
 docs/CountResponse.md
 docs/CountResponseObject.md
+docs/CountSource.md
 docs/Document.md
 docs/ErrorExample.md
 docs/ErrorResponse.md
@@ -22,6 +23,11 @@ docs/InvestmentResearchResponseItems.md
 docs/InvestmentResearchResponseMeta.md
 docs/InvestmentResearchResponseMetaPagination.md
 docs/MetaApi.md
+docs/PurchaseDocument.md
+docs/PurchaseRequest.md
+docs/PurchaseRequestBody.md
+docs/PurchaseResponse.md
+docs/PurchaseResponseItems.md
 docs/ResearchAnalystResponse.md
 docs/ResearchAnalystResponseObject.md
 docs/ResearchApi.md
@@ -72,6 +78,7 @@ src/main/java/com/factset/sdk/InvestmentResearch/models/CountRequest.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/CountRequestBody.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/CountResponse.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/CountResponseObject.java
+src/main/java/com/factset/sdk/InvestmentResearch/models/CountSource.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/Document.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/ErrorExample.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/ErrorResponse.java
@@ -80,6 +87,11 @@ src/main/java/com/factset/sdk/InvestmentResearch/models/InvestmentResearchRespon
 src/main/java/com/factset/sdk/InvestmentResearch/models/InvestmentResearchResponseItems.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/InvestmentResearchResponseMeta.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/InvestmentResearchResponseMetaPagination.java
+src/main/java/com/factset/sdk/InvestmentResearch/models/PurchaseDocument.java
+src/main/java/com/factset/sdk/InvestmentResearch/models/PurchaseRequest.java
+src/main/java/com/factset/sdk/InvestmentResearch/models/PurchaseRequestBody.java
+src/main/java/com/factset/sdk/InvestmentResearch/models/PurchaseResponse.java
+src/main/java/com/factset/sdk/InvestmentResearch/models/PurchaseResponseItems.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/ResearchAnalystResponse.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/ResearchAnalystResponseObject.java
 src/main/java/com/factset/sdk/InvestmentResearch/models/ResearchContributorResponse.java

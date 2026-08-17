@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_count**](ResearchApi.md#get_count) | **POST** /count | Returns the count of documents for specified source.
 [**get_investment_research_data**](ResearchApi.md#get_investment_research_data) | **POST** /search | Retrieve investment research documents and related metadata within FactSet coverage.
+[**get_purchase_links**](ResearchApi.md#get_purchase_links) | **POST** /purchase-amr | Retrieve purchase links and metadata for specified research documents.
 
 
 
@@ -68,7 +69,7 @@ with fds.sdk.InvestmentResearch.ApiClient(configuration) as api_client:
             end_date=dateutil_parser('Sun Dec 23 00:00:00 UTC 2012').date(),
             start_date_relative=-1,
             end_date_relative=-1,
-            source="FRC",
+            source=CountSource("FRC"),
             timezone="America/New_York",
             categories=Categories(["SB:ANLCH","IN:OIL"]),
             primary_id=False,
@@ -309,6 +310,109 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Array of downloadable URLs consisting of investment research documents with related metadata. |  -  |
+**400** | Bad request. |  -  |
+**401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
+**403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_purchase_links**
+> PurchaseResponse get_purchase_links(purchase_request)
+
+Retrieve purchase links and metadata for specified research documents.
+
+Returns a purchase link (link to the full document) along with document metadata for each requested document ID. Primarily used for documents sourced from Aftermarket Research (AMR), where full-document access is via a purchase link distinct from the preview link returned by `/search`.  **Note:** A successful request to this endpoint is treated as a purchase and counts toward the pool subscription. If the same research report is requested again more than 24 hours after the original request, that later request counts toward the individual user's subscription count instead. 
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.InvestmentResearch
+from fds.sdk.InvestmentResearch.api import research_api
+from fds.sdk.InvestmentResearch.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.InvestmentResearch.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.InvestmentResearch.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.InvestmentResearch.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = research_api.ResearchApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    purchase_request = PurchaseRequest(
+        data=PurchaseRequestBody(
+            document_ids=DocumentIds(["20230307-5b36f2cf-49bd-ed11-abc3-12bc89a8f273_0"]),
+            fields=PurchaseFields(["documentId","purchaseLink","headline"]),
+        ),
+    ) # PurchaseRequest | 
+
+    try:
+        # Retrieve purchase links and metadata for specified research documents.
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.get_purchase_links(purchase_request)
+
+        pprint(api_response)
+
+    except fds.sdk.InvestmentResearch.ApiException as e:
+        print("Exception when calling ResearchApi->get_purchase_links: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **purchase_request** | [**PurchaseRequest**](PurchaseRequest.md)|  |
+
+### Return type
+
+[**PurchaseResponse**](PurchaseResponse.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Array of documents with purchase links and associated metadata, grouped by requested document ID. |  -  |
 **400** | Bad request. |  -  |
 **401** | Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. |  -  |
 **403** | The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. |  -  |

@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 Returns the research contributors' details.
 
-Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view.
+Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view. This endpoint is applicable to FactSet Research Connect (FRC) contributors only.
 
 ### Example
 

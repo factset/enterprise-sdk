@@ -22,9 +22,11 @@ from fds.sdk.InvestmentResearch.model.count_request import CountRequest
 from fds.sdk.InvestmentResearch.model.count_request_body import CountRequestBody
 from fds.sdk.InvestmentResearch.model.count_response import CountResponse
 from fds.sdk.InvestmentResearch.model.count_response_object import CountResponseObject
+from fds.sdk.InvestmentResearch.model.count_source import CountSource
 from fds.sdk.InvestmentResearch.model.coverage_actions import CoverageActions
 from fds.sdk.InvestmentResearch.model.disciplines import Disciplines
 from fds.sdk.InvestmentResearch.model.document import Document
+from fds.sdk.InvestmentResearch.model.document_ids import DocumentIds
 from fds.sdk.InvestmentResearch.model.error_example import ErrorExample
 from fds.sdk.InvestmentResearch.model.error_response import ErrorResponse
 from fds.sdk.InvestmentResearch.model.ids import Ids
@@ -36,6 +38,12 @@ from fds.sdk.InvestmentResearch.model.investment_research_response_meta import I
 from fds.sdk.InvestmentResearch.model.investment_research_response_meta_pagination import InvestmentResearchResponseMetaPagination
 from fds.sdk.InvestmentResearch.model.issuer_types import IssuerTypes
 from fds.sdk.InvestmentResearch.model.periodicities import Periodicities
+from fds.sdk.InvestmentResearch.model.purchase_document import PurchaseDocument
+from fds.sdk.InvestmentResearch.model.purchase_fields import PurchaseFields
+from fds.sdk.InvestmentResearch.model.purchase_request import PurchaseRequest
+from fds.sdk.InvestmentResearch.model.purchase_request_body import PurchaseRequestBody
+from fds.sdk.InvestmentResearch.model.purchase_response import PurchaseResponse
+from fds.sdk.InvestmentResearch.model.purchase_response_items import PurchaseResponseItems
 from fds.sdk.InvestmentResearch.model.purposes import Purposes
 from fds.sdk.InvestmentResearch.model.rating_actions import RatingActions
 from fds.sdk.InvestmentResearch.model.report_foci import ReportFoci

@@ -12,6 +12,7 @@ docs/CountRequest.md
 docs/CountRequestBody.md
 docs/CountResponse.md
 docs/CountResponseObject.md
+docs/CountSource.md
 docs/Document.md
 docs/ErrorExample.md
 docs/ErrorResponse.md
@@ -21,6 +22,11 @@ docs/InvestmentResearchResponseItems.md
 docs/InvestmentResearchResponseMeta.md
 docs/InvestmentResearchResponseMetaPagination.md
 docs/MetaApi.md
+docs/PurchaseDocument.md
+docs/PurchaseRequest.md
+docs/PurchaseRequestBody.md
+docs/PurchaseResponse.md
+docs/PurchaseResponseItems.md
 docs/ResearchAnalystResponse.md
 docs/ResearchAnalystResponseObject.md
 docs/ResearchApi.md
@@ -49,6 +55,7 @@ src/model/CountRequest.js
 src/model/CountRequestBody.js
 src/model/CountResponse.js
 src/model/CountResponseObject.js
+src/model/CountSource.js
 src/model/Document.js
 src/model/ErrorExample.js
 src/model/ErrorResponse.js
@@ -57,6 +64,11 @@ src/model/InvestmentResearchResponse.js
 src/model/InvestmentResearchResponseItems.js
 src/model/InvestmentResearchResponseMeta.js
 src/model/InvestmentResearchResponseMetaPagination.js
+src/model/PurchaseDocument.js
+src/model/PurchaseRequest.js
+src/model/PurchaseRequestBody.js
+src/model/PurchaseResponse.js
+src/model/PurchaseResponseItems.js
 src/model/ResearchAnalystResponse.js
 src/model/ResearchAnalystResponseObject.js
 src/model/ResearchContributorResponse.js

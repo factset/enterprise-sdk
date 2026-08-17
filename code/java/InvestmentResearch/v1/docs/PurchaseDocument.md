@@ -1,0 +1,44 @@
+
+
+# PurchaseDocument
+
+A research document with its purchase link and standard metadata. Mirrors the `Document` schema returned by `/search`, except the preview `link` is replaced by `purchaseLink`, which links to the full document. Only `documentId` and `purchaseLink` are guaranteed to be present in every response; all other fields are returned only when not filtered out by the request `fields` parameter.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**documentId** | **String** | Unique identifier for a document. | 
+**purchaseLink** | **String** | Link to purchase or access the full document. Present for documents sourced from Aftermarket Research (AMR). | 
+**headline** | **String** | Concise title or summary of the research story or document. |  [optional]
+**source** | **String** | Provides source of the document.  • **FRC**: FactSet Research Connect  • **AMR**: Aftermarket Research |  [optional]
+**primaryIds** | **java.util.List&lt;String&gt;** | Refers to the main company a particular document refers to. |  [optional]
+**allIds** | **java.util.List&lt;String&gt;** | Refers to all companies mentioned in the document. This could also include the primary company id as well. |  [optional]
+**categories** | **java.util.List&lt;String&gt;** | Provides the category of the document, list is provided by the &#x60;/meta/categories&#x60; endpoint. |  [optional]
+**storyDateTime** | **OffsetDateTime** | Publish date and time of the latest version, in RFC 3339 format (a subset of ISO 8601), e.g., 2024-07-03T14:00:00Z (UTC). |  [optional]
+**contributorName** | **String** | Research specific metadata providing the name of the research contributor. |  [optional]
+**contributorId** | **Integer** | Research specific metadata providing the ID of the research contributor. |  [optional]
+**analystName** | **java.util.List&lt;String&gt;** | Research specific metadata providing the name of the analyst(s) who wrote the research. |  [optional]
+**analystId** | **java.util.List&lt;Integer&gt;** | Research specific metadata providing the ID of the analyst(s) who wrote the research. |  [optional]
+**pages** | **Integer** | Total number of pages in the document. |  [optional]
+**reportFoci** | **java.util.List&lt;String&gt;** | One or more classification codes indicating the primary focus of the document. |  [optional]
+**assetClasses** | **java.util.List&lt;String&gt;** | One or more codes indicating asset classes covered in the document. |  [optional]
+**assetTypes** | **java.util.List&lt;String&gt;** | One or more codes indicating asset types. |  [optional]
+**coverageActions** | **java.util.List&lt;String&gt;** | One or more codes indicating coverage actions. |  [optional]
+**compilationIndicators** | **Boolean** | An indication of whether the document contains new material or is a compilation/summary of separately published material. |  [optional]
+**disciplines** | **java.util.List&lt;String&gt;** | One or more codes indicating the disciplines reflected in the document. |  [optional]
+**issuerTypes** | **java.util.List&lt;String&gt;** | One or more codes indicating issuer types covered in the document. |  [optional]
+**periodicities** | **java.util.List&lt;String&gt;** | One or more codes indicating the fixed time interval at which the document is published. |  [optional]
+**purposes** | **java.util.List&lt;String&gt;** | One or more codes indicating the report purpose of the document. |  [optional]
+**ratingActions** | **java.util.List&lt;String&gt;** | One or more codes indicating rating actions discussed in the document. |  [optional]
+**researchApproaches** | **java.util.List&lt;String&gt;** | One or more codes indicating the research perspective provided in the document. |  [optional]
+**securityTypes** | **java.util.List&lt;String&gt;** | One or more codes indicating security types. |  [optional]
+**targetActions** | **java.util.List&lt;String&gt;** | One or more codes indicating target price actions discussed in the document. |  [optional]
+**weightingActions** | **java.util.List&lt;String&gt;** | One or more codes indicating weighting actions discussed in the document. |  [optional]
+
+
+## Implemented Interfaces
+
+* Serializable
+
+

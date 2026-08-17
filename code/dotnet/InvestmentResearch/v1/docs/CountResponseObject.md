@@ -6,7 +6,7 @@ Count Response
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestId** | **string** | id | [optional] 
-**Source** | **string** | source | [optional] 
+**Source** | **string** | The source of the documents counted. Possible values:  • **FRC**: FactSet Research Connect  • **AMR**: Aftermarket Research | [optional] 
 **Count** | **string** | source value | [optional] 
 **Error** | [**InvalidIdErrorObject**](InvalidIdErrorObject.md) |  | [optional] 
 

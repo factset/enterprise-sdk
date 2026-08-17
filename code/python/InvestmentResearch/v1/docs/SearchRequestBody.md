@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **sources** | [**Sources**](Sources.md) |  | [optional] 
 **timezone** | **str** | Returns a list of all time zones supported by the API, formatted in POSIX style (e.g., &#x60;America/New_York&#x60;, &#x60;Africa/Malabo&#x60;). These time zones are automatically adjusted for daylight saving time where applicable. This list is used for setting or converting story dates and times accurately across different regions. | [optional]  if omitted the server will use the default value of "America/New_York"
 **categories** | [**Categories**](Categories.md) |  | [optional] 
-**primary_id** | **bool** | Type of identifier search — set to true to search by primary identifier. | [optional]  if omitted the server will use the default value of False
+**primary_id** | **bool** | Type of identifier search - set to true to search by primary identifier. | [optional]  if omitted the server will use the default value of False
 **search_text** | **str** | Restricts the search to include only document stories that include the searched text. This parameter supports boolean operators as well.  | [optional] 
 **contributor_id** | [**ContributorId**](ContributorId.md) |  | [optional] 
 **analyst_id** | [**AnalystId**](AnalystId.md) |  | [optional] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **asset_types** | [**AssetTypes**](AssetTypes.md) |  | [optional] 
 **asset_classes** | [**AssetClasses**](AssetClasses.md) |  | [optional] 
 **coverage_actions** | [**CoverageActions**](CoverageActions.md) |  | [optional] 
-**compilation_indicators** | **bool** | An indication of whether the document contains new material or is a compilation/summary of separately published material. If this parameter is not used, it will not return whether the record in the result has complilation indicator or not.     | [optional] 
+**compilation_indicators** | **bool** | An indication of whether the document contains new material or is a compilation/summary of separately published material. If this parameter is not used, it will not return whether the record in the result has complilation indicator or not. | [optional] 
 **disciplines** | [**Disciplines**](Disciplines.md) |  | [optional] 
 **issuer_types** | [**IssuerTypes**](IssuerTypes.md) |  | [optional] 
 **periodicities** | [**Periodicities**](Periodicities.md) |  | [optional] 

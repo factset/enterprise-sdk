@@ -1,5 +1,18 @@
 # Breaking Changes
 
+## 2026-08-17 Investment Research API v1: `source` Field Changed to Enum
+
+The `source` field on `CountRequestBody` (schema `CountSource`, previously named `SourceCount`) changed from a plain string to an enum with values `FRC` and `AMR`. Strongly-typed clients (Java, .NET, Python) passing a raw string for this field will fail to compile or type-check against the new enum type.
+
+Also adds a new `POST /purchase-amr` endpoint for retrieving full Aftermarket Research documents, with supporting request/response schemas.
+
+**New versions:** dotnet 2.0.0, java 2.0.0, python 3.0.0, typescript 2.0.0
+
+**Migration:** Replace raw string values passed to `CountRequestBody`'s `source` field with the `CountSource` enum (`CountSource.FRC`, `CountSource.AMR`).
+
+**Affected SDKs:**
+- Investment Research (API v1)
+
 ## 2026-08-07 FactSet Debt Capital Structure API v1: Tag and Schema Renamed
 
 The `Reference` tag was renamed to `Details`, and the `AsOfDate` schema was renamed to `StartDate`. Tag names become class names in generated SDKs, so `ReferenceApi` is now `DetailsApi` — this breaks strongly-typed clients (Java, .NET, TypeScript) at compile time, and Python callers referencing `ReferenceApi` will get an `ImportError`/`AttributeError` at runtime. The `AsOfDate` schema rename similarly changes the generated model class name wherever it's referenced.

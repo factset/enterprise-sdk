@@ -1,7 +1,7 @@
 openapi: '3.0.0'
 info:
   title: 'Investment Research API'
-  version: '1.0.0'
+  version: '1.1.0'
   contact:
     name: 'FactSet Research Systems'
     email: 'api@factset.com'
@@ -9,7 +9,7 @@ info:
   license:
     name: 'Apache License, Version 2.0'
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
-  description: "\nThe Investment Research API provides a comprehensive set of functionalities for searching and retrieving research reports and documents from various contributors.\n\nThis API is designed to expose document search and document retrieval functionality. A document search will allow a request to query FactSet document databases based on certain search criteria specified in the request.\n\nFactSet collects research reports and models from brokers, independent research providers, market research firms, rating agencies, and other publishers of research. These documents are processed and made available to clients within about two minutes of receipt.\n\nFactSet delivers this content through the FactSet Research Connect product, which enables real-time research for investment managers entitled by the contributors to access the content\n\nThe meta endpoints namely time-zones, categories, research-contributors, research-analysts, security-types and asset-types provide comprehensive lists of data that is used in the research endpoints.\"\n\n    "
+  description: "\nThe Investment Research API provides a comprehensive set of functionalities for searching and retrieving research reports and documents from various contributors.\n\nThis API is designed to expose document search and document retrieval functionality. A document search will allow a request to query FactSet document databases based on certain search criteria specified in the request.\n\nFactSet collects research reports and models from brokers, independent research providers, market research firms, rating agencies, and other publishers of research. These documents are processed and made available to clients within about two minutes of receipt.\n\nFactSet delivers this content through the FactSet Research Connect product, which enables real-time research for investment managers entitled by the contributors to access the content, and the Aftermarket Research product, which allows users to purchase research reports via a pool subscription. \n\nThe meta endpoints namely time-zones, categories, research-contributors, research-analysts, security-types and asset-types provide comprehensive lists of data that is used in the research endpoints. Note that research-contributors is applicable to FactSet Research Connect (FRC) contributors only.\""
 externalDocs:
   description: 'API Documentation'
   url: 'https://developer.factset.com/api-catalog/investment-research-api'
@@ -77,6 +77,24 @@ paths:
                               - 0
                             pages: 97
                             documentId: '20230307-5b36f2cf-49bd-ed11-abc3-12bc89a8f273_0'
+                          - headline: 'IBM Q2 2023 Industry Outlook'
+                            source: 'AMR'
+                            allIds:
+                              - 'IBM-US'
+                            primaryIds:
+                              - 'IBM-US'
+                            storyDateTime: '2023-06-12T13:15:00Z'
+                            categories:
+                              - 'CN:US,IN:TECH'
+                            link: 'https://api.factset.com/investment-research/v1/story?key=QW1yU2FtcGxlTGlua0lCTVVTMjAyMzA2MTIxMzE1MDA'
+                            contributorName: 'Sample AMR Contributor'
+                            contributorId: 7000001
+                            analystName:
+                              - 'Jane Doe'
+                            analystId:
+                              - 9000001
+                            pages: 42
+                            documentId: '20230612-amr-sample-ibm-us-q2-outlook_0'
                       - requestId: 'MSFT-US'
                         documents: []
                       - requestId: 'M'
@@ -154,6 +172,114 @@ paths:
               examples:
                 default200ResponseExample:
                   $ref: '#/components/examples/CountResponseExample'
+                amr200ResponseExample:
+                  $ref: '#/components/examples/AMRCountResponseExample'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default400ResponseExample:
+                  $ref: '#/components/examples/ErrorDetails'
+        '401':
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default401ResponseExample:
+                  $ref: '#/components/examples/AuthErrorDetails'
+        '403':
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default403ResponseExample:
+                  $ref: '#/components/examples/AuthorizationErrorDetails'
+        '500':
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                default500ResponseExample:
+                  $ref: '#/components/examples/ServerErrorDetails'
+  /purchase-amr:
+    post:
+      tags:
+        - 'Research'
+      operationId: 'getPurchaseLinks'
+      summary: 'Retrieve purchase links and metadata for specified research documents.'
+      description: "Returns a purchase link (link to the full document) along with document metadata for each requested document ID. Primarily used for documents sourced from Aftermarket Research (AMR), where full-document access is via a purchase link distinct from the preview link returned by `/search`.\n\n**Note:** A successful request to this endpoint is treated as a purchase and counts toward the pool subscription. If the same research report is requested again more than 24 hours after the original request, that later request counts toward the individual user's subscription count instead.\n"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseRequest'
+            examples:
+              Single Document ID:
+                $ref: '#/components/examples/PurchaseByDocumentIds'
+              Multiple Document IDs:
+                $ref: '#/components/examples/PurchaseByMultipleDocumentIds'
+              Selected Fields Only:
+                $ref: '#/components/examples/PurchaseWithFields'
+      responses:
+        '200':
+          description: 'Array of documents with purchase links and associated metadata, grouped by requested document ID.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseResponse'
+              examples:
+                Sample Example:
+                  value:
+                    data:
+                      - requestId: '20230612-amr-sample-ibm-us-q2-outlook_0'
+                        documents:
+                          - documentId: '20230612-amr-sample-ibm-us-q2-outlook_0'
+                            purchaseLink: 'https://api.factset.com/investment-research/v1/purchase?key=QW1yUHVyY2hhc2VMaW5rSUJNVVMyMDIzMDYxMg'
+                            headline: 'IBM Q2 2023 Industry Outlook'
+                            source: 'AMR'
+                            primaryIds:
+                              - 'IBM-US'
+                            allIds:
+                              - 'IBM-US'
+                            categories:
+                              - 'CN:US,IN:TECH'
+                            storyDateTime: '2023-06-12T13:15:00Z'
+                            contributorName: 'Sample AMR Contributor'
+                            contributorId: 7000001
+                            analystName:
+                              - 'Jane Doe'
+                            analystId:
+                              - 9000001
+                            pages: 42
+                            reportFoci:
+                              - 'Issuer'
+                            assetClasses:
+                              - 'Equity'
+                            assetTypes:
+                              - 'Stock'
+                            compilationIndicators: false
+                            disciplines:
+                              - 'Investment'
+                            issuerTypes:
+                              - 'Corporate'
+                            periodicities:
+                              - 'Quarterly'
+                            purposes:
+                              - 'Influence'
+                            researchApproaches:
+                              - 'Fundamental'
+                            securityTypes:
+                              - 'Common'
         '400':
           description: 'Bad request.'
           content:
@@ -302,7 +428,7 @@ paths:
         - 'Meta'
       operationId: 'getResearchContributor'
       summary: 'Returns the research contributors'' details.'
-      description: 'Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view.'
+      description: 'Retrieves and delivers a comprehensive list of all the Contributor IDs that your firm is permissioned to view. This endpoint is applicable to FactSet Research Connect (FRC) contributors only.'
       responses:
         '200':
           description: 'Success'
@@ -560,7 +686,7 @@ components:
                   default: 0
                   description: 'Non-negative number of entries to skip.'
             sort:
-              description: "Sorting the results in chronological (oldest to newest) or reverse chronological (newest to oldest) order. \n\n *  `-storyDateTime` - sorting results in reverse chronological (descending) order. This is the default value if\n    the sort parameter isn't used in the query.\n    \n *  ` storyDateTime` - sorting results in chronological (ascending) order. If a start date is not specified, the\n   API has a 10-year searching limitation. \n      type: array\n"
+              description: "Sorting the results in chronological (oldest to newest) or reverse chronological (newest to oldest) order. \n\n *  `-storyDateTime` - sorting results in reverse chronological (descending) order. This is the default value if\n    the sort parameter isn't used in the query.\n\n *  ` storyDateTime` - sorting results in chronological (ascending) order. If a start date is not specified, the\n   API has a 10-year searching limitation. \n      type: array\n"
               type: 'array'
               items:
                 type: 'string'
@@ -637,7 +763,7 @@ components:
       maxItems: 1000
       example:
         - 'MODN-US'
-      description: "Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, ISIN, Entity ID and SEDOL. \n> **Note:** If this parameter is not provided, response should not include the requestId field."
+      description: "Requested symbols or securities.  This is a comma-separated list with a maximum limit of 1000.  Each symbol can be a FactSet exchange symbol, CUSIP, ISIN, Entity ID and SEDOL.\n> **Note:** If this parameter is not provided, response should not include the requestId field."
     IdsCount:
       type: 'array'
       items:
@@ -646,7 +772,7 @@ components:
       maxItems: 10
       example:
         - 'MODN-US'
-      description: "Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, ISIN, Entity ID and SEDOL. \n> **Note:** If this parameter is not provided, response should not include the requestId field.       "
+      description: "Requested symbols or securities.  This is a comma-separated list with a maximum limit of 10.  Each symbol can be a FactSet exchange symbol, CUSIP, ISIN, Entity ID and SEDOL.\n> **Note:** If this parameter is not provided, response should not include the requestId field."
     StartDate:
       type: 'string'
       format: 'date'
@@ -672,21 +798,25 @@ components:
     PrimaryId:
       type: 'boolean'
       default: false
-      description: 'Type of identifier search — set to true to search by primary identifier.'
+      description: 'Type of identifier search - set to true to search by primary identifier.'
     Timezone:
       type: 'string'
       default: 'America/New_York'
       description: 'Returns a list of all time zones supported by the API, formatted in POSIX style (e.g., `America/New_York`, `Africa/Malabo`). These time zones are automatically adjusted for daylight saving time where applicable. This list is used for setting or converting story dates and times accurately across different regions.'
     Sources:
-      description: "Code for document source to include. Available value:- \n\n  * FRC - FactSet Research Connect"
+      description: "Code for document source to include. Available values:\n\n  * **FRC**: FactSet Research Connect\n  * **AMR**: Aftermarket Research"
       type: 'array'
       items:
         type: 'string'
         enum:
           - 'FRC'
-    SourceCount:
-      description: "Code for document source to include. Available value:- \n\n  * FRC - FactSet Research Connect"
+          - 'AMR'
+    CountSource:
+      description: "Code for document source to include. Available values:\n\n  * **FRC**: FactSet Research Connect\n  * **AMR**: Aftermarket Research"
       type: 'string'
+      enum:
+        - 'FRC'
+        - 'AMR'
       example: 'FRC'
     Categories:
       type: 'array'
@@ -751,7 +881,7 @@ components:
           - 'Market'
       uniqueItems: true
     AssetClasses:
-      description: "One or more codes indicating asset classes covered in the document. The supported classifications are:\n\n  - Commodity - Includes physical goods like oil, gold, and agricultural products.\n  - Currency - Covers foreign exchange and currency-related instruments.\n  - Equity - Refers to ownership interests such as stocks or shares.\n  - FixedIncome - Includes debt instruments like bonds and treasury bills.\n  \n  If this parameter is omitted, the result set is not filtered by asset class, and the corresponding fields and details are not returned in the response.\n"
+      description: "One or more codes indicating asset classes covered in the document. The supported classifications are:\n\n  - Commodity - Includes physical goods like oil, gold, and agricultural products.\n  - Currency - Covers foreign exchange and currency-related instruments.\n  - Equity - Refers to ownership interests such as stocks or shares.\n  - FixedIncome - Includes debt instruments like bonds and treasury bills.\n\n  If this parameter is omitted, the result set is not filtered by asset class, and the corresponding fields and details are not returned in the response.\n"
       type: 'array'
       items:
         type: 'string'
@@ -762,7 +892,7 @@ components:
           - 'FixedIncome'
       uniqueItems: true
     CoverageActions:
-      description: "One or more codes indicating coverage actions discussed in the document. The supported actions are:\n\n  - Drop - Permanent discontinuation of research coverage. No further updates or publications will be issued for the entity.\n  \n  - Initiate - Formal commencement of research coverage. Typically includes an initial report and sets ongoing analytical attention.\n  \n  - Resume - Reinstatement of previously suspended or dropped coverage. Research publication and updates resume for the entity.\n  \n  - Suspend - Temporary halt in research coverage. No updates will be issued during this period, but coverage may be resumed later.\n  \n   If this parameter is omitted, the result set is not filtered by coverage action, and the corresponding coverage action field and details are not returned in the response.\n"
+      description: "One or more codes indicating coverage actions discussed in the document. The supported actions are:\n\n  - Drop - Permanent discontinuation of research coverage. No further updates or publications will be issued for the entity.\n\n  - Initiate - Formal commencement of research coverage. Typically includes an initial report and sets ongoing analytical attention.\n\n  - Resume - Reinstatement of previously suspended or dropped coverage. Research publication and updates resume for the entity.\n\n  - Suspend - Temporary halt in research coverage. No updates will be issued during this period, but coverage may be resumed later.\n\n   If this parameter is omitted, the result set is not filtered by coverage action, and the corresponding coverage action field and details are not returned in the response.\n"
       type: 'array'
       items:
         type: 'string'
@@ -774,9 +904,9 @@ components:
       uniqueItems: true
     CompilationIndicators:
       type: 'boolean'
-      description: "An indication of whether the document contains new material or is a compilation/summary of separately published material. If this parameter is not used, it will not return whether the record in the result has complilation indicator or not.\n \n "
+      description: 'An indication of whether the document contains new material or is a compilation/summary of separately published material. If this parameter is not used, it will not return whether the record in the result has complilation indicator or not.'
     Disciplines:
-      description: "One or more codes indicating the disciplines reflected in the document. The supported disciplines:\n  - Investment - Coverage related to investment assets, individual securities, or portfolio-level analysis.\n  - Strategy - Coverage concerning broader investment strategies, asset allocation, and portfolio construction insights.\n  - Economics - Coverage involving economic analysis, including macroeconomic trends, monetary policy, inflation, GDP, and related indicators.\n  \nIf this parameter is omitted, the result set is not filtered by discipline, and the corresponding discipline field and details are not returned in the response.\n"
+      description: "One or more codes indicating the disciplines reflected in the document. The supported disciplines:\n  - Investment - Coverage related to investment assets, individual securities, or portfolio-level analysis.\n  - Strategy - Coverage concerning broader investment strategies, asset allocation, and portfolio construction insights.\n  - Economics - Coverage involving economic analysis, including macroeconomic trends, monetary policy, inflation, GDP, and related indicators.\n\nIf this parameter is omitted, the result set is not filtered by discipline, and the corresponding discipline field and details are not returned in the response.\n"
       type: 'array'
       items:
         type: 'string'
@@ -786,7 +916,7 @@ components:
           - 'Economics'
       uniqueItems: true
     IssuerTypes:
-      description: "One or more codes indicating issuer types covered in the document. The supported issuer types:\n  - Agency - Debt issued by a government-sponsored or supported agency.\n  - Corporate - Securities issued by private or publicly traded corporations. \n  - Exchange - Instruments or debt issued via an exchange platform—typically exchange-traded notes or listed debt.\n  - Municipality - Bonds issued by state, local, or municipal governments.\n  - MutualFund - Shares issued by an open-end investment fund that pools investor assets to buy securities.\n  - REIT - Equity or debt securities issued by a Real Estate Investment Trust, which invests in income-generating property.\n  - Sovereign - Debt issued by a national government.\n  - SupranationalOrganizations - Debt issued by multinational agencies or international institutions.\n  \nIf this parameter is omitted, the result set is not filtered by issuer types, and the corresponding issuer type field and details are not returned in the response.\n"
+      description: "One or more codes indicating issuer types covered in the document. The supported issuer types:\n  - Agency - Debt issued by a government-sponsored or supported agency.\n  - Corporate - Securities issued by private or publicly traded corporations. \n  - Exchange - Instruments or debt issued via an exchange platform-typically exchange-traded notes or listed debt.\n  - Municipality - Bonds issued by state, local, or municipal governments.\n  - MutualFund - Shares issued by an open-end investment fund that pools investor assets to buy securities.\n  - REIT - Equity or debt securities issued by a Real Estate Investment Trust, which invests in income-generating property.\n  - Sovereign - Debt issued by a national government.\n  - SupranationalOrganizations - Debt issued by multinational agencies or international institutions.\n\nIf this parameter is omitted, the result set is not filtered by issuer types, and the corresponding issuer type field and details are not returned in the response.\n"
       type: 'array'
       items:
         type: 'string'
@@ -801,7 +931,7 @@ components:
           - 'SupranationalOrganizations'
       uniqueItems: true
     Periodicities:
-      description: "One or more codes indicating the fixed time interval at which the document is published.   The supported periodicities:\n  - Annually - Document is published once every year.\n  - Daily - Document is published every day.\n  - EveryTwoWeeks - Document is published every two weeks (biweekly).\n  - Hourly - Document is published every hour.\n  - IntraDay - Document is published multiple times within the same day.\n  - Monthly - Document is published once every month.\n  - None - No fixed periodicity; publication is irregular or ad hoc.\n  - Other - Publication follows a custom or unspecified interval.\n  - Quarterly - Document is published once every quarter (every three months).\n  - SemiAnnually - Document is published twice a year.\n  - Weekly - Document is published once every week.\n  \nIf this parameter is omitted, the result set is not filtered by periodicities, and the corresponding periodicities field and details are not returned in the response.\n"
+      description: "One or more codes indicating the fixed time interval at which the document is published.   The supported periodicities:\n  - Annually - Document is published once every year.\n  - Daily - Document is published every day.\n  - EveryTwoWeeks - Document is published every two weeks (biweekly).\n  - Hourly - Document is published every hour.\n  - IntraDay - Document is published multiple times within the same day.\n  - Monthly - Document is published once every month.\n  - None - No fixed periodicity; publication is irregular or ad hoc.\n  - Other - Publication follows a custom or unspecified interval.\n  - Quarterly - Document is published once every quarter (every three months).\n  - SemiAnnually - Document is published twice a year.\n  - Weekly - Document is published once every week.\n\nIf this parameter is omitted, the result set is not filtered by periodicities, and the corresponding periodicities field and details are not returned in the response.\n"
       type: 'array'
       items:
         type: 'string'
@@ -819,7 +949,7 @@ components:
           - 'Weekly'
       uniqueItems: true
     Purposes:
-      description: "One or more codes indicating the report purpose of the document.   The supported purposes:\n  - Action - Intended to drive or recommend a specific investment decision or action.\n  - Influence - Aimed at shaping opinions or market sentiment without directly recommending action.\n  - Education - Designed to inform or explain concepts, methodologies, or market mechanics.\n  \nIf this parameter is omitted, the result set is not filtered by purposes, and the corresponding purposes field and details are not returned in the response. \n"
+      description: "One or more codes indicating the report purpose of the document.   The supported purposes:\n  - Action - Intended to drive or recommend a specific investment decision or action.\n  - Influence - Aimed at shaping opinions or market sentiment without directly recommending action.\n  - Education - Designed to inform or explain concepts, methodologies, or market mechanics.\n\nIf this parameter is omitted, the result set is not filtered by purposes, and the corresponding purposes field and details are not returned in the response. \n"
       type: 'array'
       items:
         type: 'string'
@@ -829,7 +959,7 @@ components:
           - 'Education'
       uniqueItems: true
     RatingActions:
-      description: "One or more codes indicating rating actions discussed in the document. The supported rating actions:\n  - Affirmed - Maintains the current rating after review.\n  - Downgrade - Lowers the rating to a worse category.\n  - Drop - Removes rating coverage entirely.\n  - Initiate - Applies a rating for the first time on the entity.\n  - NegativeOutlook - Assigns a negative outlook without changing the rating.\n  - NewRating - Introduces a rating where none existed before.\n  - PositiveOutlook - Assigns a positive outlook without changing the rating.\n  - RatingRestored - Reinstates a previously withdrawn or suspended rating.\n  - RatingWithdrawn - Removes the current rating but leaves open resumption.\n  - Reiterate - Reaffirms the existing rating without change.\n  - ReviewDirectionUncertain - Places rating under review without a clear direction.\n  - ReviewForDowngrade - Places rating under review, likely to be downgraded.\n  - ReviewForUpgrade - Places rating under review, likely to be upgraded.\n  - Revise - Modifies rating details or scale without changing direction.\n  - Upgrade - Raises the rating to a better category.\n  \n  \n If this parameter is omitted, the result set is not filtered by rating actions, and the corresponding rating actions field and details are not returned in the response. \n"
+      description: "One or more codes indicating rating actions discussed in the document. The supported rating actions:\n  - Affirmed - Maintains the current rating after review.\n  - Downgrade - Lowers the rating to a worse category.\n  - Drop - Removes rating coverage entirely.\n  - Initiate - Applies a rating for the first time on the entity.\n  - NegativeOutlook - Assigns a negative outlook without changing the rating.\n  - NewRating - Introduces a rating where none existed before.\n  - PositiveOutlook - Assigns a positive outlook without changing the rating.\n  - RatingRestored - Reinstates a previously withdrawn or suspended rating.\n  - RatingWithdrawn - Removes the current rating but leaves open resumption.\n  - Reiterate - Reaffirms the existing rating without change.\n  - ReviewDirectionUncertain - Places rating under review without a clear direction.\n  - ReviewForDowngrade - Places rating under review, likely to be downgraded.\n  - ReviewForUpgrade - Places rating under review, likely to be upgraded.\n  - Revise - Modifies rating details or scale without changing direction.\n  - Upgrade - Raises the rating to a better category.\n\n\n If this parameter is omitted, the result set is not filtered by rating actions, and the corresponding rating actions field and details are not returned in the response.\n"
       type: 'array'
       items:
         type: 'string'
@@ -851,7 +981,7 @@ components:
           - 'Upgrade'
       uniqueItems: true
     ResearchApproaches:
-      description: "One or more codes indicating the research perspective provided in the document.   The supported research approaches:\n  - Fundamental - Based on analysis of financial statements, industry conditions, and management quality to determine intrinsic value.\n  - Quantitative - Relies on statistical models, mathematical algorithms, and historical data to identify patterns and signals.\n  - Technical - Focuses on price charts, trading volume, and market trends to forecast future price movements.\n  \n If this parameter is omitted, the result set is not filtered by research approaches, and the corresponding research approaches field and details are not returned in the response.   \n"
+      description: "One or more codes indicating the research perspective provided in the document.   The supported research approaches:\n  - Fundamental - Based on analysis of financial statements, industry conditions, and management quality to determine intrinsic value.\n  - Quantitative - Relies on statistical models, mathematical algorithms, and historical data to identify patterns and signals.\n  - Technical - Focuses on price charts, trading volume, and market trends to forecast future price movements.\n\n If this parameter is omitted, the result set is not filtered by research approaches, and the corresponding research approaches field and details are not returned in the response.   \n"
       type: 'array'
       items:
         type: 'string'
@@ -861,7 +991,7 @@ components:
           - 'Technical'
       uniqueItems: true
     TargetActions:
-      description: "One or more codes indicating target price actions discussed in the document.   The supported target actions:\n  - Decrease - Lowers the previously stated target price for a security.\n  - Increase - Raises the previously stated target price for a security.\n  - Reiterate - Confirms the existing target price without change.\n  - Update - Modifies the target price, direction may or may not be specified.\n  \n If this parameter is omitted, the result set is not filtered by target actions, and the corresponding target actions field and details are not returned in the response.   \n"
+      description: "One or more codes indicating target price actions discussed in the document.   The supported target actions:\n  - Decrease - Lowers the previously stated target price for a security.\n  - Increase - Raises the previously stated target price for a security.\n  - Reiterate - Confirms the existing target price without change.\n  - Update - Modifies the target price, direction may or may not be specified.\n\n If this parameter is omitted, the result set is not filtered by target actions, and the corresponding target actions field and details are not returned in the response.   \n"
       type: 'array'
       items:
         type: 'string'
@@ -872,7 +1002,7 @@ components:
           - 'Update'
       uniqueItems: true
     WeightingActions:
-      description: "One or more codes indicating weighting actions discussed in the document.   The supported weighting actions:\n  - Decrease - Lowers the portfolio weighting or exposure to a security or sector.\n  - Increase - Raises the portfolio weighting or exposure to a security or sector.\n  - Reiterate - Maintains the current weighting recommendation without change.\n  - Update - Adjusts the weighting, potentially reflecting a revised strategy or allocation.\n  \n If this parameter is omitted, the result set is not filtered by weighting actions, and the corresponding weighting actions field and details are not returned in the response. \n"
+      description: "One or more codes indicating weighting actions discussed in the document.   The supported weighting actions:\n  - Decrease - Lowers the portfolio weighting or exposure to a security or sector.\n  - Increase - Raises the portfolio weighting or exposure to a security or sector.\n  - Reiterate - Maintains the current weighting recommendation without change.\n  - Update - Adjusts the weighting, potentially reflecting a revised strategy or allocation.\n\n If this parameter is omitted, the result set is not filtered by weighting actions, and the corresponding weighting actions field and details are not returned in the response.\n"
       type: 'array'
       items:
         type: 'string'
@@ -907,7 +1037,7 @@ components:
         endDateRelative:
           $ref: '#/components/schemas/EndDateRelative'
         source:
-          $ref: '#/components/schemas/SourceCount'
+          $ref: '#/components/schemas/CountSource'
         timezone:
           $ref: '#/components/schemas/Timezone'
         categories:
@@ -967,7 +1097,7 @@ components:
           example: 'IBM-US'
         source:
           type: 'string'
-          description: 'source'
+          description: "The source of the documents counted. Possible values:\n\n• **FRC**: FactSet Research Connect\n\n• **AMR**: Aftermarket Research"
           example: 'FRC'
         count:
           type: 'string'
@@ -1162,7 +1292,7 @@ components:
           description: 'Concise title or summary of the research story or document.'
         source:
           type: 'string'
-          description: "Provides source of the document.\n\n• FRC – FactSet Research Connect"
+          description: "Provides source of the document.\n\n• **FRC**: FactSet Research Connect\n\n• **AMR**: Aftermarket Research"
         primaryIds:
           type: 'array'
           items:
@@ -1185,7 +1315,7 @@ components:
         link:
           type: 'string'
           format: 'url'
-          description: 'The link to download the document.'
+          description: "The link to download the document.\n\n**Note:** For documents with `source: AMR` (Aftermarket Research), this is a preview link only. To access the full document, call the `/purchase-amr` endpoint with the `documentId` to retrieve the `purchaseLink`."
         contributorName:
           type: 'string'
           description: 'Research specific metadata providing the name of the research contributor.'
@@ -1293,6 +1423,223 @@ components:
           description: 'Error details explanation'
           type: 'string'
           example: 'Validation Error'
+    PurchaseRequest:
+      title: 'Purchase Request Body'
+      description: 'Purchase request body elements'
+      type: 'object'
+      properties:
+        data:
+          $ref: '#/components/schemas/PurchaseRequestBody'
+      required:
+        - 'data'
+    PurchaseRequestBody:
+      title: 'Purchase Request Body'
+      description: 'Purchase request body elements'
+      type: 'object'
+      properties:
+        documentIds:
+          $ref: '#/components/schemas/DocumentIds'
+        fields:
+          $ref: '#/components/schemas/PurchaseFields'
+      required:
+        - 'documentIds'
+    PurchaseFields:
+      type: 'array'
+      items:
+        type: 'string'
+        enum:
+          - 'headline'
+          - 'source'
+          - 'primaryIds'
+          - 'allIds'
+          - 'categories'
+          - 'storyDateTime'
+          - 'contributorName'
+          - 'contributorId'
+          - 'analystName'
+          - 'analystId'
+          - 'pages'
+          - 'documentId'
+          - 'reportFoci'
+          - 'assetClasses'
+          - 'assetTypes'
+          - 'coverageActions'
+          - 'compilationIndicators'
+          - 'disciplines'
+          - 'issuerTypes'
+          - 'periodicities'
+          - 'purposes'
+          - 'ratingActions'
+          - 'researchApproaches'
+          - 'securityTypes'
+          - 'targetActions'
+          - 'weightingActions'
+          - 'purchaseLink'
+      uniqueItems: true
+      example:
+        - 'documentId'
+        - 'purchaseLink'
+        - 'headline'
+      description: 'Optional list of metadata fields to include in each returned document. When omitted, all fields are returned. At minimum, `documentId` and `purchaseLink` are always included regardless of this parameter. Valid values correspond to the property names of `PurchaseDocument`.'
+    DocumentIds:
+      type: 'array'
+      items:
+        type: 'string'
+      minItems: 1
+      maxItems: 1000
+      example:
+        - '20230307-5b36f2cf-49bd-ed11-abc3-12bc89a8f273_0'
+      description: 'Requested document identifiers obtained from the `documentId` field of a `/search` response. Maximum 1000 IDs per request.'
+    PurchaseResponse:
+      description: 'Purchase Response Object'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          description: 'Data Array Object'
+          items:
+            $ref: '#/components/schemas/PurchaseResponseItems'
+    PurchaseResponseItems:
+      type: 'object'
+      description: "The data being returned in the purchase response are purchase results, and under each result, the documents are organized by the requested document identifier.\n"
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The requested documentId associated with this group of documents.'
+        documents:
+          type: 'array'
+          description: 'Contains list of documents matching the requested documentId (typically one).'
+          items:
+            $ref: '#/components/schemas/PurchaseDocument'
+        error:
+          $ref: '#/components/schemas/InvalidIdErrorObject'
+    PurchaseDocument:
+      title: 'Purchase Document'
+      type: 'object'
+      description: 'A research document with its purchase link and standard metadata. Mirrors the `Document` schema returned by `/search`, except the preview `link` is replaced by `purchaseLink`, which links to the full document. Only `documentId` and `purchaseLink` are guaranteed to be present in every response; all other fields are returned only when not filtered out by the request `fields` parameter.'
+      required:
+        - 'documentId'
+        - 'purchaseLink'
+      properties:
+        documentId:
+          type: 'string'
+          description: 'Unique identifier for a document.'
+        purchaseLink:
+          type: 'string'
+          format: 'url'
+          description: 'Link to purchase or access the full document. Present for documents sourced from Aftermarket Research (AMR).'
+        headline:
+          type: 'string'
+          description: 'Concise title or summary of the research story or document.'
+        source:
+          type: 'string'
+          description: "Provides source of the document.\n\n• **FRC**: FactSet Research Connect\n\n• **AMR**: Aftermarket Research"
+        primaryIds:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'Refers to the main company a particular document refers to.'
+        allIds:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'Refers to all companies mentioned in the document. This could also include the primary company id as well.'
+        categories:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'Provides the category of the document, list is provided by the `/meta/categories` endpoint.'
+        storyDateTime:
+          type: 'string'
+          format: 'date-time'
+          description: 'Publish date and time of the latest version, in RFC 3339 format (a subset of ISO 8601), e.g., 2024-07-03T14:00:00Z (UTC).'
+        contributorName:
+          type: 'string'
+          description: 'Research specific metadata providing the name of the research contributor.'
+        contributorId:
+          type: 'integer'
+          description: 'Research specific metadata providing the ID of the research contributor.'
+        analystName:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'Research specific metadata providing the name of the analyst(s) who wrote the research.'
+        analystId:
+          type: 'array'
+          items:
+            type: 'integer'
+          description: 'Research specific metadata providing the ID of the analyst(s) who wrote the research.'
+        pages:
+          type: 'integer'
+          description: 'Total number of pages in the document.'
+        reportFoci:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more classification codes indicating the primary focus of the document.'
+        assetClasses:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating asset classes covered in the document.'
+        assetTypes:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating asset types.'
+        coverageActions:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating coverage actions.'
+        compilationIndicators:
+          type: 'boolean'
+          description: 'An indication of whether the document contains new material or is a compilation/summary of separately published material.'
+        disciplines:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating the disciplines reflected in the document.'
+        issuerTypes:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating issuer types covered in the document.'
+        periodicities:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating the fixed time interval at which the document is published.'
+        purposes:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating the report purpose of the document.'
+        ratingActions:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating rating actions discussed in the document.'
+        researchApproaches:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating the research perspective provided in the document.'
+        securityTypes:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating security types.'
+        targetActions:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating target price actions discussed in the document.'
+        weightingActions:
+          type: 'array'
+          items:
+            type: 'string'
+          description: 'One or more codes indicating weighting actions discussed in the document.'
   examples:
     ByDate:
       value:
@@ -1303,6 +1650,7 @@ components:
           endDate: '2025-09-15'
           sources:
             - 'FRC'
+            - 'AMR'
           timezone: 'America/New_York'
           categories:
             - 'CN:US'
@@ -1339,6 +1687,7 @@ components:
           endDateRelative: 0
           sources:
             - 'FRC'
+            - 'AMR'
           timezone: 'America/New_York'
           categories:
             - 'CN:US'
@@ -1366,6 +1715,33 @@ components:
             offset: 0
           sort:
             - '-storyDateTime'
+    PurchaseByDocumentIds:
+      summary: 'Purchase a single document'
+      value:
+        data:
+          documentIds:
+            - '20230612-amr-sample-ibm-us-q2-outlook_0'
+    PurchaseByMultipleDocumentIds:
+      summary: 'Purchase multiple documents in one request'
+      value:
+        data:
+          documentIds:
+            - '20230612-amr-sample-ibm-us-q2-outlook_0'
+            - '20230715-amr-sample-msft-us-earnings_0'
+            - '20230820-amr-sample-aapl-us-deepdive_0'
+    PurchaseWithFields:
+      summary: 'Restrict the response to selected fields'
+      value:
+        data:
+          documentIds:
+            - '20230612-amr-sample-ibm-us-q2-outlook_0'
+            - '20230715-amr-sample-msft-us-earnings_0'
+          fields:
+            - 'headline'
+            - 'source'
+            - 'storyDateTime'
+            - 'contributorName'
+            - 'analystName'
     CountByDate:
       value:
         data:
@@ -1402,7 +1778,7 @@ components:
             - 'IBM-US'
           startDateRelative: -30
           endDateRelative: 0
-          source: 'FRC'
+          source: 'AMR'
           timezone: 'America/New_York'
           categories:
             - 'CN:US'
@@ -1431,6 +1807,13 @@ components:
           - requestId: 'IBM-US'
             source: 'FRC'
             count: '10000'
+    AMRCountResponseExample:
+      summary: 'Sample AMR Response'
+      value:
+        data:
+          - requestId: 'IBM-US'
+            source: 'AMR'
+            count: '1200'
     AssetTypesResponseExample:
       summary: 'Sample 200 Response for asset types parameter'
       value:

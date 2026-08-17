@@ -12,6 +12,7 @@ docs/CountRequest.md
 docs/CountRequestBody.md
 docs/CountResponse.md
 docs/CountResponseObject.md
+docs/CountSource.md
 docs/Document.md
 docs/ErrorExample.md
 docs/ErrorResponse.md
@@ -21,6 +22,11 @@ docs/InvestmentResearchResponseItems.md
 docs/InvestmentResearchResponseMeta.md
 docs/InvestmentResearchResponseMetaPagination.md
 docs/MetaApi.md
+docs/PurchaseDocument.md
+docs/PurchaseRequest.md
+docs/PurchaseRequestBody.md
+docs/PurchaseResponse.md
+docs/PurchaseResponseItems.md
 docs/ResearchAnalystResponse.md
 docs/ResearchAnalystResponseObject.md
 docs/ResearchApi.md
@@ -63,6 +69,7 @@ src/FactSet.SDK.InvestmentResearch/Model/CountRequest.cs
 src/FactSet.SDK.InvestmentResearch/Model/CountRequestBody.cs
 src/FactSet.SDK.InvestmentResearch/Model/CountResponse.cs
 src/FactSet.SDK.InvestmentResearch/Model/CountResponseObject.cs
+src/FactSet.SDK.InvestmentResearch/Model/CountSource.cs
 src/FactSet.SDK.InvestmentResearch/Model/Document.cs
 src/FactSet.SDK.InvestmentResearch/Model/ErrorExample.cs
 src/FactSet.SDK.InvestmentResearch/Model/ErrorResponse.cs
@@ -71,6 +78,11 @@ src/FactSet.SDK.InvestmentResearch/Model/InvestmentResearchResponse.cs
 src/FactSet.SDK.InvestmentResearch/Model/InvestmentResearchResponseItems.cs
 src/FactSet.SDK.InvestmentResearch/Model/InvestmentResearchResponseMeta.cs
 src/FactSet.SDK.InvestmentResearch/Model/InvestmentResearchResponseMetaPagination.cs
+src/FactSet.SDK.InvestmentResearch/Model/PurchaseDocument.cs
+src/FactSet.SDK.InvestmentResearch/Model/PurchaseRequest.cs
+src/FactSet.SDK.InvestmentResearch/Model/PurchaseRequestBody.cs
+src/FactSet.SDK.InvestmentResearch/Model/PurchaseResponse.cs
+src/FactSet.SDK.InvestmentResearch/Model/PurchaseResponseItems.cs
 src/FactSet.SDK.InvestmentResearch/Model/ResearchAnalystResponse.cs
 src/FactSet.SDK.InvestmentResearch/Model/ResearchAnalystResponseObject.cs
 src/FactSet.SDK.InvestmentResearch/Model/ResearchContributorResponse.cs

@@ -15,6 +15,8 @@ import com.factset.sdk.InvestmentResearch.models.CountRequest;
 import com.factset.sdk.InvestmentResearch.models.CountResponse;
 import com.factset.sdk.InvestmentResearch.models.ErrorResponse;
 import com.factset.sdk.InvestmentResearch.models.InvestmentResearchResponse;
+import com.factset.sdk.InvestmentResearch.models.PurchaseRequest;
+import com.factset.sdk.InvestmentResearch.models.PurchaseResponse;
 import com.factset.sdk.InvestmentResearch.models.SearchRequest;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -46,6 +48,15 @@ public class ResearchApi {
     getInvestmentResearchDataResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
     getInvestmentResearchDataResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
     getInvestmentResearchDataResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
+  }
+
+  private static final Map<Integer, GenericType> getPurchaseLinksResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    getPurchaseLinksResponseTypeMap.put(200, new GenericType<PurchaseResponse>(){});
+    getPurchaseLinksResponseTypeMap.put(400, new GenericType<ErrorResponse>(){});
+    getPurchaseLinksResponseTypeMap.put(401, new GenericType<ErrorResponse>(){});
+    getPurchaseLinksResponseTypeMap.put(403, new GenericType<ErrorResponse>(){});
+    getPurchaseLinksResponseTypeMap.put(500, new GenericType<ErrorResponse>(){});
   }
 
   
@@ -227,6 +238,87 @@ public class ResearchApi {
     > apiResponse = apiClient.invokeAPI("ResearchApi.getInvestmentResearchData", localVarPath, "POST", localVarQueryParams, localVarPostBody,
                                localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, getInvestmentResearchDataResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Retrieve purchase links and metadata for specified research documents.
+   * Returns a purchase link (link to the full document) along with document metadata for each requested document ID. Primarily used for documents sourced from Aftermarket Research (AMR), where full-document access is via a purchase link distinct from the preview link returned by &#x60;/search&#x60;.  **Note:** A successful request to this endpoint is treated as a purchase and counts toward the pool subscription. If the same research report is requested again more than 24 hours after the original request, that later request counts toward the individual user&#39;s subscription count instead. 
+   * @param purchaseRequest  (required)
+   * @return PurchaseResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Array of documents with purchase links and associated metadata, grouped by requested document ID. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public PurchaseResponse getPurchaseLinks(PurchaseRequest purchaseRequest) throws ApiException {
+    return getPurchaseLinksWithHttpInfo(purchaseRequest).getData();
+  }
+
+  /**
+   * Retrieve purchase links and metadata for specified research documents.
+   * Returns a purchase link (link to the full document) along with document metadata for each requested document ID. Primarily used for documents sourced from Aftermarket Research (AMR), where full-document access is via a purchase link distinct from the preview link returned by &#x60;/search&#x60;.  **Note:** A successful request to this endpoint is treated as a purchase and counts toward the pool subscription. If the same research report is requested again more than 24 hours after the original request, that later request counts toward the individual user&#39;s subscription count instead. 
+   * @param purchaseRequest  (required)
+   * @return ApiResponse&lt;PurchaseResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Array of documents with purchase links and associated metadata, grouped by requested document ID. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from. For more help, select the Report Issue in the top right corner of this Developer Portal specification card and choose Connectivity 401 or 403 Responses. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. The request was a legal request, but the server is refusing to respond. Please reach out to FactSet Account Team for assistance with authorization. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<PurchaseResponse> getPurchaseLinksWithHttpInfo(PurchaseRequest purchaseRequest) throws ApiException {
+    Object localVarPostBody = purchaseRequest;
+    
+    // verify the required parameter 'purchaseRequest' is set
+    if (purchaseRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'purchaseRequest' when calling getPurchaseLinks");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/purchase-amr";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        PurchaseResponse
+      
+    > apiResponse = apiClient.invokeAPI("ResearchApi.getPurchaseLinks", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, getPurchaseLinksResponseTypeMap, false);
 
     return apiResponse;
 
