@@ -22,6 +22,7 @@ security:
 tags:
 - name: Calculations
 - name: Files
+- name: Servers
 paths:
   /calculations:
     post:
@@ -66,6 +67,26 @@ paths:
                 description: FactSet's request key header.
                 type: string
               style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -78,7 +99,7 @@ paths:
                 type: string
               style: simple
         "503":
-          description: Request timeout. Retry the request later
+          description: Service temporarily unavailable. Retry the request later.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -93,6 +114,109 @@ paths:
       x-contentType: application/json
       x-accepts: application/json
   /calculations/{id}:
+    delete:
+      description: Aborts a running calculation. Returns 409 if the calculation is
+        already in a terminal state, 422 if the calculation has not started yet or
+        is not supported.
+      operationId: deleteCalculation
+      parameters:
+      - description: Calculation id to kill
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          description: Calculation id to kill
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Calculation successfully cancelled.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "404":
+          description: Calculation not found.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "409":
+          description: Calculation is already in a terminal state (completed, failed,
+            or cancelled).
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "422":
+          description: Calculation has not started yet or kill is not supported for
+            this calculation type.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Service temporarily unavailable. Retry the request later.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Kill a running calculation by id
+      tags:
+      - Calculations
+      x-accepts: application/json
     get:
       description: This is the endpoint to check on the progress of a previous calculation
         request.
@@ -153,6 +277,26 @@ paths:
                 description: FactSet's request key header.
                 type: string
               style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -165,7 +309,7 @@ paths:
                 type: string
               style: simple
         "503":
-          description: Request timeout. Retry the request later
+          description: Service temporarily unavailable. Retry the request later.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -229,6 +373,26 @@ paths:
                 description: FactSet's request key header.
                 type: string
               style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -241,7 +405,7 @@ paths:
                 type: string
               style: simple
         "503":
-          description: Request timeout. Retry the request later
+          description: Service temporarily unavailable. Retry the request later.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -298,6 +462,26 @@ paths:
                 description: FactSet's request key header.
                 type: string
               style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -310,7 +494,7 @@ paths:
                 type: string
               style: simple
         "503":
-          description: Request timeout. Retry the request later
+          description: Service temporarily unavailable. Retry the request later.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -377,6 +561,26 @@ paths:
                 description: FactSet's request key header.
                 type: string
               style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -389,7 +593,7 @@ paths:
                 type: string
               style: simple
         "503":
-          description: Request timeout. Retry the request later
+          description: Service temporarily unavailable. Retry the request later.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -463,6 +667,26 @@ paths:
                 description: FactSet's request key header.
                 type: string
               style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
         "500":
           description: Server error. Log the X-DataDirect-Request-Key header to assist
             in troubleshooting.
@@ -475,7 +699,7 @@ paths:
                 type: string
               style: simple
         "503":
-          description: Request timeout. Retry the request later
+          description: Service temporarily unavailable. Retry the request later.
           headers:
             X-DataDirect-Request-Key:
               description: FactSet's request key header.
@@ -487,6 +711,80 @@ paths:
       summary: Get upload status by id
       tags:
       - Files
+      x-accepts: application/json
+  /servers:
+    delete:
+      description: 'Stops the user''s underlying API server so that a subsequent calculation
+        request starts a fresh server that picks up any recent configuration changes.
+        This is a fire-and-forget stop: no new server is started synchronously. A
+        new server is created automatically on the next calculation request. Warning:
+        this will terminate any calculations that are currently running on that server.'
+      operationId: stopServer
+      responses:
+        "204":
+          description: Server stop request accepted.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "401":
+          description: Missing or invalid authentication credentials.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "403":
+          description: Caller is not entitled to access this resource.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "404":
+          description: No server found to stop.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "500":
+          description: Server error. Log the X-DataDirect-Request-Key header to assist
+            in troubleshooting.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+        "503":
+          description: Service temporarily unavailable. Retry the request later.
+          headers:
+            X-DataDirect-Request-Key:
+              description: FactSet's request key header.
+              explode: false
+              schema:
+                description: FactSet's request key header.
+                type: string
+              style: simple
+      summary: Stop the caller's API server
+      tags:
+      - Servers
       x-accepts: application/json
 components:
   schemas:

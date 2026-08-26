@@ -18,6 +18,7 @@ import FileUploadStatus from './model/FileUploadStatus';
 
 import CalculationsApi from './api/CalculationsApi';
 import FilesApi from './api/FilesApi';
+import ServersApi from './api/ServersApi';
 
 
 /**
@@ -86,5 +87,11 @@ export {
     * @property {module:api/FilesApi}
     */
     FilesApi,
+
+    /**
+    * The ServersApi service constructor.
+    * @property {module:api/ServersApi}
+    */
+    ServersApi,
 
 };

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.factset.com/analytics/quant/fpe/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createCalculations**](CalculationsApi.md#createCalculations) | **POST** /calculations | Starts a new script calculation
+[**deleteCalculation**](CalculationsApi.md#deleteCalculation) | **DELETE** /calculations/{id} | Kill a running calculation by id
 [**getCalculations**](CalculationsApi.md#getCalculations) | **GET** /calculations/{id} | Get calculation status by id
 [**getCalculationsLog**](CalculationsApi.md#getCalculationsLog) | **GET** /calculations/{id}/log | Get calculation log for a specific calculation
 [**getCalculationsOutput**](CalculationsApi.md#getCalculationsOutput) | **GET** /calculations/{id}/output | Get calculation output for a specific calculation
@@ -90,6 +91,83 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+
+## deleteCalculation
+
+> deleteCalculation(id)
+
+Kill a running calculation by id
+
+Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, CalculationsApi } = require('@factset/sdk-factsetprogrammaticenvironment');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new CalculationsApi();
+const id = "id_example"; // String | Calculation id to kill
+
+// Call api endpoint
+apiInstance.deleteCalculation(id).then(
+  () => {
+    console.log('API called successfully.');
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Calculation id to kill | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## getCalculations

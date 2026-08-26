@@ -9,9 +9,11 @@ docs/CalculationStatus.md
 docs/CalculationsApi.md
 docs/FileUploadStatus.md
 docs/FilesApi.md
+docs/ServersApi.md
 git_push.sh
 src/FactSet.SDK.FactSetProgrammaticEnvironment/Api/CalculationsApi.cs
 src/FactSet.SDK.FactSetProgrammaticEnvironment/Api/FilesApi.cs
+src/FactSet.SDK.FactSetProgrammaticEnvironment/Api/ServersApi.cs
 src/FactSet.SDK.FactSetProgrammaticEnvironment/Client/ApiClient.cs
 src/FactSet.SDK.FactSetProgrammaticEnvironment/Client/ApiException.cs
 src/FactSet.SDK.FactSetProgrammaticEnvironment/Client/ApiResponse.cs

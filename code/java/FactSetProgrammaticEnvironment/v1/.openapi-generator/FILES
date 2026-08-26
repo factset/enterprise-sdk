@@ -10,6 +10,7 @@ docs/CalculationStatus.md
 docs/CalculationsApi.md
 docs/FileUploadStatus.md
 docs/FilesApi.md
+docs/ServersApi.md
 git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
@@ -31,6 +32,7 @@ src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/ServerVariable.java
 src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/StringUtil.java
 src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/api/CalculationsApi.java
 src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/api/FilesApi.java
+src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/api/ServersApi.java
 src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/auth/ApiKeyAuth.java
 src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/auth/Authentication.java
 src/main/java/com/factset/sdk/FactSetProgrammaticEnvironment/auth/FactSetOAuth2ClientAuth.java

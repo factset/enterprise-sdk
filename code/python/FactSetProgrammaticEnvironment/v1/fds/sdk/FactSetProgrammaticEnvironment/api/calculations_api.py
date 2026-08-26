@@ -99,6 +99,57 @@ class CalculationsApi(object):
             api_client=api_client
         )
 
+        self.delete_calculation_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'FactSetApiKey',
+                    'FactSetOAuth2'
+                ],
+                'endpoint_path': '/calculations/{id}',
+                'operation_id': 'delete_calculation',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+
         self.get_calculations_endpoint = _Endpoint(
             settings={
                 'response_type': (
@@ -454,6 +505,197 @@ class CalculationsApi(object):
         """
         self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
         return self.create_calculations_endpoint.call_with_http_info(**kwargs)
+
+
+    def delete_calculation(
+        self,
+        id,
+        **kwargs
+    ) -> None:
+        """Kill a running calculation by id  # noqa: E501
+
+        Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns the http data only
+
+        Args:
+            id (str): Calculation id to kill
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.delete_calculation_endpoint.call_with_http_info(**kwargs)
+
+    def delete_calculation_with_http_info(
+        self,
+        id,
+        **kwargs
+    ) -> typing.Tuple[None, int, typing.MutableMapping]:
+        """Kill a running calculation by id  # noqa: E501
+
+        Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.  # noqa: E501
+        This method makes a synchronous HTTP request. Returns http data, http status and headers
+
+        Args:
+            id (str): Calculation id to kill
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            None
+                Response Object
+            int
+                Http Status Code
+            dict
+                Dictionary of the response headers
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=False)
+        kwargs['id'] = \
+            id
+        return self.delete_calculation_endpoint.call_with_http_info(**kwargs)
+
+    def delete_calculation_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[None]":
+        """Kill a running calculation by id  # noqa: E501
+
+        Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns the http data, wrapped in ApplyResult
+
+        Args:
+            id (str): Calculation id to kill
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[None]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=True, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.delete_calculation_endpoint.call_with_http_info(**kwargs)
+
+    def delete_calculation_with_http_info_async(
+        self,
+        id,
+        **kwargs
+    ) -> "ApplyResult[typing.Tuple[None, int, typing.MutableMapping]]":
+        """Kill a running calculation by id  # noqa: E501
+
+        Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.  # noqa: E501
+        This method makes a asynchronous HTTP request. Returns http data, http status and headers, wrapped in ApplyResult
+
+        Args:
+            id (str): Calculation id to kill
+
+        Keyword Args:
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True. NOTE: if this API returns a file, it is the responsibility
+                of the caller to close the file stream.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+        Returns:
+            ApplyResult[(None, int, typing.Dict)]
+        """
+        self.apply_kwargs_defaults(kwargs=kwargs, return_http_data_only=False, async_req=True)
+        kwargs['id'] = \
+            id
+        return self.delete_calculation_endpoint.call_with_http_info(**kwargs)
 
 
     def get_calculations(

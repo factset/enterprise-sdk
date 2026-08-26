@@ -101,8 +101,10 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Expected response. Signals that the upload is finished. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 **202** | Expected response. Signals that the upload is still in progress. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**401** | Missing or invalid authentication credentials. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**403** | Caller is not entitled to access this resource. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
-**503** | Request timeout. Retry the request later |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**503** | Service temporarily unavailable. Retry the request later. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -202,8 +204,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | Expected response, contains the relative URL in the Location header to check the status of the upload. |  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**401** | Missing or invalid authentication credentials. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**403** | Caller is not entitled to access this resource. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 **500** | Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
-**503** | Request timeout. Retry the request later |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
+**503** | Service temporarily unavailable. Retry the request later. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

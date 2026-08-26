@@ -50,6 +50,27 @@ namespace FactSet.SDK.FactSetProgrammaticEnvironment.Api
         /// <returns>ApiResponse of CalculationStatus</returns>
         ApiResponse<CalculationStatus> CreateCalculationsWithHttpInfo(Calculation calculation = default(Calculation));
         /// <summary>
+        /// Kill a running calculation by id
+        /// </summary>
+        /// <remarks>
+        /// Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <returns>void</returns>
+        void DeleteCalculation(string id);
+
+        /// <summary>
+        /// Kill a running calculation by id
+        /// </summary>
+        /// <remarks>
+        /// Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteCalculationWithHttpInfo(string id);
+        /// <summary>
         /// Get calculation status by id
         /// </summary>
         /// <remarks>
@@ -145,6 +166,29 @@ namespace FactSet.SDK.FactSetProgrammaticEnvironment.Api
         /// <returns>Task of ApiResponse (CalculationStatus)</returns>
         System.Threading.Tasks.Task<ApiResponse<CalculationStatus>> CreateCalculationsWithHttpInfoAsync(Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Kill a running calculation by id
+        /// </summary>
+        /// <remarks>
+        /// Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteCalculationAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Kill a running calculation by id
+        /// </summary>
+        /// <remarks>
+        /// Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </remarks>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCalculationWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Get calculation status by id
         /// </summary>
         /// <remarks>
@@ -236,6 +280,10 @@ namespace FactSet.SDK.FactSetProgrammaticEnvironment.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> CreateCalculationsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)202, typeof(CalculationStatus) },
+        };
+
+        private static readonly Dictionary<HttpStatusCode, System.Type> DeleteCalculationResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
+        {
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> GetCalculationsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
@@ -521,6 +569,179 @@ namespace FactSet.SDK.FactSetProgrammaticEnvironment.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateCalculations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Kill a running calculation by id Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <returns>void</returns>
+        public void DeleteCalculation(string id)
+        {
+            DeleteCalculationWithHttpInfo(id);
+        }
+
+        /// <summary>
+        /// Kill a running calculation by id Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteCalculationWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->DeleteCalculation");
+            }
+
+            FactSet.SDK.FactSetProgrammaticEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetProgrammaticEnvironment.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null)
+            {
+                var token = this.Configuration.OAuth2Client.GetAccessTokenAsync().Result;
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+            localVarRequestOptions.ResponseTypeDictionary = DeleteCalculationResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<
+            Object>("/calculations/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteCalculation", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Kill a running calculation by id Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteCalculationAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await DeleteCalculationWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Kill a running calculation by id Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+        /// </summary>
+        /// <exception cref="FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">Calculation id to kill</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCalculationWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new FactSet.SDK.FactSetProgrammaticEnvironment.Client.ApiException(400, "Missing required parameter 'id' when calling CalculationsApi->DeleteCalculation");
+            }
+
+
+            FactSet.SDK.FactSetProgrammaticEnvironment.Client.RequestOptions localVarRequestOptions = new FactSet.SDK.FactSetProgrammaticEnvironment.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (FactSetApiKey) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.SDK.FactSetProgrammaticEnvironment.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (FactSetOAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // FactSet Authentication Client required
+            if (this.Configuration.OAuth2Client != null) {
+                var token = await this.Configuration.OAuth2Client.GetAccessTokenAsync();
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + token);
+            }
+
+
+            localVarRequestOptions.ResponseTypeDictionary = DeleteCalculationResponseTypeDictionary;
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteCalculation", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

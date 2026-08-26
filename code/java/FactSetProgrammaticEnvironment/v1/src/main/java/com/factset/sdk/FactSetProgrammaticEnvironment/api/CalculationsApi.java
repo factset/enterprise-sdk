@@ -33,6 +33,8 @@ public class CalculationsApi {
     createCalculationsResponseTypeMap.put(202, new GenericType<CalculationStatus>(){});
   }
 
+  private static final Map<Integer, GenericType> deleteCalculationResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getCalculationsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getCalculationsResponseTypeMap.put(200, new GenericType<CalculationStatus>(){});
@@ -81,8 +83,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Expected response, contains the relative URL in the Location header to check the status of the calculation. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid request body provided </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public CalculationStatus createCalculations(Calculation calculation) throws ApiException {
@@ -100,8 +104,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 202 </td><td> Expected response, contains the relative URL in the Location header to check the status of the calculation. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 400 </td><td> Invalid request body provided </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public ApiResponse<CalculationStatus> createCalculationsWithHttpInfo(Calculation calculation) throws ApiException {
@@ -145,6 +151,91 @@ public class CalculationsApi {
 
   }
   /**
+   * Kill a running calculation by id
+   * Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+   * @param id Calculation id to kill (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> Calculation successfully cancelled. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 404 </td><td> Calculation not found. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 409 </td><td> Calculation is already in a terminal state (completed, failed, or cancelled). </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 422 </td><td> Calculation has not started yet or kill is not supported for this calculation type. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+     </table>
+   */
+  public void deleteCalculation(String id) throws ApiException {
+    deleteCalculationWithHttpInfo(id);
+  }
+
+  /**
+   * Kill a running calculation by id
+   * Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+   * @param id Calculation id to kill (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> Calculation successfully cancelled. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 404 </td><td> Calculation not found. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 409 </td><td> Calculation is already in a terminal state (completed, failed, or cancelled). </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 422 </td><td> Calculation has not started yet or kill is not supported for this calculation type. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> deleteCalculationWithHttpInfo(String id) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCalculation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/calculations/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("CalculationsApi.deleteCalculation", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, deleteCalculationResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
    * Get calculation status by id
    * This is the endpoint to check on the progress of a previous calculation request.
    * @param id From url, provided by location header or response body in the calculation start endpoint (required)
@@ -155,8 +246,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Expected response. Signals that the calculation is finished. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 202 </td><td> Expected response. Signals that the calculation is still in progress. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public CalculationStatus getCalculations(String id) throws ApiException {
@@ -174,8 +267,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Expected response. Signals that the calculation is finished. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 202 </td><td> Expected response. Signals that the calculation is still in progress. </td><td>  * Location - Relative URL to check status of the request. <br>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public ApiResponse<CalculationStatus> getCalculationsWithHttpInfo(String id) throws ApiException {
@@ -235,8 +330,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Expected response. Signals that the calculation is finished. Log from the calculation is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 202 </td><td> Expected response. Signals that the calculation is still in progress and no log is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public File getCalculationsLog(String id) throws ApiException {
@@ -254,8 +351,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Expected response. Signals that the calculation is finished. Log from the calculation is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 202 </td><td> Expected response. Signals that the calculation is still in progress and no log is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public ApiResponse<File> getCalculationsLogWithHttpInfo(String id) throws ApiException {
@@ -315,8 +414,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Expected response. Signals that the calculation is finished. Output from the calculation is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * Content-Type - The content type of the output specified in the calculation&#39;s script. <br>  </td></tr>
        <tr><td> 202 </td><td> Expected response. Signals that the calculation is still in progress and no output is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public File getCalculationsOutput(String id) throws ApiException {
@@ -334,8 +435,10 @@ public class CalculationsApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Expected response. Signals that the calculation is finished. Output from the calculation is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * Content-Type - The content type of the output specified in the calculation&#39;s script. <br>  </td></tr>
        <tr><td> 202 </td><td> Expected response. Signals that the calculation is still in progress and no output is returned. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid authentication credentials. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 403 </td><td> Caller is not entitled to access this resource. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
        <tr><td> 500 </td><td> Server error. Log the X-DataDirect-Request-Key header to assist in troubleshooting. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
-       <tr><td> 503 </td><td> Request timeout. Retry the request later </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
+       <tr><td> 503 </td><td> Service temporarily unavailable. Retry the request later. </td><td>  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  </td></tr>
      </table>
    */
   public ApiResponse<File> getCalculationsOutputWithHttpInfo(String id) throws ApiException {

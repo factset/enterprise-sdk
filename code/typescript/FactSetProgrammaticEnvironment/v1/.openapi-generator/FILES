@@ -9,12 +9,14 @@ docs/CalculationStatus.md
 docs/CalculationsApi.md
 docs/FileUploadStatus.md
 docs/FilesApi.md
+docs/ServersApi.md
 git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
 src/api/CalculationsApi.js
 src/api/FilesApi.js
+src/api/ServersApi.js
 src/index.js
 src/model/Calculation.js
 src/model/CalculationStatus.js

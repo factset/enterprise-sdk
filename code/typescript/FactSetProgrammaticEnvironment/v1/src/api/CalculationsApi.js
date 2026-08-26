@@ -85,6 +85,57 @@ export default class CalculationsApi {
 
 
     /**
+     * Kill a running calculation by id
+     * Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+     * @param {String} id Calculation id to kill
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    deleteCalculationWithHttpInfo(id) {
+      let postBody = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteCalculation");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['FactSetApiKey', 'FactSetOAuth2'];
+      let contentTypes = [];
+      let accepts = [];
+
+
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/calculations/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Kill a running calculation by id
+     * Aborts a running calculation. Returns 409 if the calculation is already in a terminal state, 422 if the calculation has not started yet or is not supported.
+     * @param {String} id Calculation id to kill
+     * @return { Promise } a Promise
+     */
+    deleteCalculation(id) {
+      return this.deleteCalculationWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Get calculation status by id
      * This is the endpoint to check on the progress of a previous calculation request.
      * @param {String} id From url, provided by location header or response body in the calculation start endpoint

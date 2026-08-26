@@ -1,6 +1,6 @@
 openapi: '3.0.0'
 info:
-  version: '1.1.0'
+  version: '1.2.0'
   title: 'FactSet Mergers and Acquisitions API'
   contact:
     name: 'FactSet Research Systems'
@@ -362,6 +362,16 @@ components:
           type: 'number'
           description: 'The full value of the business acquired, using % sought to determine the value of 100% of the business if less than 100% was sought in the transaction. Amounts returned are in USD.'
           example: 4276.71114
+          nullable: true
+        completionTransactionValue:
+          type: 'number'
+          description: 'Returns the transaction value (in USD Millions) at completion for the specified deal identifier. Transaction Value, but calculated instead using the terms of the transaction at completion (vs. announcement).'
+          example: 4251.21114
+          nullable: true
+        completionEnterpriseValue:
+          type: 'number'
+          description: 'Returns the enterprise value (in USD Millions) of the transaction at completion, for the specified deal identifier. This is calculated as the total value of the transaction at completion (base equity price at completion), including interest-bearing debt and preferred stock minus cash from the balance sheet.'
+          example: 4276.711124
           nullable: true
         annOfferPriceShare:
           type: 'number'
@@ -1084,6 +1094,8 @@ components:
               baseEquity: 4178.77714
               transactionValue: 4276.71114
               enterpriseValue: 4276.71114
+              completionTransactionValue: 4251.21114
+              completionEnterpriseValue: 4276.711124
               annOfferPriceShare: 8.5
               buyerExchangeRatio: null
               targetExchangeRatio: null
@@ -1130,7 +1142,6 @@ components:
               - 'Unsolicited Bid'
               - 'Rumor'
               - 'Target Special Committee'
-            requestId: '4143886MM'
     badRequestDateFormat:
       summary: 'Bad Request - Date Format'
       description: 'This bad request occurs when a request doesn''t use the YYYY-MM-DD in the date parameters. To resolve, convert your date to YYYY-MM-DD.'

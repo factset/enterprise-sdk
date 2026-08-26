@@ -9,11 +9,13 @@ docs/CalculationStatus.md
 docs/CalculationsApi.md
 docs/FileUploadStatus.md
 docs/FilesApi.md
+docs/ServersApi.md
 fds/__init__.py
 fds/sdk/FactSetProgrammaticEnvironment/__init__.py
 fds/sdk/FactSetProgrammaticEnvironment/api/__init__.py
 fds/sdk/FactSetProgrammaticEnvironment/api/calculations_api.py
 fds/sdk/FactSetProgrammaticEnvironment/api/files_api.py
+fds/sdk/FactSetProgrammaticEnvironment/api/servers_api.py
 fds/sdk/FactSetProgrammaticEnvironment/api_client.py
 fds/sdk/FactSetProgrammaticEnvironment/apis/__init__.py
 fds/sdk/FactSetProgrammaticEnvironment/configuration.py

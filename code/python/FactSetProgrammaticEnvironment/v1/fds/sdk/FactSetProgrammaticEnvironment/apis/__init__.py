@@ -16,3 +16,4 @@
 # Import APIs into API package:
 from fds.sdk.FactSetProgrammaticEnvironment.api.calculations_api import CalculationsApi
 from fds.sdk.FactSetProgrammaticEnvironment.api.files_api import FilesApi
+from fds.sdk.FactSetProgrammaticEnvironment.api.servers_api import ServersApi
