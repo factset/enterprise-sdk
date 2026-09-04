@@ -144,22 +144,33 @@ jobs:
           DRY_RUN: ${{ github.event.inputs.dryRun }}
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
         run: |
-          set -euo pipefail
+          set -uo pipefail
 
           publish_args=(--access public)
           if [ "$DRY_RUN" = "true" ]; then
             publish_args+=(--dry-run)
           fi
 
-          echo "$PACKAGE_PATHS" | jq -r '.[]' | while IFS= read -r pkg_path; do
+          overall_status=0
+
+          while IFS= read -r pkg_path; do
             echo "::group::Publishing $pkg_path"
-            pushd "$pkg_path" > /dev/null
-            echo 'npmRegistryServer: "https://registry.npmjs.org"' > .yarnrc.yml
-            corepack enable
-            yarn set version stable
-            yarn install
-            yarn build
-            yarn npm publish "${publish_args[@]}"
-            popd > /dev/null
+            (
+              set -e
+              cd "$pkg_path"
+              echo 'npmRegistryServer: "https://registry.npmjs.org"' > .yarnrc.yml
+              corepack enable
+              yarn set version stable
+              yarn install
+              yarn build
+              yarn npm publish "${publish_args[@]}"
+            )
+            pkg_status=$?
             echo "::endgroup::"
-          done
+            if [ "$pkg_status" -ne 0 ]; then
+              echo "::error::Failed to publish $pkg_path"
+              overall_status=1
+            fi
+          done < <(echo "$PACKAGE_PATHS" | jq -r '.[]')
+
+          exit "$overall_status"
