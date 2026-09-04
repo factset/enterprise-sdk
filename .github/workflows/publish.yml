@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       apiIncludeList:
-        description: 'Limit publishing to this list of API(s) and optional versions, uses the `normalizedName` like "PA Engine API" -> "PAEngine". Example: PAEngine:1,SPAREngine:3,Symbology'
+        description: 'Limit publishing to this list of API(s) and optional versions, uses the `normalizedName` like "PA Engine API" -> "PAEngine". Example: PAEngine:1,SPAREngine:3'
         required: true
       languageToPublish:
         description: "Language to publish"
@@ -16,9 +16,117 @@ on:
           - "java"
           - "python"
           - "typescript"
+      dryRun:
+        description: "Dry run (does not actually publish)"
+        required: false
+        type: boolean
+        default: true
+
+# Configure permissions so that the action is only allowed to read the code
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
 
 jobs:
+  validate-inputs:
+    runs-on: ubuntu-latest
+    outputs:
+      dotnet_paths: ${{ steps.validate.outputs.dotnet_paths }}
+      java_paths: ${{ steps.validate.outputs.java_paths }}
+      python_paths: ${{ steps.validate.outputs.python_paths }}
+      typescript_paths: ${{ steps.validate.outputs.typescript_paths }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Validate apiIncludeList against repo folders
+        id: validate
+        env:
+          API_INCLUDE_LIST: ${{ github.event.inputs.apiIncludeList }}
+          LANGUAGE_TO_PUBLISH: ${{ github.event.inputs.languageToPublish }}
+        run: |
+          set -euo pipefail
+
+          all_languages=(dotnet java python typescript)
+          if [ "$LANGUAGE_TO_PUBLISH" = "all" ]; then
+            languages=("${all_languages[@]}")
+          else
+            languages=("$LANGUAGE_TO_PUBLISH")
+          fi
+
+          declare -A paths
+          for lang in "${all_languages[@]}"; do
+            paths[$lang]=""
+          done
+
+          error=0
+          IFS=',' read -ra ENTRIES <<< "$API_INCLUDE_LIST"
+          for raw_entry in "${ENTRIES[@]}"; do
+            entry="$(echo "$raw_entry" | xargs)"
+            if [ -z "$entry" ]; then
+              echo "::error::Empty entry found in apiIncludeList"
+              error=1
+              continue
+            fi
+
+            api_name="$(echo "${entry%%:*}" | xargs)"
+            if [[ "$entry" == *":"* ]]; then
+              api_version="$(echo "${entry#*:}" | xargs)"
+            else
+              api_version=""
+            fi
+
+            if [ -z "$api_name" ]; then
+              echo "::error::Malformed entry '$entry' in apiIncludeList - missing API name"
+              error=1
+              continue
+            fi
+
+            for lang in "${languages[@]}"; do
+              base="code/${lang}/${api_name}"
+              if [ ! -d "$base" ]; then
+                echo "::error::Folder '$base' does not exist for entry '$entry'"
+                error=1
+                continue
+              fi
+
+              if [ -n "$api_version" ]; then
+                p="$base/v${api_version}"
+                if [ ! -d "$p" ]; then
+                  echo "::error::Folder '$p' does not exist for entry '$entry'"
+                  error=1
+                else
+                  paths[$lang]="${paths[$lang]}${p}"$'\n'
+                fi
+              else
+                found=0
+                for verdir in "$base"/v*/; do
+                  [ -d "$verdir" ] || continue
+                  found=1
+                  paths[$lang]="${paths[$lang]}${verdir%/}"$'\n'
+                done
+                if [ "$found" -eq 0 ]; then
+                  echo "::error::No version folders found under '$base' for entry '$entry'"
+                  error=1
+                fi
+              fi
+            done
+          done
+
+          if [ "$error" -ne 0 ]; then
+            echo "::error::One or more entries in apiIncludeList are invalid. See errors above."
+            exit 1
+          fi
+
+          for lang in "${all_languages[@]}"; do
+            json=$(printf '%s\n' "${paths[$lang]}" | sed '/^$/d' | sort -u | jq -R . | jq -sc .)
+            echo "${lang}_paths=${json}" >> "$GITHUB_OUTPUT"
+          done
+
+          echo "All entries in apiIncludeList validated successfully."
+
   publish-typescript:
+    needs: validate-inputs
     runs-on: ubuntu-latest
     if: ${{ github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript' }}
     steps:
@@ -29,4 +137,29 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: "24"
-          cache: "yarn"
+
+      - name: Publish packages
+        env:
+          PACKAGE_PATHS: ${{ needs.validate-inputs.outputs.typescript_paths }}
+          DRY_RUN: ${{ github.event.inputs.dryRun }}
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+        run: |
+          set -euo pipefail
+
+          publish_args=(--access public)
+          if [ "$DRY_RUN" = "true" ]; then
+            publish_args+=(--dry-run)
+          fi
+
+          echo "$PACKAGE_PATHS" | jq -r '.[]' | while IFS= read -r pkg_path; do
+            echo "::group::Publishing $pkg_path"
+            pushd "$pkg_path" > /dev/null
+            echo 'npmRegistryServer: "https://registry.npmjs.org"' > .yarnrc.yml
+            corepack enable
+            yarn set version stable
+            yarn install
+            yarn build
+            yarn npm publish "${publish_args[@]}"
+            popd > /dev/null
+            echo "::endgroup::"
+          done
