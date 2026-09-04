@@ -128,7 +128,11 @@ jobs:
   publish-typescript:
     needs: validate-inputs
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript' }}
+    if: ${{ (github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript') && needs.validate-inputs.outputs.typescript_paths != '[]' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg_path: ${{ fromJSON(needs.validate-inputs.outputs.typescript_paths) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -138,39 +142,22 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Publish packages
+      - name: Publish package
+        working-directory: ${{ matrix.pkg_path }}
         env:
-          PACKAGE_PATHS: ${{ needs.validate-inputs.outputs.typescript_paths }}
           DRY_RUN: ${{ github.event.inputs.dryRun }}
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
         run: |
-          set -uo pipefail
+          set -euo pipefail
 
           publish_args=(--access public)
           if [ "$DRY_RUN" = "true" ]; then
             publish_args+=(--dry-run)
           fi
 
-          overall_status=0
-
-          while IFS= read -r pkg_path; do
-            echo "::group::Publishing $pkg_path"
-            (
-              set -e
-              cd "$pkg_path"
-              echo 'npmRegistryServer: "https://registry.npmjs.org"' > .yarnrc.yml
-              corepack enable
-              yarn set version stable
-              yarn install
-              yarn build
-              yarn npm publish "${publish_args[@]}"
-            )
-            pkg_status=$?
-            echo "::endgroup::"
-            if [ "$pkg_status" -ne 0 ]; then
-              echo "::error::Failed to publish $pkg_path"
-              overall_status=1
-            fi
-          done < <(echo "$PACKAGE_PATHS" | jq -r '.[]')
-
-          exit "$overall_status"
+          echo 'npmRegistryServer: "https://registry.npmjs.org"' > .yarnrc.yml
+          corepack enable
+          yarn set version stable
+          yarn install
+          yarn build
+          yarn npm publish "${publish_args[@]}"
