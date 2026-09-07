@@ -43,7 +43,7 @@ jobs:
         env:
           API_INCLUDE_LIST: ${{ github.event.inputs.apiIncludeList }}
           LANGUAGE_TO_PUBLISH: ${{ github.event.inputs.languageToPublish }}
-        run: bash .github/scripts/validate-inputs.sh
+        run: bash "$GITHUB_WORKSPACE/.github/scripts/validate-inputs.sh"
 
   publish-typescript:
     needs: validate-inputs
@@ -72,4 +72,4 @@ jobs:
         env:
           DRY_RUN: ${{ github.event.inputs.dryRun }}
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
-        run: bash .github/scripts/publish-typescript.sh
+        run: bash "$GITHUB_WORKSPACE/.github/scripts/publish-typescript.sh"
