@@ -156,6 +156,8 @@ jobs:
           fi
 
           echo 'npmRegistryServer: "https://registry.npmjs.org"' > .yarnrc.yml
+          echo 'enableScripts: false' >> .yarnrc.yml
+
           corepack enable
           yarn set version stable
           yarn install
