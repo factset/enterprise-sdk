@@ -22,14 +22,13 @@ on:
         type: boolean
         default: true
 
-# Configure permissions so that the action is only allowed to read the code
-permissions:
-  id-token: write # Required for OIDC
-  contents: read
-
 jobs:
   validate-inputs:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
     outputs:
       dotnet_paths: ${{ steps.validate.outputs.dotnet_paths }}
       java_paths: ${{ steps.validate.outputs.java_paths }}
@@ -128,6 +127,11 @@ jobs:
   publish-typescript:
     needs: validate-inputs
     runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read
+
     if: ${{ (github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript') && needs.validate-inputs.outputs.typescript_paths != '[]' }}
     strategy:
       fail-fast: false
