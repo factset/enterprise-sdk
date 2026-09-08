@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       apiIncludeList:
-        description: 'Limit publishing to this list of API(s) and optional versions, uses the `normalizedName` like "PA Engine API" -> "PAEngine". Example: PAEngine:1,SPAREngine:3,Symbology'
+        description: 'Limit publishing to this list of API(s) and optional versions, uses the `normalizedName` like "PA Engine API" -> "PAEngine". Example: PAEngine:1,SPAREngine:3'
         required: true
       languageToPublish:
         description: "Language to publish"
@@ -16,11 +16,48 @@ on:
           - "java"
           - "python"
           - "typescript"
+      dryRun:
+        description: "Dry run (does not actually publish)"
+        required: false
+        type: boolean
+        default: true
 
 jobs:
-  publish-typescript:
+  validate-inputs:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript' }}
+
+    permissions:
+      contents: read
+
+    outputs:
+      dotnet_paths: ${{ steps.validate.outputs.dotnet_paths }}
+      java_paths: ${{ steps.validate.outputs.java_paths }}
+      python_paths: ${{ steps.validate.outputs.python_paths }}
+      typescript_paths: ${{ steps.validate.outputs.typescript_paths }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Validate apiIncludeList against repo folders
+        id: validate
+        env:
+          API_INCLUDE_LIST: ${{ github.event.inputs.apiIncludeList }}
+          LANGUAGE_TO_PUBLISH: ${{ github.event.inputs.languageToPublish }}
+        run: bash "$GITHUB_WORKSPACE/.github/scripts/validate-inputs.sh"
+
+  publish-typescript:
+    needs: validate-inputs
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read
+
+    if: ${{ (github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript') && needs.validate-inputs.outputs.typescript_paths != '[]' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg_path: ${{ fromJSON(needs.validate-inputs.outputs.typescript_paths) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -29,4 +66,10 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: "24"
-          cache: "yarn"
+
+      - name: Publish package
+        working-directory: ${{ matrix.pkg_path }}
+        env:
+          DRY_RUN: ${{ github.event.inputs.dryRun }}
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+        run: bash "$GITHUB_WORKSPACE/.github/scripts/publish-typescript.sh"
