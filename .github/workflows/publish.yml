@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       apiIncludeList:
-        description: 'Limit publishing to this list of API(s) and optional versions, uses the `normalizedName` like "PA Engine API" -> "PAEngine". Example: PAEngine:1,SPAREngine:3'
-        required: true
+        description: 'Limit publishing to this list of API(s) and optional versions, uses the `normalizedName` like "PA Engine API" -> "PAEngine". Example: PAEngine:1,SPAREngine:3. Leave empty to publish every API in the repo.'
+        required: false
+        default: ""
       languageToPublish:
         description: "Language to publish"
         required: true
@@ -22,6 +23,11 @@ on:
         type: boolean
         default: true
 
+env:
+  # Packages per matrix job. Only applies when a language has more than 256
+  # packages to publish; below that each package gets its own job.
+  BATCH_SIZE: 5
+
 jobs:
   validate-inputs:
     runs-on: ubuntu-latest
@@ -30,10 +36,10 @@ jobs:
       contents: read
 
     outputs:
-      dotnet_paths: ${{ steps.validate.outputs.dotnet_paths }}
-      java_paths: ${{ steps.validate.outputs.java_paths }}
-      python_paths: ${{ steps.validate.outputs.python_paths }}
-      typescript_paths: ${{ steps.validate.outputs.typescript_paths }}
+      dotnet_batches: ${{ steps.validate.outputs.dotnet_batches }}
+      java_batches: ${{ steps.validate.outputs.java_batches }}
+      python_batches: ${{ steps.validate.outputs.python_batches }}
+      typescript_batches: ${{ steps.validate.outputs.typescript_batches }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -46,6 +52,7 @@ jobs:
         run: bash "$GITHUB_WORKSPACE/.github/scripts/validate-inputs.sh"
 
   publish-typescript:
+    name: publish-typescript (${{ matrix.batch.name }})
     needs: validate-inputs
     runs-on: ubuntu-latest
 
@@ -53,11 +60,11 @@ jobs:
       id-token: write # Required for OIDC
       contents: read
 
-    if: ${{ (github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript') && needs.validate-inputs.outputs.typescript_paths != '[]' }}
+    if: ${{ (github.event.inputs.languageToPublish == 'all' || github.event.inputs.languageToPublish == 'typescript') && needs.validate-inputs.outputs.typescript_batches != '[]' }}
     strategy:
       fail-fast: false
       matrix:
-        pkg_path: ${{ fromJSON(needs.validate-inputs.outputs.typescript_paths) }}
+        batch: ${{ fromJSON(needs.validate-inputs.outputs.typescript_batches) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -67,9 +74,11 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Publish package
-        working-directory: ${{ matrix.pkg_path }}
+      - name: Publish packages
         env:
+          LANGUAGE: typescript
+          BATCH_ID: ${{ matrix.batch.id }}
+          PKG_PATHS: ${{ matrix.batch.paths }}
           DRY_RUN: ${{ github.event.inputs.dryRun }}
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
-        run: bash "$GITHUB_WORKSPACE/.github/scripts/publish-typescript.sh"
+        run: bash "$GITHUB_WORKSPACE/.github/scripts/publish-batch.sh"
