@@ -7,6 +7,17 @@ if ! [[ "$BATCH_SIZE" =~ ^[1-9][0-9]*$ ]]; then
   exit 1
 fi
 
+MATRIX_LIMIT="${MATRIX_LIMIT:-256}"
+if ! [[ "$MATRIX_LIMIT" =~ ^[1-9][0-9]*$ ]]; then
+  echo "::error::MATRIX_LIMIT must be a positive integer, got '$MATRIX_LIMIT'"
+  exit 1
+fi
+if [ "$MATRIX_LIMIT" -gt 256 ]; then
+  echo "::error::MATRIX_LIMIT cannot exceed 256, the GitHub Actions matrix cap, got '$MATRIX_LIMIT'"
+  exit 1
+fi
+readonly MATRIX_LIMIT
+
 all_languages=(dotnet java python typescript)
 if [ "$LANGUAGE_TO_PUBLISH" = "all" ]; then
   languages=("${all_languages[@]}")
@@ -110,8 +121,6 @@ if [ "$error" -ne 0 ]; then
   echo "::error::One or more entries in apiIncludeList are invalid. See errors above."
   exit 1
 fi
-
-readonly MATRIX_LIMIT=256
 
 for lang in "${all_languages[@]}"; do
   path_list=$(printf '%s\n' "${paths[$lang]}" | sed '/^$/d' | sort -u | jq -R . | jq -sc .)

@@ -22,10 +22,14 @@ on:
         required: false
         type: boolean
         default: true
+      matrixLimit:
+        description: "Max matrix jobs per language before packages are grouped into batches. 256 is the GitHub cap; lower it to exercise batching."
+        required: false
+        default: "256"
 
 env:
-  # Packages per matrix job. Only applies when a language has more than 256
-  # packages to publish; below that each package gets its own job.
+  # Packages per matrix job. Only applies once a language exceeds matrixLimit
+  # packages; below that each package gets its own job.
   BATCH_SIZE: 5
 
 jobs:
@@ -49,6 +53,7 @@ jobs:
         env:
           API_INCLUDE_LIST: ${{ github.event.inputs.apiIncludeList }}
           LANGUAGE_TO_PUBLISH: ${{ github.event.inputs.languageToPublish }}
+          MATRIX_LIMIT: ${{ github.event.inputs.matrixLimit }}
         run: bash "$GITHUB_WORKSPACE/.github/scripts/validate-inputs.sh"
 
   publish-typescript:
