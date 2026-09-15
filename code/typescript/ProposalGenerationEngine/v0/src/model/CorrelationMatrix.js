@@ -52,6 +52,9 @@ class CorrelationMatrix {
             if (data.hasOwnProperty('matrix') && obj['matrix'] === undefined) {
                 obj['matrix'] = ApiClient.convertToType(data['matrix'], [['Number']]);
             }
+            if (data.hasOwnProperty('threeDMatrix') && obj['threeDMatrix'] === undefined) {
+                obj['threeDMatrix'] = ApiClient.convertToType(data['threeDMatrix'], [[['Number']]]);
+            }
             
         }
         return obj;
@@ -69,6 +72,11 @@ CorrelationMatrix.prototype['assets'] = undefined;
  * @member {Array.<Array.<Number>>} matrix
  */
 CorrelationMatrix.prototype['matrix'] = undefined;
+
+/**
+ * @member {Array.<Array.<Array.<Number>>>} threeDMatrix
+ */
+CorrelationMatrix.prototype['threeDMatrix'] = undefined;
 
 
 

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OffPlatformIntegrations.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AccessCheckRequest.md
 docs/AccessCheckResponse.md
 docs/AccessCheckResult.md
@@ -11,7 +9,6 @@ docs/CheckCACCESSApi.md
 docs/ErrorItem.md
 docs/ErrorItemSource.md
 docs/ErrorResponse.md
-git_push.sh
 src/FactSet.SDK.OffPlatformIntegrations/Api/CheckCACCESSApi.cs
 src/FactSet.SDK.OffPlatformIntegrations/Client/ApiClient.cs
 src/FactSet.SDK.OffPlatformIntegrations/Client/ApiException.cs

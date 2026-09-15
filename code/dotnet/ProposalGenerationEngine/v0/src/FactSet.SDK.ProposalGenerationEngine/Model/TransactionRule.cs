@@ -167,34 +167,16 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         public enum FrequencyAlignmentEnum
         {
             /// <summary>
-            /// Enum _1 for value: 1
+            /// Enum Start for value: start
             /// </summary>
-            [EnumMember(Value = "1")]
-            _1 = 1,
+            [EnumMember(Value = "start")]
+            Start = 1,
 
             /// <summary>
-            /// Enum _2 for value: 2
+            /// Enum Calendar for value: calendar
             /// </summary>
-            [EnumMember(Value = "2")]
-            _2 = 2,
-
-            /// <summary>
-            /// Enum _4 for value: 4
-            /// </summary>
-            [EnumMember(Value = "4")]
-            _4 = 3,
-
-            /// <summary>
-            /// Enum _6 for value: 6
-            /// </summary>
-            [EnumMember(Value = "6")]
-            _6 = 4,
-
-            /// <summary>
-            /// Enum _12 for value: 12
-            /// </summary>
-            [EnumMember(Value = "12")]
-            _12 = 5
+            [EnumMember(Value = "calendar")]
+            Calendar = 2
 
         }
 

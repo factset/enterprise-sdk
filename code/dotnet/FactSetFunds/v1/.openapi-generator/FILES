@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetFunds.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Aum.md
 docs/AumRequest.md
 docs/AumResponse.md
@@ -122,7 +120,6 @@ docs/StatusesResponse.md
 docs/Summaries.md
 docs/SummariesRequest.md
 docs/SummariesResponse.md
-git_push.sh
 src/FactSet.SDK.FactSetFunds/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetFunds/Api/DistributionsApi.cs
 src/FactSet.SDK.FactSetFunds/Api/FundFlowsAUMApi.cs

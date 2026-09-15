@@ -9,7 +9,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet SCIM API
-  version: 2.7.0
+  version: 2.8.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/procure-to-pay-api-scim
@@ -28,7 +28,7 @@ tags:
   name: Schemas
 - description: View, create, replace, modify, or delete FactSet user accounts.
   name: Users
-- description: View, replace, or modify FactSet user groups.
+- description: View, create, replace, modify, or delete FactSet groups.
   name: Groups
 - description: View, create, replace, or modify FactSet location data.
   name: Locations
@@ -1117,7 +1117,141 @@ paths:
       tags:
       - Groups
       x-accepts: application/json
+    post:
+      description: Create a group resource.
+      operationId: createGroup
+      requestBody:
+        $ref: '#/components/requestBodies/groupResource'
+      responses:
+        "201":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupResource'
+          description: Success.
+        "400":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                scimType: invalidValue
+                detail: Provided resource contains invalid data.
+                status: "400"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Provided resource contains invalid data.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "429":
+          content:
+            application/json:
+              example:
+                message: API rate limit exceeded
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: User is accessing this API too frequently.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      summary: Create a group.
+      tags:
+      - Groups
+      x-contentType: application/scim+json
+      x-accepts: application/json
   /Group/{id}:
+    delete:
+      description: Delete a specific group resource.
+      operationId: deleteGroup
+      parameters:
+      - description: ID of resource.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: Group successfully deleted.
+        "401":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FactSet credentials are missing or invalid.
+                status: "401"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User has not been authenticated.
+        "403":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: FIN_WEALTH-999999 is not authorized to use the FactSet SCIM
+                  API.
+                status: "403"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: User is not authorized to use this API.
+        "404":
+          content:
+            application/scim+json:
+              example:
+                schemas:
+                - urn:ietf:params:scim:api:messages:2.0:Error
+                detail: Group Domain btud - Pod 04 - CitrixApps - Cymba OMS was not
+                  found.
+                status: "404"
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Group not found.
+        "429":
+          content:
+            application/json:
+              example:
+                message: API rate limit exceeded
+              schema:
+                $ref: '#/components/schemas/inline_response_429'
+          description: User is accessing this API too frequently.
+        "500":
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: Internal server error.
+      summary: Delete a group.
+      tags:
+      - Groups
+      x-accepts: application/json
     get:
       description: Get a specific group resource.
       operationId: getGroup
@@ -6288,6 +6422,24 @@ components:
         userName: FIN_WEALTH-123456
         urn:scim:schemas:extension:FactSet:Core:1.0:User:
           serialNumber: "123456"
+          corporateSuiteExecutive: false
+          products:
+          - activationHistoryMonths:
+            - 2025-08
+            - 2025-07
+            - 2025-06
+            rapidActivationStatus: active
+            display: Exchange NYSE American and Regionals - RT
+            value: "11"
+            $ref: https://api.factset.com/scim/v2/Products/11
+          - activationHistoryMonths:
+            - 2025-08
+            - 2025-07
+            - 2025-06
+            rapidActivationStatus: active
+            display: Exchange NYSE American and Regionals - RT
+            value: "11"
+            $ref: https://api.factset.com/scim/v2/Products/11
           royaltyClass: royaltyClass
           userTaxonomyData:
             userClass:
@@ -6337,23 +6489,6 @@ components:
             status: Pending approval
           uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
           username: FIN_WEALTH
-          products:
-          - activationHistoryMonths:
-            - 2025-08
-            - 2025-07
-            - 2025-06
-            rapidActivationStatus: active
-            display: Exchange NYSE American and Regionals - RT
-            value: "11"
-            $ref: https://api.factset.com/scim/v2/Products/11
-          - activationHistoryMonths:
-            - 2025-08
-            - 2025-07
-            - 2025-06
-            rapidActivationStatus: active
-            display: Exchange NYSE American and Regionals - RT
-            value: "11"
-            $ref: https://api.factset.com/scim/v2/Products/11
         email: jdoe@factset.com
         phoneNumbers:
         - display: (555) 867-5309
@@ -6549,6 +6684,24 @@ components:
           userName: FIN_WEALTH-123456
           urn:scim:schemas:extension:FactSet:Core:1.0:User:
             serialNumber: "123456"
+            corporateSuiteExecutive: false
+            products:
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
             royaltyClass: royaltyClass
             userTaxonomyData:
               userClass:
@@ -6598,23 +6751,6 @@ components:
               status: Pending approval
             uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
             username: FIN_WEALTH
-            products:
-            - activationHistoryMonths:
-              - 2025-08
-              - 2025-07
-              - 2025-06
-              rapidActivationStatus: active
-              display: Exchange NYSE American and Regionals - RT
-              value: "11"
-              $ref: https://api.factset.com/scim/v2/Products/11
-            - activationHistoryMonths:
-              - 2025-08
-              - 2025-07
-              - 2025-06
-              rapidActivationStatus: active
-              display: Exchange NYSE American and Regionals - RT
-              value: "11"
-              $ref: https://api.factset.com/scim/v2/Products/11
           email: jdoe@factset.com
           phoneNumbers:
           - display: (555) 867-5309
@@ -6661,6 +6797,24 @@ components:
           userName: FIN_WEALTH-123456
           urn:scim:schemas:extension:FactSet:Core:1.0:User:
             serialNumber: "123456"
+            corporateSuiteExecutive: false
+            products:
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
+            - activationHistoryMonths:
+              - 2025-08
+              - 2025-07
+              - 2025-06
+              rapidActivationStatus: active
+              display: Exchange NYSE American and Regionals - RT
+              value: "11"
+              $ref: https://api.factset.com/scim/v2/Products/11
             royaltyClass: royaltyClass
             userTaxonomyData:
               userClass:
@@ -6710,23 +6864,6 @@ components:
               status: Pending approval
             uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
             username: FIN_WEALTH
-            products:
-            - activationHistoryMonths:
-              - 2025-08
-              - 2025-07
-              - 2025-06
-              rapidActivationStatus: active
-              display: Exchange NYSE American and Regionals - RT
-              value: "11"
-              $ref: https://api.factset.com/scim/v2/Products/11
-            - activationHistoryMonths:
-              - 2025-08
-              - 2025-07
-              - 2025-06
-              rapidActivationStatus: active
-              display: Exchange NYSE American and Regionals - RT
-              value: "11"
-              $ref: https://api.factset.com/scim/v2/Products/11
           email: jdoe@factset.com
           phoneNumbers:
           - display: (555) 867-5309
@@ -6756,6 +6893,14 @@ components:
       example:
         urn:scim:schemas:extension:FactSet:Core:1.0:Group:
           type: eh
+        urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group:
+          lastModifiedBy:
+            display: John Doe
+            value: FIN_WEALTH-123456
+            $ref: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+          applications:
+          - id: app1.foo
+          - id: app1.foo
         displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
         meta:
           created: 2019-02-11T15:33:31.077Z
@@ -6767,6 +6912,7 @@ components:
         - urn:scim:schemas:extension:FactSet:Core:1.0:Group
         - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
         - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+        - urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group
         members:
         - type: User
           value: FIN_WEALTH-123456
@@ -6789,6 +6935,7 @@ components:
           - urn:scim:schemas:extension:FactSet:Core:1.0:Group
           - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
           - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+          - urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group
           items:
             type: string
           type: array
@@ -6821,6 +6968,8 @@ components:
           $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_EnterpriseHosting_1_0_Group'
         urn:scim:schemas:extension:FactSet:VRS:1.0:Group:
           $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_VRS_1_0_Group'
+        urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group:
+          $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_DesktopApplications_1_0_Group'
         meta:
           $ref: '#/components/schemas/GroupResource_meta'
       required:
@@ -6854,6 +7003,14 @@ components:
         Resources:
         - urn:scim:schemas:extension:FactSet:Core:1.0:Group:
             type: eh
+          urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group:
+            lastModifiedBy:
+              display: John Doe
+              value: FIN_WEALTH-123456
+              $ref: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+            applications:
+            - id: app1.foo
+            - id: app1.foo
           displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
           meta:
             created: 2019-02-11T15:33:31.077Z
@@ -6865,6 +7022,7 @@ components:
           - urn:scim:schemas:extension:FactSet:Core:1.0:Group
           - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
           - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+          - urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group
           members:
           - type: User
             value: FIN_WEALTH-123456
@@ -6882,6 +7040,14 @@ components:
             tenant: QA
         - urn:scim:schemas:extension:FactSet:Core:1.0:Group:
             type: eh
+          urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group:
+            lastModifiedBy:
+              display: John Doe
+              value: FIN_WEALTH-123456
+              $ref: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+            applications:
+            - id: app1.foo
+            - id: app1.foo
           displayName: Domain btud - Pod 04 - CitrixApps - Cymba OMS
           meta:
             created: 2019-02-11T15:33:31.077Z
@@ -6893,6 +7059,7 @@ components:
           - urn:scim:schemas:extension:FactSet:Core:1.0:Group
           - urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group
           - urn:scim:schemas:extension:FactSet:VRS:1.0:Group
+          - urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group
           members:
           - type: User
             value: FIN_WEALTH-123456
@@ -6922,6 +7089,18 @@ components:
           items:
             $ref: '#/components/schemas/GroupResource'
           type: array
+      type: object
+    DesktopApplicationGroupApplications:
+      example:
+        id: app1.foo
+      properties:
+        id:
+          description: Identifier of the desktop application.
+          example: app1.foo
+          pattern: ^[^\.]+\.[^\.]+$
+          type: string
+      required:
+      - id
       type: object
     LocationResourceFirmDescription:
       allOf:
@@ -8527,6 +8706,24 @@ components:
     UserResource_urn_scim_schemas_extension_FactSet_Core_1_0_User:
       example:
         serialNumber: "123456"
+        corporateSuiteExecutive: false
+        products:
+        - activationHistoryMonths:
+          - 2025-08
+          - 2025-07
+          - 2025-06
+          rapidActivationStatus: active
+          display: Exchange NYSE American and Regionals - RT
+          value: "11"
+          $ref: https://api.factset.com/scim/v2/Products/11
+        - activationHistoryMonths:
+          - 2025-08
+          - 2025-07
+          - 2025-06
+          rapidActivationStatus: active
+          display: Exchange NYSE American and Regionals - RT
+          value: "11"
+          $ref: https://api.factset.com/scim/v2/Products/11
         royaltyClass: royaltyClass
         userTaxonomyData:
           userClass:
@@ -8576,23 +8773,6 @@ components:
           status: Pending approval
         uniqueId: 1592F40D-40CF-445B-BDFD-38300F507891
         username: FIN_WEALTH
-        products:
-        - activationHistoryMonths:
-          - 2025-08
-          - 2025-07
-          - 2025-06
-          rapidActivationStatus: active
-          display: Exchange NYSE American and Regionals - RT
-          value: "11"
-          $ref: https://api.factset.com/scim/v2/Products/11
-        - activationHistoryMonths:
-          - 2025-08
-          - 2025-07
-          - 2025-06
-          rapidActivationStatus: active
-          display: Exchange NYSE American and Regionals - RT
-          value: "11"
-          $ref: https://api.factset.com/scim/v2/Products/11
       properties:
         username:
           description: A FactSet "username" is FactSet's logical structure for grouping
@@ -8658,6 +8838,12 @@ components:
             is necessary, please contact your FactSet representative.
           example: 9QMD
           type: string
+        corporateSuiteExecutive:
+          description: For individuals who wish to receive investment research as
+            corporate management or investor relations personnel. Such individuals
+            are typically entitled to specific companies or industries.
+          example: false
+          type: boolean
       required:
       - username
       type: object
@@ -8758,6 +8944,54 @@ components:
           type: string
       required:
       - domainCode
+      type: object
+    GroupResource_urn_scim_schemas_extension_FactSet_DesktopApplications_1_0_Group_lastModifiedBy:
+      description: A reference to the FactSet user who last modified data about the
+        group.
+      example:
+        display: John Doe
+        value: FIN_WEALTH-123456
+        $ref: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+      properties:
+        value:
+          description: The username-serial of the FactSet user who last modified data
+            about the group.
+          example: FIN_WEALTH-123456
+          readOnly: true
+          type: string
+        $ref:
+          description: The FactSet SCIM API URL corresponding to the FactSet user
+            who last modified data about the group.
+          example: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+          readOnly: true
+          type: string
+        display:
+          description: Name of the FactSet user who last modified data about the group.
+          example: John Doe
+          readOnly: true
+          type: string
+      required:
+      - $ref
+      - display
+      - value
+      type: object
+    GroupResource_urn_scim_schemas_extension_FactSet_DesktopApplications_1_0_Group:
+      example:
+        lastModifiedBy:
+          display: John Doe
+          value: FIN_WEALTH-123456
+          $ref: https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456
+        applications:
+        - id: app1.foo
+        - id: app1.foo
+      properties:
+        applications:
+          description: The list of desktop applications associated with this group.
+          items:
+            $ref: '#/components/schemas/DesktopApplicationGroupApplications'
+          type: array
+        lastModifiedBy:
+          $ref: '#/components/schemas/GroupResource_urn_scim_schemas_extension_FactSet_DesktopApplications_1_0_Group_lastModifiedBy'
       type: object
     GroupResource_meta:
       example:

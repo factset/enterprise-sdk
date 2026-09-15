@@ -10,5 +10,8 @@ Name | Type | Description | Notes
 **performance** | [**PerformanceStats**](PerformanceStats.md) |  | [optional] 
 **drawdown** | [**DrawdownStats**](DrawdownStats.md) |  | [optional] 
 **boxplot** | [**Boxplot**](Boxplot.md) |  | [optional] 
+**transactions** | [**TransactionStats**](TransactionStats.md) |  | [optional] 
+**endingWeight** | **Number** |  | [optional] 
+**values** | [**ValueStats**](ValueStats.md) |  | [optional] 
 
 

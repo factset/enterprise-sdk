@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CompanyLogoItemObject.md
@@ -20,7 +18,6 @@ docs/PostCompanyLogoRequestDataSize.md
 docs/PostCompanyLogoRequestDataSizeCustom.md
 docs/PostCompanyLogoRequestMeta.md
 docs/StatusObject.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

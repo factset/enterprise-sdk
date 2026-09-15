@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AccountDirectories.md
@@ -30,7 +28,6 @@ docs/PubCalculationParametersRoot.md
 docs/PubCalculationsApi.md
 docs/PubDateParameters.md
 docs/PubIdentifier.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

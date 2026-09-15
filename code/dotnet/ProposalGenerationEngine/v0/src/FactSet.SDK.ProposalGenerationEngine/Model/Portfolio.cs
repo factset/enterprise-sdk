@@ -35,12 +35,23 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Portfolio" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Portfolio() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Portfolio" /> class.
+        /// </summary>
         /// <param name="id">unique id of the entity.</param>
         /// <param name="details">details.</param>
+        /// <param name="holdings">holdings (required).</param>
         /// <param name="initialValue">the initial value (PV) of the portfolio.</param>
         /// <param name="rebalancing">rebalancing.</param>
-        public Portfolio(string id = default(string), PortfolioEntityDetails details = default(PortfolioEntityDetails), decimal initialValue = default(decimal), Rebalancing rebalancing = default(Rebalancing))
+        public Portfolio(List<ExPostPortfolioInvestment> holdings,string id = default(string), PortfolioEntityDetails details = default(PortfolioEntityDetails), decimal initialValue = default(decimal), Rebalancing rebalancing = default(Rebalancing))
         {
+            // to ensure "holdings" is required (not null)
+            if (holdings == null) {
+                throw new ArgumentNullException("holdings is a required property for Portfolio and cannot be null");
+            }
+            this.Holdings = holdings;
             this.Id = id;
             this.Details = details;
             this.InitialValue = initialValue;
@@ -59,6 +70,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// </summary>
         [DataMember(Name = "details", EmitDefaultValue = false)]
         public PortfolioEntityDetails Details { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Holdings
+        /// </summary>
+        [DataMember(Name = "holdings", IsRequired = true, EmitDefaultValue = false)]
+        public List<ExPostPortfolioInvestment> Holdings { get; set; }
 
         /// <summary>
         /// the initial value (PV) of the portfolio
@@ -83,6 +100,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             sb.Append("class Portfolio {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  Holdings: ").Append(Holdings).Append("\n");
             sb.Append("  InitialValue: ").Append(InitialValue).Append("\n");
             sb.Append("  Rebalancing: ").Append(Rebalancing).Append("\n");
             sb.Append("}\n");
@@ -131,6 +149,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                     this.Details.Equals(input.Details))
                 ) && 
                 (
+                    this.Holdings == input.Holdings ||
+                    this.Holdings != null &&
+                    input.Holdings != null &&
+                    this.Holdings.SequenceEqual(input.Holdings)
+                ) && 
+                (
                     this.InitialValue == input.InitialValue ||
                     this.InitialValue.Equals(input.InitialValue)
                 ) && 
@@ -157,6 +181,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 if (this.Details != null)
                 {
                     hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
+                if (this.Holdings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Holdings.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InitialValue.GetHashCode();
                 if (this.Rebalancing != null)

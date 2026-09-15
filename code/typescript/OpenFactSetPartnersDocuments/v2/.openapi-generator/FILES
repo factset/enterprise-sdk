@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AuthStatus.md
@@ -43,7 +41,6 @@ docs/ScriptsAsiaResponse.md
 docs/SponsorsFiles.md
 docs/SponsorsResponse.md
 docs/Transcripts.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

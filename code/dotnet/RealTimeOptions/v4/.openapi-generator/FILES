@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.RealTimeOptions.sln
 LICENSE
 README.md
-appveyor.yml
 docs/GetOptionGetDataTypeItems.md
 docs/InlineResponse200.md
 docs/InlineResponse2001.md
@@ -175,7 +173,6 @@ docs/PostOptionClassScreenerSearchRequestDataUnderlyingInstrument.md
 docs/PostOptionClassScreenerSearchRequestDataUnderlyingNotation.md
 docs/PostOptionClassScreenerSearchRequestMeta.md
 docs/StatusObject.md
-git_push.sh
 src/FactSet.SDK.RealTimeOptions/Api/OptionApi.cs
 src/FactSet.SDK.RealTimeOptions/Client/ApiClient.cs
 src/FactSet.SDK.RealTimeOptions/Client/ApiException.cs

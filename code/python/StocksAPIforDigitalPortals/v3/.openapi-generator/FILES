@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AttributesMember.md
@@ -1226,7 +1223,6 @@ fds/sdk/StocksAPIforDigitalPortals/model_utils.py
 fds/sdk/StocksAPIforDigitalPortals/models/__init__.py
 fds/sdk/StocksAPIforDigitalPortals/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.IRNContacts.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AlternativeEmailAddressDto.md
 docs/ContactAddressDto.md
 docs/ContactCustomFieldOptionValueDto.md
@@ -36,7 +34,6 @@ docs/RelationshipCategoryIdNameDto.md
 docs/RelationshipIdNameDto.md
 docs/RelationshipSymbolSummaryDto.md
 docs/SymbolType.md
-git_push.sh
 src/FactSet.SDK.IRNContacts/Api/ContactsApi.cs
 src/FactSet.SDK.IRNContacts/Api/ContactsRelationshipsApi.cs
 src/FactSet.SDK.IRNContacts/Client/ApiClient.cs

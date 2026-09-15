@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OpenRisk.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AboutApi.md
 docs/AdditionalCalculationInputs.md
 docs/AdditionalCalculationInputsMarketExcess.md
@@ -69,7 +67,6 @@ docs/SupportedStatDetailsSecurityGroupMethod.md
 docs/SupportedStats.md
 docs/SupportedStatsNamesOnly.md
 docs/WarningItem.md
-git_push.sh
 src/FactSet.SDK.OpenRisk/Api/AboutApi.cs
 src/FactSet.SDK.OpenRisk/Api/OperationsApi.cs
 src/FactSet.SDK.OpenRisk/Client/ApiClient.cs

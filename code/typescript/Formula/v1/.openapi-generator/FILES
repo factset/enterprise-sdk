@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BatchData.md
@@ -39,7 +37,6 @@ docs/TimeSeriesTimeseriesObject.md
 docs/UnifiedResultObjectFlattened.md
 docs/UnifiedResultObjectFlattenedAddl.md
 docs/WarningsObject.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

@@ -1,7 +1,7 @@
 openapi: '3.0.0'
 info:
   title: 'Vector Data API'
-  version: '0.3.0'
+  version: '0.4.0'
   contact:
     name: 'FactSet Research Systems'
     email: 'api@factset.com'
@@ -9,7 +9,7 @@ info:
   license:
     name: 'Apache License, Version 2.0'
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
-  description: "The Vector Data API provides streamlined access to vector data through its defined endpoints. It supports functionalities such as:\nRetrieving detailed vector data based on user-defined parameters.\nEfficiently processing associated text data for enhanced performance.\nThis API is designed to enable developers to integrate vector data into their applications, ensuring flexibility and performance while leveraging the specified endpoint functionalities."
+  description: "\nFactSet's Vector Data API helps asset managers, hedge funds, investment banks, and financial technology firms accelerate the development of next-generation AI and machine learning solutions by simplifying and optimizing access to unstructured financial documents.\n\n This API provides streamlined access to vector data through its defined endpoints. It supports retrieving detailed vector data based on user-defined parameters. Efficiently processing associated text data for enhanced performance.\n\n This API is designed to enable developers to integrate vector data into their applications, ensuring flexibility and performance while leveraging the specified endpoint functionalities.\n\n  > Access to the AI Ready version of FactSet collected documents with enrichments. Meant as an input to a client's RAG experience.\n\n **Note:** Vector Data API performs semantic search across vectorized financial documents and returns results ranked by similarity score. Supports filtering by themes, sentiment, form types, date ranges, and entity identifiers.\n\n `API Build & Advantages:`\n\n **AI-Ready Unstructured Data Processing Pipeline:** Automate the ingestion, chunking, embedding, and indexing of high-value financial text-removing the need for manual pipeline development.\n   > **Out-of-the-box** support for FactSet proprietary and third-party datasets (StreetAccount News, CallStreet Transcripts, EDGAR Filings, MT Newswire and more to come).\n\n   > **Benchmark-driven** chunking strategies ensure optimal results for GenAI and RAG use.\n\n **Platform & Embedding Model Agnostic:** Seamlessly integrate with any AI stack-works with cloud and on-prem environments and supports any embedding model you choose.\n\n **Native Integration with Model Context Protocol (MCP):** Enable direct, standardized connectivity between your unstructured data workflows and MCP-compliant AI solutions, supporting context-aware generative AI, retrieval-augmented generation, and document-level search intelligence. Rich Metadata, Tagging, and Entity Resolution: Enhance AI models with entity and date resolution, topic tagging, sentiment labels, and links to FactSet's Unstructured Knowledge Graph, enabling richer, more accurate search and analysis.\n \n \n"
 externalDocs:
   description: 'API Documentation'
   url: 'https://developer.factset.com/api-catalog/vector-data-api'
@@ -96,7 +96,7 @@ paths:
       description: 'Returns content and link of provided vector id.'
       parameters:
         - $ref: '#/components/parameters/vectorId'
-        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationLimitValue'
         - $ref: '#/components/parameters/paginationOffset'
       responses:
         '200':
@@ -151,7 +151,7 @@ paths:
   /meta/sources:
     get:
       tags:
-        - 'Meta'
+        - 'Vector'
       operationId: 'getSources'
       summary: 'Returns the sources.'
       description: 'Retrieves and delivers a comprehensive list of all available `sources`.'
@@ -212,7 +212,7 @@ paths:
   /meta/document-types:
     get:
       tags:
-        - 'Meta'
+        - 'Vector'
       operationId: 'getDocumentTypes'
       summary: 'Returns the document types.'
       description: 'Retrieves and delivers a comprehensive list of all available `documentTypes`.'
@@ -277,7 +277,7 @@ paths:
   /meta/schemas:
     get:
       tags:
-        - 'Meta'
+        - 'Vector'
       operationId: 'getschemas'
       summary: 'Returns the schemas.'
       description: 'Retrieves and delivers a comprehensive list of all available `schemas`.'
@@ -343,7 +343,7 @@ paths:
   /meta/themes:
     get:
       tags:
-        - 'Meta'
+        - 'Vector'
       operationId: 'getThemes'
       summary: 'Returns the themes.'
       description: 'Retrieves and delivers a comprehensive list of all available `themes`.'
@@ -401,6 +401,766 @@ paths:
               examples:
                 default500Response:
                   $ref: '#/components/examples/ServerErrorDetails'
+  /search:
+    post:
+      summary: 'Perform semantic search and return ranked results with similarity scores'
+      tags:
+        - 'Vector Search'
+      operationId: 'postSearch'
+      description: 'Performs semantic search across vectorized financial documents and returns results ranked by similarity score. Supports filtering by themes (including ESG themes and search concepts), sentiment, form types, date ranges, and entity identifiers.'
+      responses:
+        '200':
+          description: 'Returns search results with similarity scores'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+              examples:
+                sampleSearchResponseSA:
+                  $ref: '#/components/examples/SampleResponseSA'
+                sampleSearchResponseEDG:
+                  $ref: '#/components/examples/SampleResponseEDG'
+                sampleSearchResponseFCST:
+                  $ref: '#/components/examples/SampleResponseFCST'
+                sampleSearchResponseMTN:
+                  $ref: '#/components/examples/SampleResponseMTN'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. Please reach out to FactSet Account Team for assistance with authorization.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '422':
+          description: 'Unprocessable Entity. Validation failed for one or more request parameters or body fields.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default422Response:
+                  $ref: '#/components/examples/ValidationErrorDetails'
+        '500':
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+      requestBody:
+        required: true
+        description: 'Input parameters for semantic search.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            examples:
+              basicSearchRequest:
+                $ref: '#/components/examples/BasicSearchRequest'
+              advancedSearchRequest:
+                $ref: '#/components/examples/AdvancedSearchRequest'
+  /vector:
+    get:
+      tags:
+        - 'Vector Search'
+      operationId: 'getVector'
+      summary: 'Returns vector data and metadata for specified vector IDs'
+      description: 'Retrieves the complete vector embedding and all associated metadata for one or more vector IDs. Optionally returns trimmed vectors (metadata only) when the trimmed parameter is set to true.'
+      parameters:
+        - $ref: '#/components/parameters/vectorId'
+        - $ref: '#/components/parameters/trimmed'
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VectorResponse'
+              examples:
+                sampleSAresponse:
+                  $ref: '#/components/examples/SampleVectorResponseSA'
+                sampleEDGresponse:
+                  $ref: '#/components/examples/SampleVectorResponseEDG'
+                sampleFCSTresponse:
+                  $ref: '#/components/examples/SampleVectorResponseFCST'
+                sampleMTNresponse:
+                  $ref: '#/components/examples/SampleVectorResponseMTN'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. Please reach out to FactSet Account Team for assistance with authorization.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '404':
+          description: 'Not Found'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/NotFoundDetails'
+        '422':
+          description: 'Unprocessable Entity. Validation failed for one or more request parameters or body fields.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default422Response:
+                  $ref: '#/components/examples/ValidationErrorDetails'
+        '500':
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+  /sources:
+    get:
+      tags:
+        - 'Vector Search'
+      operationId: 'retrieveSources'
+      summary: 'Returns the available data sources'
+      description: 'Retrieves and delivers a comprehensive list of all available `sources`.'
+      parameters:
+        - $ref: '#/components/parameters/entitledSources'
+        - $ref: '#/components/parameters/sourceType'
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceResponseData'
+              examples:
+                sources:
+                  summary: 'Sample 200 Response for Sources Parameter'
+                  value:
+                    data:
+                      - source: 'EDG'
+                        description: 'EDGAR'
+                        type:
+                          - 'Filings'
+                      - source: 'SA'
+                        description: 'StreetAccount News'
+                        type:
+                          - 'News'
+                      - source: 'FCST'
+                        description: 'FactSet CallStreet Transcripts'
+                        type:
+                          - 'Transcripts'
+                      - source: 'MTN'
+                        description: 'MT Newswire'
+                        type:
+                          - 'News'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. Please reach out to FactSet Account Team for assistance with authorization.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '500':
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+  /form-types:
+    get:
+      tags:
+        - 'Vector Search'
+      operationId: 'getFormTypes'
+      summary: 'Returns the available form types'
+      description: 'Retrieves and delivers a comprehensive list of all available `formTypes`.'
+      responses:
+        '200':
+          description: 'Success'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormTypesResponse'
+              examples:
+                formTypes:
+                  summary: 'Sample 200 Response for form types Parameter'
+                  value:
+                    data:
+                      - formType: '10-K'
+                        description: 'Annual reports'
+                      - formType: '10-Q'
+                        description: 'Quarterly reports'
+                      - formType: '8-K'
+                        description: 'Current reports'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated USERNAME-SERIAL. Ensure you are logged in and have successfully generated an API KEY for the IP range you are connecting from.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'The USERNAME-SERIAL attempted to request the endpoint is not authorized to access. Please reach out to FactSet Account Team for assistance with authorization.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '500':
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+  /documents/register:
+    post:
+      operationId: 'createIdsDocumentUpload'
+      summary: 'Register a document and receive a presigned upload URL'
+      description: 'Registers a document for Intelligent Document Service ingestion and returns a document ID plus a short-lived presigned HTTPS URL. PUT the file to that URL, then poll `/documents/status` until the document reaches a terminal state (`success` or `failed`). Supported file types include Pdf, Text, Html, Md and Xml.'
+      tags:
+        - 'Intelligent Document Service'
+      requestBody:
+        required: true
+        description: 'Document registration request.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdsDocumentUploadRequest'
+      responses:
+        '202':
+          description: 'Document registered. Presigned upload URL returned.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdsDocumentUploadResponse'
+              examples:
+                sampleUploadResponse:
+                  $ref: '#/components/examples/SampleIdsDocumentUpload'
+        '400':
+          description: 'Bad request - malformed syntax or missing required fields.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated - missing or invalid credentials.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'Forbidden - authenticated but not authorised.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '404':
+          description: 'The specified documentID was not found.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default404Response:
+                  $ref: '#/components/examples/NotFoundDetails'
+        '415':
+          description: 'Unsupported Media Type.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+        '422':
+          description: 'Unprocessable Entity - document exists but is not in awaitingUpload status.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default422Response:
+                  $ref: '#/components/examples/ValidationErrorDetails'
+        '429':
+          description: 'Too Many Requests - rate limit exceeded.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default429Response:
+                  $ref: '#/components/examples/RateLimitErrorDetails'
+        '500':
+          description: 'Internal Server Error.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+  /documents/status:
+    post:
+      operationId: 'getIdsDocumentStatus'
+      summary: 'Retrieve ingestion status for one or more documents.'
+      description: 'Returns the current lifecycle state for each requested document ID, including timestamps and any pipeline failure details. Accepts one or more `documentIDs`. Returns `201` when all requested documents are in a terminal state (`Success`or `Failed`), and `202` while any are still in progress (`AwaitingUpload` or`Processing`). Poll until a `201` is received before calling`/documents/download` or `/documents/search`.'
+      tags:
+        - 'Intelligent Document Service'
+      requestBody:
+        required: true
+        description: 'Document status request.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdsDocumentStatusRequest'
+      responses:
+        '201':
+          description: 'Terminal status returned (success or failed).'
+          headers:
+            Location:
+              description: 'Path to Batch Request result.'
+              schema:
+                type: 'string'
+              example: 'batch/v1/result?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdsDocumentStatusResponse'
+              examples:
+                statusSuccess:
+                  $ref: '#/components/examples/SampleIdsDocumentStatusSuccess'
+                statusFailed:
+                  $ref: '#/components/examples/SampleIdsDocumentStatusFailed'
+        '202':
+          description: 'Document is still in-progress. Poll again shortly.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdsDocumentStatusResponse'
+              examples:
+                statusProcessing:
+                  $ref: '#/components/examples/SampleIdsDocumentStatusProcessing'
+          headers:
+            Location:
+              description: 'Path to Batch Request status.'
+              schema:
+                type: 'string'
+              example: 'batch/v1/status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'Forbidden.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '404':
+          description: 'The specified documentID was not found.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default404Response:
+                  $ref: '#/components/examples/NotFoundDetails'
+        '415':
+          description: 'Unsupported Media Type.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+        '422':
+          description: 'Unprocessable Entity.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default422Response:
+                  $ref: '#/components/examples/ValidationErrorDetails'
+        '429':
+          description: 'Too Many Requests.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default429Response:
+                  $ref: '#/components/examples/RateLimitErrorDetails'
+        '500':
+          description: 'Internal Server Error.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+  /documents/download:
+    post:
+      operationId: 'getIdsDocumentDownload'
+      summary: 'Get a presigned URL to download processed document output.'
+      description: 'Returns a short-lived presigned HTTPS URL for each requested document so the client can download the processed output JSON. Accepts one or more `documentIDs`. Available only when a document status is `Success` — returns `422` if status is not `Success`, and `202` if the document is still inprogress (`AwaitingUpload` or `Processing`). Prefer polling `/documents/status` until terminal before calling this endpoint.'
+      tags:
+        - 'Intelligent Document Service'
+      requestBody:
+        required: true
+        description: 'Document download request.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdsDocumentDownloadRequest'
+      responses:
+        '200':
+          description: 'Presigned download URL returned.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdsDocumentDownloadResponse'
+              examples:
+                sampleDownloadResponse:
+                  $ref: '#/components/examples/SampleIdsDocumentDownload'
+        '202':
+          description: 'Document is still being processed. Poll status before downloading.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdsDocumentStatusResponse'
+              examples:
+                statusProcessing:
+                  $ref: '#/components/examples/SampleIdsDocumentStatusProcessing'
+          headers:
+            Location:
+              description: 'Path to Batch Request status.'
+              schema:
+                type: 'string'
+              example: 'batch/v1/status?id=2df43e85-ea0f-45c6-bf4a-2baf4d1eaa3c'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'Forbidden.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '404':
+          description: 'The specified documentID was not found.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default404Response:
+                  $ref: '#/components/examples/NotFoundDetails'
+        '415':
+          description: 'Unsupported Media Type.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+        '422':
+          description: 'Unprocessable Entity - document status is not success; download is only available after successful processing.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                documentNotReady:
+                  $ref: '#/components/examples/IdsDownloadNotReadyError'
+                default422Response:
+                  $ref: '#/components/examples/ValidationErrorDetails'
+        '429':
+          description: 'Too Many Requests.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default429Response:
+                  $ref: '#/components/examples/RateLimitErrorDetails'
+        '500':
+          description: 'Internal Server Error.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+      x-factset-different-success-responses: true
+  /documents/search:
+    post:
+      operationId: 'searchIdsDocuments'
+      summary: 'Semantically search uploaded documents'
+      description: 'Performs natural-language semantic search across documents ingested through the Intelligent Document Service and returns matching chunks ranked by similarity score. Requires a `query` and one or more `sources`. Optionally restrict results to specific `documentIDs`. Supports offset pagination and sorting by `SimilarityScore`.'
+      tags:
+        - 'Intelligent Document Service'
+      requestBody:
+        required: true
+        description: 'Document search request.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdsDocumentSearchRequest'
+            examples:
+              searchRequest:
+                $ref: '#/components/examples/SearchRequestExample'
+      responses:
+        '200':
+          description: 'Search results returned, ranked by similarity score.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdsDocumentSearchResponse'
+              examples:
+                sampleSearchResponse:
+                  $ref: '#/components/examples/SampleResponse'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'Forbidden.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '415':
+          description: 'Unsupported Media Type.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+        '422':
+          description: 'Unprocessable Entity.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default422Response:
+                  $ref: '#/components/examples/ValidationErrorDetails'
+        '429':
+          description: 'Too Many Requests.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default429Response:
+                  $ref: '#/components/examples/RateLimitErrorDetails'
+        '500':
+          description: 'Internal Server Error.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
+  /documents/list:
+    get:
+      operationId: 'listAllIdsDocuments'
+      summary: 'List all uploaded documents'
+      description: 'Returns a paginated list of all documents uploaded by the authenticated tenant.'
+      tags:
+        - 'Intelligent Document Service'
+      parameters:
+        - $ref: '#/components/parameters/paginationLimit'
+        - $ref: '#/components/parameters/paginationOffset'
+      responses:
+        '200':
+          description: 'Document list returned.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdsDocumentsListResponse'
+              examples:
+                sampleDocumentsList:
+                  $ref: '#/components/examples/SampleIdsDocumentsList'
+        '400':
+          description: 'Bad request.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default400Response:
+                  $ref: '#/components/examples/ErrorInfo'
+        '401':
+          description: 'Unauthenticated.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default401Response:
+                  $ref: '#/components/examples/AuthErrorInfo'
+        '403':
+          description: 'Forbidden.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default403Response:
+                  $ref: '#/components/examples/AuthorizationErrorInfo'
+        '500':
+          description: 'Internal Server Error.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResult'
+              examples:
+                default500Response:
+                  $ref: '#/components/examples/ServerErrorInfo'
 components:
   securitySchemes:
     FactSetOAuth2:
@@ -438,6 +1198,72 @@ components:
         detail:
           type: 'string'
           description: 'Detailed error message.'
+    ErrorObjectResponse:
+      type: 'object'
+      nullable: true
+      description: 'error'
+      properties:
+        code:
+          description: 'status'
+          type: 'string'
+          example: 'GenericError'
+        title:
+          description: 'The plain text error message'
+          type: 'string'
+          example: 'Validation Error'
+        detail:
+          description: 'Error details explanation'
+          type: 'string'
+          example: 'Validation Error'
+    ErrorResult:
+      type: 'object'
+      description: 'Error response object'
+      properties:
+        errors:
+          type: 'array'
+          description: 'Errors Array Object.'
+          items:
+            $ref: '#/components/schemas/ErrorObjectData'
+    ErrorObjectData:
+      type: 'object'
+      description: 'Error Example Object.'
+      required:
+        - 'code'
+        - 'title'
+        - 'id'
+      properties:
+        code:
+          type: 'string'
+          enum:
+            - 'BadRequest'
+            - 'ValidationError'
+            - 'NotFound'
+            - 'Forbidden'
+            - 'InternalServerError'
+          description: 'Machine-readable error code'
+        title:
+          type: 'string'
+          description: 'Human-readable error summary'
+        id:
+          type: 'string'
+          format: 'uuid'
+          description: 'Unique error instance identifier for tracking'
+        detail:
+          type: 'string'
+          description: 'Detailed error explanation'
+        source:
+          type: 'object'
+          description: 'Reference to error source'
+          properties:
+            parameter:
+              type: 'string'
+              description: 'Query parameter that caused the error.'
+            pointer:
+              type: 'string'
+              description: 'JSON Pointer to request body field that caused the error.'
+            value:
+              type: 'string'
+              description: 'The actual value that caused the error.'
     VectorDataRequest:
       type: 'object'
       description: 'Parameters for querying vector data.'
@@ -858,6 +1684,1036 @@ components:
         sentiment:
           type: 'string'
           description: 'Sentiment is the measure of expressed attitude or opinion of the document, such as "Negative" or "Very Positive". The `/meta/themes` endpoint gives list of all available sentiment values.'
+    SearchRequest:
+      type: 'object'
+      description: 'Parameters for semantic search.'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'object'
+          description: 'Elements of search request.'
+          required:
+            - 'sources'
+            - 'startDate'
+            - 'endDate'
+            - 'query'
+          properties:
+            query:
+              type: 'string'
+              description: "> Natural language search query.\n> **Note:** currently, we allow the following special characters: space, `,`, `%`, `&`, `/`,` -`, `?`"
+              example: 'What are companies saying about AI investment and infrastructure?'
+              minLength: 1
+              maxLength: 1000
+            startDate:
+              type: 'string'
+              format: 'date'
+              description: 'The date for (or from which) the data is required. Supports in YYYY-MM-DD format.'
+              example: '2024-01-01'
+            endDate:
+              type: 'string'
+              format: 'date'
+              description: 'The date to which data is required. Supports in YYYY-MM-DD format.'
+              example: '2024-12-31'
+            formTypes:
+              type: 'array'
+              maxItems: 3
+              uniqueItems: true
+              items:
+                type: 'string'
+              description: "> The search to include valid form type for the provided sources. Use the `/form-types` endpoint to get a list of all available form types.\n> **Note:** When used in conjunction with the `sources` parameter set to 'EDG', the API considers these form type values for data retrieval. For non-EDGAR/filings sources, this parameter is ignored."
+              example:
+                - '10-K'
+                - '10-Q'
+                - '8-K'
+            sources:
+              type: 'array'
+              minItems: 1
+              maxItems: 4
+              uniqueItems: true
+              items:
+                type: 'string'
+              description: 'Data sources to search. Use the `/sources` endpoint to get a list of all available sources. Available sources include EDGAR (EDG), StreetAccount News (SA), FactSet CallStreet Transcripts (FCST), MT Newswire (MTN).'
+              example:
+                - 'EDG'
+                - 'FCST'
+                - 'SA'
+                - 'MTN'
+            ids:
+              type: 'array'
+              items:
+                type: 'string'
+              maxItems: 100
+              description: 'Requested symbols or securities. Each symbol can be a FactSet exchange symbol'
+              example:
+                - 'AAPL-US'
+                - 'MSFT-US'
+            resultsBySource:
+              type: 'boolean'
+              description: "When true, applies the `limit` parameter individually to each specified source.\nFor example, if you specify sources EDG, FCST, SA and MTN with `limit=10` and `resultsBySource=true`, you will receive up to 10 results from each source (up to 30 total).\nWhen false or omitted, `limit` applies to the overall number of results across all sources.\n"
+              default: false
+        meta:
+          type: 'object'
+          description: 'Metadata for controlling result pagination and sorting behavior.'
+          properties:
+            pagination:
+              type: 'object'
+              description: 'Pagination controls for limiting and offsetting results.'
+              properties:
+                limit:
+                  type: 'integer'
+                  format: 'int32'
+                  default: 10
+                  maximum: 50
+                  minimum: 0
+                  description: 'Specifies the maximum number of results to return.'
+                offset:
+                  type: 'integer'
+                  format: 'int32'
+                  minimum: 0
+                  default: 0
+                  description: 'Specifies the starting point for pagination. This parameter is used to identify the beginning of the next set of results.'
+            sort:
+              description: "Sorting the results by `similarityScore` where this field is a part of response.\n\n *  ` similarityScore` - sorting results based on similarityScore.\n"
+              type: 'array'
+              items:
+                type: 'string'
+                enum:
+                  - 'similarityScore'
+              maxItems: 1
+    SearchResponse:
+      type: 'object'
+      description: 'Response format for search endpoint.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of search results with similarity scores.'
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        meta:
+          type: 'object'
+          description: 'Metadata about the response'
+          properties:
+            pagination:
+              type: 'object'
+              description: 'Information about pagination of results'
+              properties:
+                isEstimatedTotal:
+                  type: 'boolean'
+                  description: 'This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.'
+                total:
+                  type: 'integer'
+                  description: 'Total number of results the API returns for a particular query.'
+    SearchResult:
+      description: 'Search result discriminated by source type. Each source has specific metadata fields relevant to that content type.'
+      oneOf:
+        - $ref: '#/components/schemas/EDGARSearchResult'
+        - $ref: '#/components/schemas/TranscriptSearchResult'
+        - $ref: '#/components/schemas/NewsSearchResult'
+      discriminator:
+        propertyName: 'source'
+        mapping:
+          EDG: '#/components/schemas/EDGARSearchResult'
+          FCST: '#/components/schemas/TranscriptSearchResult'
+          SA: '#/components/schemas/NewsSearchResult'
+          MTN: '#/components/schemas/NewsSearchResult'
+    EDGARSearchResult:
+      type: 'object'
+      description: 'Search result from EDGAR filing sources with filing-specific metadata.'
+      allOf:
+        - $ref: '#/components/schemas/BaseResult'
+        - type: 'object'
+          additionalProperties: true
+          required:
+            - 'source'
+          properties:
+            source:
+              $ref: '#/components/schemas/EDGARSearch'
+            formType:
+              type: 'string'
+              description: 'Document form type (e.g., 10-K, 10-Q, 8-K).'
+              example: '10-Q'
+            sectionName:
+              type: 'string'
+              description: 'Name of the filing section.'
+              example: 'Management''s Discussion and Analysis'
+              nullable: true
+            sectionNumber:
+              type: 'string'
+              description: 'Section number in the filing.'
+              example: '7A'
+              nullable: true
+            docType:
+              type: 'string'
+              description: 'Type of document chunk.'
+              example: 'table'
+              nullable: true
+            similarityScore:
+              type: 'number'
+              description: 'Score indicating the similarity between the query and the result (0-1).'
+              minimum: 0
+              maximum: 1
+              example: 0.8547
+            tableText:
+              type: 'string'
+              description: 'Full table text if chunk contains tabular data.'
+              nullable: true
+    EDGARSearch:
+      type: 'string'
+      enum:
+        - 'EDG'
+      description: 'Source identifier for EDGAR filing sources.'
+    TranscriptSearchResult:
+      type: 'object'
+      description: 'Search result from transcript sources (FCST) with speaker and call metadata.'
+      required:
+        - 'source'
+      allOf:
+        - $ref: '#/components/schemas/BaseResult'
+        - type: 'object'
+          additionalProperties: true
+          properties:
+            source:
+              $ref: '#/components/schemas/TranscriptSearch'
+            speakerId:
+              type: 'integer'
+              format: 'int32'
+              description: 'Unique identifier of the speaker.'
+              example: 2
+              nullable: true
+            speakerName:
+              type: 'string'
+              description: 'Name of the speaker.'
+              example: 'Tim Cook'
+              nullable: true
+            speakerType:
+              type: 'string'
+              description: 'Type of speaker (e.g., corprep, analyst).'
+              example: 'corprep'
+              nullable: true
+            uploadDateTime:
+              type: 'string'
+              format: 'date-time'
+              description: 'Date and time when the document was uploaded to the system.'
+              example: '2023-11-19T00:10:45Z'
+            speakerTitle:
+              type: 'string'
+              description: 'Title of the speaker.'
+              example: 'Chief Executive Officer'
+              nullable: true
+            speakerCompanyName:
+              type: 'string'
+              description: 'Company name of the speaker.'
+              example: 'Apple Inc.'
+              nullable: true
+            speakerCompanyEntityId:
+              type: 'string'
+              description: 'FactSet entity ID of speaker''s company.'
+              example: '000C7F-E'
+              nullable: true
+            speakerEntity:
+              type: 'string'
+              description: 'FactSet entity ID of the speaker.'
+              example: '07F5D0-E'
+              nullable: true
+            docType:
+              type: 'string'
+              description: 'Type of document chunk.'
+              example: 'discussion'
+              nullable: true
+            similarityScore:
+              type: 'number'
+              description: 'Score indicating the similarity between the query and the result (0-1).'
+              minimum: 0
+              maximum: 1
+              example: 0.8547
+            docNum:
+              type: 'string'
+              description: 'Sequential chunk identifier within the document.'
+              example: 'md_2'
+              nullable: true
+            financialYear:
+              type: 'string'
+              description: 'Financial year.'
+              example: '2024'
+              nullable: true
+            financialQuarter:
+              type: 'string'
+              description: 'Financial quarter.'
+              example: 'Q3'
+              nullable: true
+    TranscriptSearch:
+      type: 'string'
+      enum:
+        - 'FCST'
+      description: 'Source identifier for transcript sources.'
+    NewsSearchResult:
+      type: 'object'
+      description: 'Search result from news sources with minimal additional metadata.'
+      required:
+        - 'source'
+      allOf:
+        - $ref: '#/components/schemas/BaseResult'
+        - type: 'object'
+          additionalProperties: true
+          properties:
+            source:
+              $ref: '#/components/schemas/NewsSearch'
+            similarityScore:
+              type: 'number'
+              description: 'Score indicating the similarity between the query and the result (0-1).'
+              minimum: 0
+              maximum: 1
+              example: 0.8547
+    NewsSearch:
+      type: 'string'
+      enum:
+        - 'SA'
+        - 'MTN'
+      description: 'Source identifier for news sources.'
+    BaseResult:
+      type: 'object'
+      description: 'Common fields shared across all search results regardless of source.'
+      additionalProperties: true
+      properties:
+        vectorId:
+          type: 'string'
+          nullable: true
+          description: 'Unique vector identifier associated with the document.'
+          example: '0001493152-24-046748-1_text_236_0'
+        content:
+          type: 'string'
+          nullable: true
+          description: 'The text content of the document chunk.'
+          example: 'Management discussed the company''s investment in AI infrastructure...'
+        storyLink:
+          type: 'string'
+          format: 'url'
+          nullable: true
+          description: 'Secure HTTPS link to the full document.'
+          example: 'https://api.factset.com/vectordata/v1/story?id=abc'
+        viewUrl:
+          type: 'string'
+          format: 'url'
+          nullable: true
+          description: 'Secure HTTPS Web-friendly format link rendered in a browser.'
+          example: 'https://my.apps.factset.com/viewer-fusion/?id=abc'
+        storyDateTime:
+          type: 'string'
+          nullable: true
+          format: 'date-time'
+          description: 'Date associated with the story.'
+          example: '2024-11-19T00:10:45Z'
+        headline:
+          type: 'string'
+          nullable: true
+          description: 'Headline of the story'
+          example: 'Zukin''s Next Week Today 4/7/2023 (Wolf Research) 97 pages'
+        documentID:
+          type: 'string'
+          nullable: true
+          description: 'Unique identifier for the document.'
+          example: '0001493152-24-046748-1'
+        ids:
+          type: 'array'
+          nullable: true
+          items:
+            type: 'string'
+          description: 'List of related IDs.'
+          example:
+            - 'AAPL-US'
+            - '000C7F-E'
+        textLength:
+          type: 'integer'
+          format: 'int32'
+          description: 'Character length of the content.'
+          example: 1242
+          nullable: true
+        tokenCount:
+          type: 'integer'
+          format: 'int32'
+          description: 'Token count of the content.'
+          example: 257
+          nullable: true
+        error:
+          $ref: '#/components/schemas/ErrorObjectResponse'
+    VectorResponse:
+      type: 'object'
+      description: 'Response format for vector endpoint.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of vector data with embeddings and metadata.'
+          items:
+            $ref: '#/components/schemas/VectorResult'
+        meta:
+          type: 'object'
+          description: 'Metadata about the response'
+          properties:
+            pagination:
+              type: 'object'
+              description: 'Information about pagination of results'
+              properties:
+                isEstimatedTotal:
+                  type: 'boolean'
+                  description: 'This field acts as a flag for the exact count of results and is defaulted to false as the API should always return the exact count of results.'
+                total:
+                  type: 'integer'
+                  description: 'Total number of results the API returns for a particular query.'
+    VectorResult:
+      description: 'Vector result discriminated by source type. Each source has specific metadata fields.'
+      oneOf:
+        - $ref: '#/components/schemas/EDGARVectorResult'
+        - $ref: '#/components/schemas/TranscriptVectorResult'
+        - $ref: '#/components/schemas/NewsVectorResult'
+      discriminator:
+        propertyName: 'source'
+        mapping:
+          EDG: '#/components/schemas/EDGARVectorResult'
+          FCST: '#/components/schemas/TranscriptVectorResult'
+          SA: '#/components/schemas/NewsVectorResult'
+          MTN: '#/components/schemas/NewsVectorResult'
+    EDGARVectorResult:
+      type: 'object'
+      description: 'Vector result from EDGAR filing sources with vector embeddings and filing-specific metadata.'
+      allOf:
+        - $ref: '#/components/schemas/BaseResult'
+        - type: 'object'
+          additionalProperties: true
+          required:
+            - 'source'
+          properties:
+            source:
+              $ref: '#/components/schemas/EDGARVector'
+            vector:
+              type: 'array'
+              items:
+                type: 'number'
+                format: 'float'
+              description: 'Vector embedding array. Omitted when trimmed=true.'
+              example:
+                - 0.007737964
+                - -0.01896573
+            trimmed:
+              type: 'boolean'
+              description: 'Indicates whether vector embeddings are included.'
+            formType:
+              type: 'string'
+              description: 'Document form type (e.g., 10-K, 10-Q, 8-K).'
+              example: '10-Q'
+            sectionName:
+              type: 'string'
+              description: 'Name of the filing section.'
+              example: 'Management''s Discussion and Analysis'
+              nullable: true
+            sectionNumber:
+              type: 'string'
+              description: 'Section number in the filing.'
+              example: '7A'
+              nullable: true
+            docType:
+              type: 'string'
+              description: 'Type of document chunk.'
+              example: 'table'
+              nullable: true
+            tableText:
+              type: 'string'
+              description: 'Full table text if chunk contains tabular data.'
+              nullable: true
+    EDGARVector:
+      type: 'string'
+      enum:
+        - 'EDG'
+      description: 'Source identifier for EDGAR filing sources.'
+    TranscriptVectorResult:
+      type: 'object'
+      description: 'Vector result from transcript sources with vector embeddings and speaker metadata.'
+      allOf:
+        - $ref: '#/components/schemas/BaseResult'
+        - type: 'object'
+          additionalProperties: true
+          required:
+            - 'source'
+          properties:
+            source:
+              $ref: '#/components/schemas/TranscriptVector'
+            vector:
+              type: 'array'
+              items:
+                type: 'number'
+                format: 'float'
+              description: 'Vector embedding array. Omitted when trimmed=true.'
+              example:
+                - 0.007737964
+                - -0.01896573
+            trimmed:
+              type: 'boolean'
+              description: 'Indicates whether vector embeddings are included.'
+            uploadDateTime:
+              type: 'string'
+              format: 'date-time'
+              description: 'Date and time when the document was uploaded to the system.'
+              example: '2023-11-19T00:10:45Z'
+            speakerId:
+              type: 'integer'
+              format: 'int32'
+              description: 'Unique identifier of the speaker.'
+              example: 2
+              nullable: true
+            speakerName:
+              type: 'string'
+              description: 'Name of the speaker.'
+              example: 'Tim Cook'
+              nullable: true
+            speakerType:
+              type: 'string'
+              description: 'Type of speaker (e.g., corprep, analyst).'
+              example: 'corprep'
+              nullable: true
+            speakerTitle:
+              type: 'string'
+              description: 'Title of the speaker.'
+              example: 'Chief Executive Officer'
+              nullable: true
+            speakerCompanyName:
+              type: 'string'
+              description: 'Company name of the speaker.'
+              example: 'Apple Inc.'
+              nullable: true
+            speakerCompanyEntityId:
+              type: 'string'
+              description: 'FactSet entity ID of speaker''s company.'
+              example: '000C7F-E'
+              nullable: true
+            speakerEntity:
+              type: 'string'
+              description: 'FactSet entity ID of the speaker.'
+              example: '07F5D0-E'
+              nullable: true
+            docType:
+              type: 'string'
+              description: 'Type of document chunk.'
+              example: 'discussion'
+              nullable: true
+            docNum:
+              type: 'string'
+              description: 'Sequential chunk identifier within the document.'
+              example: 'md_2'
+              nullable: true
+            financialYear:
+              type: 'string'
+              description: 'Financial year.'
+              example: '2024'
+              nullable: true
+            financialQuarter:
+              type: 'string'
+              description: 'Financial quarter.'
+              example: 'Q3'
+              nullable: true
+    TranscriptVector:
+      type: 'string'
+      enum:
+        - 'FCST'
+      description: 'Source identifier for transcript sources.'
+    NewsVectorResult:
+      type: 'object'
+      description: 'Vector result from news sources with vector embeddings and minimal additional metadata.'
+      allOf:
+        - $ref: '#/components/schemas/BaseResult'
+        - type: 'object'
+          additionalProperties: true
+          required:
+            - 'source'
+          properties:
+            source:
+              $ref: '#/components/schemas/NewsVector'
+            vector:
+              type: 'array'
+              items:
+                type: 'number'
+                format: 'float'
+              description: 'Vector embedding array. Omitted when trimmed=true.'
+              example:
+                - 0.007737964
+                - -0.01896573
+            trimmed:
+              type: 'boolean'
+              description: 'Indicates whether vector embeddings are included.'
+    NewsVector:
+      type: 'string'
+      enum:
+        - 'SA'
+        - 'MTN'
+      description: 'Source identifier for news sources.'
+    SourceResponseData:
+      description: 'Response with list of available sources'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          description: 'List of available sources'
+          items:
+            $ref: '#/components/schemas/SourceData'
+    SourceData:
+      type: 'object'
+      description: 'Data source information'
+      required:
+        - 'source'
+        - 'description'
+      properties:
+        source:
+          type: 'string'
+          description: 'Source code'
+          example: 'EDG'
+        description:
+          type: 'string'
+          description: 'Source description'
+          example: 'EDGAR'
+        type:
+          type: 'array'
+          description: 'The category of type this source provides.'
+          items:
+            type: 'string'
+            enum:
+              - 'News'
+              - 'Filings'
+              - 'Transcripts'
+    FormTypesResponse:
+      description: 'Response with list of available form types.'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          description: 'List of available form types.'
+          items:
+            $ref: '#/components/schemas/FormTypes'
+    FormTypes:
+      type: 'object'
+      description: 'form type information'
+      required:
+        - 'formType'
+        - 'description'
+      properties:
+        formType:
+          type: 'string'
+          description: 'form type code'
+          example: '10-K'
+        description:
+          type: 'string'
+          description: 'form type description'
+          example: 'Annual reports'
+    IdsDocumentUploadRequest:
+      type: 'object'
+      description: 'Request body for the document upload registration endpoint.'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'object'
+          description: 'Document registration parameters.'
+          required:
+            - 'fileName'
+          properties:
+            fileName:
+              type: 'string'
+              description: 'Name of the file being uploaded.'
+              example: 'annual-report-2024.pdf'
+            fileType:
+              type: 'string'
+              description: 'Type of the file being uploaded.'
+              enum:
+                - 'Pdf'
+                - 'Text'
+                - 'Html'
+                - 'Md'
+                - 'Xml'
+              default: 'Html'
+              example: 'Pdf'
+    IdsDocumentUploadResponse:
+      type: 'object'
+      description: 'Response body for the document upload endpoint.'
+      properties:
+        data:
+          $ref: '#/components/schemas/IdsDocumentUploadData'
+    IdsDocumentUploadData:
+      type: 'object'
+      description: 'Upload confirmation containing the presigned upload URL.'
+      properties:
+        requestId:
+          type: 'string'
+          format: 'uuid'
+          description: 'Server-generated UUID for request tracing and support.'
+          example: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+        documentID:
+          type: 'string'
+          description: 'Unique identifier of the document.'
+          example: '0001493152-24-046748-1'
+        fileName:
+          type: 'string'
+          description: 'fileName of the document.'
+          example: 'annual-report-2024.pdf'
+        uploadUrl:
+          type: 'string'
+          format: 'url'
+          description: "### CRITICAL CLIENT UPLOAD PROTOCOL INSTRUCTIONS\nThis is a short-lived presigned HTTPS URL for uploading the document directly to S3.\n\nWhen executing your HTTP PUT binary stream transfer out to this exact URL, your client-side code **MUST** explicitly attach these exact matching metadata headers:\n* `x-amz-meta-request-id` : Set to matching response requestId value.\n* `x-amz-meta-document-id` : Set to matching response documentID value.\n\nFailure to pass these identical headers will cause an immediate HTTP 403 Forbidden error from Amazon S3.\n"
+          example: 'https://fdss3-content-api-docs-dev.s3.amazonaws.com/vector_data/inbound......'
+    IdsDocumentStatusRequest:
+      type: 'object'
+      description: 'Request body for the document status endpoint.'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'object'
+          description: 'Document status query parameters.'
+          required:
+            - 'documentIDs'
+          properties:
+            documentIDs:
+              type: 'array'
+              items:
+                type: 'string'
+              description: 'Unique identifier for the document.'
+              example:
+                - '0001493152-24-046748-1'
+                - '0001493152-24-046748-2'
+            requestId:
+              type: 'string'
+              format: 'uuid'
+              description: 'Request ID for tracing.'
+              example: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+    IdsDocumentStatusResponse:
+      type: 'object'
+      description: 'Response for a document in a terminal state (success or failed).'
+      properties:
+        data:
+          $ref: '#/components/schemas/IdsDocumentStatusData'
+    IdsDocumentStatusData:
+      type: 'object'
+      description: 'Terminal status and lifecycle metadata for a single ingested document.'
+      properties:
+        requestId:
+          type: 'string'
+          format: 'uuid'
+          description: 'Request identifier for tracing.'
+          example: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+        documents:
+          type: 'array'
+          description: 'Documents Status'
+          items:
+            $ref: '#/components/schemas/DocumentsStatus'
+    DocumentsStatus:
+      title: 'Documents'
+      description: 'Document Status'
+      type: 'object'
+      properties:
+        documentID:
+          type: 'string'
+          description: 'Unique identifier of the ingested document.'
+          example: '0001493152-24-046748-1'
+        fileName:
+          type: 'string'
+          description: 'Name of the file.'
+          nullable: true
+          example: 'annual-report-2024.pdf'
+        status:
+          type: 'string'
+          description: 'Terminal processing state. Success - all chunks indexed; document is searchable. Failed  - one or more chunks failed; document is not searchable.'
+          enum:
+            - 'AwaitingUpload'
+            - 'Processing'
+            - 'Success'
+            - 'Failed'
+          example: 'Success'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+          description: 'ISO 8601 timestamp of when the presigned upload URL was created.'
+          nullable: true
+          example: '2024-11-01T09:00:00Z'
+        confirmedAt:
+          type: 'string'
+          format: 'date-time'
+          description: 'ISO 8601 timestamp of when the client signalled upload completion.'
+          nullable: true
+          example: '2024-11-01T09:05:30Z'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+          description: 'ISO 8601 timestamp of the most recent pipeline modification.'
+          nullable: true
+          example: '2024-11-01T09:12:47Z'
+    IdsDocumentDownloadRequest:
+      type: 'object'
+      description: 'Request body for the document download endpoint.'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'object'
+          description: 'Document download query parameters.'
+          required:
+            - 'documentIDs'
+          properties:
+            documentIDs:
+              type: 'array'
+              items:
+                type: 'string'
+              description: 'Unique identifier for the document.'
+              example:
+                - '0001493152-24-046748-1'
+                - '0001493152-24-046748-2'
+            requestId:
+              type: 'string'
+              format: 'uuid'
+              description: 'Request ID for tracing.'
+              example: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+    IdsDocumentDownloadResponse:
+      type: 'object'
+      description: 'Response body for the document download endpoint.'
+      properties:
+        data:
+          $ref: '#/components/schemas/IdsDocumentDownloadData'
+    IdsDocumentDownloadData:
+      type: 'object'
+      description: 'Download payload for a successfully processed document.'
+      properties:
+        requestId:
+          type: 'string'
+          format: 'uuid'
+          description: 'RequestId or a server-generated UUID.'
+          example: 'c7de390a-1ad1-4b2e-bf10-dce7f8765524'
+        documents:
+          type: 'array'
+          description: 'Contains list of Files'
+          items:
+            $ref: '#/components/schemas/DocumentsDownload'
+    DocumentsDownload:
+      title: 'Documents'
+      description: 'Array of data objects'
+      type: 'object'
+      properties:
+        documentID:
+          type: 'string'
+          description: 'Unique identifier of the ingested document.'
+          example: '0001493152-24-046748-1'
+        fileName:
+          type: 'string'
+          description: 'fileName of the ingested document.'
+          nullable: true
+          example: 'annual-report-2024.pdf'
+        downloadUrl:
+          type: 'string'
+          format: 'url'
+          description: 'Secure HTTPS link to the full source document.'
+          example: 'https://api.factset.com/content/vector/v0/fetch-document?...'
+    IdsDocumentSearchRequest:
+      type: 'object'
+      description: 'Request body for the document search endpoint.'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'object'
+          description: 'Document search parameters.'
+          required:
+            - 'query'
+            - 'sources'
+          properties:
+            query:
+              type: 'string'
+              description: 'Natural language search query.'
+              minLength: 1
+              maxLength: 1000
+              example: 'What are companies saying about AI investment and infrastructure?'
+            sources:
+              type: 'array'
+              description: 'Data sources to search.'
+              minItems: 1
+              uniqueItems: true
+              items:
+                type: 'string'
+                enum:
+                  - 'IdsClient'
+                  - 'TrialData'
+              example:
+                - 'IdsClient'
+            documentIDs:
+              type: 'array'
+              description: 'Restrict results to these document IDs.'
+              items:
+                type: 'string'
+              example:
+                - '0001493152-24-046748-1'
+        meta:
+          $ref: '#/components/schemas/IdsDocumentSearchRequestMeta'
+    IdsDocumentSearchRequestMeta:
+      type: 'object'
+      description: 'Pagination and sort controls for the search request.'
+      properties:
+        pagination:
+          $ref: '#/components/schemas/OffsetPaginationRequest'
+        sort:
+          type: 'array'
+          description: 'Field to sort by. '
+          maxItems: 1
+          items:
+            type: 'string'
+            enum:
+              - 'SimilarityScore'
+          example:
+            - 'SimilarityScore'
+    IdsDocumentSearchResponse:
+      type: 'object'
+      description: 'Response body for the document search endpoint.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Search results ranked by similarity score.'
+          items:
+            $ref: '#/components/schemas/IdsDocumentSearchResult'
+        meta:
+          $ref: '#/components/schemas/IdsDocumentSearchResponseMeta'
+    IdsDocumentSearchResponseMeta:
+      type: 'object'
+      description: 'Pagination metadata echoed in the search response.'
+      properties:
+        pagination:
+          $ref: '#/components/schemas/OffsetPaginationResponse'
+    IdsDocumentSearchResult:
+      type: 'object'
+      description: 'A single search result returned by the document search endpoint.'
+      properties:
+        chunkId:
+          type: 'string'
+          nullable: true
+          description: 'Unique identifier for the document chunk.'
+          example: '0001493152-24-046748-1_text_236_0'
+        documentID:
+          type: 'string'
+          nullable: true
+          description: 'Unique identifier for the source document.'
+          example: '0001493152-24-046748-1'
+        similarityScore:
+          type: 'number'
+          format: 'double'
+          description: 'Similarity score between the query and this result (0-1).'
+          minimum: 0
+          maximum: 1
+          example: 0.8547
+        content:
+          type: 'string'
+          nullable: true
+          description: 'Text content of the document chunk.'
+          example: 'Management discussed the company''s investment in AI infrastructure.'
+        documentLink:
+          type: 'string'
+          format: 'url'
+          nullable: true
+          description: 'Secure HTTPS link to the full source document.'
+          example: 'https://api.factset.com/content/vector/v0/fetch-document?.....'
+        source:
+          type: 'string'
+          description: 'Data source identifier.'
+          example: 'idsClient'
+        textLength:
+          type: 'integer'
+          format: 'int32'
+          nullable: true
+          description: 'Character length of the content field.'
+          example: 1242
+        fileName:
+          type: 'string'
+          nullable: true
+          description: 'name of the file.'
+          example: 'annual-report-2024.pdf'
+    OffsetPaginationRequest:
+      type: 'object'
+      description: 'Offset-based pagination request parameters.'
+      properties:
+        limit:
+          type: 'integer'
+          format: 'int32'
+          description: 'Maximum number of results to return per page.'
+          default: 10
+          minimum: 1
+          maximum: 50
+          example: 10
+        offset:
+          type: 'integer'
+          format: 'int32'
+          description: 'Number of results to skip before returning the first result.'
+          default: 0
+          minimum: 0
+          example: 0
+    OffsetPaginationResponse:
+      type: 'object'
+      description: 'Offset-based pagination metadata echoed in the response.'
+      properties:
+        total:
+          type: 'integer'
+          format: 'int32'
+          description: 'Total number of matching results.'
+          example: 142
+        isEstimatedTotal:
+          type: 'boolean'
+          description: 'True if the total count is an estimate rather than an exact count.'
+          example: false
+    IdsDocumentsListResponse:
+      description: 'Ids documents List'
+      type: 'object'
+      properties:
+        data:
+          type: 'array'
+          description: 'Documents Item'
+          items:
+            $ref: '#/components/schemas/IdsDocumentListItem'
+        meta:
+          $ref: '#/components/schemas/IdsDocumentSearchResponseMeta'
+    IdsDocumentListItem:
+      type: 'object'
+      description: 'Documents List'
+      properties:
+        fileName:
+          type: 'string'
+          description: 'fileName of the document.'
+          example: 'annual-report-2024.pdf'
+        documentID:
+          type: 'string'
+          description: 'Unique identifier of the document.'
+          example: '0001493152-24-046748-1'
+        requestId:
+          type: 'string'
+          description: 'Server-generated UUID.'
+          format: 'uuid'
+          example: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+        status:
+          type: 'string'
+          description: 'status of the document.'
+          enum:
+            - 'AwaitingUpload'
+            - 'Processing'
+            - 'Success'
+            - 'Failed'
+          example: 'Success'
+        createdAt:
+          type: 'string'
+          format: 'date-time'
+          description: 'ISO 8601 timestamp of when the presigned upload URL was created.'
+          nullable: true
+          example: '2024-11-01T09:00:00Z'
+        confirmedAt:
+          type: 'string'
+          format: 'date-time'
+          description: 'ISO 8601 timestamp of when the client signalled upload completion.'
+          nullable: true
+          example: '2024-11-01T09:05:30Z'
+        updatedAt:
+          type: 'string'
+          format: 'date-time'
+          description: 'ISO 8601 timestamp of the most recent pipeline modification.'
+          nullable: true
+          example: '2024-11-01T09:12:47Z'
   examples:
     ErrorDetails:
       summary: 'Sample Error Response'
@@ -891,6 +2747,38 @@ components:
             title: 'An unexpected error occurred.'
             id: '7af3d86ca5954503b9244f2620fcf5eb'
             detail: 'The service you have requested has encountered an error.'
+    ErrorInfo:
+      summary: 'Sample Error Response'
+      value:
+        errors:
+          - code: 'BadRequest'
+            title: 'Invalid Request'
+            id: '550e8400-e29b-41d4-a716-446655440000'
+            detail: 'parameterError:[''invalidParam''] is not a valid parameter(s).'
+    AuthErrorInfo:
+      summary: 'Sample Error Response'
+      value:
+        errors:
+          - code: 'Forbidden'
+            title: 'Unauthenticated USERNAME-SERIAL.'
+            id: '550e8400-e29b-41d4-a716-446655440001'
+            detail: 'User is not authenticated properly.'
+    AuthorizationErrorInfo:
+      summary: 'Sample Error Response'
+      value:
+        errors:
+          - code: 'Forbidden'
+            title: 'USERNAME-SERIAL lacks permission.'
+            id: '550e8400-e29b-41d4-a716-446655440000'
+            detail: 'User is not authorized for this endpoint.'
+    ServerErrorInfo:
+      summary: 'Sample Error Response'
+      value:
+        errors:
+          - code: 'InternalServerError'
+            title: 'An unexpected error occurred.'
+            id: '550e8400-e29b-41d4-a716-446655440000'
+            detail: 'The service you have requested has encountered an error.'
     SampleVectorDataResponse:
       summary: 'Example of Vector Data Response'
       value:
@@ -915,6 +2803,39 @@ components:
             sentiment: 'Positive'
         meta:
           numberOfResults: 10
+    ValidationErrorDetails:
+      summary: 'Validation Error with Source Reference'
+      value:
+        errors:
+          - code: 'ValidationError'
+            title: 'Invalid Parameter Value'
+            id: '550e8400-e29b-41d4-a716-446655440005'
+            detail: 'The ''limit'' parameter must be between 1 and 50'
+            source:
+              parameter: 'limit'
+              value: '200'
+          - code: 'ValidationError'
+            title: 'Invalid Request Body Field'
+            id: '550e8400-e29b-41d4-a716-446655440006'
+            detail: 'The ''query'' field is required'
+            source:
+              pointer: '/data/query'
+    NotFoundDetails:
+      summary: 'Sample Error Response'
+      value:
+        errors:
+          - code: 'NotFound'
+            title: 'Id not found'
+            id: '550e8400-e29b-41d4-a716-446655440006'
+            detail: 'vectorId not found.'
+    RateLimitErrorDetails:
+      summary: 'Rate Limit Exceeded'
+      value:
+        errors:
+          - code: 'ValidationError'
+            title: 'Too Many Requests'
+            id: '550e8400-e29b-41d4-a716-446655440009'
+            detail: 'You have exceeded the allowed request rate. Please wait before retrying.'
     SampleVectorDataResponseTrimmed:
       summary: 'Example of Vector Data Response when used trimmed=true flag'
       value:
@@ -942,7 +2863,7 @@ components:
         data:
           - vectorId: '0001593152-24-046748-1_0001493152-24-046748-1_text_236_0'
             content: 'Item 2. Managements Discussion...'
-            storyLink: 'https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York'
+            storyLink: 'https://api.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York'
             storyDate: '2024-11-19'
             themes: 'NA'
             documentType: 'News'
@@ -965,7 +2886,7 @@ components:
         data:
           - vectorId: '0001693152-24-046748-1_0001493152-24-046748-1_text_236_0'
             content: 'Management commentary from the earnings call...'
-            storyLink: 'https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York'
+            storyLink: 'https://api.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York'
             storyDate: '2024-11-19'
             themes: 'NA'
             documentType: '10-Q'
@@ -999,7 +2920,7 @@ components:
         data:
           - vectorId: '0001793152-24-046748-1_0001493152-24-046748-1_text_236_0'
             content: 'Table data and summary from filing...'
-            storyLink: 'https://api.staging-cauth.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York'
+            storyLink: 'https://api.factset.com/v0/story/?key=U2FsdGVkX1+Ge4aUH/7k7dhJvk3yEnC/EbKp6yfoB79T8gqES5CQ7SJYnnz7bsC+KwHEl3XWSwM48O1/RMt9CGMEyf+8G7zqxaFDU/fUw6ng1Wa3RE4oFQuMAmIxekft&timezone=America/New_York'
             storyDate: '2024-11-19'
             themes: 'NA'
             documentType: '10-Q'
@@ -1080,6 +3001,500 @@ components:
             - 'SA'
         meta:
           numberOfResults: 10
+    SearchRequestExample:
+      summary: 'Search Query'
+      value:
+        data:
+          query: 'What are companies saying about AI infrastructure investment?'
+          sources:
+            - 'IdsClient'
+            - 'TrialData'
+          documentIDs:
+            - '0001493152-24-046748-1'
+            - '0001493152-24-046748-5'
+        meta:
+          pagination:
+            limit: 20
+            offset: 0
+          sort:
+            - 'SimilarityScore'
+    BasicSearchRequest:
+      summary: 'Basic Semantic Search Query'
+      value:
+        data:
+          query: 'What are companies saying about AI infrastructure investment?'
+          startDate: '2024-01-01'
+          endDate: '2024-12-31'
+          sources:
+            - 'EDG'
+            - 'FCST'
+            - 'SA'
+            - 'MTN'
+        meta:
+          pagination:
+            limit: 20
+            offset: 0
+          sort:
+            - 'similarityScore'
+    AdvancedSearchRequest:
+      summary: 'Advanced Search with All Filters'
+      value:
+        data:
+          query: 'How are companies addressing energy consumption in data centers?'
+          startDate: '2024-01-01'
+          endDate: '2024-12-31'
+          formTypes:
+            - '10-K'
+            - '10-Q'
+            - '8-K'
+          sources:
+            - 'EDG'
+            - 'FCST'
+            - 'SA'
+            - 'MTN'
+          ids:
+            - 'MSFT-US'
+            - 'GOOGL-US'
+          resultsBySource: true
+        meta:
+          pagination:
+            limit: 20
+            offset: 0
+          sort:
+            - 'similarityScore'
+    SampleResponse:
+      summary: 'Sample Response'
+      value:
+        data:
+          - chunkId: '0001593152-24-046748-1_0001493152-24-046748-1_text_236_0'
+            similarityScore: 0.8
+            content: 'Item 2. Managements Discussion...'
+            documentLink: 'https://api.factset.com/content/vector/v0/fetch-document?....'
+            source: 'idsClient'
+            fileName: 'annual-report-2024.pdf'
+            documentID: '0001493152-24-046748-1'
+            textLength: 1242
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 40
+    SampleResponseSA:
+      summary: 'Sample Response for SA source.'
+      value:
+        data:
+          - vectorId: '0001593152-24-046748-1_0001493152-24-046748-1_text_236_0'
+            headline: 'Zukin''s Next Week Today 4/7/2023 (Wolf Research) 97 pages'
+            similarityScore: 0.8
+            content: 'Item 2. Managements Discussion...'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?..'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?...'
+            storyDateTime: '2024-11-19T01:00:09Z'
+            source: 'SA'
+            documentID: '0001493152-24-046748-1'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            textLength: 1242
+            tokenCount: 257
+          - source: 'SA'
+            error:
+              code: 'notFound'
+              title: 'No data for M7CLZV'
+              detail: 'There''s no data for this id.'
+          - source: 'SA'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id BADSYMBOL'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 40
+    SampleResponseFCST:
+      summary: 'Sample Response for FCST source.'
+      value:
+        data:
+          - vectorId: '0001693152-24-046748-1_0001493152-24-046748-1_text_236_0'
+            headline: 'CORRECTED TRANSCRIPT: Passage Bio, Inc.(PASG-US),    Business Update Call, 20-December-2023 8:30 AM ET'
+            similarityScore: 0.8
+            content: 'Management commentary from the earnings call...'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?...'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?...'
+            storyDateTime: '2024-11-19T08:00:01Z'
+            uploadDateTime: '2025-11-19T08:00:01Z'
+            source: 'FCST'
+            documentID: '0001493152-24-046748-1'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            speakerId: 2
+            speakerName: 'Luca Maestri'
+            speakerType: 'corprep'
+            speakerTitle: 'Chief Financial Officer & Senior Vice President'
+            speakerCompanyName: 'Apple, Inc.'
+            speakerCompanyEntityId: '000C7F-E'
+            speakerEntity: '07F5D0-E'
+            docType: 'discussion'
+            docNum: 'md_2'
+            textLength: 1242
+            tokenCount: 257
+            financialYear: '2024'
+            financialQuarter: 'Q3'
+          - source: 'FCST'
+            error:
+              code: 'notFound'
+              title: 'No data for M7CLZV'
+              detail: 'There''s no data for this id.'
+          - source: 'FCST'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id BADSYMBOL'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 30
+    SampleResponseMTN:
+      summary: 'Sample Response for MTN source.'
+      value:
+        data:
+          - vectorId: 'g2341901_1'
+            headline: 'SAP Expects AI Demand to Help Boost Cloud Revenue, Chief AI Officer Says'
+            similarityScore: 0.1855
+            content: '09:13 AM EST, 03/07/2024 (MT Newswires) -- SAP (SAP.F) is banking on artificial intelligence products demand to help grow cloud revenue, a Thursday report said. Chief AI Officer Philipp Herzig told Bloomberg News in an interview that the company has a strategic mandate to implement AI across the business software company''s different platforms'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?...'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?....'
+            storyDateTime: '2024-11-19T01:00:09Z'
+            source: 'MTN'
+            documentID: 'g2341901'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            textLength: 424
+            tokenCount: 257
+          - source: 'MTN'
+            error:
+              code: 'notFound'
+              title: 'No data for M7CLZV'
+              detail: 'There''s no data for this id.'
+          - source: 'MTN'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id BADSYMBOL'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 40
+    SampleResponseEDG:
+      summary: 'Sample Response for EDG source.'
+      value:
+        data:
+          - vectorId: '0001793152-24-046748-1_0001493152-24-046748-1_text_236_0'
+            headline: 'MODEL N, INC. files (15-12G) Termination of registration of a class of securities (MODN-US)'
+            similarityScore: 0.8
+            content: 'Table data and summary from filing...'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?..'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?...'
+            storyDateTime: '2024-11-19T06:00:09Z'
+            formType: '10-Q'
+            source: 'EDG'
+            documentID: '0001493152-24-046748-1'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            sectionName: 'legal proceedings'
+            sectionNumber: '7A'
+            docType: 'table'
+            textLength: 1242
+            tokenCount: 257
+            tableText: 'June 29, 2024 Adjusted Cost Unrealized Gains Unrealized Losses Fair Value Cash and Cash Equivalents'
+          - source: 'EDG'
+            error:
+              code: 'notFound'
+              title: 'No data for M7CLZV'
+              detail: 'There''s no data for this id.'
+          - source: 'EDG'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id BADSYMBOL'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 20
+    SampleVectorResponseSA:
+      summary: 'Sample Response for SA source.'
+      value:
+        data:
+          - vectorId: '0001593152-24-046748-1_0001493152-24-046748-1_text_236_0'
+            vector:
+              - 0.007737964
+              - -0.01896573
+            content: 'Item 2. Managements Discussion...'
+            headline: 'Zukin''s Next Week Today 4/7/2023 (Wolf Research) 97 pages'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?...'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?....'
+            storyDateTime: '2024-11-19T00:01:05Z'
+            source: 'SA'
+            documentID: '0001493152-24-046748-1'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            textLength: 1242
+            tokenCount: 257
+            trimmed: false
+          - source: 'SA'
+            error:
+              code: 'notFound'
+              title: 'No data for 0001593153-24-046748-1_0001493152-24-046748-1_text_236_0'
+              detail: 'There''s no data for this id.'
+          - source: 'SA'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id 000159315334-24-046748-1_0001493152-24-046748-1_text_236_0'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 40
+    SampleVectorResponseFCST:
+      summary: 'Sample Response for FCST source.'
+      value:
+        data:
+          - vectorId: '0001693152-24-046748-1_0001493152-24-046748-1_text_236_0'
+            vector:
+              - 0.005737964
+              - -0.02896573
+            content: 'Management commentary from the earnings call...'
+            headline: 'CORRECTED TRANSCRIPT: Passage Bio, Inc.(PASG-US), Business Update Call, 20-December-2023 8:30 AM ET'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?...'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?....'
+            storyDateTime: '2024-11-19T06:00:09Z'
+            uploadDateTime: '2024-12-19T06:00:09Z'
+            source: 'FCST'
+            documentID: '0001493152-24-046748-1'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            speakerId: 2
+            speakerName: 'Luca Maestri'
+            speakerType: 'corprep'
+            speakerTitle: 'Chief Financial Officer & Senior Vice President'
+            speakerCompanyName: 'Apple, Inc.'
+            speakerCompanyEntityId: '000C7F-E'
+            speakerEntity: '07F5D0-E'
+            docType: 'discussion'
+            docNum: 'md_2'
+            textLength: 1242
+            tokenCount: 257
+            financialYear: '2024'
+            financialQuarter: 'Q3'
+            trimmed: false
+          - source: 'FCST'
+            error:
+              code: 'notFound'
+              title: 'No data for 0001593153-24-046748-1_0001493152-24-046748-1_text_236_0'
+              detail: 'There''s no data for this id.'
+          - source: 'FCST'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id 000159315334-24-046748-1_0001493152-24-046748-1_text_236_0'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 20
+    SampleVectorResponseMTN:
+      summary: 'Sample Response for MTN source.'
+      value:
+        data:
+          - vectorId: 'g2341901_1'
+            vector:
+              - 0.008737964
+              - -0.01996573
+            content: '09:13 AM EST, 03/07/2024 (MT Newswires) -- SAP (SAP.F) is banking on artificial intelligence products demand to help grow cloud revenue, a Thursday report said. Chief AI Officer Philipp Herzig told Bloomberg News in an interview that the company has a strategic mandate to implement AI across the business software company''s different platforms'
+            headline: 'SAP Expects AI Demand to Help Boost Cloud Revenue, Chief AI Officer Says'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?...'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?....'
+            storyDateTime: '2024-11-19T00:01:05Z'
+            source: 'MTN'
+            documentID: 'g2341901'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            textLength: 424
+            tokenCount: 257
+            trimmed: false
+          - source: 'MTN'
+            error:
+              code: 'notFound'
+              title: 'No data for g2341901_1'
+              detail: 'There''s no data for this id.'
+          - source: 'MTN'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id g2341901_1'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 40
+    SampleVectorResponseEDG:
+      summary: 'Sample Response for EDG source.'
+      value:
+        data:
+          - vectorId: '0001793152-24-046748-1_0001493152-24-046748-1_text_236_0'
+            vector:
+              - 0.009737964
+              - -0.03896573
+            content: 'Table data and summary from filing...'
+            headline: 'MODEL N, INC. files (15-12G) Termination of registration of a class of securities (MODN-US)'
+            storyLink: 'https://api.factset.com/vectordata/v1/story?..'
+            viewUrl: 'https://my.apps.factset.com/viewer-fusion/?...'
+            storyDateTime: '2024-11-19T08:00:01Z'
+            formType: '10-Q'
+            source: 'EDG'
+            documentID: '0001493152-24-046748-1'
+            ids:
+              - 'GEDC-US'
+              - 'GEDC'
+              - 'RSRTD'
+            sectionName: 'legal proceedings'
+            sectionNumber: '1A'
+            docType: 'table'
+            textLength: 1242
+            tokenCount: 257
+            trimmed: false
+            tableText: 'June 29, 2024 Adjusted Cost Unrealized Gains Unrealized Losses Fair Value Cash and Cash Equivalents'
+          - source: 'EDG'
+            error:
+              code: 'notFound'
+              title: 'No data for 0001593153-24-046748-1_0001493152-24-046748-1_text_236_0'
+              detail: 'There''s no data for this id.'
+          - source: 'EDG'
+            error:
+              code: 'parameterError'
+              title: 'Invalid id 000159315334-24-046748-1_0001493152-24-046748-1_text_236_0'
+              detail: 'This id not a valid one.'
+        meta:
+          pagination:
+            isEstimatedTotal: false
+            total: 10
+    SampleIdsDocumentUpload:
+      summary: 'Document upload confirmed.'
+      value:
+        data:
+          requestId: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+          documentID: '0001493152-24-046748-1'
+          fileName: 'annual-report-2024.pdf'
+          uploadUrl: 'https://fdss3-content-api-docs-dev.s3.amazonaws.com/vector_data/inbound....'
+    SampleIdsDocumentStatusSuccess:
+      summary: 'Document fully processed and indexed'
+      value:
+        data:
+          requestId: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+          documents:
+            - documentID: '0001493152-24-046748-1'
+              fileName: 'annual-report-2024.pdf'
+              status: 'Success'
+              createdAt: '2024-11-01T09:00:00Z'
+              confirmedAt: '2024-11-01T09:05:30Z'
+              updatedAt: '2024-11-01T09:12:47Z'
+            - documentID: '0001493152-24-046748-2'
+              fileName: 'annual-report-2023.pdf'
+              status: 'Success'
+              createdAt: '2024-11-01T09:00:00Z'
+              confirmedAt: '2024-11-01T09:05:30Z'
+              updatedAt: '2024-11-01T09:12:47Z'
+    SampleIdsDocumentStatusProcessing:
+      summary: 'Document currently being processed'
+      value:
+        data:
+          requestId: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+          documents:
+            - documentID: '0001493152-24-046748-1'
+              fileName: 'annual-report-2024.pdf'
+              status: 'Processing'
+              createdAt: '2024-11-01T09:00:00Z'
+              confirmedAt: '2024-11-01T09:05:30Z'
+              updatedAt: '2024-11-01T09:07:12Z'
+            - documentID: '0001493152-24-046748-2'
+              fileName: 'annual-report-2024.pdf'
+              status: 'Processing'
+              createdAt: '2024-11-01T09:00:00Z'
+              confirmedAt: '2024-11-01T09:05:30Z'
+              updatedAt: '2024-11-01T09:07:12Z'
+    SampleIdsDocumentStatusFailed:
+      summary: 'Document processing failed'
+      value:
+        data:
+          requestId: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+          documents:
+            - documentID: '0001493152-24-046748-1'
+              status: 'Failed'
+              fileName: 'annual-report-2024.pdf'
+              createdAt: '2024-11-01T09:00:00Z'
+              confirmedAt: '2024-11-01T09:05:30Z'
+              updatedAt: '2024-11-01T09:10:03Z'
+            - documentID: '0001493152-24-046748-2'
+              status: 'Failed'
+              fileName: 'annual-report-2024.pdf'
+              createdAt: '2024-10-01T09:00:00Z'
+              confirmedAt: '2024-10-01T09:05:30Z'
+              updatedAt: '2024-10-01T09:10:03Z'
+    SampleIdsDocumentDownload:
+      summary: 'Presigned download URL for a successfully processed document'
+      value:
+        data:
+          requestId: 'c7de390a-1ad1-4b2e-bf10-dce7f8765524'
+          documents:
+            - documentID: '0001493152-24-046748-1'
+              fileName: 'annual-report-2024.pdf'
+              downloadUrl: 'https://api.factset.com/content/vector/v0/fetch-document?...'
+            - documentID: '0001493152-24-046748-2'
+              fileName: 'annual-report-2024.pdf'
+              downloadUrl: 'https://api.factset.com/content/vector/v0/fetch-document?....'
+    IdsDownloadNotReadyError:
+      summary: 'Document not yet in success state'
+      value:
+        errors:
+          - code: 'ValidationError'
+            title: 'Document Not Ready'
+            id: '550e8400-e29b-41d4-a716-446655440007'
+            detail: 'Document doc_abc123 has status ''processing''. The download URL is only available when status is ''success''.'
+            source:
+              parameter: 'documentID'
+              value: 'doc_abc123'
+    SampleIdsDocumentsList:
+      summary: 'Paginated list of uploaded documents'
+      value:
+        data:
+          - fileName: 'annual-report-2024.pdf'
+            documentID: '0001493152-24-046748-1'
+            requestId: 'b5cc289f-9cf0-4999-aa23-bfd5f7654113'
+            status: 'Success'
+            createdAt: '2024-11-01T09:00:00Z'
+            confirmedAt: '2024-11-01T09:05:30Z'
+            updatedAt: '2024-11-01T09:12:47Z'
+          - fileName: 'q3-transcript.pdf'
+            documentID: '0001493152-24-099999-2'
+            requestId: 'a1bb289f-9cf0-4999-aa23-bfd5f7654999'
+            status: 'Processing'
+            createdAt: '2024-11-02T10:00:00Z'
+            confirmedAt: '2024-11-02T10:03:00Z'
+            updatedAt: '2024-11-02T10:04:00Z'
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
   parameters:
     vectorId:
       name: 'vectorId'
@@ -1106,6 +3521,17 @@ components:
       schema:
         type: 'integer'
         format: 'int32'
+        default: 10
+        minimum: 1
+        maximum: 20
+      in: 'query'
+      name: '_paginationLimit'
+      example: 20
+      description: 'Number of results to return per page.'
+    paginationLimitValue:
+      schema:
+        type: 'integer'
+        format: 'int32'
         default: 25
       in: 'query'
       name: '_paginationLimit'
@@ -1115,6 +3541,7 @@ components:
       schema:
         type: 'integer'
         format: 'int32'
+        minimum: 0
         default: 0
       in: 'query'
       name: '_paginationOffset'
@@ -1140,10 +3567,43 @@ components:
             - 'EDG'
             - 'SA'
             - 'FCST'
-      description: 'Code for document source to include.  This is a comma-separated list. Use the `/meta/sources` endpoint to get the list of available sources.'
+      description: 'Code for document source to include. This is a comma-separated list. Use the `/sources` endpoint to get the list of available sources.'
       explode: false
+    trimmed:
+      name: 'trimmed'
+      in: 'query'
+      required: false
+      schema:
+        type: 'boolean'
+        default: false
+      description: 'If true, returns metadata only without vector embeddings. If false, includes full vector embeddings in the response.'
+      example: false
+    entitledSources:
+      name: 'entitledSources'
+      in: 'query'
+      required: false
+      schema:
+        type: 'boolean'
+        default: false
+      description: 'If true, returns only entitled sources. If false, returns all the available sources.'
+      example: false
+    sourceType:
+      name: 'type'
+      in: 'query'
+      required: false
+      schema:
+        type: 'array'
+        items:
+          type: 'string'
+          enum:
+            - 'News'
+            - 'Filings'
+            - 'Transcripts'
+      description: 'Filters type of sources.'
 tags:
   - name: 'Vector'
-    description: 'Endpoints providing access to vector data'
-  - name: 'Meta'
-    description: 'These endpoints provide access to a comprehensive list of all available values used in the Vector API endpoint parameters.'
+    description: 'Endpoints providing access to vector data. **These endpoints will be deprecated soon. We encourage you to explore and adopt the new **Vector Search** endpoints**'
+  - name: 'Vector Search'
+    description: 'Semantic search endpoints for discovering relevant content'
+  - name: 'Intelligent Document Service'
+    description: 'Endpoints for the Intelligent Document Service, enabling users to upload and search their own proprietary documents.  '

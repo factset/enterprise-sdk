@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/DocumentDirectories.md
@@ -19,7 +17,6 @@ docs/OptimizerStrategyOverrides.md
 docs/OptimizerTradesList.md
 docs/PaDoc.md
 docs/StrategyDocumentsApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

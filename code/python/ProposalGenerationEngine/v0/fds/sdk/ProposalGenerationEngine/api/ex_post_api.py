@@ -58,7 +58,7 @@ class ExPostApi(object):
         self.calculate_ex_post_correlations_stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ExPostStatsCorrelationsResponse,), 501: (Errors,),  },
+                  { 200: (ExPostStatsCorrelationsResponse,), 400: (Errors,), 501: (Errors,),  },
                   None
                 ),
                 'auth': [
@@ -113,7 +113,7 @@ class ExPostApi(object):
         self.calculate_ex_post_factor_exposure_stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ExPostStatsFactorExposureResponse,), 501: (Errors,),  },
+                  { 200: (ExPostStatsFactorExposureResponse,), 400: (Errors,), 501: (Errors,),  },
                   None
                 ),
                 'auth': [
@@ -168,7 +168,7 @@ class ExPostApi(object):
         self.calculate_ex_post_rolling_series_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ExPostSeriesRollingResponse,), 501: (Errors,),  },
+                  { 200: (ExPostSeriesRollingResponse,), 400: (Errors,), 501: (Errors,),  },
                   None
                 ),
                 'auth': [
@@ -223,7 +223,7 @@ class ExPostApi(object):
         self.calculate_ex_post_rolling_stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ExPostStatsRollingResponse,), 501: (Errors,),  },
+                  { 200: (ExPostStatsRollingResponse,), 400: (Errors,), 501: (Errors,),  },
                   None
                 ),
                 'auth': [
@@ -278,7 +278,7 @@ class ExPostApi(object):
         self.calculate_ex_post_series_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ExPostSeriesResponse,), 400: (Errors,),  },
+                  { 200: (ExPostSeriesResponse,), 400: (Errors,), 501: (Errors,),  },
                   None
                 ),
                 'auth': [
@@ -333,7 +333,7 @@ class ExPostApi(object):
         self.calculate_ex_post_stats_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (ExPostStatsResponse,), 400: (Errors,),  },
+                  { 200: (ExPostStatsResponse,), 400: (Errors,), 501: (Errors,),  },
                   None
                 ),
                 'auth': [

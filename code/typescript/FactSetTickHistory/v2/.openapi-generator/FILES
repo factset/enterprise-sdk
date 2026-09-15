@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CheckFiles.md
@@ -30,7 +28,6 @@ docs/StatusOne.md
 docs/SubmittedResponse.md
 docs/TickData.md
 docs/Type.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

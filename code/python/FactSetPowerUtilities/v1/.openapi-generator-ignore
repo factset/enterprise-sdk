@@ -1,0 +1,6 @@
+# ignore build system files we do not use
+
+**/.gitlab-ci.yml
+**/.travis.yml
+**/git_push.sh
+**/.gitignore

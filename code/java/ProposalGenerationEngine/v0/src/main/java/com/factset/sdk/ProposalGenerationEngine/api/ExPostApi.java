@@ -41,24 +41,28 @@ public class ExPostApi {
   private static final Map<Integer, GenericType> calculateExPostCorrelationsStatsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     calculateExPostCorrelationsStatsResponseTypeMap.put(200, new GenericType<ExPostStatsCorrelationsResponse>(){});
+    calculateExPostCorrelationsStatsResponseTypeMap.put(400, new GenericType<Errors>(){});
     calculateExPostCorrelationsStatsResponseTypeMap.put(501, new GenericType<Errors>(){});
   }
 
   private static final Map<Integer, GenericType> calculateExPostFactorExposureStatsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     calculateExPostFactorExposureStatsResponseTypeMap.put(200, new GenericType<ExPostStatsFactorExposureResponse>(){});
+    calculateExPostFactorExposureStatsResponseTypeMap.put(400, new GenericType<Errors>(){});
     calculateExPostFactorExposureStatsResponseTypeMap.put(501, new GenericType<Errors>(){});
   }
 
   private static final Map<Integer, GenericType> calculateExPostRollingSeriesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     calculateExPostRollingSeriesResponseTypeMap.put(200, new GenericType<ExPostSeriesRollingResponse>(){});
+    calculateExPostRollingSeriesResponseTypeMap.put(400, new GenericType<Errors>(){});
     calculateExPostRollingSeriesResponseTypeMap.put(501, new GenericType<Errors>(){});
   }
 
   private static final Map<Integer, GenericType> calculateExPostRollingStatsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     calculateExPostRollingStatsResponseTypeMap.put(200, new GenericType<ExPostStatsRollingResponse>(){});
+    calculateExPostRollingStatsResponseTypeMap.put(400, new GenericType<Errors>(){});
     calculateExPostRollingStatsResponseTypeMap.put(501, new GenericType<Errors>(){});
   }
 
@@ -66,12 +70,14 @@ public class ExPostApi {
   static {
     calculateExPostSeriesResponseTypeMap.put(200, new GenericType<ExPostSeriesResponse>(){});
     calculateExPostSeriesResponseTypeMap.put(400, new GenericType<Errors>(){});
+    calculateExPostSeriesResponseTypeMap.put(501, new GenericType<Errors>(){});
   }
 
   private static final Map<Integer, GenericType> calculateExPostStatsResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     calculateExPostStatsResponseTypeMap.put(200, new GenericType<ExPostStatsResponse>(){});
     calculateExPostStatsResponseTypeMap.put(400, new GenericType<Errors>(){});
+    calculateExPostStatsResponseTypeMap.put(501, new GenericType<Errors>(){});
   }
 
   
@@ -105,6 +111,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -122,6 +129,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -175,6 +183,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -192,6 +201,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -245,6 +255,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -262,6 +273,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -315,6 +327,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -332,6 +345,7 @@ public class ExPostApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
@@ -386,6 +400,7 @@ public class ExPostApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful request </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
   public ExPostSeriesResponse calculateExPostSeries(ExPostSeries exPostSeries) throws ApiException {
@@ -403,6 +418,7 @@ public class ExPostApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Successful request </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ExPostSeriesResponse> calculateExPostSeriesWithHttpInfo(ExPostSeries exPostSeries) throws ApiException {
@@ -456,6 +472,7 @@ public class ExPostApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
   public ExPostStatsResponse calculateExPostStats(ExPostStats exPostStats) throws ApiException {
@@ -473,6 +490,7 @@ public class ExPostApi {
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> Status 200 </td><td>  -  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<ExPostStatsResponse> calculateExPostStatsWithHttpInfo(ExPostStats exPostStats) throws ApiException {

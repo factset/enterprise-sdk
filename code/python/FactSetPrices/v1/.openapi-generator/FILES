@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Adjust.md
@@ -150,7 +147,6 @@ fds/sdk/FactSetPrices/model_utils.py
 fds/sdk/FactSetPrices/models/__init__.py
 fds/sdk/FactSetPrices/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

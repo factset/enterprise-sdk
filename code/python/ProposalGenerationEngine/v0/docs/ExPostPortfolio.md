@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**holdings** | [**[ExPostPortfolioInvestment]**](ExPostPortfolioInvestment.md) |  | 
+**holdings** | [**[ExPostPortfolioInvestmentRequest]**](ExPostPortfolioInvestmentRequest.md) |  | 
 **id** | **str** | unique id of the entity | [optional] 
 **details** | [**PortfolioEntityDetails**](PortfolioEntityDetails.md) |  | [optional] 
 **initial_value** | **float** | the initial value (PV) of the portfolio | [optional] 

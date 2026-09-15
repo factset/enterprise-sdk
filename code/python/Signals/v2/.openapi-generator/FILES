@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Contract.md
@@ -90,7 +87,6 @@ fds/sdk/Signals/model_utils.py
 fds/sdk/Signals/models/__init__.py
 fds/sdk/Signals/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

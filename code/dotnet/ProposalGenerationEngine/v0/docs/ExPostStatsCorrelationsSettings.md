@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ReturnsPreferences** | **string** | code of preconfigured analysis settings&lt;br&gt; Note: the setup of these settings is done by PGE administrator | [optional] 
 **ValidatePortfolio** | **bool** | a flag controlling whether to perform validations on the portfolio and its holdings (e.g. whether they have valid historical data). If set to false it is possible that call might not return user-friendly error message, however the call will be faster | [optional] [default to false]
 **TimeWindows** | **List&lt;string&gt;** |  | [optional] 
+**Periods** | [**List&lt;Period&gt;**](Period.md) |  | [optional] 
 **Stats** | **List&lt;string&gt;** |  | [optional] 
 **HoldingsLimit** | **int** |  | [optional] 
 **FundCorrelationsOnly** | **bool** |  | [optional] 

@@ -139,10 +139,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             ContributionTransactions = 5,
 
             /// <summary>
-            /// Enum WithrawalTransactions for value: withrawalTransactions
+            /// Enum WithdrawalTransactions for value: withdrawalTransactions
             /// </summary>
-            [EnumMember(Value = "withrawalTransactions")]
-            WithrawalTransactions = 6,
+            [EnumMember(Value = "withdrawalTransactions")]
+            WithdrawalTransactions = 6,
 
             /// <summary>
             /// Enum FeeTransactions for value: feeTransactions

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/ABSDetailsApi.md
@@ -40,7 +38,6 @@ docs/PricesApi.md
 docs/SensitivityApi.md
 docs/SpreadApi.md
 docs/YieldApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ExPostPortfolioInvestment from './ExPostPortfolioInvestment';
 import PortfolioAllOf from './PortfolioAllOf';
 import PortfolioEntity from './PortfolioEntity';
 import PortfolioEntityDetails from './PortfolioEntityDetails';
@@ -27,10 +28,11 @@ class Portfolio {
      * @alias module:model/Portfolio
      * @implements module:model/PortfolioEntity
      * @implements module:model/PortfolioAllOf
+     * @param holdings {Array.<module:model/ExPostPortfolioInvestment>} 
      */
-    constructor() { 
-        PortfolioEntity.initialize(this);PortfolioAllOf.initialize(this);
-        Portfolio.initialize(this);
+    constructor(holdings) { 
+        PortfolioEntity.initialize(this);PortfolioAllOf.initialize(this, holdings);
+        Portfolio.initialize(this, holdings);
     }
 
     /**
@@ -38,7 +40,8 @@ class Portfolio {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, holdings) { 
+        obj['holdings'] = holdings;
     }
 
     /**
@@ -63,6 +66,9 @@ class Portfolio {
             }
             if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = PortfolioEntityDetails.constructFromObject(data['details']);
+            }
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
+                obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestment]);
             }
             if (data.hasOwnProperty('initialValue') && obj['initialValue'] === undefined) {
                 obj['initialValue'] = ApiClient.convertToType(data['initialValue'], 'Number');
@@ -90,6 +96,11 @@ Portfolio.prototype['id'] = undefined;
 Portfolio.prototype['details'] = undefined;
 
 /**
+ * @member {Array.<module:model/ExPostPortfolioInvestment>} holdings
+ */
+Portfolio.prototype['holdings'] = undefined;
+
+/**
  * the initial value (PV) of the portfolio
  * @member {Number} initialValue
  */
@@ -112,6 +123,10 @@ PortfolioEntity.prototype['id'] = undefined;
  */
 PortfolioEntity.prototype['details'] = undefined;
 // Implement PortfolioAllOf interface:
+/**
+ * @member {Array.<module:model/ExPostPortfolioInvestment>} holdings
+ */
+PortfolioAllOf.prototype['holdings'] = undefined;
 /**
  * the initial value (PV) of the portfolio
  * @member {Number} initialValue

@@ -58,7 +58,7 @@ class ExPostPortfolioInvestmentSeriesResponseAllOf {
                 obj['series'] = TimeWindowSeries.constructFromObject(data['series']);
             }
             if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
-                obj['periods'] = PeriodSeries.constructFromObject(data['periods']);
+                obj['periods'] = ApiClient.convertToType(data['periods'], [PeriodSeries]);
             }
             if (data.hasOwnProperty('backfillData') && obj['backfillData'] === undefined) {
                 obj['backfillData'] = ApiClient.convertToType(data['backfillData'], {'String': BackfillData});
@@ -82,7 +82,7 @@ ExPostPortfolioInvestmentSeriesResponseAllOf.prototype['securityDetails'] = unde
 ExPostPortfolioInvestmentSeriesResponseAllOf.prototype['series'] = undefined;
 
 /**
- * @member {module:model/PeriodSeries} periods
+ * @member {Array.<module:model/PeriodSeries>} periods
  */
 ExPostPortfolioInvestmentSeriesResponseAllOf.prototype['periods'] = undefined;
 

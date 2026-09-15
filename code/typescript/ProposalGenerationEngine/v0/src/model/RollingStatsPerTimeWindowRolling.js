@@ -49,6 +49,9 @@ class RollingStatsPerTimeWindowRolling {
             if (data.hasOwnProperty('maximum') && obj['maximum'] === undefined) {
                 obj['maximum'] = ApiClient.convertToType(data['maximum'], Object);
             }
+            if (data.hasOwnProperty('minimum') && obj['minimum'] === undefined) {
+                obj['minimum'] = ApiClient.convertToType(data['minimum'], Object);
+            }
             
         }
         return obj;
@@ -61,6 +64,11 @@ class RollingStatsPerTimeWindowRolling {
  * @member {Object} maximum
  */
 RollingStatsPerTimeWindowRolling.prototype['maximum'] = undefined;
+
+/**
+ * @member {Object} minimum
+ */
+RollingStatsPerTimeWindowRolling.prototype['minimum'] = undefined;
 
 
 

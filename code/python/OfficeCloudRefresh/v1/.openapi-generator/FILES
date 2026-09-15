@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/ActiveJobStatus.md
@@ -38,7 +35,6 @@ fds/sdk/OfficeCloudRefresh/model_utils.py
 fds/sdk/OfficeCloudRefresh/models/__init__.py
 fds/sdk/OfficeCloudRefresh/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

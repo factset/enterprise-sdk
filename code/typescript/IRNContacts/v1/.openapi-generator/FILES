@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AlternativeEmailAddressDto.md
@@ -36,7 +34,6 @@ docs/RelationshipCategoryIdNameDto.md
 docs/RelationshipIdNameDto.md
 docs/RelationshipSymbolSummaryDto.md
 docs/SymbolType.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

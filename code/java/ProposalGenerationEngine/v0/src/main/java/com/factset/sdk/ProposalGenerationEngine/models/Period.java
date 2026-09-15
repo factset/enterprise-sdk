@@ -87,7 +87,7 @@ public class Period implements Serializable {
    * @return endDate
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "2017-05-31", value = "")
+  @ApiModelProperty(example = "2017-05-31s", value = "")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

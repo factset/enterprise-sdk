@@ -38,7 +38,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <param name="stats">stats.</param>
         /// <param name="udfs">portfolio UDFs map.</param>
         /// <param name="periods">periods.</param>
-        public PortfolioWithExPostStatsAllOf(TimeWindowStats stats = default(TimeWindowStats), Object udfs = default(Object), ExPostPeriodStats periods = default(ExPostPeriodStats))
+        public PortfolioWithExPostStatsAllOf(TimeWindowStats stats = default(TimeWindowStats), Object udfs = default(Object), List<ExPostPeriodStats> periods = default(List<ExPostPeriodStats>))
         {
             this.Stats = stats;
             this.Udfs = udfs;
@@ -62,7 +62,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets Periods
         /// </summary>
         [DataMember(Name = "periods", EmitDefaultValue = false)]
-        public ExPostPeriodStats Periods { get; set; }
+        public List<ExPostPeriodStats> Periods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,8 +122,9 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 ) && 
                 (
                     this.Periods == input.Periods ||
-                    (this.Periods != null &&
-                    this.Periods.Equals(input.Periods))
+                    this.Periods != null &&
+                    input.Periods != null &&
+                    this.Periods.SequenceEqual(input.Periods)
                 );
         }
 

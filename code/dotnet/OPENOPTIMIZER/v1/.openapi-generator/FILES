@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OPENOPTIMIZER.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AFIAccountInput.md
 docs/AFIOptimizationParameters.md
 docs/AFIOptimizationParametersRequest.md
@@ -87,7 +85,6 @@ docs/SettingsGlobalVarsResponse.md
 docs/StatResponseObject.md
 docs/TradeResponseObject.md
 docs/TradesListOutputType.md
-git_push.sh
 src/FactSet.SDK.OPENOPTIMIZER/Api/AxiomaEquityPortfolioOptimizerApi.cs
 src/FactSet.SDK.OPENOPTIMIZER/Api/AxiomaFixedIncomePortfolioOptimizerApi.cs
 src/FactSet.SDK.OPENOPTIMIZER/Api/BarraPortfolioOptimizerApi.cs

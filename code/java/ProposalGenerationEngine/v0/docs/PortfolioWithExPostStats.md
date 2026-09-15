@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **details** | [**PortfolioEntityDetails**](PortfolioEntityDetails.md) |  |  [optional]
 **stats** | [**TimeWindowStats**](TimeWindowStats.md) |  |  [optional]
 **udfs** | **Object** | portfolio UDFs map |  [optional]
-**periods** | [**ExPostPeriodStats**](ExPostPeriodStats.md) |  |  [optional]
+**periods** | [**java.util.List&lt;ExPostPeriodStats&gt;**](ExPostPeriodStats.md) |  |  [optional]
 
 
 ## Implemented Interfaces

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.RealTimeTimeSeries.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CursorBasedPaginationOutputObjectWithoutTotal.md
 docs/InlineResponse200.md
 docs/InlineResponse2001.md
@@ -86,7 +84,6 @@ docs/PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange.md
 docs/PricesApi.md
 docs/StatusObject.md
 docs/VendorApi.md
-git_push.sh
 src/FactSet.SDK.RealTimeTimeSeries/Api/PricesApi.cs
 src/FactSet.SDK.RealTimeTimeSeries/Api/VendorApi.cs
 src/FactSet.SDK.RealTimeTimeSeries/Client/ApiClient.cs

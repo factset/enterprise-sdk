@@ -39,7 +39,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <param name="series">series.</param>
         /// <param name="periods">periods.</param>
         /// <param name="backfillData">a map from time window to backfill statistics.</param>
-        public ExPostPortfolioInvestmentSeriesResponseAllOf(Investment securityDetails = default(Investment), TimeWindowSeries series = default(TimeWindowSeries), PeriodSeries periods = default(PeriodSeries), Dictionary<string, BackfillData> backfillData = default(Dictionary<string, BackfillData>))
+        public ExPostPortfolioInvestmentSeriesResponseAllOf(Investment securityDetails = default(Investment), TimeWindowSeries series = default(TimeWindowSeries), List<PeriodSeries> periods = default(List<PeriodSeries>), Dictionary<string, BackfillData> backfillData = default(Dictionary<string, BackfillData>))
         {
             this.SecurityDetails = securityDetails;
             this.Series = series;
@@ -63,7 +63,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets Periods
         /// </summary>
         [DataMember(Name = "periods", EmitDefaultValue = false)]
-        public PeriodSeries Periods { get; set; }
+        public List<PeriodSeries> Periods { get; set; }
 
         /// <summary>
         /// a map from time window to backfill statistics
@@ -131,8 +131,9 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 ) && 
                 (
                     this.Periods == input.Periods ||
-                    (this.Periods != null &&
-                    this.Periods.Equals(input.Periods))
+                    this.Periods != null &&
+                    input.Periods != null &&
+                    this.Periods.SequenceEqual(input.Periods)
                 ) && 
                 (
                     this.BackfillData == input.BackfillData ||

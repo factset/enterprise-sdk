@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ProposalGenerationEngine.models.ExPostPortfolioInvestment;
 import com.factset.sdk.ProposalGenerationEngine.models.Rebalancing;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +37,7 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  */
 @ApiModel(description = "A representation of a Portfolio")
 @JsonPropertyOrder({
+  PortfolioAllOf.JSON_PROPERTY_HOLDINGS,
   PortfolioAllOf.JSON_PROPERTY_INITIAL_VALUE,
   PortfolioAllOf.JSON_PROPERTY_REBALANCING
 })
@@ -43,6 +45,9 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 
 public class PortfolioAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_HOLDINGS = "holdings";
+  private java.util.List<ExPostPortfolioInvestment> holdings = new java.util.ArrayList<>();
 
   public static final String JSON_PROPERTY_INITIAL_VALUE = "initialValue";
   private BigDecimal initialValue;
@@ -52,6 +57,45 @@ public class PortfolioAllOf implements Serializable {
 
   public PortfolioAllOf() { 
   }
+
+  @JsonCreator
+  public PortfolioAllOf(
+    @JsonProperty(value=JSON_PROPERTY_HOLDINGS, required=true) java.util.List<ExPostPortfolioInvestment> holdings
+  ) {
+    this();
+    this.holdings = holdings;
+  }
+
+  public PortfolioAllOf holdings(java.util.List<ExPostPortfolioInvestment> holdings) {
+    this.holdings = holdings;
+    return this;
+  }
+
+  public PortfolioAllOf addHoldingsItem(ExPostPortfolioInvestment holdingsItem) {
+    this.holdings.add(holdingsItem);
+    return this;
+  }
+
+   /**
+   * Get holdings
+   * @return holdings
+  **/
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.util.List<ExPostPortfolioInvestment> getHoldings() {
+    return holdings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setHoldings(java.util.List<ExPostPortfolioInvestment> holdings) {
+    this.holdings = holdings;
+  }
+
 
   public PortfolioAllOf initialValue(BigDecimal initialValue) {
     this.initialValue = initialValue;
@@ -117,19 +161,21 @@ public class PortfolioAllOf implements Serializable {
       return false;
     }
     PortfolioAllOf portfolioAllOf = (PortfolioAllOf) o;
-    return Objects.equals(this.initialValue, portfolioAllOf.initialValue) &&
+    return Objects.equals(this.holdings, portfolioAllOf.holdings) &&
+        Objects.equals(this.initialValue, portfolioAllOf.initialValue) &&
         Objects.equals(this.rebalancing, portfolioAllOf.rebalancing);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(initialValue, rebalancing);
+    return Objects.hash(holdings, initialValue, rebalancing);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PortfolioAllOf {\n");
+    sb.append("    holdings: ").append(toIndentedString(holdings)).append("\n");
     sb.append("    initialValue: ").append(toIndentedString(initialValue)).append("\n");
     sb.append("    rebalancing: ").append(toIndentedString(rebalancing)).append("\n");
     sb.append("}");

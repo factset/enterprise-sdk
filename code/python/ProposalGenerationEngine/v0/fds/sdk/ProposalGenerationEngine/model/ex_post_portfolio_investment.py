@@ -92,7 +92,6 @@ class ExPostPortfolioInvestment(ModelComposed):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
             'weight': (float,),  # noqa: E501
             'sales_charge': (float,),  # noqa: E501
             'transaction_rules': ([TransactionRule],),  # noqa: E501
@@ -104,7 +103,6 @@ class ExPostPortfolioInvestment(ModelComposed):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
         'weight': 'weight',  # noqa: E501
         'sales_charge': 'salesCharge',  # noqa: E501
         'transaction_rules': 'transactionRules',  # noqa: E501
@@ -119,8 +117,6 @@ class ExPostPortfolioInvestment(ModelComposed):
         """ExPostPortfolioInvestment - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): the unique id of the investment - e.g. FactSet id
-            weight (float): the weight of the investment in hte portfolio
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -151,6 +147,7 @@ class ExPostPortfolioInvestment(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            weight (float): the weight of the investment in hte portfolio. [optional]  # noqa: E501
             sales_charge (float): A representation of a portfolio constituent (investment). [optional]  # noqa: E501
             transaction_rules ([TransactionRule]): rules for adding/substracting amount from the portfolio at given periods. [optional]  # noqa: E501
         """
@@ -222,8 +219,6 @@ class ExPostPortfolioInvestment(ModelComposed):
         """ExPostPortfolioInvestment - a model defined in OpenAPI
 
         Keyword Args:
-            id (str): the unique id of the investment - e.g. FactSet id
-            weight (float): the weight of the investment in hte portfolio
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -254,6 +249,7 @@ class ExPostPortfolioInvestment(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            weight (float): the weight of the investment in hte portfolio. [optional]  # noqa: E501
             sales_charge (float): A representation of a portfolio constituent (investment). [optional]  # noqa: E501
             transaction_rules ([TransactionRule]): rules for adding/substracting amount from the portfolio at given periods. [optional]  # noqa: E501
         """

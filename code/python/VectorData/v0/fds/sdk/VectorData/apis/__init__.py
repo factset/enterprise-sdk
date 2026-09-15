@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.meta_api import MetaApi
+#   from .api.intelligent_document_service_api import IntelligentDocumentServiceApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,5 +14,6 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.VectorData.api.meta_api import MetaApi
+from fds.sdk.VectorData.api.intelligent_document_service_api import IntelligentDocumentServiceApi
 from fds.sdk.VectorData.api.vector_api import VectorApi
+from fds.sdk.VectorData.api.vector_search_api import VectorSearchApi

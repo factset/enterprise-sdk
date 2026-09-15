@@ -34,6 +34,8 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * TimeWindowSeries
  */
 @JsonPropertyOrder({
+  TimeWindowSeries.JSON_PROPERTY_CURRENCY,
+  TimeWindowSeries.JSON_PROPERTY_AS_OF_DATE,
   TimeWindowSeries.JSON_PROPERTY_TIME_WINDOW
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -41,11 +43,69 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 public class TimeWindowSeries implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private String currency;
+
+  public static final String JSON_PROPERTY_AS_OF_DATE = "asOfDate";
+  private String asOfDate;
+
   public static final String JSON_PROPERTY_TIME_WINDOW = "timeWindow";
   private java.util.Map<String, SeriesStats> timeWindow = null;
 
   public TimeWindowSeries() { 
   }
+
+  public TimeWindowSeries currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public TimeWindowSeries asOfDate(String asOfDate) {
+    this.asOfDate = asOfDate;
+    return this;
+  }
+
+   /**
+   * The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value &#39;latestMonthEnd&#39; is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client
+   * @return asOfDate
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client")
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAsOfDate() {
+    return asOfDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAsOfDate(String asOfDate) {
+    this.asOfDate = asOfDate;
+  }
+
 
   public TimeWindowSeries timeWindow(java.util.Map<String, SeriesStats> timeWindow) {
     this.timeWindow = timeWindow;
@@ -93,18 +153,22 @@ public class TimeWindowSeries implements Serializable {
       return false;
     }
     TimeWindowSeries timeWindowSeries = (TimeWindowSeries) o;
-    return Objects.equals(this.timeWindow, timeWindowSeries.timeWindow);
+    return Objects.equals(this.currency, timeWindowSeries.currency) &&
+        Objects.equals(this.asOfDate, timeWindowSeries.asOfDate) &&
+        Objects.equals(this.timeWindow, timeWindowSeries.timeWindow);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeWindow);
+    return Objects.hash(currency, asOfDate, timeWindow);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeWindowSeries {\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    asOfDate: ").append(toIndentedString(asOfDate)).append("\n");
     sb.append("    timeWindow: ").append(toIndentedString(timeWindow)).append("\n");
     sb.append("}");
     return sb.toString();

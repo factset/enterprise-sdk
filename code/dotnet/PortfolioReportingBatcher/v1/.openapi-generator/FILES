@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.PortfolioReportingBatcher.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AccountsForJobAddProp.md
 docs/Calendar.md
 docs/ClientErrorResponse.md
@@ -31,7 +29,6 @@ docs/StartJobRoot.md
 docs/StartJobRunResponse.md
 docs/StartJobRunResponseData.md
 docs/Status.md
-git_push.sh
 src/FactSet.SDK.PortfolioReportingBatcher/Api/JobsApi.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Api/RunsApi.cs
 src/FactSet.SDK.PortfolioReportingBatcher/Client/ApiClient.cs

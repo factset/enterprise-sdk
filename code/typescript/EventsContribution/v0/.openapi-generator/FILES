@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/DeleteResponse.md
@@ -31,7 +29,6 @@ docs/UpdateResponse.md
 docs/UpdateResponseData.md
 docs/UpdateResponseDataEventData.md
 docs/UpdateResponseDataMessage.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

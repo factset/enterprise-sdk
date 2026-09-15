@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.Symbology.sln
 LICENSE
 README.md
-appveyor.yml
 docs/BloombergFIGIApi.md
 docs/BloombergTranslation.md
 docs/BloombergTranslationRequest.md
@@ -46,7 +44,6 @@ docs/TickerHistoryTranslationResponse.md
 docs/TickerTranslation.md
 docs/TickerTranslationRequest.md
 docs/TickerTranslationResponse.md
-git_push.sh
 src/FactSet.SDK.Symbology/Api/BloombergFIGIApi.cs
 src/FactSet.SDK.Symbology/Api/CUSIPApi.cs
 src/FactSet.SDK.Symbology/Api/FactSetApi.cs

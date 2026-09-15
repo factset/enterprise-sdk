@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -680,7 +678,6 @@ docs/PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataVolatilit
 docs/PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestMeta.md
 docs/SecuritizedDerivativeApi.md
 docs/StatusObject.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

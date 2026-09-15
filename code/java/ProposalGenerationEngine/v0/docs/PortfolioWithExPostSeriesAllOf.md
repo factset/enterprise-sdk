@@ -9,7 +9,7 @@ when the settings.periods property is provided in the request then the periods p
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **series** | [**TimeWindowSeries**](TimeWindowSeries.md) |  |  [optional]
-**periods** | [**PeriodSeries**](PeriodSeries.md) |  |  [optional]
+**periods** | [**java.util.List&lt;PeriodSeries&gt;**](PeriodSeries.md) |  |  [optional]
 
 
 ## Implemented Interfaces

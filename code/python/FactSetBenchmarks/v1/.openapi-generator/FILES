@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BenchmarkConstituent.md
@@ -90,7 +87,6 @@ fds/sdk/FactSetBenchmarks/model_utils.py
 fds/sdk/FactSetBenchmarks/models/__init__.py
 fds/sdk/FactSetBenchmarks/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

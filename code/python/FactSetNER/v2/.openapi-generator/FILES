@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AssociatedOrganization.md
@@ -26,7 +23,6 @@ fds/sdk/FactSetNER/model_utils.py
 fds/sdk/FactSetNER/models/__init__.py
 fds/sdk/FactSetNER/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

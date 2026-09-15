@@ -32,13 +32,13 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_all_of import ExPostPortfolioAllOf
-    from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment import ExPostPortfolioInvestment
+    from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_request import ExPostPortfolioInvestmentRequest
     from fds.sdk.ProposalGenerationEngine.model.portfolio import Portfolio
     from fds.sdk.ProposalGenerationEngine.model.portfolio_entity_details import PortfolioEntityDetails
     from fds.sdk.ProposalGenerationEngine.model.rebalancing import Rebalancing
     from fds.sdk.ProposalGenerationEngine.model.transaction_rule import TransactionRule
     globals()['ExPostPortfolioAllOf'] = ExPostPortfolioAllOf
-    globals()['ExPostPortfolioInvestment'] = ExPostPortfolioInvestment
+    globals()['ExPostPortfolioInvestmentRequest'] = ExPostPortfolioInvestmentRequest
     globals()['Portfolio'] = Portfolio
     globals()['PortfolioEntityDetails'] = PortfolioEntityDetails
     globals()['Rebalancing'] = Rebalancing
@@ -98,7 +98,7 @@ class ExPostPortfolio(ModelComposed):
         """
         lazy_import()
         return {
-            'holdings': ([ExPostPortfolioInvestment],),  # noqa: E501
+            'holdings': ([ExPostPortfolioInvestmentRequest],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'details': (PortfolioEntityDetails,),  # noqa: E501
             'initial_value': (float,),  # noqa: E501
@@ -129,7 +129,7 @@ class ExPostPortfolio(ModelComposed):
         """ExPostPortfolio - a model defined in OpenAPI
 
         Keyword Args:
-            holdings ([ExPostPortfolioInvestment]):
+            holdings ([ExPostPortfolioInvestmentRequest]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -234,7 +234,7 @@ class ExPostPortfolio(ModelComposed):
         """ExPostPortfolio - a model defined in OpenAPI
 
         Keyword Args:
-            holdings ([ExPostPortfolioInvestment]):
+            holdings ([ExPostPortfolioInvestmentRequest]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

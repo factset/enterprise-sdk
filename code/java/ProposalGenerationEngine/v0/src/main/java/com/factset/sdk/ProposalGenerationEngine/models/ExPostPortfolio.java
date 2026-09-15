@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.ProposalGenerationEngine.models.ExPostPortfolioAllOf;
-import com.factset.sdk.ProposalGenerationEngine.models.ExPostPortfolioInvestment;
+import com.factset.sdk.ProposalGenerationEngine.models.ExPostPortfolioInvestmentRequest;
 import com.factset.sdk.ProposalGenerationEngine.models.Portfolio;
 import com.factset.sdk.ProposalGenerationEngine.models.PortfolioEntityDetails;
 import com.factset.sdk.ProposalGenerationEngine.models.Rebalancing;
@@ -42,9 +42,9 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 @JsonPropertyOrder({
   ExPostPortfolio.JSON_PROPERTY_ID,
   ExPostPortfolio.JSON_PROPERTY_DETAILS,
+  ExPostPortfolio.JSON_PROPERTY_HOLDINGS,
   ExPostPortfolio.JSON_PROPERTY_INITIAL_VALUE,
   ExPostPortfolio.JSON_PROPERTY_REBALANCING,
-  ExPostPortfolio.JSON_PROPERTY_HOLDINGS,
   ExPostPortfolio.JSON_PROPERTY_TRANSACTION_RULES
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -58,14 +58,14 @@ public class ExPostPortfolio implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private PortfolioEntityDetails details;
 
+  public static final String JSON_PROPERTY_HOLDINGS = "holdings";
+  private java.util.List<ExPostPortfolioInvestmentRequest> holdings = new java.util.ArrayList<>();
+
   public static final String JSON_PROPERTY_INITIAL_VALUE = "initialValue";
   private BigDecimal initialValue;
 
   public static final String JSON_PROPERTY_REBALANCING = "rebalancing";
   private Rebalancing rebalancing;
-
-  public static final String JSON_PROPERTY_HOLDINGS = "holdings";
-  private java.util.List<ExPostPortfolioInvestment> holdings = new java.util.ArrayList<>();
 
   public static final String JSON_PROPERTY_TRANSACTION_RULES = "transactionRules";
   private java.util.List<TransactionRule> transactionRules = null;
@@ -75,7 +75,7 @@ public class ExPostPortfolio implements Serializable {
 
   @JsonCreator
   public ExPostPortfolio(
-    @JsonProperty(value=JSON_PROPERTY_HOLDINGS, required=true) java.util.List<ExPostPortfolioInvestment> holdings
+    @JsonProperty(value=JSON_PROPERTY_HOLDINGS, required=true) java.util.List<ExPostPortfolioInvestmentRequest> holdings
   ) {
     this();
     this.holdings = holdings;
@@ -133,6 +133,37 @@ public class ExPostPortfolio implements Serializable {
   }
 
 
+  public ExPostPortfolio holdings(java.util.List<ExPostPortfolioInvestmentRequest> holdings) {
+    this.holdings = holdings;
+    return this;
+  }
+
+  public ExPostPortfolio addHoldingsItem(ExPostPortfolioInvestmentRequest holdingsItem) {
+    this.holdings.add(holdingsItem);
+    return this;
+  }
+
+   /**
+   * Get holdings
+   * @return holdings
+  **/
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.util.List<ExPostPortfolioInvestmentRequest> getHoldings() {
+    return holdings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setHoldings(java.util.List<ExPostPortfolioInvestmentRequest> holdings) {
+    this.holdings = holdings;
+  }
+
+
   public ExPostPortfolio initialValue(BigDecimal initialValue) {
     this.initialValue = initialValue;
     return this;
@@ -185,37 +216,6 @@ public class ExPostPortfolio implements Serializable {
   }
 
 
-  public ExPostPortfolio holdings(java.util.List<ExPostPortfolioInvestment> holdings) {
-    this.holdings = holdings;
-    return this;
-  }
-
-  public ExPostPortfolio addHoldingsItem(ExPostPortfolioInvestment holdingsItem) {
-    this.holdings.add(holdingsItem);
-    return this;
-  }
-
-   /**
-   * Get holdings
-   * @return holdings
-  **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_HOLDINGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public java.util.List<ExPostPortfolioInvestment> getHoldings() {
-    return holdings;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HOLDINGS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setHoldings(java.util.List<ExPostPortfolioInvestment> holdings) {
-    this.holdings = holdings;
-  }
-
-
   public ExPostPortfolio transactionRules(java.util.List<TransactionRule> transactionRules) {
     this.transactionRules = transactionRules;
     return this;
@@ -264,15 +264,15 @@ public class ExPostPortfolio implements Serializable {
     ExPostPortfolio exPostPortfolio = (ExPostPortfolio) o;
     return Objects.equals(this.id, exPostPortfolio.id) &&
         Objects.equals(this.details, exPostPortfolio.details) &&
+        Objects.equals(this.holdings, exPostPortfolio.holdings) &&
         Objects.equals(this.initialValue, exPostPortfolio.initialValue) &&
         Objects.equals(this.rebalancing, exPostPortfolio.rebalancing) &&
-        Objects.equals(this.holdings, exPostPortfolio.holdings) &&
         Objects.equals(this.transactionRules, exPostPortfolio.transactionRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, details, initialValue, rebalancing, holdings, transactionRules);
+    return Objects.hash(id, details, holdings, initialValue, rebalancing, transactionRules);
   }
 
   @Override
@@ -281,9 +281,9 @@ public class ExPostPortfolio implements Serializable {
     sb.append("class ExPostPortfolio {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    holdings: ").append(toIndentedString(holdings)).append("\n");
     sb.append("    initialValue: ").append(toIndentedString(initialValue)).append("\n");
     sb.append("    rebalancing: ").append(toIndentedString(rebalancing)).append("\n");
-    sb.append("    holdings: ").append(toIndentedString(holdings)).append("\n");
     sb.append("    transactionRules: ").append(toIndentedString(transactionRules)).append("\n");
     sb.append("}");
     return sb.toString();

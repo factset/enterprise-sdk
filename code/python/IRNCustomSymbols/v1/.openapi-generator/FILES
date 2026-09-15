@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CreateCustomSymbolCustomFieldValueDto.md
@@ -66,7 +63,6 @@ fds/sdk/IRNCustomSymbols/model_utils.py
 fds/sdk/IRNCustomSymbols/models/__init__.py
 fds/sdk/IRNCustomSymbols/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

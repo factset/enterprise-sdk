@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BatchDataRequest.md
@@ -12,7 +10,6 @@ docs/BatchStatusRequest.md
 docs/BatchStatusResponse.md
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

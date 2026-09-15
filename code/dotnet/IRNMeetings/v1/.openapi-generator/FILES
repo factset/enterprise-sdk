@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.IRNMeetings.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AttachmentSummaryDto.md
 docs/AttachmentsApi.md
 docs/AttendeeDto.md
@@ -33,7 +31,6 @@ docs/SubcommentSummaryDto.md
 docs/UpdateMeetingDto.md
 docs/UserSerialDto.md
 docs/UserTeamLookupDto.md
-git_push.sh
 src/FactSet.SDK.IRNMeetings/Api/AttachmentsApi.cs
 src/FactSet.SDK.IRNMeetings/Api/CommentsApi.cs
 src/FactSet.SDK.IRNMeetings/Api/EventsApi.cs

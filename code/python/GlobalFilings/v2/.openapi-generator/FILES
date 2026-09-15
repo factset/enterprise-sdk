@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Category.md
@@ -56,7 +53,6 @@ fds/sdk/GlobalFilings/model_utils.py
 fds/sdk/GlobalFilings/models/__init__.py
 fds/sdk/GlobalFilings/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

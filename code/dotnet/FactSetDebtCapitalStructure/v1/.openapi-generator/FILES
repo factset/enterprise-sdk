@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetDebtCapitalStructure.sln
 LICENSE
 README.md
-appveyor.yml
 docs/DCSRequest.md
 docs/DCSRequestBody.md
 docs/DCSTotalsResponse.md
@@ -34,7 +32,6 @@ docs/MetricsResponse.md
 docs/Periodicity.md
 docs/Term.md
 docs/TotalsApi.md
-git_push.sh
 src/FactSet.SDK.FactSetDebtCapitalStructure/Api/DetailsApi.cs
 src/FactSet.SDK.FactSetDebtCapitalStructure/Api/LiquidityApi.cs
 src/FactSet.SDK.FactSetDebtCapitalStructure/Api/MetricsApi.cs

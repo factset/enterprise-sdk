@@ -17,6 +17,9 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ProposalGenerationEngine.models.CorrelationStats;
+import com.factset.sdk.ProposalGenerationEngine.models.PerformanceStats;
+import com.factset.sdk.ProposalGenerationEngine.models.RiskStats;
 import com.factset.sdk.ProposalGenerationEngine.models.RollingSeriesPerTimeWindowReturns;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,6 +38,9 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * RollingSeriesPerTimeWindow
  */
 @JsonPropertyOrder({
+  RollingSeriesPerTimeWindow.JSON_PROPERTY_CORRELATIONS,
+  RollingSeriesPerTimeWindow.JSON_PROPERTY_PERFORMANCE,
+  RollingSeriesPerTimeWindow.JSON_PROPERTY_RISKS,
   RollingSeriesPerTimeWindow.JSON_PROPERTY_DATES,
   RollingSeriesPerTimeWindow.JSON_PROPERTY_RETURNS
 })
@@ -42,6 +48,15 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 
 public class RollingSeriesPerTimeWindow implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_CORRELATIONS = "correlations";
+  private CorrelationStats correlations;
+
+  public static final String JSON_PROPERTY_PERFORMANCE = "performance";
+  private PerformanceStats performance;
+
+  public static final String JSON_PROPERTY_RISKS = "risks";
+  private RiskStats risks;
 
   public static final String JSON_PROPERTY_DATES = "dates";
   private java.util.List<LocalDate> dates = null;
@@ -51,6 +66,84 @@ public class RollingSeriesPerTimeWindow implements Serializable {
 
   public RollingSeriesPerTimeWindow() { 
   }
+
+  public RollingSeriesPerTimeWindow correlations(CorrelationStats correlations) {
+    this.correlations = correlations;
+    return this;
+  }
+
+   /**
+   * Get correlations
+   * @return correlations
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CORRELATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CorrelationStats getCorrelations() {
+    return correlations;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CORRELATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCorrelations(CorrelationStats correlations) {
+    this.correlations = correlations;
+  }
+
+
+  public RollingSeriesPerTimeWindow performance(PerformanceStats performance) {
+    this.performance = performance;
+    return this;
+  }
+
+   /**
+   * Get performance
+   * @return performance
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PerformanceStats getPerformance() {
+    return performance;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PERFORMANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPerformance(PerformanceStats performance) {
+    this.performance = performance;
+  }
+
+
+  public RollingSeriesPerTimeWindow risks(RiskStats risks) {
+    this.risks = risks;
+    return this;
+  }
+
+   /**
+   * Get risks
+   * @return risks
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RISKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public RiskStats getRisks() {
+    return risks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RISKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRisks(RiskStats risks) {
+    this.risks = risks;
+  }
+
 
   public RollingSeriesPerTimeWindow dates(java.util.List<LocalDate> dates) {
     this.dates = dates;
@@ -124,19 +217,25 @@ public class RollingSeriesPerTimeWindow implements Serializable {
       return false;
     }
     RollingSeriesPerTimeWindow rollingSeriesPerTimeWindow = (RollingSeriesPerTimeWindow) o;
-    return Objects.equals(this.dates, rollingSeriesPerTimeWindow.dates) &&
+    return Objects.equals(this.correlations, rollingSeriesPerTimeWindow.correlations) &&
+        Objects.equals(this.performance, rollingSeriesPerTimeWindow.performance) &&
+        Objects.equals(this.risks, rollingSeriesPerTimeWindow.risks) &&
+        Objects.equals(this.dates, rollingSeriesPerTimeWindow.dates) &&
         Objects.equals(this.returns, rollingSeriesPerTimeWindow.returns);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dates, returns);
+    return Objects.hash(correlations, performance, risks, dates, returns);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RollingSeriesPerTimeWindow {\n");
+    sb.append("    correlations: ").append(toIndentedString(correlations)).append("\n");
+    sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
+    sb.append("    risks: ").append(toIndentedString(risks)).append("\n");
     sb.append("    dates: ").append(toIndentedString(dates)).append("\n");
     sb.append("    returns: ").append(toIndentedString(returns)).append("\n");
     sb.append("}");

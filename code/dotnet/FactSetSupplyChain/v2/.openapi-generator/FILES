@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetSupplyChain.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Batch.md
 docs/BatchProcessingApi.md
 docs/BatchResult.md
@@ -41,7 +39,6 @@ docs/SupplyChainRelationshipType.md
 docs/SupplyChainRequest.md
 docs/SupplyChainRequestData.md
 docs/SupplyChainResponse.md
-git_push.sh
 src/FactSet.SDK.FactSetSupplyChain/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetSupplyChain/Api/RelationshipsApi.cs
 src/FactSet.SDK.FactSetSupplyChain/Api/SupplyChainApi.cs

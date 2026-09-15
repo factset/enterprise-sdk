@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | the unique id of the investment - e.g. FactSet id | 
-**Weight** | **decimal** | the weight of the investment in hte portfolio | 
+**Weight** | **decimal** | the weight of the investment in hte portfolio | [optional] 
 **SalesCharge** | **decimal** | A representation of a portfolio constituent (investment) | [optional] 
 **TransactionRules** | [**List&lt;TransactionRule&gt;**](TransactionRule.md) | rules for adding/substracting amount from the portfolio at given periods | [optional] 
 

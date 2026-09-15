@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetTickHistory.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CheckFiles.md
 docs/CompletedResponse.md
 docs/CoverageResponse.md
@@ -30,7 +28,6 @@ docs/StatusOne.md
 docs/SubmittedResponse.md
 docs/TickData.md
 docs/Type.md
-git_push.sh
 src/FactSet.SDK.FactSetTickHistory/Api/Level1Api.cs
 src/FactSet.SDK.FactSetTickHistory/Client/ApiClient.cs
 src/FactSet.SDK.FactSetTickHistory/Client/ApiException.cs

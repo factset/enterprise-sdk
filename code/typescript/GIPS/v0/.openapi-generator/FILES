@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/APIClientErrorResponse.md
@@ -77,7 +75,6 @@ docs/GoogleProtobufWellKnownTypesValue.md
 docs/GoogleProtobufWellKnownTypesValueKindOneofCase.md
 docs/PaginationInfo.md
 docs/PaginationMeta.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

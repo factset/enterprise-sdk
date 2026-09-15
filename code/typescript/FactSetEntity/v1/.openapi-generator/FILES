@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CreditParent.md
@@ -30,7 +28,6 @@ docs/SecurityType.md
 docs/UltimateEntityStructureRequest.md
 docs/UltimateEntityStructureResponse.md
 docs/UtlimateEntityStructure.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

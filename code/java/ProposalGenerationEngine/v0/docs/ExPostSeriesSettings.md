@@ -50,7 +50,7 @@ RETURNS | &quot;returns&quot;
 DRAWDOWN | &quot;drawdown&quot;
 BENCHMARKDRAWDOWN | &quot;benchmarkDrawdown&quot;
 CONTRIBUTIONTRANSACTIONS | &quot;contributionTransactions&quot;
-WITHRAWALTRANSACTIONS | &quot;withrawalTransactions&quot;
+WITHDRAWALTRANSACTIONS | &quot;withdrawalTransactions&quot;
 FEETRANSACTIONS | &quot;feeTransactions&quot;
 
 

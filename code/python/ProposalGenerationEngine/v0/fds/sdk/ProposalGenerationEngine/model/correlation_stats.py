@@ -32,9 +32,7 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.ProposalGenerationEngine.model.correlation_matrix import CorrelationMatrix
-    from fds.sdk.ProposalGenerationEngine.model.portfolio_correlation_matrix import PortfolioCorrelationMatrix
     globals()['CorrelationMatrix'] = CorrelationMatrix
-    globals()['PortfolioCorrelationMatrix'] = PortfolioCorrelationMatrix
 
 
 class CorrelationStats(ModelNormal):
@@ -91,7 +89,8 @@ class CorrelationStats(ModelNormal):
         lazy_import()
         return {
             'correlation_matrix': (CorrelationMatrix,),  # noqa: E501
-            'portfolio_correlation_matrix': (PortfolioCorrelationMatrix,),  # noqa: E501
+            'portfolio_correlation_matrix': (CorrelationMatrix,),  # noqa: E501
+            'act_returns_correlation_matrix': (CorrelationMatrix,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +101,7 @@ class CorrelationStats(ModelNormal):
     attribute_map = {
         'correlation_matrix': 'correlationMatrix',  # noqa: E501
         'portfolio_correlation_matrix': 'portfolioCorrelationMatrix',  # noqa: E501
+        'act_returns_correlation_matrix': 'actReturnsCorrelationMatrix',  # noqa: E501
     }
 
     read_only_vars = {
@@ -146,7 +146,8 @@ class CorrelationStats(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             correlation_matrix (CorrelationMatrix): [optional]  # noqa: E501
-            portfolio_correlation_matrix (PortfolioCorrelationMatrix): [optional]  # noqa: E501
+            portfolio_correlation_matrix (CorrelationMatrix): [optional]  # noqa: E501
+            act_returns_correlation_matrix (CorrelationMatrix): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,7 +230,8 @@ class CorrelationStats(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             correlation_matrix (CorrelationMatrix): [optional]  # noqa: E501
-            portfolio_correlation_matrix (PortfolioCorrelationMatrix): [optional]  # noqa: E501
+            portfolio_correlation_matrix (CorrelationMatrix): [optional]  # noqa: E501
+            act_returns_correlation_matrix (CorrelationMatrix): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

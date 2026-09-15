@@ -1,15 +1,17 @@
 # fds.sdk.FactSetIntradayTickHistory.TradesAtTimeApi
 
-All URIs are relative to *https://api-sandbox.factset.com*
+All URIs are relative to *https://api.factset.com/TickHistory*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**tick_history_tradesattime_get**](TradesAtTimeApi.md#tick_history_tradesattime_get) | **GET** /TickHistory/tradesattime | Request returns the before and after trade data along with the associated quotes for the specified time
+[**tradesattime_get**](TradesAtTimeApi.md#tradesattime_get) | **GET** /tradesattime | Trades at Time service returns the trade immediately before and after a specified time, along with associated quotes
 
 
 
-# **tick_history_tradesattime_get**
-> TickhistoryResponse tick_history_tradesattime_get(id)
+# **tradesattime_get**
+> TickHistoryResponse tradesattime_get(id)
+
+Trades at Time service returns the trade immediately before and after a specified time, along with associated quotes
 
 Request returns the before and after trade data along with the associated quotes for the specified time
 
@@ -58,22 +60,22 @@ with fds.sdk.FactSetIntradayTickHistory.ApiClient(configuration) as api_client:
     api_instance = trades_at_time_api.TradesAtTimeApi(api_client)
 
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
-    id = "id_example" # str | Requested symbol or security. The symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA
-    req_id = "req_id_example" # str | Request Identification String. Can be used by the application to keep track of requests. The id is not used by this service, however, it is included in the XML response. (optional)
-    format = "XML" # str | The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional) if omitted the server will use the default value of "XML"
+    id = "id_example" # str | Requested symbol or security. The symbol can be a FactSet ticker-exchange or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier can be requested per API call. </p> <p>The sandbox environment provides access to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>
+    req_id = "req_id_example" # str | Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the response. (optional)
+    format = "XML" # str | The format of the output file.  (optional) if omitted the server will use the default value of "XML"
     date = "date_example" # str | Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days (optional)
-    time = "time_example" # str | Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds (optional)
+    time = "time_example" # str | Request should be made in the format **HHMMSS**.HH- Hour, MM- Minutes, SS- Seconds (optional)
 
     try:
-        # Request returns the before and after trade data along with the associated quotes for the specified time
+        # Trades at Time service returns the trade immediately before and after a specified time, along with associated quotes
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.tick_history_tradesattime_get(id, req_id=req_id, format=format, date=date, time=time)
+        api_response = api_instance.tradesattime_get(id, req_id=req_id, format=format, date=date, time=time)
 
         pprint(api_response)
 
     except fds.sdk.FactSetIntradayTickHistory.ApiException as e:
-        print("Exception when calling TradesAtTimeApi->tick_history_tradesattime_get: %s\n" % e)
+        print("Exception when calling TradesAtTimeApi->tradesattime_get: %s\n" % e)
 ```
 
 
@@ -81,15 +83,15 @@ with fds.sdk.FactSetIntradayTickHistory.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| Requested symbol or security. The symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per request.&lt;P&gt;**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA |
- **req_id** | **str**| Request Identification String. Can be used by the application to keep track of requests. The id is not used by this service, however, it is included in the XML response. | [optional]
- **format** | **str**| The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER | [optional] if omitted the server will use the default value of "XML"
+ **id** | **str**| Requested symbol or security. The symbol can be a FactSet ticker-exchange or ticker-region symbol, CUSIP, ISIN or SEDOL.  &lt;p&gt;**Note**: Only one identifier can be requested per API call. &lt;/p&gt; &lt;p&gt;The sandbox environment provides access to the following list of symbols: &lt;/p&gt; &lt;p&gt;BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1&lt;/p&gt; |
+ **req_id** | **str**| Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the response. | [optional]
+ **format** | **str**| The format of the output file.  | [optional] if omitted the server will use the default value of "XML"
  **date** | **str**| Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days | [optional]
- **time** | **str**| Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds | [optional]
+ **time** | **str**| Request should be made in the format **HHMMSS**.HH- Hour, MM- Minutes, SS- Seconds | [optional]
 
 ### Return type
 
-[**TickhistoryResponse**](TickhistoryResponse.md)
+[**TickHistoryResponse**](TickHistoryResponse.md)
 
 ### Authorization
 
@@ -105,10 +107,14 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK  x |  -  |
-**401** | Access Denied. The user is not authorized to view the data requested. Contact FactSet Consulting Services for assistance. |  -  |
-**403** | Invalid HTTP URL. Necessary query parameters are missing in the request. The description field will indicate the exact reason. |  -  |
-**405** | Invalid HTTP method. Either the method is not GET or exceeds the maximum request lenght (currently set at 5000 bytes. The description field will indicate the exact reason. |  -  |
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**405** | Method Not Allowed |  -  |
+**408** | Request Timeout |  -  |
+**429** | Too Many Requests |  -  |
+**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

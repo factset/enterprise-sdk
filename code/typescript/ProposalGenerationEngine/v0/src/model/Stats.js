@@ -110,10 +110,10 @@ Stats['StatsEnum'] = {
     "annStDev": "annStDev",
 
     /**
-     * value: "annLossStd"
+     * value: "annLossStDev"
      * @const
      */
-    "annLossStd": "annLossStd",
+    "annLossStDev": "annLossStDev",
 
     /**
      * value: "annStDev100"
@@ -377,7 +377,13 @@ Stats['StatsEnum'] = {
      * value: "feeTransactions"
      * @const
      */
-    "feeTransactions": "feeTransactions"
+    "feeTransactions": "feeTransactions",
+
+    /**
+     * value: "PV"
+     * @const
+     */
+    "PV": "PV"
 };
 
 

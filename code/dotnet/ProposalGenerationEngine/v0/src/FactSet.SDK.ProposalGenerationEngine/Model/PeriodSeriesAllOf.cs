@@ -36,7 +36,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Initializes a new instance of the <see cref="PeriodSeriesAllOf" /> class.
         /// </summary>
         /// <param name="series">series.</param>
-        public PeriodSeriesAllOf(SerieStats series = default(SerieStats))
+        public PeriodSeriesAllOf(SeriesStats series = default(SeriesStats))
         {
             this.Series = series;
         }
@@ -45,7 +45,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets Series
         /// </summary>
         [DataMember(Name = "series", EmitDefaultValue = false)]
-        public SerieStats Series { get; set; }
+        public SeriesStats Series { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

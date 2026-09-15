@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Address.md
@@ -46,7 +44,6 @@ docs/SectorAllocationsResponse.md
 docs/SectorBreakdown.md
 docs/SectorResponseData.md
 docs/YearlyReturns.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

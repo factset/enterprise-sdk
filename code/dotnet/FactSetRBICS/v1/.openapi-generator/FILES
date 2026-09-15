@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetRBICS.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Economy.md
 docs/Entities.md
 docs/EntityApi.md
@@ -39,7 +37,6 @@ docs/TradeNamesApi.md
 docs/TradeNamesRequest.md
 docs/TradeNamesRequestBody.md
 docs/TradeNamesResponse.md
-git_push.sh
 src/FactSet.SDK.FactSetRBICS/Api/EntityApi.cs
 src/FactSet.SDK.FactSetRBICS/Api/IndustryApi.cs
 src/FactSet.SDK.FactSetRBICS/Api/StructureApi.cs

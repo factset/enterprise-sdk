@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.MarketIntelligence.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CreateReportApi.md
 docs/FetchReportPollID.md
 docs/GetReportInfo.md
@@ -15,7 +13,6 @@ docs/ReportDataHeader.md
 docs/RetrieveRefreshedDataApi.md
 docs/RetrieveRefreshedReportApi.md
 docs/RetrieveReportListApi.md
-git_push.sh
 src/FactSet.SDK.MarketIntelligence/Api/CreateReportApi.cs
 src/FactSet.SDK.MarketIntelligence/Api/RetrieveRefreshedDataApi.cs
 src/FactSet.SDK.MarketIntelligence/Api/RetrieveRefreshedReportApi.cs

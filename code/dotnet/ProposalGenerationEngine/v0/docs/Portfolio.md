@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | unique id of the entity | [optional] 
 **Details** | [**PortfolioEntityDetails**](PortfolioEntityDetails.md) |  | [optional] 
+**Holdings** | [**List&lt;ExPostPortfolioInvestment&gt;**](ExPostPortfolioInvestment.md) |  | 
 **InitialValue** | **decimal** | the initial value (PV) of the portfolio | [optional] 
 **Rebalancing** | [**Rebalancing**](Rebalancing.md) |  | [optional] 
 

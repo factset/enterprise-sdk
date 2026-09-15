@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.AxiomaEquityOptimizer.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AXPOptimizerApi.md
 docs/AccountDirectories.md
 docs/AccountDirectoriesRoot.md
@@ -31,7 +29,6 @@ docs/OptimizerStrategy.md
 docs/OptimizerStrategyOverrides.md
 docs/OptimizerTradesList.md
 docs/StrategyDocumentsApi.md
-git_push.sh
 src/FactSet.SDK.AxiomaEquityOptimizer/Api/AXPOptimizerApi.cs
 src/FactSet.SDK.AxiomaEquityOptimizer/Api/AccountsApi.cs
 src/FactSet.SDK.AxiomaEquityOptimizer/Api/CurrenciesApi.cs

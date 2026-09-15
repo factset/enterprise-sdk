@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **categories** | **[String]** | Categories are Country, Industry, and Subject codes. This is a list retrieved from &#x60;/meta/categories&#x60; | [optional] 
 **slidesUrl** | **String** | This is a URL for downloading the document with an expiration duration of 24 hours. | [optional] 
 **eventId** | **String** | Unique identifier derived from report_id with a &#39;t&#39; appended, indicating a transcript or slide. | [optional] 
+**uploadDateTime** | **Date** | Timestamp when the transcript is created. | [optional] 
 
 

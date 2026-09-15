@@ -35,26 +35,15 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExPostPortfolioInvestmentSeriesResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ExPostPortfolioInvestmentSeriesResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExPostPortfolioInvestmentSeriesResponse" /> class.
-        /// </summary>
-        /// <param name="id">the unique id of the investment - e.g. FactSet id (required).</param>
-        /// <param name="weight">the weight of the investment in hte portfolio (required).</param>
+        /// <param name="weight">the weight of the investment in hte portfolio.</param>
         /// <param name="salesCharge">A representation of a portfolio constituent (investment).</param>
         /// <param name="transactionRules">rules for adding/substracting amount from the portfolio at given periods.</param>
         /// <param name="securityDetails">securityDetails.</param>
         /// <param name="series">series.</param>
         /// <param name="periods">periods.</param>
         /// <param name="backfillData">a map from time window to backfill statistics.</param>
-        public ExPostPortfolioInvestmentSeriesResponse(string id, decimal weight,decimal salesCharge = default(decimal), List<TransactionRule> transactionRules = default(List<TransactionRule>), Investment securityDetails = default(Investment), TimeWindowSeries series = default(TimeWindowSeries), PeriodSeries periods = default(PeriodSeries), Dictionary<string, BackfillData> backfillData = default(Dictionary<string, BackfillData>))
+        public ExPostPortfolioInvestmentSeriesResponse(decimal weight = default(decimal), decimal salesCharge = default(decimal), List<TransactionRule> transactionRules = default(List<TransactionRule>), Investment securityDetails = default(Investment), TimeWindowSeries series = default(TimeWindowSeries), List<PeriodSeries> periods = default(List<PeriodSeries>), Dictionary<string, BackfillData> backfillData = default(Dictionary<string, BackfillData>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null) {
-                throw new ArgumentNullException("id is a required property for ExPostPortfolioInvestmentSeriesResponse and cannot be null");
-            }
-            this.Id = id;
             this.Weight = weight;
             this.SalesCharge = salesCharge;
             this.TransactionRules = transactionRules;
@@ -65,17 +54,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         }
 
         /// <summary>
-        /// the unique id of the investment - e.g. FactSet id
-        /// </summary>
-        /// <value>the unique id of the investment - e.g. FactSet id</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
-
-        /// <summary>
         /// the weight of the investment in hte portfolio
         /// </summary>
         /// <value>the weight of the investment in hte portfolio</value>
-        [DataMember(Name = "weight", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "weight", EmitDefaultValue = false)]
         public decimal Weight { get; set; }
 
         /// <summary>
@@ -108,7 +90,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets Periods
         /// </summary>
         [DataMember(Name = "periods", EmitDefaultValue = false)]
-        public PeriodSeries Periods { get; set; }
+        public List<PeriodSeries> Periods { get; set; }
 
         /// <summary>
         /// a map from time window to backfill statistics
@@ -125,7 +107,6 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class ExPostPortfolioInvestmentSeriesResponse {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  SalesCharge: ").Append(SalesCharge).Append("\n");
             sb.Append("  TransactionRules: ").Append(TransactionRules).Append("\n");
@@ -169,11 +150,6 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
                     this.Weight == input.Weight ||
                     this.Weight.Equals(input.Weight)
                 ) && 
@@ -199,8 +175,9 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 ) && 
                 (
                     this.Periods == input.Periods ||
-                    (this.Periods != null &&
-                    this.Periods.Equals(input.Periods))
+                    this.Periods != null &&
+                    input.Periods != null &&
+                    this.Periods.SequenceEqual(input.Periods)
                 ) && 
                 (
                     this.BackfillData == input.BackfillData ||
@@ -219,10 +196,6 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.Weight.GetHashCode();
                 hashCode = (hashCode * 59) + this.SalesCharge.GetHashCode();
                 if (this.TransactionRules != null)

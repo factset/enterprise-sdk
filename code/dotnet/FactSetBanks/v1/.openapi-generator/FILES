@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetBanks.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AUMReportType.md
 docs/AUMRequest.md
 docs/AUMRequestData.md
@@ -80,7 +78,6 @@ docs/USFinancial.md
 docs/USStateCode.md
 docs/Ucc1FilingsRequest.md
 docs/Ucc1FilingsRequestData.md
-git_push.sh
 src/FactSet.SDK.FactSetBanks/Api/BranchesApi.cs
 src/FactSet.SDK.FactSetBanks/Api/DepositRatesApi.cs
 src/FactSet.SDK.FactSetBanks/Api/ExposureApi.cs

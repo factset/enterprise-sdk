@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/ActiveJobIDs.md
@@ -70,7 +67,6 @@ fds/sdk/UniversalScreening/model_utils.py
 fds/sdk/UniversalScreening/models/__init__.py
 fds/sdk/UniversalScreening/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

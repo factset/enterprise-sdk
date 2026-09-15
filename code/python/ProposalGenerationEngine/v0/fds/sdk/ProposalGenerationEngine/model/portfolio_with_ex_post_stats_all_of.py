@@ -92,7 +92,7 @@ class PortfolioWithExPostStatsAllOf(ModelNormal):
         return {
             'stats': (TimeWindowStats,),  # noqa: E501
             'udfs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'periods': (ExPostPeriodStats,),  # noqa: E501
+            'periods': ([ExPostPeriodStats],),  # noqa: E501
         }
 
     @cached_property
@@ -149,7 +149,7 @@ class PortfolioWithExPostStatsAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             stats (TimeWindowStats): [optional]  # noqa: E501
             udfs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): portfolio UDFs map. [optional]  # noqa: E501
-            periods (ExPostPeriodStats): [optional]  # noqa: E501
+            periods ([ExPostPeriodStats]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -233,7 +233,7 @@ class PortfolioWithExPostStatsAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             stats (TimeWindowStats): [optional]  # noqa: E501
             udfs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): portfolio UDFs map. [optional]  # noqa: E501
-            periods (ExPostPeriodStats): [optional]  # noqa: E501
+            periods ([ExPostPeriodStats]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

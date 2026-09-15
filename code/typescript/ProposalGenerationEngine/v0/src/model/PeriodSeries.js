@@ -14,7 +14,7 @@
 import ApiClient from '../ApiClient';
 import PeriodInfo from './PeriodInfo';
 import PeriodSeriesAllOf from './PeriodSeriesAllOf';
-import SerieStats from './SerieStats';
+import SeriesStats from './SeriesStats';
 
 /**
  * The PeriodSeries model module.
@@ -70,7 +70,7 @@ class PeriodSeries {
                 obj['basedOnTimeWindow'] = ApiClient.convertToType(data['basedOnTimeWindow'], 'String');
             }
             if (data.hasOwnProperty('series') && obj['series'] === undefined) {
-                obj['series'] = SerieStats.constructFromObject(data['series']);
+                obj['series'] = SeriesStats.constructFromObject(data['series']);
             }
             
         }
@@ -101,7 +101,7 @@ PeriodSeries.prototype['numberOfDays'] = undefined;
 PeriodSeries.prototype['basedOnTimeWindow'] = undefined;
 
 /**
- * @member {module:model/SerieStats} series
+ * @member {module:model/SeriesStats} series
  */
 PeriodSeries.prototype['series'] = undefined;
 
@@ -125,7 +125,7 @@ PeriodInfo.prototype['numberOfDays'] = undefined;
 PeriodInfo.prototype['basedOnTimeWindow'] = undefined;
 // Implement PeriodSeriesAllOf interface:
 /**
- * @member {module:model/SerieStats} series
+ * @member {module:model/SeriesStats} series
  */
 PeriodSeriesAllOf.prototype['series'] = undefined;
 

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ChatApi.md
 docs/ChatCompletionChunk.md
 docs/ChatCompletionRequest.md
@@ -14,7 +12,6 @@ docs/Model.md
 docs/ModelList.md
 docs/ResponseChoices.md
 docs/ResponseChoicesDelta.md
-git_push.sh
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Api/ChatApi.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Client/ApiClient.cs
 src/FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury/Client/ApiException.cs

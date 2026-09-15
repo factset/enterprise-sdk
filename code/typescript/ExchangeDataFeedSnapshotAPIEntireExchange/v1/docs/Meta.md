@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sort** | **String** |  | [optional] 
+**sort** | **[String]** |  | [optional] 
+**pagination** | [**MetaPagination**](MetaPagination.md) |  | [optional] 
+**partial** | [**MetaPartial**](MetaPartial.md) |  | [optional] 
 
 

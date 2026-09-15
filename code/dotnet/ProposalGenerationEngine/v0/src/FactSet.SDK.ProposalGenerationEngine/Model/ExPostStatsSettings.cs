@@ -145,10 +145,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             AnnStDev = 6,
 
             /// <summary>
-            /// Enum AnnLossStd for value: annLossStd
+            /// Enum AnnLossStDev for value: annLossStDev
             /// </summary>
-            [EnumMember(Value = "annLossStd")]
-            AnnLossStd = 7,
+            [EnumMember(Value = "annLossStDev")]
+            AnnLossStDev = 7,
 
             /// <summary>
             /// Enum AnnStDev100 for value: annStDev100
@@ -412,7 +412,13 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             /// Enum FeeTransactions for value: feeTransactions
             /// </summary>
             [EnumMember(Value = "feeTransactions")]
-            FeeTransactions = 51
+            FeeTransactions = 51,
+
+            /// <summary>
+            /// Enum PV for value: PV
+            /// </summary>
+            [EnumMember(Value = "PV")]
+            PV = 52
 
         }
 

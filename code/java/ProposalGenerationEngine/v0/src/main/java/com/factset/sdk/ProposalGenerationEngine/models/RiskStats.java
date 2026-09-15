@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ProposalGenerationEngine.models.StDev;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -59,7 +60,7 @@ public class RiskStats implements Serializable {
   private java.util.Map<String, BigDecimal> etl = null;
 
   public static final String JSON_PROPERTY_ST_DEV = "stDev";
-  private BigDecimal stDev;
+  private StDev stDev;
 
   public static final String JSON_PROPERTY_SKEWNESS = "skewness";
   private BigDecimal skewness;
@@ -162,28 +163,28 @@ public class RiskStats implements Serializable {
   }
 
 
-  public RiskStats stDev(BigDecimal stDev) {
+  public RiskStats stDev(StDev stDev) {
     this.stDev = stDev;
     return this;
   }
 
    /**
-   * Standard deviation
+   * Get stDev
    * @return stDev
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "0.08", value = "Standard deviation")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ST_DEV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getStDev() {
+  public StDev getStDev() {
     return stDev;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ST_DEV)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStDev(BigDecimal stDev) {
+  public void setStDev(StDev stDev) {
     this.stDev = stDev;
   }
 

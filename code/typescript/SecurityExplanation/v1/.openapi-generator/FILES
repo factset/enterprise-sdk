@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/APIClientErrorResponse.md
@@ -17,7 +15,6 @@ docs/SecurityExplanationParametersRoot.md
 docs/SecurityExplanationRequestParameters.md
 docs/SecurityExplanationResponse.md
 docs/SecurityExplanationResponseRoot.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

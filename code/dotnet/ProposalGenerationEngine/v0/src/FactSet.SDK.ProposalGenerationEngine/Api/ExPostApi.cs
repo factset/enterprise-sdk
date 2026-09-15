@@ -324,24 +324,28 @@ namespace FactSet.SDK.ProposalGenerationEngine.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> CalculateExPostCorrelationsStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ExPostStatsCorrelationsResponse) },
+            { (HttpStatusCode)400, typeof(Errors) },
             { (HttpStatusCode)501, typeof(Errors) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> CalculateExPostFactorExposureStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ExPostStatsFactorExposureResponse) },
+            { (HttpStatusCode)400, typeof(Errors) },
             { (HttpStatusCode)501, typeof(Errors) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> CalculateExPostRollingSeriesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ExPostSeriesRollingResponse) },
+            { (HttpStatusCode)400, typeof(Errors) },
             { (HttpStatusCode)501, typeof(Errors) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> CalculateExPostRollingStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ExPostStatsRollingResponse) },
+            { (HttpStatusCode)400, typeof(Errors) },
             { (HttpStatusCode)501, typeof(Errors) },
         };
 
@@ -349,12 +353,14 @@ namespace FactSet.SDK.ProposalGenerationEngine.Api
         {
             { (HttpStatusCode)200, typeof(ExPostSeriesResponse) },
             { (HttpStatusCode)400, typeof(Errors) },
+            { (HttpStatusCode)501, typeof(Errors) },
         };
 
         private static readonly Dictionary<HttpStatusCode, System.Type> CalculateExPostStatsResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(ExPostStatsResponse) },
             { (HttpStatusCode)400, typeof(Errors) },
+            { (HttpStatusCode)501, typeof(Errors) },
         };
 
         # endregion Response Type Disctionaries

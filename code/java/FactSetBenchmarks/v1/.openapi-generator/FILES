@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -38,7 +36,6 @@ docs/IndexSnapshotRequest.md
 docs/IndexSnapshotResponse.md
 docs/Periodicity.md
 docs/ReturnType.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **returnsPreferences** | **String** | code of preconfigured analysis settings&lt;br&gt; Note: the setup of these settings is done by PGE administrator |  [optional]
 **validatePortfolio** | **Boolean** | a flag controlling whether to perform validations on the portfolio and its holdings (e.g. whether they have valid historical data). If set to false it is possible that call might not return user-friendly error message, however the call will be faster |  [optional]
 **timeWindows** | **java.util.List&lt;String&gt;** |  |  [optional]
+**periods** | [**java.util.List&lt;Period&gt;**](Period.md) |  |  [optional]
 **stats** | [**java.util.List&lt;StatsEnum&gt;**](#java.util.List&lt;StatsEnum&gt;) |  |  [optional]
 **holdingsLimit** | **Integer** |  |  [optional]
 **fundCorrelationsOnly** | **Boolean** |  |  [optional]

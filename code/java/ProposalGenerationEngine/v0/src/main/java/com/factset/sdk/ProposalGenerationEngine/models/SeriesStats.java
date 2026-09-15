@@ -35,6 +35,11 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  */
 @ApiModel(description = "General entity statistics holder")
 @JsonPropertyOrder({
+  SeriesStats.JSON_PROPERTY_FEE_TRANSACTIONS,
+  SeriesStats.JSON_PROPERTY_WITHDRAWAL_TRANSACTIONS,
+  SeriesStats.JSON_PROPERTY_CONTRIBUTION_TRANSACTIONS,
+  SeriesStats.JSON_PROPERTY_BENCHMARK_DRAWDOWN,
+  SeriesStats.JSON_PROPERTY_DRAWDOWN,
   SeriesStats.JSON_PROPERTY_RETURNS,
   SeriesStats.JSON_PROPERTY_VALUES
 })
@@ -42,6 +47,21 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 
 public class SeriesStats implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_FEE_TRANSACTIONS = "feeTransactions";
+  private java.util.List<KeyValuePair> feeTransactions = null;
+
+  public static final String JSON_PROPERTY_WITHDRAWAL_TRANSACTIONS = "withdrawalTransactions";
+  private java.util.List<KeyValuePair> withdrawalTransactions = null;
+
+  public static final String JSON_PROPERTY_CONTRIBUTION_TRANSACTIONS = "contributionTransactions";
+  private java.util.List<KeyValuePair> contributionTransactions = null;
+
+  public static final String JSON_PROPERTY_BENCHMARK_DRAWDOWN = "benchmarkDrawdown";
+  private java.util.List<KeyValuePair> benchmarkDrawdown = null;
+
+  public static final String JSON_PROPERTY_DRAWDOWN = "drawdown";
+  private java.util.List<KeyValuePair> drawdown = null;
 
   public static final String JSON_PROPERTY_RETURNS = "returns";
   private java.util.List<KeyValuePair> returns = null;
@@ -51,6 +71,176 @@ public class SeriesStats implements Serializable {
 
   public SeriesStats() { 
   }
+
+  public SeriesStats feeTransactions(java.util.List<KeyValuePair> feeTransactions) {
+    this.feeTransactions = feeTransactions;
+    return this;
+  }
+
+  public SeriesStats addFeeTransactionsItem(KeyValuePair feeTransactionsItem) {
+    if (this.feeTransactions == null) {
+      this.feeTransactions = new java.util.ArrayList<>();
+    }
+    this.feeTransactions.add(feeTransactionsItem);
+    return this;
+  }
+
+   /**
+   * Get feeTransactions
+   * @return feeTransactions
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FEE_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<KeyValuePair> getFeeTransactions() {
+    return feeTransactions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FEE_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFeeTransactions(java.util.List<KeyValuePair> feeTransactions) {
+    this.feeTransactions = feeTransactions;
+  }
+
+
+  public SeriesStats withdrawalTransactions(java.util.List<KeyValuePair> withdrawalTransactions) {
+    this.withdrawalTransactions = withdrawalTransactions;
+    return this;
+  }
+
+  public SeriesStats addWithdrawalTransactionsItem(KeyValuePair withdrawalTransactionsItem) {
+    if (this.withdrawalTransactions == null) {
+      this.withdrawalTransactions = new java.util.ArrayList<>();
+    }
+    this.withdrawalTransactions.add(withdrawalTransactionsItem);
+    return this;
+  }
+
+   /**
+   * Get withdrawalTransactions
+   * @return withdrawalTransactions
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WITHDRAWAL_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<KeyValuePair> getWithdrawalTransactions() {
+    return withdrawalTransactions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_WITHDRAWAL_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWithdrawalTransactions(java.util.List<KeyValuePair> withdrawalTransactions) {
+    this.withdrawalTransactions = withdrawalTransactions;
+  }
+
+
+  public SeriesStats contributionTransactions(java.util.List<KeyValuePair> contributionTransactions) {
+    this.contributionTransactions = contributionTransactions;
+    return this;
+  }
+
+  public SeriesStats addContributionTransactionsItem(KeyValuePair contributionTransactionsItem) {
+    if (this.contributionTransactions == null) {
+      this.contributionTransactions = new java.util.ArrayList<>();
+    }
+    this.contributionTransactions.add(contributionTransactionsItem);
+    return this;
+  }
+
+   /**
+   * Get contributionTransactions
+   * @return contributionTransactions
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CONTRIBUTION_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<KeyValuePair> getContributionTransactions() {
+    return contributionTransactions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CONTRIBUTION_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setContributionTransactions(java.util.List<KeyValuePair> contributionTransactions) {
+    this.contributionTransactions = contributionTransactions;
+  }
+
+
+  public SeriesStats benchmarkDrawdown(java.util.List<KeyValuePair> benchmarkDrawdown) {
+    this.benchmarkDrawdown = benchmarkDrawdown;
+    return this;
+  }
+
+  public SeriesStats addBenchmarkDrawdownItem(KeyValuePair benchmarkDrawdownItem) {
+    if (this.benchmarkDrawdown == null) {
+      this.benchmarkDrawdown = new java.util.ArrayList<>();
+    }
+    this.benchmarkDrawdown.add(benchmarkDrawdownItem);
+    return this;
+  }
+
+   /**
+   * Get benchmarkDrawdown
+   * @return benchmarkDrawdown
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_BENCHMARK_DRAWDOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<KeyValuePair> getBenchmarkDrawdown() {
+    return benchmarkDrawdown;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BENCHMARK_DRAWDOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBenchmarkDrawdown(java.util.List<KeyValuePair> benchmarkDrawdown) {
+    this.benchmarkDrawdown = benchmarkDrawdown;
+  }
+
+
+  public SeriesStats drawdown(java.util.List<KeyValuePair> drawdown) {
+    this.drawdown = drawdown;
+    return this;
+  }
+
+  public SeriesStats addDrawdownItem(KeyValuePair drawdownItem) {
+    if (this.drawdown == null) {
+      this.drawdown = new java.util.ArrayList<>();
+    }
+    this.drawdown.add(drawdownItem);
+    return this;
+  }
+
+   /**
+   * Get drawdown
+   * @return drawdown
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DRAWDOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<KeyValuePair> getDrawdown() {
+    return drawdown;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DRAWDOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDrawdown(java.util.List<KeyValuePair> drawdown) {
+    this.drawdown = drawdown;
+  }
+
 
   public SeriesStats returns(java.util.List<KeyValuePair> returns) {
     this.returns = returns;
@@ -132,19 +322,29 @@ public class SeriesStats implements Serializable {
       return false;
     }
     SeriesStats seriesStats = (SeriesStats) o;
-    return Objects.equals(this.returns, seriesStats.returns) &&
+    return Objects.equals(this.feeTransactions, seriesStats.feeTransactions) &&
+        Objects.equals(this.withdrawalTransactions, seriesStats.withdrawalTransactions) &&
+        Objects.equals(this.contributionTransactions, seriesStats.contributionTransactions) &&
+        Objects.equals(this.benchmarkDrawdown, seriesStats.benchmarkDrawdown) &&
+        Objects.equals(this.drawdown, seriesStats.drawdown) &&
+        Objects.equals(this.returns, seriesStats.returns) &&
         Objects.equals(this.values, seriesStats.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(returns, values);
+    return Objects.hash(feeTransactions, withdrawalTransactions, contributionTransactions, benchmarkDrawdown, drawdown, returns, values);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SeriesStats {\n");
+    sb.append("    feeTransactions: ").append(toIndentedString(feeTransactions)).append("\n");
+    sb.append("    withdrawalTransactions: ").append(toIndentedString(withdrawalTransactions)).append("\n");
+    sb.append("    contributionTransactions: ").append(toIndentedString(contributionTransactions)).append("\n");
+    sb.append("    benchmarkDrawdown: ").append(toIndentedString(benchmarkDrawdown)).append("\n");
+    sb.append("    drawdown: ").append(toIndentedString(drawdown)).append("\n");
     sb.append("    returns: ").append(toIndentedString(returns)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");

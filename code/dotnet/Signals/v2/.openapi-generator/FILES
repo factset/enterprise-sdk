@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.Signals.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Contract.md
 docs/ContractFields.md
 docs/ContractFieldsEventDate.md
@@ -41,7 +39,6 @@ docs/SignalDefinition.md
 docs/SignalDefinitionData.md
 docs/SignalMetaData.md
 docs/SignalMetaDataData.md
-git_push.sh
 src/FactSet.SDK.Signals/Api/EventsApi.cs
 src/FactSet.SDK.Signals/Api/MetadataApi.cs
 src/FactSet.SDK.Signals/Client/ApiClient.cs

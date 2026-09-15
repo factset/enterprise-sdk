@@ -55,7 +55,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ExPostApi();
 const opts = {
-  'exPostStatsCorrelations': new proposalgenerationengine.ExPostStatsCorrelations() // ExPostStatsCorrelations | 
+  'exPostStatsCorrelations': {"data":{"portfolio":{"id":"sample_ID","details":{"name":"test portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"security_id_1","weight":1,"salesCharge":0,"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]}],"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]},"benchmark":{"details":{"name":"bmk_portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"security_id_3","weight":50,"salesCharge":0}]},"settings":{"asOfDate":"latestMonthEnd","returnsPreferences":"string","validatePortfolio":false,"timeWindows":["ytd","12","36","60","120","lifetime"],"stats":["correlationMatrix","portfolioCorrelationMatrix","actReturnsCorrelationMatrix"],"holdingsLimit":1,"fundCorrelationsOnly":true,"showBenchmark":true}}} // ExPostStatsCorrelations | 
 };
 
 // Call api endpoint
@@ -136,7 +136,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ExPostApi();
 const opts = {
-  'exPostStatsFactorExposure': new proposalgenerationengine.ExPostStatsFactorExposure() // ExPostStatsFactorExposure | 
+  'exPostStatsFactorExposure': {"data":{"portfolio":{"id":"sample_ID","details":{"name":"test portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"security_id_1","weight":1,"salesCharge":0,"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]}],"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]},"benchmark":{"details":{"name":"bmk_portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"security_id_3","weight":1,"salesCharge":0}]},"settings":{"asOfDate":"latestMonthEnd","returnsPreferences":"string","validatePortfolio":false,"timeWindows":["ytd","12","36","60","120","lifetime"],"displayFormat":1,"riskTreeLevel":3}}} // ExPostStatsFactorExposure | 
 };
 
 // Call api endpoint
@@ -217,7 +217,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ExPostApi();
 const opts = {
-  'exPostSeriesRolling': new proposalgenerationengine.ExPostSeriesRolling() // ExPostSeriesRolling | 
+  'exPostSeriesRolling': {"data":{"portfolio":{"id":"sample_ID","details":{"name":"test portfolio"},"initialValue":1000,"holdings":[{"id":"security_id_1","weight":0.5},{"id":"security_id_2","weight":0.5}],"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true}},"benchmark":{"details":{"name":"bmk_portfolio"},"initialValue":1000,"holdings":[{"id":"security_id_3","weight":1}],"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true}},"settings":{"asOfDate":"latestMonthEnd","returnsPreferences":"Portal 5.1 - Historical Monthly 120","validatePortfolio":false,"timeWindows":["ytd","12","36","60","120","lifetime"],"rollingTimeWindow":12,"stats":["annReturn","cumReturn","stDev","annLossStd","sharpe","sharpeExcessReturn","sortino","sortinoExcessReturn","correlationMatrix","portfolioCorrelationMatrix"],"periods":[{"startDate":"2017-01-03","endDate":"2017-05-31"}]}}} // ExPostSeriesRolling | 
 };
 
 // Call api endpoint
@@ -298,7 +298,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ExPostApi();
 const opts = {
-  'exPostStatsRolling': new proposalgenerationengine.ExPostStatsRolling() // ExPostStatsRolling | 
+  'exPostStatsRolling': {"data":{"portfolio":{"id":"sample_ID","details":{"name":"test portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"security_id_1","weight":1,"salesCharge":0,"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]}],"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]},"benchmark":{"details":{"name":"bmk_portfolio"},"initialValue":1000,"holdings":[{"id":"security_id_1","weight":1,"salesCharge":0}]},"settings":{"asOfDate":"latestMonthEnd","returnsPreferences":"Portal 5.1 - Historical Monthly 36","validatePortfolio":false,"timeWindows":["ytd","12","36","60","120","lifetime"],"rollingTimeWindow":12,"stats":["annReturn","cumReturn","stDev","annLossStd","sharpe","sharpeExcessReturn","sortino","sortinoExcessReturn","correlationMatrix","portfolioCorrelationMatrix"],"aggregationFunctions":["minimum","maximum"]}}} // ExPostStatsRolling | 
 };
 
 // Call api endpoint
@@ -379,7 +379,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ExPostApi();
 const opts = {
-  'exPostSeries': new proposalgenerationengine.ExPostSeries() // ExPostSeries | 
+  'exPostSeries': {"data":{"portfolio":{"id":"sample_ID","details":{"name":"test portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"security_id_1","weight":1,"salesCharge":0,"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]}],"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-11","endDate":"2026-03-11","frequency":0,"frequencyAlignment":"start"}]},"benchmark":{"details":{"name":"bmk_portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"security_id_2","weight":50,"salesCharge":0}]},"settings":{"asOfDate":"latestMonthEnd","returnsPreferences":"Portal 5.1 - Historical Monthly 120","validatePortfolio":false,"levels":["portfolio","holdings"],"confidenceLevels":[95,99],"reportingFrequency":1,"timeWindows":["ytd","12","36","60","120","lifetime"],"periods":[{"startDate":"2017-01-03","endDate":"2017-05-31"}],"reportingFrequencyAlignment":"start","series":["values","returns","drawdown","benchmarkDrawdown","contributionTransactions","withdrawalTransactions","feeTransactions"]}}} // ExPostSeries | 
 };
 
 // Call api endpoint
@@ -460,7 +460,7 @@ apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json
 
 const apiInstance = new ExPostApi();
 const opts = {
-  'exPostStats': new proposalgenerationengine.ExPostStats() // ExPostStats | 
+  'exPostStats': {"data":{"portfolio":{"id":"sample_ID","details":{"name":"test portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"string","weight":1,"salesCharge":0,"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-10","endDate":"2026-03-10","frequency":0,"frequencyAlignment":"start"}]}],"transactionRules":[{"type":"fee","amount":0,"amountType":"cash","amountGrowth":0,"amountGrowthType":"absolute","amountGrowthFrequency":1,"allowPartialAmount":false,"startDate":"2026-03-10","endDate":"2026-03-10","frequency":0,"frequencyAlignment":"start"}]},"benchmark":{"details":{"name":"bmk_portfolio"},"initialValue":1000,"rebalancing":{"frequency":12,"frequencyAlignment":"start","rebalanceAtStart":true},"holdings":[{"id":"string","weight":1,"salesCharge":0}]},"settings":{"asOfDate":"latestMonthEnd","returnsPreferences":"Portal 5.1 - Historical Monthly 36","validatePortfolio":false,"levels":["portfolio","holdings"],"confidenceLevels":[95,99],"reportingFrequency":1,"timeWindows":["ytd","12","36","60","120","lifetime"],"periods":[{"startDate":"2017-01-03","endDate":"2017-05-31"}],"reportingFrequencyAlignment":"start","stats":["cumReturn","annReturn","meanReturn","stDev","annStDev","annLossStDev","etl","var","skewness","excessKurtosis","positiveReturnsRatio","alpha","beta","rsquare","upCapture","downCapture","sharpe","sortino","starr","longestDrawdownStart","longestDrawdownEnd","maxDrawdown","maxDrawdownDate","maxDrawdownStart","maxDrawdownEnd","maxDrawdownPeriods","topDrawdowns","boxplotSummary","boxplotOutliers"],"udfs":["maxFrontLoad","assetAllocation"]}}} // ExPostStats | 
 };
 
 // Call api endpoint

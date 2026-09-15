@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import Errors from '../model/Errors';
 import PagedSecurities from '../model/PagedSecurities';
 
 /**

@@ -86,11 +86,8 @@ class TransactionRule(ModelNormal):
 
         },
         ('frequency_alignment',): {
-            '1': 1,
-            '2': 2,
-            '4': 4,
-            '6': 6,
-            '12': 12,
+            'START': "start",
+            'CALENDAR': "calendar",
 
 
         },
@@ -130,7 +127,7 @@ class TransactionRule(ModelNormal):
             'start_date': (date,),  # noqa: E501
             'end_date': (date,),  # noqa: E501
             'frequency': (float,),  # noqa: E501
-            'frequency_alignment': (float,),  # noqa: E501
+            'frequency_alignment': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -203,7 +200,7 @@ class TransactionRule(ModelNormal):
             start_date (date): initial date when the rule is applied. [optional]  # noqa: E501
             end_date (date): last date when the rule is applied. [optional]  # noqa: E501
             frequency (float): monthly - 12, yearly - 1, quarterly - 4; only once = endPeriod should be equal to startPeriod. [optional]  # noqa: E501
-            frequency_alignment (float): [optional]  # noqa: E501
+            frequency_alignment (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -295,7 +292,7 @@ class TransactionRule(ModelNormal):
             start_date (date): initial date when the rule is applied. [optional]  # noqa: E501
             end_date (date): last date when the rule is applied. [optional]  # noqa: E501
             frequency (float): monthly - 12, yearly - 1, quarterly - 4; only once = endPeriod should be equal to startPeriod. [optional]  # noqa: E501
-            frequency_alignment (float): [optional]  # noqa: E501
+            frequency_alignment (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

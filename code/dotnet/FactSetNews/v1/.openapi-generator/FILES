@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetNews.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CreateOrEditViewBody.md
 docs/CreateOrEditViewBodyData.md
 docs/CreateOrEditViewTickers.md
@@ -82,7 +80,6 @@ docs/StructuredFiltersWatchlistsObject.md
 docs/Views.md
 docs/ViewsApi.md
 docs/ViewsObject.md
-git_push.sh
 src/FactSet.SDK.FactSetNews/Api/FiltersApi.cs
 src/FactSet.SDK.FactSetNews/Api/HeadlinesApi.cs
 src/FactSet.SDK.FactSetNews/Api/ViewsApi.cs

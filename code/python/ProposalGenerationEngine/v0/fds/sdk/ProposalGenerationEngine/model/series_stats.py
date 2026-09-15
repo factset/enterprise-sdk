@@ -88,6 +88,11 @@ class SeriesStats(ModelNormal):
         """
         lazy_import()
         return {
+            'fee_transactions': ([KeyValuePair],),  # noqa: E501
+            'withdrawal_transactions': ([KeyValuePair],),  # noqa: E501
+            'contribution_transactions': ([KeyValuePair],),  # noqa: E501
+            'benchmark_drawdown': ([KeyValuePair],),  # noqa: E501
+            'drawdown': ([KeyValuePair],),  # noqa: E501
             'returns': ([KeyValuePair],),  # noqa: E501
             'values': ([KeyValuePair],),  # noqa: E501
         }
@@ -98,6 +103,11 @@ class SeriesStats(ModelNormal):
 
 
     attribute_map = {
+        'fee_transactions': 'feeTransactions',  # noqa: E501
+        'withdrawal_transactions': 'withdrawalTransactions',  # noqa: E501
+        'contribution_transactions': 'contributionTransactions',  # noqa: E501
+        'benchmark_drawdown': 'benchmarkDrawdown',  # noqa: E501
+        'drawdown': 'drawdown',  # noqa: E501
         'returns': 'returns',  # noqa: E501
         'values': 'values',  # noqa: E501
     }
@@ -143,6 +153,11 @@ class SeriesStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fee_transactions ([KeyValuePair]): [optional]  # noqa: E501
+            withdrawal_transactions ([KeyValuePair]): [optional]  # noqa: E501
+            contribution_transactions ([KeyValuePair]): [optional]  # noqa: E501
+            benchmark_drawdown ([KeyValuePair]): [optional]  # noqa: E501
+            drawdown ([KeyValuePair]): [optional]  # noqa: E501
             returns ([KeyValuePair]): [optional]  # noqa: E501
             values ([KeyValuePair]): [optional]  # noqa: E501
         """
@@ -226,6 +241,11 @@ class SeriesStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            fee_transactions ([KeyValuePair]): [optional]  # noqa: E501
+            withdrawal_transactions ([KeyValuePair]): [optional]  # noqa: E501
+            contribution_transactions ([KeyValuePair]): [optional]  # noqa: E501
+            benchmark_drawdown ([KeyValuePair]): [optional]  # noqa: E501
+            drawdown ([KeyValuePair]): [optional]  # noqa: E501
             returns ([KeyValuePair]): [optional]  # noqa: E501
             values ([KeyValuePair]): [optional]  # noqa: E501
         """

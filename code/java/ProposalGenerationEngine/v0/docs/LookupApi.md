@@ -107,4 +107,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of investments |  -  |
+| **400** | Bad request |  -  |
+| **501** | Server is unable to process your request |  -  |
 

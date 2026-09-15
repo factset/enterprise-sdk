@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -15,7 +13,6 @@ docs/EtfReferenceDataResponse.md
 docs/Metric.md
 docs/MetricsResponse.md
 docs/ReferenceApi.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

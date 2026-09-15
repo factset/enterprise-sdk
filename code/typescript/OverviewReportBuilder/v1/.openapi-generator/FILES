@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CompanyApi.md
@@ -113,7 +111,6 @@ docs/ProfileDataObjectStagePevcLatestPostMoneyValuation.md
 docs/ProfileDataObjectStageTradeDateRange.md
 docs/ProfileResponse.md
 docs/StachTableResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetConcordance.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CreateUniverseRequest.md
 docs/EntityDecisionsResponse.md
 docs/EntityMapping.md
@@ -60,7 +58,6 @@ docs/UniverseStatisticsResponse.md
 docs/UniversesApi.md
 docs/UniversesResponse.md
 docs/UpdateUniverseRequest.md
-git_push.sh
 src/FactSet.SDK.FactSetConcordance/Api/EntityMatchApi.cs
 src/FactSet.SDK.FactSetConcordance/Api/EntityMatchBulkApi.cs
 src/FactSet.SDK.FactSetConcordance/Api/MappingsApi.cs

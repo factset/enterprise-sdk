@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-exchangedatafeedsnapshotapientireexchange",
-  "version": "0.22.2",
+  "version": "0.23.0",
   "description": "Exchange DataFeed Snapshot API - Entire Exchange client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",
@@ -38,6 +38,6 @@
     "dist"
   ],
   "bugs": {
-    "url": "https://developer.factset.com/"
+    "url": "https://developer.factset.com/api-catalog/exchange-datafeed-snapshot-api-entire-exchange#report-issue"
   }
 }

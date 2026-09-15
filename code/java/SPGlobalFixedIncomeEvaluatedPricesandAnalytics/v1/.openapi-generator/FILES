@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -41,7 +39,6 @@ docs/PricesApi.md
 docs/SensitivityApi.md
 docs/SpreadApi.md
 docs/YieldApi.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

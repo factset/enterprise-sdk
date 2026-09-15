@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AdvisorParticipant.md
@@ -27,7 +25,6 @@ docs/Participant.md
 docs/SellersAdvisor.md
 docs/Status.md
 docs/Target.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

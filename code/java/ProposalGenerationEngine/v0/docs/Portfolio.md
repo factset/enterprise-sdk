@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | unique id of the entity |  [optional]
 **details** | [**PortfolioEntityDetails**](PortfolioEntityDetails.md) |  |  [optional]
+**holdings** | [**java.util.List&lt;ExPostPortfolioInvestment&gt;**](ExPostPortfolioInvestment.md) |  | 
 **initialValue** | **BigDecimal** | the initial value (PV) of the portfolio |  [optional]
 **rebalancing** | [**Rebalancing**](Rebalancing.md) |  |  [optional]
 

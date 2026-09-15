@@ -35,13 +35,37 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RollingSeriesPerTimeWindow" /> class.
         /// </summary>
+        /// <param name="correlations">correlations.</param>
+        /// <param name="performance">performance.</param>
+        /// <param name="risks">risks.</param>
         /// <param name="dates">dates.</param>
         /// <param name="returns">returns.</param>
-        public RollingSeriesPerTimeWindow(List<DateTime> dates = default(List<DateTime>), RollingSeriesPerTimeWindowReturns returns = default(RollingSeriesPerTimeWindowReturns))
+        public RollingSeriesPerTimeWindow(CorrelationStats correlations = default(CorrelationStats), PerformanceStats performance = default(PerformanceStats), RiskStats risks = default(RiskStats), List<DateTime> dates = default(List<DateTime>), RollingSeriesPerTimeWindowReturns returns = default(RollingSeriesPerTimeWindowReturns))
         {
+            this.Correlations = correlations;
+            this.Performance = performance;
+            this.Risks = risks;
             this.Dates = dates;
             this.Returns = returns;
         }
+
+        /// <summary>
+        /// Gets or Sets Correlations
+        /// </summary>
+        [DataMember(Name = "correlations", EmitDefaultValue = false)]
+        public CorrelationStats Correlations { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Performance
+        /// </summary>
+        [DataMember(Name = "performance", EmitDefaultValue = false)]
+        public PerformanceStats Performance { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Risks
+        /// </summary>
+        [DataMember(Name = "risks", EmitDefaultValue = false)]
+        public RiskStats Risks { get; set; }
 
         /// <summary>
         /// Gets or Sets Dates
@@ -63,6 +87,9 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RollingSeriesPerTimeWindow {\n");
+            sb.Append("  Correlations: ").Append(Correlations).Append("\n");
+            sb.Append("  Performance: ").Append(Performance).Append("\n");
+            sb.Append("  Risks: ").Append(Risks).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Returns: ").Append(Returns).Append("\n");
             sb.Append("}\n");
@@ -101,6 +128,21 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             }
             return 
                 (
+                    this.Correlations == input.Correlations ||
+                    (this.Correlations != null &&
+                    this.Correlations.Equals(input.Correlations))
+                ) && 
+                (
+                    this.Performance == input.Performance ||
+                    (this.Performance != null &&
+                    this.Performance.Equals(input.Performance))
+                ) && 
+                (
+                    this.Risks == input.Risks ||
+                    (this.Risks != null &&
+                    this.Risks.Equals(input.Risks))
+                ) && 
+                (
                     this.Dates == input.Dates ||
                     this.Dates != null &&
                     input.Dates != null &&
@@ -122,6 +164,18 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Correlations != null)
+                {
+                    hashCode = (hashCode * 59) + this.Correlations.GetHashCode();
+                }
+                if (this.Performance != null)
+                {
+                    hashCode = (hashCode * 59) + this.Performance.GetHashCode();
+                }
+                if (this.Risks != null)
+                {
+                    hashCode = (hashCode * 59) + this.Risks.GetHashCode();
+                }
                 if (this.Dates != null)
                 {
                     hashCode = (hashCode * 59) + this.Dates.GetHashCode();

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.BestExecutionAnalyticsforSmarterTradingBEAST.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AggregateMarketImpact.md
 docs/CostEstimate.md
 docs/CostEstimates.md
@@ -79,7 +77,6 @@ docs/VolumeTimeResponseRoot.md
 docs/VolumeVenue.md
 docs/VolumeVenueResponse.md
 docs/VolumeVenueResponseRoot.md
-git_push.sh
 src/FactSet.SDK.BestExecutionAnalyticsforSmarterTradingBEAST/Api/LiquidityAnalyticsApi.cs
 src/FactSet.SDK.BestExecutionAnalyticsforSmarterTradingBEAST/Api/MarketImpactApi.cs
 src/FactSet.SDK.BestExecutionAnalyticsforSmarterTradingBEAST/Api/OrderDetailsApi.cs

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AUMReportType.md
@@ -80,7 +78,6 @@ docs/USFinancial.md
 docs/USStateCode.md
 docs/Ucc1FilingsRequest.md
 docs/Ucc1FilingsRequestData.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

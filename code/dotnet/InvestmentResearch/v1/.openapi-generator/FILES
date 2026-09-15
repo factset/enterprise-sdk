@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.InvestmentResearch.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AssetResponse.md
 docs/AssetTypesResponse.md
 docs/CategoriesResponse.md
@@ -40,7 +38,6 @@ docs/SecurityResponse.md
 docs/SecurityTypesResponse.md
 docs/TimeZoneResponse.md
 docs/TimeZonesResponse.md
-git_push.sh
 src/FactSet.SDK.InvestmentResearch/Api/MetaApi.cs
 src/FactSet.SDK.InvestmentResearch/Api/ResearchApi.cs
 src/FactSet.SDK.InvestmentResearch/Client/ApiClient.cs

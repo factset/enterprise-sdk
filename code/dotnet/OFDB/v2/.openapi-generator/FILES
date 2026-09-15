@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OFDB.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AddApi.md
 docs/AddDates.md
 docs/AddFields.md
@@ -55,7 +53,6 @@ docs/UpdateDate.md
 docs/UpdateDates.md
 docs/UpdateSymbol.md
 docs/UpdateSymbols.md
-git_push.sh
 src/FactSet.SDK.OFDB/Api/AddApi.cs
 src/FactSet.SDK.OFDB/Api/CreateApi.cs
 src/FactSet.SDK.OFDB/Api/DeleteApi.cs

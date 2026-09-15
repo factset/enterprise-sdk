@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **endDate** | **LocalDate** |  |  [optional]
 **numberOfDays** | **BigDecimal** |  |  [optional]
 **basedOnTimeWindow** | **String** |  |  [optional]
-**series** | [**SerieStats**](SerieStats.md) |  |  [optional]
+**series** | [**SeriesStats**](SeriesStats.md) |  |  [optional]
 
 
 ## Implemented Interfaces

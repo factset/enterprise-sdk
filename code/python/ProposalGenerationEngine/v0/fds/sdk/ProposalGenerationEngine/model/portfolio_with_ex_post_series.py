@@ -99,7 +99,7 @@ class PortfolioWithExPostSeries(ModelComposed):
             'id': (str,),  # noqa: E501
             'details': (PortfolioEntityDetails,),  # noqa: E501
             'series': (TimeWindowSeries,),  # noqa: E501
-            'periods': (PeriodSeries,),  # noqa: E501
+            'periods': ([PeriodSeries],),  # noqa: E501
         }
 
     @cached_property
@@ -156,7 +156,7 @@ class PortfolioWithExPostSeries(ModelComposed):
             id (str): unique id of the entity. [optional]  # noqa: E501
             details (PortfolioEntityDetails): [optional]  # noqa: E501
             series (TimeWindowSeries): [optional]  # noqa: E501
-            periods (PeriodSeries): [optional]  # noqa: E501
+            periods ([PeriodSeries]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,7 +259,7 @@ class PortfolioWithExPostSeries(ModelComposed):
             id (str): unique id of the entity. [optional]  # noqa: E501
             details (PortfolioEntityDetails): [optional]  # noqa: E501
             series (TimeWindowSeries): [optional]  # noqa: E501
-            periods (PeriodSeries): [optional]  # noqa: E501
+            periods ([PeriodSeries]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

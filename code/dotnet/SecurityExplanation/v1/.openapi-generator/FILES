@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.SecurityExplanation.sln
 LICENSE
 README.md
-appveyor.yml
 docs/APIClientErrorResponse.md
 docs/APIError.md
 docs/BrokerResearchSummary.md
@@ -17,7 +15,6 @@ docs/SecurityExplanationParametersRoot.md
 docs/SecurityExplanationRequestParameters.md
 docs/SecurityExplanationResponse.md
 docs/SecurityExplanationResponseRoot.md
-git_push.sh
 src/FactSet.SDK.SecurityExplanation/Api/SecurityExplanationApi.cs
 src/FactSet.SDK.SecurityExplanation/Client/ApiClient.cs
 src/FactSet.SDK.SecurityExplanation/Client/ApiException.cs

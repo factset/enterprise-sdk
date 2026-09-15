@@ -36,9 +36,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Initializes a new instance of the <see cref="TimeWindowStatsGeneric" /> class.
         /// </summary>
         /// <param name="salesChage">salesChage.</param>
-        public TimeWindowStatsGeneric(decimal salesChage = default(decimal))
+        /// <param name="minHistoricalDate">minHistoricalDate.</param>
+        public TimeWindowStatsGeneric(decimal salesChage = default(decimal), string minHistoricalDate = default(string))
         {
             this.SalesChage = salesChage;
+            this.MinHistoricalDate = minHistoricalDate;
         }
 
         /// <summary>
@@ -46,6 +48,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// </summary>
         [DataMember(Name = "salesChage", EmitDefaultValue = false)]
         public decimal SalesChage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MinHistoricalDate
+        /// </summary>
+        [DataMember(Name = "minHistoricalDate", EmitDefaultValue = false)]
+        public string MinHistoricalDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,6 +64,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TimeWindowStatsGeneric {\n");
             sb.Append("  SalesChage: ").Append(SalesChage).Append("\n");
+            sb.Append("  MinHistoricalDate: ").Append(MinHistoricalDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +103,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 (
                     this.SalesChage == input.SalesChage ||
                     this.SalesChage.Equals(input.SalesChage)
+                ) && 
+                (
+                    this.MinHistoricalDate == input.MinHistoricalDate ||
+                    (this.MinHistoricalDate != null &&
+                    this.MinHistoricalDate.Equals(input.MinHistoricalDate))
                 );
         }
 
@@ -107,6 +121,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.SalesChage.GetHashCode();
+                if (this.MinHistoricalDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.MinHistoricalDate.GetHashCode();
+                }
                 return hashCode;
             }
         }

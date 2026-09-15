@@ -54,7 +54,7 @@ public class ExPostSeriesSettingsAllOf implements Serializable {
     
     CONTRIBUTIONTRANSACTIONS("contributionTransactions"),
     
-    WITHRAWALTRANSACTIONS("withrawalTransactions"),
+    WITHDRAWALTRANSACTIONS("withdrawalTransactions"),
     
     FEETRANSACTIONS("feeTransactions");
 

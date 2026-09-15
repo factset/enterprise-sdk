@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **pending_product_orders** | [**[PendingProductOrder]**](PendingProductOrder.md) | An array of pending FactSet product orders. | [optional] [readonly] 
 **federations** | [**[FederationResourceReference]**](FederationResourceReference.md) | References to the federations in which the user has at least one assertion value. | [optional] 
 **invoice_id** | **str** | The identifier of the invoice that should be associated with a new user for billing purposes. Note once an invoice ID has been assigned to a user, it cannot be modified via this API. If invoice ID re-assignment is necessary, please contact your FactSet representative. | [optional] 
+**corporate_suite_executive** | **bool** | For individuals who wish to receive investment research as corporate management or investor relations personnel. Such individuals are typically entitled to specific companies or industries. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

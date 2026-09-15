@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.snapshot_api import SnapshotApi
+#   from .api.exchange_snapshot_api import ExchangeSnapshotApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,4 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.api.snapshot_api import SnapshotApi
+from fds.sdk.ExchangeDataFeedSnapshotAPIEntireExchange.api.exchange_snapshot_api import ExchangeSnapshotApi

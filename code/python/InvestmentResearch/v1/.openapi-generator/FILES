@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AnalystId.md
@@ -130,7 +127,6 @@ fds/sdk/InvestmentResearch/model_utils.py
 fds/sdk/InvestmentResearch/models/__init__.py
 fds/sdk/InvestmentResearch/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CompanySummaryApi.md
@@ -21,7 +19,6 @@ docs/StockMovementMetaData.md
 docs/StockMovementResponse.md
 docs/StockMovementSummaryApi.md
 docs/SummaryItem.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

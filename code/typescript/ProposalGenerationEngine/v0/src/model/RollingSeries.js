@@ -47,6 +47,15 @@ class RollingSeries {
         if (data) {
             obj = obj || new RollingSeries();
 
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
+            }
+            if (data.hasOwnProperty('rollingTimeWindow') && obj['rollingTimeWindow'] === undefined) {
+                obj['rollingTimeWindow'] = ApiClient.convertToType(data['rollingTimeWindow'], 'Number');
+            }
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
+                obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
+            }
             if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': RollingSeriesPerTimeWindow});
             }
@@ -57,6 +66,22 @@ class RollingSeries {
 
 
 }
+
+/**
+ * @member {String} currency
+ */
+RollingSeries.prototype['currency'] = undefined;
+
+/**
+ * @member {Number} rollingTimeWindow
+ */
+RollingSeries.prototype['rollingTimeWindow'] = undefined;
+
+/**
+ * The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client
+ * @member {String} asOfDate
+ */
+RollingSeries.prototype['asOfDate'] = undefined;
 
 /**
  * a map from time window to rolling series. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request

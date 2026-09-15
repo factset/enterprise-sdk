@@ -236,24 +236,18 @@ public class TransactionRule implements Serializable {
    * Gets or Sets frequencyAlignment
    */
   public enum FrequencyAlignmentEnum {
-    NUMBER_1(new BigDecimal("1")),
+    START("start"),
     
-    NUMBER_2(new BigDecimal("2")),
-    
-    NUMBER_4(new BigDecimal("4")),
-    
-    NUMBER_6(new BigDecimal("6")),
-    
-    NUMBER_12(new BigDecimal("12"));
+    CALENDAR("calendar");
 
-    private BigDecimal value;
+    private String value;
 
-    FrequencyAlignmentEnum(BigDecimal value) {
+    FrequencyAlignmentEnum(String value) {
       this.value = value;
     }
 
     @JsonValue
-    public BigDecimal getValue() {
+    public String getValue() {
       return value;
     }
 
@@ -263,7 +257,7 @@ public class TransactionRule implements Serializable {
     }
 
     @JsonCreator
-    public static FrequencyAlignmentEnum fromValue(BigDecimal value) {
+    public static FrequencyAlignmentEnum fromValue(String value) {
       for (FrequencyAlignmentEnum b : FrequencyAlignmentEnum.values()) {
         if (b.value.equals(value)) {
           return b;

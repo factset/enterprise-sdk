@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetBenchmarks.sln
 LICENSE
 README.md
-appveyor.yml
 docs/BenchmarkConstituent.md
 docs/BenchmarkConstituentsApi.md
 docs/BenchmarkConstituentsRequest.md
@@ -37,7 +35,6 @@ docs/IndexSnapshotRequest.md
 docs/IndexSnapshotResponse.md
 docs/Periodicity.md
 docs/ReturnType.md
-git_push.sh
 src/FactSet.SDK.FactSetBenchmarks/Api/BenchmarkConstituentsApi.cs
 src/FactSet.SDK.FactSetBenchmarks/Api/HelperApi.cs
 src/FactSet.SDK.FactSetBenchmarks/Api/IndexLevelApi.cs

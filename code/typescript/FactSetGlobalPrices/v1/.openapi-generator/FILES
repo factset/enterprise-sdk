@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Adjust.md
@@ -74,7 +72,6 @@ docs/SplitCalendar.md
 docs/SplitsResponseCalendar.md
 docs/StockDistribution.md
 docs/StockDistributionsResponseCalendar.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

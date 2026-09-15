@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AdaptiveCardAnswerSuccessResponse.md
@@ -96,7 +94,6 @@ docs/ValueLabelDateTextBlockTemplateData.md
 docs/ValueLabelDateTextBlockTemplateDataAllOf.md
 docs/ValueLabelTemplateData.md
 docs/ValueLabelTemplateDataAllOf.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

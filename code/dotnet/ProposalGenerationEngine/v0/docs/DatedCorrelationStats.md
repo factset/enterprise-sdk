@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Currency** | **string** |  | [optional] 
 **TimeWindow** | [**Dictionary&lt;string, DatedCorrelationStatsPerTimeWindow&gt;**](DatedCorrelationStatsPerTimeWindow.md) | a map from time window to correlation stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request | [optional] 
 **Periods** | [**List&lt;PeriodCorrelationStats&gt;**](PeriodCorrelationStats.md) |  | [optional] 
 

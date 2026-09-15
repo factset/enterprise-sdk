@@ -1,0 +1,7 @@
+# ignore build system files we do not use
+
+**/pom.xml
+**/build.sbt
+**/.travis.yml
+**/git_push.sh
+**/.gitignore

@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AUMReportType.md
@@ -172,7 +169,6 @@ fds/sdk/FactSetBanks/model_utils.py
 fds/sdk/FactSetBanks/models/__init__.py
 fds/sdk/FactSetBanks/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

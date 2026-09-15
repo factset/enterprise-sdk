@@ -61,7 +61,7 @@ Name | Type | Description | Notes
 
 * `annStDev` (value: `"annStDev"`)
 
-* `annLossStd` (value: `"annLossStd"`)
+* `annLossStDev` (value: `"annLossStDev"`)
 
 * `annStDev100` (value: `"annStDev100"`)
 
@@ -150,6 +150,8 @@ Name | Type | Description | Notes
 * `withdrawalTransactions` (value: `"withdrawalTransactions"`)
 
 * `feeTransactions` (value: `"feeTransactions"`)
+
+* `PV` (value: `"PV"`)
 
 
 

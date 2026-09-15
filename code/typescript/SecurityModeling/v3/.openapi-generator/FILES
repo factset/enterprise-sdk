@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/OneOfFieldsFields.md
@@ -24,7 +22,6 @@ docs/SMRetrieveResponse.md
 docs/SMRetrieveResponseRoot.md
 docs/SMWarning.md
 docs/SecurityModelingApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

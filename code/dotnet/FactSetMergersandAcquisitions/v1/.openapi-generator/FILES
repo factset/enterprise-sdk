@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetMergersandAcquisitions.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AdvisorParticipant.md
 docs/Advisors.md
 docs/BuyersAdvisor.md
@@ -27,7 +25,6 @@ docs/Participant.md
 docs/SellersAdvisor.md
 docs/Status.md
 docs/Target.md
-git_push.sh
 src/FactSet.SDK.FactSetMergersandAcquisitions/Api/DealsApi.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Client/ApiClient.cs
 src/FactSet.SDK.FactSetMergersandAcquisitions/Client/ApiException.cs

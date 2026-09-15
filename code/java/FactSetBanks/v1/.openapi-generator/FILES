@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -81,7 +79,6 @@ docs/USStateCode.md
 docs/UbprPerformanceApi.md
 docs/Ucc1FilingsRequest.md
 docs/Ucc1FilingsRequestData.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

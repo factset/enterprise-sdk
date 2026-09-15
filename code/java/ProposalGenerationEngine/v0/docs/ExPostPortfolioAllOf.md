@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**holdings** | [**java.util.List&lt;ExPostPortfolioInvestment&gt;**](ExPostPortfolioInvestment.md) |  |  [optional]
+**holdings** | [**java.util.List&lt;ExPostPortfolioInvestmentRequest&gt;**](ExPostPortfolioInvestmentRequest.md) |  |  [optional]
 **transactionRules** | [**java.util.List&lt;TransactionRule&gt;**](TransactionRule.md) | rules for adding/substracting amount from the portfolio at given periods |  [optional]
 
 

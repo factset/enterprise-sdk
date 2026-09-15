@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
+import com.factset.sdk.ProposalGenerationEngine.models.ExPostPortfolioInvestment;
 import com.factset.sdk.ProposalGenerationEngine.models.PortfolioAllOf;
 import com.factset.sdk.ProposalGenerationEngine.models.PortfolioEntity;
 import com.factset.sdk.ProposalGenerationEngine.models.PortfolioEntityDetails;
@@ -40,6 +41,7 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 @JsonPropertyOrder({
   Portfolio.JSON_PROPERTY_ID,
   Portfolio.JSON_PROPERTY_DETAILS,
+  Portfolio.JSON_PROPERTY_HOLDINGS,
   Portfolio.JSON_PROPERTY_INITIAL_VALUE,
   Portfolio.JSON_PROPERTY_REBALANCING
 })
@@ -54,6 +56,9 @@ public class Portfolio implements Serializable {
   public static final String JSON_PROPERTY_DETAILS = "details";
   private PortfolioEntityDetails details;
 
+  public static final String JSON_PROPERTY_HOLDINGS = "holdings";
+  private java.util.List<ExPostPortfolioInvestment> holdings = new java.util.ArrayList<>();
+
   public static final String JSON_PROPERTY_INITIAL_VALUE = "initialValue";
   private BigDecimal initialValue;
 
@@ -61,6 +66,14 @@ public class Portfolio implements Serializable {
   private Rebalancing rebalancing;
 
   public Portfolio() { 
+  }
+
+  @JsonCreator
+  public Portfolio(
+    @JsonProperty(value=JSON_PROPERTY_HOLDINGS, required=true) java.util.List<ExPostPortfolioInvestment> holdings
+  ) {
+    this();
+    this.holdings = holdings;
   }
 
   public Portfolio id(String id) {
@@ -112,6 +125,37 @@ public class Portfolio implements Serializable {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetails(PortfolioEntityDetails details) {
     this.details = details;
+  }
+
+
+  public Portfolio holdings(java.util.List<ExPostPortfolioInvestment> holdings) {
+    this.holdings = holdings;
+    return this;
+  }
+
+  public Portfolio addHoldingsItem(ExPostPortfolioInvestment holdingsItem) {
+    this.holdings.add(holdingsItem);
+    return this;
+  }
+
+   /**
+   * Get holdings
+   * @return holdings
+  **/
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public java.util.List<ExPostPortfolioInvestment> getHoldings() {
+    return holdings;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HOLDINGS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setHoldings(java.util.List<ExPostPortfolioInvestment> holdings) {
+    this.holdings = holdings;
   }
 
 
@@ -181,13 +225,14 @@ public class Portfolio implements Serializable {
     Portfolio portfolio = (Portfolio) o;
     return Objects.equals(this.id, portfolio.id) &&
         Objects.equals(this.details, portfolio.details) &&
+        Objects.equals(this.holdings, portfolio.holdings) &&
         Objects.equals(this.initialValue, portfolio.initialValue) &&
         Objects.equals(this.rebalancing, portfolio.rebalancing);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, details, initialValue, rebalancing);
+    return Objects.hash(id, details, holdings, initialValue, rebalancing);
   }
 
   @Override
@@ -196,6 +241,7 @@ public class Portfolio implements Serializable {
     sb.append("class Portfolio {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    holdings: ").append(toIndentedString(holdings)).append("\n");
     sb.append("    initialValue: ").append(toIndentedString(initialValue)).append("\n");
     sb.append("    rebalancing: ").append(toIndentedString(rebalancing)).append("\n");
     sb.append("}");

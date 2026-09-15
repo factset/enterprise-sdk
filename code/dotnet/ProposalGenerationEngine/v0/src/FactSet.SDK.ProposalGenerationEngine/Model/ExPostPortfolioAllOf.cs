@@ -37,7 +37,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// </summary>
         /// <param name="holdings">holdings.</param>
         /// <param name="transactionRules">rules for adding/substracting amount from the portfolio at given periods.</param>
-        public ExPostPortfolioAllOf(List<ExPostPortfolioInvestment> holdings = default(List<ExPostPortfolioInvestment>), List<TransactionRule> transactionRules = default(List<TransactionRule>))
+        public ExPostPortfolioAllOf(List<ExPostPortfolioInvestmentRequest> holdings = default(List<ExPostPortfolioInvestmentRequest>), List<TransactionRule> transactionRules = default(List<TransactionRule>))
         {
             this.Holdings = holdings;
             this.TransactionRules = transactionRules;
@@ -47,7 +47,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets Holdings
         /// </summary>
         [DataMember(Name = "holdings", EmitDefaultValue = false)]
-        public List<ExPostPortfolioInvestment> Holdings { get; set; }
+        public List<ExPostPortfolioInvestmentRequest> Holdings { get; set; }
 
         /// <summary>
         /// rules for adding/substracting amount from the portfolio at given periods

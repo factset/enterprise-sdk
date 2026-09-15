@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sharpe** | **BigDecimal** | sharpe ratio |  [optional]
+**sharpe** | [**Sharpe**](Sharpe.md) |  |  [optional]
 **sortino** | **BigDecimal** |  |  [optional]
 **starr** | **BigDecimal** |  |  [optional]
 

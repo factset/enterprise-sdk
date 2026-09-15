@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CreateReportApi.md
@@ -15,7 +13,6 @@ docs/ReportDataHeader.md
 docs/RetrieveRefreshedDataApi.md
 docs/RetrieveRefreshedReportApi.md
 docs/RetrieveReportListApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

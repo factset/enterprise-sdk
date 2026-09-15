@@ -90,6 +90,7 @@ class DatedCorrelationStats(ModelNormal):
         """
         lazy_import()
         return {
+            'currency': (str,),  # noqa: E501
             'time_window': ({str: (DatedCorrelationStatsPerTimeWindow,)},),  # noqa: E501
             'periods': ([PeriodCorrelationStats],),  # noqa: E501
         }
@@ -100,6 +101,7 @@ class DatedCorrelationStats(ModelNormal):
 
 
     attribute_map = {
+        'currency': 'currency',  # noqa: E501
         'time_window': 'timeWindow',  # noqa: E501
         'periods': 'periods',  # noqa: E501
     }
@@ -145,6 +147,7 @@ class DatedCorrelationStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            currency (str): [optional]  # noqa: E501
             time_window ({str: (DatedCorrelationStatsPerTimeWindow,)}): a map from time window to correlation stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request. [optional]  # noqa: E501
             periods ([PeriodCorrelationStats]): [optional]  # noqa: E501
         """
@@ -228,6 +231,7 @@ class DatedCorrelationStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            currency (str): [optional]  # noqa: E501
             time_window ({str: (DatedCorrelationStatsPerTimeWindow,)}): a map from time window to correlation stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request. [optional]  # noqa: E501
             periods ([PeriodCorrelationStats]): [optional]  # noqa: E501
         """

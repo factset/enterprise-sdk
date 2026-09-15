@@ -1,16 +1,18 @@
 # FactSet.SDK.FactSetIntradayTickHistory.Api.TradesAtTimeApi
 
-All URIs are relative to *https://api-sandbox.factset.com*
+All URIs are relative to *https://api.factset.com/TickHistory*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TickHistoryTradesattimeGet**](TradesAtTimeApi.md#tickhistorytradesattimeget) | **GET** /TickHistory/tradesattime | Request returns the before and after trade data along with the associated quotes for the specified time
+[**TradesattimeGet**](TradesAtTimeApi.md#tradesattimeget) | **GET** /tradesattime | Trades at Time service returns the trade immediately before and after a specified time, along with associated quotes
 
 
 
-<a name="tickhistorytradesattimeget"></a>
-# **TickHistoryTradesattimeGet**
-> TickhistoryResponse TickHistoryTradesattimeGet (string id, string reqId = null, string format = null, string date = null, string time = null)
+<a name="tradesattimeget"></a>
+# **TradesattimeGet**
+> TickHistoryResponse TradesattimeGet (string id, string reqId = null, string format = null, string date = null, string time = null)
+
+Trades at Time service returns the trade immediately before and after a specified time, along with associated quotes
 
 Request returns the before and after trade data along with the associated quotes for the specified time
 
@@ -31,7 +33,7 @@ using FactSet.SDK.FactSetIntradayTickHistory.Model;
 
 namespace Example
 {
-    public class TickHistoryTradesattimeGetExample
+    public class TradesattimeGetExample
     {
         public static async Task Main()
         {
@@ -58,21 +60,21 @@ namespace Example
 
             var apiInstance = new TradesAtTimeApi(config);
 
-            var id = "id_example";  // string | Requested symbol or security. The symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA
-            var reqId = "reqId_example";  // string | Request Identification String. Can be used by the application to keep track of requests. The id is not used by this service, however, it is included in the XML response. (optional) 
-            var format = "XML";  // string | The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER (optional)  (default to XML)
+            var id = "id_example";  // string | Requested symbol or security. The symbol can be a FactSet ticker-exchange or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier can be requested per API call. </p> <p>The sandbox environment provides access to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>
+            var reqId = "reqId_example";  // string | Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the response. (optional) 
+            var format = "XML";  // string | The format of the output file.  (optional)  (default to XML)
             var date = "date_example";  // string | Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days (optional) 
-            var time = "time_example";  // string | Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds (optional) 
+            var time = "time_example";  // string | Request should be made in the format **HHMMSS**.HH- Hour, MM- Minutes, SS- Seconds (optional) 
 
             try
             {
-                // Request returns the before and after trade data along with the associated quotes for the specified time
-                TickhistoryResponse result = apiInstance.TickHistoryTradesattimeGet(id, reqId, format, date, time);
+                // Trades at Time service returns the trade immediately before and after a specified time, along with associated quotes
+                TickHistoryResponse result = apiInstance.TradesattimeGet(id, reqId, format, date, time);
                 Console.WriteLine(result.ToJson());
             }
             catch (ApiException  e)
             {
-                Console.WriteLine("Exception when calling TradesAtTimeApi.TickHistoryTradesattimeGet: " + e.Message );
+                Console.WriteLine("Exception when calling TradesAtTimeApi.TradesattimeGet: " + e.Message );
                 Console.WriteLine("Status Code: "+ e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -85,14 +87,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Requested symbol or security. The symbol can be a FactSet exchange symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per request.&lt;P&gt;**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA | 
- **reqId** | **string**| Request Identification String. Can be used by the application to keep track of requests. The id is not used by this service, however, it is included in the XML response. | [optional] 
- **format** | **string**| The format of the output file. TRY IT OUT Choose from JSON, CSV, CSV_NO_HEADER | [optional] [default to XML]
+ **id** | **string**| Requested symbol or security. The symbol can be a FactSet ticker-exchange or ticker-region symbol, CUSIP, ISIN or SEDOL.  &lt;p&gt;**Note**: Only one identifier can be requested per API call. &lt;/p&gt; &lt;p&gt;The sandbox environment provides access to the following list of symbols: &lt;/p&gt; &lt;p&gt;BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1&lt;/p&gt; | 
+ **reqId** | **string**| Request Identification String. Can be used by the application to keep track of requests.  The id is not used by this service, however, it is included in the response. | [optional] 
+ **format** | **string**| The format of the output file.  | [optional] [default to XML]
  **date** | **string**| Request should be made in the format **YYYYMMDD**. The initial release only supports requests from completed trading days | [optional] 
- **time** | **string**| Request should be made in the format **HHMMSSS**.HH- Hour, MM- Minutes, SS- Seconds | [optional] 
+ **time** | **string**| Request should be made in the format **HHMMSS**.HH- Hour, MM- Minutes, SS- Seconds | [optional] 
 
 ### Return type
-[**TickhistoryResponse**](TickhistoryResponse.md)
+[**TickHistoryResponse**](TickHistoryResponse.md)
 
 ### Authorization
 
@@ -107,10 +109,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK  x |  -  |
-| **401** | Access Denied. The user is not authorized to view the data requested. Contact FactSet Consulting Services for assistance. |  -  |
-| **403** | Invalid HTTP URL. Necessary query parameters are missing in the request. The description field will indicate the exact reason. |  -  |
-| **405** | Invalid HTTP method. Either the method is not GET or exceeds the maximum request lenght (currently set at 5000 bytes. The description field will indicate the exact reason. |  -  |
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **405** | Method Not Allowed |  -  |
+| **408** | Request Timeout |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

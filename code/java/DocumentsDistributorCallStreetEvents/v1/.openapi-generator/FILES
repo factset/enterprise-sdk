@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -47,7 +45,6 @@ docs/NRTSpeakeridsData.md
 docs/NRTSpeakeridsMeta.md
 docs/NRTSpeakeridsMetaPagination.md
 docs/NearRealTimeTranscriptsApi.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

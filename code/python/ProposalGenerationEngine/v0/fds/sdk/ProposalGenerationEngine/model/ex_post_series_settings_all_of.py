@@ -62,7 +62,7 @@ class ExPostSeriesSettingsAllOf(ModelNormal):
             'DRAWDOWN': "drawdown",
             'BENCHMARKDRAWDOWN': "benchmarkDrawdown",
             'CONTRIBUTIONTRANSACTIONS': "contributionTransactions",
-            'WITHRAWALTRANSACTIONS': "withrawalTransactions",
+            'WITHDRAWALTRANSACTIONS': "withdrawalTransactions",
             'FEETRANSACTIONS': "feeTransactions",
 
 

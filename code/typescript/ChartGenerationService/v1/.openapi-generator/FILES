@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CategoriesErrorResponse.md
@@ -15,7 +13,6 @@ docs/ChartListErrorResponse.md
 docs/ChartTemplatesApi.md
 docs/ErrorResponse.md
 docs/UnauthorizedResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

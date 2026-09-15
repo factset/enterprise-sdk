@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -12,7 +10,6 @@ docs/CheckCaccessApi.md
 docs/ErrorItem.md
 docs/ErrorItemSource.md
 docs/ErrorResponse.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

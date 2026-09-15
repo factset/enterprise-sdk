@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetTermsandConditions.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Agent.md
 docs/AgentsApi.md
 docs/AgentsResponse.md
@@ -46,7 +44,6 @@ docs/UnderwritersApi.md
 docs/UseOfProceeds.md
 docs/UseOfProceedsApi.md
 docs/UseOfProceedsResponse.md
-git_push.sh
 src/FactSet.SDK.FactSetTermsandConditions/Api/AgentsApi.cs
 src/FactSet.SDK.FactSetTermsandConditions/Api/ConvertiblesApi.cs
 src/FactSet.SDK.FactSetTermsandConditions/Api/CouponsApi.cs

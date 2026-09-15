@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **pendingProductOrders** | [**java.util.List&lt;PendingProductOrder&gt;**](PendingProductOrder.md) | An array of pending FactSet product orders. |  [optional] [readonly]
 **federations** | [**java.util.List&lt;FederationResourceReference&gt;**](FederationResourceReference.md) | References to the federations in which the user has at least one assertion value. |  [optional]
 **invoiceId** | **String** | The identifier of the invoice that should be associated with a new user for billing purposes. Note once an invoice ID has been assigned to a user, it cannot be modified via this API. If invoice ID re-assignment is necessary, please contact your FactSet representative. |  [optional]
+**corporateSuiteExecutive** | **Boolean** | For individuals who wish to receive investment research as corporate management or investor relations personnel. Such individuals are typically entitled to specific companies or industries. |  [optional]
 
 
 ## Implemented Interfaces

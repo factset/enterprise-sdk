@@ -31,8 +31,8 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ProposalGenerationEngine.model.serie_stats import SerieStats
-    globals()['SerieStats'] = SerieStats
+    from fds.sdk.ProposalGenerationEngine.model.series_stats import SeriesStats
+    globals()['SeriesStats'] = SeriesStats
 
 
 class PeriodSeriesAllOf(ModelNormal):
@@ -88,7 +88,7 @@ class PeriodSeriesAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'series': (SerieStats,),  # noqa: E501
+            'series': (SeriesStats,),  # noqa: E501
         }
 
     @cached_property
@@ -141,7 +141,7 @@ class PeriodSeriesAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            series (SerieStats): [optional]  # noqa: E501
+            series (SeriesStats): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -223,7 +223,7 @@ class PeriodSeriesAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            series (SerieStats): [optional]  # noqa: E501
+            series (SeriesStats): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

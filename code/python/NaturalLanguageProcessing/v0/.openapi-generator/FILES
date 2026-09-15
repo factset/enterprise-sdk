@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AdvancedApi.md
@@ -46,7 +43,6 @@ fds/sdk/NaturalLanguageProcessing/model_utils.py
 fds/sdk/NaturalLanguageProcessing/models/__init__.py
 fds/sdk/NaturalLanguageProcessing/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

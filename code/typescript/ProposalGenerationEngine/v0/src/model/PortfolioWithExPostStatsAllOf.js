@@ -56,7 +56,7 @@ class PortfolioWithExPostStatsAllOf {
                 obj['udfs'] = ApiClient.convertToType(data['udfs'], Object);
             }
             if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
-                obj['periods'] = ExPostPeriodStats.constructFromObject(data['periods']);
+                obj['periods'] = ApiClient.convertToType(data['periods'], [ExPostPeriodStats]);
             }
             
         }
@@ -78,7 +78,7 @@ PortfolioWithExPostStatsAllOf.prototype['stats'] = undefined;
 PortfolioWithExPostStatsAllOf.prototype['udfs'] = undefined;
 
 /**
- * @member {module:model/ExPostPeriodStats} periods
+ * @member {Array.<module:model/ExPostPeriodStats>} periods
  */
 PortfolioWithExPostStatsAllOf.prototype['periods'] = undefined;
 

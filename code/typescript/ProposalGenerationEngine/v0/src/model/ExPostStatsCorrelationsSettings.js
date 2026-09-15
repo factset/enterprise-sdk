@@ -14,6 +14,8 @@
 import ApiClient from '../ApiClient';
 import BaseSettings from './BaseSettings';
 import ExPostStatsCorrelationsSettingsAllOf from './ExPostStatsCorrelationsSettingsAllOf';
+import Period from './Period';
+import Periods from './Periods';
 import TimeWindow from './TimeWindow';
 
 /**
@@ -26,10 +28,11 @@ class ExPostStatsCorrelationsSettings {
      * @alias module:model/ExPostStatsCorrelationsSettings
      * @implements module:model/BaseSettings
      * @implements module:model/TimeWindow
+     * @implements module:model/Periods
      * @implements module:model/ExPostStatsCorrelationsSettingsAllOf
      */
     constructor() { 
-        BaseSettings.initialize(this);TimeWindow.initialize(this);ExPostStatsCorrelationsSettingsAllOf.initialize(this);
+        BaseSettings.initialize(this);TimeWindow.initialize(this);Periods.initialize(this);ExPostStatsCorrelationsSettingsAllOf.initialize(this);
         ExPostStatsCorrelationsSettings.initialize(this);
     }
 
@@ -58,6 +61,9 @@ class ExPostStatsCorrelationsSettings {
               obj = TimeWindow.constructFromObject(data, obj);
             } catch(error) {}
             try {
+              obj = Periods.constructFromObject(data, obj);
+            } catch(error) {}
+            try {
               obj = ExPostStatsCorrelationsSettingsAllOf.constructFromObject(data, obj);
             } catch(error) {}
 
@@ -72,6 +78,9 @@ class ExPostStatsCorrelationsSettings {
             }
             if (data.hasOwnProperty('timeWindows') && obj['timeWindows'] === undefined) {
                 obj['timeWindows'] = ApiClient.convertToType(data['timeWindows'], ['String']);
+            }
+            if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
+                obj['periods'] = ApiClient.convertToType(data['periods'], [Period]);
             }
             if (data.hasOwnProperty('stats') && obj['stats'] === undefined) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], ['String']);
@@ -118,6 +127,11 @@ ExPostStatsCorrelationsSettings.prototype['validatePortfolio'] = false;
 ExPostStatsCorrelationsSettings.prototype['timeWindows'] = undefined;
 
 /**
+ * @member {Array.<module:model/Period>} periods
+ */
+ExPostStatsCorrelationsSettings.prototype['periods'] = undefined;
+
+/**
  * @member {Array.<module:model/ExPostStatsCorrelationsSettings.StatsEnum>} stats
  */
 ExPostStatsCorrelationsSettings.prototype['stats'] = undefined;
@@ -160,6 +174,11 @@ BaseSettings.prototype['validatePortfolio'] = false;
  * @member {Array.<String>} timeWindows
  */
 TimeWindow.prototype['timeWindows'] = undefined;
+// Implement Periods interface:
+/**
+ * @member {Array.<module:model/Period>} periods
+ */
+Periods.prototype['periods'] = undefined;
 // Implement ExPostStatsCorrelationsSettingsAllOf interface:
 /**
  * @member {Array.<module:model/ExPostStatsCorrelationsSettingsAllOf.StatsEnum>} stats

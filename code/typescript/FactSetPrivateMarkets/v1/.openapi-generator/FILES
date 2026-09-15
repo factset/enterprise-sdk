@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/DataItemsApi.md
@@ -22,7 +20,6 @@ docs/NonPeriodicApi.md
 docs/NonPeriodicRequest.md
 docs/NonPeriodicResponse.md
 docs/UniverseApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

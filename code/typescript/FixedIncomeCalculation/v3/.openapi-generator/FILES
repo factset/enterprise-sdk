@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CalculationInfo.md
@@ -37,7 +35,6 @@ docs/FIServicerAdvancesForSecurities.md
 docs/FIStructuredProductsForJobSettings.md
 docs/FIStructuredProductsForSecurities.md
 docs/ObjectRoot.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

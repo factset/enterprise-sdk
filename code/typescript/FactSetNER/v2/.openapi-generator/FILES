@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AssociatedOrganization.md
@@ -9,7 +7,6 @@ docs/EntitiesApi.md
 docs/Entity.md
 docs/Input.md
 docs/Response.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

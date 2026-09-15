@@ -61,7 +61,7 @@ class ExPostPortfolioInvestmentResponseAllOf {
                 obj['udfs'] = ApiClient.convertToType(data['udfs'], Object);
             }
             if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
-                obj['periods'] = ExPostPeriodStats.constructFromObject(data['periods']);
+                obj['periods'] = ApiClient.convertToType(data['periods'], [ExPostPeriodStats]);
             }
             if (data.hasOwnProperty('backfillData') && obj['backfillData'] === undefined) {
                 obj['backfillData'] = ApiClient.convertToType(data['backfillData'], {'String': BackfillData});
@@ -91,7 +91,7 @@ ExPostPortfolioInvestmentResponseAllOf.prototype['stats'] = undefined;
 ExPostPortfolioInvestmentResponseAllOf.prototype['udfs'] = undefined;
 
 /**
- * @member {module:model/ExPostPeriodStats} periods
+ * @member {Array.<module:model/ExPostPeriodStats>} periods
  */
 ExPostPortfolioInvestmentResponseAllOf.prototype['periods'] = undefined;
 

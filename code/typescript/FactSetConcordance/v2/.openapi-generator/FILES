@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CreateUniverseRequest.md
@@ -60,7 +58,6 @@ docs/UniverseStatisticsResponse.md
 docs/UniversesApi.md
 docs/UniversesResponse.md
 docs/UpdateUniverseRequest.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

@@ -1,10 +1,8 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AuthenticationScheme.md
+docs/DesktopApplicationGroupApplications.md
 docs/Error.md
 docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
@@ -32,6 +30,8 @@ docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -111,6 +111,7 @@ fds/sdk/ProcuretoPayAPISCIM/configuration.py
 fds/sdk/ProcuretoPayAPISCIM/exceptions.py
 fds/sdk/ProcuretoPayAPISCIM/model/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/model/authentication_scheme.py
+fds/sdk/ProcuretoPayAPISCIM/model/desktop_application_group_applications.py
 fds/sdk/ProcuretoPayAPISCIM/model/error.py
 fds/sdk/ProcuretoPayAPISCIM/model/error_urn_scim_schemas_extension_fact_set_core10_error.py
 fds/sdk/ProcuretoPayAPISCIM/model/federation_resource.py
@@ -135,6 +136,8 @@ fds/sdk/ProcuretoPayAPISCIM/model/group_resource_list.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_member.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_meta.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_core10_group.py
+fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_desktop_applications10_group.py
+fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_desktop_applications10_group_last_modified_by.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_enterprise_hosting10_group.py
 fds/sdk/ProcuretoPayAPISCIM/model/group_resource_urn_scim_schemas_extension_fact_set_vrs10_group.py
 fds/sdk/ProcuretoPayAPISCIM/model/inline_response429.py
@@ -190,7 +193,6 @@ fds/sdk/ProcuretoPayAPISCIM/model_utils.py
 fds/sdk/ProcuretoPayAPISCIM/models/__init__.py
 fds/sdk/ProcuretoPayAPISCIM/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

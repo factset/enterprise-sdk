@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CreateCustomSymbolCustomFieldValueDto.md
@@ -29,7 +27,6 @@ docs/SymbolRelationshipSaveDto.md
 docs/SymbolRelationshipUpdateDto.md
 docs/SymbolsRelationshipIdNameDto.md
 docs/SymbolsRelationshipType.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

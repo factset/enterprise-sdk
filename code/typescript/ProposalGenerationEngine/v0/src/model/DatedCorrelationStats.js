@@ -48,6 +48,9 @@ class DatedCorrelationStats {
         if (data) {
             obj = obj || new DatedCorrelationStats();
 
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
+            }
             if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': DatedCorrelationStatsPerTimeWindow});
             }
@@ -61,6 +64,11 @@ class DatedCorrelationStats {
 
 
 }
+
+/**
+ * @member {String} currency
+ */
+DatedCorrelationStats.prototype['currency'] = undefined;
 
 /**
  * a map from time window to correlation stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request

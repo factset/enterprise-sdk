@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SecurityDetails** | [**Investment**](Investment.md) |  | [optional] 
 **Series** | [**TimeWindowSeries**](TimeWindowSeries.md) |  | [optional] 
-**Periods** | [**PeriodSeries**](PeriodSeries.md) |  | [optional] 
+**Periods** | [**List&lt;PeriodSeries&gt;**](PeriodSeries.md) |  | [optional] 
 **BackfillData** | [**Dictionary&lt;string, BackfillData&gt;**](BackfillData.md) | a map from time window to backfill statistics | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

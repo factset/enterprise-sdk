@@ -31,7 +31,9 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment import ExPostPortfolioInvestment
     from fds.sdk.ProposalGenerationEngine.model.rebalancing import Rebalancing
+    globals()['ExPostPortfolioInvestment'] = ExPostPortfolioInvestment
     globals()['Rebalancing'] = Rebalancing
 
 
@@ -88,6 +90,7 @@ class PortfolioAllOf(ModelNormal):
         """
         lazy_import()
         return {
+            'holdings': ([ExPostPortfolioInvestment],),  # noqa: E501
             'initial_value': (float,),  # noqa: E501
             'rebalancing': (Rebalancing,),  # noqa: E501
         }
@@ -98,6 +101,7 @@ class PortfolioAllOf(ModelNormal):
 
 
     attribute_map = {
+        'holdings': 'holdings',  # noqa: E501
         'initial_value': 'initialValue',  # noqa: E501
         'rebalancing': 'rebalancing',  # noqa: E501
     }
@@ -109,8 +113,11 @@ class PortfolioAllOf(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, holdings, *args, **kwargs):  # noqa: E501
         """PortfolioAllOf - a model defined in OpenAPI
+
+        Args:
+            holdings ([ExPostPortfolioInvestment]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,6 +179,7 @@ class PortfolioAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.holdings = holdings
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -192,8 +200,11 @@ class PortfolioAllOf(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, holdings, *args, **kwargs):  # noqa: E501
         """PortfolioAllOf - a model defined in OpenAPI
+
+        Args:
+            holdings ([ExPostPortfolioInvestment]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -253,6 +264,7 @@ class PortfolioAllOf(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.holdings = holdings
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

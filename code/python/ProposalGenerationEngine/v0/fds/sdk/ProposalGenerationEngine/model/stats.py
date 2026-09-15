@@ -63,7 +63,7 @@ class Stats(ModelNormal):
             'ETR': "etr",
             'STDEV': "stDev",
             'ANNSTDEV': "annStDev",
-            'ANNLOSSSTD': "annLossStd",
+            'ANNLOSSSTDEV': "annLossStDev",
             'ANNSTDEV100': "annStDev100",
             'ETL': "etl",
             'SKEWNESS': "skewness",
@@ -108,6 +108,7 @@ class Stats(ModelNormal):
             'CONTRIBUTIONTRANSACTIONS': "contributionTransactions",
             'WITHDRAWALTRANSACTIONS': "withdrawalTransactions",
             'FEETRANSACTIONS': "feeTransactions",
+            'PV': "PV",
 
 
         },

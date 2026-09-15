@@ -41,7 +41,6 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * ExPostPortfolioInvestmentSeriesResponse
  */
 @JsonPropertyOrder({
-  ExPostPortfolioInvestmentSeriesResponse.JSON_PROPERTY_ID,
   ExPostPortfolioInvestmentSeriesResponse.JSON_PROPERTY_WEIGHT,
   ExPostPortfolioInvestmentSeriesResponse.JSON_PROPERTY_SALES_CHARGE,
   ExPostPortfolioInvestmentSeriesResponse.JSON_PROPERTY_TRANSACTION_RULES,
@@ -54,9 +53,6 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 
 public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_WEIGHT = "weight";
   private BigDecimal weight;
@@ -74,49 +70,13 @@ public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
   private TimeWindowSeries series;
 
   public static final String JSON_PROPERTY_PERIODS = "periods";
-  private PeriodSeries periods;
+  private java.util.List<PeriodSeries> periods = null;
 
   public static final String JSON_PROPERTY_BACKFILL_DATA = "backfillData";
   private java.util.Map<String, BackfillData> backfillData = null;
 
   public ExPostPortfolioInvestmentSeriesResponse() { 
   }
-
-  @JsonCreator
-  public ExPostPortfolioInvestmentSeriesResponse(
-    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
-    @JsonProperty(value=JSON_PROPERTY_WEIGHT, required=true) BigDecimal weight
-  ) {
-    this();
-    this.id = id;
-    this.weight = weight;
-  }
-
-  public ExPostPortfolioInvestmentSeriesResponse id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * the unique id of the investment - e.g. FactSet id
-   * @return id
-  **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "the unique id of the investment - e.g. FactSet id")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   public ExPostPortfolioInvestmentSeriesResponse weight(BigDecimal weight) {
     this.weight = weight;
@@ -127,10 +87,10 @@ public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
    * the weight of the investment in hte portfolio
    * @return weight
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "1", required = true, value = "the weight of the investment in hte portfolio")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "the weight of the investment in hte portfolio")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BigDecimal getWeight() {
     return weight;
@@ -138,7 +98,7 @@ public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWeight(BigDecimal weight) {
     this.weight = weight;
   }
@@ -256,8 +216,16 @@ public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
   }
 
 
-  public ExPostPortfolioInvestmentSeriesResponse periods(PeriodSeries periods) {
+  public ExPostPortfolioInvestmentSeriesResponse periods(java.util.List<PeriodSeries> periods) {
     this.periods = periods;
+    return this;
+  }
+
+  public ExPostPortfolioInvestmentSeriesResponse addPeriodsItem(PeriodSeries periodsItem) {
+    if (this.periods == null) {
+      this.periods = new java.util.ArrayList<>();
+    }
+    this.periods.add(periodsItem);
     return this;
   }
 
@@ -270,14 +238,14 @@ public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PeriodSeries getPeriods() {
+  public java.util.List<PeriodSeries> getPeriods() {
     return periods;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriods(PeriodSeries periods) {
+  public void setPeriods(java.util.List<PeriodSeries> periods) {
     this.periods = periods;
   }
 
@@ -328,8 +296,7 @@ public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
       return false;
     }
     ExPostPortfolioInvestmentSeriesResponse exPostPortfolioInvestmentSeriesResponse = (ExPostPortfolioInvestmentSeriesResponse) o;
-    return Objects.equals(this.id, exPostPortfolioInvestmentSeriesResponse.id) &&
-        Objects.equals(this.weight, exPostPortfolioInvestmentSeriesResponse.weight) &&
+    return Objects.equals(this.weight, exPostPortfolioInvestmentSeriesResponse.weight) &&
         Objects.equals(this.salesCharge, exPostPortfolioInvestmentSeriesResponse.salesCharge) &&
         Objects.equals(this.transactionRules, exPostPortfolioInvestmentSeriesResponse.transactionRules) &&
         Objects.equals(this.securityDetails, exPostPortfolioInvestmentSeriesResponse.securityDetails) &&
@@ -340,14 +307,13 @@ public class ExPostPortfolioInvestmentSeriesResponse implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, weight, salesCharge, transactionRules, securityDetails, series, periods, backfillData);
+    return Objects.hash(weight, salesCharge, transactionRules, securityDetails, series, periods, backfillData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExPostPortfolioInvestmentSeriesResponse {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("    salesCharge: ").append(toIndentedString(salesCharge)).append("\n");
     sb.append("    transactionRules: ").append(toIndentedString(transactionRules)).append("\n");

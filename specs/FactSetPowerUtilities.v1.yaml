@@ -1,0 +1,3383 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'FactSet Power & Utilities API'
+  contact:
+    name: 'FactSet Research Systems'
+    email: 'api@factset.com'
+    url: 'https://developer.factset.com/contact'
+  license:
+    name: 'Apache License, Version 2.0'
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  description: "The FactSet Power & Utilities API provides comprehensive global power generation and energy market data. Coverage includes power plant metadata and technical specifications, balancing authority supply and demand, power spot and forward prices, spark spreads, capacity prices, and hourly and monthly plant-level generation and emissions.\n\n**Note:** Plant metadata and reference/mapping endpoints (Plants, ISO/TSO mapping, zone mapping) reflect current data only — historical or point-in-time values are not retained. The exception is `GET /reference/entity-history`, which provides historical entity and ownership records. Unit-level mapping information (unit names, EIA codes, project grades, and regional mappings) are included in the `/units/details` metadata response.\n\n**Key Features:**\n- Global power plant metadata including ownership, location, pipeline connections, and fuel-specific technical specifications (solar, wind, thermal)\n- Balancing authority-level generation (by fuel type), demand, and net interchange data\n- Power spot prices, spark spreads, capacity auction clearing prices, and forward power curves\n- Hourly and monthly plant-level net generation with CO₂, N₂O, and SO₂ emissions data\n- Reference data for ISO/TSO codes, price zones and hubs, and entity/ownership history\n\n**Units and abbreviations used throughout this API:**\n- `MW` — megawatt (unit of instantaneous power capacity)\n- `MWh` — megawatt-hour (unit of energy; one MW delivered for one hour)\n- `$/MWh` — US dollars per megawatt-hour (power price unit)\n- `$/MW-day` — US dollars per megawatt per day (capacity market price unit)\n- `MMBtu` — million British thermal units (heat input unit)\n- `Dth` — dekatherm (one million BTU; unit for natural gas interconnection capacity)\n- `CO₂` — carbon dioxide; reported in metric tons\n- `SO₂` — sulfur dioxide; reported in metric tons (hourly) or short tons (monthly)\n- `N₂O` — nitrous oxide; reported in metric tons (hourly) or short tons (monthly)\n- `BA` — Balancing Authority; a grid operator responsible for balancing generation and load within its area\n- `ISO/TSO` — Independent System Operator / Transmission System Operator\n- `EIA` — US Energy Information Administration\n"
+externalDocs:
+  description: 'API Documentation'
+  url: 'https://developer.factset.com/api-catalog/factset-power-utilities-api'
+servers:
+  - url: 'https://api.factset.com/content/factset-power-utilities/v1'
+    description: 'Production'
+security:
+  - FactSetApiKey: []
+  - FactSetOAuth2: []
+x-factset-sdk-has-main-example: true
+tags:
+  - name: 'Plants'
+    description: 'Global power plant coverage, ownership, geographic location, gas pipeline connections, and fuel-specific technical specifications (solar, wind, thermal/fossil).'
+  - name: 'Units'
+    description: 'Power plant unit metadata and technical details including ownership, pipeline connections, and fuel-specific specifications.'
+  - name: 'Market Data'
+    description: 'Balancing authority-level net generation, electricity demand, and net interchange data. Single `/market-data` endpoint with a `category` discriminator (generation, demand, interchange).'
+  - name: 'Prices'
+    description: 'Power price data including spot power prices, spark spreads, capacity auction clearing prices, and forward power curves.'
+  - name: 'Generation & Emissions'
+    description: 'Plant and unit-level net generation and emissions (CO₂, SO₂, N₂O) at hourly and monthly frequencies.'
+  - name: 'Reference'
+    description: 'Reference and mapping data for ISO/TSO codes, price zones and hubs, and entity/ownership history.'
+paths:
+  /plants/ids:
+    get:
+      tags:
+        - 'Plants'
+      summary: 'Returns discoverable power plant IDs'
+      operationId: 'listPlantIds'
+      description: "Returns a paginated list of FactSet power plant asset identifiers matching the specified filter criteria, along with plant name, status, fuel type, and geographic location (nearest city, region, country, continent, and coordinates).\n\nFor unit-level metadata and technical details, see `POST /units/details`. You can provide either plant IDs or unit IDs to `/units/details` to retrieve unit-level data with full mapping information (unit names, EIA codes, grades, regions).\n\nReflects current data only; historical or point-in-time values are not retained.\n"
+      parameters:
+        - name: 'isoCode'
+          in: 'query'
+          required: false
+          schema:
+            type: 'array'
+            minItems: 1
+            maxItems: 50
+            items:
+              type: 'string'
+          description: 'Filter plants by ISO/TSO market area code (e.g., `"ERCOT"`, `"PJM"` for US ISO/RTOs; other codes for non-US TSOs as coverage expands).'
+          example:
+            - 'ERCOT'
+        - name: 'country'
+          in: 'query'
+          required: false
+          schema:
+            type: 'array'
+            minItems: 1
+            maxItems: 50
+            items:
+              type: 'string'
+          description: 'Filter plants by country name (e.g., `"United States"`, `"Canada"`, `"United Kingdom"`).'
+          example:
+            - 'United States'
+        - name: 'region'
+          in: 'query'
+          required: false
+          schema:
+            type: 'array'
+            minItems: 1
+            maxItems: 50
+            items:
+              type: 'string'
+          description: 'Filter plants by region (e.g., a US state name such as `"Texas"`, `"Tennessee"`).'
+          example:
+            - 'Texas'
+        - name: 'plantStatus'
+          in: 'query'
+          required: false
+          schema:
+            type: 'array'
+            minItems: 1
+            items:
+              type: 'string'
+              enum:
+                - 'Operational'
+                - 'Planned'
+                - 'Retired'
+                - 'Cancelled'
+          description: 'Filter plants by operational status.'
+          example:
+            - 'Operational'
+        - name: 'plantIds'
+          in: 'query'
+          required: false
+          schema:
+            type: 'array'
+            minItems: 1
+            maxItems: 50
+            items:
+              type: 'string'
+          description: 'Filter results to the specified FactSet plant asset identifiers. If omitted, all plants matching other filter criteria are returned.'
+          example:
+            - 'B00121-M'
+        - name: 'minCapacityMw'
+          in: 'query'
+          required: false
+          schema:
+            type: 'number'
+            minimum: 0
+          description: 'Filter plants by minimum nameplate capacity in megawatts (MW), inclusive. Returns plants with capacity greater than or equal to this value.'
+          example: 100
+        - name: 'maxCapacityMw'
+          in: 'query'
+          required: false
+          schema:
+            type: 'number'
+            minimum: 0
+          description: 'Filter plants by maximum nameplate capacity in megawatts (MW), inclusive. Returns plants with capacity less than or equal to this value.'
+          example: 5000
+        - name: '_paginationLimit'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 100
+            minimum: 1
+            maximum: 1000
+          description: 'Maximum number of results to return per request.'
+        - name: '_paginationOffset'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 0
+            minimum: 0
+          description: 'Number of results to skip. Use with `_paginationLimit` for paging through large result sets.'
+      responses:
+        '200':
+          description: 'Successful response with a list of plant identifiers'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantIdsResponse'
+              examples:
+                Plant IDs Response:
+                  $ref: '#/components/examples/PlantIdsResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /units/details:
+    post:
+      tags:
+        - 'Units'
+      summary: 'Returns power plant unit metadata and technical details'
+      x-factset-sdk-main-example: true
+      operationId: 'listPlantUnits'
+      description: "Returns metadata and technical detail data for one of five categories, selected via the `category` discriminator in the request body:\n\n* **`Metadata`** — General plant metadata: plant name, ISO/TSO assignment, primary fuel type, nameplate capacity, operational status, owner details, and key lifecycle dates.\n* **`Pipeline`** — Gas pipeline connections: pipeline name and pipeline sequence (for units supplied by more than one pipeline).\n* **`Solar`** — Solar-specific technical specifications: installed capacity (DC), array/tracking type, tilt and azimuth angle, thin-film flag, and land area.\n* **`Wind`** — Wind turbine technical specifications: turbine count, model, manufacturer, hub height, and rotor swept area.\n* **`Thermal`** — Thermal/fossil technical specifications: design heat rate.\n\nFor unit ownership details, use `POST /units/ownership`.\n\nThis endpoint operates at the unit level, matching the underlying source data.\n\nReflects current data only; historical or point-in-time values are not retained.\n\n**Input flexibility:** You can provide either plant IDs or unit IDs. When you provide a plant ID, all units within that plant are returned. Unit names, parent plant IDs, EIA codes, project grades, and regional mappings are included in the metadata response.\n"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlantUnitsRequest'
+            examples:
+              Metadata Request:
+                $ref: '#/components/examples/PlantMetadataRequestExample'
+              Pipeline Request:
+                $ref: '#/components/examples/PlantPipelineRequestExample'
+              Solar Request:
+                $ref: '#/components/examples/PlantSolarRequestExample'
+              Wind Request:
+                $ref: '#/components/examples/PlantWindRequestExample'
+              Thermal Request:
+                $ref: '#/components/examples/PlantThermalRequestExample'
+      responses:
+        '200':
+          description: 'Successful response. Record shape matches the requested `category`.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlantUnitsResponse'
+              examples:
+                Metadata Response:
+                  $ref: '#/components/examples/PlantMetadataResponseExample'
+                Pipeline Response:
+                  $ref: '#/components/examples/PlantPipelineResponseExample'
+                Solar Response:
+                  $ref: '#/components/examples/PlantSolarResponseExample'
+                Wind Response:
+                  $ref: '#/components/examples/PlantWindResponseExample'
+                Thermal Response:
+                  $ref: '#/components/examples/PlantThermalResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /units/ownership:
+    post:
+      tags:
+        - 'Units'
+      summary: 'Returns power plant unit ownership details'
+      operationId: 'listUnitsOwnership'
+      description: "Returns ownership records for the specified unit IDs, including owner name, FactSet entity ID, ownership percentage, ultimate parent entity, and the plant ID for each unit.\n\nThis endpoint is a convenience endpoint that returns ownership data with the plant ID included. For other unit detail categories (metadata, pipeline, solar, wind, thermal), use `POST /units/details`.\n\nReflects current data only; historical or point-in-time values are not retained.\n"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnitsOwnershipRequest'
+            examples:
+              Ownership Request:
+                $ref: '#/components/examples/UnitsOwnershipRequestExample'
+      responses:
+        '200':
+          description: 'Successful response with unit ownership records.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnitsOwnershipResponse'
+              examples:
+                Ownership Response:
+                  $ref: '#/components/examples/UnitsOwnershipResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /market-data/coverage:
+    get:
+      tags:
+        - 'Market Data'
+      summary: 'Returns balancing authority coverage'
+      operationId: 'listMarketDataCoverage'
+      description: "Returns the full list of balancing authority (BA) sub-regions available in the market data endpoints. Use the returned `factsetBaId` values as input for the `Generation` category, or `factsetBaSubRegId` values for the `Demand` and `Interchange` categories, of `POST /market-data`.\n"
+      parameters:
+        - name: 'country'
+          in: 'query'
+          required: false
+          schema:
+            type: 'string'
+          description: 'Filter by country name.'
+          example: 'United States'
+        - name: '_paginationLimit'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 100
+            minimum: 1
+            maximum: 1000
+          description: 'Maximum number of results to return per request.'
+        - name: '_paginationOffset'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 0
+            minimum: 0
+          description: 'Number of results to skip.'
+      responses:
+        '200':
+          description: 'Successful response with balancing authority coverage list'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketDataCoverageResponse'
+              examples:
+                Market Data Coverage Response:
+                  $ref: '#/components/examples/MarketDataCoverageResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /market-data:
+    post:
+      tags:
+        - 'Market Data'
+      summary: 'Returns balancing authority generation, demand, or interchange'
+      operationId: 'listMarketData'
+      description: "Returns balancing authority time-series data for one of three categories, selected via the `category` discriminator in the request body:\n\n* **`Generation`** — Hourly net generation in MW by fuel type for the specified balancing authorities (`factsetBaId`) and date range.\n* **`Demand`** — Hourly electricity demand (load) in MW for the specified balancing authority sub-regions (`factsetBaSubRegId`).\n* **`Interchange`** — Hourly net interchange in MW between a reporting BA sub-region and its counterpart sub-regions. Positive values indicate net exports; negative values indicate net imports.\n"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MarketDataRequest'
+            examples:
+              Generation Request:
+                $ref: '#/components/examples/MarketDataGenerationRequestExample'
+              Demand Request:
+                $ref: '#/components/examples/MarketDataDemandRequestExample'
+      responses:
+        '200':
+          description: 'Successful response. Record shape matches the requested `category`.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketDataResponse'
+              examples:
+                Generation Response:
+                  $ref: '#/components/examples/MarketDataGenerationResponseExample'
+                Demand Response:
+                  $ref: '#/components/examples/MarketDataDemandResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /prices:
+    post:
+      tags:
+        - 'Prices'
+      summary: 'Returns power spot prices, spark spreads, capacity prices, or forward prices'
+      operationId: 'listPrices'
+      description: "Returns power market price data for one of four categories, selected via the `category` discriminator in the request body:\n\n* **`Power`** — Daily spot power prices in $/MWh at major hubs and zones. Includes on-peak, off-peak, and around-the-clock prices.\n* **`SparkSpread`** — Natural gas spark spreads in $/MWh at four fixed assumed heat rates (7,000 / 8,000 / 10,000 / 12,000 MMBtu/MWh), representing the difference between the power price and the cost of gas needed to generate one MWh.\n* **`Capacity`** — Capacity auction clearing prices in $/MW-day from ISO/RTO forward capacity markets. Includes delivery year and auction type.\n* **`Forward`** — Forward power price curves in $/MWh for future delivery months, reported as a rolling 3-day average. Includes on-peak, off-peak, and around-the-clock products.\n\nUse `GET /reference/location-mapping` to discover valid `ids` for the `Power`, `SparkSpread`, and `Forward` categories, or `GET /reference/zone-mapping` for the `Capacity` category.\n"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PricesRequest'
+            examples:
+              Power Prices Request:
+                $ref: '#/components/examples/PowerPricesRequestExample'
+              Spark Spread Request:
+                $ref: '#/components/examples/SparkSpreadRequestExample'
+              Capacity Prices Request:
+                $ref: '#/components/examples/CapacityPricesRequestExample'
+              Forward Prices Request:
+                $ref: '#/components/examples/ForwardPricesRequestExample'
+      responses:
+        '200':
+          description: 'Successful response. Record shape matches the requested `category`.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricesResponse'
+              examples:
+                Power Prices Response:
+                  $ref: '#/components/examples/PowerPricesResponseExample'
+                Spark Spread Response:
+                  $ref: '#/components/examples/SparkSpreadResponseExample'
+                Capacity Prices Response:
+                  $ref: '#/components/examples/CapacityPricesResponseExample'
+                Forward Prices Response:
+                  $ref: '#/components/examples/ForwardPricesResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /generation/hourly/units:
+    post:
+      tags:
+        - 'Generation & Emissions'
+      summary: 'Returns hourly plant unit generation and emissions'
+      operationId: 'listHourlyGenerationUnits'
+      description: "Returns hourly net generation and emissions for the requested power plant units over the specified date range. Each record provides net generation in MWh and reported emissions of CO₂, SO₂, and N₂O (nitrous oxide) in metric tons, along with heat input in MMBtu and steam generation.\n\nThis endpoint operates at the unit level, matching the underlying source data.\n"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HourlyGenerationRequest'
+            examples:
+              Hourly Generation Request:
+                $ref: '#/components/examples/HourlyGenerationRequestExample'
+      responses:
+        '200':
+          description: 'Successful response with hourly generation and emissions'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HourlyGenerationResponse'
+              examples:
+                Hourly Generation Response:
+                  $ref: '#/components/examples/HourlyGenerationResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /generation/monthly:
+    post:
+      tags:
+        - 'Generation & Emissions'
+      summary: 'Returns monthly plant generation and emissions'
+      operationId: 'listMonthlyGeneration'
+      description: "Returns monthly net generation and emissions for the requested power plants over the specified date range. Each record provides net generation in MWh, plant/fuel-type capacity and capacity factor, and total emissions of CO₂ (metric tons), SO₂ (short tons), and N₂O (nitrous oxide, short tons), along with heat input in MMBtu and a CO₂ intensity measure.\n"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MonthlyGenerationRequest'
+            examples:
+              Monthly Generation Request:
+                $ref: '#/components/examples/MonthlyGenerationRequestExample'
+      responses:
+        '200':
+          description: 'Successful response with monthly generation and emissions'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonthlyGenerationResponse'
+              examples:
+                Monthly Generation Response:
+                  $ref: '#/components/examples/MonthlyGenerationResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '415':
+          $ref: '#/components/responses/415'
+        '422':
+          $ref: '#/components/responses/422'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /reference/iso-mapping:
+    get:
+      tags:
+        - 'Reference'
+      summary: 'Returns ISO/TSO mapping data'
+      operationId: 'listIsoMapping'
+      description: "Returns the complete list of ISO/TSO codes and their corresponding names.\n\n**Helpful for:** Use this endpoint to understand available ISO/TSO codes for filtering in `GET /plants/ids` (via the `isoCode` parameter) and `GET /market-data/coverage`.\n\nReflects current data only; historical or point-in-time values are not retained.\n"
+      parameters:
+        - name: '_paginationLimit'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 100
+            minimum: 1
+            maximum: 1000
+          description: 'Maximum number of results to return per request.'
+        - name: '_paginationOffset'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 0
+            minimum: 0
+          description: 'Number of results to skip.'
+      responses:
+        '200':
+          description: 'Successful response with ISO/TSO mapping records'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsoMappingResponse'
+              examples:
+                ISO Mapping Response:
+                  $ref: '#/components/examples/IsoMappingResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /reference/zone-mapping:
+    get:
+      tags:
+        - 'Reference'
+      summary: 'Returns price zone and hub mapping data'
+      operationId: 'listZoneMapping'
+      description: "Returns the list of ISO/TSO load distribution area and zone codes used by `POST /prices?category=Capacity`, with their names, price units, and auction frequency. Use the returned `locationId` values as input to that endpoint.\n\nNote: these `iso_zone_code` identifiers are a distinct code space from the `iso_loc_code` identifiers used by `POST /prices` for the `Power`, `SparkSpread`, and `Forward` categories.\n\nReflects current data only; historical or point-in-time values are not retained.\n"
+      parameters:
+        - name: 'isoCode'
+          in: 'query'
+          required: false
+          schema:
+            type: 'string'
+          description: 'Filter locations by ISO/TSO market.'
+          example: 'PJM'
+        - name: '_paginationLimit'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 100
+            minimum: 1
+            maximum: 1000
+          description: 'Maximum number of results to return per request.'
+        - name: '_paginationOffset'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 0
+            minimum: 0
+          description: 'Number of results to skip.'
+      responses:
+        '200':
+          description: 'Successful response with zone and hub mapping records'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZoneMappingResponse'
+              examples:
+                Zone Mapping Response:
+                  $ref: '#/components/examples/ZoneMappingResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /reference/location-mapping:
+    get:
+      tags:
+        - 'Reference'
+      summary: 'Returns power price location mapping data'
+      operationId: 'listLocationMapping'
+      description: "Returns the list of ISO/TSO power price location codes (hub codes) used by `POST /prices` for the `Power`, `SparkSpread`, and `Forward` categories, with their names. Use the returned `locationId` values as input to those endpoints.\n\nNote: these `iso_loc_code` identifiers are a distinct code space from the `iso_zone_code` identifiers used by `POST /prices?category=Capacity` — see `GET /reference/zone-mapping` for those.\n\nReflects current data only; historical or point-in-time values are not retained.\n"
+      parameters:
+        - name: 'isoCode'
+          in: 'query'
+          required: false
+          schema:
+            type: 'string'
+          description: 'Filter locations by ISO/TSO market.'
+          example: 'ERCOT'
+        - name: '_paginationLimit'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 100
+            minimum: 1
+            maximum: 1000
+          description: 'Maximum number of results to return per request.'
+        - name: '_paginationOffset'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 0
+            minimum: 0
+          description: 'Number of results to skip.'
+      responses:
+        '200':
+          description: 'Successful response with power price location mapping records'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationMappingResponse'
+              examples:
+                Location Mapping Response:
+                  $ref: '#/components/examples/LocationMappingResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+  /reference/entity-history:
+    get:
+      tags:
+        - 'Reference'
+      summary: 'Returns entity and security history records'
+      operationId: 'listEntityHistory'
+      description: "Returns entity and security history records combining security-to-entity identifier mappings and entity ownership structure history, including immediate and ultimate parent entities.\n\n**Helpful for:** Understanding entity relationships and parent-subsidiary structures related to plant ownership data returned by `POST /units/ownership`.\n"
+      parameters:
+        - name: 'factsetEntityId'
+          in: 'query'
+          required: false
+          schema:
+            type: 'string'
+          description: 'Filter records by a specific FactSet entity identifier (e.g., `"0GSF7D-E"`).'
+          example: '0GSF7D-E'
+        - name: '_paginationLimit'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 100
+            minimum: 1
+            maximum: 1000
+          description: 'Maximum number of results to return per request.'
+        - name: '_paginationOffset'
+          in: 'query'
+          required: false
+          style: 'form'
+          explode: false
+          schema:
+            type: 'integer'
+            format: 'int32'
+            default: 0
+            minimum: 0
+          description: 'Number of results to skip.'
+      responses:
+        '200':
+          description: 'Successful response with entity history records'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityHistoryResponse'
+              examples:
+                Entity History Response:
+                  $ref: '#/components/examples/EntityHistoryResponseExample'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+        '503':
+          $ref: '#/components/responses/503'
+components:
+  securitySchemes:
+    FactSetOAuth2:
+      type: 'oauth2'
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://auth.factset.com/as/token.oauth2'
+          scopes: {}
+    FactSetApiKey:
+      type: 'http'
+      scheme: 'basic'
+  schemas:
+    PlantIds:
+      type: 'array'
+      minItems: 1
+      maxItems: 100
+      description: 'Array of FactSet power plant asset identifiers (e.g., `"B00121-M"`). Use `GET /plants/ids` to discover valid identifiers.'
+      items:
+        type: 'string'
+      example:
+        - 'B00121-M'
+        - 'B00987-M'
+    PlantUnitIds:
+      type: 'array'
+      minItems: 1
+      maxItems: 100
+      description: 'Array of FactSet power plant and/or plant unit asset identifiers. Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`). When a plant ID is provided, all units within that plant are returned.'
+      items:
+        type: 'string'
+      example:
+        - 'B00121-M'
+        - '05RLSM-M'
+    BalancingAuthorityIds:
+      type: 'array'
+      minItems: 1
+      maxItems: 100
+      description: 'Array of FactSet balancing authority identifiers (e.g., `"05WTSJ-M"`). Used for the `Generation` category, which is reported at the balancing-authority level.'
+      items:
+        type: 'string'
+      example:
+        - '05WTSJ-M'
+    BalancingAuthoritySubRegionIds:
+      type: 'array'
+      minItems: 1
+      maxItems: 100
+      description: 'Array of FactSet balancing authority sub-region identifiers (e.g., `"05WTTF-M"`). Used for the `Demand` and `Interchange` categories, which are reported at the sub-region level.'
+      items:
+        type: 'string'
+      example:
+        - '05WTTF-M'
+    LocationIds:
+      type: 'array'
+      minItems: 1
+      maxItems: 100
+      description: 'Array of power price location identifiers such as hub or zone codes (e.g., `"HB_NORTH"`, `"PJM_ATSI_BASE"`).'
+      items:
+        type: 'string'
+      example:
+        - 'HB_NORTH'
+        - 'HB_HOUSTON'
+    RequestPagination:
+      type: 'object'
+      description: 'Pagination parameters to control the size and offset of results returned.'
+      properties:
+        limit:
+          type: 'integer'
+          format: 'int32'
+          default: 100
+          minimum: 1
+          maximum: 1000
+          description: 'Maximum number of results to return per request.'
+        offset:
+          type: 'integer'
+          format: 'int32'
+          default: 0
+          minimum: 0
+          description: 'Number of results to skip. Use with `limit` for paging through large result sets.'
+    RequestMeta:
+      type: 'object'
+      description: 'Optional request metadata for pagination control.'
+      properties:
+        pagination:
+          $ref: '#/components/schemas/RequestPagination'
+    ResponsePagination:
+      type: 'object'
+      description: 'Pagination details included in every collection response.'
+      properties:
+        total:
+          type: 'integer'
+          format: 'int64'
+          description: 'Total number of records the API returns for this query.'
+          example: 4250
+        isEstimatedTotal:
+          type: 'boolean'
+          description: 'Whether the total count is exact or an estimate. Defaulted to `false` as the API returns exact counts.'
+          example: false
+    ResponseMeta:
+      type: 'object'
+      description: 'Response metadata including pagination and request tracking.'
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ResponsePagination'
+        requestedIds:
+          type: 'integer'
+          format: 'int32'
+          description: 'Total number of identifiers submitted in the request.'
+          example: 2
+        failedIds:
+          type: 'array'
+          description: 'List of identifiers from the request that failed (invalid format, empty, or not found). Empty array when all submitted IDs resolved successfully.'
+          items:
+            type: 'string'
+          example: []
+    CollectionResponseMeta:
+      type: 'object'
+      description: 'Response metadata for endpoints that discover or list records rather than accepting requested identifiers. Includes pagination only.'
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ResponsePagination'
+    ErrorResponse:
+      type: 'object'
+      description: 'Standard error response envelope.'
+      properties:
+        errors:
+          type: 'array'
+          description: 'Array of one or more error objects describing what went wrong.'
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ErrorObject:
+      type: 'object'
+      description: 'Individual error detail.'
+      required:
+        - 'code'
+        - 'title'
+        - 'detail'
+      properties:
+        id:
+          type: 'string'
+          format: 'uuid'
+          description: 'Unique error identifier for tracing.'
+          example: 'adb01824-252f-4420-b0c6-35a1e3507ef5'
+        code:
+          type: 'string'
+          description: 'Machine-readable error code in camelCase.'
+          example: 'parameterError'
+        title:
+          type: 'string'
+          description: 'Short human-readable summary matching the HTTP status reason phrase.'
+          example: 'Bad Request'
+        detail:
+          type: 'string'
+          description: 'Detailed human-readable explanation of this error occurrence.'
+          example: 'The parameter ''ids'' is required and may not be empty.'
+        links:
+          type: 'object'
+          description: 'Optional links for additional context.'
+          properties:
+            about:
+              type: 'string'
+              format: 'url'
+              description: 'Link to documentation for this error.'
+            pointer:
+              type: 'string'
+              description: 'JSON Pointer to the field that caused the error.'
+              example: '/data/ids/0'
+            parameter:
+              type: 'string'
+              description: 'Query parameter name that caused the error.'
+              example: 'ids[0]'
+            value:
+              type: 'string'
+              description: 'The value that caused the error.'
+              example: 'INVALID-ID'
+    CategoryMetadata:
+      type: 'string'
+      enum:
+        - 'Metadata'
+      description: 'Discriminator value for plant unit metadata records.'
+      example: 'Metadata'
+    CategoryPipeline:
+      type: 'string'
+      enum:
+        - 'Pipeline'
+      description: 'Discriminator value for plant pipeline connection records.'
+      example: 'Pipeline'
+    CategorySolar:
+      type: 'string'
+      enum:
+        - 'Solar'
+      description: 'Discriminator value for solar plant technical specifications.'
+      example: 'Solar'
+    CategoryWind:
+      type: 'string'
+      enum:
+        - 'Wind'
+      description: 'Discriminator value for wind plant technical specifications.'
+      example: 'Wind'
+    CategoryThermal:
+      type: 'string'
+      enum:
+        - 'Thermal'
+      description: 'Discriminator value for thermal/fossil plant technical specifications.'
+      example: 'Thermal'
+    CategoryGeneration:
+      type: 'string'
+      enum:
+        - 'Generation'
+      description: 'Discriminator value for balancing authority net generation.'
+      example: 'Generation'
+    CategoryDemand:
+      type: 'string'
+      enum:
+        - 'Demand'
+      description: 'Discriminator value for balancing authority electricity demand.'
+      example: 'Demand'
+    CategoryInterchange:
+      type: 'string'
+      enum:
+        - 'Interchange'
+      description: 'Discriminator value for balancing authority net interchange.'
+      example: 'Interchange'
+    CategoryPower:
+      type: 'string'
+      enum:
+        - 'Power'
+      description: 'Discriminator value for spot power prices.'
+      example: 'Power'
+    CategorySparkSpread:
+      type: 'string'
+      enum:
+        - 'SparkSpread'
+      description: 'Discriminator value for spark spread data.'
+      example: 'SparkSpread'
+    CategoryCapacity:
+      type: 'string'
+      enum:
+        - 'Capacity'
+      description: 'Discriminator value for capacity auction prices.'
+      example: 'Capacity'
+    CategoryForward:
+      type: 'string'
+      enum:
+        - 'Forward'
+      description: 'Discriminator value for forward power prices.'
+      example: 'Forward'
+    PlantUnitsRequest:
+      type: 'object'
+      description: 'Request body for plant unit metadata and technical details.'
+      required:
+        - 'data'
+      properties:
+        data:
+          $ref: '#/components/schemas/PlantUnitsRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+    PlantUnitsRequestData:
+      type: 'object'
+      description: "Plant unit query parameters. The `category` field selects the record shape returned.\n"
+      oneOf:
+        - $ref: '#/components/schemas/PlantMetadataData'
+        - $ref: '#/components/schemas/PlantPipelineData'
+        - $ref: '#/components/schemas/PlantSolarData'
+        - $ref: '#/components/schemas/PlantWindData'
+        - $ref: '#/components/schemas/PlantThermalData'
+      discriminator:
+        propertyName: 'category'
+        mapping:
+          Metadata: '#/components/schemas/PlantMetadataData'
+          Pipeline: '#/components/schemas/PlantPipelineData'
+          Solar: '#/components/schemas/PlantSolarData'
+          Wind: '#/components/schemas/PlantWindData'
+          Thermal: '#/components/schemas/PlantThermalData'
+    PlantMetadataData:
+      type: 'object'
+      description: 'Query parameters for plant unit metadata records. You may provide either plant IDs or unit IDs; when a plant ID is provided, all units within that plant are returned.'
+      required:
+        - 'category'
+        - 'ids'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryMetadata'
+        ids:
+          $ref: '#/components/schemas/PlantUnitIds'
+        plantStatus:
+          type: 'string'
+          nullable: true
+          enum:
+            - 'Operational'
+            - 'Planned'
+            - 'Retired'
+            - 'Cancelled'
+          description: 'Filter results by operational status.'
+          example: 'Operational'
+        minCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by minimum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity greater than or equal to this value.'
+          example: 100
+        maxCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by maximum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity less than or equal to this value.'
+          example: 5000
+    PlantPipelineData:
+      type: 'object'
+      description: 'Query parameters for plant gas pipeline connection records. You may provide either plant IDs or unit IDs; when a plant ID is provided, all units within that plant are returned.'
+      required:
+        - 'category'
+        - 'ids'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryPipeline'
+        ids:
+          $ref: '#/components/schemas/PlantUnitIds'
+        minCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by minimum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity greater than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 100
+        maxCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by maximum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity less than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 5000
+    PlantSolarData:
+      type: 'object'
+      description: 'Query parameters for solar plant technical specifications. You may provide either plant IDs or unit IDs; when a plant ID is provided, all units within that plant are returned.'
+      required:
+        - 'category'
+        - 'ids'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategorySolar'
+        ids:
+          $ref: '#/components/schemas/PlantUnitIds'
+        minCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by minimum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity greater than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 100
+        maxCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by maximum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity less than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 5000
+    PlantWindData:
+      type: 'object'
+      description: 'Query parameters for wind plant technical specifications. You may provide either plant IDs or unit IDs; when a plant ID is provided, all units within that plant are returned.'
+      required:
+        - 'category'
+        - 'ids'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryWind'
+        ids:
+          $ref: '#/components/schemas/PlantUnitIds'
+        minCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by minimum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity greater than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 100
+        maxCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by maximum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity less than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 5000
+    PlantThermalData:
+      type: 'object'
+      description: 'Query parameters for thermal/fossil plant technical specifications. You may provide either plant IDs or unit IDs; when a plant ID is provided, all units within that plant are returned.'
+      required:
+        - 'category'
+        - 'ids'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryThermal'
+        ids:
+          $ref: '#/components/schemas/PlantUnitIds'
+        minCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by minimum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity greater than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 100
+        maxCapacityMw:
+          type: 'number'
+          nullable: true
+          minimum: 0
+          description: 'Filter by maximum nameplate capacity in megawatts (MW), inclusive. Returns units with capacity less than or equal to this value. Note - capacity value is only returned in the Metadata response.'
+          example: 5000
+    MarketDataRequest:
+      type: 'object'
+      description: 'Request body for balancing authority market data.'
+      required:
+        - 'data'
+      properties:
+        data:
+          $ref: '#/components/schemas/MarketDataRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+    MarketDataRequestData:
+      type: 'object'
+      description: "Market data query parameters. The `category` field selects the record shape returned.\n"
+      oneOf:
+        - $ref: '#/components/schemas/MarketDataGenerationData'
+        - $ref: '#/components/schemas/MarketDataDemandData'
+        - $ref: '#/components/schemas/MarketDataInterchangeData'
+      discriminator:
+        propertyName: 'category'
+        mapping:
+          Generation: '#/components/schemas/MarketDataGenerationData'
+          Demand: '#/components/schemas/MarketDataDemandData'
+          Interchange: '#/components/schemas/MarketDataInterchangeData'
+    MarketDataGenerationData:
+      type: 'object'
+      description: 'Query parameters for balancing authority net generation data. Reported at the balancing-authority level, broken out by fuel type.'
+      required:
+        - 'category'
+        - 'ids'
+        - 'startDate'
+        - 'endDate'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryGeneration'
+        ids:
+          $ref: '#/components/schemas/BalancingAuthorityIds'
+        startDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return records on or after this date (YYYY-MM-DD).'
+          example: '2024-01-01'
+        endDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return records on or before this date (YYYY-MM-DD).'
+          example: '2024-01-07'
+    MarketDataDemandData:
+      type: 'object'
+      description: 'Query parameters for balancing authority electricity demand data. Reported at the sub-region level.'
+      required:
+        - 'category'
+        - 'ids'
+        - 'startDate'
+        - 'endDate'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryDemand'
+        ids:
+          $ref: '#/components/schemas/BalancingAuthoritySubRegionIds'
+        startDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return records on or after this date (YYYY-MM-DD).'
+          example: '2024-01-01'
+        endDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return records on or before this date (YYYY-MM-DD).'
+          example: '2024-01-07'
+    MarketDataInterchangeData:
+      type: 'object'
+      description: 'Query parameters for balancing authority net interchange data.'
+      required:
+        - 'category'
+        - 'ids'
+        - 'startDate'
+        - 'endDate'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryInterchange'
+        ids:
+          $ref: '#/components/schemas/BalancingAuthoritySubRegionIds'
+        startDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return records on or after this date (YYYY-MM-DD).'
+          example: '2024-01-01'
+        endDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return records on or before this date (YYYY-MM-DD).'
+          example: '2024-01-07'
+        respondentFactsetBaSubRegId:
+          type: 'string'
+          nullable: true
+          default: null
+          description: 'Filter to a specific counterpart balancing authority sub-region.'
+          example: '05WTT4-M'
+    PricesRequest:
+      type: 'object'
+      description: 'Request body for power market price data.'
+      required:
+        - 'data'
+      properties:
+        data:
+          $ref: '#/components/schemas/PricesRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+    PricesRequestData:
+      type: 'object'
+      description: "Price query parameters. The `category` field selects the record shape returned.\n"
+      oneOf:
+        - $ref: '#/components/schemas/PowerPriceData'
+        - $ref: '#/components/schemas/SparkSpreadData'
+        - $ref: '#/components/schemas/CapacityPriceData'
+        - $ref: '#/components/schemas/ForwardPriceData'
+      discriminator:
+        propertyName: 'category'
+        mapping:
+          Power: '#/components/schemas/PowerPriceData'
+          SparkSpread: '#/components/schemas/SparkSpreadData'
+          Capacity: '#/components/schemas/CapacityPriceData'
+          Forward: '#/components/schemas/ForwardPriceData'
+    PowerPriceData:
+      type: 'object'
+      description: 'Query parameters for spot power prices.'
+      required:
+        - 'category'
+        - 'ids'
+        - 'startDate'
+        - 'endDate'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryPower'
+        ids:
+          $ref: '#/components/schemas/LocationIds'
+        startDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return price records on or after this trade date (YYYY-MM-DD).'
+          example: '2024-01-01'
+        endDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return price records on or before this trade date (YYYY-MM-DD).'
+          example: '2024-03-31'
+    SparkSpreadData:
+      type: 'object'
+      description: 'Query parameters for natural gas spark spread data.'
+      required:
+        - 'category'
+        - 'ids'
+        - 'startDate'
+        - 'endDate'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategorySparkSpread'
+        ids:
+          $ref: '#/components/schemas/LocationIds'
+        startDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return spark spread records on or after this date (YYYY-MM-DD).'
+          example: '2024-01-01'
+        endDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return spark spread records on or before this date (YYYY-MM-DD).'
+          example: '2024-03-31'
+    CapacityPriceData:
+      type: 'object'
+      description: 'Query parameters for capacity auction clearing prices.'
+      required:
+        - 'category'
+        - 'ids'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryCapacity'
+        ids:
+          $ref: '#/components/schemas/LocationIds'
+        deliveryYear:
+          type: 'integer'
+          format: 'int32'
+          nullable: true
+          default: null
+          description: 'Filter by capacity delivery year.'
+          example: 2026
+    ForwardPriceData:
+      type: 'object'
+      description: 'Query parameters for forward power price curves.'
+      required:
+        - 'category'
+        - 'ids'
+        - 'startDate'
+        - 'endDate'
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryForward'
+        ids:
+          $ref: '#/components/schemas/LocationIds'
+        startDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return forward price records with a trade date on or after this date (YYYY-MM-DD).'
+          example: '2024-01-01'
+        endDate:
+          type: 'string'
+          format: 'date'
+          description: 'Return forward price records with a trade date on or before this date (YYYY-MM-DD).'
+          example: '2024-06-30'
+        priceType:
+          type: 'string'
+          nullable: true
+          enum:
+            - 'OnPeak'
+            - 'OffPeak'
+            - 'AroundTheClock'
+          description: 'Filter by forward price type. `AroundTheClock` availability is pending confirmation with the data team.'
+          example: 'OnPeak'
+    HourlyGenerationRequest:
+      type: 'object'
+      description: 'Request body for hourly plant unit generation and emissions.'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'object'
+          description: 'Hourly generation query parameters.'
+          required:
+            - 'ids'
+            - 'startDate'
+            - 'endDate'
+          properties:
+            ids:
+              $ref: '#/components/schemas/PlantUnitIds'
+            startDate:
+              type: 'string'
+              format: 'date'
+              description: 'Return records on or after this date (YYYY-MM-DD).'
+              example: '2024-06-01'
+            endDate:
+              type: 'string'
+              format: 'date'
+              description: 'Return records on or before this date (YYYY-MM-DD).'
+              example: '2024-06-07'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+    MonthlyGenerationRequest:
+      type: 'object'
+      description: 'Request body for monthly plant generation and emissions.'
+      required:
+        - 'data'
+      properties:
+        data:
+          type: 'object'
+          description: 'Monthly generation query parameters.'
+          required:
+            - 'ids'
+            - 'startDate'
+            - 'endDate'
+          properties:
+            ids:
+              $ref: '#/components/schemas/PlantIds'
+            startDate:
+              type: 'string'
+              format: 'date'
+              description: 'Return records with a report month on or after this date (YYYY-MM-DD). Only the year and month components are used.'
+              example: '2023-01-01'
+            endDate:
+              type: 'string'
+              format: 'date'
+              description: 'Return records with a report month on or before this date (YYYY-MM-DD). Only the year and month components are used.'
+              example: '2023-12-31'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+    PlantIdsResponse:
+      type: 'object'
+      description: 'Response containing a list of plant identifiers.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of plant identifier records.'
+          items:
+            $ref: '#/components/schemas/PlantIdRecord'
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+    PlantIdRecord:
+      type: 'object'
+      description: 'Minimal plant identifier record for discovery.'
+      properties:
+        factsetPlantId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet unique power plant asset identifier (e.g., `"B00121-M"`).'
+          example: 'B00121-M'
+        plantName:
+          type: 'string'
+          nullable: true
+          description: 'Official plant name.'
+          example: 'W.A. Parish Electric Station'
+        isoCode:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO market code.'
+          example: 'ERCOT'
+        primaryFuelType:
+          type: 'string'
+          nullable: true
+          description: 'Primary fuel type.'
+          example: 'Gas'
+        country:
+          type: 'string'
+          nullable: true
+          description: 'Country name.'
+          example: 'United States'
+        region:
+          type: 'string'
+          nullable: true
+          description: 'Geographic region where the plant is located (e.g., a US state).'
+          example: 'Texas'
+        nearestCity:
+          type: 'string'
+          nullable: true
+          description: 'Nearest city to the plant. Approximate, not necessarily the plant''s exact municipality.'
+          example: 'Santa Clara'
+        continent:
+          type: 'string'
+          nullable: true
+          description: 'Continent where the plant is located.'
+          example: 'North America'
+        latitude:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Plant latitude in decimal degrees (WGS-84).'
+          example: 29.4858
+        longitude:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Plant longitude in decimal degrees (WGS-84).'
+          example: -95.7544
+        latLongPrecision:
+          type: 'string'
+          nullable: true
+          description: 'Indicates the precision of the reported coordinates.'
+          example: 'Exact'
+        plantStatus:
+          type: 'string'
+          nullable: true
+          enum:
+            - 'Operational'
+            - 'Planned'
+            - 'Retired'
+            - 'Cancelled'
+          description: 'Operational status of the plant.'
+          example: 'Operational'
+        capacityMw:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Total nameplate (installed) generating capacity in megawatts (MW AC).'
+          example: 2558.1
+    PlantUnitsResponse:
+      type: 'object'
+      description: 'Response containing plant unit metadata and technical detail records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of plant unit records. Record shape matches the requested `category`.'
+          items:
+            $ref: '#/components/schemas/PlantUnitDetail'
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+    PlantUnitDetail:
+      description: 'A single plant unit record. Record shape matches the requested `category`.'
+      oneOf:
+        - $ref: '#/components/schemas/PlantMetadataDetail'
+        - $ref: '#/components/schemas/PlantPipelineDetail'
+        - $ref: '#/components/schemas/PlantSolarDetail'
+        - $ref: '#/components/schemas/PlantWindDetail'
+        - $ref: '#/components/schemas/PlantThermalDetail'
+      discriminator:
+        propertyName: 'category'
+        mapping:
+          Metadata: '#/components/schemas/PlantMetadataDetail'
+          Pipeline: '#/components/schemas/PlantPipelineDetail'
+          Solar: '#/components/schemas/PlantSolarDetail'
+          Wind: '#/components/schemas/PlantWindDetail'
+          Thermal: '#/components/schemas/PlantThermalDetail'
+    PlantMetadataDetail:
+      type: 'object'
+      description: "Metadata and coverage record for a single power plant unit. Capacity, status, fuel type, and technology fields are sourced from the underlying unit-level feed.\n"
+      required:
+        - 'factsetPlantUnitId'
+        - 'category'
+        - 'requestId'
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.'
+          example: '05RLSM-M'
+        factsetPlantUnitId:
+          type: 'string'
+          description: 'FactSet unique power plant unit identifier, as submitted in the request.'
+          example: '05RLSM-M'
+        category:
+          $ref: '#/components/schemas/CategoryMetadata'
+        factsetPlantId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet unique power plant asset identifier for the plant this unit belongs to.'
+          example: 'B00121-M'
+        plantName:
+          type: 'string'
+          nullable: true
+          description: 'Official plant name.'
+          example: 'W.A. Parish Electric Station'
+        isoCode:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO market code for the plant''s interconnection area.'
+          example: 'ERCOT'
+        country:
+          type: 'string'
+          nullable: true
+          description: 'Country name of the plant.'
+          example: 'United States'
+        region:
+          type: 'string'
+          nullable: true
+          description: 'Geographic region where the plant is located (e.g., a US state).'
+          example: 'Texas'
+        primaryFuelType:
+          type: 'string'
+          nullable: true
+          description: 'Primary fuel type.'
+          example: 'Gas'
+        primaryFuelCode:
+          type: 'string'
+          nullable: true
+          description: 'Additional detail code for the primary fuel (e.g., `"HFO"` for heavy fuel oil).'
+          example: 'NG'
+        technology:
+          type: 'string'
+          nullable: true
+          description: 'Generating technology of the plant.'
+          example: 'Combined Cycle'
+        subTechnology:
+          type: 'string'
+          nullable: true
+          description: 'Additional detail related to the plant''s technology.'
+          example: 'GT'
+        sector:
+          type: 'string'
+          nullable: true
+          description: 'Sector the plant operates within (e.g., commercial or industrial).'
+          example: 'IPP Non-CHP'
+        isChp:
+          type: 'boolean'
+          nullable: true
+          description: 'Whether the plant is a combined heat and power (CHP) unit.'
+          example: false
+        plantStatus:
+          type: 'string'
+          nullable: true
+          enum:
+            - 'Operational'
+            - 'Planned'
+            - 'Retired'
+            - 'Cancelled'
+          description: 'Operational status of the plant.'
+          example: 'Operational'
+        capacityMw:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Total nameplate (installed) generating capacity in megawatts (MW AC).'
+          example: 2558.1
+        unitName:
+          type: 'string'
+          nullable: true
+          description: 'Unit name identifying the individually-generating asset within the plant.'
+          example: 'Greifswald (Helmshager Berg) -3'
+        projectGrade:
+          type: 'integer'
+          nullable: true
+          description: 'Internal grading system primarily used to quantify risk for planned units.'
+          example: 6
+        projectGradeDescription:
+          type: 'string'
+          nullable: true
+          description: 'Description of the project grade (e.g., "Proposed", "Announced").'
+          example: 'Proposed'
+        ppSubRegion:
+          type: 'string'
+          nullable: true
+          description: 'Sub-region name where the plant is located (e.g., county in the US).'
+          example: 'Chautauqua'
+        subRegionType:
+          type: 'string'
+          nullable: true
+          description: 'Type of sub-region (e.g., "County" in the US).'
+          example: 'County'
+        ppRegion:
+          type: 'string'
+          nullable: true
+          description: 'Region name where the plant is located (e.g., state in the US).'
+          example: 'Massachusetts'
+        regionType:
+          type: 'string'
+          nullable: true
+          description: 'Type of region (e.g., "State" in the US).'
+          example: 'State'
+        hasCcs:
+          type: 'boolean'
+          nullable: true
+          description: 'Whether the plant is equipped with carbon capture and sequestration (CCS) equipment.'
+          example: false
+        hasDesalination:
+          type: 'boolean'
+          nullable: true
+          description: 'Whether the plant is associated with desalination.'
+          example: false
+        isFloating:
+          type: 'boolean'
+          nullable: true
+          description: 'Whether the plant is a floating unit.'
+          example: false
+        ownerName:
+          type: 'string'
+          nullable: true
+          description: 'Plant owner company name.'
+          example: 'NRG Energy'
+        factsetOwnerEntityId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet entity identifier for the plant owner.'
+          example: '0GSF7D-E'
+        commissionDate:
+          type: 'string'
+          format: 'date'
+          nullable: true
+          description: 'Date the plant was first commissioned.'
+          example: '1977-06-01'
+        retirementDate:
+          type: 'string'
+          format: 'date'
+          nullable: true
+          description: 'Date the plant was or is scheduled to be retired. Null if the plant is not retired or a retirement date has not been announced.'
+          example: null
+        eia860PlantCode:
+          type: 'string'
+          nullable: true
+          description: 'EIA Form 860 plant code for cross-reference.'
+          example: '6242'
+    PlantPipelineDetail:
+      type: 'object'
+      description: 'Plant gas pipeline connection detail record.'
+      required:
+        - 'factsetPlantUnitId'
+        - 'category'
+        - 'requestId'
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.'
+          example: '05RLSM-M'
+        factsetPlantUnitId:
+          type: 'string'
+          description: 'FactSet unique power plant unit identifier, as submitted in the request.'
+          example: '05RLSM-M'
+        category:
+          $ref: '#/components/schemas/CategoryPipeline'
+        pipelineName:
+          type: 'string'
+          nullable: true
+          description: 'Name of the connected gas pipeline.'
+          example: 'Intrastate/LDC'
+        pipelineSequence:
+          type: 'integer'
+          nullable: true
+          description: 'When multiple pipelines supply a unit, indicates whether this is the first, second, or third pipeline.'
+          example: 1
+    PlantSolarDetail:
+      type: 'object'
+      description: 'Solar plant technical specification detail record.'
+      required:
+        - 'factsetPlantUnitId'
+        - 'category'
+        - 'requestId'
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.'
+          example: '05RLSM-M'
+        factsetPlantUnitId:
+          type: 'string'
+          description: 'FactSet unique power plant unit identifier, as submitted in the request.'
+          example: '05RLSM-M'
+        category:
+          $ref: '#/components/schemas/CategorySolar'
+        solarInstalledCapacityMw:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Total installed solar capacity in MW DC.'
+          example: 250.1
+        trackingType:
+          type: 'string'
+          nullable: true
+          description: 'Solar array/tracking system type (e.g., `"Fixed Rack"`, `"1 Axis"`).'
+          example: 'Fixed Rack'
+        azimuthAngle:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'For fixed-tilt or single-axis arrays, the fixed azimuth angle in degrees (0 = north, 90 = east, 180 = south, 270 = west).'
+          example: 180.1
+        tiltAngleDegrees:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'For fixed-tilt or single-axis arrays, the fixed tilt angle in degrees from horizontal (0 = horizontal, 90 = vertical).'
+          example: 20.1
+        isThinFilm:
+          type: 'boolean'
+          nullable: true
+          description: 'Whether the array uses thin-film module technology.'
+          example: false
+        acres:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Land area used by the array, in acres.'
+          example: 590.1
+    PlantWindDetail:
+      type: 'object'
+      description: 'Wind plant technical specification detail record.'
+      required:
+        - 'factsetPlantUnitId'
+        - 'category'
+        - 'requestId'
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.'
+          example: '05RLSM-M'
+        factsetPlantUnitId:
+          type: 'string'
+          description: 'FactSet unique power plant unit identifier, as submitted in the request.'
+          example: '05RLSM-M'
+        category:
+          $ref: '#/components/schemas/CategoryWind'
+        turbineCount:
+          type: 'integer'
+          nullable: true
+          description: 'Total number of wind turbines.'
+          example: 150
+        turbineManufacturer:
+          type: 'string'
+          nullable: true
+          description: 'Predominant wind turbine manufacturer at the unit.'
+          example: 'Vestas Wind Systems A/S'
+        factsetManufEntityId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet entity identifier for the predominant turbine manufacturer.'
+          example: '05HJVH-E'
+        turbineModel:
+          type: 'string'
+          nullable: true
+          description: 'Predominant wind turbine model designation at the unit.'
+          example: 'V110-2.0 MW'
+        hubHeightM:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Average turbine hub height in meters.'
+          example: 95.1
+        sweptAreaM2:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Average area swept by the turbine rotor, in square meters.'
+          example: 9503.32
+    PlantThermalDetail:
+      type: 'object'
+      description: 'Thermal/fossil plant technical specification detail record.'
+      required:
+        - 'factsetPlantUnitId'
+        - 'category'
+        - 'requestId'
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.'
+          example: '05RLSM-M'
+        factsetPlantUnitId:
+          type: 'string'
+          description: 'FactSet unique power plant unit identifier, as submitted in the request.'
+          example: '05RLSM-M'
+        category:
+          $ref: '#/components/schemas/CategoryThermal'
+        designHeatRateBtuPerKwh:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Design heat rate, a measure of thermal unit efficiency.'
+          example: 6850.1
+    UnitsOwnershipRequest:
+      type: 'object'
+      description: 'Request body for unit ownership details.'
+      required:
+        - 'data'
+      properties:
+        data:
+          $ref: '#/components/schemas/UnitsOwnershipRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+    UnitsOwnershipRequestData:
+      type: 'object'
+      description: 'Unit query parameters for ownership records. You may provide either plant IDs or unit IDs; when a plant ID is provided, ownership records for all units within that plant are returned.'
+      required:
+        - 'ids'
+      properties:
+        ids:
+          $ref: '#/components/schemas/PlantUnitIds'
+    UnitsOwnershipResponse:
+      type: 'object'
+      description: 'Response containing unit ownership records with plant IDs.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of unit ownership records with plant IDs.'
+          items:
+            $ref: '#/components/schemas/UnitsOwnershipDetail'
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+    UnitsOwnershipDetail:
+      type: 'object'
+      description: 'Unit ownership detail record with plant ID.'
+      required:
+        - 'factsetPlantUnitId'
+        - 'factsetPlantId'
+        - 'requestId'
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.'
+          example: '05RLSM-M'
+        factsetPlantUnitId:
+          type: 'string'
+          description: 'FactSet unique power plant unit identifier, as submitted in the request.'
+          example: '05RLSM-M'
+        factsetPlantId:
+          type: 'string'
+          description: 'FactSet unique power plant identifier for the parent plant.'
+          example: '05RLSM'
+        ownerName:
+          type: 'string'
+          nullable: true
+          description: 'Owner company name.'
+          example: 'NRG Energy'
+        factsetOwnerId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet entity identifier for the owner.'
+          example: '0GSF7D-E'
+        ownershipPercentage:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Percentage of the unit owned by this owner.'
+          example: 99.9
+        factsetUltimateParentEntityId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet entity identifier for the ultimate parent of the owner entity.'
+          example: '000Q07-E'
+    MarketDataCoverageResponse:
+      type: 'object'
+      description: 'Response containing the list of balancing authorities.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of balancing authority coverage records.'
+          items:
+            $ref: '#/components/schemas/BalancingAuthorityCoverage'
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+    BalancingAuthorityCoverage:
+      type: 'object'
+      description: 'Coverage record for a single balancing authority sub-region.'
+      properties:
+        factsetBaSubRegId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet unique identifier for the balancing authority sub-region. Use this value as the `ids` input for the `Demand` and `Interchange` categories of `POST /market-data`.'
+          example: '05WTTF-M'
+        baSubRegionName:
+          type: 'string'
+          nullable: true
+          description: 'Name of the sub-region within the balancing authority.'
+          example: 'Zones 2 and 7'
+        factsetBaId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet unique identifier for the balancing authority. Use this value as the `ids` input for the `Generation` category of `POST /market-data`.'
+          example: '05WTSJ-M'
+        baName:
+          type: 'string'
+          nullable: true
+          description: 'Full balancing authority name.'
+          example: 'Midcontinent Independent System Operator, Inc.'
+        country:
+          type: 'string'
+          nullable: true
+          description: 'Country name.'
+          example: 'United States'
+    MarketDataResponse:
+      type: 'object'
+      description: 'Response containing balancing authority market data records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of market data records. Record shape matches the requested `category`.'
+          items:
+            $ref: '#/components/schemas/MarketDataRecord'
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+    MarketDataRecord:
+      type: 'object'
+      description: 'A single balancing authority market data record.'
+      additionalProperties: true
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetBaId` (Generation) or `factsetBaSubRegId` (Demand, Interchange).'
+          example: '05WTSJ-M'
+        factsetBaId:
+          type: 'string'
+          nullable: true
+          description: '(Generation) FactSet balancing authority identifier, as submitted in the request.'
+          example: '05WTSJ-M'
+        factsetBaSubRegId:
+          type: 'string'
+          nullable: true
+          description: '(Demand, Interchange) FactSet balancing authority sub-region identifier, as submitted in the request.'
+          example: '05WTTF-M'
+        category:
+          type: 'string'
+          description: 'Data category for this record.'
+          enum:
+            - 'Generation'
+            - 'Demand'
+            - 'Interchange'
+          example: 'Generation'
+        reportDate:
+          type: 'string'
+          format: 'date'
+          nullable: true
+          description: 'Report date (YYYY-MM-DD), in UTC.'
+          example: '2024-01-15'
+        reportHour:
+          type: 'integer'
+          format: 'int32'
+          nullable: true
+          description: 'Report hour in UTC (0–23). Null for daily aggregates.'
+          example: 14
+        primaryFuelType:
+          type: 'string'
+          nullable: true
+          description: '(Generation) Primary fuel type this generation value is reported for.'
+          example: 'Wind'
+        generationMw:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: '(Generation) Net generation in MWh for the hour, by fuel type.'
+          example: 52347.1
+        demandMwHr:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: '(Demand) Actual electricity demand (load) in MWh for the hour.'
+          example: 48920.1
+        respondentFactsetBaSubRegId:
+          type: 'string'
+          nullable: true
+          description: '(Interchange) Counterpart balancing authority sub-region identifier.'
+          example: '05WTT4-M'
+        netInterchangeMw:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: '(Interchange) Net interchange in MW. Positive values indicate net exports from the reporting BA sub-region; negative values indicate net imports.'
+          example: -1250.1
+    PricesResponse:
+      type: 'object'
+      description: 'Response containing power market price records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of price records. Record shape matches the requested `category`.'
+          items:
+            $ref: '#/components/schemas/PriceRecord'
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+    PriceRecord:
+      description: 'A single power market price record. Record shape matches the requested `category`.'
+      oneOf:
+        - $ref: '#/components/schemas/PowerPriceRecord'
+        - $ref: '#/components/schemas/SparkSpreadPriceRecord'
+        - $ref: '#/components/schemas/CapacityPriceRecord'
+        - $ref: '#/components/schemas/ForwardPriceRecord'
+      discriminator:
+        propertyName: 'category'
+        mapping:
+          Power: '#/components/schemas/PowerPriceRecord'
+          SparkSpread: '#/components/schemas/SparkSpreadPriceRecord'
+          Capacity: '#/components/schemas/CapacityPriceRecord'
+          Forward: '#/components/schemas/ForwardPriceRecord'
+    PriceRecordBase:
+      type: 'object'
+      description: "Fields common to every power market price record. Record shape matches the requested `category` — see `PowerPriceRecord`, `SparkSpreadPriceRecord`, `CapacityPriceRecord`, and `ForwardPriceRecord` for the category-specific fields layered on top via `allOf`.\n"
+      required:
+        - 'locationId'
+        - 'requestId'
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `locationId`.'
+          example: 'HB_NORTH'
+        locationId:
+          type: 'string'
+          description: 'Location identifier, as submitted in the request.'
+          example: 'HB_NORTH'
+        locationName:
+          type: 'string'
+          nullable: true
+          description: 'Full location name.'
+          example: 'Hub North'
+        isoCode:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO market code.'
+          example: 'ERCOT'
+    PowerPriceRecord:
+      type: 'object'
+      description: 'Spot power price record.'
+      allOf:
+        - $ref: '#/components/schemas/PriceRecordBase'
+        - type: 'object'
+          required:
+            - 'category'
+          properties:
+            category:
+              $ref: '#/components/schemas/CategoryPower'
+            priceDate:
+              type: 'string'
+              format: 'date'
+              nullable: true
+              description: 'Trade or settlement date (YYYY-MM-DD).'
+              example: '2024-01-15'
+            onPeakPriceMwh:
+              type: 'number'
+              format: 'double'
+              nullable: true
+              description: 'On-peak spot power price in $/MWh.'
+              example: 35.2
+            offPeakPriceMwh:
+              type: 'number'
+              format: 'double'
+              nullable: true
+              description: 'Off-peak spot power price in $/MWh.'
+              example: 22.75
+            aroundTheClockPriceMwh:
+              type: 'number'
+              format: 'double'
+              nullable: true
+              description: 'Around-the-clock (flat) spot power price in $/MWh.'
+              example: 29.1
+    SparkSpreadPriceRecord:
+      type: 'object'
+      description: 'Natural gas spark spread price record.'
+      allOf:
+        - $ref: '#/components/schemas/PriceRecordBase'
+        - type: 'object'
+          required:
+            - 'category'
+          properties:
+            category:
+              $ref: '#/components/schemas/CategorySparkSpread'
+            priceDate:
+              type: 'string'
+              format: 'date'
+              nullable: true
+              description: 'Trade or settlement date (YYYY-MM-DD).'
+              example: '2024-01-15'
+            ngiLocName:
+              type: 'string'
+              nullable: true
+              description: 'Corresponding natural gas delivery point name, as given by Natural Gas Intelligence.'
+              example: 'Appalachia Regional Avg.'
+            sparkSpreadType:
+              type: 'string'
+              nullable: true
+              enum:
+                - 'Peak'
+                - 'OffPeak'
+                - 'Average'
+              description: 'Spark spread type.'
+              example: 'Peak'
+            sparkSpreadPricesMwh:
+              $ref: '#/components/schemas/SparkSpreadPricesMwh'
+    SparkSpreadPricesMwh:
+      type: 'object'
+      description: 'Spark spreads in $/MWh at four fixed assumed heat rates.'
+      properties:
+        heatRate7000:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Spark spread in $/MWh assuming a 7,000 MMBtu/MWh heat rate.'
+          example: 6.2
+        heatRate8000:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Spark spread in $/MWh assuming an 8,000 MMBtu/MWh heat rate.'
+          example: 4.2
+        heatRate10000:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Spark spread in $/MWh assuming a 10,000 MMBtu/MWh heat rate.'
+          example: 4.2
+        heatRate12000:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Spark spread in $/MWh assuming a 12,000 MMBtu/MWh heat rate.'
+          example: 6.46
+    CapacityPriceRecord:
+      type: 'object'
+      description: 'Capacity auction clearing price record.'
+      allOf:
+        - $ref: '#/components/schemas/PriceRecordBase'
+        - type: 'object'
+          required:
+            - 'category'
+          properties:
+            category:
+              $ref: '#/components/schemas/CategoryCapacity'
+            mnemonic:
+              type: 'string'
+              nullable: true
+              description: 'FactSet-assigned code for this price series.'
+              example: 'USCM7848113'
+            auctionType:
+              type: 'string'
+              nullable: true
+              description: 'Type of capacity auction.'
+              example: 'Base Residual Auction'
+            auctionDate:
+              type: 'string'
+              format: 'date'
+              nullable: true
+              description: 'Date of the capacity auction.'
+              example: '2023-05-15'
+            deliveryYear:
+              type: 'integer'
+              format: 'int32'
+              nullable: true
+              description: 'Capacity delivery year, derived from the price effective date.'
+              example: 2026
+            auctionPriceMw:
+              type: 'number'
+              format: 'double'
+              nullable: true
+              description: 'Capacity auction clearing price in $/MW-day.'
+              example: 49.5
+    ForwardPriceRecord:
+      type: 'object'
+      description: 'Forward power price curve record.'
+      allOf:
+        - $ref: '#/components/schemas/PriceRecordBase'
+        - type: 'object'
+          required:
+            - 'category'
+          properties:
+            category:
+              $ref: '#/components/schemas/CategoryForward'
+            priceDate:
+              type: 'string'
+              format: 'date'
+              nullable: true
+              description: 'Trade or settlement date (YYYY-MM-DD).'
+              example: '2023-03-06'
+            deliveryYear:
+              type: 'integer'
+              format: 'int32'
+              nullable: true
+              description: 'Delivery year, derived from the delivery start date.'
+              example: 2024
+            deliveryMonth:
+              type: 'integer'
+              format: 'int32'
+              nullable: true
+              description: 'Delivery month (1–12), derived from the delivery start date.'
+              example: 7
+            interconnection:
+              type: 'string'
+              nullable: true
+              description: 'Higher-level US power market region the location belongs to.'
+              example: 'Eastern'
+            periodType:
+              type: 'string'
+              nullable: true
+              description: 'Term type of the forward delivery period.'
+              example: 'Calendar'
+            priceType:
+              type: 'string'
+              nullable: true
+              enum:
+                - 'OnPeak'
+                - 'OffPeak'
+                - 'AroundTheClock'
+              description: 'Forward price type.'
+              example: 'OnPeak'
+            avgForwardPriceMwh:
+              type: 'number'
+              format: 'double'
+              nullable: true
+              description: 'Forward price in $/MWh, reported as a rolling 3-day average.'
+              example: 48.75
+    HourlyGenerationResponse:
+      type: 'object'
+      description: 'Response containing hourly generation and emissions records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of hourly generation and emissions records.'
+          items:
+            $ref: '#/components/schemas/HourlyGenerationRecord'
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+    HourlyGenerationRecord:
+      type: 'object'
+      description: 'Hourly net generation and emissions record for a single power plant unit.'
+      additionalProperties: true
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.'
+          example: '05RLSM-M'
+        factsetPlantUnitId:
+          type: 'string'
+          description: 'FactSet unique power plant unit identifier, as submitted in the request.'
+          example: '05RLSM-M'
+        factsetPlantId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet unique power plant asset identifier for the plant this unit belongs to.'
+          example: 'B00121-M'
+        plantName:
+          type: 'string'
+          nullable: true
+          description: 'Official plant name.'
+          example: 'W.A. Parish Electric Station'
+        reportDate:
+          type: 'string'
+          format: 'date'
+          nullable: true
+          description: 'Report date (YYYY-MM-DD).'
+          example: '2024-06-03'
+        reportHour:
+          type: 'integer'
+          format: 'int32'
+          nullable: true
+          description: 'Report hour (0–23) in local prevailing time.'
+          example: 14
+        generationMwh:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Net generation in megawatt-hours (MWh) for the hour.'
+          example: 1248.5
+        heatInputMmBtu:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Heat input in MMBtu for the hour.'
+          example: 8563.1
+        steamGen1000Lbs:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Steam generation for the hour, in thousands of pounds.'
+          example: 124.1
+        co2TonsEmitted:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'CO₂ emissions in metric tons for the hour.'
+          example: 712.4
+        so2TonsEmitted:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'SO₂ emissions in metric tons for the hour.'
+          example: 98.2
+        nitrousOxideEmitted:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Nitrous oxide (N₂O) emissions in metric tons for the hour.'
+          example: 145.6
+        primaryFuelType:
+          type: 'string'
+          nullable: true
+          description: 'Fuel type used for generation during this hour.'
+          example: 'Gas'
+    MonthlyGenerationResponse:
+      type: 'object'
+      description: 'Response containing monthly generation and emissions records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of monthly generation and emissions records.'
+          items:
+            $ref: '#/components/schemas/MonthlyGenerationRecord'
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+    MonthlyGenerationRecord:
+      type: 'object'
+      description: 'Monthly net generation and emissions record for a single plant.'
+      additionalProperties: true
+      properties:
+        requestId:
+          type: 'string'
+          description: 'The identifier as submitted in the request. Duplicates `factsetPlantId`.'
+          example: 'B00121-M'
+        factsetPlantId:
+          type: 'string'
+          description: 'FactSet unique power plant asset identifier, as submitted in the request.'
+          example: 'B00121-M'
+        factsetPlantUnitId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet unique power plant unit identifier. Unit-level attribution for monthly generation is pending confirmation with the data team; may be null.'
+          example: '05RLSM-M'
+        plantName:
+          type: 'string'
+          nullable: true
+          description: 'Official plant name.'
+          example: 'W.A. Parish Electric Station'
+        reportYear:
+          type: 'integer'
+          format: 'int32'
+          nullable: true
+          description: 'Report year (four-digit).'
+          example: 2023
+        reportMonth:
+          type: 'integer'
+          format: 'int32'
+          nullable: true
+          description: 'Report month (1–12).'
+          example: 6
+        generationMwh:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Net generation in megawatt-hours (MWh) for the month.'
+          example: 892450.1
+        heatInputMmBtu:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Total heat input in MMBtu for the month.'
+          example: 6118000.1
+        co2TonsEmitted:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'CO₂ emissions in metric tons for the month.'
+          example: 508920.1
+        co2IntensityTonsPerMwh:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'CO₂ intensity in metric tons per MWh.'
+          example: 0.57
+        so2TonsEmitted:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'SO₂ emissions in short tons for the month.'
+          example: 35.8
+        nitrousOxideTonsEmitted:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Nitrous oxide (N₂O) emissions in short tons for the month.'
+          example: 52.1
+        primaryFuelType:
+          type: 'string'
+          nullable: true
+          description: 'Fuel type this record''s generation and capacity are reported for.'
+          example: 'Gas'
+        ppFuelCapacityMw:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Plant capacity for this fuel type, in MW.'
+          example: 2410.2
+        ppFuelCapacityFactor:
+          type: 'number'
+          format: 'double'
+          nullable: true
+          description: 'Plant capacity factor for this fuel type, calculated from capacity and actual generation.'
+          example: 30.4012
+    IsoMappingResponse:
+      type: 'object'
+      description: 'Response containing ISO/TSO mapping records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of ISO/TSO mapping records.'
+          items:
+            $ref: '#/components/schemas/IsoMappingRecord'
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+    IsoMappingRecord:
+      type: 'object'
+      description: 'ISO/TSO reference record.'
+      properties:
+        isoCode:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO code used throughout the API.'
+          example: 'ERCOT'
+        isoName:
+          type: 'string'
+          nullable: true
+          description: 'Full name of the ISO/TSO.'
+          example: 'Electric Reliability Council of Texas'
+    ZoneMappingResponse:
+      type: 'object'
+      description: 'Response containing price zone and hub mapping records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of zone and hub mapping records.'
+          items:
+            $ref: '#/components/schemas/ZoneMappingRecord'
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+    ZoneMappingRecord:
+      type: 'object'
+      description: 'Capacity auction zone reference record.'
+      properties:
+        locationId:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO load distribution area or zone code, used as input to `POST /prices?category=Capacity`.'
+          example: 'PJM_ATSI_BASE'
+        locationName:
+          type: 'string'
+          nullable: true
+          description: 'Full zone name.'
+          example: 'AEP Generation Hub'
+        isoCode:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO market code.'
+          example: 'PJM'
+        priceUnits:
+          type: 'string'
+          nullable: true
+          description: 'Unit of the clearing price for this zone.'
+          example: 'MW/DAY'
+        frequency:
+          type: 'string'
+          nullable: true
+          description: 'Frequency at which capacity auctions are held for this zone.'
+          example: 'Monthly'
+    LocationMappingResponse:
+      type: 'object'
+      description: 'Response containing power price location mapping records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of power price location mapping records.'
+          items:
+            $ref: '#/components/schemas/LocationMappingRecord'
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+    LocationMappingRecord:
+      type: 'object'
+      description: 'Power price location (hub) reference record.'
+      properties:
+        locationId:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO power price location code (hub or zone code), used as input to `POST /prices` for the `Power`, `SparkSpread`, and `Forward` categories.'
+          example: 'HB_NORTH'
+        locationName:
+          type: 'string'
+          nullable: true
+          description: 'Full location name.'
+          example: 'Hub North'
+        isoCode:
+          type: 'string'
+          nullable: true
+          description: 'ISO/TSO market code.'
+          example: 'ERCOT'
+    EntityHistoryResponse:
+      type: 'object'
+      description: 'Response containing entity and security history records.'
+      properties:
+        data:
+          type: 'array'
+          description: 'Array of entity history records.'
+          items:
+            $ref: '#/components/schemas/EntityHistoryRecord'
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+    EntityHistoryRecord:
+      type: 'object'
+      description: 'An entity or security history record, combining security-to-entity identifier mappings with entity ownership structure history.'
+      properties:
+        factsetEntityId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet entity identifier.'
+          example: '0GSF7D-E'
+        factsetSecurityId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet security identifier, if this record maps a security to an entity.'
+          example: null
+        factsetParentEntityId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet identifier for the immediate majority owner of this entity''s equity, if this record reflects ownership structure.'
+          example: '000KYG-E'
+        factsetUltParentEntityId:
+          type: 'string'
+          nullable: true
+          description: 'FactSet identifier for the ultimate owner of this entity''s equity, if this record reflects ownership structure.'
+          example: '000Q07-E'
+        depth:
+          type: 'integer'
+          nullable: true
+          description: 'Position of the entity within its ownership tree. 1 = ultimate parent, 2 = one level below the ultimate parent, etc.'
+          example: 1
+        startDate:
+          type: 'string'
+          format: 'date'
+          nullable: true
+          description: 'Effective start date of this record.'
+          example: '2003-12-05'
+        endDate:
+          type: 'string'
+          format: 'date'
+          nullable: true
+          description: 'Effective end date of this record. Null if the record is currently active.'
+          example: null
+  responses:
+    '400':
+      description: 'Bad Request — the request was malformed or a required parameter was missing.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Bad Request:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+    '401':
+      description: 'Unauthenticated — no valid credentials were provided.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Unauthenticated:
+              $ref: '#/components/examples/unauthenticated'
+    '403':
+      description: 'Forbidden — the credentials provided do not have access to this resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Forbidden:
+              $ref: '#/components/examples/forbidden'
+    '404':
+      description: 'Not Found — the requested resource was not found.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Not Found:
+              $ref: '#/components/examples/notFound'
+    '415':
+      description: 'Unsupported Media Type — the request body was not JSON or the Content-Type header was missing.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+    '422':
+      description: 'Unprocessable Entity — the request was syntactically valid but semantically incorrect (e.g., invalid date range).'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Unprocessable Entity:
+              $ref: '#/components/examples/unprocessableEntity'
+    '429':
+      description: 'Too Many Requests — the rate limit for this endpoint has been exceeded.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Too Many Requests:
+              $ref: '#/components/examples/tooManyRequests'
+    '500':
+      description: 'Internal Server Error — an unexpected error occurred on the server.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Internal Server Error:
+              $ref: '#/components/examples/internalServerError'
+    '503':
+      description: 'Service Unavailable — the service is temporarily unavailable.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          examples:
+            Service Unavailable:
+              $ref: '#/components/examples/serviceUnavailable'
+  examples:
+    badRequestRequiredParameter:
+      summary: 'Bad Request — required parameter missing'
+      value:
+        errors:
+          - id: 'adb01824-252f-4420-b0c6-35a1e3507ef5'
+            code: 'requestBodyInvalid'
+            title: 'Bad Request'
+            detail: 'The field ''data.ids'' is required and may not be empty.'
+            links:
+              pointer: '/data/ids'
+    unauthenticated:
+      summary: 'Unauthenticated'
+      value:
+        errors:
+          - id: 'b1c2d3e4-f5a6-7890-abcd-ef1234567890'
+            code: 'notAuthenticated'
+            title: 'Unauthenticated'
+            detail: 'No valid credentials were provided. Provide a valid API key or OAuth2 token.'
+    forbidden:
+      summary: 'Forbidden'
+      value:
+        errors:
+          - id: 'c2d3e4f5-a6b7-8901-bcde-f12345678901'
+            code: 'notAuthorized'
+            title: 'Forbidden'
+            detail: 'Your account does not have access to this resource. Contact your FactSet account representative.'
+    notFound:
+      summary: 'Not Found'
+      value:
+        errors:
+          - id: 'd3e4f5a6-b7c8-9012-cdef-012345678901'
+            code: 'notFound'
+            title: 'Not Found'
+            detail: 'The requested resource was not found.'
+    unsupportedMediaType:
+      summary: 'Unsupported Media Type'
+      value:
+        errors:
+          - id: 'e4f5a6b7-c8d9-0123-defa-123456789012'
+            code: 'requestBodyInvalid'
+            title: 'Unsupported Media Type'
+            detail: 'The Content-Type header must be ''application/json''.'
+    unprocessableEntity:
+      summary: 'Unprocessable Entity — invalid date range'
+      value:
+        errors:
+          - id: 'f5a6b7c8-d9e0-1234-efab-234567890123'
+            code: 'parameterError'
+            title: 'Unprocessable Entity'
+            detail: 'The ''startDate'' must be on or before ''endDate''.'
+            links:
+              pointer: '/data/startDate'
+    tooManyRequests:
+      summary: 'Too Many Requests'
+      value:
+        errors:
+          - id: 'a6b7c8d9-e0f1-2345-fabc-345678901234'
+            code: 'quantityLimitsExceeded'
+            title: 'Too Many Requests'
+            detail: 'The rate limit for this endpoint has been exceeded. Please reduce your request frequency and try again.'
+    internalServerError:
+      summary: 'Internal Server Error'
+      value:
+        errors:
+          - id: 'b7c8d9e0-f1a2-3456-abcd-456789012345'
+            code: 'internalServerError'
+            title: 'Internal Server Error'
+            detail: 'An unexpected error occurred. Please try again. If the problem persists, contact FactSet support.'
+    serviceUnavailable:
+      summary: 'Service Unavailable'
+      value:
+        errors:
+          - id: 'c8d9e0f1-a2b3-4567-bcde-567890123456'
+            code: 'serviceTemporarilyUnavailable'
+            title: 'Service Unavailable'
+            detail: 'The service is temporarily unavailable. Please try again shortly.'
+    PlantMetadataRequestExample:
+      summary: 'Plant unit metadata request'
+      value:
+        data:
+          category: 'Metadata'
+          ids:
+            - '05TXVW-M'
+          plantStatus: 'Operational'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantSolarRequestExample:
+      summary: 'Solar plant technical specs request'
+      value:
+        data:
+          category: 'Solar'
+          ids:
+            - '05RLSM-M'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantPipelineRequestExample:
+      summary: 'Plant pipeline connection request'
+      value:
+        data:
+          category: 'Pipeline'
+          ids:
+            - '05RLSM-M'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantWindRequestExample:
+      summary: 'Wind plant technical specs request'
+      value:
+        data:
+          category: 'Wind'
+          ids:
+            - '05WXYZ-M'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantThermalRequestExample:
+      summary: 'Thermal plant technical specs request'
+      value:
+        data:
+          category: 'Thermal'
+          ids:
+            - '05RLSM-M'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    MarketDataGenerationRequestExample:
+      summary: 'BA generation request'
+      value:
+        data:
+          category: 'Generation'
+          ids:
+            - '05WTSJ-M'
+          startDate: '2024-01-01'
+          endDate: '2024-01-07'
+        meta:
+          pagination:
+            limit: 500
+            offset: 0
+    MarketDataDemandRequestExample:
+      summary: 'BA demand request'
+      value:
+        data:
+          category: 'Demand'
+          ids:
+            - '05WTTF-M'
+          startDate: '2024-01-01'
+          endDate: '2024-01-07'
+        meta:
+          pagination:
+            limit: 500
+            offset: 0
+    PowerPricesRequestExample:
+      summary: 'Spot power prices request'
+      value:
+        data:
+          category: 'Power'
+          ids:
+            - 'CAISO_AESO'
+          startDate: '2024-01-01'
+          endDate: '2024-03-31'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    SparkSpreadRequestExample:
+      summary: 'Spark spread request'
+      value:
+        data:
+          category: 'SparkSpread'
+          ids:
+            - 'CAISO_AESO'
+          startDate: '2024-01-01'
+          endDate: '2024-03-31'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    CapacityPricesRequestExample:
+      summary: 'Capacity auction prices request'
+      value:
+        data:
+          category: 'Capacity'
+          ids:
+            - 'PJM_ATSI_BASE'
+          deliveryYear: 2024
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    ForwardPricesRequestExample:
+      summary: 'Forward power prices request'
+      value:
+        data:
+          category: 'Forward'
+          ids:
+            - 'NYISO_NYC'
+          startDate: '2024-01-01'
+          endDate: '2026-06-30'
+          priceType: 'OnPeak'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    HourlyGenerationRequestExample:
+      summary: 'Hourly generation and emissions request'
+      value:
+        data:
+          ids:
+            - '05RLSM-M'
+            - '05TWPS-M'
+          startDate: '2024-06-01'
+          endDate: '2024-06-07'
+        meta:
+          pagination:
+            limit: 500
+            offset: 0
+    MonthlyGenerationRequestExample:
+      summary: 'Monthly generation and emissions request'
+      value:
+        data:
+          ids:
+            - '0000DN-M'
+          startDate: '2023-01-01'
+          endDate: '2023-12-31'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantIdsResponseExample:
+      summary: 'Plant IDs discovery response'
+      value:
+        data:
+          - factsetPlantId: 'B00121-M'
+            plantName: 'W.A. Parish Electric Station'
+            isoCode: 'ERCOT'
+            primaryFuelType: 'Gas'
+            country: 'United States'
+            region: 'Texas'
+            nearestCity: 'Thompsons'
+            continent: 'North America'
+            latitude: 29.4858
+            longitude: -95.7544
+            latLongPrecision: 'Exact'
+            plantStatus: 'Operational'
+            capacityMw: 2558.1
+          - factsetPlantId: 'B00987-M'
+            plantName: 'Comanche Peak Nuclear Power Plant'
+            isoCode: 'ERCOT'
+            primaryFuelType: 'Nuclear'
+            country: 'United States'
+            region: 'Texas'
+            nearestCity: 'Glen Rose'
+            continent: 'North America'
+            latitude: 32.298
+            longitude: -97.785
+            latLongPrecision: 'Exact'
+            plantStatus: 'Operational'
+            capacityMw: 2400.6
+        meta:
+          pagination:
+            total: 18432
+            isEstimatedTotal: false
+    PlantMetadataResponseExample:
+      summary: 'Plant unit metadata response'
+      value:
+        data:
+          - requestId: '05RLSM-M'
+            factsetPlantUnitId: '05RLSM-M'
+            category: 'Metadata'
+            factsetPlantId: 'B00121-M'
+            plantName: 'W.A. Parish Electric Station'
+            isoCode: 'ERCOT'
+            country: 'United States'
+            region: 'Texas'
+            primaryFuelType: 'Gas'
+            primaryFuelCode: 'NG'
+            technology: 'Combined Cycle'
+            subTechnology: 'GT'
+            sector: 'IPP Non-CHP'
+            isChp: false
+            plantStatus: 'Operational'
+            capacityMw: 2558.1
+            projectGrade: null
+            hasCcs: false
+            hasDesalination: false
+            isFloating: false
+            ownerName: 'NRG Energy'
+            factsetOwnerEntityId: '0GSF7D-E'
+            commissionDate: '1977-06-01'
+            retirementDate: null
+            eia860PlantCode: '6242'
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    UnitsOwnershipRequestExample:
+      summary: 'Unit ownership request'
+      value:
+        data:
+          ids:
+            - '05RLSM-M'
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    UnitsOwnershipResponseExample:
+      summary: 'Unit ownership response'
+      value:
+        data:
+          - requestId: '05RLSM-M'
+            factsetPlantUnitId: '05RLSM-M'
+            factsetPlantId: '05RLSM'
+            ownerName: 'NRG Energy Inc'
+            factsetOwnerId: '0GSF7D-E'
+            ownershipPercentage: 99.9
+            factsetUltimateParentEntityId: '000Q07-E'
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PlantSolarResponseExample:
+      summary: 'Solar plant technical specs response'
+      value:
+        data:
+          - requestId: '05TWPS-M'
+            factsetPlantUnitId: '05TWPS-M'
+            category: 'Solar'
+            solarInstalledCapacityMw: 250.1
+            trackingType: 'Fixed Rack'
+            azimuthAngle: 180.1
+            tiltAngleDegrees: 20.1
+            isThinFilm: false
+            acres: 590.1
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds:
+            - '05FAIL-M'
+    PlantPipelineResponseExample:
+      summary: 'Plant pipeline connection response'
+      value:
+        data:
+          - requestId: '05RLSM-M'
+            factsetPlantUnitId: '05RLSM-M'
+            category: 'Pipeline'
+            pipelineName: 'Intrastate/LDC'
+            pipelineSequence: 1
+          - requestId: '05RLSM-M'
+            factsetPlantUnitId: '05RLSM-M'
+            category: 'Pipeline'
+            pipelineName: 'Texas Eastern Transmission'
+            pipelineSequence: 2
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PlantWindResponseExample:
+      summary: 'Wind plant technical specs response'
+      value:
+        data:
+          - requestId: '05WXYZ-M'
+            factsetPlantUnitId: '05WXYZ-M'
+            category: 'Wind'
+            turbineCount: 150
+            turbineManufacturer: 'Vestas Wind Systems A/S'
+            factsetManufEntityId: '05HJVH-E'
+            turbineModel: 'V110-2.0 MW'
+            hubHeightM: 95.1
+            sweptAreaM2: 9503.32
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PlantThermalResponseExample:
+      summary: 'Thermal plant technical specs response'
+      value:
+        data:
+          - requestId: '05RLSM-M'
+            factsetPlantUnitId: '05RLSM-M'
+            category: 'Thermal'
+            designHeatRateBtuPerKwh: 6850.1
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    MarketDataCoverageResponseExample:
+      summary: 'Balancing authority coverage response'
+      value:
+        data:
+          - factsetBaSubRegId: '05WTTF-M'
+            baSubRegionName: 'Zones 2 and 7'
+            factsetBaId: '05WTSJ-M'
+            baName: 'Midcontinent Independent System Operator, Inc.'
+            country: 'United States'
+          - factsetBaSubRegId: '05WTT4-M'
+            baSubRegionName: 'ERCOT Load Zone'
+            factsetBaId: '05WWLK-M'
+            baName: 'Electric Reliability Council of Texas, Inc.'
+            country: 'United States'
+        meta:
+          pagination:
+            total: 65
+            isEstimatedTotal: false
+    MarketDataGenerationResponseExample:
+      summary: 'BA generation response'
+      value:
+        data:
+          - requestId: '05WTSJ-M'
+            factsetBaId: '05WTSJ-M'
+            category: 'Generation'
+            reportDate: '2024-01-15'
+            reportHour: 14
+            primaryFuelType: 'Wind'
+            generationMw: 5234.7
+          - requestId: '05WTSJ-M'
+            factsetBaId: '05WTSJ-M'
+            category: 'Generation'
+            reportDate: '2024-01-15'
+            reportHour: 15
+            primaryFuelType: 'Wind'
+            generationMw: 5412.1
+        meta:
+          pagination:
+            total: 336
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    MarketDataDemandResponseExample:
+      summary: 'BA demand response'
+      value:
+        data:
+          - requestId: '05WTTF-M'
+            factsetBaSubRegId: '05WTTF-M'
+            category: 'Demand'
+            reportDate: '2024-01-15'
+            reportHour: 14
+            demandMwHr: 48920.1
+        meta:
+          pagination:
+            total: 168
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PowerPricesResponseExample:
+      summary: 'Spot power prices response'
+      value:
+        data:
+          - category: 'Power'
+            requestId: 'CAISO_AESO'
+            locationId: 'CAISO_AESO'
+            locationName: 'AESO Generation Aggregation'
+            isoCode: 'CAISO'
+            priceDate: '2024-01-01'
+            onPeakPriceMwh: 40.978906
+            offPeakPriceMwh: 46.188038
+            aroundTheClockPriceMwh: 42.715283
+          - category: 'Power'
+            requestId: 'CAISO_AESO'
+            locationId: 'CAISO_AESO'
+            locationName: 'AESO Generation Aggregation'
+            isoCode: 'CAISO'
+            priceDate: '2024-01-02'
+            onPeakPriceMwh: 48.779813
+            offPeakPriceMwh: 46.318513
+            aroundTheClockPriceMwh: 47.959379
+        meta:
+          pagination:
+            total: 180
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    SparkSpreadResponseExample:
+      summary: 'Spark spread response'
+      value:
+        data:
+          - requestId: 'CAISO_AESO'
+            locationId: 'CAISO_AESO'
+            locationName: 'AESO'
+            isoCode: 'CAISO'
+            category: 'SparkSpread'
+            priceDate: '2024-01-15'
+            ngiLocName: 'NOVA/AECO C'
+            sparkSpreadType: 'Peak'
+            sparkSpreadPricesMwh:
+              heatRate7000: 58.93
+              heatRate8000: 56.65
+              heatRate10000: 52.09
+              heatRate12000: 47.54
+        meta:
+          pagination:
+            total: 90
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    CapacityPricesResponseExample:
+      summary: 'Capacity auction prices response'
+      value:
+        data:
+          - requestId: 'PJM_ATSI_BASE'
+            locationId: 'PJM_ATSI_BASE'
+            locationName: 'AEP Generation Hub'
+            isoCode: 'PJM'
+            category: 'Capacity'
+            mnemonic: 'USCM7861582'
+            auctionType: 'Base Residual Auction'
+            auctionDate: '2023-02-27'
+            deliveryYear: 2026
+            auctionPriceMw: 28.92
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    ForwardPricesResponseExample:
+      summary: 'Forward power prices response'
+      value:
+        data:
+          - requestId: 'NYISO_NYC'
+            locationId: 'NYISO_NYC'
+            locationName: 'New York City Strip'
+            isoCode: 'NYISO'
+            category: 'Forward'
+            priceDate: '2023-03-06'
+            deliveryYear: 2024
+            deliveryMonth: 7
+            interconnection: 'Eastern'
+            periodType: 'Monthly'
+            priceType: 'OnPeak'
+            avgForwardPriceMwh: 48.75
+        meta:
+          pagination:
+            total: 36
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    HourlyGenerationResponseExample:
+      summary: 'Hourly generation and emissions response'
+      value:
+        data:
+          - requestId: '05RLSM-M'
+            factsetPlantUnitId: '05RLSM-M'
+            factsetPlantId: 'B00121-M'
+            plantName: 'W.A. Parish Electric Station'
+            reportDate: '2024-06-03'
+            reportHour: 14
+            generationMwh: 1248.5
+            heatInputMmBtu: 8563.1
+            steamGen1000Lbs: 124.1
+            co2TonsEmitted: 712.4
+            so2TonsEmitted: 98.2
+            nitrousOxideEmitted: 145.6
+            primaryFuelType: 'Gas'
+        meta:
+          pagination:
+            total: 336
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    MonthlyGenerationResponseExample:
+      summary: 'Monthly generation and emissions response'
+      value:
+        data:
+          - requestId: 'B00121-M'
+            factsetPlantId: 'B00121-M'
+            factsetPlantUnitId: null
+            plantName: 'W.A. Parish Electric Station'
+            reportYear: 2023
+            reportMonth: 6
+            generationMwh: 892450.1
+            heatInputMmBtu: 6118000.1
+            co2TonsEmitted: 508920.1
+            co2IntensityTonsPerMwh: 0.57
+            so2TonsEmitted: 35.8
+            nitrousOxideTonsEmitted: 52.1
+            primaryFuelType: 'Gas'
+            ppFuelCapacityMw: 2410.2
+            ppFuelCapacityFactor: 30.4012
+        meta:
+          pagination:
+            total: 24
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    IsoMappingResponseExample:
+      summary: 'ISO/TSO mapping response'
+      value:
+        data:
+          - isoCode: 'ERCOT'
+            isoName: 'Electric Reliability Council of Texas'
+          - isoCode: 'PJM'
+            isoName: 'PJM Interconnection'
+        meta:
+          pagination:
+            total: 12
+            isEstimatedTotal: false
+    ZoneMappingResponseExample:
+      summary: 'Zone mapping response'
+      value:
+        data:
+          - locationId: 'PJM_ATSI_BASE'
+            locationName: 'AEP Generation Hub'
+            isoCode: 'PJM'
+            priceUnits: 'MW/DAY'
+            frequency: 'Monthly'
+          - locationId: 'NYISO_NYC_STRIP'
+            locationName: 'New York City Strip'
+            isoCode: 'NYISO'
+            priceUnits: 'USD/MW-Month'
+            frequency: 'Monthly'
+        meta:
+          pagination:
+            total: 8420
+            isEstimatedTotal: false
+    LocationMappingResponseExample:
+      summary: 'Location mapping response'
+      value:
+        data:
+          - locationId: 'HB_NORTH'
+            locationName: 'Hub North'
+            isoCode: 'ERCOT'
+          - locationId: 'CAISO_AESO'
+            locationName: 'AESO'
+            isoCode: 'CAISO'
+        meta:
+          pagination:
+            total: 128
+            isEstimatedTotal: false
+    EntityHistoryResponseExample:
+      summary: 'Entity history response'
+      value:
+        data:
+          - factsetEntityId: '0GSF7D-E'
+            factsetSecurityId: null
+            factsetParentEntityId: '000KYG-E'
+            factsetUltParentEntityId: '000Q07-E'
+            depth: 2
+            startDate: '2003-12-05'
+            endDate: null
+        meta:
+          pagination:
+            total: 3
+            isEstimatedTotal: false

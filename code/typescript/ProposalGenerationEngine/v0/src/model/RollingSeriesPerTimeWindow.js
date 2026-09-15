@@ -12,6 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import CorrelationStats from './CorrelationStats';
+import PerformanceStats from './PerformanceStats';
+import RiskStats from './RiskStats';
 import RollingSeriesPerTimeWindowReturns from './RollingSeriesPerTimeWindowReturns';
 
 /**
@@ -47,6 +50,15 @@ class RollingSeriesPerTimeWindow {
         if (data) {
             obj = obj || new RollingSeriesPerTimeWindow();
 
+            if (data.hasOwnProperty('correlations') && obj['correlations'] === undefined) {
+                obj['correlations'] = CorrelationStats.constructFromObject(data['correlations']);
+            }
+            if (data.hasOwnProperty('performance') && obj['performance'] === undefined) {
+                obj['performance'] = PerformanceStats.constructFromObject(data['performance']);
+            }
+            if (data.hasOwnProperty('risks') && obj['risks'] === undefined) {
+                obj['risks'] = RiskStats.constructFromObject(data['risks']);
+            }
             if (data.hasOwnProperty('dates') && obj['dates'] === undefined) {
                 obj['dates'] = ApiClient.convertToType(data['dates'], ['Date']);
             }
@@ -60,6 +72,21 @@ class RollingSeriesPerTimeWindow {
 
 
 }
+
+/**
+ * @member {module:model/CorrelationStats} correlations
+ */
+RollingSeriesPerTimeWindow.prototype['correlations'] = undefined;
+
+/**
+ * @member {module:model/PerformanceStats} performance
+ */
+RollingSeriesPerTimeWindow.prototype['performance'] = undefined;
+
+/**
+ * @member {module:model/RiskStats} risks
+ */
+RollingSeriesPerTimeWindow.prototype['risks'] = undefined;
 
 /**
  * @member {Array.<Date>} dates

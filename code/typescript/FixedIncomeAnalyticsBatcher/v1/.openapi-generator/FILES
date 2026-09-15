@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/EventSummary.md
@@ -11,7 +9,6 @@ docs/FIABCalculationStatusSummary.md
 docs/FIABCalculationsApi.md
 docs/FIABDateParameters.md
 docs/FIABIdentifier.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

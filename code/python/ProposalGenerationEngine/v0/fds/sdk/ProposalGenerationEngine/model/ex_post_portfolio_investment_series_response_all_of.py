@@ -96,7 +96,7 @@ class ExPostPortfolioInvestmentSeriesResponseAllOf(ModelNormal):
         return {
             'security_details': (Investment,),  # noqa: E501
             'series': (TimeWindowSeries,),  # noqa: E501
-            'periods': (PeriodSeries,),  # noqa: E501
+            'periods': ([PeriodSeries],),  # noqa: E501
             'backfill_data': ({str: (BackfillData,)},),  # noqa: E501
         }
 
@@ -155,7 +155,7 @@ class ExPostPortfolioInvestmentSeriesResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             security_details (Investment): [optional]  # noqa: E501
             series (TimeWindowSeries): [optional]  # noqa: E501
-            periods (PeriodSeries): [optional]  # noqa: E501
+            periods ([PeriodSeries]): [optional]  # noqa: E501
             backfill_data ({str: (BackfillData,)}): a map from time window to backfill statistics. [optional]  # noqa: E501
         """
 
@@ -240,7 +240,7 @@ class ExPostPortfolioInvestmentSeriesResponseAllOf(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             security_details (Investment): [optional]  # noqa: E501
             series (TimeWindowSeries): [optional]  # noqa: E501
-            periods (PeriodSeries): [optional]  # noqa: E501
+            periods ([PeriodSeries]): [optional]  # noqa: E501
             backfill_data ({str: (BackfillData,)}): a map from time window to backfill statistics. [optional]  # noqa: E501
         """
 

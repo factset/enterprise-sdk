@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Category.md
@@ -14,7 +12,6 @@ docs/EtfReferenceDataResponse.md
 docs/Metric.md
 docs/MetricsResponse.md
 docs/ReferenceApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

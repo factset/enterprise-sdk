@@ -1,16 +1,13 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.CapitalStructureReportBuilder.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CapitalStructureApi.md
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
 docs/ErrorObjectSource.md
 docs/ErrorResponse.md
 docs/Response.md
-git_push.sh
 src/FactSet.SDK.CapitalStructureReportBuilder/Api/CapitalStructureApi.cs
 src/FactSet.SDK.CapitalStructureReportBuilder/Client/ApiClient.cs
 src/FactSet.SDK.CapitalStructureReportBuilder/Client/ApiException.cs

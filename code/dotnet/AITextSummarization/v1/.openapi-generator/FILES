@@ -1,15 +1,12 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.AITextSummarization.sln
 LICENSE
 README.md
-appveyor.yml
 docs/BadRequestResponse.md
 docs/DefaultApi.md
 docs/InternalServerErrorResponse.md
 docs/Request.md
 docs/SuccessResponse.md
-git_push.sh
 src/FactSet.SDK.AITextSummarization/Api/DefaultApi.cs
 src/FactSet.SDK.AITextSummarization/Client/ApiClient.cs
 src/FactSet.SDK.AITextSummarization/Client/ApiException.cs

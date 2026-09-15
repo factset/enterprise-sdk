@@ -1,7 +1,7 @@
 openapi: '3.0.0'
 info:
   title: 'Events and Transcripts API'
-  version: '2.2.2'
+  version: '2.2.3'
   contact:
     name: 'FactSet Research Systems'
     email: 'api@factset.com'
@@ -1243,6 +1243,7 @@ components:
                   - 'DT:FILNS'
                 slidesUrl: 'https://...'
                 eventId: '1203335253'
+                uploadDateTime: '2023-03-08T19:40:26Z'
           - requestId: 'MSFT-US'
             documents: []
           - requestId: 'M'
@@ -1981,6 +1982,10 @@ components:
         eventId:
           type: 'string'
           description: 'Unique identifier derived from report_id with a ''t'' appended, indicating a transcript or slide.'
+        uploadDateTime:
+          type: 'string'
+          format: 'date-time'
+          description: 'Timestamp when the transcript is created.'
     InvalidIdErrorData:
       type: 'object'
       nullable: true

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Categories** | **List&lt;string&gt;** | Categories are Country, Industry, and Subject codes. This is a list retrieved from &#x60;/meta/categories&#x60; | [optional] 
 **SlidesUrl** | **string** | This is a URL for downloading the document with an expiration duration of 24 hours. | [optional] 
 **EventId** | **string** | Unique identifier derived from report_id with a &#39;t&#39; appended, indicating a transcript or slide. | [optional] 
+**UploadDateTime** | **DateTime** | Timestamp when the transcript is created. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

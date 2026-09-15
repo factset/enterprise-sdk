@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AggregateMarketImpact.md
@@ -166,7 +163,6 @@ fds/sdk/BestExecutionAnalyticsforSmarterTradingBEAST/model_utils.py
 fds/sdk/BestExecutionAnalyticsforSmarterTradingBEAST/models/__init__.py
 fds/sdk/BestExecutionAnalyticsforSmarterTradingBEAST/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AUMItem.md
@@ -78,7 +76,6 @@ docs/TransactionSecurity.md
 docs/TransactionSummary.md
 docs/TransactionsApi.md
 docs/UniverseApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

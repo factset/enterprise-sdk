@@ -83,6 +83,7 @@ class TimeWindowStatsGeneric(ModelNormal):
         """
         return {
             'sales_chage': (float,),  # noqa: E501
+            'min_historical_date': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class TimeWindowStatsGeneric(ModelNormal):
 
     attribute_map = {
         'sales_chage': 'salesChage',  # noqa: E501
+        'min_historical_date': 'minHistoricalDate',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +138,7 @@ class TimeWindowStatsGeneric(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             sales_chage (float): [optional]  # noqa: E501
+            min_historical_date (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -218,6 +221,7 @@ class TimeWindowStatsGeneric(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             sales_chage (float): [optional]  # noqa: E501
+            min_historical_date (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

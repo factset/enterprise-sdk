@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetSearchAnswers.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AdaptiveCardAnswerSuccessResponse.md
 docs/AdaptiveCardDataItem.md
 docs/AdaptiveCardWithThumbnail.md
@@ -96,7 +94,6 @@ docs/ValueLabelDateTextBlockTemplateData.md
 docs/ValueLabelDateTextBlockTemplateDataAllOf.md
 docs/ValueLabelTemplateData.md
 docs/ValueLabelTemplateDataAllOf.md
-git_push.sh
 src/FactSet.SDK.FactSetSearchAnswers/Api/AnswersApi.cs
 src/FactSet.SDK.FactSetSearchAnswers/Client/ApiClient.cs
 src/FactSet.SDK.FactSetSearchAnswers/Client/ApiException.cs

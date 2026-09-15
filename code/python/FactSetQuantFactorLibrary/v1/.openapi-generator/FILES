@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/ErrorResponse.md
@@ -44,7 +41,6 @@ fds/sdk/FactSetQuantFactorLibrary/model_utils.py
 fds/sdk/FactSetQuantFactorLibrary/models/__init__.py
 fds/sdk/FactSetQuantFactorLibrary/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

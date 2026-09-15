@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetPeople.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CompanyApi.md
 docs/CompanyCompensation.md
 docs/CompanyCompensationRequest.md
@@ -33,7 +31,6 @@ docs/Profile.md
 docs/ProfilesApi.md
 docs/Status.md
 docs/Type.md
-git_push.sh
 src/FactSet.SDK.FactSetPeople/Api/CompanyApi.cs
 src/FactSet.SDK.FactSetPeople/Api/JobHistoryApi.cs
 src/FactSet.SDK.FactSetPeople/Api/ProfilesApi.cs

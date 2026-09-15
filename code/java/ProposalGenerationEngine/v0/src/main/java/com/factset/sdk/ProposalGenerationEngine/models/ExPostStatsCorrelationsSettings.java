@@ -19,6 +19,8 @@ import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.ProposalGenerationEngine.models.BaseSettings;
 import com.factset.sdk.ProposalGenerationEngine.models.ExPostStatsCorrelationsSettingsAllOf;
+import com.factset.sdk.ProposalGenerationEngine.models.Period;
+import com.factset.sdk.ProposalGenerationEngine.models.Periods;
 import com.factset.sdk.ProposalGenerationEngine.models.TimeWindow;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -40,6 +42,7 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
   ExPostStatsCorrelationsSettings.JSON_PROPERTY_RETURNS_PREFERENCES,
   ExPostStatsCorrelationsSettings.JSON_PROPERTY_VALIDATE_PORTFOLIO,
   ExPostStatsCorrelationsSettings.JSON_PROPERTY_TIME_WINDOWS,
+  ExPostStatsCorrelationsSettings.JSON_PROPERTY_PERIODS,
   ExPostStatsCorrelationsSettings.JSON_PROPERTY_STATS,
   ExPostStatsCorrelationsSettings.JSON_PROPERTY_HOLDINGS_LIMIT,
   ExPostStatsCorrelationsSettings.JSON_PROPERTY_FUND_CORRELATIONS_ONLY,
@@ -61,6 +64,9 @@ public class ExPostStatsCorrelationsSettings implements Serializable {
 
   public static final String JSON_PROPERTY_TIME_WINDOWS = "timeWindows";
   private java.util.List<String> timeWindows = null;
+
+  public static final String JSON_PROPERTY_PERIODS = "periods";
+  private java.util.List<Period> periods = null;
 
   /**
    * Gets or Sets stats
@@ -226,6 +232,40 @@ public class ExPostStatsCorrelationsSettings implements Serializable {
   }
 
 
+  public ExPostStatsCorrelationsSettings periods(java.util.List<Period> periods) {
+    this.periods = periods;
+    return this;
+  }
+
+  public ExPostStatsCorrelationsSettings addPeriodsItem(Period periodsItem) {
+    if (this.periods == null) {
+      this.periods = new java.util.ArrayList<>();
+    }
+    this.periods.add(periodsItem);
+    return this;
+  }
+
+   /**
+   * Get periods
+   * @return periods
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<Period> getPeriods() {
+    return periods;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPeriods(java.util.List<Period> periods) {
+    this.periods = periods;
+  }
+
+
   public ExPostStatsCorrelationsSettings stats(java.util.List<StatsEnum> stats) {
     this.stats = stats;
     return this;
@@ -354,6 +394,7 @@ public class ExPostStatsCorrelationsSettings implements Serializable {
         Objects.equals(this.returnsPreferences, exPostStatsCorrelationsSettings.returnsPreferences) &&
         Objects.equals(this.validatePortfolio, exPostStatsCorrelationsSettings.validatePortfolio) &&
         Objects.equals(this.timeWindows, exPostStatsCorrelationsSettings.timeWindows) &&
+        Objects.equals(this.periods, exPostStatsCorrelationsSettings.periods) &&
         Objects.equals(this.stats, exPostStatsCorrelationsSettings.stats) &&
         Objects.equals(this.holdingsLimit, exPostStatsCorrelationsSettings.holdingsLimit) &&
         Objects.equals(this.fundCorrelationsOnly, exPostStatsCorrelationsSettings.fundCorrelationsOnly) &&
@@ -362,7 +403,7 @@ public class ExPostStatsCorrelationsSettings implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asOfDate, returnsPreferences, validatePortfolio, timeWindows, stats, holdingsLimit, fundCorrelationsOnly, showBenchmark);
+    return Objects.hash(asOfDate, returnsPreferences, validatePortfolio, timeWindows, periods, stats, holdingsLimit, fundCorrelationsOnly, showBenchmark);
   }
 
   @Override
@@ -373,6 +414,7 @@ public class ExPostStatsCorrelationsSettings implements Serializable {
     sb.append("    returnsPreferences: ").append(toIndentedString(returnsPreferences)).append("\n");
     sb.append("    validatePortfolio: ").append(toIndentedString(validatePortfolio)).append("\n");
     sb.append("    timeWindows: ").append(toIndentedString(timeWindows)).append("\n");
+    sb.append("    periods: ").append(toIndentedString(periods)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
     sb.append("    holdingsLimit: ").append(toIndentedString(holdingsLimit)).append("\n");
     sb.append("    fundCorrelationsOnly: ").append(toIndentedString(fundCorrelationsOnly)).append("\n");

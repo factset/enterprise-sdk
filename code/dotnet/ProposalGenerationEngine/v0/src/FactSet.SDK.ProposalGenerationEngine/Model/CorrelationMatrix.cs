@@ -37,10 +37,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// </summary>
         /// <param name="assets">assets.</param>
         /// <param name="matrix">matrix.</param>
-        public CorrelationMatrix(List<string> assets = default(List<string>), List<List<decimal>> matrix = default(List<List<decimal>>))
+        /// <param name="threeDMatrix">threeDMatrix.</param>
+        public CorrelationMatrix(List<string> assets = default(List<string>), List<List<decimal>> matrix = default(List<List<decimal>>), List<List<List<decimal>>> threeDMatrix = default(List<List<List<decimal>>>))
         {
             this.Assets = assets;
             this.Matrix = matrix;
+            this.ThreeDMatrix = threeDMatrix;
         }
 
         /// <summary>
@@ -56,6 +58,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         public List<List<decimal>> Matrix { get; set; }
 
         /// <summary>
+        /// Gets or Sets ThreeDMatrix
+        /// </summary>
+        [DataMember(Name = "threeDMatrix", EmitDefaultValue = false)]
+        public List<List<List<decimal>>> ThreeDMatrix { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +73,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             sb.Append("class CorrelationMatrix {\n");
             sb.Append("  Assets: ").Append(Assets).Append("\n");
             sb.Append("  Matrix: ").Append(Matrix).Append("\n");
+            sb.Append("  ThreeDMatrix: ").Append(ThreeDMatrix).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -111,6 +120,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                     this.Matrix != null &&
                     input.Matrix != null &&
                     this.Matrix.SequenceEqual(input.Matrix)
+                ) && 
+                (
+                    this.ThreeDMatrix == input.ThreeDMatrix ||
+                    this.ThreeDMatrix != null &&
+                    input.ThreeDMatrix != null &&
+                    this.ThreeDMatrix.SequenceEqual(input.ThreeDMatrix)
                 );
         }
 
@@ -130,6 +145,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 if (this.Matrix != null)
                 {
                     hashCode = (hashCode * 59) + this.Matrix.GetHashCode();
+                }
+                if (this.ThreeDMatrix != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThreeDMatrix.GetHashCode();
                 }
                 return hashCode;
             }

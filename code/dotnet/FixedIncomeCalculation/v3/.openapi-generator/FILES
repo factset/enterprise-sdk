@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FixedIncomeCalculation.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CalculationInfo.md
 docs/CalculationInfoRoot.md
 docs/CalculationMeta.md
@@ -37,7 +35,6 @@ docs/FIServicerAdvancesForSecurities.md
 docs/FIStructuredProductsForJobSettings.md
 docs/FIStructuredProductsForSecurities.md
 docs/ObjectRoot.md
-git_push.sh
 src/FactSet.SDK.FixedIncomeCalculation/Api/DiscountCurvesApi.cs
 src/FactSet.SDK.FixedIncomeCalculation/Api/FICalculationsApi.cs
 src/FactSet.SDK.FixedIncomeCalculation/Client/ApiClient.cs

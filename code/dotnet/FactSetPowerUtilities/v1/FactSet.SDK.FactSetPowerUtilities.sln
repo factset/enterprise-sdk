@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactSet.SDK.FactSetPowerUtilities", "src\FactSet.SDK.FactSetPowerUtilities\FactSet.SDK.FactSetPowerUtilities.csproj", "{aa0961c7-e0ba-5b14-8e27-2875d9b9ebe6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{aa0961c7-e0ba-5b14-8e27-2875d9b9ebe6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{aa0961c7-e0ba-5b14-8e27-2875d9b9ebe6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{aa0961c7-e0ba-5b14-8e27-2875d9b9ebe6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{aa0961c7-e0ba-5b14-8e27-2875d9b9ebe6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

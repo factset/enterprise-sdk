@@ -77,7 +77,7 @@ class TransactionRule {
                 obj['frequency'] = ApiClient.convertToType(data['frequency'], 'Number');
             }
             if (data.hasOwnProperty('frequencyAlignment') && obj['frequencyAlignment'] === undefined) {
-                obj['frequencyAlignment'] = ApiClient.convertToType(data['frequencyAlignment'], 'Number');
+                obj['frequencyAlignment'] = ApiClient.convertToType(data['frequencyAlignment'], 'String');
             }
             
         }
@@ -268,40 +268,22 @@ TransactionRule['AmountGrowthFrequencyEnum'] = {
 
 /**
  * Allowed values for the <code>frequencyAlignment</code> property.
- * @enum {Number}
+ * @enum {String}
  * @readonly
  */
 TransactionRule['FrequencyAlignmentEnum'] = {
 
     /**
-     * value: 1
+     * value: "start"
      * @const
      */
-    "1": 1,
+    "start": "start",
 
     /**
-     * value: 2
+     * value: "calendar"
      * @const
      */
-    "2": 2,
-
-    /**
-     * value: 4
-     * @const
-     */
-    "4": 4,
-
-    /**
-     * value: 6
-     * @const
-     */
-    "6": 6,
-
-    /**
-     * value: 12
-     * @const
-     */
-    "12": 12
+    "calendar": "calendar"
 };
 
 

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import SerieStats from './SerieStats';
+import SeriesStats from './SeriesStats';
 
 /**
  * The PeriodSeriesAllOf model module.
@@ -48,7 +48,7 @@ class PeriodSeriesAllOf {
             obj = obj || new PeriodSeriesAllOf();
 
             if (data.hasOwnProperty('series') && obj['series'] === undefined) {
-                obj['series'] = SerieStats.constructFromObject(data['series']);
+                obj['series'] = SeriesStats.constructFromObject(data['series']);
             }
             
         }
@@ -59,7 +59,7 @@ class PeriodSeriesAllOf {
 }
 
 /**
- * @member {module:model/SerieStats} series
+ * @member {module:model/SeriesStats} series
  */
 PeriodSeriesAllOf.prototype['series'] = undefined;
 

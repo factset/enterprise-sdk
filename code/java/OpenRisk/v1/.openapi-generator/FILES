@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -70,7 +68,6 @@ docs/SupportedStatDetailsSecurityGroupMethod.md
 docs/SupportedStats.md
 docs/SupportedStatsNamesOnly.md
 docs/WarningItem.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

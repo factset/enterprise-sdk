@@ -82,7 +82,6 @@ class PortfolioInvestment(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
             'weight': (float,),  # noqa: E501
         }
 
@@ -92,7 +91,6 @@ class PortfolioInvestment(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
         'weight': 'weight',  # noqa: E501
     }
 
@@ -103,12 +101,8 @@ class PortfolioInvestment(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, weight, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """PortfolioInvestment - a model defined in OpenAPI
-
-        Args:
-            id (str): the unique id of the investment - e.g. FactSet id
-            weight (float): the weight of the investment in hte portfolio
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,6 +135,7 @@ class PortfolioInvestment(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            weight (float): the weight of the investment in hte portfolio. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -168,8 +163,6 @@ class PortfolioInvestment(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.id = id
-        self.weight = weight
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,12 +183,8 @@ class PortfolioInvestment(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, weight, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """PortfolioInvestment - a model defined in OpenAPI
-
-        Args:
-            id (str): the unique id of the investment - e.g. FactSet id
-            weight (float): the weight of the investment in hte portfolio
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -228,6 +217,7 @@ class PortfolioInvestment(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            weight (float): the weight of the investment in hte portfolio. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,8 +243,6 @@ class PortfolioInvestment(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.id = id
-        self.weight = weight
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

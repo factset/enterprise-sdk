@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.SecurityIntelligence.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CompanySummaryApi.md
 docs/Competitor.md
 docs/CustomValidationError.md
@@ -21,7 +19,6 @@ docs/StockMovementMetaData.md
 docs/StockMovementResponse.md
 docs/StockMovementSummaryApi.md
 docs/SummaryItem.md
-git_push.sh
 src/FactSet.SDK.SecurityIntelligence/Api/CompanySummaryApi.cs
 src/FactSet.SDK.SecurityIntelligence/Api/StockMovementSummaryApi.cs
 src/FactSet.SDK.SecurityIntelligence/Client/ApiClient.cs

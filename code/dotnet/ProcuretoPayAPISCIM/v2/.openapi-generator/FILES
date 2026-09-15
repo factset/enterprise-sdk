@@ -1,10 +1,9 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.ProcuretoPayAPISCIM.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AuthenticationScheme.md
+docs/DesktopApplicationGroupApplications.md
 docs/Error.md
 docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
@@ -31,6 +30,8 @@ docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -90,7 +91,6 @@ docs/UserResourceUrnScimSchemasExtensionFactSetVRS10User.md
 docs/UserResourceVRSDomainData.md
 docs/UserResourceVRSDomainDataTenancies.md
 docs/UsersApi.md
-git_push.sh
 src/FactSet.SDK.ProcuretoPayAPISCIM/Api/FederationsApi.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Api/FileManagerAuditApi.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Api/FirmDescriptionsApi.cs
@@ -121,6 +121,7 @@ src/FactSet.SDK.ProcuretoPayAPISCIM/Client/RetryConfiguration.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/FactSet.SDK.ProcuretoPayAPISCIM.csproj
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/AbstractOpenAPISchema.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/AuthenticationScheme.cs
+src/FactSet.SDK.ProcuretoPayAPISCIM/Model/DesktopApplicationGroupApplications.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/Error.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/ErrorUrnScimSchemasExtensionFactSetCore10Error.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/FederationResource.cs
@@ -144,6 +145,8 @@ src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceList.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceMember.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceMeta.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.cs
+src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.cs
+src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.cs
 src/FactSet.SDK.ProcuretoPayAPISCIM/Model/InlineResponse429.cs

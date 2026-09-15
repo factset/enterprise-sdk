@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.Formula.sln
 LICENSE
 README.md
-appveyor.yml
 docs/BatchData.md
 docs/BatchDataRequest.md
 docs/BatchDataRequestData.md
@@ -39,7 +37,6 @@ docs/TimeSeriesTimeseriesObject.md
 docs/UnifiedResultObjectFlattened.md
 docs/UnifiedResultObjectFlattenedAddl.md
 docs/WarningsObject.md
-git_push.sh
 src/FactSet.SDK.Formula/Api/BatchProcessingApi.cs
 src/FactSet.SDK.Formula/Api/CrossSectionalApi.cs
 src/FactSet.SDK.Formula/Api/TimeSeriesApi.cs

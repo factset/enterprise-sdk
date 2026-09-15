@@ -62,7 +62,7 @@ public class PortfolioWithExPostStats implements Serializable {
   private Object udfs;
 
   public static final String JSON_PROPERTY_PERIODS = "periods";
-  private ExPostPeriodStats periods;
+  private java.util.List<ExPostPeriodStats> periods = null;
 
   public PortfolioWithExPostStats() { 
   }
@@ -171,8 +171,16 @@ public class PortfolioWithExPostStats implements Serializable {
   }
 
 
-  public PortfolioWithExPostStats periods(ExPostPeriodStats periods) {
+  public PortfolioWithExPostStats periods(java.util.List<ExPostPeriodStats> periods) {
     this.periods = periods;
+    return this;
+  }
+
+  public PortfolioWithExPostStats addPeriodsItem(ExPostPeriodStats periodsItem) {
+    if (this.periods == null) {
+      this.periods = new java.util.ArrayList<>();
+    }
+    this.periods.add(periodsItem);
     return this;
   }
 
@@ -185,14 +193,14 @@ public class PortfolioWithExPostStats implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ExPostPeriodStats getPeriods() {
+  public java.util.List<ExPostPeriodStats> getPeriods() {
     return periods;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriods(ExPostPeriodStats periods) {
+  public void setPeriods(java.util.List<ExPostPeriodStats> periods) {
     this.periods = periods;
   }
 

@@ -13,7 +13,7 @@
     <Description>Proposal Generation Engine client library for .NET</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.SDK.ProposalGenerationEngine</RootNamespace>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.SDK.ProposalGenerationEngine.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/enterprise-sdk.git</RepositoryUrl>

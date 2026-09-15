@@ -102,6 +102,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Status 200 |  -  |
+| **400** | Bad request |  -  |
 | **501** | Server is unable to process your request |  -  |
 
 
@@ -194,6 +195,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Status 200 |  -  |
+| **400** | Bad request |  -  |
 | **501** | Server is unable to process your request |  -  |
 
 
@@ -286,6 +288,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Status 200 |  -  |
+| **400** | Bad request |  -  |
 | **501** | Server is unable to process your request |  -  |
 
 
@@ -378,6 +381,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Status 200 |  -  |
+| **400** | Bad request |  -  |
 | **501** | Server is unable to process your request |  -  |
 
 
@@ -471,6 +475,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Successful request |  -  |
 | **400** | Bad request |  -  |
+| **501** | Server is unable to process your request |  -  |
 
 
 ## calculateExPostStats
@@ -563,4 +568,5 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Status 200 |  -  |
 | **400** | Bad request |  -  |
+| **501** | Server is unable to process your request |  -  |
 

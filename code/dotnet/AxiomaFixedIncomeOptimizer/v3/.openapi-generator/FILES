@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.AxiomaFixedIncomeOptimizer.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AFIOptimizationParameters.md
 docs/AFIOptimizationParametersRoot.md
 docs/AFIOptimizerApi.md
@@ -25,7 +23,6 @@ docs/OptimizerOptimalHoldings.md
 docs/OptimizerOutputTypes.md
 docs/OptimizerTradesList.md
 docs/StrategyDocumentsApi.md
-git_push.sh
 src/FactSet.SDK.AxiomaFixedIncomeOptimizer/Api/AFIOptimizerApi.cs
 src/FactSet.SDK.AxiomaFixedIncomeOptimizer/Api/StrategyDocumentsApi.cs
 src/FactSet.SDK.AxiomaFixedIncomeOptimizer/Client/ApiClient.cs

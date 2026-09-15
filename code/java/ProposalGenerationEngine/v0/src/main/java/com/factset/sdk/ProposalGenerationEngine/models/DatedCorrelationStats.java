@@ -35,6 +35,7 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * DatedCorrelationStats
  */
 @JsonPropertyOrder({
+  DatedCorrelationStats.JSON_PROPERTY_CURRENCY,
   DatedCorrelationStats.JSON_PROPERTY_TIME_WINDOW,
   DatedCorrelationStats.JSON_PROPERTY_PERIODS
 })
@@ -42,6 +43,9 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 
 public class DatedCorrelationStats implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private String currency;
 
   public static final String JSON_PROPERTY_TIME_WINDOW = "timeWindow";
   private java.util.Map<String, DatedCorrelationStatsPerTimeWindow> timeWindow = null;
@@ -51,6 +55,32 @@ public class DatedCorrelationStats implements Serializable {
 
   public DatedCorrelationStats() { 
   }
+
+  public DatedCorrelationStats currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
 
   public DatedCorrelationStats timeWindow(java.util.Map<String, DatedCorrelationStatsPerTimeWindow> timeWindow) {
     this.timeWindow = timeWindow;
@@ -132,19 +162,21 @@ public class DatedCorrelationStats implements Serializable {
       return false;
     }
     DatedCorrelationStats datedCorrelationStats = (DatedCorrelationStats) o;
-    return Objects.equals(this.timeWindow, datedCorrelationStats.timeWindow) &&
+    return Objects.equals(this.currency, datedCorrelationStats.currency) &&
+        Objects.equals(this.timeWindow, datedCorrelationStats.timeWindow) &&
         Objects.equals(this.periods, datedCorrelationStats.periods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeWindow, periods);
+    return Objects.hash(currency, timeWindow, periods);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DatedCorrelationStats {\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    timeWindow: ").append(toIndentedString(timeWindow)).append("\n");
     sb.append("    periods: ").append(toIndentedString(periods)).append("\n");
     sb.append("}");

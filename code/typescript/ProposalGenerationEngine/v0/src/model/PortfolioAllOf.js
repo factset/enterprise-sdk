@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ExPostPortfolioInvestment from './ExPostPortfolioInvestment';
 import Rebalancing from './Rebalancing';
 
 /**
@@ -23,10 +24,11 @@ class PortfolioAllOf {
      * Constructs a new <code>PortfolioAllOf</code>.
      * A representation of a Portfolio
      * @alias module:model/PortfolioAllOf
+     * @param holdings {Array.<module:model/ExPostPortfolioInvestment>} 
      */
-    constructor() { 
+    constructor(holdings) { 
         
-        PortfolioAllOf.initialize(this);
+        PortfolioAllOf.initialize(this, holdings);
     }
 
     /**
@@ -34,7 +36,8 @@ class PortfolioAllOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, holdings) { 
+        obj['holdings'] = holdings;
     }
 
     /**
@@ -48,6 +51,9 @@ class PortfolioAllOf {
         if (data) {
             obj = obj || new PortfolioAllOf();
 
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
+                obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestment]);
+            }
             if (data.hasOwnProperty('initialValue') && obj['initialValue'] === undefined) {
                 obj['initialValue'] = ApiClient.convertToType(data['initialValue'], 'Number');
             }
@@ -61,6 +67,11 @@ class PortfolioAllOf {
 
 
 }
+
+/**
+ * @member {Array.<module:model/ExPostPortfolioInvestment>} holdings
+ */
+PortfolioAllOf.prototype['holdings'] = undefined;
 
 /**
  * the initial value (PV) of the portfolio

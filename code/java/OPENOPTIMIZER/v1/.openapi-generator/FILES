@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -88,7 +86,6 @@ docs/SettingsGlobalVarsResponse.md
 docs/StatResponseObject.md
 docs/TradeResponseObject.md
 docs/TradesListOutputType.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

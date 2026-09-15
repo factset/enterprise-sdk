@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.NaturalLanguageProcessing.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AdvancedApi.md
 docs/AdvancedEntityType.md
 docs/AdvancedInput.md
@@ -18,7 +16,6 @@ docs/LookupStatus.md
 docs/OutputItem.md
 docs/OutputRoot.md
 docs/StandardEntityType.md
-git_push.sh
 src/FactSet.SDK.NaturalLanguageProcessing/Api/AdvancedApi.cs
 src/FactSet.SDK.NaturalLanguageProcessing/Api/ExpressApi.cs
 src/FactSet.SDK.NaturalLanguageProcessing/Client/ApiClient.cs

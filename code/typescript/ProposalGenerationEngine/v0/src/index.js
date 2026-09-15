@@ -33,6 +33,8 @@ import ExPostPortfolio from './model/ExPostPortfolio';
 import ExPostPortfolioAllOf from './model/ExPostPortfolioAllOf';
 import ExPostPortfolioInvestment from './model/ExPostPortfolioInvestment';
 import ExPostPortfolioInvestmentAllOf from './model/ExPostPortfolioInvestmentAllOf';
+import ExPostPortfolioInvestmentRequest from './model/ExPostPortfolioInvestmentRequest';
+import ExPostPortfolioInvestmentRequestAllOf from './model/ExPostPortfolioInvestmentRequestAllOf';
 import ExPostPortfolioInvestmentResponse from './model/ExPostPortfolioInvestmentResponse';
 import ExPostPortfolioInvestmentResponseAllOf from './model/ExPostPortfolioInvestmentResponseAllOf';
 import ExPostPortfolioInvestmentSeriesResponse from './model/ExPostPortfolioInvestmentSeriesResponse';
@@ -98,7 +100,6 @@ import PeriodSeriesAllOf from './model/PeriodSeriesAllOf';
 import Periods from './model/Periods';
 import Portfolio from './model/Portfolio';
 import PortfolioAllOf from './model/PortfolioAllOf';
-import PortfolioCorrelationMatrix from './model/PortfolioCorrelationMatrix';
 import PortfolioEntity from './model/PortfolioEntity';
 import PortfolioEntityDetails from './model/PortfolioEntityDetails';
 import PortfolioInvestment from './model/PortfolioInvestment';
@@ -121,17 +122,20 @@ import RollingSeriesPerTimeWindowReturns from './model/RollingSeriesPerTimeWindo
 import RollingStats from './model/RollingStats';
 import RollingStatsPerTimeWindow from './model/RollingStatsPerTimeWindow';
 import RollingStatsPerTimeWindowRolling from './model/RollingStatsPerTimeWindowRolling';
-import SerieStats from './model/SerieStats';
 import SeriesStats from './model/SeriesStats';
 import Settings from './model/Settings';
 import SettingsAllOf from './model/SettingsAllOf';
+import Sharpe from './model/Sharpe';
+import StDev from './model/StDev';
 import Stats from './model/Stats';
 import TimeWindow from './model/TimeWindow';
 import TimeWindowSeries from './model/TimeWindowSeries';
 import TimeWindowStats from './model/TimeWindowStats';
 import TimeWindowStatsGeneric from './model/TimeWindowStatsGeneric';
 import TransactionRule from './model/TransactionRule';
+import TransactionStats from './model/TransactionStats';
 import UiValueObject from './model/UiValueObject';
+import ValueStats from './model/ValueStats';
 
 import ExPostApi from './api/ExPostApi';
 import LookupApi from './api/LookupApi';
@@ -299,6 +303,18 @@ export {
      * @property {module:model/ExPostPortfolioInvestmentAllOf}
      */
     ExPostPortfolioInvestmentAllOf,
+
+    /**
+     * The ExPostPortfolioInvestmentRequest model constructor.
+     * @property {module:model/ExPostPortfolioInvestmentRequest}
+     */
+    ExPostPortfolioInvestmentRequest,
+
+    /**
+     * The ExPostPortfolioInvestmentRequestAllOf model constructor.
+     * @property {module:model/ExPostPortfolioInvestmentRequestAllOf}
+     */
+    ExPostPortfolioInvestmentRequestAllOf,
 
     /**
      * The ExPostPortfolioInvestmentResponse model constructor.
@@ -691,12 +707,6 @@ export {
     PortfolioAllOf,
 
     /**
-     * The PortfolioCorrelationMatrix model constructor.
-     * @property {module:model/PortfolioCorrelationMatrix}
-     */
-    PortfolioCorrelationMatrix,
-
-    /**
      * The PortfolioEntity model constructor.
      * @property {module:model/PortfolioEntity}
      */
@@ -829,12 +839,6 @@ export {
     RollingStatsPerTimeWindowRolling,
 
     /**
-     * The SerieStats model constructor.
-     * @property {module:model/SerieStats}
-     */
-    SerieStats,
-
-    /**
      * The SeriesStats model constructor.
      * @property {module:model/SeriesStats}
      */
@@ -851,6 +855,18 @@ export {
      * @property {module:model/SettingsAllOf}
      */
     SettingsAllOf,
+
+    /**
+     * The Sharpe model constructor.
+     * @property {module:model/Sharpe}
+     */
+    Sharpe,
+
+    /**
+     * The StDev model constructor.
+     * @property {module:model/StDev}
+     */
+    StDev,
 
     /**
      * The Stats model constructor.
@@ -889,10 +905,22 @@ export {
     TransactionRule,
 
     /**
+     * The TransactionStats model constructor.
+     * @property {module:model/TransactionStats}
+     */
+    TransactionStats,
+
+    /**
      * The UiValueObject model constructor.
      * @property {module:model/UiValueObject}
      */
     UiValueObject,
+
+    /**
+     * The ValueStats model constructor.
+     * @property {module:model/ValueStats}
+     */
+    ValueStats,
 
     /**
     * The ExPostApi service constructor.

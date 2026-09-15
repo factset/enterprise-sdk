@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CapitalStructureApi.md
@@ -30,7 +27,6 @@ fds/sdk/CapitalStructureReportBuilder/model_utils.py
 fds/sdk/CapitalStructureReportBuilder/models/__init__.py
 fds/sdk/CapitalStructureReportBuilder/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

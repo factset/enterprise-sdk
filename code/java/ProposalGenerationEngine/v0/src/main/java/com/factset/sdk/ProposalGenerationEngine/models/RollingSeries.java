@@ -34,6 +34,9 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * RollingSeries
  */
 @JsonPropertyOrder({
+  RollingSeries.JSON_PROPERTY_CURRENCY,
+  RollingSeries.JSON_PROPERTY_ROLLING_TIME_WINDOW,
+  RollingSeries.JSON_PROPERTY_AS_OF_DATE,
   RollingSeries.JSON_PROPERTY_TIME_WINDOW
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -41,11 +44,98 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 public class RollingSeries implements Serializable {
   private static final long serialVersionUID = 1L;
 
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private String currency;
+
+  public static final String JSON_PROPERTY_ROLLING_TIME_WINDOW = "rollingTimeWindow";
+  private Integer rollingTimeWindow;
+
+  public static final String JSON_PROPERTY_AS_OF_DATE = "asOfDate";
+  private String asOfDate;
+
   public static final String JSON_PROPERTY_TIME_WINDOW = "timeWindow";
   private java.util.Map<String, RollingSeriesPerTimeWindow> timeWindow = null;
 
   public RollingSeries() { 
   }
+
+  public RollingSeries currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
+  public RollingSeries rollingTimeWindow(Integer rollingTimeWindow) {
+    this.rollingTimeWindow = rollingTimeWindow;
+    return this;
+  }
+
+   /**
+   * Get rollingTimeWindow
+   * @return rollingTimeWindow
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "12", value = "")
+  @JsonProperty(JSON_PROPERTY_ROLLING_TIME_WINDOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getRollingTimeWindow() {
+    return rollingTimeWindow;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ROLLING_TIME_WINDOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRollingTimeWindow(Integer rollingTimeWindow) {
+    this.rollingTimeWindow = rollingTimeWindow;
+  }
+
+
+  public RollingSeries asOfDate(String asOfDate) {
+    this.asOfDate = asOfDate;
+    return this;
+  }
+
+   /**
+   * The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value &#39;latestMonthEnd&#39; is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client
+   * @return asOfDate
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client")
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAsOfDate() {
+    return asOfDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAsOfDate(String asOfDate) {
+    this.asOfDate = asOfDate;
+  }
+
 
   public RollingSeries timeWindow(java.util.Map<String, RollingSeriesPerTimeWindow> timeWindow) {
     this.timeWindow = timeWindow;
@@ -93,18 +183,24 @@ public class RollingSeries implements Serializable {
       return false;
     }
     RollingSeries rollingSeries = (RollingSeries) o;
-    return Objects.equals(this.timeWindow, rollingSeries.timeWindow);
+    return Objects.equals(this.currency, rollingSeries.currency) &&
+        Objects.equals(this.rollingTimeWindow, rollingSeries.rollingTimeWindow) &&
+        Objects.equals(this.asOfDate, rollingSeries.asOfDate) &&
+        Objects.equals(this.timeWindow, rollingSeries.timeWindow);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeWindow);
+    return Objects.hash(currency, rollingTimeWindow, asOfDate, timeWindow);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RollingSeries {\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    rollingTimeWindow: ").append(toIndentedString(rollingTimeWindow)).append("\n");
+    sb.append("    asOfDate: ").append(toIndentedString(asOfDate)).append("\n");
     sb.append("    timeWindow: ").append(toIndentedString(timeWindow)).append("\n");
     sb.append("}");
     return sb.toString();

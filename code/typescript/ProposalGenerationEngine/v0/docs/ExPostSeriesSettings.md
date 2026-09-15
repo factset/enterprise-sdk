@@ -58,7 +58,7 @@ Name | Type | Description | Notes
 
 * `contributionTransactions` (value: `"contributionTransactions"`)
 
-* `withrawalTransactions` (value: `"withrawalTransactions"`)
+* `withdrawalTransactions` (value: `"withdrawalTransactions"`)
 
 * `feeTransactions` (value: `"feeTransactions"`)
 

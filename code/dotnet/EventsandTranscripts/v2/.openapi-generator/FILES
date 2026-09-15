@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.EventsandTranscripts.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AudioByDateRequest.md
 docs/AudioByFileNameRequest.md
 docs/AudioByIdsRequest.md
@@ -83,7 +81,6 @@ docs/TranscriptsRequestMetaPagination.md
 docs/TranscriptsResponse.md
 docs/TranscriptsResponseData.md
 docs/TranscriptsResult.md
-git_push.sh
 src/FactSet.SDK.EventsandTranscripts/Api/CalendarEventsApi.cs
 src/FactSet.SDK.EventsandTranscripts/Api/EventsAudioApi.cs
 src/FactSet.SDK.EventsandTranscripts/Api/MetaApi.cs

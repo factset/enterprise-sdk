@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ABSDetailsApi.md
 docs/AbsDetails.md
 docs/AbsDetailsRequest.md
@@ -40,7 +38,6 @@ docs/PricesApi.md
 docs/SensitivityApi.md
 docs/SpreadApi.md
 docs/YieldApi.md
-git_push.sh
 src/FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics/Api/ABSDetailsApi.cs
 src/FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics/Api/CouponApi.cs
 src/FactSet.SDK.SPGlobalFixedIncomeEvaluatedPricesandAnalytics/Api/IssuerYieldCurveApi.cs

@@ -1,0 +1,5 @@
+# ignore build system files we do not use
+
+**/appveyor.yml
+**/git_push.sh
+**/.gitignore

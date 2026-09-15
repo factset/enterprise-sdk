@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetOwnershipReportBuilder.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
 docs/ErrorObjectSource.md
@@ -13,7 +11,6 @@ docs/Meta.md
 docs/OwnershipApi.md
 docs/ResponseHolders.md
 docs/ResponseUltimateParent.md
-git_push.sh
 src/FactSet.SDK.FactSetOwnershipReportBuilder/Api/OwnershipApi.cs
 src/FactSet.SDK.FactSetOwnershipReportBuilder/Client/ApiClient.cs
 src/FactSet.SDK.FactSetOwnershipReportBuilder/Client/ApiException.cs

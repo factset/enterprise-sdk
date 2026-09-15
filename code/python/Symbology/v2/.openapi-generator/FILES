@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BloombergFIGIApi.md
@@ -104,7 +101,6 @@ fds/sdk/Symbology/model_utils.py
 fds/sdk/Symbology/models/__init__.py
 fds/sdk/Symbology/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

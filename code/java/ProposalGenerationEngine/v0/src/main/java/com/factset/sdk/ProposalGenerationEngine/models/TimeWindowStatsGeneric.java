@@ -34,7 +34,8 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * TimeWindowStatsGeneric
  */
 @JsonPropertyOrder({
-  TimeWindowStatsGeneric.JSON_PROPERTY_SALES_CHAGE
+  TimeWindowStatsGeneric.JSON_PROPERTY_SALES_CHAGE,
+  TimeWindowStatsGeneric.JSON_PROPERTY_MIN_HISTORICAL_DATE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -43,6 +44,9 @@ public class TimeWindowStatsGeneric implements Serializable {
 
   public static final String JSON_PROPERTY_SALES_CHAGE = "salesChage";
   private BigDecimal salesChage;
+
+  public static final String JSON_PROPERTY_MIN_HISTORICAL_DATE = "minHistoricalDate";
+  private String minHistoricalDate;
 
   public TimeWindowStatsGeneric() { 
   }
@@ -73,6 +77,32 @@ public class TimeWindowStatsGeneric implements Serializable {
   }
 
 
+  public TimeWindowStatsGeneric minHistoricalDate(String minHistoricalDate) {
+    this.minHistoricalDate = minHistoricalDate;
+    return this;
+  }
+
+   /**
+   * Get minHistoricalDate
+   * @return minHistoricalDate
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MIN_HISTORICAL_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMinHistoricalDate() {
+    return minHistoricalDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MIN_HISTORICAL_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMinHistoricalDate(String minHistoricalDate) {
+    this.minHistoricalDate = minHistoricalDate;
+  }
+
+
   /**
    * Return true if this TimeWindowStats_generic object is equal to o.
    */
@@ -85,12 +115,13 @@ public class TimeWindowStatsGeneric implements Serializable {
       return false;
     }
     TimeWindowStatsGeneric timeWindowStatsGeneric = (TimeWindowStatsGeneric) o;
-    return Objects.equals(this.salesChage, timeWindowStatsGeneric.salesChage);
+    return Objects.equals(this.salesChage, timeWindowStatsGeneric.salesChage) &&
+        Objects.equals(this.minHistoricalDate, timeWindowStatsGeneric.minHistoricalDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(salesChage);
+    return Objects.hash(salesChage, minHistoricalDate);
   }
 
   @Override
@@ -98,6 +129,7 @@ public class TimeWindowStatsGeneric implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeWindowStatsGeneric {\n");
     sb.append("    salesChage: ").append(toIndentedString(salesChage)).append("\n");
+    sb.append("    minHistoricalDate: ").append(toIndentedString(minHistoricalDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

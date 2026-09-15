@@ -114,6 +114,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
                 ),
             ],
             invoice_id="9QMD",
+            corporate_suite_executive=False,
         ),
         urnscimschemasextension_fact_set_vrs1_0_user=UserResourceUrnScimSchemasExtensionFactSetVRS10User(
             domain_data=[
@@ -743,6 +744,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
                 ),
             ],
             invoice_id="9QMD",
+            corporate_suite_executive=False,
         ),
         urnscimschemasextension_fact_set_vrs1_0_user=UserResourceUrnScimSchemasExtensionFactSetVRS10User(
             domain_data=[

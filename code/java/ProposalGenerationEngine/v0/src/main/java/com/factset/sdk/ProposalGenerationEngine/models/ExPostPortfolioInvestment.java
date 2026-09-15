@@ -37,7 +37,6 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * ExPostPortfolioInvestment
  */
 @JsonPropertyOrder({
-  ExPostPortfolioInvestment.JSON_PROPERTY_ID,
   ExPostPortfolioInvestment.JSON_PROPERTY_WEIGHT,
   ExPostPortfolioInvestment.JSON_PROPERTY_SALES_CHARGE,
   ExPostPortfolioInvestment.JSON_PROPERTY_TRANSACTION_RULES
@@ -46,9 +45,6 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 
 public class ExPostPortfolioInvestment implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_WEIGHT = "weight";
   private BigDecimal weight;
@@ -62,42 +58,6 @@ public class ExPostPortfolioInvestment implements Serializable {
   public ExPostPortfolioInvestment() { 
   }
 
-  @JsonCreator
-  public ExPostPortfolioInvestment(
-    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
-    @JsonProperty(value=JSON_PROPERTY_WEIGHT, required=true) BigDecimal weight
-  ) {
-    this();
-    this.id = id;
-    this.weight = weight;
-  }
-
-  public ExPostPortfolioInvestment id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * the unique id of the investment - e.g. FactSet id
-   * @return id
-  **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "the unique id of the investment - e.g. FactSet id")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
   public ExPostPortfolioInvestment weight(BigDecimal weight) {
     this.weight = weight;
     return this;
@@ -107,10 +67,10 @@ public class ExPostPortfolioInvestment implements Serializable {
    * the weight of the investment in hte portfolio
    * @return weight
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "1", required = true, value = "the weight of the investment in hte portfolio")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "the weight of the investment in hte portfolio")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BigDecimal getWeight() {
     return weight;
@@ -118,7 +78,7 @@ public class ExPostPortfolioInvestment implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWeight(BigDecimal weight) {
     this.weight = weight;
   }
@@ -196,22 +156,20 @@ public class ExPostPortfolioInvestment implements Serializable {
       return false;
     }
     ExPostPortfolioInvestment exPostPortfolioInvestment = (ExPostPortfolioInvestment) o;
-    return Objects.equals(this.id, exPostPortfolioInvestment.id) &&
-        Objects.equals(this.weight, exPostPortfolioInvestment.weight) &&
+    return Objects.equals(this.weight, exPostPortfolioInvestment.weight) &&
         Objects.equals(this.salesCharge, exPostPortfolioInvestment.salesCharge) &&
         Objects.equals(this.transactionRules, exPostPortfolioInvestment.transactionRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, weight, salesCharge, transactionRules);
+    return Objects.hash(weight, salesCharge, transactionRules);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExPostPortfolioInvestment {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("    salesCharge: ").append(toIndentedString(salesCharge)).append("\n");
     sb.append("    transactionRules: ").append(toIndentedString(transactionRules)).append("\n");

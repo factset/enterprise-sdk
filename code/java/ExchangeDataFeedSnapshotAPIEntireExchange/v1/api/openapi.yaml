@@ -1,70 +1,83 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   contact:
-    email: teammustang@factset.com
-    name: Team Mustang
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: A service that provides access to Real Time or Delayed data snapped
     at hourly intervals for an entire Exchange. Clients that need access to the DFSnapshot
     product for a custom watchlist snapped at a client specified interval should use
     this API
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Exchange Snapshot API
-  version: "1.0"
+  version: 1.0.1
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/exchange-datafeed-snapshot-api-entire-exchange
 servers:
-- url: https://api.factset.com/bulk-documents/exchange-snapshot
+- url: https://api.factset.com/bulk-documents/exchange-snapshot/v1
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
+tags:
+- description: Operations for retrieving exchange data snapshots
+  name: ExchangeSnapshot
 paths:
-  /v1/list-files:
+  /list-files:
     get:
       description: A service that provides access to Real Time or Delayed data snapped
         at hourly intervals for an entire Exchange
-      operationId: get-v1-list-files
+      operationId: getListFiles
       parameters:
-      - description: any product subscribed by client. Minimum value for prod code=9001
+      - description: any product subscribed by client
         explode: true
         in: query
         name: product
         required: true
         schema:
           example: 10001
-          minimum: 9001
           type: integer
         style: form
-      - description: YYYYMMDD (Choose between 1 and 4 previous trading days)
+      - description: YYYYMMDD (Choose between 1 and 4 previous trading days). Also
+          accepts `start_date` (snake_case), which is deprecated and exists for backward
+          compatibility.
         explode: true
         in: query
-        name: start_date
+        name: startDate
         required: true
         schema:
           format: date
           type: string
         style: form
       - description: YYYYMMDD (Choose between 1 and 4 previous trading days, greater
-          than or equal to start date)
+          than or equal to start date). Also accepts `end_date` (snake_case), which
+          is deprecated and exists for backward compatibility.
         explode: true
         in: query
-        name: end_date
+        name: endDate
         required: true
         schema:
           format: date
           type: string
         style: form
-      - description: HHMM (24 hour time EST)
+      - description: HHMM (24 hour time EST). Also accepts `start_time` (snake_case),
+          which is deprecated and exists for backward compatibility.
         explode: true
         in: query
-        name: start_time
+        name: startTime
         required: true
         schema:
           type: string
         style: form
-      - description: HHMM (24 hour time EST)
+      - description: HHMM (24 hour time EST). Also accepts `end_time` (snake_case),
+          which is deprecated and exists for backward compatibility.
         explode: true
         in: query
-        name: end_time
+        name: endTime
         required: true
         schema:
-          format: time
           type: string
         style: form
       - description: Option to select from static, DL or RT data
@@ -85,82 +98,269 @@ paths:
           content:
             application/json:
               examples:
-                Sample Response:
-                  value:
-                    product: "10001"
-                    date: "20210604"
-                    time: "0800"
-                    responseType: DL
-                    fileName: 10001_20210604-0800.csv.gz
-                    url: https://fdss3-quotes-timed-snapshot-stage.s3.amazonaws.com/DL/10001_20210604-0800.csv.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAUPYONY3ISNP4VUCF%2F20210607%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210607T200717Z&X-Amz-Expires=43200&X-Amz-Security-Token=FwoGZXIvYXdzEL7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDP%2FDn2HdZcDOLKNnGiL4AZoairNbKIsTgOKJveIJp64svOMyehuoHc2uJ2rKaI46HR3nP6ew1Ovqg%2FdS%2BoljndNlCtG2jKrM7SOt%2BDxirwnTOe6O%2FDuYU1z8l4uwUXrFB6ENyOoZmbWdJpZ2H1LSAoVAfX1IVY5eOYkhK8VA8V7P9jhmKIC1WHSR4ssFsGWXMQYsS%2F8zZvrybHlaeoDfcopiAulzn%2BsmYgzATwJrnxIAcc9O1NfrTOLKRHeeEagNFj4UZWhDJ2xWnMQ0YghylcowaR8SSxyLM8u38OmAOKrUFp9DKGZ9CBtvHyskJ1%2Fr6T%2BWRjTQWQw%2F747U6ftuy5AypxYIGMWbKPT4%2BYUGMiv2Qbz2V8ebQjM8Ptg%2BwKKhJ24h6LOdgqQEn4JFk9%2BAeS1%2Fiu6NQngA1gKh&X-Amz-SignedHeaders=host&X-Amz-Signature=3173444a681f696a40348ae175a8a38cee908fc76312934b9404b98bb5d0a80d
+                sampleResponse:
+                  $ref: '#/components/examples/sampleResponse'
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                $ref: '#/components/schemas/EntireExchangeSnapshotResponse'
           description: 'Success '
         "400":
           content:
             application/json:
               examples:
-                error_message:
-                  value:
-                    error_message: Missing or Wrong product parameter
+                badRequest:
+                  $ref: '#/components/examples/badRequest'
               schema:
-                $ref: '#/components/schemas/Error-Messages'
+                $ref: '#/components/schemas/ErrorResponse'
           description: Bad Request
-      summary: Snapshot
+        "401":
+          content:
+            text/plain:
+              schema:
+                example: Authentication Failed
+                type: string
+          description: Authentication Failed
+        "403":
+          content:
+            application/json:
+              examples:
+                Unauthorized:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was legal, but the server is refusing
+            to respond. Please reach out to FactSet Account Team for assistance with
+            authorization.
+        "408":
+          content:
+            application/json:
+              examples:
+                Unauthorized:
+                  $ref: '#/components/examples/timeout'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        "500":
+          content:
+            application/json:
+              examples:
+                internalServerError:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: List Files service returns downloadable Real Time, Delayed or Static
+        Exchange Snapshot files for a specified product, date range, and time range
       tags:
-      - Snapshot
+      - ExchangeSnapshot
       x-accepts: application/json
 components:
+  examples:
+    sampleResponse:
+      summary: Sample Response
+      value:
+        data:
+        - product: "10001"
+          date: "20210604"
+          time: "0800"
+          responseType: DL
+          fileName: 10001_20210604-0800.csv.gz
+          url: https://cdn.example.com/file.csv.gz
+        meta:
+          sort:
+          - ""
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+            limit: 1
+            offset: 1
+          partial:
+            isPartial: false
+    forbidden:
+      description: The USERNAME-SERIAL attempted to request the endpoint/ID which
+        is not authorized to access. The request was legal, but the server is refusing
+        to respond. Please reach out to FactSet Account Team for assistance with authorization.
+      summary: Forbidden
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: notAuthorized
+        title: USERNAME-SERIAL does not have permission to use this endpoint.
+    badRequest:
+      description: The User is forbidden access or has provided incorrect parameters.
+      summary: Bad Request
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: parameterError
+        title: Error:User is forbidden access with current credentials
+    timeout:
+      description: Request Timed Out as it too long for the server to respond.
+      summary: Request Time Outstanding.
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: Request Timeout
+        title: Error:Request Timeout
+    internalServerError:
+      description: An unexpected error occurred while processing the request.
+      summary: Internal Server Error
+      value:
+        id: adb01824-252f-4420-b0c6-35a1e3507ef5
+        code: genericServerError
+        title: 'Error: An unexpected error occurred while processing the request.'
+  parameters:
+    product:
+      description: any product subscribed by client
+      explode: true
+      in: query
+      name: product
+      required: true
+      schema:
+        example: 10001
+        type: integer
+      style: form
+    startDate:
+      description: YYYYMMDD (Choose between 1 and 4 previous trading days). Also accepts
+        `start_date` (snake_case), which is deprecated and exists for backward compatibility.
+      explode: true
+      in: query
+      name: startDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    endDate:
+      description: YYYYMMDD (Choose between 1 and 4 previous trading days, greater
+        than or equal to start date). Also accepts `end_date` (snake_case), which
+        is deprecated and exists for backward compatibility.
+      explode: true
+      in: query
+      name: endDate
+      required: true
+      schema:
+        format: date
+        type: string
+      style: form
+    startTime:
+      description: HHMM (24 hour time EST). Also accepts `start_time` (snake_case),
+        which is deprecated and exists for backward compatibility.
+      explode: true
+      in: query
+      name: startTime
+      required: true
+      schema:
+        type: string
+      style: form
+    endTime:
+      description: HHMM (24 hour time EST). Also accepts `end_time` (snake_case),
+        which is deprecated and exists for backward compatibility.
+      explode: true
+      in: query
+      name: endTime
+      required: true
+      schema:
+        type: string
+      style: form
+    access:
+      description: Option to select from static, DL or RT data
+      explode: true
+      in: query
+      name: access
+      required: false
+      schema:
+        default: DL
+        enum:
+        - static
+        - DL
+        - RT
+        type: string
+      style: form
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            badRequest:
+              $ref: '#/components/examples/badRequest'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request
+    "401":
+      content:
+        text/plain:
+          schema:
+            example: Authentication Failed
+            type: string
+      description: Authentication Failed
+    "403":
+      content:
+        application/json:
+          examples:
+            Unauthorized:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: The USERNAME-SERIAL attempted to request the endpoint is not authorized
+        to access. The request was legal, but the server is refusing to respond. Please
+        reach out to FactSet Account Team for assistance with authorization.
+    "408":
+      content:
+        application/json:
+          examples:
+            Unauthorized:
+              $ref: '#/components/examples/timeout'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Request Timeout
+    "500":
+      content:
+        application/json:
+          examples:
+            internalServerError:
+              $ref: '#/components/examples/internalServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error
   schemas:
-    data:
-      description: Array of data objects
+    EntireExchangeSnapshotResponse:
+      description: Response containing the list of matching exchange snapshot files
+        along with pagination metadata.
+      example:
+        data:
+        - date: date
+          product: product
+          responseType: responseType
+          fileName: fileName
+          time: time
+          url: url
+        - date: date
+          product: product
+          responseType: responseType
+          fileName: fileName
+          time: time
+          url: url
+        meta:
+          pagination:
+            total: 0
+            offset: 1
+            limit: 6
+            isEstimatedTotal: true
+          sort:
+          - sort
+          - sort
+          partial:
+            isPartial: true
       properties:
-        product:
-          description: Product or Exchange code. Minimum value for prod code=9001
-          type: integer
-        date:
-          description: Date for which data is requested
-          type: string
-        time:
-          description: time for which data is requested
-          type: string
-        responseType:
-          description: Type of data (Delayed or Real Time)
-          type: string
-        fileName:
-          description: Name of the file(s) generated for the query requested. This
-            is a combination of product code, date & time of request
-          type: string
-        url:
-          description: Download link for the snapshot file with requested parameters
-          type: string
-      title: data
+        data:
+          description: Array of exchange snapshot file entries matching the requested
+            product, date, and time range.
+          items:
+            $ref: '#/components/schemas/EntireExchangeItems'
+          type: array
+        meta:
+          $ref: '#/components/schemas/meta'
       type: object
-    meta:
-      description: Array of metadata objects
-      properties:
-        sort:
-          type: string
-      title: meta
-      type: object
-    Error-Messages:
-      properties:
-        Permission Error:
-          description: Error message when user is not subscribed to the Exchange Snapshot
-            API
-          type: string
-        Param Error:
-          description: when the parameters passed in the query are incorrect or missing
-          type: string
-        startDate:
-          description: startDate must be < 0
-          type: string
-        endDate:
-          description: endDate must be < 0
-          type: string
-      title: Error-Messages
-      type: object
-    inline_response_200:
+    EntireExchangeItems:
+      description: Entire Exchange Item
       example:
         date: date
         product: product
@@ -188,6 +388,78 @@ components:
         url:
           description: download link of snapshot file
           type: string
+      type: object
+    ErrorResponse:
+      description: Error Default Response
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          format: uuid
+          type: string
+        code:
+          description: A short code identifying the error type.
+          example: notAuthorized
+          type: string
+        title:
+          description: The plain text error message
+          example: 'Error: Invalid start date parameter'
+          type: string
+      title: Error Response
+      type: object
+    meta_pagination:
+      description: Pagination details for the returned `data` array.
+      example:
+        total: 0
+        offset: 1
+        limit: 6
+        isEstimatedTotal: true
+      properties:
+        total:
+          description: Total number of records available
+          type: integer
+        isEstimatedTotal:
+          description: Whether the total is an estimate
+          type: boolean
+        limit:
+          description: Maximum number of records returned
+          type: integer
+        offset:
+          description: Number of records skipped
+          type: integer
+      type: object
+    meta_partial:
+      description: Indicates whether the returned data set is incomplete.
+      example:
+        isPartial: true
+      properties:
+        isPartial:
+          description: Whether the response contains partial data
+          type: boolean
+      type: object
+    meta:
+      description: Metadata about the response
+      example:
+        pagination:
+          total: 0
+          offset: 1
+          limit: 6
+          isEstimatedTotal: true
+        sort:
+        - sort
+        - sort
+        partial:
+          isPartial: true
+      properties:
+        sort:
+          items:
+            type: string
+          type: array
+        pagination:
+          $ref: '#/components/schemas/meta_pagination'
+        partial:
+          $ref: '#/components/schemas/meta_partial'
+      title: meta
       type: object
   securitySchemes:
     FactSetOAuth2:

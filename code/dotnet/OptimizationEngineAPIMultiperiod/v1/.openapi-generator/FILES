@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OptimizationEngineAPIMultiperiod.sln
 LICENSE
 README.md
-appveyor.yml
 docs/DefaultApi.md
 docs/GoogleProtobufListValue.md
 docs/GoogleProtobufNullValue.md
@@ -154,7 +152,6 @@ docs/VARDistributionStatus.md
 docs/VARDistributionType.md
 docs/VARSimulatedReturns.md
 docs/VARStatusIndicator.md
-git_push.sh
 src/FactSet.SDK.OptimizationEngineAPIMultiperiod/Api/DefaultApi.cs
 src/FactSet.SDK.OptimizationEngineAPIMultiperiod/Client/ApiClient.cs
 src/FactSet.SDK.OptimizationEngineAPIMultiperiod/Client/ApiException.cs

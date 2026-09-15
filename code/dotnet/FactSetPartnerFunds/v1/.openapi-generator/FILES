@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetPartnerFunds.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Address.md
 docs/AssetAllocationsResponse.md
 docs/AssetBreakdown.md
@@ -46,7 +44,6 @@ docs/SectorAllocationsResponse.md
 docs/SectorBreakdown.md
 docs/SectorResponseData.md
 docs/YearlyReturns.md
-git_push.sh
 src/FactSet.SDK.FactSetPartnerFunds/Api/CanadianMutualFundDataFromFundataApi.cs
 src/FactSet.SDK.FactSetPartnerFunds/Client/ApiClient.cs
 src/FactSet.SDK.FactSetPartnerFunds/Client/ApiException.cs

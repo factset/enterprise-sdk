@@ -32,6 +32,8 @@ from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio import ExPostPortf
 from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_all_of import ExPostPortfolioAllOf
 from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment import ExPostPortfolioInvestment
 from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_all_of import ExPostPortfolioInvestmentAllOf
+from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_request import ExPostPortfolioInvestmentRequest
+from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_request_all_of import ExPostPortfolioInvestmentRequestAllOf
 from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_response import ExPostPortfolioInvestmentResponse
 from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_response_all_of import ExPostPortfolioInvestmentResponseAllOf
 from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_series_response import ExPostPortfolioInvestmentSeriesResponse
@@ -97,7 +99,6 @@ from fds.sdk.ProposalGenerationEngine.model.period_series_all_of import PeriodSe
 from fds.sdk.ProposalGenerationEngine.model.periods import Periods
 from fds.sdk.ProposalGenerationEngine.model.portfolio import Portfolio
 from fds.sdk.ProposalGenerationEngine.model.portfolio_all_of import PortfolioAllOf
-from fds.sdk.ProposalGenerationEngine.model.portfolio_correlation_matrix import PortfolioCorrelationMatrix
 from fds.sdk.ProposalGenerationEngine.model.portfolio_entity import PortfolioEntity
 from fds.sdk.ProposalGenerationEngine.model.portfolio_entity_details import PortfolioEntityDetails
 from fds.sdk.ProposalGenerationEngine.model.portfolio_investment import PortfolioInvestment
@@ -120,14 +121,17 @@ from fds.sdk.ProposalGenerationEngine.model.rolling_series_per_time_window_retur
 from fds.sdk.ProposalGenerationEngine.model.rolling_stats import RollingStats
 from fds.sdk.ProposalGenerationEngine.model.rolling_stats_per_time_window import RollingStatsPerTimeWindow
 from fds.sdk.ProposalGenerationEngine.model.rolling_stats_per_time_window_rolling import RollingStatsPerTimeWindowRolling
-from fds.sdk.ProposalGenerationEngine.model.serie_stats import SerieStats
 from fds.sdk.ProposalGenerationEngine.model.series_stats import SeriesStats
 from fds.sdk.ProposalGenerationEngine.model.settings import Settings
 from fds.sdk.ProposalGenerationEngine.model.settings_all_of import SettingsAllOf
+from fds.sdk.ProposalGenerationEngine.model.sharpe import Sharpe
+from fds.sdk.ProposalGenerationEngine.model.st_dev import StDev
 from fds.sdk.ProposalGenerationEngine.model.stats import Stats
 from fds.sdk.ProposalGenerationEngine.model.time_window import TimeWindow
 from fds.sdk.ProposalGenerationEngine.model.time_window_series import TimeWindowSeries
 from fds.sdk.ProposalGenerationEngine.model.time_window_stats import TimeWindowStats
 from fds.sdk.ProposalGenerationEngine.model.time_window_stats_generic import TimeWindowStatsGeneric
 from fds.sdk.ProposalGenerationEngine.model.transaction_rule import TransactionRule
+from fds.sdk.ProposalGenerationEngine.model.transaction_stats import TransactionStats
 from fds.sdk.ProposalGenerationEngine.model.ui_value_object import UiValueObject
+from fds.sdk.ProposalGenerationEngine.model.value_stats import ValueStats

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **security_details** | [**Investment**](Investment.md) |  | [optional] 
 **series** | [**TimeWindowSeries**](TimeWindowSeries.md) |  | [optional] 
-**periods** | [**PeriodSeries**](PeriodSeries.md) |  | [optional] 
+**periods** | [**[PeriodSeries]**](PeriodSeries.md) |  | [optional] 
 **backfill_data** | [**{str: (BackfillData,)}**](BackfillData.md) | a map from time window to backfill statistics | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

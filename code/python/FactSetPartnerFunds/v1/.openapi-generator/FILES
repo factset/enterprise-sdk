@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Address.md
@@ -100,7 +97,6 @@ fds/sdk/FactSetPartnerFunds/model_utils.py
 fds/sdk/FactSetPartnerFunds/models/__init__.py
 fds/sdk/FactSetPartnerFunds/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

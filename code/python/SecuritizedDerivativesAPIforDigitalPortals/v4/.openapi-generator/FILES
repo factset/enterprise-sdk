@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AttributesMember.md
@@ -1370,7 +1367,6 @@ fds/sdk/SecuritizedDerivativesAPIforDigitalPortals/model_utils.py
 fds/sdk/SecuritizedDerivativesAPIforDigitalPortals/models/__init__.py
 fds/sdk/SecuritizedDerivativesAPIforDigitalPortals/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

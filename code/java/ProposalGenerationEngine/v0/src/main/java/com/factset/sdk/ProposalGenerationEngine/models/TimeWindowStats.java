@@ -35,13 +35,18 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * TimeWindowStats
  */
 @JsonPropertyOrder({
+  TimeWindowStats.JSON_PROPERTY_AS_OF_DATE,
   TimeWindowStats.JSON_PROPERTY_TIME_WINDOW,
-  TimeWindowStats.JSON_PROPERTY_GENERIC
+  TimeWindowStats.JSON_PROPERTY_GENERIC,
+  TimeWindowStats.JSON_PROPERTY_CURRENCY
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
 public class TimeWindowStats implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String JSON_PROPERTY_AS_OF_DATE = "asOfDate";
+  private String asOfDate;
 
   public static final String JSON_PROPERTY_TIME_WINDOW = "timeWindow";
   private java.util.Map<String, EntityStats> timeWindow = null;
@@ -49,8 +54,37 @@ public class TimeWindowStats implements Serializable {
   public static final String JSON_PROPERTY_GENERIC = "generic";
   private TimeWindowStatsGeneric generic;
 
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private String currency;
+
   public TimeWindowStats() { 
   }
+
+  public TimeWindowStats asOfDate(String asOfDate) {
+    this.asOfDate = asOfDate;
+    return this;
+  }
+
+   /**
+   * The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value &#39;latestMonthEnd&#39; is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client
+   * @return asOfDate
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client")
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getAsOfDate() {
+    return asOfDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AS_OF_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAsOfDate(String asOfDate) {
+    this.asOfDate = asOfDate;
+  }
+
 
   public TimeWindowStats timeWindow(java.util.Map<String, EntityStats> timeWindow) {
     this.timeWindow = timeWindow;
@@ -112,6 +146,32 @@ public class TimeWindowStats implements Serializable {
   }
 
 
+  public TimeWindowStats currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * Get currency
+   * @return currency
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "USD", value = "")
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+
   /**
    * Return true if this TimeWindowStats object is equal to o.
    */
@@ -124,21 +184,25 @@ public class TimeWindowStats implements Serializable {
       return false;
     }
     TimeWindowStats timeWindowStats = (TimeWindowStats) o;
-    return Objects.equals(this.timeWindow, timeWindowStats.timeWindow) &&
-        Objects.equals(this.generic, timeWindowStats.generic);
+    return Objects.equals(this.asOfDate, timeWindowStats.asOfDate) &&
+        Objects.equals(this.timeWindow, timeWindowStats.timeWindow) &&
+        Objects.equals(this.generic, timeWindowStats.generic) &&
+        Objects.equals(this.currency, timeWindowStats.currency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timeWindow, generic);
+    return Objects.hash(asOfDate, timeWindow, generic, currency);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeWindowStats {\n");
+    sb.append("    asOfDate: ").append(toIndentedString(asOfDate)).append("\n");
     sb.append("    timeWindow: ").append(toIndentedString(timeWindow)).append("\n");
     sb.append("    generic: ").append(toIndentedString(generic)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("}");
     return sb.toString();
   }

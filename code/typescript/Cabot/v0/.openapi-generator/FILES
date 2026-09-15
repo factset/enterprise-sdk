@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AddTrimHoldings.md
@@ -93,7 +91,6 @@ docs/StopLossRequestBody.md
 docs/StopLossRequestBodyRoot.md
 docs/StopLossResponseOptions.md
 docs/StopLossResponseRoot.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

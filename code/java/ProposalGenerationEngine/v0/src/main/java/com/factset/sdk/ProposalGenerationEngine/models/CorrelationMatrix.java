@@ -35,7 +35,8 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  */
 @JsonPropertyOrder({
   CorrelationMatrix.JSON_PROPERTY_ASSETS,
-  CorrelationMatrix.JSON_PROPERTY_MATRIX
+  CorrelationMatrix.JSON_PROPERTY_MATRIX,
+  CorrelationMatrix.JSON_PROPERTY_THREE_D_MATRIX
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -47,6 +48,9 @@ public class CorrelationMatrix implements Serializable {
 
   public static final String JSON_PROPERTY_MATRIX = "matrix";
   private java.util.List<java.util.List<BigDecimal>> matrix = null;
+
+  public static final String JSON_PROPERTY_THREE_D_MATRIX = "threeDMatrix";
+  private java.util.List<java.util.List<java.util.List<BigDecimal>>> threeDMatrix = null;
 
   public CorrelationMatrix() { 
   }
@@ -119,6 +123,40 @@ public class CorrelationMatrix implements Serializable {
   }
 
 
+  public CorrelationMatrix threeDMatrix(java.util.List<java.util.List<java.util.List<BigDecimal>>> threeDMatrix) {
+    this.threeDMatrix = threeDMatrix;
+    return this;
+  }
+
+  public CorrelationMatrix addThreeDMatrixItem(java.util.List<java.util.List<BigDecimal>> threeDMatrixItem) {
+    if (this.threeDMatrix == null) {
+      this.threeDMatrix = new java.util.ArrayList<>();
+    }
+    this.threeDMatrix.add(threeDMatrixItem);
+    return this;
+  }
+
+   /**
+   * Get threeDMatrix
+   * @return threeDMatrix
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THREE_D_MATRIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public java.util.List<java.util.List<java.util.List<BigDecimal>>> getThreeDMatrix() {
+    return threeDMatrix;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_THREE_D_MATRIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setThreeDMatrix(java.util.List<java.util.List<java.util.List<BigDecimal>>> threeDMatrix) {
+    this.threeDMatrix = threeDMatrix;
+  }
+
+
   /**
    * Return true if this CorrelationMatrix object is equal to o.
    */
@@ -132,12 +170,13 @@ public class CorrelationMatrix implements Serializable {
     }
     CorrelationMatrix correlationMatrix = (CorrelationMatrix) o;
     return Objects.equals(this.assets, correlationMatrix.assets) &&
-        Objects.equals(this.matrix, correlationMatrix.matrix);
+        Objects.equals(this.matrix, correlationMatrix.matrix) &&
+        Objects.equals(this.threeDMatrix, correlationMatrix.threeDMatrix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assets, matrix);
+    return Objects.hash(assets, matrix, threeDMatrix);
   }
 
   @Override
@@ -146,6 +185,7 @@ public class CorrelationMatrix implements Serializable {
     sb.append("class CorrelationMatrix {\n");
     sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
     sb.append("    matrix: ").append(toIndentedString(matrix)).append("\n");
+    sb.append("    threeDMatrix: ").append(toIndentedString(threeDMatrix)).append("\n");
     sb.append("}");
     return sb.toString();
   }

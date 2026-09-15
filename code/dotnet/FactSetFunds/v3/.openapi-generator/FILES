@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetFunds.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AnalyticsType.md
 docs/AssetAllocation.md
 docs/AssetAllocationAllOf.md
@@ -221,7 +219,6 @@ docs/YieldsAllOf.md
 docs/YieldsRequest.md
 docs/YieldsRequestData.md
 docs/YieldsResponse.md
-git_push.sh
 src/FactSet.SDK.FactSetFunds/Api/PortfolioExposureAndAnalysisApi.cs
 src/FactSet.SDK.FactSetFunds/Api/PricesReturnsAndDistributionsApi.cs
 src/FactSet.SDK.FactSetFunds/Api/ScoringApi.cs

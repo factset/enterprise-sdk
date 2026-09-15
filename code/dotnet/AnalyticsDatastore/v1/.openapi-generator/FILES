@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.AnalyticsDatastore.sln
 LICENSE
 README.md
-appveyor.yml
 docs/DocumentListResponse.md
 docs/DocumentModel.md
 docs/DocumentRequest.md
@@ -23,7 +21,6 @@ docs/TagListResponse.md
 docs/TagModel.md
 docs/TagResponse.md
 docs/TagValuesListResponse.md
-git_push.sh
 src/FactSet.SDK.AnalyticsDatastore/Api/DocumentsApi.cs
 src/FactSet.SDK.AnalyticsDatastore/Api/MappingsApi.cs
 src/FactSet.SDK.AnalyticsDatastore/Api/ObjectsApi.cs

@@ -35,13 +35,30 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PortfolioAllOf" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected PortfolioAllOf() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PortfolioAllOf" /> class.
+        /// </summary>
+        /// <param name="holdings">holdings (required).</param>
         /// <param name="initialValue">the initial value (PV) of the portfolio.</param>
         /// <param name="rebalancing">rebalancing.</param>
-        public PortfolioAllOf(decimal initialValue = default(decimal), Rebalancing rebalancing = default(Rebalancing))
+        public PortfolioAllOf(List<ExPostPortfolioInvestment> holdings,decimal initialValue = default(decimal), Rebalancing rebalancing = default(Rebalancing))
         {
+            // to ensure "holdings" is required (not null)
+            if (holdings == null) {
+                throw new ArgumentNullException("holdings is a required property for PortfolioAllOf and cannot be null");
+            }
+            this.Holdings = holdings;
             this.InitialValue = initialValue;
             this.Rebalancing = rebalancing;
         }
+
+        /// <summary>
+        /// Gets or Sets Holdings
+        /// </summary>
+        [DataMember(Name = "holdings", IsRequired = true, EmitDefaultValue = false)]
+        public List<ExPostPortfolioInvestment> Holdings { get; set; }
 
         /// <summary>
         /// the initial value (PV) of the portfolio
@@ -64,6 +81,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class PortfolioAllOf {\n");
+            sb.Append("  Holdings: ").Append(Holdings).Append("\n");
             sb.Append("  InitialValue: ").Append(InitialValue).Append("\n");
             sb.Append("  Rebalancing: ").Append(Rebalancing).Append("\n");
             sb.Append("}\n");
@@ -102,6 +120,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             }
             return 
                 (
+                    this.Holdings == input.Holdings ||
+                    this.Holdings != null &&
+                    input.Holdings != null &&
+                    this.Holdings.SequenceEqual(input.Holdings)
+                ) && 
+                (
                     this.InitialValue == input.InitialValue ||
                     this.InitialValue.Equals(input.InitialValue)
                 ) && 
@@ -121,6 +145,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Holdings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Holdings.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.InitialValue.GetHashCode();
                 if (this.Rebalancing != null)
                 {

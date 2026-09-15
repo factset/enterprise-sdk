@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/ActiveJobStatus.md
@@ -34,7 +31,6 @@ fds/sdk/InvestmentBankingOfficeRefresh/model_utils.py
 fds/sdk/InvestmentBankingOfficeRefresh/models/__init__.py
 fds/sdk/InvestmentBankingOfficeRefresh/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

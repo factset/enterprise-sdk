@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.IDLookup.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ErrorResponse.md
 docs/FactSetIDLookupApi.md
 docs/FilterParams.md
@@ -15,7 +13,6 @@ docs/LookupObject.md
 docs/LookupRequest.md
 docs/LookupResponse.md
 docs/ResponseDetails.md
-git_push.sh
 src/FactSet.SDK.IDLookup/Api/FactSetIDLookupApi.cs
 src/FactSet.SDK.IDLookup/Client/ApiClient.cs
 src/FactSet.SDK.IDLookup/Client/ApiException.cs

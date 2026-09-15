@@ -4,11 +4,169 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createGroup**](GroupsApi.md#createGroup) | **POST** /Groups | Create a group.
+[**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /Group/{id} | Delete a group.
 [**getGroup**](GroupsApi.md#getGroup) | **GET** /Group/{id} | Get a group.
 [**getGroups**](GroupsApi.md#getGroups) | **GET** /Groups | Get a list of groups.
 [**modifyGroup**](GroupsApi.md#modifyGroup) | **PATCH** /Group/{id} | Patch a group.
 [**replaceGroup**](GroupsApi.md#replaceGroup) | **PUT** /Group/{id} | Replace a group.
 
+
+
+## createGroup
+
+> GroupResource createGroup(groupResource)
+
+Create a group.
+
+Create a group resource.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, GroupsApi } = require('@factset/sdk-procuretopayapiscim');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new GroupsApi();
+const groupResource = new procuretopayapiscim.GroupResource(); // GroupResource | Group resource.
+
+// Call api endpoint
+apiInstance.createGroup(groupResource).then(
+  data => {
+
+    console.log('API called successfully. Returned data:');
+    console.log(data);
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupResource** | [**GroupResource**](GroupResource.md)| Group resource. | 
+
+### Return type
+
+[**GroupResource**](GroupResource.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/scim+json
+- **Accept**: application/scim+json, application/json
+
+
+## deleteGroup
+
+> deleteGroup(id)
+
+Delete a group.
+
+Delete a specific group resource.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```javascript
+const { ApiClient, GroupsApi } = require('@factset/sdk-procuretopayapiscim');
+const { ConfidentialClient } = require('@factset/sdk-utils');
+
+const apiClient = ApiClient.instance;
+
+// Examples for each supported authentication method are below,
+// choose one that satisfies your use case.
+
+// (Preferred) OAuth 2.0: FactSetOAuth2
+// See https://github.com/FactSet/enterprise-sdk#oauth-20
+// for information on how to create the app-config.json file
+//
+// The confidential client instance should be reused in production environments.
+// See https://github.com/FactSet/enterprise-sdk-utils-typescript#authentication
+// for more information on using the ConfidentialClient class
+apiClient.factsetOauth2Client = new ConfidentialClient('/path/to/app-config.json');
+
+// Basic authentication: FactSetApiKey
+// See https://github.com/FactSet/enterprise-sdk#api-key
+// for information how to create an API key
+// const FactSetApiKey = apiClient.authentications['FactSetApiKey'];
+// FactSetApiKey.username = 'USERNAME-SERIAL';
+// FactSetApiKey.password = 'API-KEY';
+
+const apiInstance = new GroupsApi();
+const id = "id_example"; // String | ID of resource.
+
+// Call api endpoint
+apiInstance.deleteGroup(id).then(
+  () => {
+    console.log('API called successfully.');
+  },
+  error => {
+    console.error(error);
+  },
+);
+
+```
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of resource. | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/scim+json, application/json
 
 
 ## getGroup

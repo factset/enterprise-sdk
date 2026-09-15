@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Calendar.md
@@ -12,7 +10,6 @@ docs/GICSApi.md
 docs/Gics.md
 docs/GicsRequest.md
 docs/GicsResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

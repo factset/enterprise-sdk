@@ -84,6 +84,7 @@ class CorrelationMatrix(ModelNormal):
         return {
             'assets': ([str],),  # noqa: E501
             'matrix': ([[float]],),  # noqa: E501
+            'three_d_matrix': ([[[float]]],),  # noqa: E501
         }
 
     @cached_property
@@ -94,6 +95,7 @@ class CorrelationMatrix(ModelNormal):
     attribute_map = {
         'assets': 'assets',  # noqa: E501
         'matrix': 'matrix',  # noqa: E501
+        'three_d_matrix': 'threeDMatrix',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,6 +141,7 @@ class CorrelationMatrix(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             assets ([str]): [optional]  # noqa: E501
             matrix ([[float]]): [optional]  # noqa: E501
+            three_d_matrix ([[[float]]]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -222,6 +225,7 @@ class CorrelationMatrix(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             assets ([str]): [optional]  # noqa: E501
             matrix ([[float]]): [optional]  # noqa: E501
+            three_d_matrix ([[[float]]]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **urnscimschemasextensionFactSetCore10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetCore10Group**](GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md) |  | [optional] 
 **urnscimschemasextensionFactSetEnterpriseHosting10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group**](GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md) |  | [optional] 
 **urnscimschemasextensionFactSetVRS10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetVRS10Group**](GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md) |  | [optional] 
+**urnscimschemasextensionFactSetDesktopApplications10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group**](GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.md) |  | [optional] 
 **meta** | [**GroupResourceMeta**](GroupResourceMeta.md) |  | [optional] 
 
 

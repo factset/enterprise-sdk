@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.ProcuretoPayInvoiceandBilling.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AccountDetail.md
 docs/Accounts.md
 docs/BillingAddress.md
@@ -21,7 +19,6 @@ docs/ServiceDetail.md
 docs/StatementOfAccount.md
 docs/SubscriptionChange.md
 docs/TaxDetail.md
-git_push.sh
 src/FactSet.SDK.ProcuretoPayInvoiceandBilling/Api/InvoiceAndBillingApi.cs
 src/FactSet.SDK.ProcuretoPayInvoiceandBilling/Client/ApiClient.cs
 src/FactSet.SDK.ProcuretoPayInvoiceandBilling/Client/ApiException.cs

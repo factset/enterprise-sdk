@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **securityDetails** | [**Investment**](Investment.md) |  |  [optional]
 **stats** | [**TimeWindowStats**](TimeWindowStats.md) |  |  [optional]
 **udfs** | **Object** | portfolio UDFs map |  [optional]
-**periods** | [**ExPostPeriodStats**](ExPostPeriodStats.md) |  |  [optional]
+**periods** | [**java.util.List&lt;ExPostPeriodStats&gt;**](ExPostPeriodStats.md) |  |  [optional]
 **backfillData** | [**Map&lt;String, BackfillData&gt;**](BackfillData.md) | a map from time window to backfill statistics |  [optional]
 
 

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AFIAccountInput.md
@@ -87,7 +85,6 @@ docs/SettingsGlobalVarsResponse.md
 docs/StatResponseObject.md
 docs/TradeResponseObject.md
 docs/TradesListOutputType.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

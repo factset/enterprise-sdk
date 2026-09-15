@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Data.md
@@ -40,7 +37,6 @@ fds/sdk/FactSetTickHistory/model_utils.py
 fds/sdk/FactSetTickHistory/models/__init__.py
 fds/sdk/FactSetTickHistory/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

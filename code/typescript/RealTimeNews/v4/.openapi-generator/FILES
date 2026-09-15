@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BasicApi.md
@@ -330,7 +328,6 @@ docs/PostNewsPublisherSearchByNameRequestDataFilterDelivery.md
 docs/PostNewsPublisherSearchByNameRequestDataFilterDistributor.md
 docs/PostNewsPublisherSearchByNameRequestMeta.md
 docs/StatusObject.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

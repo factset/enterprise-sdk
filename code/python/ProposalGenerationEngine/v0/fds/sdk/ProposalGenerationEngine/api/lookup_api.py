@@ -25,6 +25,7 @@ from fds.sdk.ProposalGenerationEngine.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from fds.sdk.ProposalGenerationEngine.exceptions import ApiException
+from fds.sdk.ProposalGenerationEngine.model.errors import Errors
 from fds.sdk.ProposalGenerationEngine.model.paged_securities import PagedSecurities
 
 
@@ -46,7 +47,7 @@ class LookupApi(object):
         self.get_securities_endpoint = _Endpoint(
             settings={
                 'response_type': (
-                  { 200: (PagedSecurities,),  },
+                  { 200: (PagedSecurities,), 400: (Errors,), 501: (Errors,),  },
                   None
                 ),
                 'auth': [

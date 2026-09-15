@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -47,7 +45,6 @@ docs/SectorAllocationsResponse.md
 docs/SectorBreakdown.md
 docs/SectorResponseData.md
 docs/YearlyReturns.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

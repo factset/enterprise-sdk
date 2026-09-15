@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/ABSDetailsApi.md
@@ -92,7 +89,6 @@ fds/sdk/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/model_utils.py
 fds/sdk/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/models/__init__.py
 fds/sdk/SPGlobalFixedIncomeEvaluatedPricesandAnalytics/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

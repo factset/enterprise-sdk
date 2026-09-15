@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.UniversalScreening.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ActiveJobIDs.md
 docs/ActiveJobsData.md
 docs/CalculateMetadata.md
@@ -31,7 +29,6 @@ docs/ScreenExportParametersData.md
 docs/ScreeningOperationsApi.md
 docs/SubmitExportResponse.md
 docs/SubmitExportResponseData.md
-git_push.sh
 src/FactSet.SDK.UniversalScreening/Api/JobManagementApi.cs
 src/FactSet.SDK.UniversalScreening/Api/ScreeningOperationsApi.cs
 src/FactSet.SDK.UniversalScreening/Client/ApiClient.cs

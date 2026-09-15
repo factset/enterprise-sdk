@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -97,7 +95,6 @@ docs/ValueLabelDateTextBlockTemplateData.md
 docs/ValueLabelDateTextBlockTemplateDataAllOf.md
 docs/ValueLabelTemplateData.md
 docs/ValueLabelTemplateDataAllOf.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

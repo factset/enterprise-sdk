@@ -4,13 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | the unique id of the investment - e.g. FactSet id | 
-**weight** | **float** | the weight of the investment in hte portfolio | 
+**weight** | **float** | the weight of the investment in hte portfolio | [optional] 
 **sales_charge** | **float** | A representation of a portfolio constituent (investment) | [optional] 
 **transaction_rules** | [**[TransactionRule]**](TransactionRule.md) | rules for adding/substracting amount from the portfolio at given periods | [optional] 
 **security_details** | [**Investment**](Investment.md) |  | [optional] 
 **series** | [**TimeWindowSeries**](TimeWindowSeries.md) |  | [optional] 
-**periods** | [**PeriodSeries**](PeriodSeries.md) |  | [optional] 
+**periods** | [**[PeriodSeries]**](PeriodSeries.md) |  | [optional] 
 **backfill_data** | [**{str: (BackfillData,)}**](BackfillData.md) | a map from time window to backfill statistics | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

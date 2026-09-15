@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OpenFactSetPartnersDocuments.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AuthStatus.md
 docs/BeamEndpointsFiles.md
 docs/BeamEndpointsResponse.md
@@ -43,7 +41,6 @@ docs/ScriptsAsiaResponse.md
 docs/SponsorsFiles.md
 docs/SponsorsResponse.md
 docs/Transcripts.md
-git_push.sh
 src/FactSet.SDK.OpenFactSetPartnersDocuments/Api/LinkUpApi.cs
 src/FactSet.SDK.OpenFactSetPartnersDocuments/Api/LuxembourgApi.cs
 src/FactSet.SDK.OpenFactSetPartnersDocuments/Api/OrbitApi.cs

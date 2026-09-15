@@ -90,8 +90,10 @@ class TimeWindowStats(ModelNormal):
         """
         lazy_import()
         return {
+            'as_of_date': (str,),  # noqa: E501
             'time_window': ({str: (EntityStats,)},),  # noqa: E501
             'generic': (TimeWindowStatsGeneric,),  # noqa: E501
+            'currency': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -100,8 +102,10 @@ class TimeWindowStats(ModelNormal):
 
 
     attribute_map = {
+        'as_of_date': 'asOfDate',  # noqa: E501
         'time_window': 'timeWindow',  # noqa: E501
         'generic': 'generic',  # noqa: E501
+        'currency': 'currency',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,8 +149,10 @@ class TimeWindowStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            as_of_date (str): The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client. [optional]  # noqa: E501
             time_window ({str: (EntityStats,)}): a map from time window to ex-post stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request. [optional]  # noqa: E501
             generic (TimeWindowStatsGeneric): [optional]  # noqa: E501
+            currency (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +234,10 @@ class TimeWindowStats(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            as_of_date (str): The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client. [optional]  # noqa: E501
             time_window ({str: (EntityStats,)}): a map from time window to ex-post stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request. [optional]  # noqa: E501
             generic (TimeWindowStatsGeneric): [optional]  # noqa: E501
+            currency (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

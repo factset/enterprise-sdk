@@ -83,6 +83,7 @@ class RollingStatsPerTimeWindowRolling(ModelNormal):
         """
         return {
             'maximum': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'minimum': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -92,6 +93,7 @@ class RollingStatsPerTimeWindowRolling(ModelNormal):
 
     attribute_map = {
         'maximum': 'maximum',  # noqa: E501
+        'minimum': 'minimum',  # noqa: E501
     }
 
     read_only_vars = {
@@ -136,6 +138,7 @@ class RollingStatsPerTimeWindowRolling(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             maximum (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            minimum (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -218,6 +221,7 @@ class RollingStatsPerTimeWindowRolling(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             maximum (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            minimum (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

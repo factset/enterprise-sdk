@@ -48,11 +48,17 @@ class TimeWindowStats {
         if (data) {
             obj = obj || new TimeWindowStats();
 
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
+                obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
+            }
             if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': EntityStats});
             }
             if (data.hasOwnProperty('generic') && obj['generic'] === undefined) {
                 obj['generic'] = TimeWindowStatsGeneric.constructFromObject(data['generic']);
+            }
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
             
         }
@@ -61,6 +67,12 @@ class TimeWindowStats {
 
 
 }
+
+/**
+ * The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client
+ * @member {String} asOfDate
+ */
+TimeWindowStats.prototype['asOfDate'] = undefined;
 
 /**
  * a map from time window to ex-post stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request
@@ -72,6 +84,11 @@ TimeWindowStats.prototype['timeWindow'] = undefined;
  * @member {module:model/TimeWindowStatsGeneric} generic
  */
 TimeWindowStats.prototype['generic'] = undefined;
+
+/**
+ * @member {String} currency
+ */
+TimeWindowStats.prototype['currency'] = undefined;
 
 
 

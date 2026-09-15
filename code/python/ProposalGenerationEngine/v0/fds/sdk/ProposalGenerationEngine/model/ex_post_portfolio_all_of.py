@@ -31,9 +31,9 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment import ExPostPortfolioInvestment
+    from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment_request import ExPostPortfolioInvestmentRequest
     from fds.sdk.ProposalGenerationEngine.model.transaction_rule import TransactionRule
-    globals()['ExPostPortfolioInvestment'] = ExPostPortfolioInvestment
+    globals()['ExPostPortfolioInvestmentRequest'] = ExPostPortfolioInvestmentRequest
     globals()['TransactionRule'] = TransactionRule
 
 
@@ -90,7 +90,7 @@ class ExPostPortfolioAllOf(ModelNormal):
         """
         lazy_import()
         return {
-            'holdings': ([ExPostPortfolioInvestment],),  # noqa: E501
+            'holdings': ([ExPostPortfolioInvestmentRequest],),  # noqa: E501
             'transaction_rules': ([TransactionRule],),  # noqa: E501
         }
 
@@ -145,7 +145,7 @@ class ExPostPortfolioAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            holdings ([ExPostPortfolioInvestment]): [optional]  # noqa: E501
+            holdings ([ExPostPortfolioInvestmentRequest]): [optional]  # noqa: E501
             transaction_rules ([TransactionRule]): rules for adding/substracting amount from the portfolio at given periods. [optional]  # noqa: E501
         """
 
@@ -228,7 +228,7 @@ class ExPostPortfolioAllOf(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            holdings ([ExPostPortfolioInvestment]): [optional]  # noqa: E501
+            holdings ([ExPostPortfolioInvestmentRequest]): [optional]  # noqa: E501
             transaction_rules ([TransactionRule]): rules for adding/substracting amount from the portfolio at given periods. [optional]  # noqa: E501
         """
 

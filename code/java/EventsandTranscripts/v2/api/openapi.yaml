@@ -13,7 +13,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: Events and Transcripts API
-  version: 2.2.2
+  version: 2.2.3
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/documents-distributor-callstreet-events
@@ -1810,6 +1810,7 @@ components:
             - DT:FILNS
             slidesUrl: https://...
             eventId: "1203335253"
+            uploadDateTime: 2023-03-08T19:40:26Z
         - requestId: MSFT-US
           documents: []
         - requestId: M
@@ -3014,6 +3015,7 @@ components:
             categories:
             - categories
             - categories
+            uploadDateTime: 2000-01-23T04:56:07.000+00:00
             allIds:
             - allIds
             - allIds
@@ -3027,6 +3029,7 @@ components:
             categories:
             - categories
             - categories
+            uploadDateTime: 2000-01-23T04:56:07.000+00:00
             allIds:
             - allIds
             - allIds
@@ -3046,6 +3049,7 @@ components:
             categories:
             - categories
             - categories
+            uploadDateTime: 2000-01-23T04:56:07.000+00:00
             allIds:
             - allIds
             - allIds
@@ -3059,6 +3063,7 @@ components:
             categories:
             - categories
             - categories
+            uploadDateTime: 2000-01-23T04:56:07.000+00:00
             allIds:
             - allIds
             - allIds
@@ -3095,6 +3100,7 @@ components:
           categories:
           - categories
           - categories
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
           allIds:
           - allIds
           - allIds
@@ -3108,6 +3114,7 @@ components:
           categories:
           - categories
           - categories
+          uploadDateTime: 2000-01-23T04:56:07.000+00:00
           allIds:
           - allIds
           - allIds
@@ -3142,6 +3149,7 @@ components:
         categories:
         - categories
         - categories
+        uploadDateTime: 2000-01-23T04:56:07.000+00:00
         allIds:
         - allIds
         - allIds
@@ -3180,6 +3188,10 @@ components:
         eventId:
           description: Unique identifier derived from report_id with a 't' appended,
             indicating a transcript or slide.
+          type: string
+        uploadDateTime:
+          description: Timestamp when the transcript is created.
+          format: date-time
           type: string
       title: Files
       type: object

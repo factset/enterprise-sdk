@@ -37,12 +37,810 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              stats all request properties:
+                summary: all request properties
+                value:
+                  data:
+                    portfolio:
+                      id: sample_ID
+                      details:
+                        name: test portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: string
+                        weight: 1
+                        salesCharge: 0
+                        transactionRules:
+                        - type: fee
+                          amount: 0
+                          amountType: cash
+                          amountGrowth: 0
+                          amountGrowthType: absolute
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          startDate: 2026-03-10
+                          endDate: 2026-03-10
+                          frequency: 0
+                          frequencyAlignment: start
+                      transactionRules:
+                      - type: fee
+                        amount: 0
+                        amountType: cash
+                        amountGrowth: 0
+                        amountGrowthType: absolute
+                        amountGrowthFrequency: 1
+                        allowPartialAmount: false
+                        startDate: 2026-03-10
+                        endDate: 2026-03-10
+                        frequency: 0
+                        frequencyAlignment: start
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: string
+                        weight: 1
+                        salesCharge: 0
+                    settings:
+                      asOfDate: latestMonthEnd
+                      returnsPreferences: Portal 5.1 - Historical Monthly 36
+                      validatePortfolio: false
+                      levels:
+                      - portfolio
+                      - holdings
+                      confidenceLevels:
+                      - 95
+                      - 99
+                      reportingFrequency: 1
+                      timeWindows:
+                      - ytd
+                      - "12"
+                      - "36"
+                      - "60"
+                      - "120"
+                      - lifetime
+                      periods:
+                      - startDate: 2017-01-03
+                        endDate: 2017-05-31
+                      reportingFrequencyAlignment: start
+                      stats:
+                      - cumReturn
+                      - annReturn
+                      - meanReturn
+                      - stDev
+                      - annStDev
+                      - annLossStDev
+                      - etl
+                      - var
+                      - skewness
+                      - excessKurtosis
+                      - positiveReturnsRatio
+                      - alpha
+                      - beta
+                      - rsquare
+                      - upCapture
+                      - downCapture
+                      - sharpe
+                      - sortino
+                      - starr
+                      - longestDrawdownStart
+                      - longestDrawdownEnd
+                      - maxDrawdown
+                      - maxDrawdownDate
+                      - maxDrawdownStart
+                      - maxDrawdownEnd
+                      - maxDrawdownPeriods
+                      - topDrawdowns
+                      - boxplotSummary
+                      - boxplotOutliers
+                      udfs:
+                      - maxFrontLoad
+                      - assetAllocation
+              stats basic request:
+                summary: basic request
+                value:
+                  data:
+                    portfolio:
+                      id: sample_portfolio_ID
+                      details:
+                        name: test portfolio
+                      holdings:
+                      - id: security_id_1
+                        weight: 0.5
+                      - id: security_id_2
+                        weight: 0.5
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_ID
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      levels:
+                      - portfolio
+                      - holdings
+                      timeWindows:
+                      - "12"
+                      stats:
+                      - cumReturn
+                      - annReturn
+                      - stDev
+              stats request with transaction rules:
+                summary: request with transaction rules
+                value:
+                  data:
+                    portfolio:
+                      id: Test 1
+                      details:
+                        name: Test 1
+                      initialValue: 1000000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_1
+                        weight: 0.333333
+                      - id: security_id_2
+                        weight: 0.333333
+                        transactionRules:
+                        - type: contribution
+                          amount: 100
+                          amountType: cash
+                          amountGrowth: 0.1
+                          amountGrowthType: percentage
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          frequency: 12
+                          frequencyAlignment: calendar
+                      - id: security_id_3
+                        weight: 0.333334
+                      transactionRules:
+                      - type: fee
+                        amount: -0.02
+                        amountType: percentagePV
+                        allowPartialAmount: true
+                        frequency: 1
+                        frequencyAlignment: calendar
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_5
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      levels:
+                      - portfolio
+                      reportingFrequency: 1
+                      reportingFrequencyAlignment: calendar
+                      timeWindows:
+                      - "120"
+                      stats:
+                      - annReturn
+                      - feeTransactions
+                      - contributionTransactions
+                      - PV
+              stats request with udfs:
+                summary: request with udfs
+                value:
+                  data:
+                    portfolio:
+                      id: sample_portfolio_ID
+                      details:
+                        name: test portfolio
+                      holdings:
+                      - id: security1_ID
+                        weight: 1
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_ID
+                        weight: 1
+                    settings:
+                      levels:
+                      - portfolio
+                      - holdings
+                      udfs:
+                      - maxFrontLoad
+                      - assetAllocation
+              stats request with periods:
+                summary: request with periods
+                value:
+                  data:
+                    portfolio:
+                      id: sample_portfolio_ID
+                      details:
+                        name: test portfolio
+                      holdings:
+                      - id: security_id_2
+                        weight: 1
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      levels:
+                      - portfolio
+                      - holdings
+                      periods:
+                      - startDate: 2023-07-08
+                        endDate: 2024-08-31
+                      stats:
+                      - cumReturn
+                      - annReturn
+                      - stDev
             schema:
               $ref: '#/components/schemas/ExPostStats'
       responses:
         "200":
           content:
             application/json:
+              examples:
+                stats all response properties:
+                  summary: all response properties
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_ID
+                        details:
+                          name: test portfolio
+                        stats:
+                          timeWindow:
+                            "12":
+                              risks:
+                                annStDev: 0.08
+                                annLossStDev: 0.08
+                                etl:
+                                  "99%": 0.1
+                                stDev: 0.08
+                                skewness: 1.23
+                                excessKurtosis: 1.23
+                                var:
+                                  "99%": 0.1
+                                positiveReturnsRatio: 0.5123
+                              returns:
+                                annReturn: 0.05
+                                cumReturn: 0.3
+                                meanReturn: 0.054
+                              relativeRisk:
+                                alpha: 0
+                                beta: 0
+                                rsquare: 0
+                                upCapture: 0
+                                upCaptureMStar: 0
+                                downCapture: 0
+                                downCaptureMStar: 0
+                              performance:
+                                sharpe: 0
+                                sortino: 0
+                                starr: 0
+                              drawdown:
+                                longestDrawdownStart: 2017-01-31
+                                longestDrawdownEnd: 2017-05-31
+                                maxDrawdown: 0
+                                maxDrawdownDate: 2017-03-31
+                                maxDrawdownStart: 2017-01-31
+                                maxDrawdownEnd: 2017-05-31
+                                maxDrawdownPeriods: 0
+                                topDrawdowns:
+                                - drawdownDate: 2018-12-25
+                                  endDate: 2019-04-01
+                                  startDate: 2018-01-26
+                                  value: 0
+                              boxplot:
+                                boxplotSummary:
+                                  mean: 0
+                                  median: 0
+                                  q1: 0
+                                  q3: 0
+                                  minRegularValue: 0
+                                  maxRegularValue: 0
+                                  minOutlier: 0
+                                  maxOutlier: 0
+                                boxplotOutliers:
+                                - 0
+                          generic:
+                            salesChage: 0
+                        udfs:
+                          ungrouped:
+                            maxFrontLoad: 0.06
+                        periods:
+                        - startDate: 2017-01-03
+                          endDate: 2017-05-31
+                          numberOfDays: 59
+                          basedOnTimeWindow: string
+                          stats:
+                            risks:
+                              annStDev: 0.08
+                              annLossStDev: 0.08
+                              etl:
+                                "99%": 0.1
+                              stDev: 0.08
+                              skewness: 1.23
+                              excessKurtosis: 1.23
+                              var:
+                                "99%": 0.1
+                              positiveReturnsRatio: 0.5123
+                            returns:
+                              annReturn: 0.05
+                              cumReturn: 0.3
+                              meanReturn: 0.054
+                            relativeRisk:
+                              alpha: 0
+                              beta: 0
+                              rsquare: 0
+                              upCapture: 0
+                              upCaptureMStar: 0
+                              downCapture: 0
+                              downCaptureMStar: 0
+                            performance:
+                              sharpe: 0
+                              sortino: 0
+                              starr: 0
+                            drawdown:
+                              longestDrawdownStart: 2017-01-31
+                              longestDrawdownEnd: 2017-05-31
+                              maxDrawdown: 0
+                              maxDrawdownDate: 2017-03-31
+                              maxDrawdownStart: 2017-01-31
+                              maxDrawdownEnd: 2017-05-31
+                              maxDrawdownPeriods: 0
+                              topDrawdowns:
+                              - drawdownDate: 2018-12-25
+                                endDate: 2019-04-01
+                                startDate: 2018-01-26
+                                value: 0
+                            boxplot:
+                              boxplotSummary:
+                                mean: 0
+                                median: 0
+                                q1: 0
+                                q3: 0
+                                minRegularValue: 0
+                                maxRegularValue: 0
+                                minOutlier: 0
+                                maxOutlier: 0
+                              boxplotOutliers:
+                              - 0
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                        salesCharge: 0
+                        transactionRules:
+                        - type: fee
+                          amount: 0
+                          amountType: cash
+                          amountGrowth: 0
+                          amountGrowthType: absolute
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          startDate: 2026-03-17
+                          endDate: 2026-03-17
+                          frequency: 0
+                          frequencyAlignment: start
+                        securityDetails:
+                          id: security_id_1
+                          name: string
+                          proxyCode: string
+                          cusip: string
+                          tradingSymbol: string
+                          securityType: SA
+                          className: Fund
+                          currency: USD
+                        stats:
+                          timeWindow:
+                            "12":
+                              risks:
+                                annStDev: 0.08
+                                annLossStDev: 0.08
+                                etl:
+                                  "99%": 0.1
+                                stDev: 0.08
+                                skewness: 1.23
+                                excessKurtosis: 1.23
+                                var:
+                                  "99%": 0.1
+                                positiveReturnsRatio: 0.5123
+                              returns:
+                                annReturn: 0.05
+                                cumReturn: 0.3
+                                meanReturn: 0.054
+                              relativeRisk:
+                                alpha: 0
+                                beta: 0
+                                rsquare: 0
+                                upCapture: 0
+                                upCaptureMStar: 0
+                                downCapture: 0
+                                downCaptureMStar: 0
+                              performance:
+                                sharpe: 0
+                                sortino: 0
+                                starr: 0
+                              drawdown:
+                                longestDrawdownStart: 2017-01-31
+                                longestDrawdownEnd: 2017-05-31
+                                maxDrawdown: 0
+                                maxDrawdownDate: 2017-03-31
+                                maxDrawdownStart: 2017-01-31
+                                maxDrawdownEnd: 2017-05-31
+                                maxDrawdownPeriods: 0
+                                topDrawdowns:
+                                - drawdownDate: 2018-12-25
+                                  endDate: 2019-04-01
+                                  startDate: 2018-01-26
+                                  value: 0
+                              boxplot:
+                                boxplotSummary:
+                                  mean: 0
+                                  median: 0
+                                  q1: 0
+                                  q3: 0
+                                  minRegularValue: 0
+                                  maxRegularValue: 0
+                                  minOutlier: 0
+                                  maxOutlier: 0
+                                boxplotOutliers:
+                                - 0
+                          generic:
+                            salesChage: 0
+                        udfs:
+                          ungrouped:
+                            maxFrontLoad: 0.06
+                        periods:
+                        - startDate: 2017-01-03
+                          endDate: 2017-05-31
+                          numberOfDays: 59
+                          basedOnTimeWindow: string
+                          stats:
+                            risks:
+                              annStDev: 0.08
+                              annLossStDev: 0.08
+                              etl:
+                                "99%": 0.1
+                              stDev: 0.08
+                              skewness: 1.23
+                              excessKurtosis: 1.23
+                              var:
+                                "99%": 0.1
+                              positiveReturnsRatio: 0.5123
+                            returns:
+                              annReturn: 0.05
+                              cumReturn: 0.3
+                              meanReturn: 0.054
+                            relativeRisk:
+                              alpha: 0
+                              beta: 0
+                              rsquare: 0
+                              upCapture: 0
+                              upCaptureMStar: 0
+                              downCapture: 0
+                              downCaptureMStar: 0
+                            performance:
+                              sharpe: 0
+                              sortino: 0
+                              starr: 0
+                            drawdown:
+                              longestDrawdownStart: 2017-01-31
+                              longestDrawdownEnd: 2017-05-31
+                              maxDrawdown: 0
+                              maxDrawdownDate: 2017-03-31
+                              maxDrawdownStart: 2017-01-31
+                              maxDrawdownEnd: 2017-05-31
+                              maxDrawdownPeriods: 0
+                              topDrawdowns:
+                              - drawdownDate: 2018-12-25
+                                endDate: 2019-04-01
+                                startDate: 2018-01-26
+                                value: 0
+                            boxplot:
+                              boxplotSummary:
+                                mean: 0
+                                median: 0
+                                q1: 0
+                                q3: 0
+                                minRegularValue: 0
+                                maxRegularValue: 0
+                                minOutlier: 0
+                                maxOutlier: 0
+                              boxplotOutliers:
+                              - 0
+                        backfillData:
+                          "36":
+                            backfilled: true
+                            realData: 27
+                            backfilledData: 9
+                      errors:
+                      - string
+                    meta:
+                      settings:
+                        asOfDate: string
+                        returnsPreferences: string
+                        validatePortfolio: false
+                        levels:
+                        - portfolio
+                        - holdings
+                        confidenceLevels:
+                        - 95
+                        - 99
+                        reportingFrequency: 1
+                        timeWindows:
+                        - ytd
+                        - "12"
+                        - "36"
+                        - "60"
+                        - "120"
+                        - lifetime
+                        periods:
+                        - startDate: 2017-01-03
+                          endDate: 2017-05-31
+                        reportingFrequencyAlignment: start
+                        stats:
+                        - cumReturn
+                        - annReturn
+                        - stDev
+                        - annStDev
+                        - alpha
+                        - beta
+                        - upCapture
+                        - downCapture
+                        - maxDrawdown
+                        udfs:
+                        - maxFrontLoad
+                        - assetAllocation
+                stats basic response:
+                  summary: basic response
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_portfolio_ID
+                        stats:
+                          asOfDate: 2026-01-31
+                          timeWindow:
+                            "12":
+                              risks:
+                                stDev: 0.04236126
+                              returns:
+                                annReturn: 0.058844186
+                                cumReturn: 0.058844186
+                          generic:
+                            minHistoricalDate: 2023-02-14
+                          currency: USD
+                        details:
+                          name: test portfolio
+                      holdings:
+                      - stats:
+                          asOfDate: 2026-01-31
+                          timeWindow:
+                            "12":
+                              risks:
+                                stDev: 0.06979351
+                              returns:
+                                annReturn: -0.060137257
+                                cumReturn: -0.060137257
+                          currency: USD
+                        weight: 0.5
+                        securityDetails:
+                          id: security_id_1
+                          name: Holdings Name Co.Ltd.
+                          shortName: Holdings ShortName Co.Ltd.
+                          proxyCode: 116616-JPY_TR
+                          proxyType: Extended
+                          proxyName: Japan (Total Return Gross)
+                          cusip: J2XXXXX06
+                          className: Stock
+                          currency: JPY
+                          udfs: {}
+                          minHistoricalDate: 2015-03-25
+                        backfillData:
+                          "12":
+                            backfilled: true
+                            realData: 13
+                            backfilledData: 0
+                      - stats:
+                          asOfDate: 2026-01-31
+                          timeWindow:
+                            "12":
+                              risks:
+                                stDev: 0.021782415
+                              returns:
+                                annReturn: 0.17782563
+                                cumReturn: 0.17782563
+                          currency: USD
+                        weight: 0.5
+                        securityDetails:
+                          id: security_id_2
+                          name: Holdings name
+                          shortName: Holdings short name
+                          proxyCode: 116616-JPY_XX
+                          proxyType: Extended
+                          proxyName: Sofia JPY (Total Return Gross)
+                          cusip: XXXXX0000
+                          className: Stock
+                          currency: EUR
+                          udfs: {}
+                          minHistoricalDate: 2023-02-14
+                        backfillData:
+                          "12":
+                            backfilled: true
+                            realData: 13
+                            backfilledData: 0
+                    meta:
+                      settings:
+                        asOfDate: 2026-01-31
+                        levels:
+                        - portfolio
+                        - holdings
+                        timeWindows:
+                        - "12"
+                        stats:
+                        - cumReturn
+                        - annReturn
+                        - stDev
+                stats response with transaction rules:
+                  summary: response with transaction rules
+                  value:
+                    data:
+                      portfolio:
+                        id: Test 1
+                        stats:
+                          asOfDate: 2026-01-31
+                          timeWindow:
+                            "120":
+                              returns:
+                                annReturn: 1.6672547
+                              transactions:
+                                contributionTransactions: 19284.283
+                                feeTransactions: -321650.94
+                              values:
+                                pv: 2457871.2
+                          generic:
+                            minHistoricalDate: 2014-04-22
+                          currency: USD
+                        details:
+                          name: Test 1
+                    meta:
+                      settings:
+                        asOfDate: 2026-01-31
+                        levels:
+                        - portfolio
+                        reportingFrequency: 1
+                        reportingFrequencyAlignment: calendar
+                        timeWindows:
+                        - "120"
+                        stats:
+                        - annReturn
+                        - feeTransactions
+                        - contributionTransactions
+                        - PV
+                stats response with udfs:
+                  summary: response with udfs
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_portfolio_ID
+                        udfs:
+                          ungrouped: {}
+                          assetAllocation:
+                            AssetAllocationConvertibleNet: 0
+                            AssetAllocationNonUSBondNetWeighted: 0
+                            AssetAllocationOtherNetWeighted: 0
+                            AssetAllocationUSStockNetWeighted: 0
+                            AssetAllocationPreferredNet: 0
+                            AssetAllocationNonUSStockNetWeighted: 0
+                            AssetAllocationUSBondNetWeighted: 0
+                            AssetAllocationCashNetWeighted: 0
+                        details:
+                          name: test portfolio
+                      holdings:
+                      - udfs:
+                          ungrouped: {}
+                          assetAllocation:
+                            AssetAllocationNonUSBondNetWeighted: 0
+                            AssetAllocationUSStockNetWeighted: 0
+                            AssetAllocationOtherNetWeighted: 0
+                            AssetAllocationNonUSStockNetWeighted: 0
+                            AssetAllocationUSBondNetWeighted: 0
+                            AssetAllocationCashNetWeighted: 0
+                        weight: 1
+                        securityDetails:
+                          id: Sample_id_1
+                          name: Sample Fund Class A
+                          shortName: Sample Class A
+                          proxyType: Extended
+                          cusip: 665XXVXXX
+                          className: Fund
+                          currency: USD
+                          minHistoricalDate: 2011-12-28
+                    meta:
+                      settings:
+                        levels:
+                        - portfolio
+                        - holdings
+                        udfs:
+                        - maxFrontLoad
+                        - assetAllocation
+                stats response with periods:
+                  summary: response with periods
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_portfolio_ID
+                        stats:
+                          generic:
+                            minHistoricalDate: 2001-07-31
+                        periods:
+                        - startDate: 2023-07-08
+                          endDate: 2024-08-31
+                          numberOfDays: 420
+                          basedOnTimeWindow: lifetime
+                          stats:
+                            risks:
+                              stDev: 0
+                            returns:
+                              annReturn: 0
+                              cumReturn: 0
+                        details:
+                          name: test portfolio
+                      holdings:
+                      - periods:
+                        - startDate: 2023-07-08
+                          endDate: 2024-08-31
+                          numberOfDays: 420
+                          basedOnTimeWindow: lifetime
+                          stats:
+                            risks:
+                              stDev: 0
+                            returns:
+                              annReturn: 0
+                              cumReturn: 0
+                        weight: 1
+                        securityDetails:
+                          id: security_id_2
+                          name: Sample 1-Month Treasury Constant Maturity Rate
+                          shortName: Sample 1-Month Treasury Constant Maturity Rate
+                          proxyType: Extended
+                          className: MarketIndexFi
+                          currency: USD
+                          udfs: {}
+                          minHistoricalDate: 2001-07-31
+                    meta:
+                      settings:
+                        asOfDate: 2024-09-30
+                        levels:
+                        - portfolio
+                        - holdings
+                        periods:
+                        - startDate: 2023-07-08
+                          endDate: 2024-08-31
+                        stats:
+                        - cumReturn
+                        - annReturn
+                        - stDev
               schema:
                 $ref: '#/components/schemas/ExPostStatsResponse'
           description: Status 200
@@ -52,6 +850,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad request
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server is unable to process your request
       summary: calculate ex-post stats (on portfolio or holdings level)
       tags:
       - Ex-Post
@@ -65,15 +869,247 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              stats-rolling all request properties:
+                summary: all request properties
+                value:
+                  data:
+                    portfolio:
+                      id: sample_ID
+                      details:
+                        name: test portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                        salesCharge: 0
+                        transactionRules:
+                        - type: fee
+                          amount: 0
+                          amountType: cash
+                          amountGrowth: 0
+                          amountGrowthType: absolute
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          startDate: 2026-03-11
+                          endDate: 2026-03-11
+                          frequency: 0
+                          frequencyAlignment: start
+                      transactionRules:
+                      - type: fee
+                        amount: 0
+                        amountType: cash
+                        amountGrowth: 0
+                        amountGrowthType: absolute
+                        amountGrowthFrequency: 1
+                        allowPartialAmount: false
+                        startDate: 2026-03-11
+                        endDate: 2026-03-11
+                        frequency: 0
+                        frequencyAlignment: start
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                        salesCharge: 0
+                    settings:
+                      asOfDate: latestMonthEnd
+                      returnsPreferences: Portal 5.1 - Historical Monthly 36
+                      validatePortfolio: false
+                      timeWindows:
+                      - ytd
+                      - "12"
+                      - "36"
+                      - "60"
+                      - "120"
+                      - lifetime
+                      rollingTimeWindow: 12
+                      stats:
+                      - annReturn
+                      - cumReturn
+                      - stDev
+                      - annLossStd
+                      - sharpe
+                      - sharpeExcessReturn
+                      - sortino
+                      - sortinoExcessReturn
+                      - correlationMatrix
+                      - portfolioCorrelationMatrix
+                      aggregationFunctions:
+                      - minimum
+                      - maximum
+              stats-rolling basic request:
+                summary: basic request
+                value:
+                  data:
+                    portfolio:
+                      id: sample_portfolio_ID
+                      details:
+                        name: test portfolio
+                      holdings:
+                      - id: security1_ID
+                        weight: 0.5
+                      - id: security2_ID
+                        weight: 0.5
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_ID
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      timeWindows:
+                      - "12"
+                      rollingTimeWindow: 12
+                      stats:
+                      - cumReturn
+                      - annReturn
+                      - stDev
+                      aggregationFunctions:
+                      - minimum
+                      - maximum
             schema:
               $ref: '#/components/schemas/ExPostStatsRolling'
       responses:
         "200":
           content:
             application/json:
+              examples:
+                stats-rolling all response properties:
+                  summary: all response properties
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_ID
+                        details:
+                          name: test portfolio
+                        stats:
+                          timeWindow:
+                            "36":
+                              rolling:
+                                maximum:
+                                  returns:
+                                    annReturn:
+                                      endDate: 2017-01-31
+                                      startDate: 2014-01-31
+                                      value: 0
+                                    cumReturn:
+                                      endDate: 2017-01-31
+                                      startDate: 2014-01-31
+                                      value: 0
+                                minimum:
+                                  returns:
+                                    annReturn:
+                                      endDate: 2017-01-31
+                                      startDate: 2014-01-31
+                                      value: 0
+                                    cumReturn:
+                                      endDate: 2017-01-31
+                                      startDate: 2014-01-31
+                                      value: 0
+                    meta:
+                      settings:
+                        asOfDate: string
+                        returnsPreferences: string
+                        validatePortfolio: false
+                        timeWindows:
+                        - ytd
+                        - "12"
+                        - "36"
+                        - "60"
+                        - "120"
+                        - lifetime
+                        rollingTimeWindow: 12
+                        stats:
+                        - annReturn
+                        - cumReturn
+                        - stDev
+                        - annLossStd
+                        - sharpe
+                        - sharpeExcessReturn
+                        - sortino
+                        - sortinoExcessReturn
+                        - correlationMatrix
+                        - portfolioCorrelationMatrix
+                        aggregationFunctions:
+                        - minimum
+                        - maximum
+                stats-rolling basic response:
+                  summary: basic response
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_portfolio_ID
+                        stats:
+                          asOfDate: 2026-02-28
+                          timeWindow:
+                            "36":
+                              rolling:
+                                maximum:
+                                  risks:
+                                    stDev:
+                                      value: 0.042518
+                                      startDate: 2023-02-28
+                                      endDate: 2026-02-28
+                                  returns:
+                                    annReturn:
+                                      value: 0.07635631
+                                      startDate: 2023-02-28
+                                      endDate: 2026-02-28
+                                    cumReturn:
+                                      value: 0.07635631
+                                      startDate: 2023-02-28
+                                      endDate: 2026-02-28
+                                minimum:
+                                  risks:
+                                    stDev:
+                                      value: 0.042518
+                                      startDate: 2023-02-28
+                                      endDate: 2026-02-28
+                                  returns:
+                                    annReturn:
+                                      value: 0.07635631
+                                      startDate: 2023-02-28
+                                      endDate: 2026-02-28
+                                    cumReturn:
+                                      value: 0.07635631
+                                      startDate: 2023-02-28
+                                      endDate: 2026-02-28
+                          rollingTimeWindow: 12
+                          currency: USD
+                        details:
+                          name: test portfolio
+                    meta:
+                      settings:
+                        asOfDate: 2026-02-28
+                        timeWindows:
+                        - "36"
+                        rollingTimeWindow: 12
+                        stats:
+                        - cumReturn
+                        - annReturn
+                        - stDev
+                        aggregationFunctions:
+                        - minimum
+                        - maximum
               schema:
                 $ref: '#/components/schemas/ExPostStatsRollingResponse'
           description: Status 200
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad request
         "501":
           content:
             application/json:
@@ -93,15 +1129,304 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              stats-correlations all request properties:
+                summary: all request properties
+                value:
+                  data:
+                    portfolio:
+                      id: sample_ID
+                      details:
+                        name: test portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                        salesCharge: 0
+                        transactionRules:
+                        - type: fee
+                          amount: 0
+                          amountType: cash
+                          amountGrowth: 0
+                          amountGrowthType: absolute
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          startDate: 2026-03-11
+                          endDate: 2026-03-11
+                          frequency: 0
+                          frequencyAlignment: start
+                      transactionRules:
+                      - type: fee
+                        amount: 0
+                        amountType: cash
+                        amountGrowth: 0
+                        amountGrowthType: absolute
+                        amountGrowthFrequency: 1
+                        allowPartialAmount: false
+                        startDate: 2026-03-11
+                        endDate: 2026-03-11
+                        frequency: 0
+                        frequencyAlignment: start
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_3
+                        weight: 50
+                        salesCharge: 0
+                    settings:
+                      asOfDate: latestMonthEnd
+                      returnsPreferences: string
+                      validatePortfolio: false
+                      timeWindows:
+                      - ytd
+                      - "12"
+                      - "36"
+                      - "60"
+                      - "120"
+                      - lifetime
+                      stats:
+                      - correlationMatrix
+                      - portfolioCorrelationMatrix
+                      - actReturnsCorrelationMatrix
+                      holdingsLimit: 1
+                      fundCorrelationsOnly: true
+                      showBenchmark: true
+              stats-correlations basic request:
+                summary: basic request
+                value:
+                  data:
+                    portfolio:
+                      id: Test 1
+                      details:
+                        name: Test 1
+                      holdings:
+                      - id: security_id_1
+                        weight: 50
+                      - id: security_id_2
+                        weight: 50
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      timeWindows:
+                      - "36"
+                      stats:
+                      - correlationMatrix
+                      - portfolioCorrelationMatrix
+                      showBenchmark: true
+              stats-correlations request with periods:
+                summary: request with periods
+                value:
+                  data:
+                    portfolio:
+                      id: Test 1
+                      details:
+                        name: Test 1
+                      holdings:
+                      - id: security_id_1
+                        weight: 50
+                      - id: security_id_2
+                        weight: 50
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      periods:
+                      - startDate: 2023-03-31
+                        endDate: 2024-05-31
+                      stats:
+                      - correlationMatrix
+                      - portfolioCorrelationMatrix
+                      holdingsLimit: 2
+                      fundCorrelationsOnly: false
+                      showBenchmark: true
             schema:
               $ref: '#/components/schemas/ExPostStatsCorrelations'
       responses:
         "200":
           content:
             application/json:
+              examples:
+                stats-correlations all response properties:
+                  summary: all response properties
+                  value:
+                    data:
+                      timeWindow:
+                        "12":
+                          correlations:
+                            correlationMatrix:
+                              assets:
+                              - string
+                              matrix:
+                              - - 0
+                            portfolioCorrelationMatrix:
+                              assets:
+                              - string
+                              matrix:
+                              - - 0
+                            actReturnsCorrelationMatrix:
+                              assets:
+                              - string
+                              matrix:
+                              - - 0
+                      periods:
+                      - startDate: 2017-01-03
+                        endDate: 2017-05-31
+                        numberOfDays: 148
+                        basedOnTimeWindow: string
+                        correlations:
+                          correlationMatrix:
+                            assets:
+                            - string
+                            matrix:
+                            - - 0
+                          portfolioCorrelationMatrix:
+                            assets:
+                            - string
+                            matrix:
+                            - - 0
+                          actReturnsCorrelationMatrix:
+                            assets:
+                            - string
+                            matrix:
+                            - - 0
+                    meta:
+                      settings:
+                        asOfDate: string
+                        returnsPreferences: string
+                        validatePortfolio: false
+                        timeWindows:
+                        - ytd
+                        - "12"
+                        - "36"
+                        - "60"
+                        - "120"
+                        - lifetime
+                        periods:
+                        - startDate: 2017-01-03
+                          endDate: 2017-05-31s
+                        stats:
+                        - correlationMatrix
+                        - portfolioCorrelationMatrix
+                        - actReturnsCorrelationMatrix
+                        holdingsLimit: 1
+                        fundCorrelationsOnly: true
+                        showBenchmark: true
+                stats-correlations basic response:
+                  summary: basic response
+                  value:
+                    data:
+                      currency: USD
+                      timeWindow:
+                        "36":
+                          correlations:
+                            correlationMatrix:
+                              assets:
+                              - security_id_1
+                              - security_id_2
+                              - bmk_portfolio
+                              matrix:
+                              - - 1
+                                - 0.9116991039830784
+                                - 0.9999999342170438
+                              - - 0.9116991039830784
+                                - 1
+                                - 0.911714307176825
+                              - - 0.9999999342170438
+                                - 0.911714307176825
+                                - 1
+                            portfolioCorrelationMatrix:
+                              assets:
+                              - Test 1
+                              - bmk_portfolio
+                              matrix:
+                              - - 1
+                                - 0.9809618424169111
+                              - - 0.9809618424169111
+                                - 1
+                    meta:
+                      settings:
+                        asOfDate: 2024-09-30
+                        timeWindows:
+                        - "36"
+                        stats:
+                        - correlationMatrix
+                        - portfolioCorrelationMatrix
+                        showBenchmark: true
+                stats-correlations response with periods:
+                  summary: response with periods
+                  value:
+                    data:
+                      periods:
+                      - startDate: 2023-03-31
+                        endDate: 2024-05-31
+                        numberOfDays: 427
+                        correlations:
+                          correlationMatrix:
+                            assets:
+                            - Sample_Id_1
+                            - Sample_Id_2
+                            - Sample_portfolio
+                            matrix:
+                            - - 1
+                              - -0.018979502810046338
+                              - 0.10807513465980924
+                            - - -0.018979502810046338
+                              - 1
+                              - 0.04253275125303822
+                            - - 0.10807513465980924
+                              - 0.04253275125303822
+                              - 1
+                          portfolioCorrelationMatrix:
+                            assets:
+                            - Test 1
+                            - Sample_portfolio
+                            matrix:
+                            - - 1
+                              - 0.11995901456109108
+                            - - 0.11995901456109108
+                              - 1
+                    meta:
+                      settings:
+                        asOfDate: 2026-03-31
+                        periods:
+                        - startDate: 2023-03-31
+                          endDate: 2024-05-31
+                        stats:
+                        - correlationMatrix
+                        - portfolioCorrelationMatrix
+                        holdingsLimit: 2
+                        fundCorrelationsOnly: false
+                        showBenchmark: true
               schema:
                 $ref: '#/components/schemas/ExPostStatsCorrelationsResponse'
           description: Status 200
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad request
         "501":
           content:
             application/json:
@@ -121,15 +1446,192 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              factor-exposure all request properties:
+                summary: all request properties
+                value:
+                  data:
+                    portfolio:
+                      id: sample_ID
+                      details:
+                        name: test portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                        salesCharge: 0
+                        transactionRules:
+                        - type: fee
+                          amount: 0
+                          amountType: cash
+                          amountGrowth: 0
+                          amountGrowthType: absolute
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          startDate: 2026-03-11
+                          endDate: 2026-03-11
+                          frequency: 0
+                          frequencyAlignment: start
+                      transactionRules:
+                      - type: fee
+                        amount: 0
+                        amountType: cash
+                        amountGrowth: 0
+                        amountGrowthType: absolute
+                        amountGrowthFrequency: 1
+                        allowPartialAmount: false
+                        startDate: 2026-03-11
+                        endDate: 2026-03-11
+                        frequency: 0
+                        frequencyAlignment: start
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                        salesCharge: 0
+                    settings:
+                      asOfDate: latestMonthEnd
+                      returnsPreferences: string
+                      validatePortfolio: false
+                      timeWindows:
+                      - ytd
+                      - "12"
+                      - "36"
+                      - "60"
+                      - "120"
+                      - lifetime
+                      displayFormat: 1
+                      riskTreeLevel: 3
+              factor-exposure basic request:
+                summary: basic request(with default riskTreeLevel=1)
+                value:
+                  data:
+                    portfolio:
+                      id: Test 1
+                      details:
+                        name: Test 1
+                      initialValue: 1000000
+                      rebalancing:
+                        frequency: 12
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_ID
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      timeWindows:
+                      - "36"
+                      displayFormat: 2
+                      riskTreeLevel: 1
             schema:
               $ref: '#/components/schemas/ExPostStatsFactorExposure'
       responses:
         "200":
           content:
             application/json:
+              examples:
+                factor-exposure all response properties:
+                  summary: all response properties
+                  value:
+                    data:
+                      timeWindow:
+                        "36":
+                        - id: string
+                          name: string
+                          group: string
+                          leaf: true
+                          weight: 0
+                          risks:
+                            annStDev: 0.08
+                            annLossStDev: 0.08
+                            etl:
+                              "99%": 0.1
+                            stDev: 0.08
+                            skewness: 1.23
+                            excessKurtosis: 1.23
+                            var:
+                              "99%": 0.1
+                            positiveReturnsRatio: 0.5123
+                          returns:
+                            annReturn: 0.05
+                            cumReturn: 0.3
+                            meanReturn: 0.054
+                          exposures:
+                          - id: string
+                            name: string
+                            group: string
+                            exposure: 0
+                            rsquare: 0
+                            factors:
+                            - id: string
+                              name: string
+                              value: 0
+                          correlationToPortfolio: 0
+                          factors:
+                          - id: string
+                            name: string
+                            value: 0
+                    meta:
+                      settings:
+                        asOfDate: string
+                        returnsPreferences: string
+                        validatePortfolio: false
+                        timeWindows:
+                        - ytd
+                        - "12"
+                        - "36"
+                        - "60"
+                        - "120"
+                        - lifetime
+                        displayFormat: 1
+                        riskTreeLevel: 3
+                factor-exposure basic response:
+                  summary: basic response (with default riskTreeLevel=1)
+                  value:
+                    data:
+                      timeWindow:
+                        "36":
+                        - id: 00000M34RG12C-03XPTG-46ME99
+                          name: Factor Risk
+                          leaf: false
+                          weight: 0
+                          risks:
+                            annStDev: 0
+                          returns:
+                            annReturn: 0
+                    meta:
+                      settings:
+                        asOfDate: 2024-09-30
+                        timeWindows:
+                        - "36"
+                        displayFormat: 2
+                        riskTreeLevel: 1
               schema:
                 $ref: '#/components/schemas/ExPostStatsFactorExposureResponse'
           description: Status 200
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad request
         "501":
           content:
             application/json:
@@ -149,12 +1651,704 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              series all request properties:
+                summary: all request properties
+                value:
+                  data:
+                    portfolio:
+                      id: sample_ID
+                      details:
+                        name: test portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                        salesCharge: 0
+                        transactionRules:
+                        - type: fee
+                          amount: 0
+                          amountType: cash
+                          amountGrowth: 0
+                          amountGrowthType: absolute
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          startDate: 2026-03-11
+                          endDate: 2026-03-11
+                          frequency: 0
+                          frequencyAlignment: start
+                      transactionRules:
+                      - type: fee
+                        amount: 0
+                        amountType: cash
+                        amountGrowth: 0
+                        amountGrowthType: absolute
+                        amountGrowthFrequency: 1
+                        allowPartialAmount: false
+                        startDate: 2026-03-11
+                        endDate: 2026-03-11
+                        frequency: 0
+                        frequencyAlignment: start
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_2
+                        weight: 50
+                        salesCharge: 0
+                    settings:
+                      asOfDate: latestMonthEnd
+                      returnsPreferences: Portal 5.1 - Historical Monthly 120
+                      validatePortfolio: false
+                      levels:
+                      - portfolio
+                      - holdings
+                      confidenceLevels:
+                      - 95
+                      - 99
+                      reportingFrequency: 1
+                      timeWindows:
+                      - ytd
+                      - "12"
+                      - "36"
+                      - "60"
+                      - "120"
+                      - lifetime
+                      periods:
+                      - startDate: 2017-01-03
+                        endDate: 2017-05-31
+                      reportingFrequencyAlignment: start
+                      series:
+                      - values
+                      - returns
+                      - drawdown
+                      - benchmarkDrawdown
+                      - contributionTransactions
+                      - withdrawalTransactions
+                      - feeTransactions
+              series basic request:
+                summary: basic request
+                value:
+                  data:
+                    portfolio:
+                      id: sample_portfolio_ID
+                      details:
+                        name: test portfolio
+                      holdings:
+                      - id: security1_ID
+                        weight: 0.5
+                      - id: security2_ID
+                        weight: 0.5
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      levels:
+                      - portfolio
+                      - holdings
+                      timeWindows:
+                      - "12"
+                      series:
+                      - returns
+              series request with periods:
+                summary: request with periods
+                value:
+                  data:
+                    portfolio:
+                      id: sample_portfolio_ID
+                      details:
+                        name: test portfolio
+                      holdings:
+                      - id: security_id_2
+                        weight: 1
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      levels:
+                      - portfolio
+                      - holdings
+                      periods:
+                      - startDate: 2025-03-25
+                        endDate: 2025-03-30
+                      series:
+                      - returns
+              series request with transaction rules:
+                summary: request with transaction rules
+                value:
+                  data:
+                    portfolio:
+                      id: Test 1
+                      details:
+                        name: Test 1
+                      initialValue: 1000000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_1
+                        weight: 0.333333
+                      - id: security_id_2
+                        weight: 0.3333333
+                        transactionRules:
+                        - type: contribution
+                          amount: 100
+                          amountType: cash
+                          amountGrowth: 0.1
+                          amountGrowthType: percentage
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          frequency: 12
+                          frequencyAlignment: calendar
+                      - id: security_id_3
+                        weight: 0.3333334
+                      transactionRules:
+                      - type: fee
+                        amount: -0.02
+                        amountType: percentagePV
+                        allowPartialAmount: true
+                        frequency: 1
+                        frequencyAlignment: calendar
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_5
+                        weight: 100
+                    settings:
+                      asOfDate: latestMonthEnd
+                      levels:
+                      - portfolio
+                      reportingFrequency: 1
+                      reportingFrequencyAlignment: calendar
+                      timeWindows:
+                      - "120"
+                      series:
+                      - feeTransactions
+                      - contributionTransactions
+                      - values
             schema:
               $ref: '#/components/schemas/ExPostSeries'
       responses:
         "200":
           content:
             application/json:
+              examples:
+                series all response properties:
+                  summary: all response properties
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_ID
+                        details:
+                          name: test portfolio
+                        series:
+                          timeWindow:
+                            "36":
+                              returns:
+                              - key: 2017-03-31
+                                value: 1.5
+                              values:
+                              - key: 2017-03-31
+                                value: 1.5
+                        periods:
+                        - startDate: 2017-03-31
+                          endDate: 2017-05-31
+                          numberOfDays: 148
+                          basedOnTimeWindow: string
+                          series:
+                            values:
+                            - key: 2017-03-31
+                              value: 1000
+                            - key: 2017-04-30
+                              value: 1011.068081
+                            - key: 2017-05-31
+                              value: 1035.01886
+                            returns:
+                            - key: 2017-04-30
+                              value: 0.016571875
+                            - key: 2017-05-31
+                              value: 0.034981115
+                            drawdown:
+                            - key: 2017-03-31
+                              value: 0
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: -11.498112
+                            benchmarkDrawdown:
+                            - key: 2017-03-31
+                              value: -30.378468
+                            - key: 2017-04-30
+                              value: -44.660877
+                            - key: 2017-05-31
+                              value: -49.88203
+                            contributionTransactions:
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: 0
+                            withdrawalTransactions:
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: 0
+                            feeTransactions:
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: 0
+                      holdings:
+                      - id: security_id_1
+                        weight: 1
+                        salesCharge: 0
+                        transactionRules:
+                        - type: fee
+                          amount: 0
+                          amountType: cash
+                          amountGrowth: 0
+                          amountGrowthType: absolute
+                          amountGrowthFrequency: 1
+                          allowPartialAmount: false
+                          startDate: 2025-03-18
+                          endDate: 2026-03-18
+                          frequency: 0
+                          frequencyAlignment: start
+                        series:
+                          timeWindow:
+                            "12":
+                              returns:
+                              - key: 2017-03-31
+                                value: 1.5
+                              values:
+                              - key: 2017-03-31
+                                value: 1.5
+                        periods:
+                        - startDate: 2017-03-31
+                          endDate: 2017-05-31
+                          numberOfDays: 148
+                          basedOnTimeWindow: string
+                          series:
+                            values:
+                            - key: 2017-03-31
+                              value: 1000
+                            - key: 2017-04-30
+                              value: 1011.068081
+                            - key: 2017-05-31
+                              value: 1035.01886
+                            returns:
+                            - key: 2017-04-30
+                              value: 0.016571875
+                            - key: 2017-05-31
+                              value: 0.034981115
+                            drawdown:
+                            - key: 2017-03-31
+                              value: 0
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: -11.498112
+                            benchmarkDrawdown:
+                            - key: 2017-03-31
+                              value: -30.378468
+                            - key: 2017-04-30
+                              value: -44.660877
+                            - key: 2017-05-31
+                              value: -49.88203
+                            contributionTransactions:
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: 0
+                            withdrawalTransactions:
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: 0
+                            feeTransactions:
+                            - key: 2017-04-30
+                              value: 0
+                            - key: 2017-05-31
+                              value: 0
+                        securityDetails:
+                          id: security_id
+                          name: Sample Holdings Ltd.
+                          shortName: Sample Holdings Ltd.
+                          proxyCode: 112775-USD_TR
+                          proxyType: Extended
+                          proxyName: Sample Proxy name (Total Return Gross)
+                          cusip: XXXXX104
+                          className: Stock
+                          currency: HKD
+                          udfs: {}
+                          minHistoricalDate: 2015-03-27
+                        backfillData:
+                          "120":
+                            backfilled: true
+                            realData: 121
+                            backfilledData: 0
+                      errors:
+                      - string
+                    meta:
+                      settings:
+                        asOfDate: string
+                        returnsPreferences: string
+                        validatePortfolio: false
+                        levels:
+                        - portfolio
+                        - holdings
+                        confidenceLevels:
+                        - 95
+                        - 99
+                        reportingFrequency: 1
+                        timeWindows:
+                        - ytd
+                        - "12"
+                        - "36"
+                        - "60"
+                        - "120"
+                        - lifetime
+                        periods:
+                        - startDate: 2017-01-03
+                          endDate: 2017-05-31s
+                        reportingFrequencyAlignment: start
+                        series:
+                        - values
+                        - returns
+                        - drawdown
+                        - benchmarkDrawdown
+                        - contributionTransactions
+                        - withdrawalTransactions
+                        - feeTransactions
+                series basic response example:
+                  summary: basic response
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_portfolio_ID
+                        series:
+                          asOfDate: 2026-03-31
+                          timeWindow:
+                            "12":
+                              returns:
+                              - key: 2025-04-30
+                                value: -0.10772957
+                              - key: 2025-05-31
+                                value: -0.029526489
+                              - key: 2025-06-30
+                                value: 0.007549521
+                              - key: 2025-07-31
+                                value: -0.1955588
+                              - key: 2025-08-31
+                                value: -0.20243524
+                              - key: 2025-09-30
+                                value: 0.8574558
+                              - key: 2025-10-31
+                                value: -0.30125913
+                              - key: 2025-11-30
+                                value: -0.08134268
+                              - key: 2025-12-31
+                                value: -0.09565678
+                              - key: 2026-01-31
+                                value: 0.0018157897
+                              - key: 2026-02-28
+                                value: -0.15361817
+                              - key: 2026-03-31
+                                value: -0.16628997
+                        details:
+                          name: test portfolio
+                      holdings:
+                      - series:
+                          asOfDate: 2026-03-31
+                          timeWindow:
+                            "12":
+                              returns:
+                              - key: 2025-04-30
+                                value: -0.19897562
+                              - key: 2025-05-31
+                                value: -0.13094361
+                              - key: 2025-06-30
+                                value: 0.15966946
+                              - key: 2025-07-31
+                                value: -0.009901731
+                              - key: 2025-08-31
+                                value: -0.21458799
+                              - key: 2025-09-30
+                                value: -0.19070596
+                              - key: 2025-10-31
+                                value: 0.31886035
+                              - key: 2025-11-30
+                                value: -0.0738915
+                              - key: 2025-12-31
+                                value: -0.09065744
+                              - key: 2026-01-31
+                                value: 0.2813922
+                              - key: 2026-02-28
+                                value: -0.017562237
+                              - key: 2026-03-31
+                                value: -0.2821443
+                          currency: USD
+                        weight: 0.5
+                        securityDetails:
+                          id: KXXXXXXXX2
+                          name: Kwan On Holdings Ltd.
+                          shortName: Kwan On Holdings Ltd.
+                          proxyCode: 123456-USD_TR
+                          proxyType: Extended
+                          proxyName: Sample proxy name USD (Total Return Gross)
+                          cusip: XXXXXXX4
+                          className: Stock
+                          currency: HKD
+                          udfs: {}
+                          minHistoricalDate: 2015-03-27
+                        backfillData:
+                          "12":
+                            backfilled: true
+                            realData: 13
+                            backfilledData: 0
+                      - series:
+                          asOfDate: 2026-03-31
+                          timeWindow:
+                            "12":
+                              returns:
+                              - key: 2025-04-30
+                                value: -0.016483517
+                              - key: 2025-05-31
+                                value: 0.053072624
+                              - key: 2025-06-30
+                                value: -0.09469496
+                              - key: 2025-07-31
+                                value: -0.3554058
+                              - key: 2025-08-31
+                                value: -0.18636364
+                              - key: 2025-09-30
+                                value: 2.1955307
+                              - key: 2025-10-31
+                                value: -0.50174826
+                              - key: 2025-11-30
+                                value: -0.0877193
+                              - key: 2025-12-31
+                                value: -0.1
+                              - key: 2026-01-31
+                                value: -0.24358974
+                              - key: 2026-02-28
+                                value: -0.3559322
+                              - key: 2026-03-31
+                                value: 0.096491225
+                          currency: USD
+                        weight: 0.5
+                        securityDetails:
+                          id: XX1212121212
+                          name: Sample Holdings, Inc.
+                          shortName: Sample Holdings, Inc.
+                          proxyCode: 12345-XX_TR
+                          proxyType: Extended
+                          proxyName: Sample proxy name USD (Total Return Gross)
+                          cusip: 74754R301
+                          className: Stock
+                          currency: USD
+                          udfs: {}
+                          minHistoricalDate: 2015-06-24
+                        backfillData:
+                          "12":
+                            backfilled: true
+                            realData: 13
+                            backfilledData: 0
+                    meta:
+                      settings:
+                        asOfDate: 2026-03-31
+                        levels:
+                        - portfolio
+                        - holdings
+                        timeWindows:
+                        - "12"
+                        series:
+                        - returns
+                series response with periods:
+                  summary: response with periods
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_portfolio_ID
+                        periods:
+                        - startDate: 2025-03-25
+                          endDate: 2025-03-30
+                          numberOfDays: 5
+                          basedOnTimeWindow: lifetime
+                          series:
+                            returns:
+                            - key: 2025-03-26
+                              value: -0.0067954957
+                            - key: 2025-03-27
+                              value: -0.2333177
+                            - key: 2025-03-28
+                              value: 0.06922734
+                        details:
+                          name: test portfolio
+                      holdings:
+                      - periods:
+                        - startDate: 2025-03-25
+                          endDate: 2025-03-30
+                          numberOfDays: 5
+                          basedOnTimeWindow: lifetime
+                          series:
+                            returns:
+                            - key: 2025-03-26
+                              value: -0.0067954957
+                            - key: 2025-03-27
+                              value: -0.2333177
+                            - key: 2025-03-28
+                              value: 0.06922734
+                        weight: 1
+                        securityDetails:
+                          id: KXXXXXXXXXX2
+                          name: Sample Holdings Ltd.
+                          shortName: Short name for Holdings Ltd.
+                          proxyCode: XXX-USD_TR
+                          proxyType: Extended
+                          proxyName: Sample proxy name USD (Total Return Gross)
+                          cusip: GXXXXX4
+                          className: Stock
+                          currency: HKD
+                          udfs: {}
+                          minHistoricalDate: 2222-01-01
+                        backfillData:
+                          lifetime:
+                            backfilled: true
+                            realData: 1234
+                            backfilledData: 0
+                    meta:
+                      settings:
+                        asOfDate: 2026-03-31
+                        levels:
+                        - portfolio
+                        - holdings
+                        periods:
+                        - startDate: 2025-03-25
+                          endDate: 2025-03-30
+                        series:
+                        - returns
+                series response example with transaction rules:
+                  summary: response with transaction rules
+                  value:
+                    data:
+                      portfolio:
+                        id: Test 1
+                        series:
+                          asOfDate: 2024-09-30
+                          timeWindow:
+                            "120":
+                              values:
+                              - key: 2014-09-30
+                                value: 1000000
+                              - key: 2014-12-31
+                                value: 1018498.6
+                              - key: 2015-12-31
+                                value: 1011938.3
+                              - key: 2016-12-31
+                                value: 1081431
+                              - key: 2017-12-31
+                                value: 1195076.6
+                              - key: 2018-12-31
+                                value: 1139494
+                              - key: 2019-12-31
+                                value: 1341639.5
+                              - key: 2020-12-31
+                                value: 1406398.1
+                              - key: 2021-12-31
+                                value: 1613423.5
+                              - key: 2022-12-31
+                                value: 1464727.5
+                              - key: 2023-12-31
+                                value: 1610467.8
+                              - key: 2024-09-30
+                                value: 1839954
+                              contributionTransactions:
+                              - key: 2014-12-31
+                                value: 300
+                              - key: 2015-12-31
+                                value: 1320
+                              - key: 2016-12-31
+                                value: 1452
+                              - key: 2017-12-31
+                                value: 1597.2
+                              - key: 2018-12-31
+                                value: 1756.92
+                              - key: 2019-12-31
+                                value: 1932.612
+                              - key: 2020-12-31
+                                value: 2125.8733
+                              - key: 2021-12-31
+                                value: 2338.4604
+                              - key: 2022-12-31
+                                value: 2572.3066
+                              - key: 2023-12-31
+                                value: 2829.537
+                              - key: 2024-09-30
+                                value: 2334.3682
+                              feeTransactions:
+                              - key: 2014-12-31
+                                value: -5117.581
+                              - key: 2015-12-31
+                                value: -20649.557
+                              - key: 2016-12-31
+                                value: -22067.55
+                              - key: 2017-12-31
+                                value: -24386.602
+                              - key: 2018-12-31
+                                value: -23251.992
+                              - key: 2019-12-31
+                                value: -27377.11
+                              - key: 2020-12-31
+                                value: -28698.387
+                              - key: 2021-12-31
+                                value: -32923.035
+                              - key: 2022-12-31
+                                value: -29888.023
+                              - key: 2023-12-31
+                                value: -32861.875
+                              - key: 2024-09-30
+                                value: 0
+                        details:
+                          name: Test 1
+                    meta:
+                      settings:
+                        asOfDate: 2024-09-30
+                        levels:
+                        - portfolio
+                        reportingFrequency: 1
+                        reportingFrequencyAlignment: calendar
+                        timeWindows:
+                        - "120"
+                        series:
+                        - feeTransactions
+                        - contributionTransactions
+                        - values
               schema:
                 $ref: '#/components/schemas/ExPostSeriesResponse'
           description: Successful request
@@ -164,6 +2358,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad request
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server is unable to process your request
       summary: retrieve portfolio and benchmark data series, generated from the underlying
         holdings data series
       tags:
@@ -178,15 +2378,324 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              series-rolling all request properties:
+                summary: all request properties
+                value:
+                  data:
+                    portfolio:
+                      id: sample_ID
+                      details:
+                        name: test portfolio
+                      initialValue: 1000
+                      holdings:
+                      - id: security_id_1
+                        weight: 0.5
+                      - id: security_id_2
+                        weight: 0.5
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                    settings:
+                      asOfDate: latestMonthEnd
+                      returnsPreferences: Portal 5.1 - Historical Monthly 120
+                      validatePortfolio: false
+                      timeWindows:
+                      - ytd
+                      - "12"
+                      - "36"
+                      - "60"
+                      - "120"
+                      - lifetime
+                      rollingTimeWindow: 12
+                      stats:
+                      - annReturn
+                      - cumReturn
+                      - stDev
+                      - annLossStd
+                      - sharpe
+                      - sharpeExcessReturn
+                      - sortino
+                      - sortinoExcessReturn
+                      - correlationMatrix
+                      - portfolioCorrelationMatrix
+                      periods:
+                      - startDate: 2017-01-03
+                        endDate: 2017-05-31
+              series-rolling basic request example:
+                summary: basic request
+                value:
+                  data:
+                    portfolio:
+                      id: sample_portfolio_ID
+                      details:
+                        name: test portfolio
+                      holdings:
+                      - id: security_id_1
+                        weight: 0.5
+                      - id: security_id_2
+                        weight: 0.5
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      holdings:
+                      - id: security_id_3
+                        weight: 1
+                    settings:
+                      asOfDate: latestMonthEnd
+                      timeWindows:
+                      - "36"
+                      rollingTimeWindow: 12
+                      stats:
+                      - cumReturn
+              series-rolling request with periods:
+                summary: request with periods
+                value:
+                  data:
+                    portfolio:
+                      id: Test 1
+                      details:
+                        name: Test 1
+                      initialValue: 1000000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_2
+                        weight: 100
+                    benchmark:
+                      details:
+                        name: bmk_portfolio
+                      initialValue: 1000000
+                      rebalancing:
+                        frequency: 12
+                        frequencyAlignment: start
+                        rebalanceAtStart: true
+                      holdings:
+                      - id: security_id_3
+                        weight: 100
+                    settings:
+                      asOfDate: latestMonthEnd
+                      periods:
+                      - startDate: 2023-09-19
+                        endDate: 2024-09-25
+                      rollingTimeWindow: 12
+                      stats:
+                      - annReturn
             schema:
               $ref: '#/components/schemas/ExPostSeriesRolling'
       responses:
         "200":
           content:
             application/json:
+              examples:
+                series-rolling all response properties:
+                  summary: all response properties
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_ID
+                        details:
+                          name: test portfolio
+                        stats:
+                          timeWindow:
+                            "12":
+                              dates:
+                              - 2017-01-30
+                              - 2017-01-31
+                              returns:
+                                annReturn:
+                                - 0.1
+                                - 0.2
+                                cumReturn:
+                                - 0.1
+                                - 0.2
+                              correlations:
+                                correlationMatrix:
+                                  assets:
+                                  - F00000YDEG_QA
+                                  - bmk_portfolio
+                                  threeDMatrix:
+                                  - - - 1
+                                      - 1
+                                    - - 0.923483
+                                      - 0.923948
+                                  - - - 0.923483
+                                      - 0.923948
+                                    - - 1
+                                      - 1
+                                portfolioCorrelationMatrix:
+                                  assets:
+                                  - Test 1
+                                  - bmk_portfolio
+                                  threeDMatrix:
+                                  - - - 1
+                                      - 1
+                                    - - 0.923483
+                                      - 0.923948
+                                  - - - 0.923483
+                                      - 0.923948
+                                    - - 1
+                                      - 1
+                    meta:
+                      settings:
+                        asOfDate: string
+                        returnsPreferences: string
+                        validatePortfolio: false
+                        timeWindows:
+                        - ytd
+                        - "12"
+                        - "36"
+                        - "60"
+                        - "120"
+                        - lifetime
+                        rollingTimeWindow: 12
+                        stats:
+                        - annReturn
+                        - cumReturn
+                        - stDev
+                        - annLossStd
+                        - sharpe
+                        - sharpeExcessReturn
+                        - sortino
+                        - sortinoExcessReturn
+                        - correlationMatrix
+                        - portfolioCorrelationMatrix
+                        periods:
+                        - startDate: 2017-01-03
+                          endDate: 2017-05-31
+                series-rolling basic response:
+                  summary: basic response
+                  value:
+                    data:
+                      portfolio:
+                        id: sample_portfolio_ID
+                        details:
+                          name: test portfolio
+                        stats:
+                          asOfDate: 2024-09-30
+                          rollingTimeWindow: 12
+                          currency: USD
+                          timeWindow:
+                            "36":
+                              returns:
+                                cumReturn:
+                                - -0.11571869
+                                - -0.091735154
+                                - -0.02595595
+                                - -0.12477478
+                                - -0.05740435
+                                - -0.06391944
+                                - -0.08616042
+                                - -0.006943779
+                                - -0.032764863
+                                - 0.109629296
+                                - 0.0662134
+                                - 0.083320186
+                                - 0.13019034
+                                - 0.0132538155
+                                - 0.041772768
+                                - 0.15302125
+                                - 0.12739348
+                                - 0.21927303
+                                - 0.24355724
+                                - 0.17732865
+                                - 0.25180045
+                                - 0.2058506
+                                - 0.19821362
+                                - 0.24533695
+                                - 0.32414356
+                              dates:
+                              - 2022-09-30
+                              - 2022-10-31
+                              - 2022-11-30
+                              - 2022-12-31
+                              - 2023-01-31
+                              - 2023-02-28
+                              - 2023-03-31
+                              - 2023-04-30
+                              - 2023-05-31
+                              - 2023-06-30
+                              - 2023-07-31
+                              - 2023-08-31
+                              - 2023-09-30
+                              - 2023-10-31
+                              - 2023-11-30
+                              - 2023-12-31
+                              - 2024-01-31
+                              - 2024-02-29
+                              - 2024-03-31
+                              - 2024-04-30
+                              - 2024-05-31
+                              - 2024-06-30
+                              - 2024-07-31
+                              - 2024-08-31
+                              - 2024-09-30
+                    meta:
+                      settings:
+                        asOfDate: 2024-09-30
+                        timeWindows:
+                        - "36"
+                        rollingTimeWindow: 12
+                        stats:
+                        - cumReturn
+                series-rolling response with periods:
+                  summary: response with periods
+                  value:
+                    data:
+                      portfolio:
+                        id: Test 1
+                        stats:
+                          asOfDate: 2026-03-31
+                          timeWindow:
+                            lifetime:
+                              returns:
+                                annReturn:
+                                - 0.11535052
+                                - 0.0042774593
+                                - -0.124030784
+                                - -0.12348699
+                              dates:
+                              - 2024-09-19
+                              - 2024-09-20
+                              - 2024-09-23
+                              - 2024-09-24
+                          rollingTimeWindow: 12
+                          currency: USD
+                        details:
+                          name: Test 1
+                    meta:
+                      settings:
+                        asOfDate: 2026-03-31
+                        rollingTimeWindow: 12
+                        stats:
+                        - annReturn
+                        periods:
+                        - startDate: 2023-09-18
+                          endDate: 2024-09-25
               schema:
                 $ref: '#/components/schemas/ExPostSeriesRollingResponse'
           description: Status 200
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad request
         "501":
           content:
             application/json:
@@ -265,6 +2774,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/PagedSecurities'
           description: List of investments
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad request
+        "501":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Server is unable to process your request
       tags:
       - Lookup
       x-accepts: application/json
@@ -382,15 +2903,51 @@ components:
                   assets:
                   - assets
                   - assets
+                  threeDMatrix:
+                  - - - 6.027456183070403
+                      - 6.027456183070403
+                    - - 6.027456183070403
+                      - 6.027456183070403
+                  - - - 6.027456183070403
+                      - 6.027456183070403
+                    - - 6.027456183070403
+                      - 6.027456183070403
                   matrix:
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
+                  - - 0.8008281904610115
+                    - 0.8008281904610115
+                  - - 0.8008281904610115
+                    - 0.8008281904610115
+                actReturnsCorrelationMatrix:
+                  assets:
+                  - assets
+                  - assets
+                  threeDMatrix:
+                  - - - 6.027456183070403
+                      - 6.027456183070403
+                    - - 6.027456183070403
+                      - 6.027456183070403
+                  - - - 6.027456183070403
+                      - 6.027456183070403
+                    - - 6.027456183070403
+                      - 6.027456183070403
+                  matrix:
+                  - - 0.8008281904610115
+                    - 0.8008281904610115
+                  - - 0.8008281904610115
+                    - 0.8008281904610115
                 correlationMatrix:
                   assets:
                   - assets
                   - assets
+                  threeDMatrix:
+                  - - - 6.027456183070403
+                      - 6.027456183070403
+                    - - 6.027456183070403
+                      - 6.027456183070403
+                  - - - 6.027456183070403
+                      - 6.027456183070403
+                    - - 6.027456183070403
+                      - 6.027456183070403
                   matrix:
                   - - 0.8008281904610115
                     - 0.8008281904610115
@@ -399,6 +2956,7 @@ components:
           periods:
           - null
           - null
+          currency: USD
         meta: {}
       properties:
         data:
@@ -457,7 +3015,6 @@ components:
                 excessKurtosis: 1.23
                 etl:
                   "99%": 0.1
-                stDev: 0.08
               name: name
               weight: 0.8008281904610115
               correlationToPortfolio: 5.637376656633329
@@ -510,7 +3067,6 @@ components:
                 excessKurtosis: 1.23
                 etl:
                   "99%": 0.1
-                stDev: 0.08
               name: name
               weight: 0.8008281904610115
               correlationToPortfolio: 5.637376656633329
@@ -642,25 +3198,16 @@ components:
           type: number
         frequencyAlignment:
           enum:
-          - 1
-          - 2
-          - 4
-          - 6
-          - 12
-          type: number
+          - start
+          - calendar
+          type: string
       type: object
     PortfolioInvestment:
       properties:
-        id:
-          description: the unique id of the investment - e.g. FactSet id
-          type: string
         weight:
           description: the weight of the investment in hte portfolio
           example: 1
           type: number
-      required:
-      - id
-      - weight
       type: object
     ExPostPortfolioInvestment:
       allOf:
@@ -670,6 +3217,10 @@ components:
       allOf:
       - $ref: '#/components/schemas/ExPostPortfolioInvestment'
       - $ref: '#/components/schemas/ExPostPortfolioInvestmentResponse_allOf'
+    ExPostPortfolioInvestmentRequest:
+      allOf:
+      - $ref: '#/components/schemas/ExPostPortfolioInvestment'
+      - $ref: '#/components/schemas/ExPostPortfolioInvestmentRequest_allOf'
     BackfillData:
       properties:
         backfilled:
@@ -777,7 +3328,7 @@ components:
           example: 2017-01-03
           type: string
         endDate:
-          example: 2017-05-31
+          example: 2017-05-31s
           type: string
       type: object
     ExPostSettings:
@@ -807,7 +3358,7 @@ components:
             - etr
             - stDev
             - annStDev
-            - annLossStd
+            - annLossStDev
             - annStDev100
             - etl
             - skewness
@@ -852,6 +3403,7 @@ components:
             - contributionTransactions
             - withdrawalTransactions
             - feeTransactions
+            - PV
             type: string
           type: array
       type: object
@@ -877,6 +3429,7 @@ components:
       allOf:
       - $ref: '#/components/schemas/BaseSettings'
       - $ref: '#/components/schemas/TimeWindow'
+      - $ref: '#/components/schemas/Periods'
       - $ref: '#/components/schemas/ExPostStatsCorrelationsSettings_allOf'
     ExPostStatsFactorExposureSettings:
       allOf:
@@ -978,7 +3531,6 @@ components:
               excessKurtosis: 1.23
               etl:
                 "99%": 0.1
-              stDev: 0.08
             name: name
             weight: 0.8008281904610115
             correlationToPortfolio: 5.637376656633329
@@ -1031,7 +3583,6 @@ components:
               excessKurtosis: 1.23
               etl:
                 "99%": 0.1
-              stDev: 0.08
             name: name
             weight: 0.8008281904610115
             correlationToPortfolio: 5.637376656633329
@@ -1097,7 +3648,6 @@ components:
           excessKurtosis: 1.23
           etl:
             "99%": 0.1
-          stDev: 0.08
         name: name
         weight: 0.8008281904610115
         correlationToPortfolio: 5.637376656633329
@@ -1186,6 +3736,15 @@ components:
       type: object
     RollingStats:
       properties:
+        currency:
+          example: USD
+          type: string
+        asOfDate:
+          description: The as-of date for the analysis. The value should be in YYYY-MM-DD
+            format. A special wildcard value 'latestMonthEnd' is supported as well.
+            The as-of date should be among the set of preconfigured as-of dates for
+            the user/client
+          type: string
         timeWindow:
           additionalProperties:
             $ref: '#/components/schemas/RollingStatsPerTimeWindow'
@@ -1193,6 +3752,9 @@ components:
             to the time windows, specified in data.settings.timeWindow property in
             the request
           type: object
+        rollingTimeWindow:
+          example: 12
+          type: integer
       type: object
     RollingStatsPerTimeWindow:
       properties:
@@ -1201,6 +3763,18 @@ components:
       type: object
     RollingSeries:
       properties:
+        currency:
+          example: USD
+          type: string
+        rollingTimeWindow:
+          example: 12
+          type: integer
+        asOfDate:
+          description: The as-of date for the analysis. The value should be in YYYY-MM-DD
+            format. A special wildcard value 'latestMonthEnd' is supported as well.
+            The as-of date should be among the set of preconfigured as-of dates for
+            the user/client
+          type: string
         timeWindow:
           additionalProperties:
             $ref: '#/components/schemas/RollingSeriesPerTimeWindow'
@@ -1211,6 +3785,12 @@ components:
       type: object
     RollingSeriesPerTimeWindow:
       properties:
+        correlations:
+          $ref: '#/components/schemas/CorrelationStats'
+        performance:
+          $ref: '#/components/schemas/PerformanceStats'
+        risks:
+          $ref: '#/components/schemas/RiskStats'
         dates:
           example:
           - 2017-01-30
@@ -1234,7 +3814,6 @@ components:
         excessKurtosis: 1.23
         etl:
           "99%": 0.1
-        stDev: 0.08
       properties:
         annStDev:
           description: Annualized Standard deviation
@@ -1253,9 +3832,7 @@ components:
             "99%": 0.1
           type: object
         stDev:
-          description: Standard deviation
-          example: 0.08
-          type: number
+          $ref: '#/components/schemas/StDev'
         skewness:
           description: Skewness
           example: 1.23
@@ -1277,6 +3854,18 @@ components:
           example: 0.5123
           type: number
       type: object
+    StDev:
+      oneOf:
+      - description: Standard deviation
+        example: 0.08
+        type: number
+      - description: Array of standard deviations
+        example:
+        - 0.08
+        - 0.09
+        items:
+          type: number
+        type: array
     RelativeRiskStats:
       properties:
         alpha:
@@ -1317,28 +3906,71 @@ components:
     PerformanceStats:
       properties:
         sharpe:
-          description: sharpe ratio
-          type: number
+          $ref: '#/components/schemas/Sharpe'
         sortino:
           type: number
         starr:
           type: number
       type: object
+    Sharpe:
+      oneOf:
+      - description: sharpe ratio
+        type: number
+      - description: An array of sharpe ratios
+        items:
+          type: number
+        type: array
     CorrelationStats:
       example:
         portfolioCorrelationMatrix:
           assets:
           - assets
           - assets
+          threeDMatrix:
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
           matrix:
-          - - 6.027456183070403
-            - 6.027456183070403
-          - - 6.027456183070403
-            - 6.027456183070403
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          - - 0.8008281904610115
+            - 0.8008281904610115
+        actReturnsCorrelationMatrix:
+          assets:
+          - assets
+          - assets
+          threeDMatrix:
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          matrix:
+          - - 0.8008281904610115
+            - 0.8008281904610115
+          - - 0.8008281904610115
+            - 0.8008281904610115
         correlationMatrix:
           assets:
           - assets
           - assets
+          threeDMatrix:
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
           matrix:
           - - 0.8008281904610115
             - 0.8008281904610115
@@ -1348,13 +3980,24 @@ components:
         correlationMatrix:
           $ref: '#/components/schemas/CorrelationMatrix'
         portfolioCorrelationMatrix:
-          $ref: '#/components/schemas/PortfolioCorrelationMatrix'
+          $ref: '#/components/schemas/CorrelationMatrix'
+        actReturnsCorrelationMatrix:
+          $ref: '#/components/schemas/CorrelationMatrix'
       type: object
     CorrelationMatrix:
       example:
         assets:
         - assets
         - assets
+        threeDMatrix:
+        - - - 6.027456183070403
+            - 6.027456183070403
+          - - 6.027456183070403
+            - 6.027456183070403
+        - - - 6.027456183070403
+            - 6.027456183070403
+          - - 6.027456183070403
+            - 6.027456183070403
         matrix:
         - - 0.8008281904610115
           - 0.8008281904610115
@@ -1371,26 +4014,12 @@ components:
               type: number
             type: array
           type: array
-      type: object
-    PortfolioCorrelationMatrix:
-      example:
-        assets:
-        - assets
-        - assets
-        matrix:
-        - - 6.027456183070403
-          - 6.027456183070403
-        - - 6.027456183070403
-          - 6.027456183070403
-      properties:
-        assets:
-          items:
-            type: string
-          type: array
-        matrix:
+        threeDMatrix:
           items:
             items:
-              type: number
+              items:
+                type: number
+              type: array
             type: array
           type: array
       type: object
@@ -1466,33 +4095,37 @@ components:
           $ref: '#/components/schemas/DrawdownStats'
         boxplot:
           $ref: '#/components/schemas/Boxplot'
+        transactions:
+          $ref: '#/components/schemas/TransactionStats'
+        endingWeight:
+          type: number
+        values:
+          $ref: '#/components/schemas/ValueStats'
       type: object
-    SerieStats:
+    TransactionStats:
       properties:
-        mean:
+        annReturn:
+          description: Annualized Return
+          example: 0.05
           type: number
-        annMean:
+        contributionTransactions:
+          example: 19284.283
           type: number
-        stDev:
+        withdrawalTransactions:
+          example: -5071.5654
           type: number
-        annStDev:
+        feeTransactions:
+          example: -321650.94
           type: number
-        etl:
-          additionalProperties:
-            example: 1.5
-            type: number
-          description: a map from confidence level (e.g. "95%") to a numeric value
-          example:
-            "99%": 0.1
-          type: object
-        var:
-          additionalProperties:
-            example: 1.5
-            type: number
-          description: a map from confidence level (e.g. "95%") to a numeric value
-          example:
-            "99%": 0.1
-          type: object
+        transferTransactions:
+          example: 0
+          type: number
+      type: object
+    ValueStats:
+      properties:
+        pv:
+          example: 2457871.2
+          type: number
       type: object
     Array:
       example:
@@ -1510,15 +4143,51 @@ components:
                 assets:
                 - assets
                 - assets
+                threeDMatrix:
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
                 matrix:
-                - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
+                - - 0.8008281904610115
+                  - 0.8008281904610115
+                - - 0.8008281904610115
+                  - 0.8008281904610115
+              actReturnsCorrelationMatrix:
+                assets:
+                - assets
+                - assets
+                threeDMatrix:
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                matrix:
+                - - 0.8008281904610115
+                  - 0.8008281904610115
+                - - 0.8008281904610115
+                  - 0.8008281904610115
               correlationMatrix:
                 assets:
                 - assets
                 - assets
+                threeDMatrix:
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
                 matrix:
                 - - 0.8008281904610115
                   - 0.8008281904610115
@@ -1527,7 +4196,11 @@ components:
         periods:
         - null
         - null
+        currency: USD
       properties:
+        currency:
+          example: USD
+          type: string
         timeWindow:
           additionalProperties:
             $ref: '#/components/schemas/DatedCorrelationStatsPerTimeWindow'
@@ -1547,15 +4220,51 @@ components:
             assets:
             - assets
             - assets
+            threeDMatrix:
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
             matrix:
-            - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
+            - - 0.8008281904610115
+              - 0.8008281904610115
+            - - 0.8008281904610115
+              - 0.8008281904610115
+          actReturnsCorrelationMatrix:
+            assets:
+            - assets
+            - assets
+            threeDMatrix:
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+            matrix:
+            - - 0.8008281904610115
+              - 0.8008281904610115
+            - - 0.8008281904610115
+              - 0.8008281904610115
           correlationMatrix:
             assets:
             - assets
             - assets
+            threeDMatrix:
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
             matrix:
             - - 0.8008281904610115
               - 0.8008281904610115
@@ -1580,7 +4289,7 @@ components:
           format: date
           type: string
         numberOfDays:
-          example: 59
+          example: 148
           type: number
         basedOnTimeWindow:
           type: string
@@ -1595,6 +4304,12 @@ components:
       - $ref: '#/components/schemas/PeriodSeries_allOf'
     TimeWindowStats:
       properties:
+        asOfDate:
+          description: The as-of date for the analysis. The value should be in YYYY-MM-DD
+            format. A special wildcard value 'latestMonthEnd' is supported as well.
+            The as-of date should be among the set of preconfigured as-of dates for
+            the user/client
+          type: string
         timeWindow:
           additionalProperties:
             $ref: '#/components/schemas/EntityStats'
@@ -1604,9 +4319,21 @@ components:
           type: object
         generic:
           $ref: '#/components/schemas/TimeWindowStats_generic'
+        currency:
+          example: USD
+          type: string
       type: object
     TimeWindowSeries:
       properties:
+        currency:
+          example: USD
+          type: string
+        asOfDate:
+          description: The as-of date for the analysis. The value should be in YYYY-MM-DD
+            format. A special wildcard value 'latestMonthEnd' is supported as well.
+            The as-of date should be among the set of preconfigured as-of dates for
+            the user/client
+          type: string
         timeWindow:
           additionalProperties:
             $ref: '#/components/schemas/SeriesStats'
@@ -1618,6 +4345,26 @@ components:
     SeriesStats:
       description: General entity statistics holder
       properties:
+        feeTransactions:
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+          type: array
+        withdrawalTransactions:
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+          type: array
+        contributionTransactions:
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+          type: array
+        benchmarkDrawdown:
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+          type: array
+        drawdown:
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+          type: array
         returns:
           items:
             $ref: '#/components/schemas/KeyValuePair'
@@ -1809,6 +4556,10 @@ components:
     Portfolio_allOf:
       description: A representation of a Portfolio
       properties:
+        holdings:
+          items:
+            $ref: '#/components/schemas/ExPostPortfolioInvestment'
+          type: array
         initialValue:
           description: the initial value (PV) of the portfolio
           example: 1000
@@ -1822,7 +4573,7 @@ components:
       properties:
         holdings:
           items:
-            $ref: '#/components/schemas/ExPostPortfolioInvestment'
+            $ref: '#/components/schemas/ExPostPortfolioInvestmentRequest'
           type: array
         transactionRules:
           description: rules for adding/substracting amount from the portfolio at
@@ -1858,7 +4609,9 @@ components:
               maxFrontLoad: 0.06
           type: object
         periods:
-          $ref: '#/components/schemas/ExPostPeriodStats'
+          items:
+            $ref: '#/components/schemas/ExPostPeriodStats'
+          type: array
         backfillData:
           additionalProperties:
             $ref: '#/components/schemas/BackfillData'
@@ -1870,6 +4623,14 @@ components:
               backfilledData: 9
           type: object
       type: object
+    ExPostPortfolioInvestmentRequest_allOf:
+      properties:
+        id:
+          description: the unique id of the investment - e.g. FactSet id
+          type: string
+      required:
+      - id
+      type: object
     ExPostPortfolioInvestmentSeriesResponse_allOf:
       description: when the settings.periods property is provided in the request then
         the periods property is populated instead of stats property
@@ -1879,7 +4640,9 @@ components:
         series:
           $ref: '#/components/schemas/TimeWindowSeries'
         periods:
-          $ref: '#/components/schemas/PeriodSeries'
+          items:
+            $ref: '#/components/schemas/PeriodSeries'
+          type: array
         backfillData:
           additionalProperties:
             $ref: '#/components/schemas/BackfillData'
@@ -1965,7 +4728,7 @@ components:
             - drawdown
             - benchmarkDrawdown
             - contributionTransactions
-            - withrawalTransactions
+            - withdrawalTransactions
             - feeTransactions
             type: string
           type: array
@@ -2059,7 +4822,9 @@ components:
               maxFrontLoad: 0.06
           type: object
         periods:
-          $ref: '#/components/schemas/ExPostPeriodStats'
+          items:
+            $ref: '#/components/schemas/ExPostPeriodStats'
+          type: array
       type: object
     PortfolioWithExPostSeries_allOf:
       description: when the settings.periods property is provided in the request then
@@ -2068,11 +4833,41 @@ components:
         series:
           $ref: '#/components/schemas/TimeWindowSeries'
         periods:
-          $ref: '#/components/schemas/PeriodSeries'
+          items:
+            $ref: '#/components/schemas/PeriodSeries'
+          type: array
       type: object
     RollingStatsPerTimeWindow_rolling:
       properties:
         maximum:
+          properties:
+            returns:
+              properties:
+                annReturn:
+                  properties:
+                    endDate:
+                      example: 2017-01-23
+                      format: date
+                      type: string
+                    startDate:
+                      example: 2016-01-23
+                      format: date
+                      type: string
+                    value:
+                      type: number
+                cumReturn:
+                  properties:
+                    endDate:
+                      example: 2018-01-23
+                      format: date
+                      type: string
+                    startDate:
+                      example: 2017-01-23
+                      format: date
+                      type: string
+                    value:
+                      type: number
+        minimum:
           properties:
             returns:
               properties:
@@ -2150,12 +4945,14 @@ components:
     PeriodSeries_allOf:
       properties:
         series:
-          $ref: '#/components/schemas/SerieStats'
+          $ref: '#/components/schemas/SeriesStats'
       type: object
     TimeWindowStats_generic:
       properties:
         salesChage:
           type: number
+        minHistoricalDate:
+          type: string
       type: object
     PagedSecurities_meta_pagination:
       example:

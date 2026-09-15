@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -32,7 +30,6 @@ docs/UpdateResponse.md
 docs/UpdateResponseData.md
 docs/UpdateResponseDataEventData.md
 docs/UpdateResponseDataMessage.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

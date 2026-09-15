@@ -36,9 +36,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Initializes a new instance of the <see cref="RollingStatsPerTimeWindowRolling" /> class.
         /// </summary>
         /// <param name="maximum">maximum.</param>
-        public RollingStatsPerTimeWindowRolling(Object maximum = default(Object))
+        /// <param name="minimum">minimum.</param>
+        public RollingStatsPerTimeWindowRolling(Object maximum = default(Object), Object minimum = default(Object))
         {
             this.Maximum = maximum;
+            this.Minimum = minimum;
         }
 
         /// <summary>
@@ -46,6 +48,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// </summary>
         [DataMember(Name = "maximum", EmitDefaultValue = true)]
         public Object Maximum { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Minimum
+        /// </summary>
+        [DataMember(Name = "minimum", EmitDefaultValue = true)]
+        public Object Minimum { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,6 +64,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RollingStatsPerTimeWindowRolling {\n");
             sb.Append("  Maximum: ").Append(Maximum).Append("\n");
+            sb.Append("  Minimum: ").Append(Minimum).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +104,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                     this.Maximum == input.Maximum ||
                     (this.Maximum != null &&
                     this.Maximum.Equals(input.Maximum))
+                ) && 
+                (
+                    this.Minimum == input.Minimum ||
+                    (this.Minimum != null &&
+                    this.Minimum.Equals(input.Minimum))
                 );
         }
 
@@ -110,6 +124,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 if (this.Maximum != null)
                 {
                     hashCode = (hashCode * 59) + this.Maximum.GetHashCode();
+                }
+                if (this.Minimum != null)
+                {
+                    hashCode = (hashCode * 59) + this.Minimum.GetHashCode();
                 }
                 return hashCode;
             }

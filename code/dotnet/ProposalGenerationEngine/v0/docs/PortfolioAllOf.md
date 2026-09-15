@@ -5,6 +5,7 @@ A representation of a Portfolio
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Holdings** | [**List&lt;ExPostPortfolioInvestment&gt;**](ExPostPortfolioInvestment.md) |  | 
 **InitialValue** | **decimal** | the initial value (PV) of the portfolio | [optional] 
 **Rebalancing** | [**Rebalancing**](Rebalancing.md) |  | [optional] 
 

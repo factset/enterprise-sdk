@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetPrivateCompany.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CompanyReportsApi.md
 docs/EntityMatch.md
 docs/EntityMatchRequest.md
@@ -32,7 +30,6 @@ docs/Profile.md
 docs/ProfileResponse.md
 docs/StatementItem.md
 docs/UniverseApi.md
-git_push.sh
 src/FactSet.SDK.FactSetPrivateCompany/Api/CompanyReportsApi.cs
 src/FactSet.SDK.FactSetPrivateCompany/Api/FinancialsApi.cs
 src/FactSet.SDK.FactSetPrivateCompany/Api/MetricsApi.cs

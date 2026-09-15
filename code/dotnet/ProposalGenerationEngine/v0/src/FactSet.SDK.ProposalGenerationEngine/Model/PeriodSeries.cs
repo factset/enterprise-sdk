@@ -40,7 +40,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <param name="numberOfDays">numberOfDays.</param>
         /// <param name="basedOnTimeWindow">basedOnTimeWindow.</param>
         /// <param name="series">series.</param>
-        public PeriodSeries(DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), decimal numberOfDays = default(decimal), string basedOnTimeWindow = default(string), SerieStats series = default(SerieStats))
+        public PeriodSeries(DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), decimal numberOfDays = default(decimal), string basedOnTimeWindow = default(string), SeriesStats series = default(SeriesStats))
         {
             this.StartDate = startDate;
             this.EndDate = endDate;
@@ -79,7 +79,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets Series
         /// </summary>
         [DataMember(Name = "series", EmitDefaultValue = false)]
-        public SerieStats Series { get; set; }
+        public SeriesStats Series { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

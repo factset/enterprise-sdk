@@ -129,7 +129,7 @@ public class PeriodCorrelationStats implements Serializable {
    * @return numberOfDays
   **/
   @jakarta.annotation.Nullable
-  @ApiModelProperty(example = "59", value = "")
+  @ApiModelProperty(example = "148", value = "")
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

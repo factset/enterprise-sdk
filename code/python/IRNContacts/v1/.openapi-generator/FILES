@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AlternativeEmailAddressDto.md
@@ -80,7 +77,6 @@ fds/sdk/IRNContacts/model_utils.py
 fds/sdk/IRNContacts/models/__init__.py
 fds/sdk/IRNContacts/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.factset.sdk.ProposalGenerationEngine.models.Errors;
 import com.factset.sdk.ProposalGenerationEngine.models.PagedSecurities;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -29,6 +30,8 @@ public class LookupApi {
   private static final Map<Integer, GenericType> getSecuritiesResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getSecuritiesResponseTypeMap.put(200, new GenericType<PagedSecurities>(){});
+    getSecuritiesResponseTypeMap.put(400, new GenericType<Errors>(){});
+    getSecuritiesResponseTypeMap.put(501, new GenericType<Errors>(){});
   }
 
   
@@ -67,6 +70,8 @@ public class LookupApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> List of investments </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
   public PagedSecurities getSecurities(String name, String identifier, String asOfDate, String udfs, Integer paginationOffset, Integer paginationLimit) throws ApiException {
@@ -88,6 +93,8 @@ public class LookupApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> List of investments </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 501 </td><td> Server is unable to process your request </td><td>  -  </td></tr>
      </table>
    */
   public ApiResponse<PagedSecurities> getSecuritiesWithHttpInfo(String name, String identifier, String asOfDate, String udfs, Integer paginationOffset, Integer paginationLimit) throws ApiException {

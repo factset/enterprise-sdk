@@ -35,10 +35,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PerformanceStats" /> class.
         /// </summary>
-        /// <param name="sharpe">sharpe ratio.</param>
+        /// <param name="sharpe">sharpe.</param>
         /// <param name="sortino">sortino.</param>
         /// <param name="starr">starr.</param>
-        public PerformanceStats(decimal sharpe = default(decimal), decimal sortino = default(decimal), decimal starr = default(decimal))
+        public PerformanceStats(Sharpe sharpe = default(Sharpe), decimal sortino = default(decimal), decimal starr = default(decimal))
         {
             this.Sharpe = sharpe;
             this.Sortino = sortino;
@@ -46,11 +46,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         }
 
         /// <summary>
-        /// sharpe ratio
+        /// Gets or Sets Sharpe
         /// </summary>
-        /// <value>sharpe ratio</value>
         [DataMember(Name = "sharpe", EmitDefaultValue = false)]
-        public decimal Sharpe { get; set; }
+        public Sharpe Sharpe { get; set; }
 
         /// <summary>
         /// Gets or Sets Sortino
@@ -112,7 +111,8 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             return 
                 (
                     this.Sharpe == input.Sharpe ||
-                    this.Sharpe.Equals(input.Sharpe)
+                    (this.Sharpe != null &&
+                    this.Sharpe.Equals(input.Sharpe))
                 ) && 
                 (
                     this.Sortino == input.Sortino ||
@@ -133,7 +133,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Sharpe.GetHashCode();
+                if (this.Sharpe != null)
+                {
+                    hashCode = (hashCode * 59) + this.Sharpe.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Sortino.GetHashCode();
                 hashCode = (hashCode * 59) + this.Starr.GetHashCode();
                 return hashCode;

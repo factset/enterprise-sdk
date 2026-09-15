@@ -37,12 +37,16 @@ def lazy_import():
     from fds.sdk.ProposalGenerationEngine.model.relative_risk_stats import RelativeRiskStats
     from fds.sdk.ProposalGenerationEngine.model.return_stats import ReturnStats
     from fds.sdk.ProposalGenerationEngine.model.risk_stats import RiskStats
+    from fds.sdk.ProposalGenerationEngine.model.transaction_stats import TransactionStats
+    from fds.sdk.ProposalGenerationEngine.model.value_stats import ValueStats
     globals()['Boxplot'] = Boxplot
     globals()['DrawdownStats'] = DrawdownStats
     globals()['PerformanceStats'] = PerformanceStats
     globals()['RelativeRiskStats'] = RelativeRiskStats
     globals()['ReturnStats'] = ReturnStats
     globals()['RiskStats'] = RiskStats
+    globals()['TransactionStats'] = TransactionStats
+    globals()['ValueStats'] = ValueStats
 
 
 class EntityStats(ModelNormal):
@@ -104,6 +108,9 @@ class EntityStats(ModelNormal):
             'performance': (PerformanceStats,),  # noqa: E501
             'drawdown': (DrawdownStats,),  # noqa: E501
             'boxplot': (Boxplot,),  # noqa: E501
+            'transactions': (TransactionStats,),  # noqa: E501
+            'ending_weight': (float,),  # noqa: E501
+            'values': (ValueStats,),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +125,9 @@ class EntityStats(ModelNormal):
         'performance': 'performance',  # noqa: E501
         'drawdown': 'drawdown',  # noqa: E501
         'boxplot': 'boxplot',  # noqa: E501
+        'transactions': 'transactions',  # noqa: E501
+        'ending_weight': 'endingWeight',  # noqa: E501
+        'values': 'values',  # noqa: E501
     }
 
     read_only_vars = {
@@ -167,6 +177,9 @@ class EntityStats(ModelNormal):
             performance (PerformanceStats): [optional]  # noqa: E501
             drawdown (DrawdownStats): [optional]  # noqa: E501
             boxplot (Boxplot): [optional]  # noqa: E501
+            transactions (TransactionStats): [optional]  # noqa: E501
+            ending_weight (float): [optional]  # noqa: E501
+            values (ValueStats): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -254,6 +267,9 @@ class EntityStats(ModelNormal):
             performance (PerformanceStats): [optional]  # noqa: E501
             drawdown (DrawdownStats): [optional]  # noqa: E501
             boxplot (Boxplot): [optional]  # noqa: E501
+            transactions (TransactionStats): [optional]  # noqa: E501
+            ending_weight (float): [optional]  # noqa: E501
+            values (ValueStats): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

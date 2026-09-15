@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Error.md
@@ -46,7 +44,6 @@ docs/NRTSpeakeridsData.md
 docs/NRTSpeakeridsMeta.md
 docs/NRTSpeakeridsMetaPagination.md
 docs/NearRealTimeTranscriptsApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

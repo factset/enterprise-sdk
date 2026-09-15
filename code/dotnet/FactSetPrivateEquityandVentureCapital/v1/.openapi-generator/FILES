@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetPrivateEquityandVentureCapital.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AUMItem.md
 docs/ControlItem.md
 docs/CountryItem.md
@@ -78,7 +76,6 @@ docs/TransactionSecurity.md
 docs/TransactionSummary.md
 docs/TransactionsApi.md
 docs/UniverseApi.md
-git_push.sh
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Api/FundsApi.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Api/GeneralAndLimitedPartnersApi.cs
 src/FactSet.SDK.FactSetPrivateEquityandVentureCapital/Api/IPOsApi.cs

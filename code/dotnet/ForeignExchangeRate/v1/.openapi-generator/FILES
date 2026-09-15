@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.ForeignExchangeRate.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ErrorResponse.md
 docs/ErrorResponseSubErrors.md
 docs/Forward.md
@@ -16,7 +14,6 @@ docs/Spot.md
 docs/SpotsApi.md
 docs/SpotsRequest.md
 docs/SpotsResponse.md
-git_push.sh
 src/FactSet.SDK.ForeignExchangeRate/Api/ForwardsApi.cs
 src/FactSet.SDK.ForeignExchangeRate/Api/SpotsApi.cs
 src/FactSet.SDK.ForeignExchangeRate/Client/ApiClient.cs

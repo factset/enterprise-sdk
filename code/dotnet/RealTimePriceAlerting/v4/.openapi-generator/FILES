@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.RealTimePriceAlerting.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AlertingApi.md
 docs/CursorBasedPaginationOutputObject.md
 docs/GetAlertingPricesBasicAlertGetDataNotificationStatusItems.md
@@ -52,7 +50,6 @@ docs/PostAlertingPricesBasicTriggerListRequestDataFilterStatus.md
 docs/PostAlertingPricesBasicTriggerListRequestMeta.md
 docs/PostAlertingPricesBasicTriggerListRequestMetaPagination.md
 docs/StatusObject.md
-git_push.sh
 src/FactSet.SDK.RealTimePriceAlerting/Api/AlertingApi.cs
 src/FactSet.SDK.RealTimePriceAlerting/Client/ApiClient.cs
 src/FactSet.SDK.RealTimePriceAlerting/Client/ApiException.cs

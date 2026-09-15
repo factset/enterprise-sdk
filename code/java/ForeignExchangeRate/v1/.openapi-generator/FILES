@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -17,7 +15,6 @@ docs/Spot.md
 docs/SpotsApi.md
 docs/SpotsRequest.md
 docs/SpotsResponse.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

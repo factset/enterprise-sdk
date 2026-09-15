@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OpenFactSetMarketplace.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AttributesGroupsItem.md
 docs/DocumentsItems.md
 docs/Error.md
@@ -23,7 +21,6 @@ docs/ProductsApi.md
 docs/ProductsSuccessResponse.md
 docs/RelatedProducts.md
 docs/ThirdPartyUrls.md
-git_push.sh
 src/FactSet.SDK.OpenFactSetMarketplace/Api/PartnersApi.cs
 src/FactSet.SDK.OpenFactSetMarketplace/Api/ProductsApi.cs
 src/FactSet.SDK.OpenFactSetMarketplace/Client/ApiClient.cs

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetPrivateMarkets.sln
 LICENSE
 README.md
-appveyor.yml
 docs/DataItemsApi.md
 docs/EntityMatch.md
 docs/EntityMatchRequest.md
@@ -22,7 +20,6 @@ docs/NonPeriodicApi.md
 docs/NonPeriodicRequest.md
 docs/NonPeriodicResponse.md
 docs/UniverseApi.md
-git_push.sh
 src/FactSet.SDK.FactSetPrivateMarkets/Api/DataItemsApi.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Api/FinancialsApi.cs
 src/FactSet.SDK.FactSetPrivateMarkets/Api/NonPeriodicApi.cs

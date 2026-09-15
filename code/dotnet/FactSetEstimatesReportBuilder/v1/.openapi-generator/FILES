@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetEstimatesReportBuilder.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AllEstimatesApi.md
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
@@ -11,7 +9,6 @@ docs/ErrorObjectSource.md
 docs/ErrorResponse.md
 docs/EstimateTablesApi.md
 docs/Response.md
-git_push.sh
 src/FactSet.SDK.FactSetEstimatesReportBuilder/Api/AllEstimatesApi.cs
 src/FactSet.SDK.FactSetEstimatesReportBuilder/Api/EstimateTablesApi.cs
 src/FactSet.SDK.FactSetEstimatesReportBuilder/Client/ApiClient.cs

@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AccessCheckRequest.md
@@ -32,7 +29,6 @@ fds/sdk/OffPlatformIntegrations/model_utils.py
 fds/sdk/OffPlatformIntegrations/models/__init__.py
 fds/sdk/OffPlatformIntegrations/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

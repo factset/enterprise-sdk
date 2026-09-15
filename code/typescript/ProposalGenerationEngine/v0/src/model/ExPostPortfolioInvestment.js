@@ -26,12 +26,10 @@ class ExPostPortfolioInvestment {
      * @alias module:model/ExPostPortfolioInvestment
      * @implements module:model/PortfolioInvestment
      * @implements module:model/ExPostPortfolioInvestmentAllOf
-     * @param id {String} the unique id of the investment - e.g. FactSet id
-     * @param weight {Number} the weight of the investment in hte portfolio
      */
-    constructor(id, weight) { 
-        PortfolioInvestment.initialize(this, id, weight);ExPostPortfolioInvestmentAllOf.initialize(this);
-        ExPostPortfolioInvestment.initialize(this, id, weight);
+    constructor() { 
+        PortfolioInvestment.initialize(this);ExPostPortfolioInvestmentAllOf.initialize(this);
+        ExPostPortfolioInvestment.initialize(this);
     }
 
     /**
@@ -39,9 +37,7 @@ class ExPostPortfolioInvestment {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, weight) { 
-        obj['id'] = id;
-        obj['weight'] = weight;
+    static initialize(obj) { 
     }
 
     /**
@@ -61,9 +57,6 @@ class ExPostPortfolioInvestment {
               obj = ExPostPortfolioInvestmentAllOf.constructFromObject(data, obj);
             } catch(error) {}
 
-            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
@@ -80,12 +73,6 @@ class ExPostPortfolioInvestment {
 
 
 }
-
-/**
- * the unique id of the investment - e.g. FactSet id
- * @member {String} id
- */
-ExPostPortfolioInvestment.prototype['id'] = undefined;
 
 /**
  * the weight of the investment in hte portfolio
@@ -107,11 +94,6 @@ ExPostPortfolioInvestment.prototype['transactionRules'] = undefined;
 
 
 // Implement PortfolioInvestment interface:
-/**
- * the unique id of the investment - e.g. FactSet id
- * @member {String} id
- */
-PortfolioInvestment.prototype['id'] = undefined;
 /**
  * the weight of the investment in hte portfolio
  * @member {Number} weight

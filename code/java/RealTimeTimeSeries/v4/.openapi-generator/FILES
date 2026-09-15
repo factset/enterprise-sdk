@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -87,7 +85,6 @@ docs/PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange.md
 docs/PricesApi.md
 docs/StatusObject.md
 docs/VendorApi.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.factset.sdk.ProposalGenerationEngine.models.CorrelationMatrix;
-import com.factset.sdk.ProposalGenerationEngine.models.PortfolioCorrelationMatrix;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,7 +35,8 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  */
 @JsonPropertyOrder({
   CorrelationStats.JSON_PROPERTY_CORRELATION_MATRIX,
-  CorrelationStats.JSON_PROPERTY_PORTFOLIO_CORRELATION_MATRIX
+  CorrelationStats.JSON_PROPERTY_PORTFOLIO_CORRELATION_MATRIX,
+  CorrelationStats.JSON_PROPERTY_ACT_RETURNS_CORRELATION_MATRIX
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -47,7 +47,10 @@ public class CorrelationStats implements Serializable {
   private CorrelationMatrix correlationMatrix;
 
   public static final String JSON_PROPERTY_PORTFOLIO_CORRELATION_MATRIX = "portfolioCorrelationMatrix";
-  private PortfolioCorrelationMatrix portfolioCorrelationMatrix;
+  private CorrelationMatrix portfolioCorrelationMatrix;
+
+  public static final String JSON_PROPERTY_ACT_RETURNS_CORRELATION_MATRIX = "actReturnsCorrelationMatrix";
+  private CorrelationMatrix actReturnsCorrelationMatrix;
 
   public CorrelationStats() { 
   }
@@ -78,7 +81,7 @@ public class CorrelationStats implements Serializable {
   }
 
 
-  public CorrelationStats portfolioCorrelationMatrix(PortfolioCorrelationMatrix portfolioCorrelationMatrix) {
+  public CorrelationStats portfolioCorrelationMatrix(CorrelationMatrix portfolioCorrelationMatrix) {
     this.portfolioCorrelationMatrix = portfolioCorrelationMatrix;
     return this;
   }
@@ -92,15 +95,41 @@ public class CorrelationStats implements Serializable {
   @JsonProperty(JSON_PROPERTY_PORTFOLIO_CORRELATION_MATRIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PortfolioCorrelationMatrix getPortfolioCorrelationMatrix() {
+  public CorrelationMatrix getPortfolioCorrelationMatrix() {
     return portfolioCorrelationMatrix;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PORTFOLIO_CORRELATION_MATRIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPortfolioCorrelationMatrix(PortfolioCorrelationMatrix portfolioCorrelationMatrix) {
+  public void setPortfolioCorrelationMatrix(CorrelationMatrix portfolioCorrelationMatrix) {
     this.portfolioCorrelationMatrix = portfolioCorrelationMatrix;
+  }
+
+
+  public CorrelationStats actReturnsCorrelationMatrix(CorrelationMatrix actReturnsCorrelationMatrix) {
+    this.actReturnsCorrelationMatrix = actReturnsCorrelationMatrix;
+    return this;
+  }
+
+   /**
+   * Get actReturnsCorrelationMatrix
+   * @return actReturnsCorrelationMatrix
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACT_RETURNS_CORRELATION_MATRIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CorrelationMatrix getActReturnsCorrelationMatrix() {
+    return actReturnsCorrelationMatrix;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACT_RETURNS_CORRELATION_MATRIX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setActReturnsCorrelationMatrix(CorrelationMatrix actReturnsCorrelationMatrix) {
+    this.actReturnsCorrelationMatrix = actReturnsCorrelationMatrix;
   }
 
 
@@ -117,12 +146,13 @@ public class CorrelationStats implements Serializable {
     }
     CorrelationStats correlationStats = (CorrelationStats) o;
     return Objects.equals(this.correlationMatrix, correlationStats.correlationMatrix) &&
-        Objects.equals(this.portfolioCorrelationMatrix, correlationStats.portfolioCorrelationMatrix);
+        Objects.equals(this.portfolioCorrelationMatrix, correlationStats.portfolioCorrelationMatrix) &&
+        Objects.equals(this.actReturnsCorrelationMatrix, correlationStats.actReturnsCorrelationMatrix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(correlationMatrix, portfolioCorrelationMatrix);
+    return Objects.hash(correlationMatrix, portfolioCorrelationMatrix, actReturnsCorrelationMatrix);
   }
 
   @Override
@@ -131,6 +161,7 @@ public class CorrelationStats implements Serializable {
     sb.append("class CorrelationStats {\n");
     sb.append("    correlationMatrix: ").append(toIndentedString(correlationMatrix)).append("\n");
     sb.append("    portfolioCorrelationMatrix: ").append(toIndentedString(portfolioCorrelationMatrix)).append("\n");
+    sb.append("    actReturnsCorrelationMatrix: ").append(toIndentedString(actReturnsCorrelationMatrix)).append("\n");
     sb.append("}");
     return sb.toString();
   }

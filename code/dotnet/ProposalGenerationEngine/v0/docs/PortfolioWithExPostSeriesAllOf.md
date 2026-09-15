@@ -6,7 +6,7 @@ when the settings.periods property is provided in the request then the periods p
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Series** | [**TimeWindowSeries**](TimeWindowSeries.md) |  | [optional] 
-**Periods** | [**PeriodSeries**](PeriodSeries.md) |  | [optional] 
+**Periods** | [**List&lt;PeriodSeries&gt;**](PeriodSeries.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.AssetCashFlowProjections.sln
 LICENSE
 README.md
-appveyor.yml
 docs/BatchApi.md
 docs/BatchJobResponse.md
 docs/BatchJobResponseRoot.md
@@ -33,7 +31,6 @@ docs/UpdateDocument.md
 docs/UpdateDocumentRoot.md
 docs/UploadStatusResponse.md
 docs/UploadStatusResponseParameters.md
-git_push.sh
 src/FactSet.SDK.AssetCashFlowProjections/Api/BatchApi.cs
 src/FactSet.SDK.AssetCashFlowProjections/Api/DocumentsApi.cs
 src/FactSet.SDK.AssetCashFlowProjections/Api/ScenariosApi.cs

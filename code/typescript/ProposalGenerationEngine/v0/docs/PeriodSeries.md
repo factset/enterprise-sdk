@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **endDate** | **Date** |  | [optional] 
 **numberOfDays** | **Number** |  | [optional] 
 **basedOnTimeWindow** | **String** |  | [optional] 
-**series** | [**SerieStats**](SerieStats.md) |  | [optional] 
+**series** | [**SeriesStats**](SeriesStats.md) |  | [optional] 
 
 

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AddDatesRoot.md
@@ -51,7 +49,6 @@ docs/SymbolAndFieldsObject.md
 docs/SymbolsApi.md
 docs/UpdateDatesRoot.md
 docs/UpdateSymbolsRoot.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

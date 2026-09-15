@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.ContentFeedsDataDictionary.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ApiEndpoint.md
 docs/BasicSearchRequest.md
 docs/BasicSearchResponse.md
@@ -17,7 +15,6 @@ docs/Table.md
 docs/TableCodeFieldInfoResponse.md
 docs/TableCodeInfo.md
 docs/TableField.md
-git_push.sh
 src/FactSet.SDK.ContentFeedsDataDictionary/Api/NavigatorApi.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Client/ApiClient.cs
 src/FactSet.SDK.ContentFeedsDataDictionary/Client/ApiException.cs

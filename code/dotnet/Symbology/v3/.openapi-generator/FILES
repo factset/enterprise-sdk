@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.Symbology.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
 docs/ErrorResponse.md
@@ -20,7 +18,6 @@ docs/IdentifierResolutionHistoricalRequestBody.md
 docs/IdentifierResolutionHistoricalResponse.md
 docs/IdentifierResolutionRequest.md
 docs/IdentifierResolutionResponse.md
-git_push.sh
 src/FactSet.SDK.Symbology/Api/HistoricalIdentifierResolutionApi.cs
 src/FactSet.SDK.Symbology/Api/IdentifierResolutionApi.cs
 src/FactSet.SDK.Symbology/Client/ApiClient.cs

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CountriesApi.md
@@ -15,7 +13,6 @@ docs/Region.md
 docs/RegionRequest.md
 docs/RegionResponse.md
 docs/RegionsApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

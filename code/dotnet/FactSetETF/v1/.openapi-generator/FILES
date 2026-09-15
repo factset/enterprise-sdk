@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetETF.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Category.md
 docs/DataItemsApi.md
 docs/ErrorResponse.md
@@ -14,7 +12,6 @@ docs/EtfReferenceDataResponse.md
 docs/Metric.md
 docs/MetricsResponse.md
 docs/ReferenceApi.md
-git_push.sh
 src/FactSet.SDK.FactSetETF/Api/DataItemsApi.cs
 src/FactSet.SDK.FactSetETF/Api/ReferenceApi.cs
 src/FactSet.SDK.FactSetETF/Client/ApiClient.cs

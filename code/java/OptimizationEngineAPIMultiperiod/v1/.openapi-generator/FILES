@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -155,7 +153,6 @@ docs/VARDistributionStatus.md
 docs/VARDistributionType.md
 docs/VARSimulatedReturns.md
 docs/VARStatusIndicator.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

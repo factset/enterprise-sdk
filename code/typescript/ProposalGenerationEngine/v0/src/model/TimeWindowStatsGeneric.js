@@ -49,6 +49,9 @@ class TimeWindowStatsGeneric {
             if (data.hasOwnProperty('salesChage') && obj['salesChage'] === undefined) {
                 obj['salesChage'] = ApiClient.convertToType(data['salesChage'], 'Number');
             }
+            if (data.hasOwnProperty('minHistoricalDate') && obj['minHistoricalDate'] === undefined) {
+                obj['minHistoricalDate'] = ApiClient.convertToType(data['minHistoricalDate'], 'String');
+            }
             
         }
         return obj;
@@ -61,6 +64,11 @@ class TimeWindowStatsGeneric {
  * @member {Number} salesChage
  */
 TimeWindowStatsGeneric.prototype['salesChage'] = undefined;
+
+/**
+ * @member {String} minHistoricalDate
+ */
+TimeWindowStatsGeneric.prototype['minHistoricalDate'] = undefined;
 
 
 

@@ -3,6 +3,7 @@ info:
   contact:
     email: api@factset.com
     name: FactSet Research Systems
+    url: https://developer.factset.com/contact
   description: "<p>FactSet’s Tick History provides cost-effective access to real-time\
     \ and delayed global exchange data. Proprietary technology normalizes over 200\
     \ global exchanges and 19 tick history fields. Asset types integrated include\
@@ -13,32 +14,37 @@ info:
     \ Quotes and trade data for Options is available for 30 days. Tick History data\
     \ is also available in a separate end-of-day feed.</p>\n \n"
   license:
-    name: Apache 3.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
   title: Tick History
-  version: 1.0.0
+  version: 1.0.2
 externalDocs:
-  description: Data Service Manual
-  url: https://www.factset.com/hubfs/Website_Downloads/Exchange%20DataFeed/data%20service%20manual%202.0b.pdf
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-intraday-tick-history-api
 servers:
-- url: https://api-sandbox.factset.com
+- url: https://api.factset.com/TickHistory
+- url: https://api-sandbox.factset.com/TickHistory
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 paths:
-  /TickHistory/history:
+  /history:
     get:
-      description: When using an HTTP GET request, the seach criteria is sent via
-        the query string in the URL. Please make sure that all requests contain a
-        date within the past trailing year. Fields are added using ampersands, with
-        enumerations seperated by commas. <p>**Try it Out** - references a sandbox
-        environment to simulate live reponses. Available `id` is limited to BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA.
-        Current day data is not available.</p>
+      description: "When using an HTTP GET request, the search criteria is sent via\
+        \ the query\nstring in the URL. Please make sure that all requests contain\
+        \ a date\nwithin the past trailing year. Fields are added using ampersands,\
+        \ with\nenumerations separated by commas. Please reach out to your account\
+        \ manager for more information on available exchanges and venues. \nPlease\
+        \ note you must be logged into the Developer Portal and authenticate to access\
+        \ the API. Select Authorize button or visit Authentication Support for more\
+        \ details\nSandbox environment (api-sandbox.factset.com) is available with\
+        \ limited subset of symbols, no current data and with free access. \n"
       operationId: get_TickHistory
       parameters:
-      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
-          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
-          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+      - description: 'Requested symbol or security. The symbol can be a FactSet ticker-exchange
+          or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier
+          can be requested per API call. </p> <p>The sandbox environment provides
+          access to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>'
         explode: true
         in: query
         name: id
@@ -48,7 +54,7 @@ paths:
         style: form
       - description: Request Identification String. Can be used by the application
           to keep track of requests.  The id is not used by this service, however,
-          it is included in the XML response.
+          it is included in the response.
         explode: true
         in: query
         name: req_id
@@ -56,8 +62,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The format of the output file. **TRY IT OUT** Choose from JSON,
-          CSV, CSV_NO_HEADER
+      - description: 'The format of the output file. '
         explode: true
         in: query
         name: format
@@ -71,7 +76,7 @@ paths:
           - CSV_NO_HEADER
           type: string
         style: form
-      - description: All available fields. This is a comma-seperated list (no spaces).
+      - description: All available fields. This is a comma-separated list (no spaces).
           See definitions for details. Default is all fields when left blank.
         explode: true
         in: query
@@ -80,9 +85,10 @@ paths:
         schema:
           type: string
         style: form
-      - description: This is the start date for the Snapshot History. Requests should
+      - description: 'This is the start date for the Snapshot History. Requests should
           be made in the format **YYYYMMDD**. Default is current business day. Field
-          can be sd or date. **TRY IT OUT** Cannot use current day.
+          can be sd or date. **NOTE**: The sandbox environment cannot use current
+          day.'
         explode: true
         in: query
         name: sd
@@ -90,10 +96,11 @@ paths:
         schema:
           type: string
         style: form
-      - description: This is the end date for teh Snapshot History. Requests should
+      - description: 'This is the end date for the Snapshot History. Requests should
           be made in the format **YYYYMMDD**. If the period requested is larger than
-          Max. Days requested, results will be limited to the Max Days starting at
-          sd/date. Defautl is sd or date. **TRY IT OUT** Cannot use current day.
+          Max Days requested, results will be limited to the Max Days starting at
+          sd/date. Default is sd or date. **NOTE**: The sandbox environment cannot
+          use current day.'
         explode: true
         in: query
         name: ed
@@ -102,8 +109,8 @@ paths:
           type: string
         style: form
       - description: Requested start time. This is the start time for the snapshot
-          history requested. Requests should be made in a **HHMMSSS** format. Range
-          from 000000 - 235959. **TRY IT OUT** Cannot use current day.
+          history requested. Requests should be made in a **HHMMSS** format. Range
+          from 000000 - 235959.
         explode: true
         in: query
         name: st
@@ -113,8 +120,8 @@ paths:
           type: string
         style: form
       - description: Requested end time. This is the end time for the snapshot history
-          requested. Requests should be made in a **HHMMSSS** format. Range from 000000
-          - 235959. **TRY IT OUT** Cannot use current day.
+          requested. Requests should be made in a **HHMMSS** format. Range from 000000
+          - 235959.
         explode: true
         in: query
         name: et
@@ -126,7 +133,7 @@ paths:
       - description: Requested time interval. This is the interval the data is returned
           from the service. Possible values from 1 Second (1S) to 1 Hour (1H). A maximum
           of 10 Tick History Requests and a maximum of 100,000 rows of data may be
-          made in any one-minute period. Additional subsctiption is available to access
+          made in any one-minute period. Additional subscription is available to access
           20 requests/200,000 rows of data per minute. Contact your FactSet team for
           details.
         explode: true
@@ -174,7 +181,6 @@ paths:
         required: false
         schema:
           enum:
-          - ""
           - charting
           type: string
         style: form
@@ -215,7 +221,7 @@ paths:
                   - 140059812
                   - 4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             application/xml:
               example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
                 code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
@@ -231,64 +237,90 @@ paths:
                 id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
                 value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             text/csv:
               example: |
                 LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
           description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/BadRequestExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
         "401":
           content:
             application/json:
+              examples:
+                Unauthorized:
+                  $ref: '#/components/examples/UnauthorizedExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Access Denied. The user is not authorized to view the data
-            requested. Contact FactSet Consulting Services for assistance.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
         "403":
           content:
             application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/ForbiddenExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Invalid HTTP URL. Necessary query parameters are missing in
-            the request. The description field will indicate the exact reason.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
         "405":
           content:
             application/json:
+              examples:
+                MethodNotAllowed:
+                  $ref: '#/components/examples/MethodNotAllowedExample'
               schema:
-                type: object
-            application/xml:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Method Not Allowed
+        "408":
+          content:
+            application/json:
+              examples:
+                RequestTimeout:
+                  $ref: '#/components/examples/RequestTimeoutExample'
               schema:
-                type: object
-            text/csv:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        "429":
+          content:
+            application/json:
+              examples:
+                TooManyRequests:
+                  $ref: '#/components/examples/TooManyRequestsExample'
               schema:
-                type: object
-          description: Invalid HTTP method. Either the method is not GET or exceeds
-            the maximum request lenght (currently set at 5000 bytes. The description
-            field will indicate the exact reason.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  $ref: '#/components/examples/InternalServerErrorExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
       summary: Tick History service returns trade data and associated quotes for a
         client specified interval and time period
       tags:
       - Tick History
       x-accepts: application/json
-  /TickHistory/firsttrade:
+  /firsttrade:
     get:
+      description: The First Trade service returns data for the first trade (official
+        and unofficial) and associated quotes after the specified time.
       parameters:
-      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
-          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
-          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+      - description: 'Requested symbol or security. The symbol can be a FactSet ticker-exchange
+          or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier
+          can be requested per API call. </p> <p>The sandbox environment provides
+          access to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>'
         explode: true
         in: query
         name: id
@@ -297,8 +329,8 @@ paths:
           type: string
         style: form
       - description: Request Identification String. Can be used by the application
-          to keep track of requests. The id is not used by this service, however,
-          it is included in the XML response.
+          to keep track of requests.  The id is not used by this service, however,
+          it is included in the response.
         explode: true
         in: query
         name: req_id
@@ -317,7 +349,7 @@ paths:
           type: string
         style: form
       - description: This is the start time for the snapshot history requested. Requests
-          should be made in a **HHMMSSS** format.Range from 000000 - 235959. **TRY
+          should be made in a **HHMMSS** format.Range from 000000 - 235959. **TRY
           IT OUT** Cannot use current day
         explode: true
         in: query
@@ -327,8 +359,7 @@ paths:
           default: "040000"
           type: string
         style: form
-      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
-          CSV_NO_HEADER
+      - description: 'The format of the output file. '
         explode: true
         in: query
         name: format
@@ -365,7 +396,6 @@ paths:
         required: false
         schema:
           enum:
-          - ""
           - charting
           type: string
         style: form
@@ -406,7 +436,7 @@ paths:
                   - 140059812
                   - 4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             application/xml:
               example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
                 code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
@@ -422,64 +452,90 @@ paths:
                 id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
                 value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             text/csv:
               example: |
                 LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
-          description: OK  x
+                $ref: '#/components/schemas/TickHistoryResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/BadRequestExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
         "401":
           content:
             application/json:
+              examples:
+                Unauthorized:
+                  $ref: '#/components/examples/UnauthorizedExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Access Denied. The user is not authorized to view the data
-            requested. Contact FactSet Consulting Services for assistance.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
         "403":
           content:
             application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/ForbiddenExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Invalid HTTP URL. Necessary query parameters are missing in
-            the request. The description field will indicate the exact reason.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
         "405":
           content:
             application/json:
+              examples:
+                MethodNotAllowed:
+                  $ref: '#/components/examples/MethodNotAllowedExample'
               schema:
-                type: object
-            application/xml:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Method Not Allowed
+        "408":
+          content:
+            application/json:
+              examples:
+                RequestTimeout:
+                  $ref: '#/components/examples/RequestTimeoutExample'
               schema:
-                type: object
-            text/csv:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        "429":
+          content:
+            application/json:
+              examples:
+                TooManyRequests:
+                  $ref: '#/components/examples/TooManyRequestsExample'
               schema:
-                type: object
-          description: Invalid HTTP method. Either the method is not GET or exceeds
-            the maximum request lenght (currently set at 5000 bytes. The description
-            field will indicate the exact reason.
-      summary: Request returns data for the first trade (official and unofficial)
-        after the specified time
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  $ref: '#/components/examples/InternalServerErrorExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: First Trade service returns the first trade (official and unofficial)
+        and associated quotes after a specified time
       tags:
       - First Trade
       x-accepts: application/json
-  /TickHistory/lasttrade:
+  /lasttrade:
     get:
+      description: The Last Trade service returns data for the last trade and associated
+        quotes before the specified time.
       parameters:
-      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
-          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
-          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+      - description: 'Requested symbol or security. The symbol can be a FactSet ticker-exchange
+          or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier
+          can be requested per API call. </p> <p>The sandbox environment provides
+          access to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>'
         explode: true
         in: query
         name: id
@@ -487,8 +543,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
-          CSV_NO_HEADER
+      - description: 'The format of the output file. '
         explode: true
         in: query
         name: format
@@ -502,8 +557,8 @@ paths:
           - CSV_NO_HEADER
           type: string
         style: form
-      - description: Request should be made in the format **YYYYMMDD**. The initial
-          release only supports requests from completed trading days
+      - description: "Request should be made in the format **YYYYMMDD**. \nThe initial\
+          \ release only supports requests from completed trading days\n"
         explode: true
         in: query
         name: date
@@ -557,7 +612,7 @@ paths:
                   - 140059812
                   - 4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             application/xml:
               example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
                 code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
@@ -573,64 +628,89 @@ paths:
                 id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
                 value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             text/csv:
               example: |
                 LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
-          description: OK  x
+                $ref: '#/components/schemas/TickHistoryResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/BadRequestExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
         "401":
           content:
             application/json:
+              examples:
+                Unauthorized:
+                  $ref: '#/components/examples/UnauthorizedExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Access Denied. The user is not authorized to view the data
-            requested. Contact FactSet Consulting Services for assistance.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
         "403":
           content:
             application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/ForbiddenExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Invalid HTTP URL. Necessary query parameters are missing in
-            the request. The description field will indicate the exact reason.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
         "405":
           content:
             application/json:
+              examples:
+                MethodNotAllowed:
+                  $ref: '#/components/examples/MethodNotAllowedExample'
               schema:
-                type: object
-            application/xml:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Method Not Allowed
+        "408":
+          content:
+            application/json:
+              examples:
+                RequestTimeout:
+                  $ref: '#/components/examples/RequestTimeoutExample'
               schema:
-                type: object
-            text/csv:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        "429":
+          content:
+            application/json:
+              examples:
+                TooManyRequests:
+                  $ref: '#/components/examples/TooManyRequestsExample'
               schema:
-                type: object
-          description: Invalid HTTP method. Either the method is not GET or exceeds
-            the maximum request lenght (currently set at 5000 bytes. The description
-            field will indicate the exact reason.
-      summary: Request returns data for the last trade and associated quotes before
-        the specified time
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  $ref: '#/components/examples/InternalServerErrorExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: Last Trade service returns the last trade and associated quotes before
+        a specified time
       tags:
       - Last Trade
       x-accepts: application/json
-  /TickHistory/qat:
+  /qat:
     get:
+      description: Request returns a quote at the specified time
       parameters:
-      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
-          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
-          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+      - description: 'Requested symbol or security. The symbol can be a FactSet ticker-exchange
+          or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier
+          can be requested per API call. </p> <p>The sandbox environment provides
+          access to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>'
         explode: true
         in: query
         name: id
@@ -647,7 +727,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Request should be made in the format **HHMMSSS**.HH- Hour, MM-
+      - description: Request should be made in the format **HHMMSS**.HH- Hour, MM-
           Minutes, SS- Seconds
         explode: true
         in: query
@@ -656,8 +736,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
-          CSV_NO_HEADER
+      - description: 'The format of the output file. '
         explode: true
         in: query
         name: format
@@ -708,7 +787,7 @@ paths:
                   - 140059812
                   - 4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             application/xml:
               example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
                 code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
@@ -724,63 +803,90 @@ paths:
                 id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
                 value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             text/csv:
               example: |
                 LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
-          description: OK  x
+                $ref: '#/components/schemas/TickHistoryResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/BadRequestExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
         "401":
           content:
             application/json:
+              examples:
+                Unauthorized:
+                  $ref: '#/components/examples/UnauthorizedExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Access Denied. The user is not authorized to view the data
-            requested. Contact FactSet Consulting Services for assistance.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
         "403":
           content:
             application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/ForbiddenExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Invalid HTTP URL. Necessary query parameters are missing in
-            the request. The description field will indicate the exact reason.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
         "405":
           content:
             application/json:
+              examples:
+                MethodNotAllowed:
+                  $ref: '#/components/examples/MethodNotAllowedExample'
               schema:
-                type: object
-            application/xml:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Method Not Allowed
+        "408":
+          content:
+            application/json:
+              examples:
+                RequestTimeout:
+                  $ref: '#/components/examples/RequestTimeoutExample'
               schema:
-                type: object
-            text/csv:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        "429":
+          content:
+            application/json:
+              examples:
+                TooManyRequests:
+                  $ref: '#/components/examples/TooManyRequestsExample'
               schema:
-                type: object
-          description: Invalid HTTP method. Either the method is not GET or exceeds
-            the maximum request lenght (currently set at 5000 bytes. The description
-            field will indicate the exact reason.
-      summary: Request returns a quote at the specified time
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  $ref: '#/components/examples/InternalServerErrorExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: Quote at Time service returns the quote for a security at a specified
+        time
       tags:
       - Quote at Time
       x-accepts: application/json
-  /TickHistory/tradesattime:
+  /tradesattime:
     get:
+      description: Request returns the before and after trade data along with the
+        associated quotes for the specified time
       parameters:
-      - description: 'Requested symbol or security. The symbol can be a FactSet exchange
-          symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested
-          per request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+      - description: 'Requested symbol or security. The symbol can be a FactSet ticker-exchange
+          or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier
+          can be requested per API call. </p> <p>The sandbox environment provides
+          access to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>'
         explode: true
         in: query
         name: id
@@ -789,8 +895,8 @@ paths:
           type: string
         style: form
       - description: Request Identification String. Can be used by the application
-          to keep track of requests. The id is not used by this service, however,
-          it is included in the XML response.
+          to keep track of requests.  The id is not used by this service, however,
+          it is included in the response.
         explode: true
         in: query
         name: req_id
@@ -798,8 +904,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The format of the output file. TRY IT OUT Choose from JSON, CSV,
-          CSV_NO_HEADER
+      - description: 'The format of the output file. '
         explode: true
         in: query
         name: format
@@ -822,7 +927,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: Request should be made in the format **HHMMSSS**.HH- Hour, MM-
+      - description: Request should be made in the format **HHMMSS**.HH- Hour, MM-
           Minutes, SS- Seconds
         explode: true
         in: query
@@ -868,7 +973,7 @@ paths:
                   - 140059812
                   - 4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             application/xml:
               example: <Response><Request id=""><RequestedSymbol>IBM-USA</RequestedSymbol><RequestedFields>LAST_1,LAST_TIME_1,LAST_VOL_1</RequestedFields><RequestKey>5C89235E1E3D65AE</RequestKey></Request><Error
                 code="0" description=""/><Records req_sym="IBM-USA" key="IBM-USA:D"
@@ -884,64 +989,133 @@ paths:
                 id="300" name="LAST_1" value="145.815"/><Field id="302" name="LAST_TIME_1"
                 value="140055430"/><Field id="304" name="LAST_VOL_1" value="12274"/></Fields></Record></Records></Response>
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
+                $ref: '#/components/schemas/TickHistoryResponse'
             text/csv:
               example: |
                 LAST_1,LAST_TIME_1,LAST_VOL_1 139.59,105955785,326658 138.1872,115957067,444631 137.4711,125957913,477766 137.7599,135956519,252993 137.81,140059812,4595
               schema:
-                $ref: '#/components/schemas/tickhistory_response'
-          description: OK  x
+                $ref: '#/components/schemas/TickHistoryResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              examples:
+                BadRequest:
+                  $ref: '#/components/examples/BadRequestExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
         "401":
           content:
             application/json:
+              examples:
+                Unauthorized:
+                  $ref: '#/components/examples/UnauthorizedExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Access Denied. The user is not authorized to view the data
-            requested. Contact FactSet Consulting Services for assistance.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
         "403":
           content:
             application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/ForbiddenExample'
               schema:
-                type: object
-            application/xml:
-              schema:
-                type: object
-            text/csv:
-              schema:
-                type: object
-          description: Invalid HTTP URL. Necessary query parameters are missing in
-            the request. The description field will indicate the exact reason.
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
         "405":
           content:
             application/json:
+              examples:
+                MethodNotAllowed:
+                  $ref: '#/components/examples/MethodNotAllowedExample'
               schema:
-                type: object
-            application/xml:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Method Not Allowed
+        "408":
+          content:
+            application/json:
+              examples:
+                RequestTimeout:
+                  $ref: '#/components/examples/RequestTimeoutExample'
               schema:
-                type: object
-            text/csv:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request Timeout
+        "429":
+          content:
+            application/json:
+              examples:
+                TooManyRequests:
+                  $ref: '#/components/examples/TooManyRequestsExample'
               schema:
-                type: object
-          description: Invalid HTTP method. Either the method is not GET or exceeds
-            the maximum request lenght (currently set at 5000 bytes. The description
-            field will indicate the exact reason.
-      summary: Request returns the before and after trade data along with the associated
-        quotes for the specified time
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests
+        "500":
+          content:
+            application/json:
+              examples:
+                InternalServerError:
+                  $ref: '#/components/examples/InternalServerErrorExample'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error
+      summary: Trades at Time service returns the trade immediately before and after
+        a specified time, along with associated quotes
       tags:
       - Trades at Time
       x-accepts: application/json
 components:
+  examples:
+    BadRequestExample:
+      summary: Malformed input
+      value:
+        code: 400
+        status: Bad Request
+        message: Invalid request or improper formatting of request parameters
+    UnauthorizedExample:
+      summary: No auth or expired
+      value:
+        code: 401
+        status: Unauthorized
+        message: Missing or invalid authentication.
+    ForbiddenExample:
+      summary: Insufficient permissions
+      value:
+        code: 403
+        status: Forbidden
+        message: User is forbidden access to this resource.
+    MethodNotAllowedExample:
+      summary: Wrong HTTP method
+      value:
+        code: 405
+        status: Method Not Allowed
+        message: Invalid HTTP method. Either the method is not GET or exceeds the
+          maximum request length (currently set at 5000 bytes). The description field
+          will indicate the exact reason.
+    RequestTimeoutExample:
+      summary: Request timed out
+      value:
+        code: 408
+        status: Request Timeout
+        message: The request timed out.
+    TooManyRequestsExample:
+      summary: Rate limit exceeded
+      value:
+        code: 429
+        status: Too Many Requests
+        message: Too many requests. Contact your sales representative for available
+          request tiers.
+    InternalServerErrorExample:
+      summary: Server error
+      value:
+        code: 500
+        status: Internal Server Error
+        message: There was an error while retrieving the data
   parameters:
-    req_id:
+    reqId:
       description: Request Identification String. Can be used by the application to
         keep track of requests.  The id is not used by this service, however, it is
-        included in the XML response.
+        included in the response.
       explode: true
       in: query
       name: req_id
@@ -950,8 +1124,7 @@ components:
         type: string
       style: form
     format:
-      description: The format of the output file. **TRY IT OUT** Choose from JSON,
-        CSV, CSV_NO_HEADER
+      description: 'The format of the output file. '
       explode: true
       in: query
       name: format
@@ -966,9 +1139,10 @@ components:
         type: string
       style: form
     id:
-      description: 'Requested symbol or security. The symbol can be a FactSet exchange
-        symbol, CUSIP, or SEDOL. **NOTE**: Only one identifier can be requested per
-        request.<P>**TRY IT OUT** - Choose One from - BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1,FDS#190621C00145000-USA,FDS#190621P00145000-USA'
+      description: 'Requested symbol or security. The symbol can be a FactSet ticker-exchange
+        or ticker-region symbol, CUSIP, ISIN or SEDOL.  <p>**Note**: Only one identifier
+        can be requested per API call. </p> <p>The sandbox environment provides access
+        to the following list of symbols: </p> <p>BABA-USA,WALMEX-MX,7203-TKS,VOD-LON,NPN-JSE,MABAX,NZF,SPY-USA,AGG-USA,GLD-USA,AOR-USA,MNA-USA,UUP-USA,SP50-SPX,ESX-STX,XAO-ASX,WD-MSX,NG00-USA,GC00-USA,CC00-USA,C00-USA,FC00-USA,ER00-USA,EURUSD-FX1,USDMXN-FX1,AUDJPY-FX1,EURCZK-FX1,USDILS-FX1,USDZAR-FX1,US10YY-TU1</p>'
       explode: true
       in: query
       name: id
@@ -977,7 +1151,7 @@ components:
         type: string
       style: form
     fields:
-      description: All available fields. This is a comma-seperated list (no spaces).
+      description: All available fields. This is a comma-separated list (no spaces).
         See definitions for details. Default is all fields when left blank.
       explode: true
       in: query
@@ -986,10 +1160,10 @@ components:
       schema:
         type: string
       style: form
-    sd:
-      description: This is the start date for the Snapshot History. Requests should
+    startDate:
+      description: 'This is the start date for the Snapshot History. Requests should
         be made in the format **YYYYMMDD**. Default is current business day. Field
-        can be sd or date. **TRY IT OUT** Cannot use current day.
+        can be sd or date. **NOTE**: The sandbox environment cannot use current day.'
       explode: true
       in: query
       name: sd
@@ -997,11 +1171,12 @@ components:
       schema:
         type: string
       style: form
-    ed:
-      description: This is the end date for teh Snapshot History. Requests should
+    endDate:
+      description: 'This is the end date for the Snapshot History. Requests should
         be made in the format **YYYYMMDD**. If the period requested is larger than
-        Max. Days requested, results will be limited to the Max Days starting at sd/date.
-        Defautl is sd or date. **TRY IT OUT** Cannot use current day.
+        Max Days requested, results will be limited to the Max Days starting at sd/date.
+        Default is sd or date. **NOTE**: The sandbox environment cannot use current
+        day.'
       explode: true
       in: query
       name: ed
@@ -1009,10 +1184,10 @@ components:
       schema:
         type: string
       style: form
-    st:
+    startTime:
       description: Requested start time. This is the start time for the snapshot history
-        requested. Requests should be made in a **HHMMSSS** format. Range from 000000
-        - 235959. **TRY IT OUT** Cannot use current day.
+        requested. Requests should be made in a **HHMMSS** format. Range from 000000
+        - 235959.
       explode: true
       in: query
       name: st
@@ -1021,10 +1196,10 @@ components:
         default: "040000"
         type: string
       style: form
-    et:
+    endTime:
       description: Requested end time. This is the end time for the snapshot history
-        requested. Requests should be made in a **HHMMSSS** format. Range from 000000
-        - 235959. **TRY IT OUT** Cannot use current day.
+        requested. Requests should be made in a **HHMMSS** format. Range from 000000
+        - 235959.
       explode: true
       in: query
       name: et
@@ -1037,7 +1212,7 @@ components:
       description: Requested time interval. This is the interval the data is returned
         from the service. Possible values from 1 Second (1S) to 1 Hour (1H). A maximum
         of 10 Tick History Requests and a maximum of 100,000 rows of data may be made
-        in any one-minute period. Additional subsctiption is available to access 20
+        in any one-minute period. Additional subscription is available to access 20
         requests/200,000 rows of data per minute. Contact your FactSet team for details.
       explode: true
       in: query
@@ -1061,7 +1236,7 @@ components:
         - 1H
         type: string
       style: form
-    include_request:
+    includeRequest:
       description: Flag to include request id and key in the CSV output.
       explode: true
       in: query
@@ -1086,92 +1261,155 @@ components:
       required: false
       schema:
         enum:
-        - ""
         - charting
         type: string
       style: form
+  responses:
+    BadRequest:
+      content:
+        application/json:
+          examples:
+            BadRequest:
+              $ref: '#/components/examples/BadRequestExample'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request
+    Unauthorized:
+      content:
+        application/json:
+          examples:
+            Unauthorized:
+              $ref: '#/components/examples/UnauthorizedExample'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthorized
+    Forbidden:
+      content:
+        application/json:
+          examples:
+            Forbidden:
+              $ref: '#/components/examples/ForbiddenExample'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Forbidden
+    MethodNotAllowed:
+      content:
+        application/json:
+          examples:
+            MethodNotAllowed:
+              $ref: '#/components/examples/MethodNotAllowedExample'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Method Not Allowed
+    RequestTimeout:
+      content:
+        application/json:
+          examples:
+            RequestTimeout:
+              $ref: '#/components/examples/RequestTimeoutExample'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Request Timeout
+    TooManyRequests:
+      content:
+        application/json:
+          examples:
+            TooManyRequests:
+              $ref: '#/components/examples/TooManyRequestsExample'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Too Many Requests
+    InternalServerError:
+      content:
+        application/json:
+          examples:
+            InternalServerError:
+              $ref: '#/components/examples/InternalServerErrorExample'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error
   schemas:
-    fields:
+    Fields:
       description: All available fields in service. FID = Field ID Number.
       properties:
-        BID_1:
+        BID:
           description: 'The last bid price or last bid price in an interval. FID #
-            100'
+            509'
           format: float
           type: number
-        BID_VOL_1:
-          description: 'The volume of the last bid in an interval. FID # 104'
+        BID_VOL:
+          description: 'The volume of the last bid in an interval. FID # 505'
           type: integer
-        BID_EXCH_1:
+        BID_EXCH:
           description: 'The volume of the last bid or last bid in an interval. FID
-            # 107. Enumeration Table 7'
+            # 506.'
           type: string
-        ASK_1:
+        ASK:
           description: 'The last ask price or last ask price in an interval. FID #
-            200'
+            609'
           format: float
           type: number
-        ASK_VOL_1:
+        ASK_VOL:
           description: 'The volume of the last ask or last ask in an interval. FID
-            # 204'
+            # 605'
           type: integer
-        ASK_EXCH_1:
+        ASK_EXCH:
           description: 'The exchange of the last ask or last ask in an interval. FID
-            # 207. Enumeration Table 7.'
+            # 606.'
           type: string
-        LAST_1:
+        LAST_PRICE:
           description: 'The last trade price or last trade price in an interval. FID
-            # 300'
+            # 50'
           format: float
           type: number
-        LAST_DATE_1:
+        LAST_DATE:
           description: 'The date of the last trade or last trade in an interval. FID
-            # 301'
+            # 384'
           type: string
-        LAST_TIME_1:
+        LAST_TIME:
           description: 'The time of the last trade or last trade in an interval. FID
-            # 302'
+            # 383'
           type: string
-        LAST_VOL_1:
+        LAST_VOL:
           description: 'The trade volume, or the sum of all trade volumes inside a
-            bin. FID # 304'
+            bin. FID # 31'
           type: integer
-        LAST_EXCH_1:
+        LAST_EXCH:
           description: 'The exchange of the last trade or last trade in an interval.
-            FID # 307. Enumeration Table 7'
+            FID # 33.'
           type: string
-        CUM_VOL:
+        CVOL:
           description: 'The symbol''s daily cumulative volume, or the last cumulative
-            volume in an interval. FID # 601'
+            volume in an interval. FID # 132'
           type: integer
         VWAP:
           description: 'The daily volume weighted average price, or the last VWAP
-            in an interval. FID # 603'
+            in an interval. FID # 780'
           format: float
           type: number
-        OPEN_1:
-          description: 'The first trade of an interval. FID # 710'
+        OPEN:
+          description: 'The first trade of an interval. FID # 158'
           format: float
           type: number
-        HIGH_1:
-          description: 'The highest trade price in an interval. FID # 720'
+        HIGH:
+          description: 'The highest trade price in an interval. FID # 107'
           format: float
           type: number
-        LOW_1:
-          description: 'The lowest trade price in an interval. FID # 723'
+        LOW:
+          description: 'The lowest trade price in an interval. FID # 307'
           format: float
           type: number
         TRADE_CONDITION:
-          description: 'Trade Condition. FID # 2709'
+          description: 'Trade Condition. FID # 174'
           type: string
         GMT_OFFSET:
-          description: 'GMT Offset in Minutes. FID # 2037'
+          description: 'GMT Offset in Minutes. FID # 389'
           type: integer
         PRICE_CURRENCY:
-          description: 'Price Currency Code. FID # 2032'
+          description: 'Price Currency Code. FID # 62'
           type: string
       type: object
-    tickhistory_response:
+    TickHistoryResponse:
       description: response for tick history
       example:
         Request Key: 5C8926159C36F315
@@ -1197,7 +1435,7 @@ components:
           description: 'Array of requested fields '
           example: LAST_1,LAST_TIME_1,LAST_VOL_1
           items:
-            $ref: '#/components/schemas/fields'
+            $ref: '#/components/schemas/Fields'
           type: array
         Request Key:
           example: 5C8926159C36F315
@@ -1225,7 +1463,7 @@ components:
             interval query.
           type: number
       type: object
-    intervals:
+    Intervals:
       properties:
         "0":
           description: Every Tick. Max days requested = 1
@@ -1268,7 +1506,7 @@ components:
           type: string
       title: intervals
       type: object
-    specialfield:
+    SpecialField:
       properties:
         NF:
           description: '**#NF#** - Not found. The requested symbol could not be found
@@ -1280,6 +1518,32 @@ components:
             applicable for this type of record.'
           type: object
       title: special field values
+      type: object
+    ErrorResponse:
+      description: Error default response.
+      properties:
+        errors:
+          description: An array containing errors
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      title: Error Response
+      type: object
+    ErrorObject:
+      properties:
+        id:
+          description: A UUID for this particular occurrence of the problem.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          format: uuid
+          type: string
+        code:
+          description: status
+          example: Bad Request
+          type: string
+        title:
+          description: The plain text error message.
+          example: Validation Error
+          type: string
       type: object
   securitySchemes:
     FactSetOAuth2:

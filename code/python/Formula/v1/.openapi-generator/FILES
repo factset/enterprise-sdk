@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BatchData.md
@@ -86,7 +83,6 @@ fds/sdk/Formula/model_utils.py
 fds/sdk/Formula/models/__init__.py
 fds/sdk/Formula/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

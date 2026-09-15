@@ -35,13 +35,53 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SeriesStats" /> class.
         /// </summary>
+        /// <param name="feeTransactions">feeTransactions.</param>
+        /// <param name="withdrawalTransactions">withdrawalTransactions.</param>
+        /// <param name="contributionTransactions">contributionTransactions.</param>
+        /// <param name="benchmarkDrawdown">benchmarkDrawdown.</param>
+        /// <param name="drawdown">drawdown.</param>
         /// <param name="returns">returns.</param>
         /// <param name="values">values.</param>
-        public SeriesStats(List<KeyValuePair> returns = default(List<KeyValuePair>), List<KeyValuePair> values = default(List<KeyValuePair>))
+        public SeriesStats(List<KeyValuePair> feeTransactions = default(List<KeyValuePair>), List<KeyValuePair> withdrawalTransactions = default(List<KeyValuePair>), List<KeyValuePair> contributionTransactions = default(List<KeyValuePair>), List<KeyValuePair> benchmarkDrawdown = default(List<KeyValuePair>), List<KeyValuePair> drawdown = default(List<KeyValuePair>), List<KeyValuePair> returns = default(List<KeyValuePair>), List<KeyValuePair> values = default(List<KeyValuePair>))
         {
+            this.FeeTransactions = feeTransactions;
+            this.WithdrawalTransactions = withdrawalTransactions;
+            this.ContributionTransactions = contributionTransactions;
+            this.BenchmarkDrawdown = benchmarkDrawdown;
+            this.Drawdown = drawdown;
             this.Returns = returns;
             this.Values = values;
         }
+
+        /// <summary>
+        /// Gets or Sets FeeTransactions
+        /// </summary>
+        [DataMember(Name = "feeTransactions", EmitDefaultValue = false)]
+        public List<KeyValuePair> FeeTransactions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets WithdrawalTransactions
+        /// </summary>
+        [DataMember(Name = "withdrawalTransactions", EmitDefaultValue = false)]
+        public List<KeyValuePair> WithdrawalTransactions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContributionTransactions
+        /// </summary>
+        [DataMember(Name = "contributionTransactions", EmitDefaultValue = false)]
+        public List<KeyValuePair> ContributionTransactions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BenchmarkDrawdown
+        /// </summary>
+        [DataMember(Name = "benchmarkDrawdown", EmitDefaultValue = false)]
+        public List<KeyValuePair> BenchmarkDrawdown { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Drawdown
+        /// </summary>
+        [DataMember(Name = "drawdown", EmitDefaultValue = false)]
+        public List<KeyValuePair> Drawdown { get; set; }
 
         /// <summary>
         /// Gets or Sets Returns
@@ -63,6 +103,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SeriesStats {\n");
+            sb.Append("  FeeTransactions: ").Append(FeeTransactions).Append("\n");
+            sb.Append("  WithdrawalTransactions: ").Append(WithdrawalTransactions).Append("\n");
+            sb.Append("  ContributionTransactions: ").Append(ContributionTransactions).Append("\n");
+            sb.Append("  BenchmarkDrawdown: ").Append(BenchmarkDrawdown).Append("\n");
+            sb.Append("  Drawdown: ").Append(Drawdown).Append("\n");
             sb.Append("  Returns: ").Append(Returns).Append("\n");
             sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("}\n");
@@ -101,6 +146,36 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             }
             return 
                 (
+                    this.FeeTransactions == input.FeeTransactions ||
+                    this.FeeTransactions != null &&
+                    input.FeeTransactions != null &&
+                    this.FeeTransactions.SequenceEqual(input.FeeTransactions)
+                ) && 
+                (
+                    this.WithdrawalTransactions == input.WithdrawalTransactions ||
+                    this.WithdrawalTransactions != null &&
+                    input.WithdrawalTransactions != null &&
+                    this.WithdrawalTransactions.SequenceEqual(input.WithdrawalTransactions)
+                ) && 
+                (
+                    this.ContributionTransactions == input.ContributionTransactions ||
+                    this.ContributionTransactions != null &&
+                    input.ContributionTransactions != null &&
+                    this.ContributionTransactions.SequenceEqual(input.ContributionTransactions)
+                ) && 
+                (
+                    this.BenchmarkDrawdown == input.BenchmarkDrawdown ||
+                    this.BenchmarkDrawdown != null &&
+                    input.BenchmarkDrawdown != null &&
+                    this.BenchmarkDrawdown.SequenceEqual(input.BenchmarkDrawdown)
+                ) && 
+                (
+                    this.Drawdown == input.Drawdown ||
+                    this.Drawdown != null &&
+                    input.Drawdown != null &&
+                    this.Drawdown.SequenceEqual(input.Drawdown)
+                ) && 
+                (
                     this.Returns == input.Returns ||
                     this.Returns != null &&
                     input.Returns != null &&
@@ -123,6 +198,26 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.FeeTransactions != null)
+                {
+                    hashCode = (hashCode * 59) + this.FeeTransactions.GetHashCode();
+                }
+                if (this.WithdrawalTransactions != null)
+                {
+                    hashCode = (hashCode * 59) + this.WithdrawalTransactions.GetHashCode();
+                }
+                if (this.ContributionTransactions != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContributionTransactions.GetHashCode();
+                }
+                if (this.BenchmarkDrawdown != null)
+                {
+                    hashCode = (hashCode * 59) + this.BenchmarkDrawdown.GetHashCode();
+                }
+                if (this.Drawdown != null)
+                {
+                    hashCode = (hashCode * 59) + this.Drawdown.GetHashCode();
+                }
                 if (this.Returns != null)
                 {
                     hashCode = (hashCode * 59) + this.Returns.GetHashCode();

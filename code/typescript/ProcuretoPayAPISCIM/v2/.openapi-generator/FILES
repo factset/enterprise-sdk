@@ -1,10 +1,9 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AuthenticationScheme.md
+docs/DesktopApplicationGroupApplications.md
 docs/Error.md
 docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
@@ -31,6 +30,8 @@ docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -90,7 +91,6 @@ docs/UserResourceUrnScimSchemasExtensionFactSetVRS10User.md
 docs/UserResourceVRSDomainData.md
 docs/UserResourceVRSDomainDataTenancies.md
 docs/UsersApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js
@@ -107,6 +107,7 @@ src/api/UserPositionsApi.js
 src/api/UsersApi.js
 src/index.js
 src/model/AuthenticationScheme.js
+src/model/DesktopApplicationGroupApplications.js
 src/model/Error.js
 src/model/ErrorUrnScimSchemasExtensionFactSetCore10Error.js
 src/model/FederationResource.js
@@ -130,6 +131,8 @@ src/model/GroupResourceList.js
 src/model/GroupResourceMember.js
 src/model/GroupResourceMeta.js
 src/model/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.js
+src/model/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.js
+src/model/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy.js
 src/model/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.js
 src/model/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.js
 src/model/InlineResponse429.js

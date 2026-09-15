@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AttributesMember.md
@@ -182,7 +179,6 @@ fds/sdk/RealTimeTimeSeries/model_utils.py
 fds/sdk/RealTimeTimeSeries/models/__init__.py
 fds/sdk/RealTimeTimeSeries/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

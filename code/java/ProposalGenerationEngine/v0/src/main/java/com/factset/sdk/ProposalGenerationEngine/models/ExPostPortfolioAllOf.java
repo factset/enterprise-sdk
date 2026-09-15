@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ProposalGenerationEngine.models.ExPostPortfolioInvestment;
+import com.factset.sdk.ProposalGenerationEngine.models.ExPostPortfolioInvestmentRequest;
 import com.factset.sdk.ProposalGenerationEngine.models.TransactionRule;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,7 +44,7 @@ public class ExPostPortfolioAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_HOLDINGS = "holdings";
-  private java.util.List<ExPostPortfolioInvestment> holdings = null;
+  private java.util.List<ExPostPortfolioInvestmentRequest> holdings = null;
 
   public static final String JSON_PROPERTY_TRANSACTION_RULES = "transactionRules";
   private java.util.List<TransactionRule> transactionRules = null;
@@ -52,12 +52,12 @@ public class ExPostPortfolioAllOf implements Serializable {
   public ExPostPortfolioAllOf() { 
   }
 
-  public ExPostPortfolioAllOf holdings(java.util.List<ExPostPortfolioInvestment> holdings) {
+  public ExPostPortfolioAllOf holdings(java.util.List<ExPostPortfolioInvestmentRequest> holdings) {
     this.holdings = holdings;
     return this;
   }
 
-  public ExPostPortfolioAllOf addHoldingsItem(ExPostPortfolioInvestment holdingsItem) {
+  public ExPostPortfolioAllOf addHoldingsItem(ExPostPortfolioInvestmentRequest holdingsItem) {
     if (this.holdings == null) {
       this.holdings = new java.util.ArrayList<>();
     }
@@ -74,14 +74,14 @@ public class ExPostPortfolioAllOf implements Serializable {
   @JsonProperty(JSON_PROPERTY_HOLDINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public java.util.List<ExPostPortfolioInvestment> getHoldings() {
+  public java.util.List<ExPostPortfolioInvestmentRequest> getHoldings() {
     return holdings;
   }
 
 
   @JsonProperty(JSON_PROPERTY_HOLDINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHoldings(java.util.List<ExPostPortfolioInvestment> holdings) {
+  public void setHoldings(java.util.List<ExPostPortfolioInvestmentRequest> holdings) {
     this.holdings = holdings;
   }
 

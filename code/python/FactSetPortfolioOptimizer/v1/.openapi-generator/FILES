@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/DocumentDirectories.md
@@ -46,7 +43,6 @@ fds/sdk/FactSetPortfolioOptimizer/model_utils.py
 fds/sdk/FactSetPortfolioOptimizer/models/__init__.py
 fds/sdk/FactSetPortfolioOptimizer/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

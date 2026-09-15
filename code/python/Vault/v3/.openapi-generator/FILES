@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AccountDirectories.md
@@ -100,7 +97,6 @@ fds/sdk/Vault/model_utils.py
 fds/sdk/Vault/models/__init__.py
 fds/sdk/Vault/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetOwnership.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AssetType.md
 docs/Batch.md
 docs/BatchErrorObject.md
@@ -51,7 +49,6 @@ docs/ShortInterestResponse.md
 docs/TopNHolders.md
 docs/TransactionType.md
 docs/TransactionsApi.md
-git_push.sh
 src/FactSet.SDK.FactSetOwnership/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/CompanyReportsApi.cs
 src/FactSet.SDK.FactSetOwnership/Api/FundHoldingsApi.cs

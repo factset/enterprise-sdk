@@ -21,12 +21,10 @@ class PortfolioInvestment {
     /**
      * Constructs a new <code>PortfolioInvestment</code>.
      * @alias module:model/PortfolioInvestment
-     * @param id {String} the unique id of the investment - e.g. FactSet id
-     * @param weight {Number} the weight of the investment in hte portfolio
      */
-    constructor(id, weight) { 
+    constructor() { 
         
-        PortfolioInvestment.initialize(this, id, weight);
+        PortfolioInvestment.initialize(this);
     }
 
     /**
@@ -34,9 +32,7 @@ class PortfolioInvestment {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, weight) { 
-        obj['id'] = id;
-        obj['weight'] = weight;
+    static initialize(obj) { 
     }
 
     /**
@@ -50,9 +46,6 @@ class PortfolioInvestment {
         if (data) {
             obj = obj || new PortfolioInvestment();
 
-            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
@@ -63,12 +56,6 @@ class PortfolioInvestment {
 
 
 }
-
-/**
- * the unique id of the investment - e.g. FactSet id
- * @member {String} id
- */
-PortfolioInvestment.prototype['id'] = undefined;
 
 /**
  * the weight of the investment in hte portfolio

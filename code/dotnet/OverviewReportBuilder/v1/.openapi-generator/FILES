@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.OverviewReportBuilder.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CompanyApi.md
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
@@ -113,7 +111,6 @@ docs/ProfileDataObjectStagePevcLatestPostMoneyValuation.md
 docs/ProfileDataObjectStageTradeDateRange.md
 docs/ProfileResponse.md
 docs/StachTableResponse.md
-git_push.sh
 src/FactSet.SDK.OverviewReportBuilder/Api/CompanyApi.cs
 src/FactSet.SDK.OverviewReportBuilder/Client/ApiClient.cs
 src/FactSet.SDK.OverviewReportBuilder/Client/ApiException.cs

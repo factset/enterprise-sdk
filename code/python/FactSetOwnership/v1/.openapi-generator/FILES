@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AssetType.md
@@ -118,7 +115,6 @@ fds/sdk/FactSetOwnership/model_utils.py
 fds/sdk/FactSetOwnership/models/__init__.py
 fds/sdk/FactSetOwnership/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

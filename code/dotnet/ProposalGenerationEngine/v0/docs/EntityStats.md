@@ -11,6 +11,9 @@ Name | Type | Description | Notes
 **Performance** | [**PerformanceStats**](PerformanceStats.md) |  | [optional] 
 **Drawdown** | [**DrawdownStats**](DrawdownStats.md) |  | [optional] 
 **Boxplot** | [**Boxplot**](Boxplot.md) |  | [optional] 
+**Transactions** | [**TransactionStats**](TransactionStats.md) |  | [optional] 
+**EndingWeight** | **decimal** |  | [optional] 
+**Values** | [**ValueStats**](ValueStats.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 openapi: '3.0.0'
 info:
   title: 'FactSet SCIM API'
-  version: '2.7.0'
+  version: '2.8.0'
   contact:
     name: 'FactSet Research Systems'
     email: 'api@factset.com'
@@ -29,7 +29,7 @@ tags:
   - name: 'Users'
     description: 'View, create, replace, modify, or delete FactSet user accounts.'
   - name: 'Groups'
-    description: 'View, replace, or modify FactSet user groups.'
+    description: 'View, create, replace, modify, or delete FactSet groups.'
   - name: 'Locations'
     description: 'View, create, replace, or modify FactSet location data.'
   - name: 'FirmDescriptions'
@@ -296,6 +296,27 @@ paths:
           $ref: '#/components/responses/tooManyRequestsError'
         '500':
           $ref: '#/components/responses/internalServerError'
+    post:
+      tags:
+        - 'Groups'
+      summary: 'Create a group.'
+      description: 'Create a group resource.'
+      operationId: 'createGroup'
+      requestBody:
+        $ref: '#/components/requestBodies/groupResource'
+      responses:
+        '201':
+          $ref: '#/components/responses/groupSuccess'
+        '400':
+          $ref: '#/components/responses/invalidResourceProvidedError'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
   /Group/{id}:
     get:
       tags:
@@ -377,6 +398,27 @@ paths:
           $ref: '#/components/responses/internalServerError'
         '501':
           $ref: '#/components/responses/notImplementedError'
+    delete:
+      tags:
+        - 'Groups'
+      summary: 'Delete a group.'
+      description: 'Delete a specific group resource.'
+      operationId: 'deleteGroup'
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '204':
+          description: 'Group successfully deleted.'
+        '401':
+          $ref: '#/components/responses/unauthorizedError'
+        '403':
+          $ref: '#/components/responses/forbiddenError'
+        '404':
+          $ref: '#/components/responses/groupNotFoundError'
+        '429':
+          $ref: '#/components/responses/tooManyRequestsError'
+        '500':
+          $ref: '#/components/responses/internalServerError'
   /Locations:
     get:
       tags:
@@ -2204,6 +2246,10 @@ components:
               type: 'string'
               description: 'The identifier of the invoice that should be associated with a new user for billing purposes. Note once an invoice ID has been assigned to a user, it cannot be modified via this API. If invoice ID re-assignment is necessary, please contact your FactSet representative.'
               example: '9QMD'
+            corporateSuiteExecutive:
+              type: 'boolean'
+              description: 'For individuals who wish to receive investment research as corporate management or investor relations personnel. Such individuals are typically entitled to specific companies or industries.'
+              example: false
           required:
             - 'username'
         urn:scim:schemas:extension:FactSet:VRS:1.0:User:
@@ -2331,6 +2377,7 @@ components:
             - 'urn:scim:schemas:extension:FactSet:Core:1.0:Group'
             - 'urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group'
             - 'urn:scim:schemas:extension:FactSet:VRS:1.0:Group'
+            - 'urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group'
         id:
           type: 'string'
           example: 'eh:btud:Pod 04 - CitrixApps - Cymba OMS'
@@ -2385,6 +2432,37 @@ components:
               example: 'btud'
           required:
             - 'domainCode'
+        urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group:
+          type: 'object'
+          properties:
+            applications:
+              type: 'array'
+              description: 'The list of desktop applications associated with this group.'
+              items:
+                $ref: '#/components/schemas/DesktopApplicationGroupApplications'
+            lastModifiedBy:
+              type: 'object'
+              description: 'A reference to the FactSet user who last modified data about the group.'
+              properties:
+                value:
+                  type: 'string'
+                  description: 'The username-serial of the FactSet user who last modified data about the group.'
+                  example: 'FIN_WEALTH-123456'
+                  readOnly: true
+                $ref:
+                  type: 'string'
+                  description: 'The FactSet SCIM API URL corresponding to the FactSet user who last modified data about the group.'
+                  example: 'https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456'
+                  readOnly: true
+                display:
+                  type: 'string'
+                  description: 'Name of the FactSet user who last modified data about the group.'
+                  example: 'John Doe'
+                  readOnly: true
+              required:
+                - 'value'
+                - '$ref'
+                - 'display'
         meta:
           type: 'object'
           properties:
@@ -2436,6 +2514,16 @@ components:
           type: 'array'
           items:
             $ref: '#/components/schemas/GroupResource'
+    DesktopApplicationGroupApplications:
+      type: 'object'
+      properties:
+        id:
+          type: 'string'
+          description: 'Identifier of the desktop application.'
+          pattern: '^[^\.]+\.[^\.]+$'
+          example: 'app1.foo'
+      required:
+        - 'id'
     LocationResourceFirmDescription:
       allOf:
         - $ref: '#/components/schemas/FirmDescriptionResourceReference'

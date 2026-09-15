@@ -30,12 +30,10 @@ class ExPostPortfolioInvestmentSeriesResponse {
      * @alias module:model/ExPostPortfolioInvestmentSeriesResponse
      * @implements module:model/ExPostPortfolioInvestment
      * @implements module:model/ExPostPortfolioInvestmentSeriesResponseAllOf
-     * @param id {String} the unique id of the investment - e.g. FactSet id
-     * @param weight {Number} the weight of the investment in hte portfolio
      */
-    constructor(id, weight) { 
-        ExPostPortfolioInvestment.initialize(this, id, weight);ExPostPortfolioInvestmentSeriesResponseAllOf.initialize(this);
-        ExPostPortfolioInvestmentSeriesResponse.initialize(this, id, weight);
+    constructor() { 
+        ExPostPortfolioInvestment.initialize(this);ExPostPortfolioInvestmentSeriesResponseAllOf.initialize(this);
+        ExPostPortfolioInvestmentSeriesResponse.initialize(this);
     }
 
     /**
@@ -43,9 +41,7 @@ class ExPostPortfolioInvestmentSeriesResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, weight) { 
-        obj['id'] = id;
-        obj['weight'] = weight;
+    static initialize(obj) { 
     }
 
     /**
@@ -65,9 +61,6 @@ class ExPostPortfolioInvestmentSeriesResponse {
               obj = ExPostPortfolioInvestmentSeriesResponseAllOf.constructFromObject(data, obj);
             } catch(error) {}
 
-            if (data.hasOwnProperty('id') && obj['id'] === undefined) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('weight') && obj['weight'] === undefined) {
                 obj['weight'] = ApiClient.convertToType(data['weight'], 'Number');
             }
@@ -84,7 +77,7 @@ class ExPostPortfolioInvestmentSeriesResponse {
                 obj['series'] = TimeWindowSeries.constructFromObject(data['series']);
             }
             if (data.hasOwnProperty('periods') && obj['periods'] === undefined) {
-                obj['periods'] = PeriodSeries.constructFromObject(data['periods']);
+                obj['periods'] = ApiClient.convertToType(data['periods'], [PeriodSeries]);
             }
             if (data.hasOwnProperty('backfillData') && obj['backfillData'] === undefined) {
                 obj['backfillData'] = ApiClient.convertToType(data['backfillData'], {'String': BackfillData});
@@ -96,12 +89,6 @@ class ExPostPortfolioInvestmentSeriesResponse {
 
 
 }
-
-/**
- * the unique id of the investment - e.g. FactSet id
- * @member {String} id
- */
-ExPostPortfolioInvestmentSeriesResponse.prototype['id'] = undefined;
 
 /**
  * the weight of the investment in hte portfolio
@@ -132,7 +119,7 @@ ExPostPortfolioInvestmentSeriesResponse.prototype['securityDetails'] = undefined
 ExPostPortfolioInvestmentSeriesResponse.prototype['series'] = undefined;
 
 /**
- * @member {module:model/PeriodSeries} periods
+ * @member {Array.<module:model/PeriodSeries>} periods
  */
 ExPostPortfolioInvestmentSeriesResponse.prototype['periods'] = undefined;
 
@@ -144,11 +131,6 @@ ExPostPortfolioInvestmentSeriesResponse.prototype['backfillData'] = undefined;
 
 
 // Implement ExPostPortfolioInvestment interface:
-/**
- * the unique id of the investment - e.g. FactSet id
- * @member {String} id
- */
-ExPostPortfolioInvestment.prototype['id'] = undefined;
 /**
  * the weight of the investment in hte portfolio
  * @member {Number} weight
@@ -174,7 +156,7 @@ ExPostPortfolioInvestmentSeriesResponseAllOf.prototype['securityDetails'] = unde
  */
 ExPostPortfolioInvestmentSeriesResponseAllOf.prototype['series'] = undefined;
 /**
- * @member {module:model/PeriodSeries} periods
+ * @member {Array.<module:model/PeriodSeries>} periods
  */
 ExPostPortfolioInvestmentSeriesResponseAllOf.prototype['periods'] = undefined;
 /**

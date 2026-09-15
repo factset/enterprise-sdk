@@ -97,7 +97,7 @@ class ExPostPortfolioInvestmentResponseAllOf(ModelNormal):
             'security_details': (Investment,),  # noqa: E501
             'stats': (TimeWindowStats,),  # noqa: E501
             'udfs': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'periods': (ExPostPeriodStats,),  # noqa: E501
+            'periods': ([ExPostPeriodStats],),  # noqa: E501
             'backfill_data': ({str: (BackfillData,)},),  # noqa: E501
         }
 
@@ -158,7 +158,7 @@ class ExPostPortfolioInvestmentResponseAllOf(ModelNormal):
             security_details (Investment): [optional]  # noqa: E501
             stats (TimeWindowStats): [optional]  # noqa: E501
             udfs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): portfolio UDFs map. [optional]  # noqa: E501
-            periods (ExPostPeriodStats): [optional]  # noqa: E501
+            periods ([ExPostPeriodStats]): [optional]  # noqa: E501
             backfill_data ({str: (BackfillData,)}): a map from time window to backfill statistics. [optional]  # noqa: E501
         """
 
@@ -244,7 +244,7 @@ class ExPostPortfolioInvestmentResponseAllOf(ModelNormal):
             security_details (Investment): [optional]  # noqa: E501
             stats (TimeWindowStats): [optional]  # noqa: E501
             udfs ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): portfolio UDFs map. [optional]  # noqa: E501
-            periods (ExPostPeriodStats): [optional]  # noqa: E501
+            periods ([ExPostPeriodStats]): [optional]  # noqa: E501
             backfill_data ({str: (BackfillData,)}): a map from time window to backfill statistics. [optional]  # noqa: E501
         """
 

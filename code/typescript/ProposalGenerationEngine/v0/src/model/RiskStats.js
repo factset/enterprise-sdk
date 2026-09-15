@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import StDev from './StDev';
 
 /**
  * The RiskStats model module.
@@ -57,7 +58,7 @@ class RiskStats {
                 obj['etl'] = ApiClient.convertToType(data['etl'], {'String': 'Number'});
             }
             if (data.hasOwnProperty('stDev') && obj['stDev'] === undefined) {
-                obj['stDev'] = ApiClient.convertToType(data['stDev'], 'Number');
+                obj['stDev'] = StDev.constructFromObject(data['stDev']);
             }
             if (data.hasOwnProperty('skewness') && obj['skewness'] === undefined) {
                 obj['skewness'] = ApiClient.convertToType(data['skewness'], 'Number');
@@ -98,8 +99,7 @@ RiskStats.prototype['annLossStDev'] = undefined;
 RiskStats.prototype['etl'] = undefined;
 
 /**
- * Standard deviation
- * @member {Number} stDev
+ * @member {module:model/StDev} stDev
  */
 RiskStats.prototype['stDev'] = undefined;
 

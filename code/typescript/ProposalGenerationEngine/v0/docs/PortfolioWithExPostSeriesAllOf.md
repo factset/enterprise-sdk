@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **series** | [**TimeWindowSeries**](TimeWindowSeries.md) |  | [optional] 
-**periods** | [**PeriodSeries**](PeriodSeries.md) |  | [optional] 
+**periods** | [**[PeriodSeries]**](PeriodSeries.md) |  | [optional] 
 
 

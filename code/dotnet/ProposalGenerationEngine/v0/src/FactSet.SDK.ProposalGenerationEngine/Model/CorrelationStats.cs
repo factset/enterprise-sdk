@@ -37,10 +37,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// </summary>
         /// <param name="correlationMatrix">correlationMatrix.</param>
         /// <param name="portfolioCorrelationMatrix">portfolioCorrelationMatrix.</param>
-        public CorrelationStats(CorrelationMatrix correlationMatrix = default(CorrelationMatrix), PortfolioCorrelationMatrix portfolioCorrelationMatrix = default(PortfolioCorrelationMatrix))
+        /// <param name="actReturnsCorrelationMatrix">actReturnsCorrelationMatrix.</param>
+        public CorrelationStats(CorrelationMatrix correlationMatrix = default(CorrelationMatrix), CorrelationMatrix portfolioCorrelationMatrix = default(CorrelationMatrix), CorrelationMatrix actReturnsCorrelationMatrix = default(CorrelationMatrix))
         {
             this.CorrelationMatrix = correlationMatrix;
             this.PortfolioCorrelationMatrix = portfolioCorrelationMatrix;
+            this.ActReturnsCorrelationMatrix = actReturnsCorrelationMatrix;
         }
 
         /// <summary>
@@ -53,7 +55,13 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets PortfolioCorrelationMatrix
         /// </summary>
         [DataMember(Name = "portfolioCorrelationMatrix", EmitDefaultValue = false)]
-        public PortfolioCorrelationMatrix PortfolioCorrelationMatrix { get; set; }
+        public CorrelationMatrix PortfolioCorrelationMatrix { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ActReturnsCorrelationMatrix
+        /// </summary>
+        [DataMember(Name = "actReturnsCorrelationMatrix", EmitDefaultValue = false)]
+        public CorrelationMatrix ActReturnsCorrelationMatrix { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,6 +73,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             sb.Append("class CorrelationStats {\n");
             sb.Append("  CorrelationMatrix: ").Append(CorrelationMatrix).Append("\n");
             sb.Append("  PortfolioCorrelationMatrix: ").Append(PortfolioCorrelationMatrix).Append("\n");
+            sb.Append("  ActReturnsCorrelationMatrix: ").Append(ActReturnsCorrelationMatrix).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +118,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                     this.PortfolioCorrelationMatrix == input.PortfolioCorrelationMatrix ||
                     (this.PortfolioCorrelationMatrix != null &&
                     this.PortfolioCorrelationMatrix.Equals(input.PortfolioCorrelationMatrix))
+                ) && 
+                (
+                    this.ActReturnsCorrelationMatrix == input.ActReturnsCorrelationMatrix ||
+                    (this.ActReturnsCorrelationMatrix != null &&
+                    this.ActReturnsCorrelationMatrix.Equals(input.ActReturnsCorrelationMatrix))
                 );
         }
 
@@ -128,6 +142,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 if (this.PortfolioCorrelationMatrix != null)
                 {
                     hashCode = (hashCode * 59) + this.PortfolioCorrelationMatrix.GetHashCode();
+                }
+                if (this.ActReturnsCorrelationMatrix != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActReturnsCorrelationMatrix.GetHashCode();
                 }
                 return hashCode;
             }

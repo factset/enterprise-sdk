@@ -56,7 +56,7 @@ public class Stats implements Serializable {
     
     ANNSTDEV("annStDev"),
     
-    ANNLOSSSTD("annLossStd"),
+    ANNLOSSSTDEV("annLossStDev"),
     
     ANNSTDEV100("annStDev100"),
     
@@ -144,7 +144,9 @@ public class Stats implements Serializable {
     
     WITHDRAWALTRANSACTIONS("withdrawalTransactions"),
     
-    FEETRANSACTIONS("feeTransactions");
+    FEETRANSACTIONS("feeTransactions"),
+    
+    PV("PV");
 
     private String value;
 

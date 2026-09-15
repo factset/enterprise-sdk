@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.SecurityModeling.sln
 LICENSE
 README.md
-appveyor.yml
 docs/APIClientErrorResponse.md
 docs/APIError.md
 docs/Error.md
@@ -25,7 +23,6 @@ docs/SMSecurityResponse.md
 docs/SMTemplateFieldProperties.md
 docs/SMTemplateFieldPropertiesRoot.md
 docs/SecurityModelingApi.md
-git_push.sh
 src/FactSet.SDK.SecurityModeling/Api/SecurityModelingApi.cs
 src/FactSet.SDK.SecurityModeling/Client/ApiClient.cs
 src/FactSet.SDK.SecurityModeling/Client/ApiException.cs

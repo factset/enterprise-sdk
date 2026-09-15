@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Batch.md
@@ -41,7 +39,6 @@ docs/SupplyChainRelationshipType.md
 docs/SupplyChainRequest.md
 docs/SupplyChainRequestData.md
 docs/SupplyChainResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

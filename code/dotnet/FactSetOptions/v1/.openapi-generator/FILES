@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetOptions.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AtmImpliedVolatility.md
 docs/AtmImpliedVolatilityRequest.md
 docs/AtmImpliedVolatilityResponse.md
@@ -50,7 +48,6 @@ docs/SnapshotResponse.md
 docs/UnderlyingVolume.md
 docs/UnderlyingVolumeRequest.md
 docs/UnderlyingVolumeResponse.md
-git_push.sh
 src/FactSet.SDK.FactSetOptions/Api/OptionChainsScreeningApi.cs
 src/FactSet.SDK.FactSetOptions/Api/PricesVolumeApi.cs
 src/FactSet.SDK.FactSetOptions/Api/ReferenceApi.cs

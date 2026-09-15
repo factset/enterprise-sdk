@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CategoriesErrorResponse.md
@@ -38,7 +35,6 @@ fds/sdk/ChartGenerationService/model_utils.py
 fds/sdk/ChartGenerationService/models/__init__.py
 fds/sdk/ChartGenerationService/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

@@ -37,7 +37,8 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * RollingStatsPerTimeWindowRolling
  */
 @JsonPropertyOrder({
-  RollingStatsPerTimeWindowRolling.JSON_PROPERTY_MAXIMUM
+  RollingStatsPerTimeWindowRolling.JSON_PROPERTY_MAXIMUM,
+  RollingStatsPerTimeWindowRolling.JSON_PROPERTY_MINIMUM
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -46,6 +47,9 @@ public class RollingStatsPerTimeWindowRolling implements Serializable {
 
   public static final String JSON_PROPERTY_MAXIMUM = "maximum";
   private JsonNullable<Object> maximum = JsonNullable.<Object>undefined();
+
+  public static final String JSON_PROPERTY_MINIMUM = "minimum";
+  private JsonNullable<Object> minimum = JsonNullable.<Object>undefined();
 
   public RollingStatsPerTimeWindowRolling() { 
   }
@@ -84,6 +88,40 @@ public class RollingStatsPerTimeWindowRolling implements Serializable {
   }
 
 
+  public RollingStatsPerTimeWindowRolling minimum(Object minimum) {
+    this.minimum = JsonNullable.<Object>of(minimum);
+    return this;
+  }
+
+   /**
+   * Get minimum
+   * @return minimum
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+
+  public Object getMinimum() {
+        return minimum.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MINIMUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public JsonNullable<Object> getMinimum_JsonNullable() {
+    return minimum;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_MINIMUM)
+  public void setMinimum_JsonNullable(JsonNullable<Object> minimum) {
+    this.minimum = minimum;
+  }
+
+  public void setMinimum(Object minimum) {
+    this.minimum = JsonNullable.<Object>of(minimum);
+  }
+
+
   /**
    * Return true if this RollingStatsPerTimeWindow_rolling object is equal to o.
    */
@@ -96,7 +134,8 @@ public class RollingStatsPerTimeWindowRolling implements Serializable {
       return false;
     }
     RollingStatsPerTimeWindowRolling rollingStatsPerTimeWindowRolling = (RollingStatsPerTimeWindowRolling) o;
-    return equalsNullable(this.maximum, rollingStatsPerTimeWindowRolling.maximum);
+    return equalsNullable(this.maximum, rollingStatsPerTimeWindowRolling.maximum) &&
+        equalsNullable(this.minimum, rollingStatsPerTimeWindowRolling.minimum);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -105,7 +144,7 @@ public class RollingStatsPerTimeWindowRolling implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(maximum));
+    return Objects.hash(hashCodeNullable(maximum), hashCodeNullable(minimum));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -120,6 +159,7 @@ public class RollingStatsPerTimeWindowRolling implements Serializable {
     StringBuilder sb = new StringBuilder();
     sb.append("class RollingStatsPerTimeWindowRolling {\n");
     sb.append("    maximum: ").append(toIndentedString(maximum)).append("\n");
+    sb.append("    minimum: ").append(toIndentedString(minimum)).append("\n");
     sb.append("}");
     return sb.toString();
   }

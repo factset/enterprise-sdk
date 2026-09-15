@@ -30,6 +30,18 @@ public class GroupsApi {
     this.apiClient = apiClient;
   }
   
+  private static final Map<Integer, GenericType> createGroupResponseTypeMap = new HashMap<Integer, GenericType>();
+  static {
+    createGroupResponseTypeMap.put(201, new GenericType<GroupResource>(){});
+    createGroupResponseTypeMap.put(400, new GenericType<Error>(){});
+    createGroupResponseTypeMap.put(401, new GenericType<Error>(){});
+    createGroupResponseTypeMap.put(403, new GenericType<Error>(){});
+    createGroupResponseTypeMap.put(429, new GenericType<InlineResponse429>(){});
+    createGroupResponseTypeMap.put(500, new GenericType<Error>(){});
+  }
+
+  private static final Map<Integer, GenericType> deleteGroupResponseTypeMap = new HashMap<Integer, GenericType>();
+
   private static final Map<Integer, GenericType> getGroupResponseTypeMap = new HashMap<Integer, GenericType>();
   static {
     getGroupResponseTypeMap.put(200, new GenericType<GroupResource>(){});
@@ -93,6 +105,170 @@ public class GroupsApi {
     this.apiClient = apiClient;
   }
 
+  /**
+   * Create a group.
+   * Create a group resource.
+   * @param groupResource Group resource. (required)
+   * @return GroupResource
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public GroupResource createGroup(GroupResource groupResource) throws ApiException {
+    return createGroupWithHttpInfo(groupResource).getData();
+  }
+
+  /**
+   * Create a group.
+   * Create a group resource.
+   * @param groupResource Group resource. (required)
+   * @return ApiResponse&lt;GroupResource&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 201 </td><td> Success. </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Provided resource contains invalid data. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<GroupResource> createGroupWithHttpInfo(GroupResource groupResource) throws ApiException {
+    Object localVarPostBody = groupResource;
+    
+    // verify the required parameter 'groupResource' is set
+    if (groupResource == null) {
+      throw new ApiException(400, "Missing the required parameter 'groupResource' when calling createGroup");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/Groups";
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/scim+json", "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/scim+json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+        
+        GroupResource
+      
+    > apiResponse = apiClient.invokeAPI("GroupsApi.createGroup", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, createGroupResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
+  /**
+   * Delete a group.
+   * Delete a specific group resource.
+   * @param id ID of resource. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> Group successfully deleted. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Group not found. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public void deleteGroup(String id) throws ApiException {
+    deleteGroupWithHttpInfo(id);
+  }
+
+  /**
+   * Delete a group.
+   * Delete a specific group resource.
+   * @param id ID of resource. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 204 </td><td> Group successfully deleted. </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> User has not been authenticated. </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> User is not authorized to use this API. </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Group not found. </td><td>  -  </td></tr>
+       <tr><td> 429 </td><td> User is accessing this API too frequently. </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> deleteGroupWithHttpInfo(String id) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGroup");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/Group/{id}"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    java.util.List<Pair> localVarQueryParams = new java.util.ArrayList<Pair>();
+    java.util.Map<String, String> localVarHeaderParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, String> localVarCookieParams = new java.util.HashMap<String, String>();
+    java.util.Map<String, Object> localVarFormParams = new java.util.HashMap<String, Object>();
+
+
+    
+    
+    
+    final String[] localVarAccepts = {
+      "application/scim+json", "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "FactSetApiKey", "FactSetOAuth2", "FactSetOAuth2Client" };
+
+
+    ApiResponse<
+      Void
+    > apiResponse = apiClient.invokeAPI("GroupsApi.deleteGroup", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
+                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+                               localVarAuthNames, deleteGroupResponseTypeMap, false);
+
+    return apiResponse;
+
+  }
   /**
    * Get a group.
    * Get a specific group resource.

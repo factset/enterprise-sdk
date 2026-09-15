@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals.sln
 LICENSE
 README.md
-appveyor.yml
 docs/GetSecuritizedDerivativeBarrierTypeListDataItems.md
 docs/GetSecuritizedDerivativeGetDataCountrySecurityRegistrationItems.md
 docs/GetSecuritizedDerivativeGetDataTypeItems.md
@@ -679,7 +677,6 @@ docs/PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestDataVolatilit
 docs/PostSecuritizedDerivativeNotationScreenerValueRangesGetRequestMeta.md
 docs/SecuritizedDerivativeApi.md
 docs/StatusObject.md
-git_push.sh
 src/FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals/Api/SecuritizedDerivativeApi.cs
 src/FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals/Client/ApiClient.cs
 src/FactSet.SDK.SecuritizedDerivativesAPIforDigitalPortals/Client/ApiException.cs

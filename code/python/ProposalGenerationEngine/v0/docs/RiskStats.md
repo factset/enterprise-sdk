@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ann_st_dev** | **float** | Annualized Standard deviation | [optional] 
 **ann_loss_st_dev** | **float** | Annualized Loss Standard deviation | [optional] 
 **etl** | [**CLPair**](CLPair.md) |  | [optional] 
-**st_dev** | **float** | Standard deviation | [optional] 
+**st_dev** | [**StDev**](StDev.md) |  | [optional] 
 **skewness** | **float** | Skewness | [optional] 
 **excess_kurtosis** | **float** | ExcessKurtosis | [optional] 
 **var** | [**CLPair**](CLPair.md) |  | [optional] 

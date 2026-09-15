@@ -35,35 +35,17 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PortfolioInvestment" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PortfolioInvestment() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioInvestment" /> class.
-        /// </summary>
-        /// <param name="id">the unique id of the investment - e.g. FactSet id (required).</param>
-        /// <param name="weight">the weight of the investment in hte portfolio (required).</param>
-        public PortfolioInvestment(string id, decimal weight)
+        /// <param name="weight">the weight of the investment in hte portfolio.</param>
+        public PortfolioInvestment(decimal weight = default(decimal))
         {
-            // to ensure "id" is required (not null)
-            if (id == null) {
-                throw new ArgumentNullException("id is a required property for PortfolioInvestment and cannot be null");
-            }
-            this.Id = id;
             this.Weight = weight;
         }
-
-        /// <summary>
-        /// the unique id of the investment - e.g. FactSet id
-        /// </summary>
-        /// <value>the unique id of the investment - e.g. FactSet id</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
 
         /// <summary>
         /// the weight of the investment in hte portfolio
         /// </summary>
         /// <value>the weight of the investment in hte portfolio</value>
-        [DataMember(Name = "weight", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "weight", EmitDefaultValue = false)]
         public decimal Weight { get; set; }
 
         /// <summary>
@@ -74,7 +56,6 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class PortfolioInvestment {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,11 +93,6 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
                     this.Weight == input.Weight ||
                     this.Weight.Equals(input.Weight)
                 );
@@ -131,10 +107,6 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.Weight.GetHashCode();
                 return hashCode;
             }

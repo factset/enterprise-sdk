@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sharpe** | **Number** | sharpe ratio | [optional] 
+**sharpe** | [**Sharpe**](Sharpe.md) |  | [optional] 
 **sortino** | **Number** |  | [optional] 
 **starr** | **Number** |  | [optional] 
 

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import ExPostPortfolioInvestment from './ExPostPortfolioInvestment';
+import ExPostPortfolioInvestmentRequest from './ExPostPortfolioInvestmentRequest';
 import TransactionRule from './TransactionRule';
 
 /**
@@ -49,7 +49,7 @@ class ExPostPortfolioAllOf {
             obj = obj || new ExPostPortfolioAllOf();
 
             if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
-                obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestment]);
+                obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestmentRequest]);
             }
             if (data.hasOwnProperty('transactionRules') && obj['transactionRules'] === undefined) {
                 obj['transactionRules'] = ApiClient.convertToType(data['transactionRules'], [TransactionRule]);
@@ -63,7 +63,7 @@ class ExPostPortfolioAllOf {
 }
 
 /**
- * @member {Array.<module:model/ExPostPortfolioInvestment>} holdings
+ * @member {Array.<module:model/ExPostPortfolioInvestmentRequest>} holdings
  */
 ExPostPortfolioAllOf.prototype['holdings'] = undefined;
 

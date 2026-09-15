@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Sharpe from './Sharpe';
 
 /**
  * The PerformanceStats model module.
@@ -47,7 +48,7 @@ class PerformanceStats {
             obj = obj || new PerformanceStats();
 
             if (data.hasOwnProperty('sharpe') && obj['sharpe'] === undefined) {
-                obj['sharpe'] = ApiClient.convertToType(data['sharpe'], 'Number');
+                obj['sharpe'] = Sharpe.constructFromObject(data['sharpe']);
             }
             if (data.hasOwnProperty('sortino') && obj['sortino'] === undefined) {
                 obj['sortino'] = ApiClient.convertToType(data['sortino'], 'Number');
@@ -64,8 +65,7 @@ class PerformanceStats {
 }
 
 /**
- * sharpe ratio
- * @member {Number} sharpe
+ * @member {module:model/Sharpe} sharpe
  */
 PerformanceStats.prototype['sharpe'] = undefined;
 

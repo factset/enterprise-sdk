@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Adjust.md
@@ -66,7 +64,6 @@ docs/Splits.md
 docs/SplitsApi.md
 docs/SplitsRequest.md
 docs/SplitsResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

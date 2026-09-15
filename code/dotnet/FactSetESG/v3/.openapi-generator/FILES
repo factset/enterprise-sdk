@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetESG.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Calendar.md
 docs/DateOf.md
 docs/ErrorObject.md
@@ -29,7 +27,6 @@ docs/TvlScoresRequestBody.md
 docs/TvlScoresResponse.md
 docs/TvlSpotlightsRequest.md
 docs/TvlSpotlightsRequestBody.md
-git_push.sh
 src/FactSet.SDK.FactSetESG/Api/SFDRApi.cs
 src/FactSet.SDK.FactSetESG/Api/TruvalueApi.cs
 src/FactSet.SDK.FactSetESG/Client/ApiClient.cs

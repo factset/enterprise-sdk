@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -21,7 +19,6 @@ docs/IdentifierResolutionHistoricalRequestBody.md
 docs/IdentifierResolutionHistoricalResponse.md
 docs/IdentifierResolutionRequest.md
 docs/IdentifierResolutionResponse.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

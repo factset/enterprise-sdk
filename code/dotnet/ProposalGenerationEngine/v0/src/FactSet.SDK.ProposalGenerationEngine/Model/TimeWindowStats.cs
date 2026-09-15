@@ -35,13 +35,24 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TimeWindowStats" /> class.
         /// </summary>
+        /// <param name="asOfDate">The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value &#39;latestMonthEnd&#39; is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client.</param>
         /// <param name="timeWindow">a map from time window to ex-post stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request.</param>
         /// <param name="generic">generic.</param>
-        public TimeWindowStats(Dictionary<string, EntityStats> timeWindow = default(Dictionary<string, EntityStats>), TimeWindowStatsGeneric generic = default(TimeWindowStatsGeneric))
+        /// <param name="currency">currency.</param>
+        public TimeWindowStats(string asOfDate = default(string), Dictionary<string, EntityStats> timeWindow = default(Dictionary<string, EntityStats>), TimeWindowStatsGeneric generic = default(TimeWindowStatsGeneric), string currency = default(string))
         {
+            this.AsOfDate = asOfDate;
             this.TimeWindow = timeWindow;
             this.Generic = generic;
+            this.Currency = currency;
         }
+
+        /// <summary>
+        /// The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value &#39;latestMonthEnd&#39; is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client
+        /// </summary>
+        /// <value>The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value &#39;latestMonthEnd&#39; is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client</value>
+        [DataMember(Name = "asOfDate", EmitDefaultValue = false)]
+        public string AsOfDate { get; set; }
 
         /// <summary>
         /// a map from time window to ex-post stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request
@@ -57,6 +68,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         public TimeWindowStatsGeneric Generic { get; set; }
 
         /// <summary>
+        /// Gets or Sets Currency
+        /// </summary>
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public string Currency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,8 +81,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TimeWindowStats {\n");
+            sb.Append("  AsOfDate: ").Append(AsOfDate).Append("\n");
             sb.Append("  TimeWindow: ").Append(TimeWindow).Append("\n");
             sb.Append("  Generic: ").Append(Generic).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,6 +121,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             }
             return 
                 (
+                    this.AsOfDate == input.AsOfDate ||
+                    (this.AsOfDate != null &&
+                    this.AsOfDate.Equals(input.AsOfDate))
+                ) && 
+                (
                     this.TimeWindow == input.TimeWindow ||
                     this.TimeWindow != null &&
                     input.TimeWindow != null &&
@@ -111,6 +135,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                     this.Generic == input.Generic ||
                     (this.Generic != null &&
                     this.Generic.Equals(input.Generic))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
                 );
         }
 
@@ -123,6 +152,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AsOfDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.AsOfDate.GetHashCode();
+                }
                 if (this.TimeWindow != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeWindow.GetHashCode();
@@ -130,6 +163,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 if (this.Generic != null)
                 {
                     hashCode = (hashCode * 59) + this.Generic.GetHashCode();
+                }
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
                 }
                 return hashCode;
             }

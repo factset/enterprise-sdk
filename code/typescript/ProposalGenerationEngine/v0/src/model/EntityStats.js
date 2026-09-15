@@ -18,6 +18,8 @@ import PerformanceStats from './PerformanceStats';
 import RelativeRiskStats from './RelativeRiskStats';
 import ReturnStats from './ReturnStats';
 import RiskStats from './RiskStats';
+import TransactionStats from './TransactionStats';
+import ValueStats from './ValueStats';
 
 /**
  * The EntityStats model module.
@@ -71,6 +73,15 @@ class EntityStats {
             if (data.hasOwnProperty('boxplot') && obj['boxplot'] === undefined) {
                 obj['boxplot'] = Boxplot.constructFromObject(data['boxplot']);
             }
+            if (data.hasOwnProperty('transactions') && obj['transactions'] === undefined) {
+                obj['transactions'] = TransactionStats.constructFromObject(data['transactions']);
+            }
+            if (data.hasOwnProperty('endingWeight') && obj['endingWeight'] === undefined) {
+                obj['endingWeight'] = ApiClient.convertToType(data['endingWeight'], 'Number');
+            }
+            if (data.hasOwnProperty('values') && obj['values'] === undefined) {
+                obj['values'] = ValueStats.constructFromObject(data['values']);
+            }
             
         }
         return obj;
@@ -108,6 +119,21 @@ EntityStats.prototype['drawdown'] = undefined;
  * @member {module:model/Boxplot} boxplot
  */
 EntityStats.prototype['boxplot'] = undefined;
+
+/**
+ * @member {module:model/TransactionStats} transactions
+ */
+EntityStats.prototype['transactions'] = undefined;
+
+/**
+ * @member {Number} endingWeight
+ */
+EntityStats.prototype['endingWeight'] = undefined;
+
+/**
+ * @member {module:model/ValueStats} values
+ */
+EntityStats.prototype['values'] = undefined;
 
 
 

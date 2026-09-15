@@ -48,6 +48,21 @@ class SeriesStats {
         if (data) {
             obj = obj || new SeriesStats();
 
+            if (data.hasOwnProperty('feeTransactions') && obj['feeTransactions'] === undefined) {
+                obj['feeTransactions'] = ApiClient.convertToType(data['feeTransactions'], [KeyValuePair]);
+            }
+            if (data.hasOwnProperty('withdrawalTransactions') && obj['withdrawalTransactions'] === undefined) {
+                obj['withdrawalTransactions'] = ApiClient.convertToType(data['withdrawalTransactions'], [KeyValuePair]);
+            }
+            if (data.hasOwnProperty('contributionTransactions') && obj['contributionTransactions'] === undefined) {
+                obj['contributionTransactions'] = ApiClient.convertToType(data['contributionTransactions'], [KeyValuePair]);
+            }
+            if (data.hasOwnProperty('benchmarkDrawdown') && obj['benchmarkDrawdown'] === undefined) {
+                obj['benchmarkDrawdown'] = ApiClient.convertToType(data['benchmarkDrawdown'], [KeyValuePair]);
+            }
+            if (data.hasOwnProperty('drawdown') && obj['drawdown'] === undefined) {
+                obj['drawdown'] = ApiClient.convertToType(data['drawdown'], [KeyValuePair]);
+            }
             if (data.hasOwnProperty('returns') && obj['returns'] === undefined) {
                 obj['returns'] = ApiClient.convertToType(data['returns'], [KeyValuePair]);
             }
@@ -61,6 +76,31 @@ class SeriesStats {
 
 
 }
+
+/**
+ * @member {Array.<module:model/KeyValuePair>} feeTransactions
+ */
+SeriesStats.prototype['feeTransactions'] = undefined;
+
+/**
+ * @member {Array.<module:model/KeyValuePair>} withdrawalTransactions
+ */
+SeriesStats.prototype['withdrawalTransactions'] = undefined;
+
+/**
+ * @member {Array.<module:model/KeyValuePair>} contributionTransactions
+ */
+SeriesStats.prototype['contributionTransactions'] = undefined;
+
+/**
+ * @member {Array.<module:model/KeyValuePair>} benchmarkDrawdown
+ */
+SeriesStats.prototype['benchmarkDrawdown'] = undefined;
+
+/**
+ * @member {Array.<module:model/KeyValuePair>} drawdown
+ */
+SeriesStats.prototype['drawdown'] = undefined;
 
 /**
  * @member {Array.<module:model/KeyValuePair>} returns

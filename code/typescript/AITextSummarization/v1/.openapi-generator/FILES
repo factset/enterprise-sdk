@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BadRequestResponse.md
@@ -9,7 +7,6 @@ docs/DefaultApi.md
 docs/InternalServerErrorResponse.md
 docs/Request.md
 docs/SuccessResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

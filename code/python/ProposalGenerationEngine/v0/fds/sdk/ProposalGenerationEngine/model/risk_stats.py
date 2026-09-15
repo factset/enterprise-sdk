@@ -32,7 +32,9 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 def lazy_import():
     from fds.sdk.ProposalGenerationEngine.model.cl_pair import CLPair
+    from fds.sdk.ProposalGenerationEngine.model.st_dev import StDev
     globals()['CLPair'] = CLPair
+    globals()['StDev'] = StDev
 
 
 class RiskStats(ModelNormal):
@@ -91,7 +93,7 @@ class RiskStats(ModelNormal):
             'ann_st_dev': (float,),  # noqa: E501
             'ann_loss_st_dev': (float,),  # noqa: E501
             'etl': (CLPair,),  # noqa: E501
-            'st_dev': (float,),  # noqa: E501
+            'st_dev': (StDev,),  # noqa: E501
             'skewness': (float,),  # noqa: E501
             'excess_kurtosis': (float,),  # noqa: E501
             'var': (CLPair,),  # noqa: E501
@@ -158,7 +160,7 @@ class RiskStats(ModelNormal):
             ann_st_dev (float): Annualized Standard deviation. [optional]  # noqa: E501
             ann_loss_st_dev (float): Annualized Loss Standard deviation. [optional]  # noqa: E501
             etl (CLPair): [optional]  # noqa: E501
-            st_dev (float): Standard deviation. [optional]  # noqa: E501
+            st_dev (StDev): [optional]  # noqa: E501
             skewness (float): Skewness. [optional]  # noqa: E501
             excess_kurtosis (float): ExcessKurtosis. [optional]  # noqa: E501
             var (CLPair): [optional]  # noqa: E501
@@ -247,7 +249,7 @@ class RiskStats(ModelNormal):
             ann_st_dev (float): Annualized Standard deviation. [optional]  # noqa: E501
             ann_loss_st_dev (float): Annualized Loss Standard deviation. [optional]  # noqa: E501
             etl (CLPair): [optional]  # noqa: E501
-            st_dev (float): Standard deviation. [optional]  # noqa: E501
+            st_dev (StDev): [optional]  # noqa: E501
             skewness (float): Skewness. [optional]  # noqa: E501
             excess_kurtosis (float): ExcessKurtosis. [optional]  # noqa: E501
             var (CLPair): [optional]  # noqa: E501

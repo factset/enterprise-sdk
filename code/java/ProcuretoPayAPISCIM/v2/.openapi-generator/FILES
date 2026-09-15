@@ -1,11 +1,10 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
 build.gradle
 docs/AuthenticationScheme.md
+docs/DesktopApplicationGroupApplications.md
 docs/Error.md
 docs/ErrorUrnScimSchemasExtensionFactSetCore10Error.md
 docs/FederationResource.md
@@ -32,6 +31,8 @@ docs/GroupResourceList.md
 docs/GroupResourceMember.md
 docs/GroupResourceMeta.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.md
+docs/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md
 docs/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md
 docs/GroupsApi.md
@@ -91,7 +92,6 @@ docs/UserResourceUrnScimSchemasExtensionFactSetVRS10User.md
 docs/UserResourceVRSDomainData.md
 docs/UserResourceVRSDomainDataTenancies.md
 docs/UsersApi.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
@@ -130,6 +130,7 @@ src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/auth/OAuth.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/auth/OAuthFlow.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/AbstractOpenApiSchema.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/AuthenticationScheme.java
+src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/DesktopApplicationGroupApplications.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/Error.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/ErrorUrnScimSchemasExtensionFactSetCore10Error.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/FederationResource.java
@@ -153,6 +154,8 @@ src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceList.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceMember.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceMeta.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetCore10Group.java
+src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.java
+src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.java
 src/main/java/com/factset/sdk/ProcuretoPayAPISCIM/models/InlineResponse429.java

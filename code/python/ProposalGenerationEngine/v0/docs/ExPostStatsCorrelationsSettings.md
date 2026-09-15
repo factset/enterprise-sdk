@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **returns_preferences** | **str** | code of preconfigured analysis settings&lt;br&gt; Note: the setup of these settings is done by PGE administrator | [optional] 
 **validate_portfolio** | **bool** | a flag controlling whether to perform validations on the portfolio and its holdings (e.g. whether they have valid historical data). If set to false it is possible that call might not return user-friendly error message, however the call will be faster | [optional]  if omitted the server will use the default value of False
 **time_windows** | **[str]** |  | [optional] 
+**periods** | [**[Period]**](Period.md) |  | [optional] 
 **stats** | **[str]** |  | [optional] 
 **holdings_limit** | **int** |  | [optional] 
 **fund_correlations_only** | **bool** |  | [optional] 

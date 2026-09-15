@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -42,7 +40,6 @@ docs/SignalDefinition.md
 docs/SignalDefinitionData.md
 docs/SignalMetaData.md
 docs/SignalMetaDataData.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **urnColonScimColonSchemasColonExtensionColonFactSetColonCoreColon10ColonGroup** | [**GroupResourceUrnScimSchemasExtensionFactSetCore10Group**](GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md) |  |  [optional]
 **urnColonScimColonSchemasColonExtensionColonFactSetColonEnterpriseHostingColon10ColonGroup** | [**GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group**](GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md) |  |  [optional]
 **urnColonScimColonSchemasColonExtensionColonFactSetColonVRSColon10ColonGroup** | [**GroupResourceUrnScimSchemasExtensionFactSetVRS10Group**](GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md) |  |  [optional]
+**urnColonScimColonSchemasColonExtensionColonFactSetColonDesktopApplicationsColon10ColonGroup** | [**GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group**](GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.md) |  |  [optional]
 **meta** | [**GroupResourceMeta**](GroupResourceMeta.md) |  |  [optional]
 
 

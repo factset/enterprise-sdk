@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.Cabot.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AddTrimHoldings.md
 docs/AddTrimModelAnalytics.md
 docs/AddTrimRequestBody.md
@@ -93,7 +91,6 @@ docs/StopLossRequestBody.md
 docs/StopLossRequestBodyRoot.md
 docs/StopLossResponseOptions.md
 docs/StopLossResponseRoot.md
-git_push.sh
 src/FactSet.SDK.Cabot/Api/BuyingModelsApi.cs
 src/FactSet.SDK.Cabot/Api/ClassificationsApi.cs
 src/FactSet.SDK.Cabot/Api/OverviewModelsApi.cs

@@ -72,16 +72,18 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <param name="returnsPreferences">code of preconfigured analysis settings&lt;br&gt; Note: the setup of these settings is done by PGE administrator.</param>
         /// <param name="validatePortfolio">a flag controlling whether to perform validations on the portfolio and its holdings (e.g. whether they have valid historical data). If set to false it is possible that call might not return user-friendly error message, however the call will be faster (default to false).</param>
         /// <param name="timeWindows">timeWindows.</param>
+        /// <param name="periods">periods.</param>
         /// <param name="stats">stats.</param>
         /// <param name="holdingsLimit">holdingsLimit.</param>
         /// <param name="fundCorrelationsOnly">fundCorrelationsOnly.</param>
         /// <param name="showBenchmark">showBenchmark.</param>
-        public ExPostStatsCorrelationsSettings(string asOfDate = default(string), string returnsPreferences = default(string), bool validatePortfolio = false, List<string> timeWindows = default(List<string>), List<StatsEnum> stats = default(List<StatsEnum>), int holdingsLimit = default(int), bool fundCorrelationsOnly = default(bool), bool showBenchmark = default(bool))
+        public ExPostStatsCorrelationsSettings(string asOfDate = default(string), string returnsPreferences = default(string), bool validatePortfolio = false, List<string> timeWindows = default(List<string>), List<Period> periods = default(List<Period>), List<StatsEnum> stats = default(List<StatsEnum>), int holdingsLimit = default(int), bool fundCorrelationsOnly = default(bool), bool showBenchmark = default(bool))
         {
             this.AsOfDate = asOfDate;
             this.ReturnsPreferences = returnsPreferences;
             this.ValidatePortfolio = validatePortfolio;
             this.TimeWindows = timeWindows;
+            this.Periods = periods;
             this.Stats = stats;
             this.HoldingsLimit = holdingsLimit;
             this.FundCorrelationsOnly = fundCorrelationsOnly;
@@ -116,6 +118,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         public List<string> TimeWindows { get; set; }
 
         /// <summary>
+        /// Gets or Sets Periods
+        /// </summary>
+        [DataMember(Name = "periods", EmitDefaultValue = false)]
+        public List<Period> Periods { get; set; }
+
+        /// <summary>
         /// Gets or Sets HoldingsLimit
         /// </summary>
         [DataMember(Name = "holdingsLimit", EmitDefaultValue = false)]
@@ -145,6 +153,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             sb.Append("  ReturnsPreferences: ").Append(ReturnsPreferences).Append("\n");
             sb.Append("  ValidatePortfolio: ").Append(ValidatePortfolio).Append("\n");
             sb.Append("  TimeWindows: ").Append(TimeWindows).Append("\n");
+            sb.Append("  Periods: ").Append(Periods).Append("\n");
             sb.Append("  Stats: ").Append(Stats).Append("\n");
             sb.Append("  HoldingsLimit: ").Append(HoldingsLimit).Append("\n");
             sb.Append("  FundCorrelationsOnly: ").Append(FundCorrelationsOnly).Append("\n");
@@ -205,6 +214,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                     this.TimeWindows.SequenceEqual(input.TimeWindows)
                 ) && 
                 (
+                    this.Periods == input.Periods ||
+                    this.Periods != null &&
+                    input.Periods != null &&
+                    this.Periods.SequenceEqual(input.Periods)
+                ) && 
+                (
                     this.Stats == input.Stats ||
                     this.Stats.SequenceEqual(input.Stats)
                 ) && 
@@ -243,6 +258,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 if (this.TimeWindows != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeWindows.GetHashCode();
+                }
+                if (this.Periods != null)
+                {
+                    hashCode = (hashCode * 59) + this.Periods.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Stats.GetHashCode();
                 hashCode = (hashCode * 59) + this.HoldingsLimit.GetHashCode();

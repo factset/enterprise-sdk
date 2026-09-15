@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CreateUniverseRequest.md
@@ -128,7 +125,6 @@ fds/sdk/FactSetConcordance/model_utils.py
 fds/sdk/FactSetConcordance/models/__init__.py
 fds/sdk/FactSetConcordance/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

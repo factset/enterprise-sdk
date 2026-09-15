@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -67,7 +65,6 @@ docs/Splits.md
 docs/SplitsApi.md
 docs/SplitsRequest.md
 docs/SplitsResponse.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

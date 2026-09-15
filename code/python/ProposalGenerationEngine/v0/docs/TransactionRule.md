@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **start_date** | **date** | initial date when the rule is applied | [optional] 
 **end_date** | **date** | last date when the rule is applied | [optional] 
 **frequency** | **float** | monthly - 12, yearly - 1, quarterly - 4; only once &#x3D; endPeriod should be equal to startPeriod | [optional] 
-**frequency_alignment** | **float** |  | [optional] 
+**frequency_alignment** | **str** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

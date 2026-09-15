@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AsReportedEconomicsApi.md
@@ -70,7 +67,6 @@ fds/sdk/FactSetMacroeconomics/model_utils.py
 fds/sdk/FactSetMacroeconomics/models/__init__.py
 fds/sdk/FactSetMacroeconomics/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

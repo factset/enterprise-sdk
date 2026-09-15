@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Dataresponseitems.md
@@ -17,7 +15,6 @@ docs/Partial.md
 docs/SDFAndQFLContentLibraryApi.md
 docs/SchemaApi.md
 docs/SchemaDetails.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

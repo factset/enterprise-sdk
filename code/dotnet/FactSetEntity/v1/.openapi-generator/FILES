@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetEntity.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CreditParent.md
 docs/CreditParentRequest.md
 docs/CreditParentResponse.md
@@ -30,7 +28,6 @@ docs/SecurityType.md
 docs/UltimateEntityStructureRequest.md
 docs/UltimateEntityStructureResponse.md
 docs/UtlimateEntityStructure.md
-git_push.sh
 src/FactSet.SDK.FactSetEntity/Api/EntityReferenceApi.cs
 src/FactSet.SDK.FactSetEntity/Api/EntityReferenceChineseApi.cs
 src/FactSet.SDK.FactSetEntity/Api/EntitySecuritiesApi.cs

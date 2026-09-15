@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -30,7 +28,6 @@ docs/SymbolRelationshipSaveDto.md
 docs/SymbolRelationshipUpdateDto.md
 docs/SymbolsRelationshipIdNameDto.md
 docs/SymbolsRelationshipType.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

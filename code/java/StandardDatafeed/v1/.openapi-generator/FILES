@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -18,7 +16,6 @@ docs/Partial.md
 docs/SchemaApi.md
 docs/SchemaDetails.md
 docs/SdfAndQflContentLibraryApi.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

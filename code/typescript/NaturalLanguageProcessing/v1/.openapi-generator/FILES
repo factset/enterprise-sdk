@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AIThemesApi.md
@@ -21,7 +19,6 @@ docs/ThemeSentiment.md
 docs/ThemeSentimentsRoot.md
 docs/ThemesParameters.md
 docs/ThemesParametersRoot.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

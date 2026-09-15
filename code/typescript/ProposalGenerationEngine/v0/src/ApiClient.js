@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/ProposalGenerationEngine/0.1.1 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/ProposalGenerationEngine/0.2.0 (${process.platform}; node ${process.version})`
         };
 
         /**

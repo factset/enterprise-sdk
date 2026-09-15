@@ -66,11 +66,8 @@ NUMBER_12 | 12
 
 Name | Value
 ---- | -----
-NUMBER_1 | new BigDecimal(&quot;1&quot;)
-NUMBER_2 | new BigDecimal(&quot;2&quot;)
-NUMBER_4 | new BigDecimal(&quot;4&quot;)
-NUMBER_6 | new BigDecimal(&quot;6&quot;)
-NUMBER_12 | new BigDecimal(&quot;12&quot;)
+START | &quot;start&quot;
+CALENDAR | &quot;calendar&quot;
 
 
 ## Implemented Interfaces

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetGlobalPrices.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Adjust.md
 docs/AnnualizedDividendResponse.md
 docs/AnnualizedDividendsObject.md
@@ -74,7 +72,6 @@ docs/SplitCalendar.md
 docs/SplitsResponseCalendar.md
 docs/StockDistribution.md
 docs/StockDistributionsResponseCalendar.md
-git_push.sh
 src/FactSet.SDK.FactSetGlobalPrices/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/CorporateActionsApi.cs
 src/FactSet.SDK.FactSetGlobalPrices/Api/CorporateActionsForCalendarApi.cs

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.GIPS.sln
 LICENSE
 README.md
-appveyor.yml
 docs/APIClientErrorResponse.md
 docs/APIError.md
 docs/AccountDirectories.md
@@ -77,7 +75,6 @@ docs/GoogleProtobufWellKnownTypesValue.md
 docs/GoogleProtobufWellKnownTypesValueKindOneofCase.md
 docs/PaginationInfo.md
 docs/PaginationMeta.md
-git_push.sh
 src/FactSet.SDK.GIPS/Api/GIPSCalculationsApi.cs
 src/FactSet.SDK.GIPS/Api/GIPSLookupsApi.cs
 src/FactSet.SDK.GIPS/Client/ApiClient.cs

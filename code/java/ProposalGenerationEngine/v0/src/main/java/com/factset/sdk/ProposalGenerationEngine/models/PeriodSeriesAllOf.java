@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
-import com.factset.sdk.ProposalGenerationEngine.models.SerieStats;
+import com.factset.sdk.ProposalGenerationEngine.models.SeriesStats;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -42,12 +42,12 @@ public class PeriodSeriesAllOf implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String JSON_PROPERTY_SERIES = "series";
-  private SerieStats series;
+  private SeriesStats series;
 
   public PeriodSeriesAllOf() { 
   }
 
-  public PeriodSeriesAllOf series(SerieStats series) {
+  public PeriodSeriesAllOf series(SeriesStats series) {
     this.series = series;
     return this;
   }
@@ -61,14 +61,14 @@ public class PeriodSeriesAllOf implements Serializable {
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SerieStats getSeries() {
+  public SeriesStats getSeries() {
     return series;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSeries(SerieStats series) {
+  public void setSeries(SeriesStats series) {
     this.series = series;
   }
 

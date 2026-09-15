@@ -41,7 +41,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <param name="performance">performance.</param>
         /// <param name="drawdown">drawdown.</param>
         /// <param name="boxplot">boxplot.</param>
-        public EntityStats(RiskStats risks = default(RiskStats), ReturnStats returns = default(ReturnStats), RelativeRiskStats relativeRisk = default(RelativeRiskStats), PerformanceStats performance = default(PerformanceStats), DrawdownStats drawdown = default(DrawdownStats), Boxplot boxplot = default(Boxplot))
+        /// <param name="transactions">transactions.</param>
+        /// <param name="endingWeight">endingWeight.</param>
+        /// <param name="values">values.</param>
+        public EntityStats(RiskStats risks = default(RiskStats), ReturnStats returns = default(ReturnStats), RelativeRiskStats relativeRisk = default(RelativeRiskStats), PerformanceStats performance = default(PerformanceStats), DrawdownStats drawdown = default(DrawdownStats), Boxplot boxplot = default(Boxplot), TransactionStats transactions = default(TransactionStats), decimal endingWeight = default(decimal), ValueStats values = default(ValueStats))
         {
             this.Risks = risks;
             this.Returns = returns;
@@ -49,6 +52,9 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             this.Performance = performance;
             this.Drawdown = drawdown;
             this.Boxplot = boxplot;
+            this.Transactions = transactions;
+            this.EndingWeight = endingWeight;
+            this.Values = values;
         }
 
         /// <summary>
@@ -88,6 +94,24 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         public Boxplot Boxplot { get; set; }
 
         /// <summary>
+        /// Gets or Sets Transactions
+        /// </summary>
+        [DataMember(Name = "transactions", EmitDefaultValue = false)]
+        public TransactionStats Transactions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EndingWeight
+        /// </summary>
+        [DataMember(Name = "endingWeight", EmitDefaultValue = false)]
+        public decimal EndingWeight { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Values
+        /// </summary>
+        [DataMember(Name = "values", EmitDefaultValue = false)]
+        public ValueStats Values { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +125,9 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             sb.Append("  Performance: ").Append(Performance).Append("\n");
             sb.Append("  Drawdown: ").Append(Drawdown).Append("\n");
             sb.Append("  Boxplot: ").Append(Boxplot).Append("\n");
+            sb.Append("  Transactions: ").Append(Transactions).Append("\n");
+            sb.Append("  EndingWeight: ").Append(EndingWeight).Append("\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,6 +192,20 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                     this.Boxplot == input.Boxplot ||
                     (this.Boxplot != null &&
                     this.Boxplot.Equals(input.Boxplot))
+                ) && 
+                (
+                    this.Transactions == input.Transactions ||
+                    (this.Transactions != null &&
+                    this.Transactions.Equals(input.Transactions))
+                ) && 
+                (
+                    this.EndingWeight == input.EndingWeight ||
+                    this.EndingWeight.Equals(input.EndingWeight)
+                ) && 
+                (
+                    this.Values == input.Values ||
+                    (this.Values != null &&
+                    this.Values.Equals(input.Values))
                 );
         }
 
@@ -200,6 +241,15 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 if (this.Boxplot != null)
                 {
                     hashCode = (hashCode * 59) + this.Boxplot.GetHashCode();
+                }
+                if (this.Transactions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Transactions.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EndingWeight.GetHashCode();
+                if (this.Values != null)
+                {
+                    hashCode = (hashCode * 59) + this.Values.GetHashCode();
                 }
                 return hashCode;
             }

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FixedIncomeAnalyticsBatcher.sln
 LICENSE
 README.md
-appveyor.yml
 docs/EventSummary.md
 docs/FIABCalculationParameters.md
 docs/FIABCalculationStatus.md
@@ -11,7 +9,6 @@ docs/FIABCalculationStatusSummary.md
 docs/FIABCalculationsApi.md
 docs/FIABDateParameters.md
 docs/FIABIdentifier.md
-git_push.sh
 src/FactSet.SDK.FixedIncomeAnalyticsBatcher/Api/FIABCalculationsApi.cs
 src/FactSet.SDK.FixedIncomeAnalyticsBatcher/Client/ApiClient.cs
 src/FactSet.SDK.FixedIncomeAnalyticsBatcher/Client/ApiException.cs

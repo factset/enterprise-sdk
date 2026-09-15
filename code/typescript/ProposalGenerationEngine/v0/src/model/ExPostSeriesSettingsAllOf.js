@@ -104,10 +104,10 @@ ExPostSeriesSettingsAllOf['SeriesEnum'] = {
     "contributionTransactions": "contributionTransactions",
 
     /**
-     * value: "withrawalTransactions"
+     * value: "withdrawalTransactions"
      * @const
      */
-    "withrawalTransactions": "withrawalTransactions",
+    "withdrawalTransactions": "withdrawalTransactions",
 
     /**
      * value: "feeTransactions"

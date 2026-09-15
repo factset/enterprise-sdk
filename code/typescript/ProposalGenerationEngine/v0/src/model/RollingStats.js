@@ -47,8 +47,17 @@ class RollingStats {
         if (data) {
             obj = obj || new RollingStats();
 
+            if (data.hasOwnProperty('currency') && obj['currency'] === undefined) {
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
+            }
+            if (data.hasOwnProperty('asOfDate') && obj['asOfDate'] === undefined) {
+                obj['asOfDate'] = ApiClient.convertToType(data['asOfDate'], 'String');
+            }
             if (data.hasOwnProperty('timeWindow') && obj['timeWindow'] === undefined) {
                 obj['timeWindow'] = ApiClient.convertToType(data['timeWindow'], {'String': RollingStatsPerTimeWindow});
+            }
+            if (data.hasOwnProperty('rollingTimeWindow') && obj['rollingTimeWindow'] === undefined) {
+                obj['rollingTimeWindow'] = ApiClient.convertToType(data['rollingTimeWindow'], 'Number');
             }
             
         }
@@ -59,10 +68,26 @@ class RollingStats {
 }
 
 /**
+ * @member {String} currency
+ */
+RollingStats.prototype['currency'] = undefined;
+
+/**
+ * The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client
+ * @member {String} asOfDate
+ */
+RollingStats.prototype['asOfDate'] = undefined;
+
+/**
  * a map from time window to rolling stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request
  * @member {Object.<String, module:model/RollingStatsPerTimeWindow>} timeWindow
  */
 RollingStats.prototype['timeWindow'] = undefined;
+
+/**
+ * @member {Number} rollingTimeWindow
+ */
+RollingStats.prototype['rollingTimeWindow'] = undefined;
 
 
 

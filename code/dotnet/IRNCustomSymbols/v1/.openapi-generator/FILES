@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.IRNCustomSymbols.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CreateCustomSymbolCustomFieldValueDto.md
 docs/CreateCustomSymbolDto.md
 docs/CreateStandardSymbolMetadataDto.md
@@ -29,7 +27,6 @@ docs/SymbolRelationshipSaveDto.md
 docs/SymbolRelationshipUpdateDto.md
 docs/SymbolsRelationshipIdNameDto.md
 docs/SymbolsRelationshipType.md
-git_push.sh
 src/FactSet.SDK.IRNCustomSymbols/Api/CustomSymbolsApi.cs
 src/FactSet.SDK.IRNCustomSymbols/Api/CustomSymbolsRelationshipsApi.cs
 src/FactSet.SDK.IRNCustomSymbols/Api/HybridSymbolsApi.cs

@@ -33,10 +33,10 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 def lazy_import():
     from fds.sdk.ProposalGenerationEngine.model.period_info import PeriodInfo
     from fds.sdk.ProposalGenerationEngine.model.period_series_all_of import PeriodSeriesAllOf
-    from fds.sdk.ProposalGenerationEngine.model.serie_stats import SerieStats
+    from fds.sdk.ProposalGenerationEngine.model.series_stats import SeriesStats
     globals()['PeriodInfo'] = PeriodInfo
     globals()['PeriodSeriesAllOf'] = PeriodSeriesAllOf
-    globals()['SerieStats'] = SerieStats
+    globals()['SeriesStats'] = SeriesStats
 
 
 class PeriodSeries(ModelComposed):
@@ -96,7 +96,7 @@ class PeriodSeries(ModelComposed):
             'end_date': (date,),  # noqa: E501
             'number_of_days': (float,),  # noqa: E501
             'based_on_time_window': (str,),  # noqa: E501
-            'series': (SerieStats,),  # noqa: E501
+            'series': (SeriesStats,),  # noqa: E501
         }
 
     @cached_property
@@ -155,7 +155,7 @@ class PeriodSeries(ModelComposed):
             end_date (date): [optional]  # noqa: E501
             number_of_days (float): [optional]  # noqa: E501
             based_on_time_window (str): [optional]  # noqa: E501
-            series (SerieStats): [optional]  # noqa: E501
+            series (SeriesStats): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,7 +259,7 @@ class PeriodSeries(ModelComposed):
             end_date (date): [optional]  # noqa: E501
             number_of_days (float): [optional]  # noqa: E501
             based_on_time_window (str): [optional]  # noqa: E501
-            series (SerieStats): [optional]  # noqa: E501
+            series (SeriesStats): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

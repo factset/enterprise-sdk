@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Agent.md
@@ -46,7 +44,6 @@ docs/UnderwritersApi.md
 docs/UseOfProceeds.md
 docs/UseOfProceedsApi.md
 docs/UseOfProceedsResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

@@ -13,7 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import ExPostPortfolioAllOf from './ExPostPortfolioAllOf';
-import ExPostPortfolioInvestment from './ExPostPortfolioInvestment';
+import ExPostPortfolioInvestmentRequest from './ExPostPortfolioInvestmentRequest';
 import Portfolio from './Portfolio';
 import PortfolioEntityDetails from './PortfolioEntityDetails';
 import Rebalancing from './Rebalancing';
@@ -29,10 +29,10 @@ class ExPostPortfolio {
      * @alias module:model/ExPostPortfolio
      * @implements module:model/Portfolio
      * @implements module:model/ExPostPortfolioAllOf
-     * @param holdings {Array.<module:model/ExPostPortfolioInvestment>} 
+     * @param holdings {Array.<module:model/ExPostPortfolioInvestmentRequest>} 
      */
     constructor(holdings) { 
-        Portfolio.initialize(this);ExPostPortfolioAllOf.initialize(this);
+        Portfolio.initialize(this, holdings);ExPostPortfolioAllOf.initialize(this);
         ExPostPortfolio.initialize(this, holdings);
     }
 
@@ -68,14 +68,14 @@ class ExPostPortfolio {
             if (data.hasOwnProperty('details') && obj['details'] === undefined) {
                 obj['details'] = PortfolioEntityDetails.constructFromObject(data['details']);
             }
+            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
+                obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestmentRequest]);
+            }
             if (data.hasOwnProperty('initialValue') && obj['initialValue'] === undefined) {
                 obj['initialValue'] = ApiClient.convertToType(data['initialValue'], 'Number');
             }
             if (data.hasOwnProperty('rebalancing') && obj['rebalancing'] === undefined) {
                 obj['rebalancing'] = Rebalancing.constructFromObject(data['rebalancing']);
-            }
-            if (data.hasOwnProperty('holdings') && obj['holdings'] === undefined) {
-                obj['holdings'] = ApiClient.convertToType(data['holdings'], [ExPostPortfolioInvestment]);
             }
             if (data.hasOwnProperty('transactionRules') && obj['transactionRules'] === undefined) {
                 obj['transactionRules'] = ApiClient.convertToType(data['transactionRules'], [TransactionRule]);
@@ -100,6 +100,11 @@ ExPostPortfolio.prototype['id'] = undefined;
 ExPostPortfolio.prototype['details'] = undefined;
 
 /**
+ * @member {Array.<module:model/ExPostPortfolioInvestmentRequest>} holdings
+ */
+ExPostPortfolio.prototype['holdings'] = undefined;
+
+/**
  * the initial value (PV) of the portfolio
  * @member {Number} initialValue
  */
@@ -109,11 +114,6 @@ ExPostPortfolio.prototype['initialValue'] = undefined;
  * @member {module:model/Rebalancing} rebalancing
  */
 ExPostPortfolio.prototype['rebalancing'] = undefined;
-
-/**
- * @member {Array.<module:model/ExPostPortfolioInvestment>} holdings
- */
-ExPostPortfolio.prototype['holdings'] = undefined;
 
 /**
  * rules for adding/substracting amount from the portfolio at given periods
@@ -133,6 +133,10 @@ Portfolio.prototype['id'] = undefined;
  */
 Portfolio.prototype['details'] = undefined;
 /**
+ * @member {Array.<module:model/ExPostPortfolioInvestment>} holdings
+ */
+Portfolio.prototype['holdings'] = undefined;
+/**
  * the initial value (PV) of the portfolio
  * @member {Number} initialValue
  */
@@ -143,7 +147,7 @@ Portfolio.prototype['initialValue'] = undefined;
 Portfolio.prototype['rebalancing'] = undefined;
 // Implement ExPostPortfolioAllOf interface:
 /**
- * @member {Array.<module:model/ExPostPortfolioInvestment>} holdings
+ * @member {Array.<module:model/ExPostPortfolioInvestmentRequest>} holdings
  */
 ExPostPortfolioAllOf.prototype['holdings'] = undefined;
 /**

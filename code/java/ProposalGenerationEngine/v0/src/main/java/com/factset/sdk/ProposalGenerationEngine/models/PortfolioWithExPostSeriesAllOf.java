@@ -48,7 +48,7 @@ public class PortfolioWithExPostSeriesAllOf implements Serializable {
   private TimeWindowSeries series;
 
   public static final String JSON_PROPERTY_PERIODS = "periods";
-  private PeriodSeries periods;
+  private java.util.List<PeriodSeries> periods = null;
 
   public PortfolioWithExPostSeriesAllOf() { 
   }
@@ -79,8 +79,16 @@ public class PortfolioWithExPostSeriesAllOf implements Serializable {
   }
 
 
-  public PortfolioWithExPostSeriesAllOf periods(PeriodSeries periods) {
+  public PortfolioWithExPostSeriesAllOf periods(java.util.List<PeriodSeries> periods) {
     this.periods = periods;
+    return this;
+  }
+
+  public PortfolioWithExPostSeriesAllOf addPeriodsItem(PeriodSeries periodsItem) {
+    if (this.periods == null) {
+      this.periods = new java.util.ArrayList<>();
+    }
+    this.periods.add(periodsItem);
     return this;
   }
 
@@ -93,14 +101,14 @@ public class PortfolioWithExPostSeriesAllOf implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public PeriodSeries getPeriods() {
+  public java.util.List<PeriodSeries> getPeriods() {
     return periods;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriods(PeriodSeries periods) {
+  public void setPeriods(java.util.List<PeriodSeries> periods) {
     this.periods = periods;
   }
 

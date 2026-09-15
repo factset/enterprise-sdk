@@ -31,10 +31,12 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.ProposalGenerationEngine.model.ex_post_portfolio_investment import ExPostPortfolioInvestment
     from fds.sdk.ProposalGenerationEngine.model.portfolio_all_of import PortfolioAllOf
     from fds.sdk.ProposalGenerationEngine.model.portfolio_entity import PortfolioEntity
     from fds.sdk.ProposalGenerationEngine.model.portfolio_entity_details import PortfolioEntityDetails
     from fds.sdk.ProposalGenerationEngine.model.rebalancing import Rebalancing
+    globals()['ExPostPortfolioInvestment'] = ExPostPortfolioInvestment
     globals()['PortfolioAllOf'] = PortfolioAllOf
     globals()['PortfolioEntity'] = PortfolioEntity
     globals()['PortfolioEntityDetails'] = PortfolioEntityDetails
@@ -94,6 +96,7 @@ class Portfolio(ModelComposed):
         """
         lazy_import()
         return {
+            'holdings': ([ExPostPortfolioInvestment],),  # noqa: E501
             'id': (str,),  # noqa: E501
             'details': (PortfolioEntityDetails,),  # noqa: E501
             'initial_value': (float,),  # noqa: E501
@@ -106,6 +109,7 @@ class Portfolio(ModelComposed):
 
 
     attribute_map = {
+        'holdings': 'holdings',  # noqa: E501
         'id': 'id',  # noqa: E501
         'details': 'details',  # noqa: E501
         'initial_value': 'initialValue',  # noqa: E501
@@ -121,6 +125,7 @@ class Portfolio(ModelComposed):
         """Portfolio - a model defined in OpenAPI
 
         Keyword Args:
+            holdings ([ExPostPortfolioInvestment]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -224,6 +229,7 @@ class Portfolio(ModelComposed):
         """Portfolio - a model defined in OpenAPI
 
         Keyword Args:
+            holdings ([ExPostPortfolioInvestment]):
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.

@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AttachmentSummaryDto.md
@@ -32,7 +30,6 @@ docs/SubcommentSummaryDto.md
 docs/UpdateNoteDto.md
 docs/UserSerialDto.md
 docs/UserTeamLookupDto.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

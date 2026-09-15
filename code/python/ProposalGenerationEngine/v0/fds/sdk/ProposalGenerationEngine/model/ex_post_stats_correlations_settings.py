@@ -33,9 +33,13 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 def lazy_import():
     from fds.sdk.ProposalGenerationEngine.model.base_settings import BaseSettings
     from fds.sdk.ProposalGenerationEngine.model.ex_post_stats_correlations_settings_all_of import ExPostStatsCorrelationsSettingsAllOf
+    from fds.sdk.ProposalGenerationEngine.model.period import Period
+    from fds.sdk.ProposalGenerationEngine.model.periods import Periods
     from fds.sdk.ProposalGenerationEngine.model.time_window import TimeWindow
     globals()['BaseSettings'] = BaseSettings
     globals()['ExPostStatsCorrelationsSettingsAllOf'] = ExPostStatsCorrelationsSettingsAllOf
+    globals()['Period'] = Period
+    globals()['Periods'] = Periods
     globals()['TimeWindow'] = TimeWindow
 
 
@@ -96,6 +100,7 @@ class ExPostStatsCorrelationsSettings(ModelComposed):
             'returns_preferences': (str,),  # noqa: E501
             'validate_portfolio': (bool,),  # noqa: E501
             'time_windows': ([str],),  # noqa: E501
+            'periods': ([Period],),  # noqa: E501
             'stats': ([str],),  # noqa: E501
             'holdings_limit': (int,),  # noqa: E501
             'fund_correlations_only': (bool,),  # noqa: E501
@@ -112,6 +117,7 @@ class ExPostStatsCorrelationsSettings(ModelComposed):
         'returns_preferences': 'returnsPreferences',  # noqa: E501
         'validate_portfolio': 'validatePortfolio',  # noqa: E501
         'time_windows': 'timeWindows',  # noqa: E501
+        'periods': 'periods',  # noqa: E501
         'stats': 'stats',  # noqa: E501
         'holdings_limit': 'holdingsLimit',  # noqa: E501
         'fund_correlations_only': 'fundCorrelationsOnly',  # noqa: E501
@@ -161,6 +167,7 @@ class ExPostStatsCorrelationsSettings(ModelComposed):
             returns_preferences (str): code of preconfigured analysis settings<br> Note: the setup of these settings is done by PGE administrator. [optional]  # noqa: E501
             validate_portfolio (bool): a flag controlling whether to perform validations on the portfolio and its holdings (e.g. whether they have valid historical data). If set to false it is possible that call might not return user-friendly error message, however the call will be faster. [optional] if omitted the server will use the default value of False  # noqa: E501
             time_windows ([str]): [optional]  # noqa: E501
+            periods ([Period]): [optional]  # noqa: E501
             stats ([str]): [optional]  # noqa: E501
             holdings_limit (int): [optional]  # noqa: E501
             fund_correlations_only (bool): [optional]  # noqa: E501
@@ -268,6 +275,7 @@ class ExPostStatsCorrelationsSettings(ModelComposed):
             returns_preferences (str): code of preconfigured analysis settings<br> Note: the setup of these settings is done by PGE administrator. [optional]  # noqa: E501
             validate_portfolio (bool): a flag controlling whether to perform validations on the portfolio and its holdings (e.g. whether they have valid historical data). If set to false it is possible that call might not return user-friendly error message, however the call will be faster. [optional] if omitted the server will use the default value of False  # noqa: E501
             time_windows ([str]): [optional]  # noqa: E501
+            periods ([Period]): [optional]  # noqa: E501
             stats ([str]): [optional]  # noqa: E501
             holdings_limit (int): [optional]  # noqa: E501
             fund_correlations_only (bool): [optional]  # noqa: E501
@@ -339,6 +347,7 @@ class ExPostStatsCorrelationsSettings(ModelComposed):
           'allOf': [
               BaseSettings,
               ExPostStatsCorrelationsSettingsAllOf,
+              Periods,
               TimeWindow,
           ],
           'oneOf': [

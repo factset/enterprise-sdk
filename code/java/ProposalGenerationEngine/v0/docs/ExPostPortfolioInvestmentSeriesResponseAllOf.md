@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **securityDetails** | [**Investment**](Investment.md) |  |  [optional]
 **series** | [**TimeWindowSeries**](TimeWindowSeries.md) |  |  [optional]
-**periods** | [**PeriodSeries**](PeriodSeries.md) |  |  [optional]
+**periods** | [**java.util.List&lt;PeriodSeries&gt;**](PeriodSeries.md) |  |  [optional]
 **backfillData** | [**Map&lt;String, BackfillData&gt;**](BackfillData.md) | a map from time window to backfill statistics |  [optional]
 
 

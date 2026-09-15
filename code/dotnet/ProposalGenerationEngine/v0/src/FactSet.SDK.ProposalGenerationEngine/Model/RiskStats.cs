@@ -38,12 +38,12 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <param name="annStDev">Annualized Standard deviation.</param>
         /// <param name="annLossStDev">Annualized Loss Standard deviation.</param>
         /// <param name="etl">a map from confidence level (e.g. \&quot;95%\&quot;) to a numeric value.</param>
-        /// <param name="stDev">Standard deviation.</param>
+        /// <param name="stDev">stDev.</param>
         /// <param name="skewness">Skewness.</param>
         /// <param name="excessKurtosis">ExcessKurtosis.</param>
         /// <param name="var">a map from confidence level (e.g. \&quot;95%\&quot;) to a numeric value.</param>
         /// <param name="positiveReturnsRatio">Positive Returns Ratio.</param>
-        public RiskStats(decimal annStDev = default(decimal), decimal annLossStDev = default(decimal), Dictionary<string, decimal> etl = default(Dictionary<string, decimal>), decimal stDev = default(decimal), decimal skewness = default(decimal), decimal excessKurtosis = default(decimal), Dictionary<string, decimal> var = default(Dictionary<string, decimal>), decimal positiveReturnsRatio = default(decimal))
+        public RiskStats(decimal annStDev = default(decimal), decimal annLossStDev = default(decimal), Dictionary<string, decimal> etl = default(Dictionary<string, decimal>), StDev stDev = default(StDev), decimal skewness = default(decimal), decimal excessKurtosis = default(decimal), Dictionary<string, decimal> var = default(Dictionary<string, decimal>), decimal positiveReturnsRatio = default(decimal))
         {
             this.AnnStDev = annStDev;
             this.AnnLossStDev = annLossStDev;
@@ -77,11 +77,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         public Dictionary<string, decimal> Etl { get; set; }
 
         /// <summary>
-        /// Standard deviation
+        /// Gets or Sets StDev
         /// </summary>
-        /// <value>Standard deviation</value>
         [DataMember(Name = "stDev", EmitDefaultValue = false)]
-        public decimal StDev { get; set; }
+        public StDev StDev { get; set; }
 
         /// <summary>
         /// Skewness
@@ -178,7 +177,8 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 ) && 
                 (
                     this.StDev == input.StDev ||
-                    this.StDev.Equals(input.StDev)
+                    (this.StDev != null &&
+                    this.StDev.Equals(input.StDev))
                 ) && 
                 (
                     this.Skewness == input.Skewness ||
@@ -215,7 +215,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 {
                     hashCode = (hashCode * 59) + this.Etl.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.StDev.GetHashCode();
+                if (this.StDev != null)
+                {
+                    hashCode = (hashCode * 59) + this.StDev.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Skewness.GetHashCode();
                 hashCode = (hashCode * 59) + this.ExcessKurtosis.GetHashCode();
                 if (this.Var != null)

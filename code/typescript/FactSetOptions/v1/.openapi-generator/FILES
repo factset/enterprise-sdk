@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/AtmImpliedVolatility.md
@@ -50,7 +48,6 @@ docs/SnapshotResponse.md
 docs/UnderlyingVolume.md
 docs/UnderlyingVolumeRequest.md
 docs/UnderlyingVolumeResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

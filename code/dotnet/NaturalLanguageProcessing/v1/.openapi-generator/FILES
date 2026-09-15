@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.NaturalLanguageProcessing.sln
 LICENSE
 README.md
-appveyor.yml
 docs/AIThemesApi.md
 docs/ErrorSource.md
 docs/HTTPError.md
@@ -21,7 +19,6 @@ docs/ThemeSentiment.md
 docs/ThemeSentimentsRoot.md
 docs/ThemesParameters.md
 docs/ThemesParametersRoot.md
-git_push.sh
 src/FactSet.SDK.NaturalLanguageProcessing/Api/AIThemesApi.cs
 src/FactSet.SDK.NaturalLanguageProcessing/Api/NamedEntityRecognitionApi.cs
 src/FactSet.SDK.NaturalLanguageProcessing/Client/ApiClient.cs

@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/DCSRequest.md
@@ -80,7 +77,6 @@ fds/sdk/FactSetDebtCapitalStructure/model_utils.py
 fds/sdk/FactSetDebtCapitalStructure/models/__init__.py
 fds/sdk/FactSetDebtCapitalStructure/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

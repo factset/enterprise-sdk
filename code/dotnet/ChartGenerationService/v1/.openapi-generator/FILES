@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.ChartGenerationService.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CategoriesErrorResponse.md
 docs/CategorizedChartList.md
 docs/CategoryChartListErrorObject.md
@@ -15,7 +13,6 @@ docs/ChartListErrorResponse.md
 docs/ChartTemplatesApi.md
 docs/ErrorResponse.md
 docs/UnauthorizedResponse.md
-git_push.sh
 src/FactSet.SDK.ChartGenerationService/Api/ChartTemplatesApi.cs
 src/FactSet.SDK.ChartGenerationService/Client/ApiClient.cs
 src/FactSet.SDK.ChartGenerationService/Client/ApiException.cs

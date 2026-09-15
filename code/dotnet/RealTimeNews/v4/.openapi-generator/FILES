@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.RealTimeNews.sln
 LICENSE
 README.md
-appveyor.yml
 docs/BasicApi.md
 docs/CategoryApi.md
 docs/CursorBasedPaginationOutputObjectWithoutTotal.md
@@ -330,7 +328,6 @@ docs/PostNewsPublisherSearchByNameRequestDataFilterDelivery.md
 docs/PostNewsPublisherSearchByNameRequestDataFilterDistributor.md
 docs/PostNewsPublisherSearchByNameRequestMeta.md
 docs/StatusObject.md
-git_push.sh
 src/FactSet.SDK.RealTimeNews/Api/BasicApi.cs
 src/FactSet.SDK.RealTimeNews/Api/CategoryApi.cs
 src/FactSet.SDK.RealTimeNews/Api/NewsApi.cs

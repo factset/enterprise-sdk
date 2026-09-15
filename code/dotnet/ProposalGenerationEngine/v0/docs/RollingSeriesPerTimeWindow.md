@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Correlations** | [**CorrelationStats**](CorrelationStats.md) |  | [optional] 
+**Performance** | [**PerformanceStats**](PerformanceStats.md) |  | [optional] 
+**Risks** | [**RiskStats**](RiskStats.md) |  | [optional] 
 **Dates** | **List&lt;DateTime&gt;** |  | [optional] 
 **Returns** | [**RollingSeriesPerTimeWindowReturns**](RollingSeriesPerTimeWindowReturns.md) |  | [optional] 
 

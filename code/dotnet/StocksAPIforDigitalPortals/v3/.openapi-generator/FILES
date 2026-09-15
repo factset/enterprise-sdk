@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.StocksAPIforDigitalPortals.sln
 LICENSE
 README.md
-appveyor.yml
 docs/CompanyApi.md
 docs/CursorBasedPaginationOutputObject.md
 docs/CursorBasedPaginationOutputObjectWithoutTotal.md
@@ -606,7 +604,6 @@ docs/PostStockNotationScreenerValueRangesGetRequestDataRecommendation.md
 docs/PostStockNotationScreenerValueRangesGetRequestDataRecommendationConsensus.md
 docs/StatusObject.md
 docs/StockApi.md
-git_push.sh
 src/FactSet.SDK.StocksAPIforDigitalPortals/Api/CompanyApi.cs
 src/FactSet.SDK.StocksAPIforDigitalPortals/Api/StockApi.cs
 src/FactSet.SDK.StocksAPIforDigitalPortals/Client/ApiClient.cs

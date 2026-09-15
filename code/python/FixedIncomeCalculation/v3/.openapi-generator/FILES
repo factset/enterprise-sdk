@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CalculationInfo.md
@@ -82,7 +79,6 @@ fds/sdk/FixedIncomeCalculation/model_utils.py
 fds/sdk/FixedIncomeCalculation/models/__init__.py
 fds/sdk/FixedIncomeCalculation/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

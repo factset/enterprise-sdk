@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Actual.md
@@ -78,7 +76,6 @@ docs/SurpriseHistoryResponseData.md
 docs/SurpriseRequest.md
 docs/SurpriseResponse.md
 docs/TargetPrice.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

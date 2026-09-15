@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetPortfolioOptimizer.sln
 LICENSE
 README.md
-appveyor.yml
 docs/DocumentDirectories.md
 docs/FPOAccount.md
 docs/FPOOptimizationParameters.md
@@ -19,7 +17,6 @@ docs/OptimizerStrategyOverrides.md
 docs/OptimizerTradesList.md
 docs/PaDoc.md
 docs/StrategyDocumentsApi.md
-git_push.sh
 src/FactSet.SDK.FactSetPortfolioOptimizer/Api/OptimizationsApi.cs
 src/FactSet.SDK.FactSetPortfolioOptimizer/Api/StrategyDocumentsApi.cs
 src/FactSet.SDK.FactSetPortfolioOptimizer/Client/ApiClient.cs

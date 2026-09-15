@@ -124,6 +124,8 @@ namespace FactSet.SDK.ProposalGenerationEngine.Api
         private static readonly Dictionary<HttpStatusCode, System.Type> GetSecuritiesResponseTypeDictionary = new Dictionary<HttpStatusCode, System.Type>
         {
             { (HttpStatusCode)200, typeof(PagedSecurities) },
+            { (HttpStatusCode)400, typeof(Errors) },
+            { (HttpStatusCode)501, typeof(Errors) },
         };
 
         # endregion Response Type Disctionaries

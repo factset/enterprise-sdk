@@ -4,12 +4,239 @@ All URIs are relative to *https://api.factset.com/scim/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_group**](GroupsApi.md#create_group) | **POST** /Groups | Create a group.
+[**delete_group**](GroupsApi.md#delete_group) | **DELETE** /Group/{id} | Delete a group.
 [**get_group**](GroupsApi.md#get_group) | **GET** /Group/{id} | Get a group.
 [**get_groups**](GroupsApi.md#get_groups) | **GET** /Groups | Get a list of groups.
 [**modify_group**](GroupsApi.md#modify_group) | **PATCH** /Group/{id} | Patch a group.
 [**replace_group**](GroupsApi.md#replace_group) | **PUT** /Group/{id} | Replace a group.
 
 
+
+# **create_group**
+> GroupResource create_group(group_resource)
+
+Create a group.
+
+Create a group resource.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.ProcuretoPayAPISCIM
+from fds.sdk.ProcuretoPayAPISCIM.api import groups_api
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.ProcuretoPayAPISCIM.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.ProcuretoPayAPISCIM.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = groups_api.GroupsApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    group_resource = GroupResource(
+        schemas=["urn:ietf:params:scim:schemas:core:2.0:Group","urn:scim:schemas:extension:FactSet:Core:1.0:Group","urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group","urn:scim:schemas:extension:FactSet:VRS:1.0:Group","urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group"],
+        external_id="B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9",
+        display_name="Domain btud - Pod 04 - CitrixApps - Cymba OMS",
+        description="Group representing access to the Cymba OMS application.",
+        members=[
+            GroupResourceMember(
+                value="FIN_WEALTH-123456",
+                ref="https://api.factset.com/scim/v2/Users/FIN_WEALTH-123456",
+                type="User",
+            ),
+        ],
+        urnscimschemasextension_fact_set_core1_0_group=GroupResourceUrnScimSchemasExtensionFactSetCore10Group(
+            type="eh",
+        ),
+        urnscimschemasextension_fact_set_vrs1_0_group=GroupResourceUrnScimSchemasExtensionFactSetVRS10Group(
+            tenant="QA",
+            domain_code="btud",
+        ),
+        urnscimschemasextension_fact_set_desktop_applications1_0_group=GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group(
+            applications=[
+                DesktopApplicationGroupApplications(
+                    id="app1.foo",
+                ),
+            ],
+            last_modified_by=GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy(
+            ),
+        ),
+    ) # GroupResource | Group resource.
+
+    try:
+        # Create a group.
+        # example passing only required values which don't have defaults set
+        api_response = api_instance.create_group(group_resource)
+
+        pprint(api_response)
+
+    except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
+        print("Exception when calling GroupsApi->create_group: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_resource** | [**GroupResource**](GroupResource.md)| Group resource. |
+
+### Return type
+
+[**GroupResource**](GroupResource.md)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/scim+json
+ - **Accept**: application/scim+json, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Success. |  -  |
+**400** | Provided resource contains invalid data. |  -  |
+**401** | User has not been authenticated. |  -  |
+**403** | User is not authorized to use this API. |  -  |
+**429** | User is accessing this API too frequently. |  -  |
+**500** | Internal server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_group**
+> delete_group(id)
+
+Delete a group.
+
+Delete a specific group resource.
+
+### Example
+
+> [!IMPORTANT]
+> The parameter variables defined below are just examples and may potentially contain non valid values. Please replace them with valid values.
+
+#### Example Code
+
+```python
+from fds.sdk.utils.authentication import ConfidentialClient
+import fds.sdk.ProcuretoPayAPISCIM
+from fds.sdk.ProcuretoPayAPISCIM.api import groups_api
+from fds.sdk.ProcuretoPayAPISCIM.models import *
+from dateutil.parser import parse as dateutil_parser
+from pprint import pprint
+
+# See configuration.py for a list of all supported configuration parameters.
+
+# Examples for each supported authentication method are below,
+# choose one that satisfies your use case.
+
+# (Preferred) OAuth 2.0: FactSetOAuth2
+# See https://github.com/FactSet/enterprise-sdk#oauth-20
+# for information on how to create the app-config.json file
+#
+# The confidential client instance should be reused in production environments.
+# See https://github.com/FactSet/enterprise-sdk-utils-python#authentication
+# for more information on using the ConfidentialClient class
+configuration = fds.sdk.ProcuretoPayAPISCIM.Configuration(
+    fds_oauth_client=ConfidentialClient('/path/to/app-config.json')
+)
+
+# Basic authentication: FactSetApiKey
+# See https://github.com/FactSet/enterprise-sdk#api-key
+# for information how to create an API key
+# configuration = fds.sdk.ProcuretoPayAPISCIM.Configuration(
+#     username='USERNAME-SERIAL',
+#     password='API-KEY'
+# )
+
+# Enter a context with an instance of the API client
+with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = groups_api.GroupsApi(api_client)
+
+    # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
+    id = "id_example" # str | ID of resource.
+
+    try:
+        # Delete a group.
+        # example passing only required values which don't have defaults set
+        api_instance.delete_group(id)
+
+
+    except fds.sdk.ProcuretoPayAPISCIM.ApiException as e:
+        print("Exception when calling GroupsApi->delete_group: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| ID of resource. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[FactSetApiKey](../README.md#FactSetApiKey), [FactSetOAuth2](../README.md#FactSetOAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/scim+json, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Group successfully deleted. |  -  |
+**401** | User has not been authenticated. |  -  |
+**403** | User is not authorized to use this API. |  -  |
+**404** | Group not found. |  -  |
+**429** | User is accessing this API too frequently. |  -  |
+**500** | Internal server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group**
 > GroupResource get_group(id)
@@ -421,7 +648,7 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
     # NOTE: The following variables are just an example and may contain invalid values. Please, replace these with valid values.
     id = "id_example" # str | ID of resource.
     group_resource = GroupResource(
-        schemas=["urn:ietf:params:scim:schemas:core:2.0:Group","urn:scim:schemas:extension:FactSet:Core:1.0:Group","urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group","urn:scim:schemas:extension:FactSet:VRS:1.0:Group"],
+        schemas=["urn:ietf:params:scim:schemas:core:2.0:Group","urn:scim:schemas:extension:FactSet:Core:1.0:Group","urn:scim:schemas:extension:FactSet:EnterpriseHosting:1.0:Group","urn:scim:schemas:extension:FactSet:VRS:1.0:Group","urn:scim:schemas:extension:FactSet:DesktopApplications:1.0:Group"],
         external_id="B8FE8BBD-0E04-40B2-9BB3-E5EE17C4C9C9",
         display_name="Domain btud - Pod 04 - CitrixApps - Cymba OMS",
         description="Group representing access to the Cymba OMS application.",
@@ -438,6 +665,15 @@ with fds.sdk.ProcuretoPayAPISCIM.ApiClient(configuration) as api_client:
         urnscimschemasextension_fact_set_vrs1_0_group=GroupResourceUrnScimSchemasExtensionFactSetVRS10Group(
             tenant="QA",
             domain_code="btud",
+        ),
+        urnscimschemasextension_fact_set_desktop_applications1_0_group=GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group(
+            applications=[
+                DesktopApplicationGroupApplications(
+                    id="app1.foo",
+                ),
+            ],
+            last_modified_by=GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10GroupLastModifiedBy(
+            ),
         ),
     ) # GroupResource | Group resource.
     attributes = [

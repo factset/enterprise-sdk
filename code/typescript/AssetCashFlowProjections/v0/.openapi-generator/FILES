@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BatchApi.md
@@ -33,7 +31,6 @@ docs/UpdateDocument.md
 docs/UpdateDocumentRoot.md
 docs/UploadStatusResponse.md
 docs/UploadStatusResponseParameters.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

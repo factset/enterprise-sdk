@@ -1,16 +1,13 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetEntityReportBuilder.sln
 LICENSE
 README.md
-appveyor.yml
 docs/EntityStructureApi.md
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
 docs/ErrorObjectSource.md
 docs/ErrorResponse.md
 docs/Response.md
-git_push.sh
 src/FactSet.SDK.FactSetEntityReportBuilder/Api/EntityStructureApi.cs
 src/FactSet.SDK.FactSetEntityReportBuilder/Client/ApiClient.cs
 src/FactSet.SDK.FactSetEntityReportBuilder/Client/ApiException.cs

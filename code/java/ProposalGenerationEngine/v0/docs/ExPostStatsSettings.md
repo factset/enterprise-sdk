@@ -52,7 +52,7 @@ MEANRETURN | &quot;meanReturn&quot;
 ETR | &quot;etr&quot;
 STDEV | &quot;stDev&quot;
 ANNSTDEV | &quot;annStDev&quot;
-ANNLOSSSTD | &quot;annLossStd&quot;
+ANNLOSSSTDEV | &quot;annLossStDev&quot;
 ANNSTDEV100 | &quot;annStDev100&quot;
 ETL | &quot;etl&quot;
 SKEWNESS | &quot;skewness&quot;
@@ -97,6 +97,7 @@ ANNPERCENTAGESTDEVATTRIBUTION | &quot;annPercentageStDevAttribution&quot;
 CONTRIBUTIONTRANSACTIONS | &quot;contributionTransactions&quot;
 WITHDRAWALTRANSACTIONS | &quot;withdrawalTransactions&quot;
 FEETRANSACTIONS | &quot;feeTransactions&quot;
+PV | &quot;PV&quot;
 
 
 ## Implemented Interfaces

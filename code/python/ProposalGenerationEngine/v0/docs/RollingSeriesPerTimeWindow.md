@@ -4,6 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**correlations** | [**CorrelationStats**](CorrelationStats.md) |  | [optional] 
+**performance** | [**PerformanceStats**](PerformanceStats.md) |  | [optional] 
+**risks** | [**RiskStats**](RiskStats.md) |  | [optional] 
 **dates** | **[date]** |  | [optional] 
 **returns** | [**RollingSeriesPerTimeWindowReturns**](RollingSeriesPerTimeWindowReturns.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetPrices.sln
 LICENSE
 README.md
-appveyor.yml
 docs/Adjust.md
 docs/Batch.md
 docs/BatchDataRequest.md
@@ -66,7 +64,6 @@ docs/Splits.md
 docs/SplitsApi.md
 docs/SplitsRequest.md
 docs/SplitsResponse.md
-git_push.sh
 src/FactSet.SDK.FactSetPrices/Api/BatchProcessingApi.cs
 src/FactSet.SDK.FactSetPrices/Api/DatabaseRolloverApi.cs
 src/FactSet.SDK.FactSetPrices/Api/DividendsApi.cs

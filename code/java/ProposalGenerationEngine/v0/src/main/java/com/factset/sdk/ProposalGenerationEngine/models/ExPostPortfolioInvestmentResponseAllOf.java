@@ -59,7 +59,7 @@ public class ExPostPortfolioInvestmentResponseAllOf implements Serializable {
   private Object udfs;
 
   public static final String JSON_PROPERTY_PERIODS = "periods";
-  private ExPostPeriodStats periods;
+  private java.util.List<ExPostPeriodStats> periods = null;
 
   public static final String JSON_PROPERTY_BACKFILL_DATA = "backfillData";
   private java.util.Map<String, BackfillData> backfillData = null;
@@ -145,8 +145,16 @@ public class ExPostPortfolioInvestmentResponseAllOf implements Serializable {
   }
 
 
-  public ExPostPortfolioInvestmentResponseAllOf periods(ExPostPeriodStats periods) {
+  public ExPostPortfolioInvestmentResponseAllOf periods(java.util.List<ExPostPeriodStats> periods) {
     this.periods = periods;
+    return this;
+  }
+
+  public ExPostPortfolioInvestmentResponseAllOf addPeriodsItem(ExPostPeriodStats periodsItem) {
+    if (this.periods == null) {
+      this.periods = new java.util.ArrayList<>();
+    }
+    this.periods.add(periodsItem);
     return this;
   }
 
@@ -159,14 +167,14 @@ public class ExPostPortfolioInvestmentResponseAllOf implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ExPostPeriodStats getPeriods() {
+  public java.util.List<ExPostPeriodStats> getPeriods() {
     return periods;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriods(ExPostPeriodStats periods) {
+  public void setPeriods(java.util.List<ExPostPeriodStats> periods) {
     this.periods = periods;
   }
 

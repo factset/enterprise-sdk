@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CursorBasedPaginationOutputObjectWithoutTotal.md
@@ -86,7 +84,6 @@ docs/PostVendorChartIQTimeSeriesIntradaySubsampleListRequestDataRange.md
 docs/PricesApi.md
 docs/StatusObject.md
 docs/VendorApi.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

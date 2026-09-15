@@ -1,16 +1,13 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.FactSetFundamentalsReportBuilder.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ErrorObject.md
 docs/ErrorObjectLinks.md
 docs/ErrorObjectSource.md
 docs/ErrorResponse.md
 docs/FinancialsApi.md
 docs/Response.md
-git_push.sh
 src/FactSet.SDK.FactSetFundamentalsReportBuilder/Api/FinancialsApi.cs
 src/FactSet.SDK.FactSetFundamentalsReportBuilder/Client/ApiClient.cs
 src/FactSet.SDK.FactSetFundamentalsReportBuilder/Client/ApiException.cs

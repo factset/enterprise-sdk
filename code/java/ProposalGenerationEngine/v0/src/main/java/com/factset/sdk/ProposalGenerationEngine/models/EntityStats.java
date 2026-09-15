@@ -23,6 +23,8 @@ import com.factset.sdk.ProposalGenerationEngine.models.PerformanceStats;
 import com.factset.sdk.ProposalGenerationEngine.models.RelativeRiskStats;
 import com.factset.sdk.ProposalGenerationEngine.models.ReturnStats;
 import com.factset.sdk.ProposalGenerationEngine.models.RiskStats;
+import com.factset.sdk.ProposalGenerationEngine.models.TransactionStats;
+import com.factset.sdk.ProposalGenerationEngine.models.ValueStats;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -30,6 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.factset.sdk.ProposalGenerationEngine.JSON;
@@ -45,7 +48,10 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
   EntityStats.JSON_PROPERTY_RELATIVE_RISK,
   EntityStats.JSON_PROPERTY_PERFORMANCE,
   EntityStats.JSON_PROPERTY_DRAWDOWN,
-  EntityStats.JSON_PROPERTY_BOXPLOT
+  EntityStats.JSON_PROPERTY_BOXPLOT,
+  EntityStats.JSON_PROPERTY_TRANSACTIONS,
+  EntityStats.JSON_PROPERTY_ENDING_WEIGHT,
+  EntityStats.JSON_PROPERTY_VALUES
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -69,6 +75,15 @@ public class EntityStats implements Serializable {
 
   public static final String JSON_PROPERTY_BOXPLOT = "boxplot";
   private Boxplot boxplot;
+
+  public static final String JSON_PROPERTY_TRANSACTIONS = "transactions";
+  private TransactionStats transactions;
+
+  public static final String JSON_PROPERTY_ENDING_WEIGHT = "endingWeight";
+  private BigDecimal endingWeight;
+
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private ValueStats values;
 
   public EntityStats() { 
   }
@@ -229,6 +244,84 @@ public class EntityStats implements Serializable {
   }
 
 
+  public EntityStats transactions(TransactionStats transactions) {
+    this.transactions = transactions;
+    return this;
+  }
+
+   /**
+   * Get transactions
+   * @return transactions
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TransactionStats getTransactions() {
+    return transactions;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRANSACTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactions(TransactionStats transactions) {
+    this.transactions = transactions;
+  }
+
+
+  public EntityStats endingWeight(BigDecimal endingWeight) {
+    this.endingWeight = endingWeight;
+    return this;
+  }
+
+   /**
+   * Get endingWeight
+   * @return endingWeight
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ENDING_WEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getEndingWeight() {
+    return endingWeight;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENDING_WEIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEndingWeight(BigDecimal endingWeight) {
+    this.endingWeight = endingWeight;
+  }
+
+
+  public EntityStats values(ValueStats values) {
+    this.values = values;
+    return this;
+  }
+
+   /**
+   * Get values
+   * @return values
+  **/
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public ValueStats getValues() {
+    return values;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValues(ValueStats values) {
+    this.values = values;
+  }
+
+
   /**
    * Return true if this EntityStats object is equal to o.
    */
@@ -246,12 +339,15 @@ public class EntityStats implements Serializable {
         Objects.equals(this.relativeRisk, entityStats.relativeRisk) &&
         Objects.equals(this.performance, entityStats.performance) &&
         Objects.equals(this.drawdown, entityStats.drawdown) &&
-        Objects.equals(this.boxplot, entityStats.boxplot);
+        Objects.equals(this.boxplot, entityStats.boxplot) &&
+        Objects.equals(this.transactions, entityStats.transactions) &&
+        Objects.equals(this.endingWeight, entityStats.endingWeight) &&
+        Objects.equals(this.values, entityStats.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(risks, returns, relativeRisk, performance, drawdown, boxplot);
+    return Objects.hash(risks, returns, relativeRisk, performance, drawdown, boxplot, transactions, endingWeight, values);
   }
 
   @Override
@@ -264,6 +360,9 @@ public class EntityStats implements Serializable {
     sb.append("    performance: ").append(toIndentedString(performance)).append("\n");
     sb.append("    drawdown: ").append(toIndentedString(drawdown)).append("\n");
     sb.append("    boxplot: ").append(toIndentedString(boxplot)).append("\n");
+    sb.append("    transactions: ").append(toIndentedString(transactions)).append("\n");
+    sb.append("    endingWeight: ").append(toIndentedString(endingWeight)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -12,7 +10,6 @@ docs/ErrorObjectSource.md
 docs/ErrorResponse.md
 docs/EstimateTablesApi.md
 docs/Response.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties

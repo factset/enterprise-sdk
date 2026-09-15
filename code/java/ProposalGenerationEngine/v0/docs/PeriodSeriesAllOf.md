@@ -7,7 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**series** | [**SerieStats**](SerieStats.md) |  |  [optional]
+**series** | [**SeriesStats**](SeriesStats.md) |  |  [optional]
 
 
 ## Implemented Interfaces

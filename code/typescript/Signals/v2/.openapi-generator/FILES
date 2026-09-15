@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Contract.md
@@ -41,7 +39,6 @@ docs/SignalDefinition.md
 docs/SignalDefinitionData.md
 docs/SignalMetaData.md
 docs/SignalMetaDataData.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

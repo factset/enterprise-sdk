@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CursorBasedPaginationOutputObject.md
@@ -136,7 +134,6 @@ docs/OffsetBasedPaginationOutputObject.md
 docs/OffsetBasedPaginationOutputObjectWithoutTotal.md
 docs/PartialOutputObject.md
 docs/StatusObject.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

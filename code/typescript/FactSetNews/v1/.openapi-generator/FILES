@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/CreateOrEditViewBody.md
@@ -82,7 +80,6 @@ docs/StructuredFiltersWatchlistsObject.md
 docs/Views.md
 docs/ViewsApi.md
 docs/ViewsObject.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

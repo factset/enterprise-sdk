@@ -35,13 +35,21 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DatedCorrelationStats" /> class.
         /// </summary>
+        /// <param name="currency">currency.</param>
         /// <param name="timeWindow">a map from time window to correlation stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request.</param>
         /// <param name="periods">periods.</param>
-        public DatedCorrelationStats(Dictionary<string, DatedCorrelationStatsPerTimeWindow> timeWindow = default(Dictionary<string, DatedCorrelationStatsPerTimeWindow>), List<PeriodCorrelationStats> periods = default(List<PeriodCorrelationStats>))
+        public DatedCorrelationStats(string currency = default(string), Dictionary<string, DatedCorrelationStatsPerTimeWindow> timeWindow = default(Dictionary<string, DatedCorrelationStatsPerTimeWindow>), List<PeriodCorrelationStats> periods = default(List<PeriodCorrelationStats>))
         {
+            this.Currency = currency;
             this.TimeWindow = timeWindow;
             this.Periods = periods;
         }
+
+        /// <summary>
+        /// Gets or Sets Currency
+        /// </summary>
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public string Currency { get; set; }
 
         /// <summary>
         /// a map from time window to correlation stats. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request
@@ -64,6 +72,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class DatedCorrelationStats {\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  TimeWindow: ").Append(TimeWindow).Append("\n");
             sb.Append("  Periods: ").Append(Periods).Append("\n");
             sb.Append("}\n");
@@ -102,6 +111,11 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             }
             return 
                 (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
                     this.TimeWindow == input.TimeWindow ||
                     this.TimeWindow != null &&
                     input.TimeWindow != null &&
@@ -124,6 +138,10 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
                 if (this.TimeWindow != null)
                 {
                     hashCode = (hashCode * 59) + this.TimeWindow.GetHashCode();

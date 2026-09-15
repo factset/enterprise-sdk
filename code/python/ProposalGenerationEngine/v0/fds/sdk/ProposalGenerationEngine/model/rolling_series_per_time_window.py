@@ -31,7 +31,13 @@ from fds.sdk.ProposalGenerationEngine.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from fds.sdk.ProposalGenerationEngine.model.correlation_stats import CorrelationStats
+    from fds.sdk.ProposalGenerationEngine.model.performance_stats import PerformanceStats
+    from fds.sdk.ProposalGenerationEngine.model.risk_stats import RiskStats
     from fds.sdk.ProposalGenerationEngine.model.rolling_series_per_time_window_returns import RollingSeriesPerTimeWindowReturns
+    globals()['CorrelationStats'] = CorrelationStats
+    globals()['PerformanceStats'] = PerformanceStats
+    globals()['RiskStats'] = RiskStats
     globals()['RollingSeriesPerTimeWindowReturns'] = RollingSeriesPerTimeWindowReturns
 
 
@@ -88,6 +94,9 @@ class RollingSeriesPerTimeWindow(ModelNormal):
         """
         lazy_import()
         return {
+            'correlations': (CorrelationStats,),  # noqa: E501
+            'performance': (PerformanceStats,),  # noqa: E501
+            'risks': (RiskStats,),  # noqa: E501
             'dates': ([date],),  # noqa: E501
             'returns': (RollingSeriesPerTimeWindowReturns,),  # noqa: E501
         }
@@ -98,6 +107,9 @@ class RollingSeriesPerTimeWindow(ModelNormal):
 
 
     attribute_map = {
+        'correlations': 'correlations',  # noqa: E501
+        'performance': 'performance',  # noqa: E501
+        'risks': 'risks',  # noqa: E501
         'dates': 'dates',  # noqa: E501
         'returns': 'returns',  # noqa: E501
     }
@@ -143,6 +155,9 @@ class RollingSeriesPerTimeWindow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            correlations (CorrelationStats): [optional]  # noqa: E501
+            performance (PerformanceStats): [optional]  # noqa: E501
+            risks (RiskStats): [optional]  # noqa: E501
             dates ([date]): [optional]  # noqa: E501
             returns (RollingSeriesPerTimeWindowReturns): [optional]  # noqa: E501
         """
@@ -226,6 +241,9 @@ class RollingSeriesPerTimeWindow(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            correlations (CorrelationStats): [optional]  # noqa: E501
+            performance (PerformanceStats): [optional]  # noqa: E501
+            risks (RiskStats): [optional]  # noqa: E501
             dates ([date]): [optional]  # noqa: E501
             returns (RollingSeriesPerTimeWindowReturns): [optional]  # noqa: E501
         """

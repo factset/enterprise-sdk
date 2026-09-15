@@ -88,6 +88,8 @@ class TimeWindowSeries(ModelNormal):
         """
         lazy_import()
         return {
+            'currency': (str,),  # noqa: E501
+            'as_of_date': (str,),  # noqa: E501
             'time_window': ({str: (SeriesStats,)},),  # noqa: E501
         }
 
@@ -97,6 +99,8 @@ class TimeWindowSeries(ModelNormal):
 
 
     attribute_map = {
+        'currency': 'currency',  # noqa: E501
+        'as_of_date': 'asOfDate',  # noqa: E501
         'time_window': 'timeWindow',  # noqa: E501
     }
 
@@ -141,6 +145,8 @@ class TimeWindowSeries(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            currency (str): [optional]  # noqa: E501
+            as_of_date (str): The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client. [optional]  # noqa: E501
             time_window ({str: (SeriesStats,)}): a map from time window to ex-post series. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request. [optional]  # noqa: E501
         """
 
@@ -223,6 +229,8 @@ class TimeWindowSeries(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            currency (str): [optional]  # noqa: E501
+            as_of_date (str): The as-of date for the analysis. The value should be in YYYY-MM-DD format. A special wildcard value 'latestMonthEnd' is supported as well. The as-of date should be among the set of preconfigured as-of dates for the user/client. [optional]  # noqa: E501
             time_window ({str: (SeriesStats,)}): a map from time window to ex-post series. The keys correspond to the time windows, specified in data.settings.timeWindow property in the request. [optional]  # noqa: E501
         """
 

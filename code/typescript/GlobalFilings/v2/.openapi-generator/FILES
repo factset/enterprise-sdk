@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Category.md
@@ -24,7 +22,6 @@ docs/Source.md
 docs/SourceResponse.md
 docs/TimeZone.md
 docs/TimeZoneResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

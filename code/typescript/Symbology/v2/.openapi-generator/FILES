@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/BloombergFIGIApi.md
@@ -46,7 +44,6 @@ docs/TickerHistoryTranslationResponse.md
 docs/TickerTranslation.md
 docs/TickerTranslationRequest.md
 docs/TickerTranslationResponse.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

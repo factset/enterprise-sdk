@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **UrnscimschemasextensionFactSetCore10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetCore10Group**](GroupResourceUrnScimSchemasExtensionFactSetCore10Group.md) |  | [optional] 
 **UrnscimschemasextensionFactSetEnterpriseHosting10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group**](GroupResourceUrnScimSchemasExtensionFactSetEnterpriseHosting10Group.md) |  | [optional] 
 **UrnscimschemasextensionFactSetVRS10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetVRS10Group**](GroupResourceUrnScimSchemasExtensionFactSetVRS10Group.md) |  | [optional] 
+**UrnscimschemasextensionFactSetDesktopApplications10Group** | [**GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group**](GroupResourceUrnScimSchemasExtensionFactSetDesktopApplications10Group.md) |  | [optional] 
 **Meta** | [**GroupResourceMeta**](GroupResourceMeta.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

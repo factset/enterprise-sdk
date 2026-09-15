@@ -37,7 +37,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// </summary>
         /// <param name="series">series.</param>
         /// <param name="periods">periods.</param>
-        public PortfolioWithExPostSeriesAllOf(TimeWindowSeries series = default(TimeWindowSeries), PeriodSeries periods = default(PeriodSeries))
+        public PortfolioWithExPostSeriesAllOf(TimeWindowSeries series = default(TimeWindowSeries), List<PeriodSeries> periods = default(List<PeriodSeries>))
         {
             this.Series = series;
             this.Periods = periods;
@@ -53,7 +53,7 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
         /// Gets or Sets Periods
         /// </summary>
         [DataMember(Name = "periods", EmitDefaultValue = false)]
-        public PeriodSeries Periods { get; set; }
+        public List<PeriodSeries> Periods { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,8 +107,9 @@ namespace FactSet.SDK.ProposalGenerationEngine.Model
                 ) && 
                 (
                     this.Periods == input.Periods ||
-                    (this.Periods != null &&
-                    this.Periods.Equals(input.Periods))
+                    this.Periods != null &&
+                    input.Periods != null &&
+                    this.Periods.SequenceEqual(input.Periods)
                 );
         }
 

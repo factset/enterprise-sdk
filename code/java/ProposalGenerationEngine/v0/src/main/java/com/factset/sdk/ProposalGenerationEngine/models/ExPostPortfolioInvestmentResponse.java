@@ -41,7 +41,6 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
  * ExPostPortfolioInvestmentResponse
  */
 @JsonPropertyOrder({
-  ExPostPortfolioInvestmentResponse.JSON_PROPERTY_ID,
   ExPostPortfolioInvestmentResponse.JSON_PROPERTY_WEIGHT,
   ExPostPortfolioInvestmentResponse.JSON_PROPERTY_SALES_CHARGE,
   ExPostPortfolioInvestmentResponse.JSON_PROPERTY_TRANSACTION_RULES,
@@ -55,9 +54,6 @@ import com.factset.sdk.ProposalGenerationEngine.JSON;
 
 public class ExPostPortfolioInvestmentResponse implements Serializable {
   private static final long serialVersionUID = 1L;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
   public static final String JSON_PROPERTY_WEIGHT = "weight";
   private BigDecimal weight;
@@ -78,49 +74,13 @@ public class ExPostPortfolioInvestmentResponse implements Serializable {
   private Object udfs;
 
   public static final String JSON_PROPERTY_PERIODS = "periods";
-  private ExPostPeriodStats periods;
+  private java.util.List<ExPostPeriodStats> periods = null;
 
   public static final String JSON_PROPERTY_BACKFILL_DATA = "backfillData";
   private java.util.Map<String, BackfillData> backfillData = null;
 
   public ExPostPortfolioInvestmentResponse() { 
   }
-
-  @JsonCreator
-  public ExPostPortfolioInvestmentResponse(
-    @JsonProperty(value=JSON_PROPERTY_ID, required=true) String id, 
-    @JsonProperty(value=JSON_PROPERTY_WEIGHT, required=true) BigDecimal weight
-  ) {
-    this();
-    this.id = id;
-    this.weight = weight;
-  }
-
-  public ExPostPortfolioInvestmentResponse id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * the unique id of the investment - e.g. FactSet id
-   * @return id
-  **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "the unique id of the investment - e.g. FactSet id")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   public ExPostPortfolioInvestmentResponse weight(BigDecimal weight) {
     this.weight = weight;
@@ -131,10 +91,10 @@ public class ExPostPortfolioInvestmentResponse implements Serializable {
    * the weight of the investment in hte portfolio
    * @return weight
   **/
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(example = "1", required = true, value = "the weight of the investment in hte portfolio")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "the weight of the investment in hte portfolio")
   @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public BigDecimal getWeight() {
     return weight;
@@ -142,7 +102,7 @@ public class ExPostPortfolioInvestmentResponse implements Serializable {
 
 
   @JsonProperty(JSON_PROPERTY_WEIGHT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWeight(BigDecimal weight) {
     this.weight = weight;
   }
@@ -286,8 +246,16 @@ public class ExPostPortfolioInvestmentResponse implements Serializable {
   }
 
 
-  public ExPostPortfolioInvestmentResponse periods(ExPostPeriodStats periods) {
+  public ExPostPortfolioInvestmentResponse periods(java.util.List<ExPostPeriodStats> periods) {
     this.periods = periods;
+    return this;
+  }
+
+  public ExPostPortfolioInvestmentResponse addPeriodsItem(ExPostPeriodStats periodsItem) {
+    if (this.periods == null) {
+      this.periods = new java.util.ArrayList<>();
+    }
+    this.periods.add(periodsItem);
     return this;
   }
 
@@ -300,14 +268,14 @@ public class ExPostPortfolioInvestmentResponse implements Serializable {
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ExPostPeriodStats getPeriods() {
+  public java.util.List<ExPostPeriodStats> getPeriods() {
     return periods;
   }
 
 
   @JsonProperty(JSON_PROPERTY_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriods(ExPostPeriodStats periods) {
+  public void setPeriods(java.util.List<ExPostPeriodStats> periods) {
     this.periods = periods;
   }
 
@@ -358,8 +326,7 @@ public class ExPostPortfolioInvestmentResponse implements Serializable {
       return false;
     }
     ExPostPortfolioInvestmentResponse exPostPortfolioInvestmentResponse = (ExPostPortfolioInvestmentResponse) o;
-    return Objects.equals(this.id, exPostPortfolioInvestmentResponse.id) &&
-        Objects.equals(this.weight, exPostPortfolioInvestmentResponse.weight) &&
+    return Objects.equals(this.weight, exPostPortfolioInvestmentResponse.weight) &&
         Objects.equals(this.salesCharge, exPostPortfolioInvestmentResponse.salesCharge) &&
         Objects.equals(this.transactionRules, exPostPortfolioInvestmentResponse.transactionRules) &&
         Objects.equals(this.securityDetails, exPostPortfolioInvestmentResponse.securityDetails) &&
@@ -371,14 +338,13 @@ public class ExPostPortfolioInvestmentResponse implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, weight, salesCharge, transactionRules, securityDetails, stats, udfs, periods, backfillData);
+    return Objects.hash(weight, salesCharge, transactionRules, securityDetails, stats, udfs, periods, backfillData);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExPostPortfolioInvestmentResponse {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
     sb.append("    salesCharge: ").append(toIndentedString(salesCharge)).append("\n");
     sb.append("    transactionRules: ").append(toIndentedString(transactionRules)).append("\n");

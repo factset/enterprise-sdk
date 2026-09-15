@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AnnStDev** | **decimal** | Annualized Standard deviation | [optional] 
 **AnnLossStDev** | **decimal** | Annualized Loss Standard deviation | [optional] 
 **Etl** | **Dictionary&lt;string, decimal&gt;** | a map from confidence level (e.g. \&quot;95%\&quot;) to a numeric value | [optional] 
-**StDev** | **decimal** | Standard deviation | [optional] 
+**StDev** | [**StDev**](StDev.md) |  | [optional] 
 **Skewness** | **decimal** | Skewness | [optional] 
 **ExcessKurtosis** | **decimal** | ExcessKurtosis | [optional] 
 **Var** | **Dictionary&lt;string, decimal&gt;** | a map from confidence level (e.g. \&quot;95%\&quot;) to a numeric value | [optional] 

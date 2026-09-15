@@ -1,7 +1,4 @@
-.gitignore
-.gitlab-ci.yml
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/Attachment.md
@@ -52,7 +49,6 @@ fds/sdk/IssueTracker/model_utils.py
 fds/sdk/IssueTracker/models/__init__.py
 fds/sdk/IssueTracker/rest.py
 fds/sdk/__init__.py
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

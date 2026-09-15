@@ -1,9 +1,7 @@
-.gitignore
 .openapi-generator-ignore
 FactSet.SDK.IRNConfiguration.sln
 LICENSE
 README.md
-appveyor.yml
 docs/ApprovalLevelConfigDto.md
 docs/ApprovalProcessConfigDto.md
 docs/AuthorConfigDto.md
@@ -85,7 +83,6 @@ docs/TitleSettingsDto.md
 docs/UpdateCustomSymbolTypeDto.md
 docs/UserConfigDto.md
 docs/UserTeamConfigDto.md
-git_push.sh
 src/FactSet.SDK.IRNConfiguration/Api/ContactsCustomFieldsApi.cs
 src/FactSet.SDK.IRNConfiguration/Api/ContactsPhoneNumberTypesApi.cs
 src/FactSet.SDK.IRNConfiguration/Api/ContactsRelationshipCategoryApi.cs

@@ -1,0 +1,4950 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: |
+    The FactSet Power & Utilities API provides comprehensive global power generation and energy market data. Coverage includes power plant metadata and technical specifications, balancing authority supply and demand, power spot and forward prices, spark spreads, capacity prices, and hourly and monthly plant-level generation and emissions.
+
+    **Note:** Plant metadata and reference/mapping endpoints (Plants, ISO/TSO mapping, zone mapping) reflect current data only — historical or point-in-time values are not retained. The exception is `GET /reference/entity-history`, which provides historical entity and ownership records. Unit-level mapping information (unit names, EIA codes, project grades, and regional mappings) are included in the `/units/details` metadata response.
+
+    **Key Features:**
+    - Global power plant metadata including ownership, location, pipeline connections, and fuel-specific technical specifications (solar, wind, thermal)
+    - Balancing authority-level generation (by fuel type), demand, and net interchange data
+    - Power spot prices, spark spreads, capacity auction clearing prices, and forward power curves
+    - Hourly and monthly plant-level net generation with CO₂, N₂O, and SO₂ emissions data
+    - Reference data for ISO/TSO codes, price zones and hubs, and entity/ownership history
+
+    **Units and abbreviations used throughout this API:**
+    - `MW` — megawatt (unit of instantaneous power capacity)
+    - `MWh` — megawatt-hour (unit of energy; one MW delivered for one hour)
+    - `$/MWh` — US dollars per megawatt-hour (power price unit)
+    - `$/MW-day` — US dollars per megawatt per day (capacity market price unit)
+    - `MMBtu` — million British thermal units (heat input unit)
+    - `Dth` — dekatherm (one million BTU; unit for natural gas interconnection capacity)
+    - `CO₂` — carbon dioxide; reported in metric tons
+    - `SO₂` — sulfur dioxide; reported in metric tons (hourly) or short tons (monthly)
+    - `N₂O` — nitrous oxide; reported in metric tons (hourly) or short tons (monthly)
+    - `BA` — Balancing Authority; a grid operator responsible for balancing generation and load within its area
+    - `ISO/TSO` — Independent System Operator / Transmission System Operator
+    - `EIA` — US Energy Information Administration
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet Power & Utilities API
+  version: 1.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/factset-power-utilities-api
+servers:
+- description: Production
+  url: https://api.factset.com/content/factset-power-utilities/v1
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Global power plant coverage, ownership, geographic location, gas pipeline
+    connections, and fuel-specific technical specifications (solar, wind, thermal/fossil).
+  name: Plants
+- description: Power plant unit metadata and technical details including ownership,
+    pipeline connections, and fuel-specific specifications.
+  name: Units
+- description: Balancing authority-level net generation, electricity demand, and net
+    interchange data. Single `/market-data` endpoint with a `category` discriminator
+    (generation, demand, interchange).
+  name: Market Data
+- description: Power price data including spot power prices, spark spreads, capacity
+    auction clearing prices, and forward power curves.
+  name: Prices
+- description: Plant and unit-level net generation and emissions (CO₂, SO₂, N₂O) at
+    hourly and monthly frequencies.
+  name: Generation & Emissions
+- description: Reference and mapping data for ISO/TSO codes, price zones and hubs,
+    and entity/ownership history.
+  name: Reference
+paths:
+  /plants/ids:
+    get:
+      description: |
+        Returns a paginated list of FactSet power plant asset identifiers matching the specified filter criteria, along with plant name, status, fuel type, and geographic location (nearest city, region, country, continent, and coordinates).
+
+        For unit-level metadata and technical details, see `POST /units/details`. You can provide either plant IDs or unit IDs to `/units/details` to retrieve unit-level data with full mapping information (unit names, EIA codes, grades, regions).
+
+        Reflects current data only; historical or point-in-time values are not retained.
+      operationId: listPlantIds
+      parameters:
+      - description: Filter plants by ISO/TSO market area code (e.g., `"ERCOT"`, `"PJM"`
+          for US ISO/RTOs; other codes for non-US TSOs as coverage expands).
+        example:
+        - ERCOT
+        explode: true
+        in: query
+        name: isoCode
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: Filter plants by country name (e.g., `"United States"`, `"Canada"`,
+          `"United Kingdom"`).
+        example:
+        - United States
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: Filter plants by region (e.g., a US state name such as `"Texas"`,
+          `"Tennessee"`).
+        example:
+        - Texas
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: Filter plants by operational status.
+        example:
+        - Operational
+        explode: true
+        in: query
+        name: plantStatus
+        required: false
+        schema:
+          items:
+            enum:
+            - Operational
+            - Planned
+            - Retired
+            - Cancelled
+            type: string
+          minItems: 1
+          type: array
+        style: form
+      - description: Filter results to the specified FactSet plant asset identifiers.
+          If omitted, all plants matching other filter criteria are returned.
+        example:
+        - B00121-M
+        explode: true
+        in: query
+        name: plantIds
+        required: false
+        schema:
+          items:
+            type: string
+          maxItems: 50
+          minItems: 1
+          type: array
+        style: form
+      - description: Filter plants by minimum nameplate capacity in megawatts (MW),
+          inclusive. Returns plants with capacity greater than or equal to this value.
+        example: 100
+        explode: true
+        in: query
+        name: minCapacityMw
+        required: false
+        schema:
+          minimum: 0
+          type: number
+        style: form
+      - description: Filter plants by maximum nameplate capacity in megawatts (MW),
+          inclusive. Returns plants with capacity less than or equal to this value.
+        example: 5000
+        explode: true
+        in: query
+        name: maxCapacityMw
+        required: false
+        schema:
+          minimum: 0
+          type: number
+        style: form
+      - description: Maximum number of results to return per request.
+        explode: false
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of results to skip. Use with `_paginationLimit` for paging
+          through large result sets.
+        explode: false
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Plant IDs Response:
+                  $ref: '#/components/examples/PlantIdsResponseExample'
+              schema:
+                $ref: '#/components/schemas/PlantIdsResponse'
+          description: Successful response with a list of plant identifiers
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns discoverable power plant IDs
+      tags:
+      - Plants
+      x-accepts: application/json
+  /units/details:
+    post:
+      description: |
+        Returns metadata and technical detail data for one of five categories, selected via the `category` discriminator in the request body:
+
+        * **`Metadata`** — General plant metadata: plant name, ISO/TSO assignment, primary fuel type, nameplate capacity, operational status, owner details, and key lifecycle dates.
+        * **`Pipeline`** — Gas pipeline connections: pipeline name and pipeline sequence (for units supplied by more than one pipeline).
+        * **`Solar`** — Solar-specific technical specifications: installed capacity (DC), array/tracking type, tilt and azimuth angle, thin-film flag, and land area.
+        * **`Wind`** — Wind turbine technical specifications: turbine count, model, manufacturer, hub height, and rotor swept area.
+        * **`Thermal`** — Thermal/fossil technical specifications: design heat rate.
+
+        For unit ownership details, use `POST /units/ownership`.
+
+        This endpoint operates at the unit level, matching the underlying source data.
+
+        Reflects current data only; historical or point-in-time values are not retained.
+
+        **Input flexibility:** You can provide either plant IDs or unit IDs. When you provide a plant ID, all units within that plant are returned. Unit names, parent plant IDs, EIA codes, project grades, and regional mappings are included in the metadata response.
+      operationId: listPlantUnits
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Metadata Request:
+                $ref: '#/components/examples/PlantMetadataRequestExample'
+              Pipeline Request:
+                $ref: '#/components/examples/PlantPipelineRequestExample'
+              Solar Request:
+                $ref: '#/components/examples/PlantSolarRequestExample'
+              Wind Request:
+                $ref: '#/components/examples/PlantWindRequestExample'
+              Thermal Request:
+                $ref: '#/components/examples/PlantThermalRequestExample'
+            schema:
+              $ref: '#/components/schemas/PlantUnitsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Metadata Response:
+                  $ref: '#/components/examples/PlantMetadataResponseExample'
+                Pipeline Response:
+                  $ref: '#/components/examples/PlantPipelineResponseExample'
+                Solar Response:
+                  $ref: '#/components/examples/PlantSolarResponseExample'
+                Wind Response:
+                  $ref: '#/components/examples/PlantWindResponseExample'
+                Thermal Response:
+                  $ref: '#/components/examples/PlantThermalResponseExample'
+              schema:
+                $ref: '#/components/schemas/PlantUnitsResponse'
+          description: Successful response. Record shape matches the requested `category`.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type — the request body was not JSON or the
+            Content-Type header was missing.
+        "422":
+          content:
+            application/json:
+              examples:
+                Unprocessable Entity:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity — the request was syntactically valid
+            but semantically incorrect (e.g., invalid date range).
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns power plant unit metadata and technical details
+      tags:
+      - Units
+      x-factset-sdk-main-example: true
+      x-contentType: application/json
+      x-accepts: application/json
+  /units/ownership:
+    post:
+      description: |
+        Returns ownership records for the specified unit IDs, including owner name, FactSet entity ID, ownership percentage, ultimate parent entity, and the plant ID for each unit.
+
+        This endpoint is a convenience endpoint that returns ownership data with the plant ID included. For other unit detail categories (metadata, pipeline, solar, wind, thermal), use `POST /units/details`.
+
+        Reflects current data only; historical or point-in-time values are not retained.
+      operationId: listUnitsOwnership
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Ownership Request:
+                $ref: '#/components/examples/UnitsOwnershipRequestExample'
+            schema:
+              $ref: '#/components/schemas/UnitsOwnershipRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Ownership Response:
+                  $ref: '#/components/examples/UnitsOwnershipResponseExample'
+              schema:
+                $ref: '#/components/schemas/UnitsOwnershipResponse'
+          description: Successful response with unit ownership records.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type — the request body was not JSON or the
+            Content-Type header was missing.
+        "422":
+          content:
+            application/json:
+              examples:
+                Unprocessable Entity:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity — the request was syntactically valid
+            but semantically incorrect (e.g., invalid date range).
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns power plant unit ownership details
+      tags:
+      - Units
+      x-contentType: application/json
+      x-accepts: application/json
+  /market-data/coverage:
+    get:
+      description: |
+        Returns the full list of balancing authority (BA) sub-regions available in the market data endpoints. Use the returned `factsetBaId` values as input for the `Generation` category, or `factsetBaSubRegId` values for the `Demand` and `Interchange` categories, of `POST /market-data`.
+      operationId: listMarketDataCoverage
+      parameters:
+      - description: Filter by country name.
+        example: United States
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Maximum number of results to return per request.
+        explode: false
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of results to skip.
+        explode: false
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Market Data Coverage Response:
+                  $ref: '#/components/examples/MarketDataCoverageResponseExample'
+              schema:
+                $ref: '#/components/schemas/MarketDataCoverageResponse'
+          description: Successful response with balancing authority coverage list
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns balancing authority coverage
+      tags:
+      - Market Data
+      x-accepts: application/json
+  /market-data:
+    post:
+      description: |
+        Returns balancing authority time-series data for one of three categories, selected via the `category` discriminator in the request body:
+
+        * **`Generation`** — Hourly net generation in MW by fuel type for the specified balancing authorities (`factsetBaId`) and date range.
+        * **`Demand`** — Hourly electricity demand (load) in MW for the specified balancing authority sub-regions (`factsetBaSubRegId`).
+        * **`Interchange`** — Hourly net interchange in MW between a reporting BA sub-region and its counterpart sub-regions. Positive values indicate net exports; negative values indicate net imports.
+      operationId: listMarketData
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Generation Request:
+                $ref: '#/components/examples/MarketDataGenerationRequestExample'
+              Demand Request:
+                $ref: '#/components/examples/MarketDataDemandRequestExample'
+            schema:
+              $ref: '#/components/schemas/MarketDataRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Generation Response:
+                  $ref: '#/components/examples/MarketDataGenerationResponseExample'
+                Demand Response:
+                  $ref: '#/components/examples/MarketDataDemandResponseExample'
+              schema:
+                $ref: '#/components/schemas/MarketDataResponse'
+          description: Successful response. Record shape matches the requested `category`.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type — the request body was not JSON or the
+            Content-Type header was missing.
+        "422":
+          content:
+            application/json:
+              examples:
+                Unprocessable Entity:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity — the request was syntactically valid
+            but semantically incorrect (e.g., invalid date range).
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns balancing authority generation, demand, or interchange
+      tags:
+      - Market Data
+      x-contentType: application/json
+      x-accepts: application/json
+  /prices:
+    post:
+      description: |
+        Returns power market price data for one of four categories, selected via the `category` discriminator in the request body:
+
+        * **`Power`** — Daily spot power prices in $/MWh at major hubs and zones. Includes on-peak, off-peak, and around-the-clock prices.
+        * **`SparkSpread`** — Natural gas spark spreads in $/MWh at four fixed assumed heat rates (7,000 / 8,000 / 10,000 / 12,000 MMBtu/MWh), representing the difference between the power price and the cost of gas needed to generate one MWh.
+        * **`Capacity`** — Capacity auction clearing prices in $/MW-day from ISO/RTO forward capacity markets. Includes delivery year and auction type.
+        * **`Forward`** — Forward power price curves in $/MWh for future delivery months, reported as a rolling 3-day average. Includes on-peak, off-peak, and around-the-clock products.
+
+        Use `GET /reference/location-mapping` to discover valid `ids` for the `Power`, `SparkSpread`, and `Forward` categories, or `GET /reference/zone-mapping` for the `Capacity` category.
+      operationId: listPrices
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Power Prices Request:
+                $ref: '#/components/examples/PowerPricesRequestExample'
+              Spark Spread Request:
+                $ref: '#/components/examples/SparkSpreadRequestExample'
+              Capacity Prices Request:
+                $ref: '#/components/examples/CapacityPricesRequestExample'
+              Forward Prices Request:
+                $ref: '#/components/examples/ForwardPricesRequestExample'
+            schema:
+              $ref: '#/components/schemas/PricesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Power Prices Response:
+                  $ref: '#/components/examples/PowerPricesResponseExample'
+                Spark Spread Response:
+                  $ref: '#/components/examples/SparkSpreadResponseExample'
+                Capacity Prices Response:
+                  $ref: '#/components/examples/CapacityPricesResponseExample'
+                Forward Prices Response:
+                  $ref: '#/components/examples/ForwardPricesResponseExample'
+              schema:
+                $ref: '#/components/schemas/PricesResponse'
+          description: Successful response. Record shape matches the requested `category`.
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type — the request body was not JSON or the
+            Content-Type header was missing.
+        "422":
+          content:
+            application/json:
+              examples:
+                Unprocessable Entity:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity — the request was syntactically valid
+            but semantically incorrect (e.g., invalid date range).
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns power spot prices, spark spreads, capacity prices, or forward
+        prices
+      tags:
+      - Prices
+      x-contentType: application/json
+      x-accepts: application/json
+  /generation/hourly/units:
+    post:
+      description: |
+        Returns hourly net generation and emissions for the requested power plant units over the specified date range. Each record provides net generation in MWh and reported emissions of CO₂, SO₂, and N₂O (nitrous oxide) in metric tons, along with heat input in MMBtu and steam generation.
+
+        This endpoint operates at the unit level, matching the underlying source data.
+      operationId: listHourlyGenerationUnits
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Hourly Generation Request:
+                $ref: '#/components/examples/HourlyGenerationRequestExample'
+            schema:
+              $ref: '#/components/schemas/HourlyGenerationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Hourly Generation Response:
+                  $ref: '#/components/examples/HourlyGenerationResponseExample'
+              schema:
+                $ref: '#/components/schemas/HourlyGenerationResponse'
+          description: Successful response with hourly generation and emissions
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type — the request body was not JSON or the
+            Content-Type header was missing.
+        "422":
+          content:
+            application/json:
+              examples:
+                Unprocessable Entity:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity — the request was syntactically valid
+            but semantically incorrect (e.g., invalid date range).
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns hourly plant unit generation and emissions
+      tags:
+      - Generation & Emissions
+      x-contentType: application/json
+      x-accepts: application/json
+  /generation/monthly:
+    post:
+      description: |
+        Returns monthly net generation and emissions for the requested power plants over the specified date range. Each record provides net generation in MWh, plant/fuel-type capacity and capacity factor, and total emissions of CO₂ (metric tons), SO₂ (short tons), and N₂O (nitrous oxide, short tons), along with heat input in MMBtu and a CO₂ intensity measure.
+      operationId: listMonthlyGeneration
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Monthly Generation Request:
+                $ref: '#/components/examples/MonthlyGenerationRequestExample'
+            schema:
+              $ref: '#/components/schemas/MonthlyGenerationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Monthly Generation Response:
+                  $ref: '#/components/examples/MonthlyGenerationResponseExample'
+              schema:
+                $ref: '#/components/schemas/MonthlyGenerationResponse'
+          description: Successful response with monthly generation and emissions
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type — the request body was not JSON or the
+            Content-Type header was missing.
+        "422":
+          content:
+            application/json:
+              examples:
+                Unprocessable Entity:
+                  $ref: '#/components/examples/unprocessableEntity'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unprocessable Entity — the request was syntactically valid
+            but semantically incorrect (e.g., invalid date range).
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns monthly plant generation and emissions
+      tags:
+      - Generation & Emissions
+      x-contentType: application/json
+      x-accepts: application/json
+  /reference/iso-mapping:
+    get:
+      description: |
+        Returns the complete list of ISO/TSO codes and their corresponding names.
+
+        **Helpful for:** Use this endpoint to understand available ISO/TSO codes for filtering in `GET /plants/ids` (via the `isoCode` parameter) and `GET /market-data/coverage`.
+
+        Reflects current data only; historical or point-in-time values are not retained.
+      operationId: listIsoMapping
+      parameters:
+      - description: Maximum number of results to return per request.
+        explode: false
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of results to skip.
+        explode: false
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                ISO Mapping Response:
+                  $ref: '#/components/examples/IsoMappingResponseExample'
+              schema:
+                $ref: '#/components/schemas/IsoMappingResponse'
+          description: Successful response with ISO/TSO mapping records
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns ISO/TSO mapping data
+      tags:
+      - Reference
+      x-accepts: application/json
+  /reference/zone-mapping:
+    get:
+      description: |
+        Returns the list of ISO/TSO load distribution area and zone codes used by `POST /prices?category=Capacity`, with their names, price units, and auction frequency. Use the returned `locationId` values as input to that endpoint.
+
+        Note: these `iso_zone_code` identifiers are a distinct code space from the `iso_loc_code` identifiers used by `POST /prices` for the `Power`, `SparkSpread`, and `Forward` categories.
+
+        Reflects current data only; historical or point-in-time values are not retained.
+      operationId: listZoneMapping
+      parameters:
+      - description: Filter locations by ISO/TSO market.
+        example: PJM
+        explode: true
+        in: query
+        name: isoCode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Maximum number of results to return per request.
+        explode: false
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of results to skip.
+        explode: false
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Zone Mapping Response:
+                  $ref: '#/components/examples/ZoneMappingResponseExample'
+              schema:
+                $ref: '#/components/schemas/ZoneMappingResponse'
+          description: Successful response with zone and hub mapping records
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns price zone and hub mapping data
+      tags:
+      - Reference
+      x-accepts: application/json
+  /reference/location-mapping:
+    get:
+      description: |
+        Returns the list of ISO/TSO power price location codes (hub codes) used by `POST /prices` for the `Power`, `SparkSpread`, and `Forward` categories, with their names. Use the returned `locationId` values as input to those endpoints.
+
+        Note: these `iso_loc_code` identifiers are a distinct code space from the `iso_zone_code` identifiers used by `POST /prices?category=Capacity` — see `GET /reference/zone-mapping` for those.
+
+        Reflects current data only; historical or point-in-time values are not retained.
+      operationId: listLocationMapping
+      parameters:
+      - description: Filter locations by ISO/TSO market.
+        example: ERCOT
+        explode: true
+        in: query
+        name: isoCode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Maximum number of results to return per request.
+        explode: false
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of results to skip.
+        explode: false
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Location Mapping Response:
+                  $ref: '#/components/examples/LocationMappingResponseExample'
+              schema:
+                $ref: '#/components/schemas/LocationMappingResponse'
+          description: Successful response with power price location mapping records
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns power price location mapping data
+      tags:
+      - Reference
+      x-accepts: application/json
+  /reference/entity-history:
+    get:
+      description: |
+        Returns entity and security history records combining security-to-entity identifier mappings and entity ownership structure history, including immediate and ultimate parent entities.
+
+        **Helpful for:** Understanding entity relationships and parent-subsidiary structures related to plant ownership data returned by `POST /units/ownership`.
+      operationId: listEntityHistory
+      parameters:
+      - description: Filter records by a specific FactSet entity identifier (e.g.,
+          `"0GSF7D-E"`).
+        example: 0GSF7D-E
+        explode: true
+        in: query
+        name: factsetEntityId
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Maximum number of results to return per request.
+        explode: false
+        in: query
+        name: _paginationLimit
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        style: form
+      - description: Number of results to skip.
+        explode: false
+        in: query
+        name: _paginationOffset
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Entity History Response:
+                  $ref: '#/components/examples/EntityHistoryResponseExample'
+              schema:
+                $ref: '#/components/schemas/EntityHistoryResponse'
+          description: Successful response with entity history records
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request — the request was malformed or a required parameter
+            was missing.
+        "401":
+          content:
+            application/json:
+              examples:
+                Unauthenticated:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated — no valid credentials were provided.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden — the credentials provided do not have access to
+            this resource.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found — the requested resource was not found.
+        "429":
+          content:
+            application/json:
+              examples:
+                Too Many Requests:
+                  $ref: '#/components/examples/tooManyRequests'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Too Many Requests — the rate limit for this endpoint has been
+            exceeded.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error:
+                  $ref: '#/components/examples/internalServerError'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error — an unexpected error occurred on the
+            server.
+        "503":
+          content:
+            application/json:
+              examples:
+                Service Unavailable:
+                  $ref: '#/components/examples/serviceUnavailable'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable — the service is temporarily unavailable.
+      summary: Returns entity and security history records
+      tags:
+      - Reference
+      x-accepts: application/json
+components:
+  examples:
+    badRequestRequiredParameter:
+      summary: Bad Request — required parameter missing
+      value:
+        errors:
+        - id: adb01824-252f-4420-b0c6-35a1e3507ef5
+          code: requestBodyInvalid
+          title: Bad Request
+          detail: The field 'data.ids' is required and may not be empty.
+          links:
+            pointer: /data/ids
+    unauthenticated:
+      summary: Unauthenticated
+      value:
+        errors:
+        - id: b1c2d3e4-f5a6-7890-abcd-ef1234567890
+          code: notAuthenticated
+          title: Unauthenticated
+          detail: No valid credentials were provided. Provide a valid API key or OAuth2
+            token.
+    forbidden:
+      summary: Forbidden
+      value:
+        errors:
+        - id: c2d3e4f5-a6b7-8901-bcde-f12345678901
+          code: notAuthorized
+          title: Forbidden
+          detail: Your account does not have access to this resource. Contact your
+            FactSet account representative.
+    notFound:
+      summary: Not Found
+      value:
+        errors:
+        - id: d3e4f5a6-b7c8-9012-cdef-012345678901
+          code: notFound
+          title: Not Found
+          detail: The requested resource was not found.
+    unsupportedMediaType:
+      summary: Unsupported Media Type
+      value:
+        errors:
+        - id: e4f5a6b7-c8d9-0123-defa-123456789012
+          code: requestBodyInvalid
+          title: Unsupported Media Type
+          detail: The Content-Type header must be 'application/json'.
+    unprocessableEntity:
+      summary: Unprocessable Entity — invalid date range
+      value:
+        errors:
+        - id: f5a6b7c8-d9e0-1234-efab-234567890123
+          code: parameterError
+          title: Unprocessable Entity
+          detail: The 'startDate' must be on or before 'endDate'.
+          links:
+            pointer: /data/startDate
+    tooManyRequests:
+      summary: Too Many Requests
+      value:
+        errors:
+        - id: a6b7c8d9-e0f1-2345-fabc-345678901234
+          code: quantityLimitsExceeded
+          title: Too Many Requests
+          detail: The rate limit for this endpoint has been exceeded. Please reduce
+            your request frequency and try again.
+    internalServerError:
+      summary: Internal Server Error
+      value:
+        errors:
+        - id: b7c8d9e0-f1a2-3456-abcd-456789012345
+          code: internalServerError
+          title: Internal Server Error
+          detail: An unexpected error occurred. Please try again. If the problem persists,
+            contact FactSet support.
+    serviceUnavailable:
+      summary: Service Unavailable
+      value:
+        errors:
+        - id: c8d9e0f1-a2b3-4567-bcde-567890123456
+          code: serviceTemporarilyUnavailable
+          title: Service Unavailable
+          detail: The service is temporarily unavailable. Please try again shortly.
+    PlantMetadataRequestExample:
+      summary: Plant unit metadata request
+      value:
+        data:
+          category: Metadata
+          ids:
+          - 05TXVW-M
+          plantStatus: Operational
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantSolarRequestExample:
+      summary: Solar plant technical specs request
+      value:
+        data:
+          category: Solar
+          ids:
+          - 05RLSM-M
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantPipelineRequestExample:
+      summary: Plant pipeline connection request
+      value:
+        data:
+          category: Pipeline
+          ids:
+          - 05RLSM-M
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantWindRequestExample:
+      summary: Wind plant technical specs request
+      value:
+        data:
+          category: Wind
+          ids:
+          - 05WXYZ-M
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantThermalRequestExample:
+      summary: Thermal plant technical specs request
+      value:
+        data:
+          category: Thermal
+          ids:
+          - 05RLSM-M
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    MarketDataGenerationRequestExample:
+      summary: BA generation request
+      value:
+        data:
+          category: Generation
+          ids:
+          - 05WTSJ-M
+          startDate: 2024-01-01
+          endDate: 2024-01-07
+        meta:
+          pagination:
+            limit: 500
+            offset: 0
+    MarketDataDemandRequestExample:
+      summary: BA demand request
+      value:
+        data:
+          category: Demand
+          ids:
+          - 05WTTF-M
+          startDate: 2024-01-01
+          endDate: 2024-01-07
+        meta:
+          pagination:
+            limit: 500
+            offset: 0
+    PowerPricesRequestExample:
+      summary: Spot power prices request
+      value:
+        data:
+          category: Power
+          ids:
+          - CAISO_AESO
+          startDate: 2024-01-01
+          endDate: 2024-03-31
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    SparkSpreadRequestExample:
+      summary: Spark spread request
+      value:
+        data:
+          category: SparkSpread
+          ids:
+          - CAISO_AESO
+          startDate: 2024-01-01
+          endDate: 2024-03-31
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    CapacityPricesRequestExample:
+      summary: Capacity auction prices request
+      value:
+        data:
+          category: Capacity
+          ids:
+          - PJM_ATSI_BASE
+          deliveryYear: 2024
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    ForwardPricesRequestExample:
+      summary: Forward power prices request
+      value:
+        data:
+          category: Forward
+          ids:
+          - NYISO_NYC
+          startDate: 2024-01-01
+          endDate: 2026-06-30
+          priceType: OnPeak
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    HourlyGenerationRequestExample:
+      summary: Hourly generation and emissions request
+      value:
+        data:
+          ids:
+          - 05RLSM-M
+          - 05TWPS-M
+          startDate: 2024-06-01
+          endDate: 2024-06-07
+        meta:
+          pagination:
+            limit: 500
+            offset: 0
+    MonthlyGenerationRequestExample:
+      summary: Monthly generation and emissions request
+      value:
+        data:
+          ids:
+          - 0000DN-M
+          startDate: 2023-01-01
+          endDate: 2023-12-31
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    PlantIdsResponseExample:
+      summary: Plant IDs discovery response
+      value:
+        data:
+        - factsetPlantId: B00121-M
+          plantName: W.A. Parish Electric Station
+          isoCode: ERCOT
+          primaryFuelType: Gas
+          country: United States
+          region: Texas
+          nearestCity: Thompsons
+          continent: North America
+          latitude: 29.4858
+          longitude: -95.7544
+          latLongPrecision: Exact
+          plantStatus: Operational
+          capacityMw: 2558.1
+        - factsetPlantId: B00987-M
+          plantName: Comanche Peak Nuclear Power Plant
+          isoCode: ERCOT
+          primaryFuelType: Nuclear
+          country: United States
+          region: Texas
+          nearestCity: Glen Rose
+          continent: North America
+          latitude: 32.298
+          longitude: -97.785
+          latLongPrecision: Exact
+          plantStatus: Operational
+          capacityMw: 2400.6
+        meta:
+          pagination:
+            total: 18432
+            isEstimatedTotal: false
+    PlantMetadataResponseExample:
+      summary: Plant unit metadata response
+      value:
+        data:
+        - requestId: 05RLSM-M
+          factsetPlantUnitId: 05RLSM-M
+          category: Metadata
+          factsetPlantId: B00121-M
+          plantName: W.A. Parish Electric Station
+          isoCode: ERCOT
+          country: United States
+          region: Texas
+          primaryFuelType: Gas
+          primaryFuelCode: NG
+          technology: Combined Cycle
+          subTechnology: GT
+          sector: IPP Non-CHP
+          isChp: false
+          plantStatus: Operational
+          capacityMw: 2558.1
+          projectGrade: null
+          hasCcs: false
+          hasDesalination: false
+          isFloating: false
+          ownerName: NRG Energy
+          factsetOwnerEntityId: 0GSF7D-E
+          commissionDate: 1977-06-01
+          retirementDate: null
+          eia860PlantCode: "6242"
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    UnitsOwnershipRequestExample:
+      summary: Unit ownership request
+      value:
+        data:
+          ids:
+          - 05RLSM-M
+        meta:
+          pagination:
+            limit: 100
+            offset: 0
+    UnitsOwnershipResponseExample:
+      summary: Unit ownership response
+      value:
+        data:
+        - requestId: 05RLSM-M
+          factsetPlantUnitId: 05RLSM-M
+          factsetPlantId: 05RLSM
+          ownerName: NRG Energy Inc
+          factsetOwnerId: 0GSF7D-E
+          ownershipPercentage: 99.9
+          factsetUltimateParentEntityId: 000Q07-E
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PlantSolarResponseExample:
+      summary: Solar plant technical specs response
+      value:
+        data:
+        - requestId: 05TWPS-M
+          factsetPlantUnitId: 05TWPS-M
+          category: Solar
+          solarInstalledCapacityMw: 250.1
+          trackingType: Fixed Rack
+          azimuthAngle: 180.1
+          tiltAngleDegrees: 20.1
+          isThinFilm: false
+          acres: 590.1
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds:
+          - 05FAIL-M
+    PlantPipelineResponseExample:
+      summary: Plant pipeline connection response
+      value:
+        data:
+        - requestId: 05RLSM-M
+          factsetPlantUnitId: 05RLSM-M
+          category: Pipeline
+          pipelineName: Intrastate/LDC
+          pipelineSequence: 1
+        - requestId: 05RLSM-M
+          factsetPlantUnitId: 05RLSM-M
+          category: Pipeline
+          pipelineName: Texas Eastern Transmission
+          pipelineSequence: 2
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PlantWindResponseExample:
+      summary: Wind plant technical specs response
+      value:
+        data:
+        - requestId: 05WXYZ-M
+          factsetPlantUnitId: 05WXYZ-M
+          category: Wind
+          turbineCount: 150
+          turbineManufacturer: Vestas Wind Systems A/S
+          factsetManufEntityId: 05HJVH-E
+          turbineModel: V110-2.0 MW
+          hubHeightM: 95.1
+          sweptAreaM2: 9503.32
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PlantThermalResponseExample:
+      summary: Thermal plant technical specs response
+      value:
+        data:
+        - requestId: 05RLSM-M
+          factsetPlantUnitId: 05RLSM-M
+          category: Thermal
+          designHeatRateBtuPerKwh: 6850.1
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    MarketDataCoverageResponseExample:
+      summary: Balancing authority coverage response
+      value:
+        data:
+        - factsetBaSubRegId: 05WTTF-M
+          baSubRegionName: Zones 2 and 7
+          factsetBaId: 05WTSJ-M
+          baName: Midcontinent Independent System Operator, Inc.
+          country: United States
+        - factsetBaSubRegId: 05WTT4-M
+          baSubRegionName: ERCOT Load Zone
+          factsetBaId: 05WWLK-M
+          baName: Electric Reliability Council of Texas, Inc.
+          country: United States
+        meta:
+          pagination:
+            total: 65
+            isEstimatedTotal: false
+    MarketDataGenerationResponseExample:
+      summary: BA generation response
+      value:
+        data:
+        - requestId: 05WTSJ-M
+          factsetBaId: 05WTSJ-M
+          category: Generation
+          reportDate: 2024-01-15
+          reportHour: 14
+          primaryFuelType: Wind
+          generationMw: 5234.7
+        - requestId: 05WTSJ-M
+          factsetBaId: 05WTSJ-M
+          category: Generation
+          reportDate: 2024-01-15
+          reportHour: 15
+          primaryFuelType: Wind
+          generationMw: 5412.1
+        meta:
+          pagination:
+            total: 336
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    MarketDataDemandResponseExample:
+      summary: BA demand response
+      value:
+        data:
+        - requestId: 05WTTF-M
+          factsetBaSubRegId: 05WTTF-M
+          category: Demand
+          reportDate: 2024-01-15
+          reportHour: 14
+          demandMwHr: 48920.1
+        meta:
+          pagination:
+            total: 168
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    PowerPricesResponseExample:
+      summary: Spot power prices response
+      value:
+        data:
+        - category: Power
+          requestId: CAISO_AESO
+          locationId: CAISO_AESO
+          locationName: AESO Generation Aggregation
+          isoCode: CAISO
+          priceDate: 2024-01-01
+          onPeakPriceMwh: 40.978906
+          offPeakPriceMwh: 46.188038
+          aroundTheClockPriceMwh: 42.715283
+        - category: Power
+          requestId: CAISO_AESO
+          locationId: CAISO_AESO
+          locationName: AESO Generation Aggregation
+          isoCode: CAISO
+          priceDate: 2024-01-02
+          onPeakPriceMwh: 48.779813
+          offPeakPriceMwh: 46.318513
+          aroundTheClockPriceMwh: 47.959379
+        meta:
+          pagination:
+            total: 180
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    SparkSpreadResponseExample:
+      summary: Spark spread response
+      value:
+        data:
+        - requestId: CAISO_AESO
+          locationId: CAISO_AESO
+          locationName: AESO
+          isoCode: CAISO
+          category: SparkSpread
+          priceDate: 2024-01-15
+          ngiLocName: NOVA/AECO C
+          sparkSpreadType: Peak
+          sparkSpreadPricesMwh:
+            heatRate7000: 58.93
+            heatRate8000: 56.65
+            heatRate10000: 52.09
+            heatRate12000: 47.54
+        meta:
+          pagination:
+            total: 90
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    CapacityPricesResponseExample:
+      summary: Capacity auction prices response
+      value:
+        data:
+        - requestId: PJM_ATSI_BASE
+          locationId: PJM_ATSI_BASE
+          locationName: AEP Generation Hub
+          isoCode: PJM
+          category: Capacity
+          mnemonic: USCM7861582
+          auctionType: Base Residual Auction
+          auctionDate: 2023-02-27
+          deliveryYear: 2026
+          auctionPriceMw: 28.92
+        meta:
+          pagination:
+            total: 2
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    ForwardPricesResponseExample:
+      summary: Forward power prices response
+      value:
+        data:
+        - requestId: NYISO_NYC
+          locationId: NYISO_NYC
+          locationName: New York City Strip
+          isoCode: NYISO
+          category: Forward
+          priceDate: 2023-03-06
+          deliveryYear: 2024
+          deliveryMonth: 7
+          interconnection: Eastern
+          periodType: Monthly
+          priceType: OnPeak
+          avgForwardPriceMwh: 48.75
+        meta:
+          pagination:
+            total: 36
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
+    HourlyGenerationResponseExample:
+      summary: Hourly generation and emissions response
+      value:
+        data:
+        - requestId: 05RLSM-M
+          factsetPlantUnitId: 05RLSM-M
+          factsetPlantId: B00121-M
+          plantName: W.A. Parish Electric Station
+          reportDate: 2024-06-03
+          reportHour: 14
+          generationMwh: 1248.5
+          heatInputMmBtu: 8563.1
+          steamGen1000Lbs: 124.1
+          co2TonsEmitted: 712.4
+          so2TonsEmitted: 98.2
+          nitrousOxideEmitted: 145.6
+          primaryFuelType: Gas
+        meta:
+          pagination:
+            total: 336
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    MonthlyGenerationResponseExample:
+      summary: Monthly generation and emissions response
+      value:
+        data:
+        - requestId: B00121-M
+          factsetPlantId: B00121-M
+          factsetPlantUnitId: null
+          plantName: W.A. Parish Electric Station
+          reportYear: 2023
+          reportMonth: 6
+          generationMwh: 892450.1
+          heatInputMmBtu: 6118000.1
+          co2TonsEmitted: 508920.1
+          co2IntensityTonsPerMwh: 0.57
+          so2TonsEmitted: 35.8
+          nitrousOxideTonsEmitted: 52.1
+          primaryFuelType: Gas
+          ppFuelCapacityMw: 2410.2
+          ppFuelCapacityFactor: 30.4012
+        meta:
+          pagination:
+            total: 24
+            isEstimatedTotal: false
+          requestedIds: 2
+          failedIds: []
+    IsoMappingResponseExample:
+      summary: ISO/TSO mapping response
+      value:
+        data:
+        - isoCode: ERCOT
+          isoName: Electric Reliability Council of Texas
+        - isoCode: PJM
+          isoName: PJM Interconnection
+        meta:
+          pagination:
+            total: 12
+            isEstimatedTotal: false
+    ZoneMappingResponseExample:
+      summary: Zone mapping response
+      value:
+        data:
+        - locationId: PJM_ATSI_BASE
+          locationName: AEP Generation Hub
+          isoCode: PJM
+          priceUnits: MW/DAY
+          frequency: Monthly
+        - locationId: NYISO_NYC_STRIP
+          locationName: New York City Strip
+          isoCode: NYISO
+          priceUnits: USD/MW-Month
+          frequency: Monthly
+        meta:
+          pagination:
+            total: 8420
+            isEstimatedTotal: false
+    LocationMappingResponseExample:
+      summary: Location mapping response
+      value:
+        data:
+        - locationId: HB_NORTH
+          locationName: Hub North
+          isoCode: ERCOT
+        - locationId: CAISO_AESO
+          locationName: AESO
+          isoCode: CAISO
+        meta:
+          pagination:
+            total: 128
+            isEstimatedTotal: false
+    EntityHistoryResponseExample:
+      summary: Entity history response
+      value:
+        data:
+        - factsetEntityId: 0GSF7D-E
+          factsetSecurityId: null
+          factsetParentEntityId: 000KYG-E
+          factsetUltParentEntityId: 000Q07-E
+          depth: 2
+          startDate: 2003-12-05
+          endDate: null
+        meta:
+          pagination:
+            total: 3
+            isEstimatedTotal: false
+  responses:
+    "400":
+      content:
+        application/json:
+          examples:
+            Bad Request:
+              $ref: '#/components/examples/badRequestRequiredParameter'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request — the request was malformed or a required parameter
+        was missing.
+    "401":
+      content:
+        application/json:
+          examples:
+            Unauthenticated:
+              $ref: '#/components/examples/unauthenticated'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unauthenticated — no valid credentials were provided.
+    "403":
+      content:
+        application/json:
+          examples:
+            Forbidden:
+              $ref: '#/components/examples/forbidden'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Forbidden — the credentials provided do not have access to this
+        resource.
+    "404":
+      content:
+        application/json:
+          examples:
+            Not Found:
+              $ref: '#/components/examples/notFound'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Not Found — the requested resource was not found.
+    "415":
+      content:
+        application/json:
+          examples:
+            Unsupported Media Type:
+              $ref: '#/components/examples/unsupportedMediaType'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unsupported Media Type — the request body was not JSON or the Content-Type
+        header was missing.
+    "422":
+      content:
+        application/json:
+          examples:
+            Unprocessable Entity:
+              $ref: '#/components/examples/unprocessableEntity'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Unprocessable Entity — the request was syntactically valid but
+        semantically incorrect (e.g., invalid date range).
+    "429":
+      content:
+        application/json:
+          examples:
+            Too Many Requests:
+              $ref: '#/components/examples/tooManyRequests'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Too Many Requests — the rate limit for this endpoint has been exceeded.
+    "500":
+      content:
+        application/json:
+          examples:
+            Internal Server Error:
+              $ref: '#/components/examples/internalServerError'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Internal Server Error — an unexpected error occurred on the server.
+    "503":
+      content:
+        application/json:
+          examples:
+            Service Unavailable:
+              $ref: '#/components/examples/serviceUnavailable'
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Service Unavailable — the service is temporarily unavailable.
+  schemas:
+    PlantIds:
+      description: Array of FactSet power plant asset identifiers (e.g., `"B00121-M"`).
+        Use `GET /plants/ids` to discover valid identifiers.
+      example:
+      - B00121-M
+      - B00987-M
+      items:
+        type: string
+      maxItems: 100
+      minItems: 1
+      type: array
+    PlantUnitIds:
+      description: Array of FactSet power plant and/or plant unit asset identifiers.
+        Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+        When a plant ID is provided, all units within that plant are returned.
+      example:
+      - B00121-M
+      - 05RLSM-M
+      items:
+        type: string
+      maxItems: 100
+      minItems: 1
+      type: array
+    BalancingAuthorityIds:
+      description: Array of FactSet balancing authority identifiers (e.g., `"05WTSJ-M"`).
+        Used for the `Generation` category, which is reported at the balancing-authority
+        level.
+      example:
+      - 05WTSJ-M
+      items:
+        type: string
+      maxItems: 100
+      minItems: 1
+      type: array
+    BalancingAuthoritySubRegionIds:
+      description: Array of FactSet balancing authority sub-region identifiers (e.g.,
+        `"05WTTF-M"`). Used for the `Demand` and `Interchange` categories, which are
+        reported at the sub-region level.
+      example:
+      - 05WTTF-M
+      items:
+        type: string
+      maxItems: 100
+      minItems: 1
+      type: array
+    LocationIds:
+      description: Array of power price location identifiers such as hub or zone codes
+        (e.g., `"HB_NORTH"`, `"PJM_ATSI_BASE"`).
+      example:
+      - HB_NORTH
+      - HB_HOUSTON
+      items:
+        type: string
+      maxItems: 100
+      minItems: 1
+      type: array
+    RequestPagination:
+      description: Pagination parameters to control the size and offset of results
+        returned.
+      example:
+        offset: 0
+        limit: 81
+      properties:
+        limit:
+          default: 100
+          description: Maximum number of results to return per request.
+          format: int32
+          maximum: 1000
+          minimum: 1
+          type: integer
+        offset:
+          default: 0
+          description: Number of results to skip. Use with `limit` for paging through
+            large result sets.
+          format: int32
+          minimum: 0
+          type: integer
+      type: object
+    RequestMeta:
+      description: Optional request metadata for pagination control.
+      example:
+        pagination:
+          offset: 0
+          limit: 81
+      properties:
+        pagination:
+          $ref: '#/components/schemas/RequestPagination'
+      type: object
+    ResponsePagination:
+      description: Pagination details included in every collection response.
+      example:
+        total: 4250
+        isEstimatedTotal: false
+      properties:
+        total:
+          description: Total number of records the API returns for this query.
+          example: 4250
+          format: int64
+          type: integer
+        isEstimatedTotal:
+          description: Whether the total count is exact or an estimate. Defaulted
+            to `false` as the API returns exact counts.
+          example: false
+          type: boolean
+      type: object
+    ResponseMeta:
+      description: Response metadata including pagination and request tracking.
+      example:
+        requestedIds: 2
+        pagination:
+          total: 4250
+          isEstimatedTotal: false
+        failedIds: []
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ResponsePagination'
+        requestedIds:
+          description: Total number of identifiers submitted in the request.
+          example: 2
+          format: int32
+          type: integer
+        failedIds:
+          description: List of identifiers from the request that failed (invalid format,
+            empty, or not found). Empty array when all submitted IDs resolved successfully.
+          example: []
+          items:
+            type: string
+          type: array
+      type: object
+    CollectionResponseMeta:
+      description: Response metadata for endpoints that discover or list records rather
+        than accepting requested identifiers. Includes pagination only.
+      example:
+        pagination:
+          total: 4250
+          isEstimatedTotal: false
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ResponsePagination'
+      type: object
+    ErrorResponse:
+      description: Standard error response envelope.
+      properties:
+        errors:
+          description: Array of one or more error objects describing what went wrong.
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          type: array
+      type: object
+    ErrorObject:
+      description: Individual error detail.
+      properties:
+        id:
+          description: Unique error identifier for tracing.
+          example: adb01824-252f-4420-b0c6-35a1e3507ef5
+          format: uuid
+          type: string
+        code:
+          description: Machine-readable error code in camelCase.
+          example: parameterError
+          type: string
+        title:
+          description: Short human-readable summary matching the HTTP status reason
+            phrase.
+          example: Bad Request
+          type: string
+        detail:
+          description: Detailed human-readable explanation of this error occurrence.
+          example: The parameter 'ids' is required and may not be empty.
+          type: string
+        links:
+          $ref: '#/components/schemas/ErrorObject_links'
+      required:
+      - code
+      - detail
+      - title
+      type: object
+    CategoryMetadata:
+      description: Discriminator value for plant unit metadata records.
+      enum:
+      - Metadata
+      example: Metadata
+      type: string
+    CategoryPipeline:
+      description: Discriminator value for plant pipeline connection records.
+      enum:
+      - Pipeline
+      example: Pipeline
+      type: string
+    CategorySolar:
+      description: Discriminator value for solar plant technical specifications.
+      enum:
+      - Solar
+      example: Solar
+      type: string
+    CategoryWind:
+      description: Discriminator value for wind plant technical specifications.
+      enum:
+      - Wind
+      example: Wind
+      type: string
+    CategoryThermal:
+      description: Discriminator value for thermal/fossil plant technical specifications.
+      enum:
+      - Thermal
+      example: Thermal
+      type: string
+    CategoryGeneration:
+      description: Discriminator value for balancing authority net generation.
+      enum:
+      - Generation
+      example: Generation
+      type: string
+    CategoryDemand:
+      description: Discriminator value for balancing authority electricity demand.
+      enum:
+      - Demand
+      example: Demand
+      type: string
+    CategoryInterchange:
+      description: Discriminator value for balancing authority net interchange.
+      enum:
+      - Interchange
+      example: Interchange
+      type: string
+    CategoryPower:
+      description: Discriminator value for spot power prices.
+      enum:
+      - Power
+      example: Power
+      type: string
+    CategorySparkSpread:
+      description: Discriminator value for spark spread data.
+      enum:
+      - SparkSpread
+      example: SparkSpread
+      type: string
+    CategoryCapacity:
+      description: Discriminator value for capacity auction prices.
+      enum:
+      - Capacity
+      example: Capacity
+      type: string
+    CategoryForward:
+      description: Discriminator value for forward power prices.
+      enum:
+      - Forward
+      example: Forward
+      type: string
+    PlantUnitsRequest:
+      description: Request body for plant unit metadata and technical details.
+      example:
+        meta:
+          pagination:
+            offset: 0
+            limit: 81
+      properties:
+        data:
+          $ref: '#/components/schemas/PlantUnitsRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    PlantUnitsRequestData:
+      description: |
+        Plant unit query parameters. The `category` field selects the record shape returned.
+      discriminator:
+        mapping:
+          Metadata: '#/components/schemas/PlantMetadataData'
+          Pipeline: '#/components/schemas/PlantPipelineData'
+          Solar: '#/components/schemas/PlantSolarData'
+          Wind: '#/components/schemas/PlantWindData'
+          Thermal: '#/components/schemas/PlantThermalData'
+        propertyName: category
+      oneOf:
+      - $ref: '#/components/schemas/PlantMetadataData'
+      - $ref: '#/components/schemas/PlantPipelineData'
+      - $ref: '#/components/schemas/PlantSolarData'
+      - $ref: '#/components/schemas/PlantWindData'
+      - $ref: '#/components/schemas/PlantThermalData'
+      type: object
+    PlantMetadataData:
+      description: Query parameters for plant unit metadata records. You may provide
+        either plant IDs or unit IDs; when a plant ID is provided, all units within
+        that plant are returned.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryMetadata'
+        ids:
+          description: Array of FactSet power plant and/or plant unit asset identifiers.
+            Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+            When a plant ID is provided, all units within that plant are returned.
+          example:
+          - B00121-M
+          - 05RLSM-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        plantStatus:
+          description: Filter results by operational status.
+          enum:
+          - Operational
+          - Planned
+          - Retired
+          - Cancelled
+          example: Operational
+          nullable: true
+          type: string
+        minCapacityMw:
+          description: Filter by minimum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity greater than or equal to this value.
+          example: 100
+          minimum: 0
+          nullable: true
+          type: number
+        maxCapacityMw:
+          description: Filter by maximum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity less than or equal to this value.
+          example: 5000
+          minimum: 0
+          nullable: true
+          type: number
+      required:
+      - category
+      - ids
+      type: object
+    PlantPipelineData:
+      description: Query parameters for plant gas pipeline connection records. You
+        may provide either plant IDs or unit IDs; when a plant ID is provided, all
+        units within that plant are returned.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryPipeline'
+        ids:
+          description: Array of FactSet power plant and/or plant unit asset identifiers.
+            Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+            When a plant ID is provided, all units within that plant are returned.
+          example:
+          - B00121-M
+          - 05RLSM-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        minCapacityMw:
+          description: Filter by minimum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity greater than or equal to this value. Note
+            - capacity value is only returned in the Metadata response.
+          example: 100
+          minimum: 0
+          nullable: true
+          type: number
+        maxCapacityMw:
+          description: Filter by maximum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity less than or equal to this value. Note - capacity
+            value is only returned in the Metadata response.
+          example: 5000
+          minimum: 0
+          nullable: true
+          type: number
+      required:
+      - category
+      - ids
+      type: object
+    PlantSolarData:
+      description: Query parameters for solar plant technical specifications. You
+        may provide either plant IDs or unit IDs; when a plant ID is provided, all
+        units within that plant are returned.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategorySolar'
+        ids:
+          description: Array of FactSet power plant and/or plant unit asset identifiers.
+            Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+            When a plant ID is provided, all units within that plant are returned.
+          example:
+          - B00121-M
+          - 05RLSM-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        minCapacityMw:
+          description: Filter by minimum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity greater than or equal to this value. Note
+            - capacity value is only returned in the Metadata response.
+          example: 100
+          minimum: 0
+          nullable: true
+          type: number
+        maxCapacityMw:
+          description: Filter by maximum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity less than or equal to this value. Note - capacity
+            value is only returned in the Metadata response.
+          example: 5000
+          minimum: 0
+          nullable: true
+          type: number
+      required:
+      - category
+      - ids
+      type: object
+    PlantWindData:
+      description: Query parameters for wind plant technical specifications. You may
+        provide either plant IDs or unit IDs; when a plant ID is provided, all units
+        within that plant are returned.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryWind'
+        ids:
+          description: Array of FactSet power plant and/or plant unit asset identifiers.
+            Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+            When a plant ID is provided, all units within that plant are returned.
+          example:
+          - B00121-M
+          - 05RLSM-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        minCapacityMw:
+          description: Filter by minimum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity greater than or equal to this value. Note
+            - capacity value is only returned in the Metadata response.
+          example: 100
+          minimum: 0
+          nullable: true
+          type: number
+        maxCapacityMw:
+          description: Filter by maximum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity less than or equal to this value. Note - capacity
+            value is only returned in the Metadata response.
+          example: 5000
+          minimum: 0
+          nullable: true
+          type: number
+      required:
+      - category
+      - ids
+      type: object
+    PlantThermalData:
+      description: Query parameters for thermal/fossil plant technical specifications.
+        You may provide either plant IDs or unit IDs; when a plant ID is provided,
+        all units within that plant are returned.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryThermal'
+        ids:
+          description: Array of FactSet power plant and/or plant unit asset identifiers.
+            Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+            When a plant ID is provided, all units within that plant are returned.
+          example:
+          - B00121-M
+          - 05RLSM-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        minCapacityMw:
+          description: Filter by minimum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity greater than or equal to this value. Note
+            - capacity value is only returned in the Metadata response.
+          example: 100
+          minimum: 0
+          nullable: true
+          type: number
+        maxCapacityMw:
+          description: Filter by maximum nameplate capacity in megawatts (MW), inclusive.
+            Returns units with capacity less than or equal to this value. Note - capacity
+            value is only returned in the Metadata response.
+          example: 5000
+          minimum: 0
+          nullable: true
+          type: number
+      required:
+      - category
+      - ids
+      type: object
+    MarketDataRequest:
+      description: Request body for balancing authority market data.
+      example:
+        meta:
+          pagination:
+            offset: 0
+            limit: 81
+      properties:
+        data:
+          $ref: '#/components/schemas/MarketDataRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    MarketDataRequestData:
+      description: |
+        Market data query parameters. The `category` field selects the record shape returned.
+      discriminator:
+        mapping:
+          Generation: '#/components/schemas/MarketDataGenerationData'
+          Demand: '#/components/schemas/MarketDataDemandData'
+          Interchange: '#/components/schemas/MarketDataInterchangeData'
+        propertyName: category
+      oneOf:
+      - $ref: '#/components/schemas/MarketDataGenerationData'
+      - $ref: '#/components/schemas/MarketDataDemandData'
+      - $ref: '#/components/schemas/MarketDataInterchangeData'
+      type: object
+    MarketDataGenerationData:
+      description: Query parameters for balancing authority net generation data. Reported
+        at the balancing-authority level, broken out by fuel type.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryGeneration'
+        ids:
+          description: Array of FactSet balancing authority identifiers (e.g., `"05WTSJ-M"`).
+            Used for the `Generation` category, which is reported at the balancing-authority
+            level.
+          example:
+          - 05WTSJ-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return records on or after this date (YYYY-MM-DD).
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: Return records on or before this date (YYYY-MM-DD).
+          example: 2024-01-07
+          format: date
+          type: string
+      required:
+      - category
+      - endDate
+      - ids
+      - startDate
+      type: object
+    MarketDataDemandData:
+      description: Query parameters for balancing authority electricity demand data.
+        Reported at the sub-region level.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryDemand'
+        ids:
+          description: Array of FactSet balancing authority sub-region identifiers
+            (e.g., `"05WTTF-M"`). Used for the `Demand` and `Interchange` categories,
+            which are reported at the sub-region level.
+          example:
+          - 05WTTF-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return records on or after this date (YYYY-MM-DD).
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: Return records on or before this date (YYYY-MM-DD).
+          example: 2024-01-07
+          format: date
+          type: string
+      required:
+      - category
+      - endDate
+      - ids
+      - startDate
+      type: object
+    MarketDataInterchangeData:
+      description: Query parameters for balancing authority net interchange data.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryInterchange'
+        ids:
+          description: Array of FactSet balancing authority sub-region identifiers
+            (e.g., `"05WTTF-M"`). Used for the `Demand` and `Interchange` categories,
+            which are reported at the sub-region level.
+          example:
+          - 05WTTF-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return records on or after this date (YYYY-MM-DD).
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: Return records on or before this date (YYYY-MM-DD).
+          example: 2024-01-07
+          format: date
+          type: string
+        respondentFactsetBaSubRegId:
+          default: "null"
+          description: Filter to a specific counterpart balancing authority sub-region.
+          example: 05WTT4-M
+          nullable: true
+          type: string
+      required:
+      - category
+      - endDate
+      - ids
+      - startDate
+      type: object
+    PricesRequest:
+      description: Request body for power market price data.
+      example:
+        meta:
+          pagination:
+            offset: 0
+            limit: 81
+      properties:
+        data:
+          $ref: '#/components/schemas/PricesRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    PricesRequestData:
+      description: |
+        Price query parameters. The `category` field selects the record shape returned.
+      discriminator:
+        mapping:
+          Power: '#/components/schemas/PowerPriceData'
+          SparkSpread: '#/components/schemas/SparkSpreadData'
+          Capacity: '#/components/schemas/CapacityPriceData'
+          Forward: '#/components/schemas/ForwardPriceData'
+        propertyName: category
+      oneOf:
+      - $ref: '#/components/schemas/PowerPriceData'
+      - $ref: '#/components/schemas/SparkSpreadData'
+      - $ref: '#/components/schemas/CapacityPriceData'
+      - $ref: '#/components/schemas/ForwardPriceData'
+      type: object
+    PowerPriceData:
+      description: Query parameters for spot power prices.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryPower'
+        ids:
+          description: Array of power price location identifiers such as hub or zone
+            codes (e.g., `"HB_NORTH"`, `"PJM_ATSI_BASE"`).
+          example:
+          - HB_NORTH
+          - HB_HOUSTON
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return price records on or after this trade date (YYYY-MM-DD).
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: Return price records on or before this trade date (YYYY-MM-DD).
+          example: 2024-03-31
+          format: date
+          type: string
+      required:
+      - category
+      - endDate
+      - ids
+      - startDate
+      type: object
+    SparkSpreadData:
+      description: Query parameters for natural gas spark spread data.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategorySparkSpread'
+        ids:
+          description: Array of power price location identifiers such as hub or zone
+            codes (e.g., `"HB_NORTH"`, `"PJM_ATSI_BASE"`).
+          example:
+          - HB_NORTH
+          - HB_HOUSTON
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return spark spread records on or after this date (YYYY-MM-DD).
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: Return spark spread records on or before this date (YYYY-MM-DD).
+          example: 2024-03-31
+          format: date
+          type: string
+      required:
+      - category
+      - endDate
+      - ids
+      - startDate
+      type: object
+    CapacityPriceData:
+      description: Query parameters for capacity auction clearing prices.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryCapacity'
+        ids:
+          description: Array of power price location identifiers such as hub or zone
+            codes (e.g., `"HB_NORTH"`, `"PJM_ATSI_BASE"`).
+          example:
+          - HB_NORTH
+          - HB_HOUSTON
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        deliveryYear:
+          description: Filter by capacity delivery year.
+          example: 2026
+          format: int32
+          nullable: true
+          type: integer
+      required:
+      - category
+      - ids
+      type: object
+    ForwardPriceData:
+      description: Query parameters for forward power price curves.
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryForward'
+        ids:
+          description: Array of power price location identifiers such as hub or zone
+            codes (e.g., `"HB_NORTH"`, `"PJM_ATSI_BASE"`).
+          example:
+          - HB_NORTH
+          - HB_HOUSTON
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return forward price records with a trade date on or after
+            this date (YYYY-MM-DD).
+          example: 2024-01-01
+          format: date
+          type: string
+        endDate:
+          description: Return forward price records with a trade date on or before
+            this date (YYYY-MM-DD).
+          example: 2024-06-30
+          format: date
+          type: string
+        priceType:
+          description: Filter by forward price type. `AroundTheClock` availability
+            is pending confirmation with the data team.
+          enum:
+          - OnPeak
+          - OffPeak
+          - AroundTheClock
+          example: OnPeak
+          nullable: true
+          type: string
+      required:
+      - category
+      - endDate
+      - ids
+      - startDate
+      type: object
+    HourlyGenerationRequest:
+      description: Request body for hourly plant unit generation and emissions.
+      example:
+        data:
+          endDate: 2024-06-07T00:00:00.000+0000
+          ids:
+          - B00121-M
+          - 05RLSM-M
+          startDate: 2024-06-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 81
+      properties:
+        data:
+          $ref: '#/components/schemas/HourlyGenerationRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    MonthlyGenerationRequest:
+      description: Request body for monthly plant generation and emissions.
+      example:
+        data:
+          endDate: 2023-12-31T00:00:00.000+0000
+          ids:
+          - B00121-M
+          - B00987-M
+          startDate: 2023-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 81
+      properties:
+        data:
+          $ref: '#/components/schemas/MonthlyGenerationRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    PlantIdsResponse:
+      description: Response containing a list of plant identifiers.
+      example:
+        data:
+        - continent: North America
+          country: United States
+          plantStatus: Operational
+          primaryFuelType: Gas
+          capacityMw: 2558.1
+          latitude: 29.4858
+          nearestCity: Santa Clara
+          isoCode: ERCOT
+          factsetPlantId: B00121-M
+          latLongPrecision: Exact
+          region: Texas
+          plantName: W.A. Parish Electric Station
+          longitude: -95.7544
+        - continent: North America
+          country: United States
+          plantStatus: Operational
+          primaryFuelType: Gas
+          capacityMw: 2558.1
+          latitude: 29.4858
+          nearestCity: Santa Clara
+          isoCode: ERCOT
+          factsetPlantId: B00121-M
+          latLongPrecision: Exact
+          region: Texas
+          plantName: W.A. Parish Electric Station
+          longitude: -95.7544
+        meta:
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of plant identifier records.
+          items:
+            $ref: '#/components/schemas/PlantIdRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+      type: object
+    PlantIdRecord:
+      description: Minimal plant identifier record for discovery.
+      example:
+        continent: North America
+        country: United States
+        plantStatus: Operational
+        primaryFuelType: Gas
+        capacityMw: 2558.1
+        latitude: 29.4858
+        nearestCity: Santa Clara
+        isoCode: ERCOT
+        factsetPlantId: B00121-M
+        latLongPrecision: Exact
+        region: Texas
+        plantName: W.A. Parish Electric Station
+        longitude: -95.7544
+      properties:
+        factsetPlantId:
+          description: FactSet unique power plant asset identifier (e.g., `"B00121-M"`).
+          example: B00121-M
+          nullable: true
+          type: string
+        plantName:
+          description: Official plant name.
+          example: W.A. Parish Electric Station
+          nullable: true
+          type: string
+        isoCode:
+          description: ISO/TSO market code.
+          example: ERCOT
+          nullable: true
+          type: string
+        primaryFuelType:
+          description: Primary fuel type.
+          example: Gas
+          nullable: true
+          type: string
+        country:
+          description: Country name.
+          example: United States
+          nullable: true
+          type: string
+        region:
+          description: Geographic region where the plant is located (e.g., a US state).
+          example: Texas
+          nullable: true
+          type: string
+        nearestCity:
+          description: Nearest city to the plant. Approximate, not necessarily the
+            plant's exact municipality.
+          example: Santa Clara
+          nullable: true
+          type: string
+        continent:
+          description: Continent where the plant is located.
+          example: North America
+          nullable: true
+          type: string
+        latitude:
+          description: Plant latitude in decimal degrees (WGS-84).
+          example: 29.4858
+          format: double
+          nullable: true
+          type: number
+        longitude:
+          description: Plant longitude in decimal degrees (WGS-84).
+          example: -95.7544
+          format: double
+          nullable: true
+          type: number
+        latLongPrecision:
+          description: Indicates the precision of the reported coordinates.
+          example: Exact
+          nullable: true
+          type: string
+        plantStatus:
+          description: Operational status of the plant.
+          enum:
+          - Operational
+          - Planned
+          - Retired
+          - Cancelled
+          example: Operational
+          nullable: true
+          type: string
+        capacityMw:
+          description: Total nameplate (installed) generating capacity in megawatts
+            (MW AC).
+          example: 2558.1
+          format: double
+          nullable: true
+          type: number
+      type: object
+    PlantUnitsResponse:
+      description: Response containing plant unit metadata and technical detail records.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 2
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+          failedIds: []
+      properties:
+        data:
+          description: Array of plant unit records. Record shape matches the requested
+            `category`.
+          items:
+            $ref: '#/components/schemas/PlantUnitDetail'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      type: object
+    PlantUnitDetail:
+      description: A single plant unit record. Record shape matches the requested
+        `category`.
+      discriminator:
+        mapping:
+          Metadata: '#/components/schemas/PlantMetadataDetail'
+          Pipeline: '#/components/schemas/PlantPipelineDetail'
+          Solar: '#/components/schemas/PlantSolarDetail'
+          Wind: '#/components/schemas/PlantWindDetail'
+          Thermal: '#/components/schemas/PlantThermalDetail'
+        propertyName: category
+      oneOf:
+      - $ref: '#/components/schemas/PlantMetadataDetail'
+      - $ref: '#/components/schemas/PlantPipelineDetail'
+      - $ref: '#/components/schemas/PlantSolarDetail'
+      - $ref: '#/components/schemas/PlantWindDetail'
+      - $ref: '#/components/schemas/PlantThermalDetail'
+    PlantMetadataDetail:
+      description: |
+        Metadata and coverage record for a single power plant unit. Capacity, status, fuel type, and technology fields are sourced from the underlying unit-level feed.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.
+          example: 05RLSM-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier, as submitted in
+            the request.
+          example: 05RLSM-M
+          type: string
+        category:
+          $ref: '#/components/schemas/CategoryMetadata'
+        factsetPlantId:
+          description: FactSet unique power plant asset identifier for the plant this
+            unit belongs to.
+          example: B00121-M
+          nullable: true
+          type: string
+        plantName:
+          description: Official plant name.
+          example: W.A. Parish Electric Station
+          nullable: true
+          type: string
+        isoCode:
+          description: ISO/TSO market code for the plant's interconnection area.
+          example: ERCOT
+          nullable: true
+          type: string
+        country:
+          description: Country name of the plant.
+          example: United States
+          nullable: true
+          type: string
+        region:
+          description: Geographic region where the plant is located (e.g., a US state).
+          example: Texas
+          nullable: true
+          type: string
+        primaryFuelType:
+          description: Primary fuel type.
+          example: Gas
+          nullable: true
+          type: string
+        primaryFuelCode:
+          description: Additional detail code for the primary fuel (e.g., `"HFO"`
+            for heavy fuel oil).
+          example: NG
+          nullable: true
+          type: string
+        technology:
+          description: Generating technology of the plant.
+          example: Combined Cycle
+          nullable: true
+          type: string
+        subTechnology:
+          description: Additional detail related to the plant's technology.
+          example: GT
+          nullable: true
+          type: string
+        sector:
+          description: Sector the plant operates within (e.g., commercial or industrial).
+          example: IPP Non-CHP
+          nullable: true
+          type: string
+        isChp:
+          description: Whether the plant is a combined heat and power (CHP) unit.
+          example: false
+          nullable: true
+          type: boolean
+        plantStatus:
+          description: Operational status of the plant.
+          enum:
+          - Operational
+          - Planned
+          - Retired
+          - Cancelled
+          example: Operational
+          nullable: true
+          type: string
+        capacityMw:
+          description: Total nameplate (installed) generating capacity in megawatts
+            (MW AC).
+          example: 2558.1
+          format: double
+          nullable: true
+          type: number
+        unitName:
+          description: Unit name identifying the individually-generating asset within
+            the plant.
+          example: Greifswald (Helmshager Berg) -3
+          nullable: true
+          type: string
+        projectGrade:
+          description: Internal grading system primarily used to quantify risk for
+            planned units.
+          example: 6
+          nullable: true
+          type: integer
+        projectGradeDescription:
+          description: Description of the project grade (e.g., "Proposed", "Announced").
+          example: Proposed
+          nullable: true
+          type: string
+        ppSubRegion:
+          description: Sub-region name where the plant is located (e.g., county in
+            the US).
+          example: Chautauqua
+          nullable: true
+          type: string
+        subRegionType:
+          description: Type of sub-region (e.g., "County" in the US).
+          example: County
+          nullable: true
+          type: string
+        ppRegion:
+          description: Region name where the plant is located (e.g., state in the
+            US).
+          example: Massachusetts
+          nullable: true
+          type: string
+        regionType:
+          description: Type of region (e.g., "State" in the US).
+          example: State
+          nullable: true
+          type: string
+        hasCcs:
+          description: Whether the plant is equipped with carbon capture and sequestration
+            (CCS) equipment.
+          example: false
+          nullable: true
+          type: boolean
+        hasDesalination:
+          description: Whether the plant is associated with desalination.
+          example: false
+          nullable: true
+          type: boolean
+        isFloating:
+          description: Whether the plant is a floating unit.
+          example: false
+          nullable: true
+          type: boolean
+        ownerName:
+          description: Plant owner company name.
+          example: NRG Energy
+          nullable: true
+          type: string
+        factsetOwnerEntityId:
+          description: FactSet entity identifier for the plant owner.
+          example: 0GSF7D-E
+          nullable: true
+          type: string
+        commissionDate:
+          description: Date the plant was first commissioned.
+          example: 1977-06-01
+          format: date
+          nullable: true
+          type: string
+        retirementDate:
+          description: Date the plant was or is scheduled to be retired. Null if the
+            plant is not retired or a retirement date has not been announced.
+          format: date
+          nullable: true
+          type: string
+        eia860PlantCode:
+          description: EIA Form 860 plant code for cross-reference.
+          example: "6242"
+          nullable: true
+          type: string
+      required:
+      - category
+      - factsetPlantUnitId
+      - requestId
+      type: object
+    PlantPipelineDetail:
+      description: Plant gas pipeline connection detail record.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.
+          example: 05RLSM-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier, as submitted in
+            the request.
+          example: 05RLSM-M
+          type: string
+        category:
+          $ref: '#/components/schemas/CategoryPipeline'
+        pipelineName:
+          description: Name of the connected gas pipeline.
+          example: Intrastate/LDC
+          nullable: true
+          type: string
+        pipelineSequence:
+          description: When multiple pipelines supply a unit, indicates whether this
+            is the first, second, or third pipeline.
+          example: 1
+          nullable: true
+          type: integer
+      required:
+      - category
+      - factsetPlantUnitId
+      - requestId
+      type: object
+    PlantSolarDetail:
+      description: Solar plant technical specification detail record.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.
+          example: 05RLSM-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier, as submitted in
+            the request.
+          example: 05RLSM-M
+          type: string
+        category:
+          $ref: '#/components/schemas/CategorySolar'
+        solarInstalledCapacityMw:
+          description: Total installed solar capacity in MW DC.
+          example: 250.1
+          format: double
+          nullable: true
+          type: number
+        trackingType:
+          description: Solar array/tracking system type (e.g., `"Fixed Rack"`, `"1
+            Axis"`).
+          example: Fixed Rack
+          nullable: true
+          type: string
+        azimuthAngle:
+          description: For fixed-tilt or single-axis arrays, the fixed azimuth angle
+            in degrees (0 = north, 90 = east, 180 = south, 270 = west).
+          example: 180.1
+          format: double
+          nullable: true
+          type: number
+        tiltAngleDegrees:
+          description: For fixed-tilt or single-axis arrays, the fixed tilt angle
+            in degrees from horizontal (0 = horizontal, 90 = vertical).
+          example: 20.1
+          format: double
+          nullable: true
+          type: number
+        isThinFilm:
+          description: Whether the array uses thin-film module technology.
+          example: false
+          nullable: true
+          type: boolean
+        acres:
+          description: Land area used by the array, in acres.
+          example: 590.1
+          format: double
+          nullable: true
+          type: number
+      required:
+      - category
+      - factsetPlantUnitId
+      - requestId
+      type: object
+    PlantWindDetail:
+      description: Wind plant technical specification detail record.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.
+          example: 05RLSM-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier, as submitted in
+            the request.
+          example: 05RLSM-M
+          type: string
+        category:
+          $ref: '#/components/schemas/CategoryWind'
+        turbineCount:
+          description: Total number of wind turbines.
+          example: 150
+          nullable: true
+          type: integer
+        turbineManufacturer:
+          description: Predominant wind turbine manufacturer at the unit.
+          example: Vestas Wind Systems A/S
+          nullable: true
+          type: string
+        factsetManufEntityId:
+          description: FactSet entity identifier for the predominant turbine manufacturer.
+          example: 05HJVH-E
+          nullable: true
+          type: string
+        turbineModel:
+          description: Predominant wind turbine model designation at the unit.
+          example: V110-2.0 MW
+          nullable: true
+          type: string
+        hubHeightM:
+          description: Average turbine hub height in meters.
+          example: 95.1
+          format: double
+          nullable: true
+          type: number
+        sweptAreaM2:
+          description: Average area swept by the turbine rotor, in square meters.
+          example: 9503.32
+          format: double
+          nullable: true
+          type: number
+      required:
+      - category
+      - factsetPlantUnitId
+      - requestId
+      type: object
+    PlantThermalDetail:
+      description: Thermal/fossil plant technical specification detail record.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.
+          example: 05RLSM-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier, as submitted in
+            the request.
+          example: 05RLSM-M
+          type: string
+        category:
+          $ref: '#/components/schemas/CategoryThermal'
+        designHeatRateBtuPerKwh:
+          description: Design heat rate, a measure of thermal unit efficiency.
+          example: 6850.1
+          format: double
+          nullable: true
+          type: number
+      required:
+      - category
+      - factsetPlantUnitId
+      - requestId
+      type: object
+    UnitsOwnershipRequest:
+      description: Request body for unit ownership details.
+      example:
+        data:
+          ids:
+          - B00121-M
+          - 05RLSM-M
+        meta:
+          pagination:
+            offset: 0
+            limit: 81
+      properties:
+        data:
+          $ref: '#/components/schemas/UnitsOwnershipRequestData'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
+    UnitsOwnershipRequestData:
+      description: Unit query parameters for ownership records. You may provide either
+        plant IDs or unit IDs; when a plant ID is provided, ownership records for
+        all units within that plant are returned.
+      example:
+        ids:
+        - B00121-M
+        - 05RLSM-M
+      properties:
+        ids:
+          description: Array of FactSet power plant and/or plant unit asset identifiers.
+            Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+            When a plant ID is provided, all units within that plant are returned.
+          example:
+          - B00121-M
+          - 05RLSM-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+      required:
+      - ids
+      type: object
+    UnitsOwnershipResponse:
+      description: Response containing unit ownership records with plant IDs.
+      example:
+        data:
+        - factsetOwnerId: 0GSF7D-E
+          factsetPlantUnitId: 05RLSM-M
+          ownerName: NRG Energy
+          requestId: 05RLSM-M
+          factsetPlantId: 05RLSM
+          factsetUltimateParentEntityId: 000Q07-E
+          ownershipPercentage: 99.9
+        - factsetOwnerId: 0GSF7D-E
+          factsetPlantUnitId: 05RLSM-M
+          ownerName: NRG Energy
+          requestId: 05RLSM-M
+          factsetPlantId: 05RLSM
+          factsetUltimateParentEntityId: 000Q07-E
+          ownershipPercentage: 99.9
+        meta:
+          requestedIds: 2
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+          failedIds: []
+      properties:
+        data:
+          description: Array of unit ownership records with plant IDs.
+          items:
+            $ref: '#/components/schemas/UnitsOwnershipDetail'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      type: object
+    UnitsOwnershipDetail:
+      description: Unit ownership detail record with plant ID.
+      example:
+        factsetOwnerId: 0GSF7D-E
+        factsetPlantUnitId: 05RLSM-M
+        ownerName: NRG Energy
+        requestId: 05RLSM-M
+        factsetPlantId: 05RLSM
+        factsetUltimateParentEntityId: 000Q07-E
+        ownershipPercentage: 99.9
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.
+          example: 05RLSM-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier, as submitted in
+            the request.
+          example: 05RLSM-M
+          type: string
+        factsetPlantId:
+          description: FactSet unique power plant identifier for the parent plant.
+          example: 05RLSM
+          type: string
+        ownerName:
+          description: Owner company name.
+          example: NRG Energy
+          nullable: true
+          type: string
+        factsetOwnerId:
+          description: FactSet entity identifier for the owner.
+          example: 0GSF7D-E
+          nullable: true
+          type: string
+        ownershipPercentage:
+          description: Percentage of the unit owned by this owner.
+          example: 99.9
+          format: double
+          nullable: true
+          type: number
+        factsetUltimateParentEntityId:
+          description: FactSet entity identifier for the ultimate parent of the owner
+            entity.
+          example: 000Q07-E
+          nullable: true
+          type: string
+      required:
+      - factsetPlantId
+      - factsetPlantUnitId
+      - requestId
+      type: object
+    MarketDataCoverageResponse:
+      description: Response containing the list of balancing authorities.
+      example:
+        data:
+        - factsetBaSubRegId: 05WTTF-M
+          country: United States
+          baSubRegionName: Zones 2 and 7
+          factsetBaId: 05WTSJ-M
+          baName: Midcontinent Independent System Operator, Inc.
+        - factsetBaSubRegId: 05WTTF-M
+          country: United States
+          baSubRegionName: Zones 2 and 7
+          factsetBaId: 05WTSJ-M
+          baName: Midcontinent Independent System Operator, Inc.
+        meta:
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of balancing authority coverage records.
+          items:
+            $ref: '#/components/schemas/BalancingAuthorityCoverage'
+          type: array
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+      type: object
+    BalancingAuthorityCoverage:
+      description: Coverage record for a single balancing authority sub-region.
+      example:
+        factsetBaSubRegId: 05WTTF-M
+        country: United States
+        baSubRegionName: Zones 2 and 7
+        factsetBaId: 05WTSJ-M
+        baName: Midcontinent Independent System Operator, Inc.
+      properties:
+        factsetBaSubRegId:
+          description: FactSet unique identifier for the balancing authority sub-region.
+            Use this value as the `ids` input for the `Demand` and `Interchange` categories
+            of `POST /market-data`.
+          example: 05WTTF-M
+          nullable: true
+          type: string
+        baSubRegionName:
+          description: Name of the sub-region within the balancing authority.
+          example: Zones 2 and 7
+          nullable: true
+          type: string
+        factsetBaId:
+          description: FactSet unique identifier for the balancing authority. Use
+            this value as the `ids` input for the `Generation` category of `POST /market-data`.
+          example: 05WTSJ-M
+          nullable: true
+          type: string
+        baName:
+          description: Full balancing authority name.
+          example: Midcontinent Independent System Operator, Inc.
+          nullable: true
+          type: string
+        country:
+          description: Country name.
+          example: United States
+          nullable: true
+          type: string
+      type: object
+    MarketDataResponse:
+      description: Response containing balancing authority market data records.
+      example:
+        data:
+        - generationMw: 52347.1
+          factsetBaSubRegId: 05WTTF-M
+          reportHour: 14
+          reportDate: 2024-01-15T00:00:00.000+0000
+          primaryFuelType: Wind
+          requestId: 05WTSJ-M
+          demandMwHr: 48920.1
+          factsetBaId: 05WTSJ-M
+          respondentFactsetBaSubRegId: 05WTT4-M
+          category: Generation
+          netInterchangeMw: -1250.1
+        - generationMw: 52347.1
+          factsetBaSubRegId: 05WTTF-M
+          reportHour: 14
+          reportDate: 2024-01-15T00:00:00.000+0000
+          primaryFuelType: Wind
+          requestId: 05WTSJ-M
+          demandMwHr: 48920.1
+          factsetBaId: 05WTSJ-M
+          respondentFactsetBaSubRegId: 05WTT4-M
+          category: Generation
+          netInterchangeMw: -1250.1
+        meta:
+          requestedIds: 2
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+          failedIds: []
+      properties:
+        data:
+          description: Array of market data records. Record shape matches the requested
+            `category`.
+          items:
+            $ref: '#/components/schemas/MarketDataRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      type: object
+    MarketDataRecord:
+      additionalProperties: true
+      description: A single balancing authority market data record.
+      example:
+        generationMw: 52347.1
+        factsetBaSubRegId: 05WTTF-M
+        reportHour: 14
+        reportDate: 2024-01-15T00:00:00.000+0000
+        primaryFuelType: Wind
+        requestId: 05WTSJ-M
+        demandMwHr: 48920.1
+        factsetBaId: 05WTSJ-M
+        respondentFactsetBaSubRegId: 05WTT4-M
+        category: Generation
+        netInterchangeMw: -1250.1
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetBaId`
+            (Generation) or `factsetBaSubRegId` (Demand, Interchange).
+          example: 05WTSJ-M
+          type: string
+        factsetBaId:
+          description: (Generation) FactSet balancing authority identifier, as submitted
+            in the request.
+          example: 05WTSJ-M
+          nullable: true
+          type: string
+        factsetBaSubRegId:
+          description: (Demand, Interchange) FactSet balancing authority sub-region
+            identifier, as submitted in the request.
+          example: 05WTTF-M
+          nullable: true
+          type: string
+        category:
+          description: Data category for this record.
+          enum:
+          - Generation
+          - Demand
+          - Interchange
+          example: Generation
+          type: string
+        reportDate:
+          description: Report date (YYYY-MM-DD), in UTC.
+          example: 2024-01-15
+          format: date
+          nullable: true
+          type: string
+        reportHour:
+          description: Report hour in UTC (0–23). Null for daily aggregates.
+          example: 14
+          format: int32
+          nullable: true
+          type: integer
+        primaryFuelType:
+          description: (Generation) Primary fuel type this generation value is reported
+            for.
+          example: Wind
+          nullable: true
+          type: string
+        generationMw:
+          description: (Generation) Net generation in MWh for the hour, by fuel type.
+          example: 52347.1
+          format: double
+          nullable: true
+          type: number
+        demandMwHr:
+          description: (Demand) Actual electricity demand (load) in MWh for the hour.
+          example: 48920.1
+          format: double
+          nullable: true
+          type: number
+        respondentFactsetBaSubRegId:
+          description: (Interchange) Counterpart balancing authority sub-region identifier.
+          example: 05WTT4-M
+          nullable: true
+          type: string
+        netInterchangeMw:
+          description: (Interchange) Net interchange in MW. Positive values indicate
+            net exports from the reporting BA sub-region; negative values indicate
+            net imports.
+          example: -1250.1
+          format: double
+          nullable: true
+          type: number
+      type: object
+    PricesResponse:
+      description: Response containing power market price records.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 2
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+          failedIds: []
+      properties:
+        data:
+          description: Array of price records. Record shape matches the requested
+            `category`.
+          items:
+            $ref: '#/components/schemas/PriceRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      type: object
+    PriceRecord:
+      description: A single power market price record. Record shape matches the requested
+        `category`.
+      discriminator:
+        mapping:
+          Power: '#/components/schemas/PowerPriceRecord'
+          SparkSpread: '#/components/schemas/SparkSpreadPriceRecord'
+          Capacity: '#/components/schemas/CapacityPriceRecord'
+          Forward: '#/components/schemas/ForwardPriceRecord'
+        propertyName: category
+      oneOf:
+      - $ref: '#/components/schemas/PowerPriceRecord'
+      - $ref: '#/components/schemas/SparkSpreadPriceRecord'
+      - $ref: '#/components/schemas/CapacityPriceRecord'
+      - $ref: '#/components/schemas/ForwardPriceRecord'
+    PriceRecordBase:
+      description: |
+        Fields common to every power market price record. Record shape matches the requested `category` — see `PowerPriceRecord`, `SparkSpreadPriceRecord`, `CapacityPriceRecord`, and `ForwardPriceRecord` for the category-specific fields layered on top via `allOf`.
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `locationId`.
+          example: HB_NORTH
+          type: string
+        locationId:
+          description: Location identifier, as submitted in the request.
+          example: HB_NORTH
+          type: string
+        locationName:
+          description: Full location name.
+          example: Hub North
+          nullable: true
+          type: string
+        isoCode:
+          description: ISO/TSO market code.
+          example: ERCOT
+          nullable: true
+          type: string
+      required:
+      - locationId
+      - requestId
+      type: object
+    PowerPriceRecord:
+      allOf:
+      - $ref: '#/components/schemas/PriceRecordBase'
+      - $ref: '#/components/schemas/PowerPriceRecord_allOf'
+      description: Spot power price record.
+      type: object
+    SparkSpreadPriceRecord:
+      allOf:
+      - $ref: '#/components/schemas/PriceRecordBase'
+      - $ref: '#/components/schemas/SparkSpreadPriceRecord_allOf'
+      description: Natural gas spark spread price record.
+      type: object
+    SparkSpreadPricesMwh:
+      description: Spark spreads in $/MWh at four fixed assumed heat rates.
+      properties:
+        heatRate7000:
+          description: Spark spread in $/MWh assuming a 7,000 MMBtu/MWh heat rate.
+          example: 6.2
+          format: double
+          nullable: true
+          type: number
+        heatRate8000:
+          description: Spark spread in $/MWh assuming an 8,000 MMBtu/MWh heat rate.
+          example: 4.2
+          format: double
+          nullable: true
+          type: number
+        heatRate10000:
+          description: Spark spread in $/MWh assuming a 10,000 MMBtu/MWh heat rate.
+          example: 4.2
+          format: double
+          nullable: true
+          type: number
+        heatRate12000:
+          description: Spark spread in $/MWh assuming a 12,000 MMBtu/MWh heat rate.
+          example: 6.46
+          format: double
+          nullable: true
+          type: number
+      type: object
+    CapacityPriceRecord:
+      allOf:
+      - $ref: '#/components/schemas/PriceRecordBase'
+      - $ref: '#/components/schemas/CapacityPriceRecord_allOf'
+      description: Capacity auction clearing price record.
+      type: object
+    ForwardPriceRecord:
+      allOf:
+      - $ref: '#/components/schemas/PriceRecordBase'
+      - $ref: '#/components/schemas/ForwardPriceRecord_allOf'
+      description: Forward power price curve record.
+      type: object
+    HourlyGenerationResponse:
+      description: Response containing hourly generation and emissions records.
+      example:
+        data:
+        - generationMwh: 1248.5
+          reportHour: 14
+          primaryFuelType: Gas
+          so2TonsEmitted: 98.2
+          nitrousOxideEmitted: 145.6
+          factsetPlantUnitId: 05RLSM-M
+          reportDate: 2024-06-03T00:00:00.000+0000
+          requestId: 05RLSM-M
+          factsetPlantId: B00121-M
+          steamGen1000Lbs: 124.1
+          heatInputMmBtu: 8563.1
+          plantName: W.A. Parish Electric Station
+          co2TonsEmitted: 712.4
+        - generationMwh: 1248.5
+          reportHour: 14
+          primaryFuelType: Gas
+          so2TonsEmitted: 98.2
+          nitrousOxideEmitted: 145.6
+          factsetPlantUnitId: 05RLSM-M
+          reportDate: 2024-06-03T00:00:00.000+0000
+          requestId: 05RLSM-M
+          factsetPlantId: B00121-M
+          steamGen1000Lbs: 124.1
+          heatInputMmBtu: 8563.1
+          plantName: W.A. Parish Electric Station
+          co2TonsEmitted: 712.4
+        meta:
+          requestedIds: 2
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+          failedIds: []
+      properties:
+        data:
+          description: Array of hourly generation and emissions records.
+          items:
+            $ref: '#/components/schemas/HourlyGenerationRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      type: object
+    HourlyGenerationRecord:
+      additionalProperties: true
+      description: Hourly net generation and emissions record for a single power plant
+        unit.
+      example:
+        generationMwh: 1248.5
+        reportHour: 14
+        primaryFuelType: Gas
+        so2TonsEmitted: 98.2
+        nitrousOxideEmitted: 145.6
+        factsetPlantUnitId: 05RLSM-M
+        reportDate: 2024-06-03T00:00:00.000+0000
+        requestId: 05RLSM-M
+        factsetPlantId: B00121-M
+        steamGen1000Lbs: 124.1
+        heatInputMmBtu: 8563.1
+        plantName: W.A. Parish Electric Station
+        co2TonsEmitted: 712.4
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantUnitId`.
+          example: 05RLSM-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier, as submitted in
+            the request.
+          example: 05RLSM-M
+          type: string
+        factsetPlantId:
+          description: FactSet unique power plant asset identifier for the plant this
+            unit belongs to.
+          example: B00121-M
+          nullable: true
+          type: string
+        plantName:
+          description: Official plant name.
+          example: W.A. Parish Electric Station
+          nullable: true
+          type: string
+        reportDate:
+          description: Report date (YYYY-MM-DD).
+          example: 2024-06-03
+          format: date
+          nullable: true
+          type: string
+        reportHour:
+          description: Report hour (0–23) in local prevailing time.
+          example: 14
+          format: int32
+          nullable: true
+          type: integer
+        generationMwh:
+          description: Net generation in megawatt-hours (MWh) for the hour.
+          example: 1248.5
+          format: double
+          nullable: true
+          type: number
+        heatInputMmBtu:
+          description: Heat input in MMBtu for the hour.
+          example: 8563.1
+          format: double
+          nullable: true
+          type: number
+        steamGen1000Lbs:
+          description: Steam generation for the hour, in thousands of pounds.
+          example: 124.1
+          format: double
+          nullable: true
+          type: number
+        co2TonsEmitted:
+          description: CO₂ emissions in metric tons for the hour.
+          example: 712.4
+          format: double
+          nullable: true
+          type: number
+        so2TonsEmitted:
+          description: SO₂ emissions in metric tons for the hour.
+          example: 98.2
+          format: double
+          nullable: true
+          type: number
+        nitrousOxideEmitted:
+          description: Nitrous oxide (N₂O) emissions in metric tons for the hour.
+          example: 145.6
+          format: double
+          nullable: true
+          type: number
+        primaryFuelType:
+          description: Fuel type used for generation during this hour.
+          example: Gas
+          nullable: true
+          type: string
+      type: object
+    MonthlyGenerationResponse:
+      description: Response containing monthly generation and emissions records.
+      example:
+        data:
+        - generationMwh: 892450.1
+          reportMonth: 6
+          primaryFuelType: Gas
+          ppFuelCapacityFactor: 30.4012
+          co2IntensityTonsPerMwh: 0.57
+          ppFuelCapacityMw: 2410.2
+          so2TonsEmitted: 35.8
+          nitrousOxideTonsEmitted: 52.1
+          factsetPlantUnitId: 05RLSM-M
+          reportYear: 2023
+          requestId: B00121-M
+          factsetPlantId: B00121-M
+          heatInputMmBtu: 6118000.1
+          plantName: W.A. Parish Electric Station
+          co2TonsEmitted: 508920.1
+        - generationMwh: 892450.1
+          reportMonth: 6
+          primaryFuelType: Gas
+          ppFuelCapacityFactor: 30.4012
+          co2IntensityTonsPerMwh: 0.57
+          ppFuelCapacityMw: 2410.2
+          so2TonsEmitted: 35.8
+          nitrousOxideTonsEmitted: 52.1
+          factsetPlantUnitId: 05RLSM-M
+          reportYear: 2023
+          requestId: B00121-M
+          factsetPlantId: B00121-M
+          heatInputMmBtu: 6118000.1
+          plantName: W.A. Parish Electric Station
+          co2TonsEmitted: 508920.1
+        meta:
+          requestedIds: 2
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+          failedIds: []
+      properties:
+        data:
+          description: Array of monthly generation and emissions records.
+          items:
+            $ref: '#/components/schemas/MonthlyGenerationRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      type: object
+    MonthlyGenerationRecord:
+      additionalProperties: true
+      description: Monthly net generation and emissions record for a single plant.
+      example:
+        generationMwh: 892450.1
+        reportMonth: 6
+        primaryFuelType: Gas
+        ppFuelCapacityFactor: 30.4012
+        co2IntensityTonsPerMwh: 0.57
+        ppFuelCapacityMw: 2410.2
+        so2TonsEmitted: 35.8
+        nitrousOxideTonsEmitted: 52.1
+        factsetPlantUnitId: 05RLSM-M
+        reportYear: 2023
+        requestId: B00121-M
+        factsetPlantId: B00121-M
+        heatInputMmBtu: 6118000.1
+        plantName: W.A. Parish Electric Station
+        co2TonsEmitted: 508920.1
+      properties:
+        requestId:
+          description: The identifier as submitted in the request. Duplicates `factsetPlantId`.
+          example: B00121-M
+          type: string
+        factsetPlantId:
+          description: FactSet unique power plant asset identifier, as submitted in
+            the request.
+          example: B00121-M
+          type: string
+        factsetPlantUnitId:
+          description: FactSet unique power plant unit identifier. Unit-level attribution
+            for monthly generation is pending confirmation with the data team; may
+            be null.
+          example: 05RLSM-M
+          nullable: true
+          type: string
+        plantName:
+          description: Official plant name.
+          example: W.A. Parish Electric Station
+          nullable: true
+          type: string
+        reportYear:
+          description: Report year (four-digit).
+          example: 2023
+          format: int32
+          nullable: true
+          type: integer
+        reportMonth:
+          description: Report month (1–12).
+          example: 6
+          format: int32
+          nullable: true
+          type: integer
+        generationMwh:
+          description: Net generation in megawatt-hours (MWh) for the month.
+          example: 892450.1
+          format: double
+          nullable: true
+          type: number
+        heatInputMmBtu:
+          description: Total heat input in MMBtu for the month.
+          example: 6118000.1
+          format: double
+          nullable: true
+          type: number
+        co2TonsEmitted:
+          description: CO₂ emissions in metric tons for the month.
+          example: 508920.1
+          format: double
+          nullable: true
+          type: number
+        co2IntensityTonsPerMwh:
+          description: CO₂ intensity in metric tons per MWh.
+          example: 0.57
+          format: double
+          nullable: true
+          type: number
+        so2TonsEmitted:
+          description: SO₂ emissions in short tons for the month.
+          example: 35.8
+          format: double
+          nullable: true
+          type: number
+        nitrousOxideTonsEmitted:
+          description: Nitrous oxide (N₂O) emissions in short tons for the month.
+          example: 52.1
+          format: double
+          nullable: true
+          type: number
+        primaryFuelType:
+          description: Fuel type this record's generation and capacity are reported
+            for.
+          example: Gas
+          nullable: true
+          type: string
+        ppFuelCapacityMw:
+          description: Plant capacity for this fuel type, in MW.
+          example: 2410.2
+          format: double
+          nullable: true
+          type: number
+        ppFuelCapacityFactor:
+          description: Plant capacity factor for this fuel type, calculated from capacity
+            and actual generation.
+          example: 30.4012
+          format: double
+          nullable: true
+          type: number
+      type: object
+    IsoMappingResponse:
+      description: Response containing ISO/TSO mapping records.
+      example:
+        data:
+        - isoCode: ERCOT
+          isoName: Electric Reliability Council of Texas
+        - isoCode: ERCOT
+          isoName: Electric Reliability Council of Texas
+        meta:
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of ISO/TSO mapping records.
+          items:
+            $ref: '#/components/schemas/IsoMappingRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+      type: object
+    IsoMappingRecord:
+      description: ISO/TSO reference record.
+      example:
+        isoCode: ERCOT
+        isoName: Electric Reliability Council of Texas
+      properties:
+        isoCode:
+          description: ISO/TSO code used throughout the API.
+          example: ERCOT
+          nullable: true
+          type: string
+        isoName:
+          description: Full name of the ISO/TSO.
+          example: Electric Reliability Council of Texas
+          nullable: true
+          type: string
+      type: object
+    ZoneMappingResponse:
+      description: Response containing price zone and hub mapping records.
+      example:
+        data:
+        - locationName: AEP Generation Hub
+          isoCode: PJM
+          locationId: PJM_ATSI_BASE
+          priceUnits: MW/DAY
+          frequency: Monthly
+        - locationName: AEP Generation Hub
+          isoCode: PJM
+          locationId: PJM_ATSI_BASE
+          priceUnits: MW/DAY
+          frequency: Monthly
+        meta:
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of zone and hub mapping records.
+          items:
+            $ref: '#/components/schemas/ZoneMappingRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+      type: object
+    ZoneMappingRecord:
+      description: Capacity auction zone reference record.
+      example:
+        locationName: AEP Generation Hub
+        isoCode: PJM
+        locationId: PJM_ATSI_BASE
+        priceUnits: MW/DAY
+        frequency: Monthly
+      properties:
+        locationId:
+          description: ISO/TSO load distribution area or zone code, used as input
+            to `POST /prices?category=Capacity`.
+          example: PJM_ATSI_BASE
+          nullable: true
+          type: string
+        locationName:
+          description: Full zone name.
+          example: AEP Generation Hub
+          nullable: true
+          type: string
+        isoCode:
+          description: ISO/TSO market code.
+          example: PJM
+          nullable: true
+          type: string
+        priceUnits:
+          description: Unit of the clearing price for this zone.
+          example: MW/DAY
+          nullable: true
+          type: string
+        frequency:
+          description: Frequency at which capacity auctions are held for this zone.
+          example: Monthly
+          nullable: true
+          type: string
+      type: object
+    LocationMappingResponse:
+      description: Response containing power price location mapping records.
+      example:
+        data:
+        - locationName: Hub North
+          isoCode: ERCOT
+          locationId: HB_NORTH
+        - locationName: Hub North
+          isoCode: ERCOT
+          locationId: HB_NORTH
+        meta:
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of power price location mapping records.
+          items:
+            $ref: '#/components/schemas/LocationMappingRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+      type: object
+    LocationMappingRecord:
+      description: Power price location (hub) reference record.
+      example:
+        locationName: Hub North
+        isoCode: ERCOT
+        locationId: HB_NORTH
+      properties:
+        locationId:
+          description: ISO/TSO power price location code (hub or zone code), used
+            as input to `POST /prices` for the `Power`, `SparkSpread`, and `Forward`
+            categories.
+          example: HB_NORTH
+          nullable: true
+          type: string
+        locationName:
+          description: Full location name.
+          example: Hub North
+          nullable: true
+          type: string
+        isoCode:
+          description: ISO/TSO market code.
+          example: ERCOT
+          nullable: true
+          type: string
+      type: object
+    EntityHistoryResponse:
+      description: Response containing entity and security history records.
+      example:
+        data:
+        - factsetSecurityId: factsetSecurityId
+          factsetUltParentEntityId: 000Q07-E
+          factsetEntityId: 0GSF7D-E
+          depth: 1
+          endDate: 2000-01-23
+          factsetParentEntityId: 000KYG-E
+          startDate: 2003-12-05T00:00:00.000+0000
+        - factsetSecurityId: factsetSecurityId
+          factsetUltParentEntityId: 000Q07-E
+          factsetEntityId: 0GSF7D-E
+          depth: 1
+          endDate: 2000-01-23
+          factsetParentEntityId: 000KYG-E
+          startDate: 2003-12-05T00:00:00.000+0000
+        meta:
+          pagination:
+            total: 4250
+            isEstimatedTotal: false
+      properties:
+        data:
+          description: Array of entity history records.
+          items:
+            $ref: '#/components/schemas/EntityHistoryRecord'
+          type: array
+        meta:
+          $ref: '#/components/schemas/CollectionResponseMeta'
+      type: object
+    EntityHistoryRecord:
+      description: An entity or security history record, combining security-to-entity
+        identifier mappings with entity ownership structure history.
+      example:
+        factsetSecurityId: factsetSecurityId
+        factsetUltParentEntityId: 000Q07-E
+        factsetEntityId: 0GSF7D-E
+        depth: 1
+        endDate: 2000-01-23
+        factsetParentEntityId: 000KYG-E
+        startDate: 2003-12-05T00:00:00.000+0000
+      properties:
+        factsetEntityId:
+          description: FactSet entity identifier.
+          example: 0GSF7D-E
+          nullable: true
+          type: string
+        factsetSecurityId:
+          description: FactSet security identifier, if this record maps a security
+            to an entity.
+          nullable: true
+          type: string
+        factsetParentEntityId:
+          description: FactSet identifier for the immediate majority owner of this
+            entity's equity, if this record reflects ownership structure.
+          example: 000KYG-E
+          nullable: true
+          type: string
+        factsetUltParentEntityId:
+          description: FactSet identifier for the ultimate owner of this entity's
+            equity, if this record reflects ownership structure.
+          example: 000Q07-E
+          nullable: true
+          type: string
+        depth:
+          description: Position of the entity within its ownership tree. 1 = ultimate
+            parent, 2 = one level below the ultimate parent, etc.
+          example: 1
+          nullable: true
+          type: integer
+        startDate:
+          description: Effective start date of this record.
+          example: 2003-12-05
+          format: date
+          nullable: true
+          type: string
+        endDate:
+          description: Effective end date of this record. Null if the record is currently
+            active.
+          format: date
+          nullable: true
+          type: string
+      type: object
+    ErrorObject_links:
+      description: Optional links for additional context.
+      properties:
+        about:
+          description: Link to documentation for this error.
+          format: url
+          type: string
+        pointer:
+          description: JSON Pointer to the field that caused the error.
+          example: /data/ids/0
+          type: string
+        parameter:
+          description: Query parameter name that caused the error.
+          example: ids[0]
+          type: string
+        value:
+          description: The value that caused the error.
+          example: INVALID-ID
+          type: string
+      type: object
+    HourlyGenerationRequest_data:
+      description: Hourly generation query parameters.
+      example:
+        endDate: 2024-06-07T00:00:00.000+0000
+        ids:
+        - B00121-M
+        - 05RLSM-M
+        startDate: 2024-06-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of FactSet power plant and/or plant unit asset identifiers.
+            Accepts both plant IDs (e.g., `"B00121-M"`) and unit IDs (e.g., `"05RLSM-M"`).
+            When a plant ID is provided, all units within that plant are returned.
+          example:
+          - B00121-M
+          - 05RLSM-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return records on or after this date (YYYY-MM-DD).
+          example: 2024-06-01
+          format: date
+          type: string
+        endDate:
+          description: Return records on or before this date (YYYY-MM-DD).
+          example: 2024-06-07
+          format: date
+          type: string
+      required:
+      - endDate
+      - ids
+      - startDate
+      type: object
+    MonthlyGenerationRequest_data:
+      description: Monthly generation query parameters.
+      example:
+        endDate: 2023-12-31T00:00:00.000+0000
+        ids:
+        - B00121-M
+        - B00987-M
+        startDate: 2023-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of FactSet power plant asset identifiers (e.g., `"B00121-M"`).
+            Use `GET /plants/ids` to discover valid identifiers.
+          example:
+          - B00121-M
+          - B00987-M
+          items:
+            type: string
+          maxItems: 100
+          minItems: 1
+          type: array
+        startDate:
+          description: Return records with a report month on or after this date (YYYY-MM-DD).
+            Only the year and month components are used.
+          example: 2023-01-01
+          format: date
+          type: string
+        endDate:
+          description: Return records with a report month on or before this date (YYYY-MM-DD).
+            Only the year and month components are used.
+          example: 2023-12-31
+          format: date
+          type: string
+      required:
+      - endDate
+      - ids
+      - startDate
+      type: object
+    PowerPriceRecord_allOf:
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryPower'
+        priceDate:
+          description: Trade or settlement date (YYYY-MM-DD).
+          example: 2024-01-15
+          format: date
+          nullable: true
+          type: string
+        onPeakPriceMwh:
+          description: On-peak spot power price in $/MWh.
+          example: 35.2
+          format: double
+          nullable: true
+          type: number
+        offPeakPriceMwh:
+          description: Off-peak spot power price in $/MWh.
+          example: 22.75
+          format: double
+          nullable: true
+          type: number
+        aroundTheClockPriceMwh:
+          description: Around-the-clock (flat) spot power price in $/MWh.
+          example: 29.1
+          format: double
+          nullable: true
+          type: number
+      required:
+      - category
+      type: object
+    SparkSpreadPriceRecord_allOf:
+      properties:
+        category:
+          $ref: '#/components/schemas/CategorySparkSpread'
+        priceDate:
+          description: Trade or settlement date (YYYY-MM-DD).
+          example: 2024-01-15
+          format: date
+          nullable: true
+          type: string
+        ngiLocName:
+          description: Corresponding natural gas delivery point name, as given by
+            Natural Gas Intelligence.
+          example: Appalachia Regional Avg.
+          nullable: true
+          type: string
+        sparkSpreadType:
+          description: Spark spread type.
+          enum:
+          - Peak
+          - OffPeak
+          - Average
+          example: Peak
+          nullable: true
+          type: string
+        sparkSpreadPricesMwh:
+          $ref: '#/components/schemas/SparkSpreadPricesMwh'
+      required:
+      - category
+      type: object
+    CapacityPriceRecord_allOf:
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryCapacity'
+        mnemonic:
+          description: FactSet-assigned code for this price series.
+          example: USCM7848113
+          nullable: true
+          type: string
+        auctionType:
+          description: Type of capacity auction.
+          example: Base Residual Auction
+          nullable: true
+          type: string
+        auctionDate:
+          description: Date of the capacity auction.
+          example: 2023-05-15
+          format: date
+          nullable: true
+          type: string
+        deliveryYear:
+          description: Capacity delivery year, derived from the price effective date.
+          example: 2026
+          format: int32
+          nullable: true
+          type: integer
+        auctionPriceMw:
+          description: Capacity auction clearing price in $/MW-day.
+          example: 49.5
+          format: double
+          nullable: true
+          type: number
+      required:
+      - category
+      type: object
+    ForwardPriceRecord_allOf:
+      properties:
+        category:
+          $ref: '#/components/schemas/CategoryForward'
+        priceDate:
+          description: Trade or settlement date (YYYY-MM-DD).
+          example: 2023-03-06
+          format: date
+          nullable: true
+          type: string
+        deliveryYear:
+          description: Delivery year, derived from the delivery start date.
+          example: 2024
+          format: int32
+          nullable: true
+          type: integer
+        deliveryMonth:
+          description: Delivery month (1–12), derived from the delivery start date.
+          example: 7
+          format: int32
+          nullable: true
+          type: integer
+        interconnection:
+          description: Higher-level US power market region the location belongs to.
+          example: Eastern
+          nullable: true
+          type: string
+        periodType:
+          description: Term type of the forward delivery period.
+          example: Calendar
+          nullable: true
+          type: string
+        priceType:
+          description: Forward price type.
+          enum:
+          - OnPeak
+          - OffPeak
+          - AroundTheClock
+          example: OnPeak
+          nullable: true
+          type: string
+        avgForwardPriceMwh:
+          description: Forward price in $/MWh, reported as a rolling 3-day average.
+          example: 48.75
+          format: double
+          nullable: true
+          type: number
+      required:
+      - category
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+x-factset-sdk-has-main-example: true
+

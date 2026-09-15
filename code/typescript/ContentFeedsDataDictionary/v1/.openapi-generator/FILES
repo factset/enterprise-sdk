@@ -1,7 +1,5 @@
 .babelrc
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 docs/ApiEndpoint.md
@@ -17,7 +15,6 @@ docs/Table.md
 docs/TableCodeFieldInfoResponse.md
 docs/TableCodeInfo.md
 docs/TableField.md
-git_push.sh
 mocha.opts
 package.json
 src/ApiClient.js

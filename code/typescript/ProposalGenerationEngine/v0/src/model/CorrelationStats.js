@@ -13,7 +13,6 @@
 
 import ApiClient from '../ApiClient';
 import CorrelationMatrix from './CorrelationMatrix';
-import PortfolioCorrelationMatrix from './PortfolioCorrelationMatrix';
 
 /**
  * The CorrelationStats model module.
@@ -52,7 +51,10 @@ class CorrelationStats {
                 obj['correlationMatrix'] = CorrelationMatrix.constructFromObject(data['correlationMatrix']);
             }
             if (data.hasOwnProperty('portfolioCorrelationMatrix') && obj['portfolioCorrelationMatrix'] === undefined) {
-                obj['portfolioCorrelationMatrix'] = PortfolioCorrelationMatrix.constructFromObject(data['portfolioCorrelationMatrix']);
+                obj['portfolioCorrelationMatrix'] = CorrelationMatrix.constructFromObject(data['portfolioCorrelationMatrix']);
+            }
+            if (data.hasOwnProperty('actReturnsCorrelationMatrix') && obj['actReturnsCorrelationMatrix'] === undefined) {
+                obj['actReturnsCorrelationMatrix'] = CorrelationMatrix.constructFromObject(data['actReturnsCorrelationMatrix']);
             }
             
         }
@@ -68,9 +70,14 @@ class CorrelationStats {
 CorrelationStats.prototype['correlationMatrix'] = undefined;
 
 /**
- * @member {module:model/PortfolioCorrelationMatrix} portfolioCorrelationMatrix
+ * @member {module:model/CorrelationMatrix} portfolioCorrelationMatrix
  */
 CorrelationStats.prototype['portfolioCorrelationMatrix'] = undefined;
+
+/**
+ * @member {module:model/CorrelationMatrix} actReturnsCorrelationMatrix
+ */
+CorrelationStats.prototype['actReturnsCorrelationMatrix'] = undefined;
 
 
 

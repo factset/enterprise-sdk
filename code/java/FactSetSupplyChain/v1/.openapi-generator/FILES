@@ -1,6 +1,4 @@
-.gitignore
 .openapi-generator-ignore
-.travis.yml
 LICENSE
 README.md
 api/openapi.yaml
@@ -16,7 +14,6 @@ docs/RelationshipsApi.md
 docs/RelationshipsRequest.md
 docs/RelationshipsRequestBody.md
 docs/RelationshipsResponse.md
-git_push.sh
 gradle.properties
 gradle/wrapper/gradle-wrapper.jar
 gradle/wrapper/gradle-wrapper.properties
