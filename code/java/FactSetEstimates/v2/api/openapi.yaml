@@ -37,7 +37,7 @@ info:
     \ to create your own SDKs. You can also access it by selecting the \"Download\
     \ Spec\" button beside the version information.\n  \n  [https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml](https://api.factset.com/content/factset-estimates/v2/spec/swagger.yaml)\n"
   title: FactSet Estimates
-  version: 2.10.0
+  version: 2.11.1
 servers:
 - description: Production
   url: https://api.factset.com/content
@@ -104,7 +104,7 @@ paths:
           type: array
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -208,15 +208,10 @@ paths:
           type: integer
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.      \n"
+          \ fetch Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months\
+          \ Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI**\
+          \ - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months\
+          \      \n"
         explode: true
         in: query
         name: periodicity
@@ -478,7 +473,7 @@ paths:
           type: array
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -578,15 +573,10 @@ paths:
           type: string
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.      \n"
+          \ fetch Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months\
+          \ Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI**\
+          \ - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months\
+          \      \n"
         explode: true
         in: query
         name: periodicity
@@ -847,7 +837,7 @@ paths:
           type: array
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -989,10 +979,9 @@ paths:
         schema:
           type: string
         style: form
-      - description: 'Filter to return estimate data from specific brokers only. Accepts
-          broker names as input.  The endpoint returns data from all available brokers
-          if this parameter is not specified. For a list of available brokers, visit
-          [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      - description: Filter to return estimate data from specific brokers only. Accepts
+          broker names as input. The endpoint returns data from all available brokers
+          if this parameter is not specified.
         example:
         - Morningstar Equity Research
         explode: false
@@ -1273,7 +1262,7 @@ paths:
           type: array
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -1411,10 +1400,9 @@ paths:
         schema:
           type: string
         style: form
-      - description: 'Filter to return estimate data from specific brokers only. Accepts
-          broker names as input.  The endpoint returns data from all available brokers
-          if this parameter is not specified. For a list of available brokers, visit
-          [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      - description: Filter to return estimate data from specific brokers only. Accepts
+          broker names as input. The endpoint returns data from all available brokers
+          if this parameter is not specified.
         example:
         - Morningstar Equity Research
         explode: false
@@ -2025,10 +2013,9 @@ paths:
           default: false
           type: boolean
         style: form
-      - description: 'Filter to return estimate data from specific brokers only. Accepts
-          broker names as input.  The endpoint returns data from all available brokers
-          if this parameter is not specified. For a list of available brokers, visit
-          [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      - description: Filter to return estimate data from specific brokers only. Accepts
+          broker names as input. The endpoint returns data from all available brokers
+          if this parameter is not specified.
         example:
         - Morningstar Equity Research
         explode: false
@@ -2289,7 +2276,7 @@ paths:
           type: array
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -2722,11 +2709,9 @@ paths:
       x-accepts: application/json
   /factset-estimates/v2/segments-metrics:
     get:
-      description: "Returns list of available Estimate Segment Detail metrics that\
-        \ can be used in the `metrics` parameter of the segment details endpoint.\n\
-        **By default, Factset provides Estimated items in millions across all currencies.\
-        \ For specific metric methodology definitions, reference the `OAurl` response\
-        \ items to launch the available methodology page.** \n"
+      description: |
+        Returns list of available Estimate Segment Detail metrics that can be used in the `metrics` parameter of the segment details endpoint. Use the optional startPeriod, endPeriod, and periodicity parameters to filter available metrics for specific fiscal periods.
+        **By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the `OAurl` response items to launch the available methodology page.**
       operationId: getEstimateSegmentDetailMetrics
       parameters:
       - description: |
@@ -2788,6 +2773,51 @@ paths:
           - BUS
           - GEO
           - ALL
+          type: string
+        style: form
+      - description: Starting fiscal period, expressed as an integer, used to filter
+          segment results. This is combined with the periodicity parameter to specify
+          a relative estimate period. For example, set to 0 and periodicity to ANN
+          to ask for the current fiscal year (FY0). When not provided, defaults to
+          current period only (FY0).
+        example: 0
+        explode: true
+        in: query
+        name: startPeriod
+        required: false
+        schema:
+          maximum: 20
+          minimum: -20
+          type: integer
+        style: form
+      - description: Ending fiscal period, expressed as an integer, used to filter
+          segment results. This is combined with the periodicity parameter to specify
+          a relative estimate period. For example, set to 1 and periodicity to ANN
+          to ask for the next fiscal year (FY1). When not provided, defaults to current
+          period only (FY0).
+        example: 0
+        explode: true
+        in: query
+        name: endPeriod
+        required: false
+        schema:
+          maximum: 20
+          minimum: -20
+          type: integer
+        style: form
+      - description: "The periodicity for the estimates requested, allowing you to\
+          \ fetch Quarterly, Semi-Annual, and Annual Estimates.\n  * **ANN** - Annual\n\
+          \  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n"
+        explode: true
+        in: query
+        name: periodicity
+        required: false
+        schema:
+          default: ANN
+          enum:
+          - ANN
+          - QTR
+          - SEMI
           type: string
         style: form
       responses:
@@ -2878,13 +2908,13 @@ paths:
       x-accepts: application/json
   /factset-estimates/v2/segments:
     get:
-      description: "Returns FactSet Estimates Consensus Data for the segments gathered\
-        \ from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications\
-        \ by using fiscal periods with a reporting frequency. \n"
+      description: |
+        Returns FactSet Estimates Consensus Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency.
       operationId: getSegments
       parameters:
       - description: |
-          Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> _Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._
+          Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.
+          <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p>
         examples:
           oneId:
             summary: One Market Identifier
@@ -2895,7 +2925,6 @@ paths:
             value:
             - FDS-US
             - AAPL-US
-            - MSFT-US
         explode: false
         in: query
         name: ids
@@ -2930,7 +2959,7 @@ paths:
           type: string
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -3000,15 +3029,10 @@ paths:
           type: integer
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.      \n"
+          \ fetch Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months\
+          \ Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI**\
+          \ - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months\
+          \      \n"
         explode: true
         in: query
         name: periodicity
@@ -4056,7 +4080,7 @@ paths:
           type: array
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -4105,15 +4129,10 @@ paths:
           type: integer
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.      \n"
+          \ fetch Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months\
+          \ Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI**\
+          \ - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months\
+          \      \n"
         explode: true
         in: query
         name: periodicity
@@ -4524,15 +4543,10 @@ paths:
           type: integer
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.      \n"
+          \ fetch Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months\
+          \ Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI**\
+          \ - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months\
+          \      \n"
         explode: true
         in: query
         name: periodicity
@@ -4791,7 +4805,7 @@ paths:
           type: array
         style: form
       - description: |
-          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+          Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
         examples:
           Metric:
             summary: Metrics
@@ -4861,15 +4875,10 @@ paths:
           type: integer
         style: form
       - description: "The periodicity for the estimates requested, allowing you to\
-          \ fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN**\
-          \ - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-          \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-          \ of annual estimates from two fiscal years to create an estimate based\
-          \ on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual.\
-          \ Estimates use a percentage of annual estimates from two fiscal years to\
-          \ create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-          \ for detail.      \n"
+          \ fetch Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months\
+          \ Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI**\
+          \ - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months\
+          \      \n"
         explode: true
         in: query
         name: periodicity
@@ -6512,9 +6521,10 @@ components:
         minItems: 1
         type: array
       style: form
-    segmentIds:
+    idsSegments:
       description: |
-        Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> _Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._
+        Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.
+        <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p>
       examples:
         oneId:
           summary: One Market Identifier
@@ -6525,10 +6535,34 @@ components:
           value:
           - FDS-US
           - AAPL-US
-          - MSFT-US
       explode: false
       in: query
       name: ids
+      required: true
+      schema:
+        items:
+          type: string
+        maxItems: 50
+        minItems: 1
+        type: array
+      style: form
+    segmentIds:
+      description: |
+        Requested segmentId. Use the `/segments-metrics` endpoint for a list of segment_ids.
+      examples:
+        oneId:
+          summary: One Segment Identifier
+          value:
+          - PRODLINE_SALES_1
+        multipleIds:
+          summary: Multiple Segment Identifiers
+          value:
+          - PRODLINE_SALES_1
+          - PRODLINE_SALES_2
+          - GEO_SALES_1
+      explode: false
+      in: query
+      name: segmentIds
       required: true
       schema:
         items:
@@ -6561,6 +6595,38 @@ components:
       explode: true
       in: query
       name: relativeFiscalEnd
+      required: false
+      schema:
+        maximum: 20
+        minimum: -20
+        type: integer
+      style: form
+    startPeriod:
+      description: Starting fiscal period, expressed as an integer, used to filter
+        segment results. This is combined with the periodicity parameter to specify
+        a relative estimate period. For example, set to 0 and periodicity to ANN to
+        ask for the current fiscal year (FY0). When not provided, defaults to current
+        period only (FY0).
+      example: 0
+      explode: true
+      in: query
+      name: startPeriod
+      required: false
+      schema:
+        maximum: 20
+        minimum: -20
+        type: integer
+      style: form
+    endPeriod:
+      description: Ending fiscal period, expressed as an integer, used to filter segment
+        results. This is combined with the periodicity parameter to specify a relative
+        estimate period. For example, set to 1 and periodicity to ANN to ask for the
+        next fiscal year (FY1). When not provided, defaults to current period only
+        (FY0).
+      example: 0
+      explode: true
+      in: query
+      name: endPeriod
       required: false
       schema:
         maximum: 20
@@ -6628,15 +6694,10 @@ components:
       style: form
     periodicity:
       description: "The periodicity for the estimates requested, allowing you to fetch\
-        \ Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN** -\
-        \ Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA**\
-        \ - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage\
-        \ of annual estimates from two fiscal years to create an estimate based on\
-        \ the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-        \ for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates\
-        \ use a percentage of annual estimates from two fiscal years to create an\
-        \ estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614)\
-        \ for detail.      \n"
+        \ Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months\
+        \ Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI**\
+        \ - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months\
+        \      \n"
       explode: true
       in: query
       name: periodicity
@@ -6701,7 +6762,7 @@ components:
       style: form
     metrics:
       description: |
-        Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
+        Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).
       examples:
         Metric:
           summary: Metrics
@@ -6957,10 +7018,9 @@ components:
         type: boolean
       style: form
     brokerNames:
-      description: 'Filter to return estimate data from specific brokers only. Accepts
-        broker names as input.  The endpoint returns data from all available brokers
-        if this parameter is not specified. For a list of available brokers, visit
-        [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      description: Filter to return estimate data from specific brokers only. Accepts
+        broker names as input. The endpoint returns data from all available brokers
+        if this parameter is not specified.
       example:
       - Morningstar Equity Research
       explode: false
@@ -7623,7 +7683,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         startDate:
           description: |
@@ -7898,7 +7957,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         startDate:
           description: |
@@ -7967,7 +8025,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         startDate:
           description: |
@@ -8245,7 +8302,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         currency:
           description: Currency code for adjusting the data. Use input as `ESTIMATE`
@@ -8255,10 +8311,9 @@ components:
           example: USD
           type: string
         brokerNames:
-          description: 'Filter to return estimate data from specific brokers only.
-            Accepts broker names as input.  The endpoint returns data from all available
-            brokers if this parameter is not specified. For a list of available brokers,
-            visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+          description: Filter to return estimate data from specific brokers only.
+            Accepts broker names as input. The endpoint returns data from all available
+            brokers if this parameter is not specified.
           example:
           - Morningstar Equity Research
           items:
@@ -8572,7 +8627,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         startDate:
           description: |
@@ -8622,10 +8676,9 @@ components:
           example: USD
           type: string
         brokerNames:
-          description: 'Filter to return estimate data from specific brokers only.
-            Accepts broker names as input.  The endpoint returns data from all available
-            brokers if this parameter is not specified. For a list of available brokers,
-            visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+          description: Filter to return estimate data from specific brokers only.
+            Accepts broker names as input. The endpoint returns data from all available
+            brokers if this parameter is not specified.
           example:
           - Morningstar Equity Research
           items:
@@ -8818,10 +8871,9 @@ components:
       title: Consensus Ratings
       type: object
     brokerNames:
-      description: 'Filter to return estimate data from specific brokers only. Accepts
-        broker names as input.  The endpoint returns data from all available brokers
-        if this parameter is not specified. For a list of available brokers, visit
-        [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      description: Filter to return estimate data from specific brokers only. Accepts
+        broker names as input. The endpoint returns data from all available brokers
+        if this parameter is not specified.
       example:
       - Morningstar Equity Research
       items:
@@ -8871,10 +8923,9 @@ components:
           example: false
           type: boolean
         brokerNames:
-          description: 'Filter to return estimate data from specific brokers only.
-            Accepts broker names as input.  The endpoint returns data from all available
-            brokers if this parameter is not specified. For a list of available brokers,
-            visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+          description: Filter to return estimate data from specific brokers only.
+            Accepts broker names as input. The endpoint returns data from all available
+            brokers if this parameter is not specified.
           example:
           - Morningstar Equity Research
           items:
@@ -9021,7 +9072,8 @@ components:
       properties:
         ids:
           description: |
-            The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *
+            Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.
+            <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p>
           example:
           - FDS-US
           items:
@@ -9074,7 +9126,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         currency:
           description: Currency code for adjusting the data. Use input as `ESTIMATE`
@@ -9160,10 +9211,9 @@ components:
           example: USD
           type: string
         brokerNames:
-          description: 'Filter to return estimate data from specific brokers only.
-            Accepts broker names as input.  The endpoint returns data from all available
-            brokers if this parameter is not specified. For a list of available brokers,
-            visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+          description: Filter to return estimate data from specific brokers only.
+            Accepts broker names as input. The endpoint returns data from all available
+            brokers if this parameter is not specified.
           example:
           - Morningstar Equity Research
           items:
@@ -9879,6 +9929,17 @@ components:
       maxItems: 3000
       minItems: 1
       type: array
+    idsSegments:
+      description: |
+        Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.
+        <p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p>
+      example:
+      - FDS-US
+      items:
+        type: string
+      maxItems: 50
+      minItems: 1
+      type: array
     segmentIds:
       description: |
         The requested list of security identifiers. Accepted ID types include Market Tickers, SEDOL, ISINs, CUSIPs, or FactSet Permanent Ids. * Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history. *
@@ -10088,15 +10149,15 @@ components:
       type: string
     periodicity:
       default: ANN
-      description: The periodicity for the estimates, reflecting Annual, Semi-Annual
-        and Quarterly Estimates. Next-twelve-months (NTMA) and Last-twelve-months
-        (LTMA) also supported.
+      description: The periodicity for the estimates. Supports Annual, Semi-Annual,
+        and Quarterly Estimates, as well as Next-twelve-months (NTMA) and Last-twelve-months
+        (LTMA) estimates.
       enum:
       - ANN
       - QTR
       - SEMI
-      - LTMA
       - NTMA
+      - LTMA
       type: string
     periodicityDetail:
       default: ANN
@@ -10123,7 +10184,6 @@ components:
       - SALES
       items:
         type: string
-      maxItems: 1
       type: array
     segmentsMetrics:
       description: 'Requested metric. Use the `/metrics` endpoint for a list of estimate
@@ -10502,7 +10562,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         relativeFiscalStart:
           description: Relative fiscal period, expressed as an integer, used to filter
@@ -11042,7 +11101,6 @@ components:
           - SALES
           items:
             type: string
-          maxItems: 1
           type: array
         startDate:
           description: |

@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **fsymRegionalId** | **String** | FactSet Regional Security identifier of the security held in the fund. | [optional] 
 **securityName** | **String** | Name of held security. | [optional] 
 **securityTicker** | **String** | Ticker of held security. | [optional] 
+**style** | **String** | Returns the holding style for the specified holder. Internal research staff assigns the index category. All other style categories are derived and, therefore, based solely on the characteristics of each portfolio&#39;s equity holdings. | [optional] 
+**managerStyle** | **String** | Returns the holder&#39;s portfolio management style, as specified by the holder itself. | [optional] 
 **holderId** | **String** | Returns the holder IDs for the insiders involved in the transactions that occurred between the specified start and end dates. | [optional] 
 **holderEntityId** | **String** | FactSet Entity ID that corresponds to the specified holder ID. | [optional] 
 **holderName** | **String** | Returns the names of the institutions involved in the transactions that occurred between the specified start and end dates. | [optional] 

@@ -1,5 +1,5 @@
 # FactSet.SDK.FactSetEstimates.Model.Periodicity
-The periodicity for the estimates, reflecting Annual, Semi-Annual and Quarterly Estimates. Next-twelve-months (NTMA) and Last-twelve-months (LTMA) also supported.
+The periodicity for the estimates. Supports Annual, Semi-Annual, and Quarterly Estimates, as well as Next-twelve-months (NTMA) and Last-twelve-months (LTMA) estimates.
 
 ## Properties
 

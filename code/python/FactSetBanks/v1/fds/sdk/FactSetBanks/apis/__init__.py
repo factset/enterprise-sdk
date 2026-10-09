@@ -20,5 +20,6 @@ from fds.sdk.FactSetBanks.api.exposure_api import ExposureApi
 from fds.sdk.FactSetBanks.api.filings_api import FilingsApi
 from fds.sdk.FactSetBanks.api.financials_api import FinancialsApi
 from fds.sdk.FactSetBanks.api.metrics_api import MetricsApi
+from fds.sdk.FactSetBanks.api.search_entities_api import SearchEntitiesApi
 from fds.sdk.FactSetBanks.api.specialty_finance_api import SpecialtyFinanceApi
 from fds.sdk.FactSetBanks.api.ubpr_performance_api import UBPRPerformanceApi

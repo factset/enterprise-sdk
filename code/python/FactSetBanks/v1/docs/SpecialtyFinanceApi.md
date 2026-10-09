@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com/content/factset-banks/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_aum**](SpecialtyFinanceApi.md#get_aum) | **POST** /aum | Returns Form ADV AUM data
+[**get_aum**](SpecialtyFinanceApi.md#get_aum) | **POST** /aum/ria | Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
 [**get_focus**](SpecialtyFinanceApi.md#get_focus) | **POST** /focus | Returns FOCUS report data
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 # **get_aum**
 > AUMResponse get_aum(aum_request)
 
-Returns Form ADV AUM data
+Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
 
-Returns SEC Form ADV assets under management data for investment advisers — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.  Form ADV history since 2017. Updated annually.  Find available metrics via [`/metrics`](#operation/getMetrics) with:  * **category**: `FINANCIALS` * **subcategory**: `SPECIALTY_FINANCE` 
+Returns SEC Form ADV assets under management (AUM) data for Registered Investment Advisers (RIAs) — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.  Form ADV history since 2017. Updated annually.  Find available metrics via [`/metrics`](#operation/getMetrics) with:  * **category**: `FINANCIALS` * **subcategory**: `SPECIALTY_FINANCE` 
 
 ### Example
 
@@ -78,7 +78,7 @@ with fds.sdk.FactSetBanks.ApiClient(configuration) as api_client:
     ) # AUMRequest | 
 
     try:
-        # Returns Form ADV AUM data
+        # Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
         # example passing only required values which don't have defaults set
         api_response = api_instance.get_aum(aum_request)
 

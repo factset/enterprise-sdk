@@ -10,7 +10,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Ownership API
-  version: 1.4.0
+  version: 1.5.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-ownership-api
@@ -2242,6 +2242,8 @@ components:
           fsymRegionalId: P8R3C2-R
           securityName: MICROSOFT CORP  COM
           securityTicker: MSFT-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2254,6 +2256,8 @@ components:
           fsymRegionalId: MH33D6-R
           securityName: APPLE INC  COM
           securityTicker: AAPL-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2266,6 +2270,8 @@ components:
           fsymRegionalId: MCNYYL-R
           securityName: AMAZON COM INC  COM
           securityTicker: AMZN-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2278,6 +2284,8 @@ components:
           fsymRegionalId: QLGSL2-R
           securityName: FACEBOOK INC  CL A
           securityTicker: FB-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2290,6 +2298,8 @@ components:
           fsymRegionalId: DBNXVB-R
           securityName: BERKSHIRE HATHAWAY INC  CL B
           securityTicker: BRK.B-US
+          style: Index
+          managerStyle: Generalist
     multipleIdentifiers:
       description: The Top 5 Equity Holdings of VTI-US, MABAX, and NZF as of 2019-12-31.
       summary: Top 5 Equity Holdings for VTI-US, MABAX, and NZF as of 2019-12-31
@@ -2307,6 +2317,8 @@ components:
           fsymRegionalId: P8R3C2-R
           securityName: MICROSOFT CORP  COM
           securityTicker: MSFT-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2319,6 +2331,8 @@ components:
           fsymRegionalId: MH33D6-R
           securityName: APPLE INC  COM
           securityTicker: AAPL-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2331,6 +2345,8 @@ components:
           fsymRegionalId: MCNYYL-R
           securityName: AMAZON COM INC  COM
           securityTicker: AMZN-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2343,6 +2359,8 @@ components:
           fsymRegionalId: QLGSL2-R
           securityName: FACEBOOK INC  CL A
           securityTicker: FB-US
+          style: Index
+          managerStyle: Generalist
         - requestId: VTI-US
           fsymId: K7ZVMR-S
           date: 2019-12-31
@@ -2355,6 +2373,8 @@ components:
           fsymRegionalId: DBNXVB-R
           securityName: BERKSHIRE HATHAWAY INC  CL B
           securityTicker: BRK.B-US
+          style: Index
+          managerStyle: Generalist
         - requestId: MABAX
           fsymId: FNK7XP-S
           date: 2019-12-31
@@ -2367,6 +2387,8 @@ components:
           fsymRegionalId: NNKD2Y-R
           securityName: JPMORGAN CHASE & CO  COM
           securityTicker: JPM-US
+          style: Value
+          managerStyle: Generalist
         - requestId: MABAX
           fsymId: FNK7XP-S
           date: 2019-12-31
@@ -2379,6 +2401,8 @@ components:
           fsymRegionalId: VWF970-R
           securityName: WELLS FARGO & CO  COM
           securityTicker: WFC-US
+          style: Value
+          managerStyle: Generalist
         - requestId: MABAX
           fsymId: FNK7XP-S
           date: 2019-12-31
@@ -2391,6 +2415,8 @@ components:
           fsymRegionalId: FT8FQW-R
           securityName: VERIZON COMMUNICATIONS INC  COM
           securityTicker: VZ-US
+          style: Value
+          managerStyle: Generalist
         - requestId: MABAX
           fsymId: FNK7XP-S
           date: 2019-12-31
@@ -2403,6 +2429,8 @@ components:
           fsymRegionalId: RK3DL5-R
           securityName: CITIGROUP INC  COM
           securityTicker: C-US
+          style: Value
+          managerStyle: Generalist
         - requestId: MABAX
           fsymId: FNK7XP-S
           date: 2019-12-31
@@ -2415,6 +2443,8 @@ components:
           fsymRegionalId: VK7M4R-R
           securityName: PFIZER INC  COM
           securityTicker: PFE-US
+          style: Value
+          managerStyle: Generalist
         - requestId: NZF
           fsymId: WHX5ZR-S
           date: 2019-12-31
@@ -2427,6 +2457,8 @@ components:
           fsymRegionalId: KHSMRN-R
           securityName: PIMCO MUNICIPAL INCOME FD II  COM
           securityTicker: PML-US
+          style: null
+          managerStyle: Growth
         - requestId: NZF
           fsymId: WHX5ZR-S
           date: 2019-12-31
@@ -2439,6 +2471,8 @@ components:
           fsymRegionalId: HJLD94-R
           securityName: INVESCO TRUST INVMT GRADE MUNICIPALS
           securityTicker: VGM-US
+          style: null
+          managerStyle: Growth
         - requestId: NZF
           fsymId: WHX5ZR-S
           date: 2019-12-31
@@ -2451,6 +2485,8 @@ components:
           fsymRegionalId: W13K8B-R
           securityName: INVESCO MUNICIPAL OPPORTUNITY TRUST
           securityTicker: VMO-US
+          style: null
+          managerStyle: Growth
         - requestId: NZF
           fsymId: WHX5ZR-S
           date: 2019-12-31
@@ -2463,6 +2499,8 @@ components:
           fsymRegionalId: NK4SPV-R
           securityName: BNY MELLON STRATEGIC MUNICIPALS  COM
           securityTicker: LEO-US
+          style: null
+          managerStyle: Growth
         - requestId: NZF
           fsymId: WHX5ZR-S
           date: 2019-12-31
@@ -2475,6 +2513,8 @@ components:
           fsymRegionalId: Q9MW50-R
           securityName: BLACKROCK MUNIHOLDINGS FUND INC
           securityTicker: MHD-US
+          style: null
+          managerStyle: Growth
     singleIdentiferPostRequest:
       description: The given post request body fetches the Top 5 Equity Holdings in
         the Vanguard Total Stock Index ETF as of 2019-12-31.
@@ -4642,16 +4682,18 @@ components:
       description: fundHolding response object
       example:
         date: 2018-06-30T00:00:00.000+0000
-        weightClose: 1.6639
-        issueType: Equity
         adjMarketValue: 120078159
         securityName: FACEBOOK INC  CL A
-        securityTicker: FB-US
-        requestId: VTI-US
+        managerStyle: Generalist
         fsymId: K7ZVMR-S
         fsymSecurityId: BHM9TN-S
-        currency: USD
         adjHolding: 60036157
+        weightClose: 1.6639
+        issueType: Equity
+        securityTicker: FB-US
+        requestId: VTI-US
+        currency: USD
+        style: Index
         fsymRegionalId: QLGSL2-R
       properties:
         requestId:
@@ -4739,6 +4781,20 @@ components:
         securityTicker:
           description: Ticker of held security.
           example: FB-US
+          nullable: true
+          type: string
+        style:
+          description: Returns the holding style for the specified holder. Internal
+            research staff assigns the index category. All other style categories
+            are derived and, therefore, based solely on the characteristics of each
+            portfolio's equity holdings.
+          example: Index
+          nullable: true
+          type: string
+        managerStyle:
+          description: Returns the holder's portfolio management style, as specified
+            by the holder itself.
+          example: Generalist
           nullable: true
           type: string
       title: Fund Holding
@@ -5224,28 +5280,32 @@ components:
       example:
         data:
         - date: 2018-06-30T00:00:00.000+0000
-          weightClose: 1.6639
-          issueType: Equity
           adjMarketValue: 120078159
           securityName: FACEBOOK INC  CL A
-          securityTicker: FB-US
-          requestId: VTI-US
+          managerStyle: Generalist
           fsymId: K7ZVMR-S
           fsymSecurityId: BHM9TN-S
-          currency: USD
           adjHolding: 60036157
+          weightClose: 1.6639
+          issueType: Equity
+          securityTicker: FB-US
+          requestId: VTI-US
+          currency: USD
+          style: Index
           fsymRegionalId: QLGSL2-R
         - date: 2018-06-30T00:00:00.000+0000
-          weightClose: 1.6639
-          issueType: Equity
           adjMarketValue: 120078159
           securityName: FACEBOOK INC  CL A
-          securityTicker: FB-US
-          requestId: VTI-US
+          managerStyle: Generalist
           fsymId: K7ZVMR-S
           fsymSecurityId: BHM9TN-S
-          currency: USD
           adjHolding: 60036157
+          weightClose: 1.6639
+          issueType: Equity
+          securityTicker: FB-US
+          requestId: VTI-US
+          currency: USD
+          style: Index
           fsymRegionalId: QLGSL2-R
       properties:
         data:

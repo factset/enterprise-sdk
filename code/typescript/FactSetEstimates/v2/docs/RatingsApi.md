@@ -223,7 +223,7 @@ const opts = {
   'startDate': 2019-07-30, // Date | Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted.
   'endDate': 2019-08-30, // Date | End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted.
   'includeAll': false, // Boolean | Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** = Returns all the brokers included and excluded in the consensus   * **FALSE** = Returns only the broker details included in the consensus   
-  'brokerNames': ["Morningstar Equity Research"], // [String] | Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).
+  'brokerNames': ["Morningstar Equity Research"], // [String] | Filter to return estimate data from specific brokers only. Accepts broker names as input. The endpoint returns data from all available brokers if this parameter is not specified.
   'updatesOnly': false // Boolean | If `true`, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If `false`, it returns data for every date in the requested range at the chosen frequency.    
 };
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
  **startDate** | **Date**| Start of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the start of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
  **endDate** | **Date**| End of the perspective date range for estimates, expressed in YYYY-MM-DD format. If left blank, the API defaults to the end of the latest company reporting period. Future dates (T+1) are not accepted. | [optional] 
  **includeAll** | **Boolean**| Include All filter is used to identify included and excluded broker details from the consensus   By default the service would return only the brokers included in the consensus-   * **TRUE** &#x3D; Returns all the brokers included and excluded in the consensus   * **FALSE** &#x3D; Returns only the broker details included in the consensus    | [optional] [default to false]
- **brokerNames** | [**[String]**](String.md)| Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706). | [optional] 
+ **brokerNames** | [**[String]**](String.md)| Filter to return estimate data from specific brokers only. Accepts broker names as input. The endpoint returns data from all available brokers if this parameter is not specified. | [optional] 
  **updatesOnly** | **Boolean**| If &#x60;true&#x60;, the endpoint returns the first reported estimates within the period plus any subsequent broker updates. If &#x60;false&#x60;, it returns data for every date in the requested range at the chosen frequency.     | [optional] [default to false]
 
 ### Return type

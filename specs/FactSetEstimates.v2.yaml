@@ -1,6 +1,6 @@
 openapi: '3.0.0'
 info:
-  version: '2.10.0'
+  version: '2.11.1'
   title: 'FactSet Estimates'
   contact:
     name: 'FactSet Research Systems'
@@ -621,7 +621,7 @@ paths:
       operationId: 'getEstimateSegmentDetailMetrics'
       tags:
         - 'Data Items'
-      description: "Returns list of available Estimate Segment Detail metrics that can be used in the `metrics` parameter of the segment details endpoint.\n**By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the `OAurl` response items to launch the available methodology page.** \n"
+      description: "Returns list of available Estimate Segment Detail metrics that can be used in the `metrics` parameter of the segment details endpoint. Use the optional startPeriod, endPeriod, and periodicity parameters to filter available metrics for specific fiscal periods.\n**By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the `OAurl` response items to launch the available methodology page.**\n"
       parameters:
         - name: 'ids'
           in: 'query'
@@ -675,6 +675,9 @@ paths:
             All:
               summary: 'ALL - Both Segment Types'
               value: 'ALL'
+        - $ref: '#/components/parameters/startPeriod'
+        - $ref: '#/components/parameters/endPeriod'
+        - $ref: '#/components/parameters/periodicityDetail'
       responses:
         '200':
           description: 'Estimate segment detail data metric items'
@@ -705,9 +708,9 @@ paths:
         - 'Segments'
       summary: 'Retrieves product & geographic segment estimates for a requested list of ids and fiscal periods'
       operationId: 'getSegments'
-      description: "Returns FactSet Estimates Consensus Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency. \n"
+      description: "Returns FactSet Estimates Consensus Data for the segments gathered from the Business, Geographical, or Actual Reconciliation (ADJUSTMENT) classifications by using fiscal periods with a reporting frequency.\n"
       parameters:
-        - $ref: '#/components/parameters/segmentIds'
+        - $ref: '#/components/parameters/idsSegments'
         - $ref: '#/components/parameters/segmentType'
         - $ref: '#/components/parameters/metrics'
         - $ref: '#/components/parameters/startDate'
@@ -1259,7 +1262,7 @@ components:
             - 'FDS-US'
             - 'AAPL-US'
             - 'MSFT-US'
-    segmentIds:
+    idsSegments:
       name: 'ids'
       in: 'query'
       schema:
@@ -1271,7 +1274,7 @@ components:
       required: true
       style: 'form'
       explode: false
-      description: "Security or Entity identifiers. FactSet Identifiers, tickers, CUSIP and SEDOL are accepted input. <p>***ids limit** =  50 per request*</p> _Make Note - id limit of 50 for defaults, otherwise the service is limited to a 30 second duration. This can be reached when increasing total number of metrics requested and depth of history._\n"
+      description: "Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.\n<p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p>\n"
       examples:
         oneId:
           summary: 'One Market Identifier'
@@ -1282,7 +1285,30 @@ components:
           value:
             - 'FDS-US'
             - 'AAPL-US'
-            - 'MSFT-US'
+    segmentIds:
+      name: 'segmentIds'
+      in: 'query'
+      schema:
+        type: 'array'
+        items:
+          type: 'string'
+        minItems: 1
+        maxItems: 50
+      required: true
+      style: 'form'
+      explode: false
+      description: "Requested segmentId. Use the `/segments-metrics` endpoint for a list of segment_ids.\n"
+      examples:
+        oneId:
+          summary: 'One Segment Identifier'
+          value:
+            - 'PRODLINE_SALES_1'
+        multipleIds:
+          summary: 'Multiple Segment Identifiers'
+          value:
+            - 'PRODLINE_SALES_1'
+            - 'PRODLINE_SALES_2'
+            - 'GEO_SALES_1'
     relativeFiscalStart:
       name: 'relativeFiscalStart'
       in: 'query'
@@ -1303,6 +1329,26 @@ components:
         maximum: 20
       description: 'Relative fiscal period, expressed as an integer, used to filter results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 2 and periodicity to ANN to ask for relative Fiscal Year 1 (FY2).'
       example: 2
+    startPeriod:
+      name: 'startPeriod'
+      in: 'query'
+      required: false
+      schema:
+        type: 'integer'
+        minimum: -20
+        maximum: 20
+      description: 'Starting fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 0 and periodicity to ANN to ask for the current fiscal year (FY0). When not provided, defaults to current period only (FY0).'
+      example: 0
+    endPeriod:
+      name: 'endPeriod'
+      in: 'query'
+      required: false
+      schema:
+        type: 'integer'
+        minimum: -20
+        maximum: 20
+      description: 'Ending fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for the next fiscal year (FY1). When not provided, defaults to current period only (FY0).'
+      example: 0
     relativeFiscalStartActuals:
       name: 'relativeFiscalStart'
       in: 'query'
@@ -1352,7 +1398,7 @@ components:
           - 'NTMA'
           - 'LTMA'
         default: 'ANN'
-      description: "The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, and NTMA/LTMA Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual \n  * **NTMA** - Next-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.\n  * **LTMA** - Last-Twelve-Months - Time-weighted Annual. Estimates use a percentage of annual estimates from two fiscal years to create an estimate based on the 12-month period. Visit [OA 16614](https://my.apps.factset.com/oa/pages/16614) for detail.      \n"
+      description: "The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, Annual, Next-Twelve-Months, and Last-Twelve-Months Estimates.\n  * **ANN** - Annual\n  * **QTR** - Quarterly\n  * **SEMI** - Semi-Annual\n  * **NTMA** - Next-Twelve-Months\n  * **LTMA** - Last-Twelve-Months      \n"
     periodicityForecast:
       name: 'periodicity'
       in: 'query'
@@ -1399,7 +1445,7 @@ components:
           example: 'SALES'
         minItems: 1
       explode: false
-      description: "Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**.  For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).\n"
+      description: "Requested metrics. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA,EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).\n"
       examples:
         Metric:
           summary: 'Metrics'
@@ -1567,7 +1613,7 @@ components:
           type: 'string'
       example:
         - 'Morningstar Equity Research'
-      description: 'Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      description: 'Filter to return estimate data from specific brokers only. Accepts broker names as input. The endpoint returns data from all available brokers if this parameter is not specified.'
     updatesOnly:
       name: 'updatesOnly'
       in: 'query'
@@ -2523,7 +2569,7 @@ components:
         type: 'string'
       example:
         - 'Morningstar Equity Research'
-      description: 'Filter to return estimate data from specific brokers only. Accepts broker names as input.  The endpoint returns data from all available brokers if this parameter is not specified. For a list of available brokers, visit [Online Assistant Page #14706](https://oa.apps.factset.com/pages/14706).'
+      description: 'Filter to return estimate data from specific brokers only. Accepts broker names as input. The endpoint returns data from all available brokers if this parameter is not specified.'
     updatesOnly:
       type: 'boolean'
       default: false
@@ -2627,7 +2673,7 @@ components:
       type: 'object'
       properties:
         ids:
-          $ref: '#/components/schemas/segmentIds'
+          $ref: '#/components/schemas/idsSegments'
         startDate:
           $ref: '#/components/schemas/startDate'
         endDate:
@@ -3124,6 +3170,15 @@ components:
       description: "Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.\n<p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p>\n<p>If requesting long historical data, limit the history to <b>10 years per metric per ID</b>.</p>\n"
       example:
         - 'FDS-US'
+    idsSegments:
+      type: 'array'
+      items:
+        type: 'string'
+      minItems: 1
+      maxItems: 50
+      description: "Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.\n<p><b>Performance Note:</b> Requests that increase the number of metrics or request long historical data may trigger the 30-second service timeout threshold. To ensure system stability and performance, please keep requests lightweight.</p>\n"
+      example:
+        - 'FDS-US'
     segmentIds:
       type: 'array'
       items:
@@ -3256,10 +3311,10 @@ components:
         - 'ANN'
         - 'QTR'
         - 'SEMI'
-        - 'LTMA'
         - 'NTMA'
+        - 'LTMA'
       default: 'ANN'
-      description: 'The periodicity for the estimates, reflecting Annual, Semi-Annual and Quarterly Estimates. Next-twelve-months (NTMA) and Last-twelve-months (LTMA) also supported.'
+      description: 'The periodicity for the estimates. Supports Annual, Semi-Annual, and Quarterly Estimates, as well as Next-twelve-months (NTMA) and Last-twelve-months (LTMA) estimates.'
     periodicityDetail:
       type: 'string'
       enum:
@@ -3283,7 +3338,6 @@ components:
       description: 'Requested metrics. Use the `/metrics` endpoint for a list of estimate items.For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).'
       example:
         - 'SALES'
-      maxItems: 1
     segmentsMetrics:
       type: 'array'
       items:

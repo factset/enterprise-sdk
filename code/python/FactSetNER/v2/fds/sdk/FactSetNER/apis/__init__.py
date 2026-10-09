@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.entities_api import EntitiesApi
+#   from .api.advanced_api import AdvancedApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,4 +14,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from fds.sdk.FactSetNER.api.entities_api import EntitiesApi
+from fds.sdk.FactSetNER.api.advanced_api import AdvancedApi
+from fds.sdk.FactSetNER.api.express_api import ExpressApi

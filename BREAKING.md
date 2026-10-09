@@ -1,5 +1,72 @@
 # Breaking Changes
 
+## 2026-10-09 FactSet NER API v2: Complete API Redesign
+
+The FactSet NER v2 API has been redesigned with a new request/response model. The previous single endpoint has been replaced by two new endpoints: `/express/extract` for fast, batch processing (up to 10 inputs per request) and `/advanced/extract` for single-input requests with broader entity coverage. All request and response schemas are new and are not compatible with the previous version. FactSet NER v1 has also been retired.
+
+**New versions:** dotnet 0.22.0, java 0.23.0, python 0.23.0, typescript 0.23.0
+
+**Migration:** Update your integration to call `/express/extract` or `/advanced/extract` instead of the previous endpoint, and update your code to handle the new request and response formats. See the updated API documentation for full schema details.
+
+**Affected SDKs:**
+- FactSet NER (API v2, all languages)
+
+**Developer Portal:** https://developer.factset.com/api-catalog/factset-ner-api
+
+## 2026-10-09 FactSet Banks API v1: `TEN_D` Classification Split (Java, .NET, TypeScript)
+
+The `TEN_D` subcategory, used to identify Form 10-D securitization filings, has been split into two more specific values: `TEN_D_AUTO_LOAN` and `TEN_D_CREDIT_CARD`. Because `TEN_D` no longer exists as a value, applications referencing it directly in Java, .NET, or TypeScript will fail to compile. Python applications are not affected.
+
+This release also adds a new `/search-entities` endpoint for resolving subsidiary and affiliate entity IDs, and renames the `/aum` endpoint to `/aum/ria` (the underlying method name is unchanged).
+
+**New versions:** dotnet 0.2.0, java 0.2.0, typescript 0.2.0 (python 0.1.1: no action needed)
+
+**Migration:** Replace any use of `TEN_D` with `TEN_D_AUTO_LOAN` or `TEN_D_CREDIT_CARD`, whichever matches your use case.
+
+**Affected SDKs:**
+- FactSet Banks (API v1, Java, .NET, TypeScript)
+
+**Developer Portal:** https://developer.factset.com/api-catalog/factset-banks-api
+
+## 2026-10-09 FactSet Estimates API v2: New Parameters on Segment Detail Metrics (Java)
+
+Three new optional parameters — `startPeriod`, `endPeriod`, and `periodicityDetail` — have been added to the segment detail metrics endpoint, allowing results to be filtered to a specific fiscal period range. In Java, this changes the method signature for `getEstimateSegmentDetailMetrics`, so existing calls will need to be updated. .NET, Python, and TypeScript applications are not affected.
+
+**New versions:** java 8.0.0 (dotnet 3.5.0, python 4.2.0, typescript 4.5.0: no action needed)
+
+**Migration:** Update Java calls to `getEstimateSegmentDetailMetrics` to include the three new parameters (pass `null` to keep the previous behavior).
+
+**Affected SDKs:**
+- FactSet Estimates (API v2, Java)
+
+**Developer Portal:** https://developer.factset.com/api-catalog/factset-estimates-api
+
+## 2026-09-11 FactSet Intraday Tick History API v1: Four Endpoints Renamed
+
+The `firsttrade`, `lasttrade`, `qat`, and `tradesattime` operations had no explicit `operationId` in the spec, so generators synthesize method names from the path. Removing the `/TickHistory/` path prefix from these four endpoints (while leaving the fifth, `history`, with its unchanged explicit `operationId: get_TickHistory`) changes the generated method names for the four affected operations in every language.
+
+**New versions:** dotnet 0.22.0, java 0.23.0, python 0.23.0, typescript 0.23.0
+
+**Migration:** Update calls to the renamed methods for `firsttrade`, `lasttrade`, `qat`, and `tradesattime` to use their new generated names (derived from the shortened paths `/firsttrade`, `/lasttrade`, `/qat`, `/tradesattime`). The `history` method is unaffected.
+
+**Affected SDKs:**
+- FactSet Intraday Tick History (API v1, all languages)
+
+**Developer Portal:** https://developer.factset.com/api-catalog/factset-intraday-tick-history-api
+
+## 2026-09-11 Exchange DataFeed Snapshot API - Entire Exchange v1: Method Renamed, Response Shape Changed
+
+The `getListFiles` operation was previously generated as `get-v1-list-files` (from the old spec's `operationId`); the new spec's `operationId: getListFiles` renames the generated method in every language. Separately, the spec was corrected to match what the API actually returns: the response body was documented as a flat single object (`product`/`date`/`time`/`responseType`/`fileName`/`url` at the top level), but the API returns an envelope with `data` (an array of those same fields) and `meta` (sort/pagination/partial metadata). The spec now reflects that shape.
+
+**New versions:** dotnet 0.22.0, java 0.23.0, python 0.23.0, typescript 0.23.0
+
+**Migration:** Update calls to the renamed list-files method (previously `get-v1-list-files` / its per-language equivalent) to its new generated name. Update response handling to read the file list from the new `data` array and pagination info from `meta`, instead of treating the response as a single flat object.
+
+**Affected SDKs:**
+- Exchange DataFeed Snapshot API - Entire Exchange (API v1, all languages)
+
+**Developer Portal:** https://developer.factset.com/api-catalog/exchange-datafeed-snapshot-api-entire-exchange
+
 ## 2026-08-17 Investment Research API v1: `source` Field Changed to Enum
 
 The `source` field on `CountRequestBody` (schema `CountSource`, previously named `SourceCount`) changed from a plain string to an enum with values `FRC` and `AMR`. Strongly-typed clients (Java, .NET, Python) passing a raw string for this field will fail to compile or type-check against the new enum type.

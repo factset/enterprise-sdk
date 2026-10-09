@@ -22,7 +22,7 @@ Covers credit cards (110 data items) and auto loans (254 data items). History si
 Find available metrics via [`/metrics`](#operation/getMetrics) with:
 
 * **category**: `FILINGS`
-* **subcategory**: `TEN_D`
+* **subcategory**: `TEN_D_AUTO_LOAN`, `TEN_D_CREDIT_CARD`
 
 
 ### Example

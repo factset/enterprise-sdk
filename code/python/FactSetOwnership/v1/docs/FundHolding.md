@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **fsym_regional_id** | **str, none_type** | FactSet Regional Security identifier of the security held in the fund. | [optional] 
 **security_name** | **str, none_type** | Name of held security. | [optional] 
 **security_ticker** | **str, none_type** | Ticker of held security. | [optional] 
+**style** | **str, none_type** | Returns the holding style for the specified holder. Internal research staff assigns the index category. All other style categories are derived and, therefore, based solely on the characteristics of each portfolio&#39;s equity holdings. | [optional] 
+**manager_style** | **str, none_type** | Returns the holder&#39;s portfolio management style, as specified by the holder itself. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

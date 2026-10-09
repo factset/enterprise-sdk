@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Returns Form 10-D distribution reports
 
-Returns SEC Form 10-D distribution reports for bank-issued asset-backed securities — pool performance and credit enhancement data including payments received, delinquencies, defaults, and cash flow distributions. Offers more frequent (monthly) insight into credit card receivables than 8-K/10-K filings.  Covers credit cards (110 data items) and auto loans (254 data items). History since 2017. Updated monthly.  Find available metrics via [`/metrics`](#operation/getMetrics) with:  * **category**: `FILINGS` * **subcategory**: `TEN_D` 
+Returns SEC Form 10-D distribution reports for bank-issued asset-backed securities — pool performance and credit enhancement data including payments received, delinquencies, defaults, and cash flow distributions. Offers more frequent (monthly) insight into credit card receivables than 8-K/10-K filings.  Covers credit cards (110 data items) and auto loans (254 data items). History since 2017. Updated monthly.  Find available metrics via [`/metrics`](#operation/getMetrics) with:  * **category**: `FILINGS` * **subcategory**: `TEN_D_AUTO_LOAN`, `TEN_D_CREDIT_CARD` 
 
 ### Example
 

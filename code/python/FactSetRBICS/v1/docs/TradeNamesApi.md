@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Get a company's associated tradeNames and product lines.
 
-RBICS with TradeNames maps over 260,000 products, services and brands (a.k.a. TradeNames) to the granular sectors of the FactSet Revere Business Industry Classification System taxonomy, resulting in a multi-sector participation map for each company.   Whereas RBICS with Revenue offers quantified multi-sector exposure based on a company’s segment disclosures, RBICS with TradeNames provides a comprehensive view of sector participation at the product level. 
+RBICS with TradeNames maps over 260,000 products, services and brands (a.k.a. TradeNames) to the granular sectors of the FactSet Revere Business Industry Classification System taxonomy, resulting in a multi-sector participation map for each company.  Whereas RBICS with Revenue offers quantified multi-sector exposure based on a company’s segment disclosures, RBICS with TradeNames provides a comprehensive view of sector participation at the product level.  **Response shape:** Use the `responseFormat` field in the request body to control what the response contains: - `DETAILS_ONLY` — top-level metadata aggregates plus the per-entity   `tradeNames` array (no per-entity `summary`). - `SUMMARY_ONLY` — top-level metadata aggregates plus a per-entity   `summary` object (no per-entity `tradeNames` array). - `DETAILS_WITH_SUMMARY` (default) — top-level metadata, per-entity   `summary`, and per-entity `tradeNames` array.  The top-level `meta` object reports request-level totals (e.g. `totalResults`, `totalTradeNames`, `uniqueTradeIds`, `uniqueProducts`, `uniqueL6Categories`, `activeTradeNames`). The per-entity `summary` reports the same counts scoped to one entity. 
 
 ### Example
 
@@ -64,6 +64,7 @@ with fds.sdk.FactSetRBICS.ApiClient(configuration) as api_client:
         data=TradeNamesRequestBody(
             ids=TradeNamesIds(["FDS-US","0FPWZZ-E","TSLA-US"]),
             as_of_date=dateutil_parser('Wed Sep 30 00:00:00 UTC 2020').date(),
+            response_format=ResponseFormat("DETAILS_WITH_SUMMARY"),
         ),
     ) # TradeNamesRequest | Request Body to request a list of tradeName objects.
 

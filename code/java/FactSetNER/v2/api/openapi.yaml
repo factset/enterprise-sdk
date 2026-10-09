@@ -1,217 +1,851 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
-  description: Extract named entities and their FactSet entity IDs from given document
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: Identify and extract named entities from unstructured or semi-structured
     text.
-  title: FactSet NER
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: FactSet NER API
   version: 2.0.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/named-entity-recognition-api
 servers:
-- url: https://api-sandbox.factset.com/
+- url: https://api.factset.com/aiml/ner/v2
 security:
 - FactSetApiKey: []
 - FactSetOAuth2: []
 tags:
-- description: Named Entity Recognition
-  name: entities
+- description: Fast batch-oriented NER processing optimized for speed, supporting
+    up to 10 inputs per request with standard entity types.
+  name: Express
+- description: Accurate single-input NER processing optimized for comprehensive entity
+    extraction, including financial instrument types and optional character offsets
+    and entity lookup.
+  name: Advanced
 paths:
-  /cognitive/ner/v2/entities:
+  /express/extract:
     post:
-      description: Extract named entities from document text.
-      operationId: post_entities_/entities
+      description: |
+        NER endpoint optimized for speed, supports batch processing up to 10 inputs. Supports person, organization, location, product, datetime, period, and numerical entity types.
+
+        Requests are limited to a 30-second timeout.
+      operationId: postExpressNerExtraction
       requestBody:
         content:
           application/json:
+            examples:
+              Express Request Example:
+                value:
+                  data:
+                    input:
+                    - Jupiter International raised about $22.2 million from Edelweiss
+                      Alternative Asset Advisors Ltd.
+                    - Apple Inc. is headquartered in Cupertino, California
+                    entities:
+                    - person
+                    - organization
+                    - location
             schema:
-              $ref: '#/components/schemas/Input'
+              $ref: '#/components/schemas/ExpressRequestRoot'
         required: true
       responses:
         "200":
           content:
             application/json:
+              examples:
+                "200 - Successful Response":
+                  value:
+                    data:
+                    - entities:
+                      - type: organization
+                        text: Jupiter International
+                        entityProperName: Jupiter International Ltd.
+                        entityId: 06HR6C-E
+                        isoCountry: IN
+                        city: Kolkata
+                        lookupStatus: success
+                      - type: organization
+                        text: Edelweiss Alternative Asset Advisors Ltd.
+                        entityProperName: Edelweiss Alternative Asset Advisors Pte
+                          Ltd.
+                        entityId: 0HNCNZ-E
+                        isoCountry: SG
+                        city: Singapore
+                        lookupStatus: success
+                      error: null
+                      lookupStatuses:
+                        organization: success
+                        person: noMatch
+                        location: noMatch
+                    - entities:
+                      - type: organization
+                        text: Apple Inc.
+                        entityProperName: Apple Inc.
+                        entityId: 000C7F-E
+                        isoCountry: US
+                        city: Cupertino
+                        lookupStatus: success
+                      - type: location
+                        text: Cupertino, California
+                        entityId: 0C3Z9H-M
+                        isoCountry: US
+                        lookupStatus: success
+                      error: null
+                      lookupStatuses:
+                        organization: success
+                        location: success
+                        person: noMatch
+                    meta:
+                      model: gliner2
+                      modelDuration: 0.31
+                      taskDuration: 0.42
               schema:
-                $ref: '#/components/schemas/Response'
-          description: Success
+                $ref: '#/components/schemas/OutputRoot'
+          description: Successful entity extraction
         "400":
-          content: {}
-          description: Bad Request
+          content:
+            application/json:
+              examples:
+                "400 - Invalid Request Body":
+                  value:
+                    errors:
+                    - code: parameterError
+                      detail: The 'entities' field is required but was not provided
+                        in the request body.
+                      id: 7f3e2a1b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+                      source:
+                        pointer: /data/entities
+                      title: Invalid Request Body
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid request
         "401":
-          content: {}
-          description: 'Error: Unauthorized'
+          content:
+            application/json:
+              examples:
+                "401 - Authentication Failed":
+                  value:
+                    errors:
+                    - code: notAuthenticated
+                      detail: Your request could not be authenticated. Verify your
+                        credentials and try again.
+                      id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+                      source:
+                        parameter: Authorization
+                      title: Authentication Failed
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              examples:
+                "403 - Access Denied":
+                  value:
+                    errors:
+                    - code: notAuthorized
+                      detail: You do not have permission to access this resource.
+                        Verify your subscription includes access to the NER API.
+                      id: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+                      source:
+                        parameter: Authorization
+                      title: Access Denied
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
         "500":
-          content: {}
-          description: Server-side Error
+          content:
+            application/json:
+              examples:
+                "500 - Internal Server Error":
+                  value:
+                    errors:
+                    - code: genericServerError
+                      detail: An unexpected error occurred while processing your request.
+                        If this persists, contact support with the error ID.
+                      id: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+                      title: Internal Server Error
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error
+        "504":
+          content:
+            application/json:
+              examples:
+                "504 - Request Timeout":
+                  value:
+                    errors:
+                    - code: serviceTemporarilyUnavailable
+                      detail: The request exceeded the 30-second processing timeout.
+                        Retry with a smaller input, or contact support if this persists.
+                      id: 5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+                      title: Request Timeout
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request exceeded the 30-second processing timeout
+      security:
+      - FactSetApiKey: []
+      - FactSetOAuth2: []
+      summary: Express Processing
       tags:
-      - entities
-      x-codegen-request-body-name: payload
+      - Express
+      x-contentType: application/json
+      x-accepts: application/json
+  /advanced/extract:
+    post:
+      description: |
+        NER endpoint optimized for accuracy and entity coverage, supports single-input processing. Supports financial entity types such as cryptocurrency, index, rate, yield, commodity, currency, future, fund, asset, and debt instrument in addition to Express entity types.
+
+        Optionally select a model via `data.model` in the request body. Supported models:
+        - GPT 5.2
+        - Claude Sonnet 4.6
+        - Llama 4 Scout Instruct (the default)
+
+        Requests are limited to a 30-second timeout.
+      operationId: postAdvancedNerExtraction
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Advanced Request Example:
+                value:
+                  data:
+                    input: Solar photovoltaic (PV) cell maker Jupiter International
+                      has raised about $22.2 million (Rs 170 crore) from funds managed
+                      by Edelweiss Alternative Asset Advisors Ltd. The company trades
+                      at a valuation of 5x revenue.
+                    entities:
+                    - organization
+                    - numerical
+                    - location
+                    - commodity
+                    includeOffsets: true
+                    performLookup: true
+            schema:
+              $ref: '#/components/schemas/AdvancedRequestRoot'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                "200 - Successful Response":
+                  value:
+                    data:
+                    - entities:
+                      - type: organization
+                        text: Jupiter International
+                        lookupText: Jupiter International
+                        entityProperName: Jupiter International Ltd.
+                        entityId: 06HR6C-E
+                        entityType: holding
+                        entitySubType: CP
+                        isoCountry: IN
+                        city: Kolkata
+                        nameSimilarityScore: 1
+                        ultimateParentEntityId: 06HR6C-E
+                        ultimateParentName: Jupiter International Ltd.
+                        url: www.jil-jupiter.com
+                        lookupStatus: success
+                      - type: organization
+                        text: Edelweiss Alternative Asset Advisors Ltd.
+                        lookupText: Edelweiss Alternative Asset Advisors Ltd.
+                        entityProperName: Edelweiss Alternative Asset Advisors Pte
+                          Ltd.
+                        entityId: 0HNCNZ-E
+                        entityType: subsidiary
+                        entitySubType: CP
+                        isoCountry: SG
+                        city: Singapore
+                        nameSimilarityScore: 0.93
+                        ultimateParentEntityId: 0690RZ-E
+                        ultimateParentName: Edelweiss Financial Services Ltd.
+                        lookupStatus: success
+                      - type: numerical
+                        text: $22.2 million
+                      error: null
+                      lookupStatuses:
+                        organization: success
+                        location: noMatch
+                        numerical: noMatch
+                        commodity: noMatch
+                    meta:
+                      model: Llama 4 Scout Instruct
+                      modelDuration: 0.58
+                      taskDuration: 0.6
+              schema:
+                $ref: '#/components/schemas/OutputRoot'
+          description: Successful entity extraction
+        "400":
+          content:
+            application/json:
+              examples:
+                "400 - Missing Dependent Entity Type":
+                  value:
+                    errors:
+                    - code: parameterError
+                      detail: To extract 'product' entities, 'organization' must also
+                        be included in entities, and includeOffsets must be kept true.
+                      id: 6f2d8a4c-5e1b-4d7f-9a3c-2b6e8d4f1a75
+                      source:
+                        pointer: /data/entities
+                      title: Invalid Request Body
+                "400 - Invalid Request Body":
+                  value:
+                    errors:
+                    - code: parameterError
+                      detail: The 'entities' field is required but was not provided
+                        in the request body.
+                      id: 7f3e2a1b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+                      source:
+                        pointer: /data/entities
+                      title: Invalid Request Body
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Invalid request
+        "401":
+          content:
+            application/json:
+              examples:
+                "401 - Authentication Failed":
+                  value:
+                    errors:
+                    - code: notAuthenticated
+                      detail: Your request could not be authenticated. Verify your
+                        credentials and try again.
+                      id: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+                      source:
+                        parameter: Authorization
+                      title: Authentication Failed
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              examples:
+                "403 - Access Denied":
+                  value:
+                    errors:
+                    - code: notAuthorized
+                      detail: You do not have permission to access this resource.
+                        Verify your subscription includes access to the NER API.
+                      id: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+                      source:
+                        parameter: Authorization
+                      title: Access Denied
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden
+        "500":
+          content:
+            application/json:
+              examples:
+                "500 - Internal Server Error":
+                  value:
+                    errors:
+                    - code: genericServerError
+                      detail: An unexpected error occurred while processing your request.
+                        If this persists, contact support with the error ID.
+                      id: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+                      title: Internal Server Error
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error
+        "502":
+          content:
+            application/json:
+              examples:
+                "502 - Upstream Service Error":
+                  value:
+                    errors:
+                    - code: serviceTemporarilyUnavailable
+                      detail: The upstream LLM gateway returned an error while processing
+                        your request. Please retry; if this persists, contact support.
+                      id: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+                      title: Upstream Service Error
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Upstream model gateway error
+        "504":
+          content:
+            application/json:
+              examples:
+                "504 - Request Timeout":
+                  value:
+                    errors:
+                    - code: serviceTemporarilyUnavailable
+                      detail: The request exceeded the 30-second processing timeout.
+                        Retry with a smaller input, or contact support if this persists.
+                      id: 5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+                      title: Request Timeout
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Request exceeded the 30-second processing timeout
+      security:
+      - FactSetApiKey: []
+      - FactSetOAuth2: []
+      summary: Advanced Processing
+      tags:
+      - Advanced
       x-contentType: application/json
       x-accepts: application/json
 components:
-  responses:
-    MaskError:
-      content: {}
-      description: When any error occurs on mask
-    ParseError:
-      content: {}
-      description: When a mask can't be parsed
   schemas:
-    Input:
+    ExpressRequestRoot:
+      description: Request payload for Express NER processing with batch input support
+        (up to 10 texts).
       example:
-        enableIdLookup: true
-        filterEntities: true
-        text: As demand for the coronavirus vaccine plateaus, Ohio Governor Mike DeWine
-          is giving state residents a shot to win $1 million. Starting May 26, the
-          state will award $1 million each week to an adult who has received at least
-          the first dose of the COVID-19 vaccine, DeWine said. There will be five
-          total drawings. This will give anyone who has not been vaccinated time to
-          get the first dose of Pfizer or Moderna and be well on the way to full immunity,
-          DeWine said Wednesday. West Virginia Governor Jim Justice wanted to give
-          every vaccinated resident between the ages of 16 and 35 a $100 savings bond.
-          States and localities have been given wide discretion by the Treasury Department
-          in spending federal aid.
+        data:
+          input:
+          - Jupiter International raised about $22.2 million from Edelweiss Alternative
+            Asset Advisors Ltd.
+          - Apple Inc. is headquartered in Cupertino, California
+          entities:
+          - person
+          - organization
+          - location
       properties:
-        text:
-          description: English plain text to extract named entities from.  Maxiumum
-            of 10,000 characters.
-          example: As demand for the coronavirus vaccine plateaus, Ohio Governor Mike
-            DeWine is giving state residents a shot to win $1 million. Starting May
-            26, the state will award $1 million each week to an adult who has received
-            at least the first dose of the COVID-19 vaccine, DeWine said. There will
-            be five total drawings. This will give anyone who has not been vaccinated
-            time to get the first dose of Pfizer or Moderna and be well on the way
-            to full immunity, DeWine said Wednesday. West Virginia Governor Jim Justice
-            wanted to give every vaccinated resident between the ages of 16 and 35
-            a $100 savings bond. States and localities have been given wide discretion
-            by the Treasury Department in spending federal aid.
-          type: string
-        filterEntities:
-          default: true
-          description: Drop lower probability entities using machine learning filtering
-            rules
-          type: boolean
-        enableIdLookup:
-          default: true
-          description: Retrieve FactSet IDs for entities
-          type: boolean
+        data:
+          $ref: '#/components/schemas/ExpressInput'
       required:
-      - text
+      - data
       type: object
-    Response:
-      example:
-        entities:
-        - startChar: 0
-          lookupUrl: lookupUrl
-          lookupText: lookupText
-          endChar: 0
-          entityId: entityId
-          text: text
-          type: NE_GPE
-          associatedOrgs:
-          - lookupUrl: lookupUrl
-            name: name
-            entityId: entityId
-          - lookupUrl: lookupUrl
-            name: name
-            entityId: entityId
-        - startChar: 0
-          lookupUrl: lookupUrl
-          lookupText: lookupText
-          endChar: 0
-          entityId: entityId
-          text: text
-          type: NE_GPE
-          associatedOrgs:
-          - lookupUrl: lookupUrl
-            name: name
-            entityId: entityId
-          - lookupUrl: lookupUrl
-            name: name
-            entityId: entityId
+    ExpressInput:
+      description: Input configuration for Express endpoint batch processing.
       properties:
-        entities:
+        input:
+          description: Array of text strings to be processed for entity extraction.
+            Maximum 10 inputs per request.
           items:
-            $ref: '#/components/schemas/Entity'
+            minLength: 1
+            type: string
+          maxItems: 10
           type: array
+        entities:
+          description: |
+            Array of entity types to extract from the input text. If `product` is included, `organization` must also be included.
+
+            | Entity Type | Description |
+            |---|---|
+            | person | Individual names and references to people |
+            | organization | Company names, institutions, and organizational entities |
+            | location | Geographic locations including cities, countries, regions |
+            | product | Commercial products and services |
+            | datetime | Specific dates, times, and temporal expressions |
+            | period | Time periods and durations |
+            | numerical | Numbers, quantities, and numerical expressions |
+          items:
+            $ref: '#/components/schemas/StandardEntityType'
+          type: array
+      required:
+      - entities
+      - input
       type: object
-    Entity:
+    AdvancedRequestRoot:
+      description: Request payload for Advanced NER processing with single-input support
+        and model selection.
       example:
-        startChar: 0
-        lookupUrl: lookupUrl
-        lookupText: lookupText
-        endChar: 0
-        entityId: entityId
-        text: text
-        type: NE_GPE
-        associatedOrgs:
-        - lookupUrl: lookupUrl
-          name: name
-          entityId: entityId
-        - lookupUrl: lookupUrl
-          name: name
-          entityId: entityId
+        data:
+          input: Solar photovoltaic (PV) cell maker Jupiter International has raised
+            about $22.2 million (Rs 170 crore) from funds managed by Edelweiss Alternative
+            Asset Advisors Ltd. The company trades at a valuation of 5x revenue.
+          entities:
+          - organization
+          - numerical
+          - location
+          - commodity
+          includeOffsets: true
+          performLookup: true
       properties:
-        type:
-          description: Type of the extracted named entity (NE).
+        data:
+          $ref: '#/components/schemas/AdvancedInput'
+      required:
+      - data
+      type: object
+    AdvancedInput:
+      description: Input configuration for Advanced endpoint single-text processing
+        with financial entity support.
+      properties:
+        input:
+          description: Text to be processed for entity extraction. Supports single-input
+            processing.
+          minLength: 1
+          type: string
+        entities:
+          description: |
+            Array of entity types to extract from the input text. If `product` is included, `organization` must also be included.
+
+            | Entity Type | Description |
+            |---|---|
+            | person | Individual names and references to people |
+            | organization | Company names, institutions, and organizational entities |
+            | location | Geographic locations including cities, countries, regions |
+            | product | Commercial products and services |
+            | datetime | Specific dates, times, and temporal expressions |
+            | period | Time periods and durations |
+            | numerical | Numbers, quantities, and numerical expressions |
+            | cryptocurrency | Cryptocurrency names and symbols (e.g., Bitcoin, ETH) |
+            | index | Financial indices and benchmarks (e.g., S&P 500, NASDAQ) |
+            | rate | Interest rates and financial rates |
+            | yield | Bond yields and other financial yields |
+            | commodity | Commodities and raw materials |
+            | currency | Currency codes and currency references |
+            | future | Financial futures contracts |
+            | fund | Investment funds and mutual funds |
+            | asset | Financial assets and asset classes |
+            | debtinstrument | Bonds, notes, and other debt instruments |
+          items:
+            $ref: '#/components/schemas/AdvancedEntityType'
+          type: array
+        includeOffsets:
+          default: false
+          description: If true, include character offset positions (startChar and
+            endChar) for each extracted entity in the response.
+          type: boolean
+        performLookup:
+          default: true
+          description: If true, perform entity lookup to resolve extracted entities
+            to FactSet entity identifiers and metadata.
+          type: boolean
+        model:
+          default: Llama 4 Scout Instruct
+          description: The model to use for entity extraction, by name (not the underlying
+            gateway ID). Optional — defaults to Llama 4 Scout Instruct if not provided.
           enum:
-          - NE_GPE
-          - NE_ORG
-          - NE_PERSON
-          - NE_NUMBER
-          - NE_MONEY
-          - NE_DATETIME
-          - NE_DRUG
-          - NE_HEALTH_INDICATION
-          example: NE_GPE
+          - GPT 5.2
+          - Claude Sonnet 4.6
+          - Llama 4 Scout Instruct
           type: string
-        text:
-          description: Text for the named entity, as found in the source text.
-          type: string
-        startChar:
-          description: Starting character position of the entity text.
-          minimum: 0
-          type: integer
-        endChar:
-          description: Ending character position of the entity text.
-          minimum: 0
-          type: integer
-        lookupText:
-          description: Name of the FactSet entity linked to the text.
-          type: string
-        entityId:
-          description: FactSet Entity ID for the extracted entity.
-          type: string
-        lookupUrl:
-          description: URL to the extracted entity in FactSet.
-          type: string
-        associatedOrgs:
-          description: Organizations associated with this entity.
-          items:
-            $ref: '#/components/schemas/Associated_Organization'
-          type: array
+      required:
+      - entities
+      - input
       type: object
-    Associated_Organization:
+    StandardEntityType:
+      description: Standard NER entity type supported by the Express endpoint.
+      enum:
+      - person
+      - organization
+      - location
+      - product
+      - datetime
+      - period
+      - numerical
+      type: string
+    AdvancedEntityType:
+      description: Extended NER entity type supported by the Advanced endpoint, including
+        financial instrument types.
+      enum:
+      - person
+      - organization
+      - location
+      - product
+      - datetime
+      - period
+      - numerical
+      - cryptocurrency
+      - index
+      - rate
+      - yield
+      - commodity
+      - currency
+      - future
+      - fund
+      - asset
+      - debtinstrument
+      type: string
+    OutputRoot:
+      description: Response payload containing extracted entities, processing metadata,
+        and status information.
       example:
-        lookupUrl: lookupUrl
-        name: name
-        entityId: entityId
+        data:
+        - entities:
+          - type: organization
+            text: Jupiter International
+            lookupText: Jupiter International
+            entityProperName: Jupiter International Ltd.
+            entityId: 06HR6C-E
+            entityType: holding
+            entitySubType: CP
+            isoCountry: IN
+            city: Kolkata
+            nameSimilarityScore: 1
+            ultimateParentEntityId: 06HR6C-E
+            ultimateParentName: Jupiter International Ltd.
+            url: www.jil-jupiter.com
+            lookupStatus: success
+          - type: organization
+            text: Edelweiss Alternative Asset Advisors Ltd.
+            lookupText: Edelweiss Alternative Asset Advisors Ltd.
+            entityProperName: Edelweiss Alternative Asset Advisors Pte Ltd.
+            entityId: 0HNCNZ-E
+            entityType: subsidiary
+            entitySubType: CP
+            isoCountry: SG
+            city: Singapore
+            nameSimilarityScore: 0.93
+            ultimateParentEntityId: 0690RZ-E
+            ultimateParentName: Edelweiss Financial Services Ltd.
+            lookupStatus: success
+          - type: numerical
+            text: $22.2 million
+          error: null
+          lookupStatuses:
+            organization: success
+            person: noMatch
+            location: noMatch
+            product: noMatch
+            other: noMatch
+        meta:
+          model: Llama 4 Scout Instruct
+          modelDuration: 0.58
+          taskDuration: 0.6
       properties:
-        name:
-          description: Name of the entity
+        data:
+          description: Array of entity extraction results, one object per input text
+            provided in the request.
+          items:
+            $ref: '#/components/schemas/OutputItem'
+          type: array
+        meta:
+          $ref: '#/components/schemas/ResponseMeta'
+      required:
+      - data
+      type: object
+    ResponseMeta:
+      additionalProperties: true
+      description: Response metadata including model information and performance metrics.
+      example:
+        model: Llama 4 Scout Instruct
+        modelDuration: 0.58
+        taskDuration: 0.68
+      properties:
+        model:
+          description: The model used for this extraction (for Advanced this is one
+            of the supported model names, e.g. "GPT 5.2").
+          example: Llama 4 Scout Instruct
           type: string
-        entityId:
-          description: FactSet Entity ID for the entity
+        modelDuration:
+          description: Time spent by the model for inference, in milliseconds.
+          example: 0.58
+          type: number
+        taskDuration:
+          description: Total time to process the request, including overhead, in milliseconds.
+          example: 0.68
+          type: number
+      required:
+      - model
+      - modelDuration
+      - taskDuration
+      type: object
+    OutputItem:
+      description: Result for a single input text containing extracted entities, any
+        processing errors, and entity lookup statuses.
+      example:
+        entities:
+        - type: organization
+          text: Apple Inc.
+          lookupText: Apple Inc.
+          entityProperName: Apple Inc.
+          entityId: 000C7F-E
+          entityType: holding
+          entitySubType: CP
+          isoCountry: US
+          city: Cupertino
+          nameSimilarityScore: 1
+          ultimateParentEntityId: 000C7F-E
+          ultimateParentName: Apple Inc.
+          url: www.apple.com
+          lookupStatus: success
+        - type: location
+          text: Cupertino
+          lookupText: Cupertino
+          entityId: 0C3Z9H-M
+          isoCountry: US
+          lookupStatus: success
+        - type: person
+          text: Tim Cook
+          lookupStatus: no_match
+        - type: numerical
+          text: $2.3 billion
+          lookupStatus: no_match
+        error: null
+        lookupStatuses:
+          organization: success
+          location: success
+          person: noMatch
+          numerical: noMatch
+          other: noMatch
+      properties:
+        entities:
+          description: Array of extracted entities from the input text. Each entity
+            object contains properties like text, type, startChar, endChar, and lookup-related
+            fields such as entityId, lookupText, and associatedOrgs.
+          items:
+            $ref: '#/components/schemas/EntityData'
+          nullable: true
+          type: array
+        error:
+          $ref: '#/components/schemas/OutputItemError'
+        lookupStatuses:
+          additionalProperties:
+            $ref: '#/components/schemas/LookupStatus'
+          description: Object mapping entity types to their lookup resolution statuses.
+            Each key is an entity type and each value indicates whether the lookup
+            succeeded (success), returned no match (noMatch), or failed (failed).
+          nullable: true
+          type: object
+      type: object
+    EntityData:
+      additionalProperties: true
+      description: A single extracted entity with its associated metadata. Contains
+        the entity text, type, character offsets (if requested), and lookup information
+        such as entity ID and name from FactSet's concordance database. Example fields
+        include text, type, startChar, endChar, entityId, lookupText, lookupUrl, and
+        associatedOrgs.
+      example:
+        type: organization
+        text: Jupiter International
+        lookupText: Jupiter International
+        entityProperName: Jupiter International Ltd.
+        entityId: 06HR6C-E
+        entityType: holding
+        entitySubType: CP
+        isoCountry: IN
+        city: Kolkata
+        nameSimilarityScore: 1
+        ultimateParentEntityId: 06HR6C-E
+        ultimateParentName: Jupiter International Ltd.
+        url: www.jil-jupiter.com
+        lookupStatus: success
+      type: object
+    LookupStatus:
+      description: Status of an entity lookup operation. 'success' indicates the entity
+        was found and resolved to a FactSet entity ID. 'noMatch' indicates the entity
+        text did not match any FactSet entity. 'failed' indicates the lookup service
+        was unavailable or the lookup operation failed.
+      enum:
+      - success
+      - noMatch
+      - failed
+      example: success
+      type: string
+    ErrorResponse:
+      description: Error response containing details about one or more processing
+        failures.
+      example:
+        errors:
+        - code: parameterError
+          detail: The 'entities' field is required but was not provided in the request
+            body.
+          id: 7f3e2a1b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+          source:
+            pointer: /data/entities
+          title: Invalid Request Body
+      properties:
+        errors:
+          description: List of errors
+          items:
+            $ref: '#/components/schemas/HTTPError'
+          type: array
+      required:
+      - errors
+      type: object
+    ErrorSource:
+      description: Source location information for an error, identifying the request
+        parameter or JSON pointer where the error occurred.
+      example:
+        pointer: /data/entities
+      properties:
+        parameter:
+          description: The name of the request parameter where the error occurred.
           type: string
-        lookupUrl:
-          description: FactSet description of the entity
+        pointer:
+          description: JSON Pointer (RFC 6901) referencing the location in the request
+            body where the error occurred.
           type: string
+      type: object
+    HTTPError:
+      description: Standard HTTP error details including code, message, unique identifier,
+        and source location.
+      example:
+        code: parameterError
+        detail: The 'entities' field is required but was not provided in the request
+          body.
+        id: 7f3e2a1b-4c5d-6e7f-8a9b-0c1d2e3f4a5b
+        source:
+          pointer: /data/entities
+        title: Invalid Request Body
+      properties:
+        code:
+          description: Error code following the Message Serialization standard (e.g.,
+            notAuthenticated, notAuthorized, parameterError, genericServerError).
+          type: string
+        detail:
+          description: Detailed description of the error, providing additional context
+            beyond the title.
+          type: string
+        id:
+          description: Unique identifier (UUID) for this error occurrence, useful
+            for debugging and support inquiries.
+          format: uuid
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+        title:
+          description: Human-readable error title or summary.
+          type: string
+      required:
+      - code
+      - id
+      - title
+      type: object
+    OutputItemError:
+      description: |
+        Structured error describing why this input failed to process, or null if processing succeeded.
+        Follows the standard partial-errors-in-list-responses convention: each item's error attribute
+        is either an error object or null, never an array or a plain string.
+        Note: Entity-level lookup failures are tracked separately in lookupStatuses,
+        not in this error field. This field only contains input-level processing errors.
+        Shares the same shape as HTTPError (code, detail, id, source, title).
+      nullable: true
+      properties:
+        code:
+          description: Error code following the Message Serialization standard (e.g.,
+            notAuthenticated, notAuthorized, parameterError, genericServerError).
+          type: string
+        detail:
+          description: Detailed description of the error, providing additional context
+            beyond the title.
+          type: string
+        id:
+          description: Unique identifier (UUID) for this error occurrence, useful
+            for debugging and support inquiries.
+          format: uuid
+          type: string
+        source:
+          $ref: '#/components/schemas/ErrorSource'
+        title:
+          description: Human-readable error title or summary.
+          type: string
+      required:
+      - code
+      - id
+      - title
       type: object
   securitySchemes:
-    FactSetApiKey:
-      scheme: basic
-      type: http
     FactSetOAuth2:
       flows:
         clientCredentials:
           scopes: {}
           tokenUrl: https://auth.factset.com/as/token.oauth2
       type: oauth2
-x-original-swagger-version: "2.0"
+    FactSetApiKey:
+      scheme: basic
+      type: http
 

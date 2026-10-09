@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 Available Estimate Segment Detail metrics
 
-Returns list of available Estimate Segment Detail metrics that can be used in the `metrics` parameter of the segment details endpoint. **By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the `OAurl` response items to launch the available methodology page.**  
+Returns list of available Estimate Segment Detail metrics that can be used in the `metrics` parameter of the segment details endpoint. Use the optional startPeriod, endPeriod, and periodicity parameters to filter available metrics for specific fiscal periods. **By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the `OAurl` response items to launch the available methodology page.** 
 
 ### Example
 
@@ -269,12 +269,15 @@ with fds.sdk.FactSetEstimates.ApiClient(configuration) as api_client:
     ids = ["AAPL-USA"] # [str] | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. 
     metrics = ["SALES"] # [str] | Requested metric. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
     segment_type = "BUS" # str | Controls the type of segment selected.   * **BUS** = Business / Product Segment   * **GEO** = Geographic Segment   * **ALL** = Both Business and Geographic Segments  (optional) if omitted the server will use the default value of "BUS"
+    start_period = 0 # int | Starting fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 0 and periodicity to ANN to ask for the current fiscal year (FY0). When not provided, defaults to current period only (FY0). (optional)
+    end_period = 0 # int | Ending fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for the next fiscal year (FY1). When not provided, defaults to current period only (FY0). (optional)
+    periodicity = "ANN" # str | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional) if omitted the server will use the default value of "ANN"
 
     try:
         # Available Estimate Segment Detail metrics
         # example passing only required values which don't have defaults set
         # and optional values
-        api_response = api_instance.get_estimate_segment_detail_metrics(ids, metrics, segment_type=segment_type)
+        api_response = api_instance.get_estimate_segment_detail_metrics(ids, metrics, segment_type=segment_type, start_period=start_period, end_period=end_period, periodicity=periodicity)
 
         pprint(api_response)
 
@@ -290,6 +293,9 @@ Name | Type | Description  | Notes
  **ids** | **[str]**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.  |
  **metrics** | **[str]**| Requested metric. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  |
  **segment_type** | **str**| Controls the type of segment selected.   * **BUS** &#x3D; Business / Product Segment   * **GEO** &#x3D; Geographic Segment   * **ALL** &#x3D; Both Business and Geographic Segments  | [optional] if omitted the server will use the default value of "BUS"
+ **start_period** | **int**| Starting fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 0 and periodicity to ANN to ask for the current fiscal year (FY0). When not provided, defaults to current period only (FY0). | [optional]
+ **end_period** | **int**| Ending fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for the next fiscal year (FY1). When not provided, defaults to current period only (FY0). | [optional]
+ **periodicity** | **str**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] if omitted the server will use the default value of "ANN"
 
 ### Return type
 

@@ -66,6 +66,12 @@ docs/RatesRequest.md
 docs/RatesRequestData.md
 docs/RatesResponse.md
 docs/RequestMeta.md
+docs/SearchEntitiesApi.md
+docs/SearchEntitiesRequest.md
+docs/SearchEntitiesRequestData.md
+docs/SearchEntitiesResponse.md
+docs/SearchEntity.md
+docs/SearchEntityAllOf.md
 docs/SpecialtyFinanceAUM.md
 docs/SpecialtyFinanceApi.md
 docs/SpecialtyFinanceFOCUS.md
@@ -84,6 +90,7 @@ src/FactSet.SDK.FactSetBanks/Api/ExposureApi.cs
 src/FactSet.SDK.FactSetBanks/Api/FilingsApi.cs
 src/FactSet.SDK.FactSetBanks/Api/FinancialsApi.cs
 src/FactSet.SDK.FactSetBanks/Api/MetricsApi.cs
+src/FactSet.SDK.FactSetBanks/Api/SearchEntitiesApi.cs
 src/FactSet.SDK.FactSetBanks/Api/SpecialtyFinanceApi.cs
 src/FactSet.SDK.FactSetBanks/Api/UBPRPerformanceApi.cs
 src/FactSet.SDK.FactSetBanks/Client/ApiClient.cs
@@ -162,6 +169,11 @@ src/FactSet.SDK.FactSetBanks/Model/RatesRequest.cs
 src/FactSet.SDK.FactSetBanks/Model/RatesRequestData.cs
 src/FactSet.SDK.FactSetBanks/Model/RatesResponse.cs
 src/FactSet.SDK.FactSetBanks/Model/RequestMeta.cs
+src/FactSet.SDK.FactSetBanks/Model/SearchEntitiesRequest.cs
+src/FactSet.SDK.FactSetBanks/Model/SearchEntitiesRequestData.cs
+src/FactSet.SDK.FactSetBanks/Model/SearchEntitiesResponse.cs
+src/FactSet.SDK.FactSetBanks/Model/SearchEntity.cs
+src/FactSet.SDK.FactSetBanks/Model/SearchEntityAllOf.cs
 src/FactSet.SDK.FactSetBanks/Model/SpecialtyFinanceAUM.cs
 src/FactSet.SDK.FactSetBanks/Model/SpecialtyFinanceFOCUS.cs
 src/FactSet.SDK.FactSetBanks/Model/TenDFilingsRequest.cs

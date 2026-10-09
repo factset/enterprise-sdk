@@ -30,6 +30,7 @@ docs/Levels.md
 docs/RbicsIds.md
 docs/RbicsIndustryIds.md
 docs/RbicsL6Ids.md
+docs/ResponseFormat.md
 docs/Sector.md
 docs/Structure.md
 docs/StructureApi.md
@@ -38,9 +39,11 @@ docs/StructureResponse.md
 docs/SubIndustry.md
 docs/SubSector.md
 docs/TradeName.md
+docs/TradeNameSummary.md
 docs/TradeNames.md
 docs/TradeNamesApi.md
 docs/TradeNamesIds.md
+docs/TradeNamesMetadata.md
 docs/TradeNamesRequest.md
 docs/TradeNamesRequestBody.md
 docs/TradeNamesResponse.md
@@ -83,6 +86,7 @@ fds/sdk/FactSetRBICS/model/levels.py
 fds/sdk/FactSetRBICS/model/rbics_ids.py
 fds/sdk/FactSetRBICS/model/rbics_industry_ids.py
 fds/sdk/FactSetRBICS/model/rbics_l6_ids.py
+fds/sdk/FactSetRBICS/model/response_format.py
 fds/sdk/FactSetRBICS/model/sector.py
 fds/sdk/FactSetRBICS/model/structure.py
 fds/sdk/FactSetRBICS/model/structure_request.py
@@ -90,8 +94,10 @@ fds/sdk/FactSetRBICS/model/structure_response.py
 fds/sdk/FactSetRBICS/model/sub_industry.py
 fds/sdk/FactSetRBICS/model/sub_sector.py
 fds/sdk/FactSetRBICS/model/trade_name.py
+fds/sdk/FactSetRBICS/model/trade_name_summary.py
 fds/sdk/FactSetRBICS/model/trade_names.py
 fds/sdk/FactSetRBICS/model/trade_names_ids.py
+fds/sdk/FactSetRBICS/model/trade_names_metadata.py
 fds/sdk/FactSetRBICS/model/trade_names_request.py
 fds/sdk/FactSetRBICS/model/trade_names_request_body.py
 fds/sdk/FactSetRBICS/model/trade_names_response.py

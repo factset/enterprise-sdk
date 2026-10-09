@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **ShareClassActivelyManagedFlag** | **bool?** | Returns a binary indicator of whether the specified share class is actively managed, where 1 is active and 0 is inactive. | [optional] 
 **ShareClassCurrency** | **string** | The currency for the specified share class. ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39; | [optional] 
 **IsOldestShareClass** | **bool?** | Returns a flag to indicate whether the specified ID is the oldest share class. Data is returned for Mutual Funds only. | [optional] 
+**OldestShareClassId** | **string** | Returns the oldest share class for the fund. | [optional] 
+**IsLeveragedFlag** | **string** | Indicates whether the fund is leveraged, inverse, or neither. &#x60;Neither&#x60; is returned for funds that are not leveraged or inverse. A null is returned when leverage information is not available for the fund. Data is returned for both Mutual Funds and ETFs. | [optional] 
 **DescInfo** | **string** | The Fund&#39;s Investment Strategy short description.  For the long-form description, see &#x60;insight&#x60;. | [optional] 
 **PriceFirstDate** | **DateTime?** | The fund&#39;s first available date for prices (NAV) in YYYY-MM-DD format. This can be used to fetch the first available price from FactSet. *NOTE: This is not the inception date of fund.* | [optional] 
 **PriceRecentDate** | **DateTime** | The fund&#39;s most recent available date for prices (NAV) in YYYY-MM-DD format. | [optional] 

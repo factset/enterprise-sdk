@@ -36,6 +36,7 @@ from fds.sdk.FactSetRBICS.model.levels import Levels
 from fds.sdk.FactSetRBICS.model.rbics_ids import RbicsIds
 from fds.sdk.FactSetRBICS.model.rbics_industry_ids import RbicsIndustryIds
 from fds.sdk.FactSetRBICS.model.rbics_l6_ids import RbicsL6Ids
+from fds.sdk.FactSetRBICS.model.response_format import ResponseFormat
 from fds.sdk.FactSetRBICS.model.sector import Sector
 from fds.sdk.FactSetRBICS.model.structure import Structure
 from fds.sdk.FactSetRBICS.model.structure_request import StructureRequest
@@ -43,8 +44,10 @@ from fds.sdk.FactSetRBICS.model.structure_response import StructureResponse
 from fds.sdk.FactSetRBICS.model.sub_industry import SubIndustry
 from fds.sdk.FactSetRBICS.model.sub_sector import SubSector
 from fds.sdk.FactSetRBICS.model.trade_name import TradeName
+from fds.sdk.FactSetRBICS.model.trade_name_summary import TradeNameSummary
 from fds.sdk.FactSetRBICS.model.trade_names import TradeNames
 from fds.sdk.FactSetRBICS.model.trade_names_ids import TradeNamesIds
+from fds.sdk.FactSetRBICS.model.trade_names_metadata import TradeNamesMetadata
 from fds.sdk.FactSetRBICS.model.trade_names_request import TradeNamesRequest
 from fds.sdk.FactSetRBICS.model.trade_names_request_body import TradeNamesRequestBody
 from fds.sdk.FactSetRBICS.model.trade_names_response import TradeNamesResponse

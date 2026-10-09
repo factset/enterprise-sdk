@@ -27,7 +27,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Funds and ETF API
-  version: 3.0.0
+  version: 3.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-funds-api
@@ -7032,6 +7032,11 @@ components:
             oneYearFundBeta: 0.06
           fund:
             oneYearStdDeviation: 0.17
+            threeYearStdDeviation: 0.15
+            fiveYearStdDeviation: 0.14
+            oneYearMaxDrawDown: -15.461344
+            threeYearMaxDrawDown: -17.284509
+            fiveYearMaxDrawDown: -18.739271
           sriPriips: 3
           srriUcits: 5
           requestId: MABAX
@@ -7182,6 +7187,8 @@ components:
           shareClassActivelyManagedFlag: true
           shareClassCurrency: USD
           isOldestShareClass: true
+          oldestShareClassId: FNK7XP-S
+          isLeveragedFlag: Leveraged
           descInfo: |
             The investment objective of the BlackRock Basic Value Fund, Inc. (the Fund) is to seek capital appreciation and, secondarily, income by investing in securities primarily equity securities that management believes are undervalued.
           fundObjective: |
@@ -9275,13 +9282,50 @@ components:
       title: Fund vs Segment Benchmark
       type: object
     Fund:
-      description: Fund risk statistics including standard deviation measurements
+      description: Fund risk statistics including standard deviation and maximum drawdown
+        measurements
       properties:
         oneYearStdDeviation:
           description: Returns the fund's standard deviation. Uses one year of total
             returns. This data item is available only with the Analytics product package.
             If the product is not enabled, the field will be omitted from the response.
           example: 0.17
+          nullable: true
+          type: number
+        threeYearStdDeviation:
+          description: Returns the fund's standard deviation. Uses three years of
+            total returns. This data item is available only with the Analytics product
+            package. If the product is not enabled, the field will be omitted from
+            the response.
+          example: 0.15
+          nullable: true
+          type: number
+        fiveYearStdDeviation:
+          description: Returns the fund's standard deviation. Uses five years of total
+            returns. This data item is available only with the Analytics product package.
+            If the product is not enabled, the field will be omitted from the response.
+          example: 0.14
+          nullable: true
+          type: number
+        oneYearMaxDrawDown:
+          description: Returns the fund's maximum drawdown. Uses one year of total
+            returns. This data item is available only with the Analytics product package.
+            If the product is not enabled, the field will be omitted from the response.
+          example: -15.461344
+          nullable: true
+          type: number
+        threeYearMaxDrawDown:
+          description: Returns the fund's maximum drawdown. Uses three years of total
+            returns. This data item is available only with the Analytics product package.
+            If the product is not enabled, the field will be omitted from the response.
+          example: -17.284509
+          nullable: true
+          type: number
+        fiveYearMaxDrawDown:
+          description: Returns the fund's maximum drawdown. Uses five years of total
+            returns. This data item is available only with the Analytics product package.
+            If the product is not enabled, the field will be omitted from the response.
+          example: -18.739271
           nullable: true
           type: number
       title: Fund Risk Measures Object
@@ -12473,6 +12517,23 @@ components:
           example: true
           nullable: true
           type: boolean
+        oldestShareClassId:
+          description: Returns the oldest share class for the fund.
+          example: FNK7XP-S
+          nullable: true
+          type: string
+        isLeveragedFlag:
+          description: Indicates whether the fund is leveraged, inverse, or neither.
+            `Neither` is returned for funds that are not leveraged or inverse. A null
+            is returned when leverage information is not available for the fund. Data
+            is returned for both Mutual Funds and ETFs.
+          enum:
+          - Leveraged
+          - Inverse
+          - Neither
+          example: Leveraged
+          nullable: true
+          type: string
         descInfo:
           description: The Fund's Investment Strategy short description.  For the
             long-form description, see `insight`.

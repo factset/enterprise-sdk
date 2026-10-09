@@ -69,6 +69,11 @@ from fds.sdk.FactSetBanks.model.rates_request import RatesRequest
 from fds.sdk.FactSetBanks.model.rates_request_data import RatesRequestData
 from fds.sdk.FactSetBanks.model.rates_response import RatesResponse
 from fds.sdk.FactSetBanks.model.request_meta import RequestMeta
+from fds.sdk.FactSetBanks.model.search_entities_request import SearchEntitiesRequest
+from fds.sdk.FactSetBanks.model.search_entities_request_data import SearchEntitiesRequestData
+from fds.sdk.FactSetBanks.model.search_entities_response import SearchEntitiesResponse
+from fds.sdk.FactSetBanks.model.search_entity import SearchEntity
+from fds.sdk.FactSetBanks.model.search_entity_all_of import SearchEntityAllOf
 from fds.sdk.FactSetBanks.model.specialty_finance_aum import SpecialtyFinanceAUM
 from fds.sdk.FactSetBanks.model.specialty_finance_focus import SpecialtyFinanceFOCUS
 from fds.sdk.FactSetBanks.model.ten_d_filings_request import TenDFilingsRequest

@@ -41,6 +41,7 @@ docs/GuidanceRequest.md
 docs/GuidanceRequestBody.md
 docs/GuidanceResponse.md
 docs/Ids.md
+docs/IdsSegments.md
 docs/Meta.md
 docs/Metric.md
 docs/MetricSegmentDetail.md
@@ -138,6 +139,7 @@ fds/sdk/FactSetEstimates/model/guidance_request.py
 fds/sdk/FactSetEstimates/model/guidance_request_body.py
 fds/sdk/FactSetEstimates/model/guidance_response.py
 fds/sdk/FactSetEstimates/model/ids.py
+fds/sdk/FactSetEstimates/model/ids_segments.py
 fds/sdk/FactSetEstimates/model/meta.py
 fds/sdk/FactSetEstimates/model/metric.py
 fds/sdk/FactSetEstimates/model/metric_segment_detail.py

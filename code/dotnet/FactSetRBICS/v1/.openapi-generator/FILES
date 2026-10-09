@@ -24,6 +24,7 @@ docs/IndustryGroup.md
 docs/IndustryRequest.md
 docs/IndustryRevenueRequest.md
 docs/IndustryRevenueResponse.md
+docs/ResponseFormat.md
 docs/Sector.md
 docs/Structure.md
 docs/StructureApi.md
@@ -32,8 +33,10 @@ docs/StructureResponse.md
 docs/SubIndustry.md
 docs/SubSector.md
 docs/TradeName.md
+docs/TradeNameSummary.md
 docs/TradeNames.md
 docs/TradeNamesApi.md
+docs/TradeNamesMetadata.md
 docs/TradeNamesRequest.md
 docs/TradeNamesRequestBody.md
 docs/TradeNamesResponse.md
@@ -79,6 +82,7 @@ src/FactSet.SDK.FactSetRBICS/Model/IndustryGroup.cs
 src/FactSet.SDK.FactSetRBICS/Model/IndustryRequest.cs
 src/FactSet.SDK.FactSetRBICS/Model/IndustryRevenueRequest.cs
 src/FactSet.SDK.FactSetRBICS/Model/IndustryRevenueResponse.cs
+src/FactSet.SDK.FactSetRBICS/Model/ResponseFormat.cs
 src/FactSet.SDK.FactSetRBICS/Model/Sector.cs
 src/FactSet.SDK.FactSetRBICS/Model/Structure.cs
 src/FactSet.SDK.FactSetRBICS/Model/StructureRequest.cs
@@ -86,7 +90,9 @@ src/FactSet.SDK.FactSetRBICS/Model/StructureResponse.cs
 src/FactSet.SDK.FactSetRBICS/Model/SubIndustry.cs
 src/FactSet.SDK.FactSetRBICS/Model/SubSector.cs
 src/FactSet.SDK.FactSetRBICS/Model/TradeName.cs
+src/FactSet.SDK.FactSetRBICS/Model/TradeNameSummary.cs
 src/FactSet.SDK.FactSetRBICS/Model/TradeNames.cs
+src/FactSet.SDK.FactSetRBICS/Model/TradeNamesMetadata.cs
 src/FactSet.SDK.FactSetRBICS/Model/TradeNamesRequest.cs
 src/FactSet.SDK.FactSetRBICS/Model/TradeNamesRequestBody.cs
 src/FactSet.SDK.FactSetRBICS/Model/TradeNamesResponse.cs

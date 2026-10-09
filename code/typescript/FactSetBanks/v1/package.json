@@ -1,6 +1,6 @@
 {
   "name": "@factset/sdk-factsetbanks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "FactSet Banks client library for JavaScript",
   "license": "Apache-2.0",
   "author": "FactSet Research Systems",

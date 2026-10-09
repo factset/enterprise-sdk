@@ -31,6 +31,8 @@ Name | Type | Description | Notes
 **shareClassActivelyManagedFlag** | **Boolean** | Returns a binary indicator of whether the specified share class is actively managed, where 1 is active and 0 is inactive. | [optional] 
 **shareClassCurrency** | **String** | The currency for the specified share class. ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39; | [optional] 
 **isOldestShareClass** | **Boolean** | Returns a flag to indicate whether the specified ID is the oldest share class. Data is returned for Mutual Funds only. | [optional] 
+**oldestShareClassId** | **String** | Returns the oldest share class for the fund. | [optional] 
+**isLeveragedFlag** | **String** | Indicates whether the fund is leveraged, inverse, or neither. &#x60;Neither&#x60; is returned for funds that are not leveraged or inverse. A null is returned when leverage information is not available for the fund. Data is returned for both Mutual Funds and ETFs. | [optional] 
 **descInfo** | **String** | The Fund&#39;s Investment Strategy short description.  For the long-form description, see &#x60;insight&#x60;. | [optional] 
 **priceFirstDate** | **Date** | The fund&#39;s first available date for prices (NAV) in YYYY-MM-DD format. This can be used to fetch the first available price from FactSet. *NOTE: This is not the inception date of fund.* | [optional] 
 **priceRecentDate** | **Date** | The fund&#39;s most recent available date for prices (NAV) in YYYY-MM-DD format. | [optional] 
@@ -52,5 +54,18 @@ Name | Type | Description | Notes
 **currencyHedgedFrom** | **String** | Returns ETF currency hedge source currency. Part of ETF hedge information including: - currency hedged flag - currency hedged from - currency hedged into ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39;  | [optional] 
 **currencyHedgedInto** | **String** | Returns ETF currency hedge target currency. Part of ETF hedge information including: - currency hedged flag - currency hedged from - currency hedged into ISO3 Currency. For a list of currency ISO codes, visit Online Assistant Page [OA1470](https://my.apps.factset.com/oa/pages/1470)&#39;  | [optional] 
 **managers** | [**[Managers]**](Managers.md) | Fetch basic Fund manager details, such as Title, Phone, Job Id and Name. | [optional] 
+
+
+
+## Enum: IsLeveragedFlagEnum
+
+
+* `Leveraged` (value: `"Leveraged"`)
+
+* `Inverse` (value: `"Inverse"`)
+
+* `Neither` (value: `"Neither"`)
+
+
 
 

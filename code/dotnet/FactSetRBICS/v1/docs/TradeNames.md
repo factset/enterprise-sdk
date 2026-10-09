@@ -1,4 +1,5 @@
 # FactSet.SDK.FactSetRBICS.Model.TradeNames
+Trade names response object
 
 ## Properties
 
@@ -6,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TradeId** | **string** | Unique identifier for the product participation mapping | 
 **ProductId** | **long?** | Unique identifier for the product | 
-**ProductName** | **string** | Full name of the product/tradeName/brand. An asterisk (*) suffix indicates  an in-licensing agreement.  | 
+**ProductName** | **string** | Full name of the product/tradeName/brand. An asterisk (*) suffix indicates an in-licensing agreement.  | 
 **ShortProductName** | **string** | Shortened product name with extraneous company metadata removed | 
 **L6Id** | **decimal?** | Unique identifier for the RBICS Level 6 sector to which the product is assigned | [optional] 
 **L6Name** | **string** | The descriptive name for the Level 6 sector classification | [optional] 

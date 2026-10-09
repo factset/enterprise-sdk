@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **description** | **String** | Detailed description of the metric |  [optional]
 **oaPageId** | **String** | Online Assistant page ID for methodology |  [optional]
 **oaUrl** | **String** | Online Assistant URL for methodology |  [optional]
+**subsidiary** | **Boolean** | Whether this metric requires a subsidiary entity identifier. Use &#x60;/search-entities&#x60; with the appropriate reportType to resolve the correct subsidiary identifier if true.  |  [optional]
+**holding** | **Boolean** | Whether this metric requires a holding company (parent) entity identifier. Use &#x60;/search-entities&#x60; with the appropriate reportType to resolve the correct holding company identifier if true.  |  [optional]
 
 
 
@@ -39,7 +41,8 @@ AUSTRALIA | &quot;AUSTRALIA&quot;
 CREDIT_UNION | &quot;CREDIT_UNION&quot;
 INDUSTRY | &quot;INDUSTRY&quot;
 SPECIALTY_FINANCE | &quot;SPECIALTY_FINANCE&quot;
-TEN_D | &quot;TEN_D&quot;
+TEN_D_AUTO_LOAN | &quot;TEN_D_AUTO_LOAN&quot;
+TEN_D_CREDIT_CARD | &quot;TEN_D_CREDIT_CARD&quot;
 UBPR | &quot;UBPR&quot;
 COUNTRY | &quot;COUNTRY&quot;
 

@@ -1,7 +1,7 @@
 openapi: '3.0.0'
 info:
   title: 'FactSet RBICS'
-  version: '1.4.0'
+  version: '1.5.0'
   description: "FactSet Revere Business Industry Classification System (RBICS) is a comprehensive structured taxonomy to classify companies by what they primarily do. It delivers a granular view for investors by classifying companies using a bottom-up approach according to the products and services they provide. By combining this approach with a top-level grouping based on companies' behavior similarities and stock co-movement, FactSet RBICS delivers unprecedented precision for 1,400+ sector groups.\n\nRBICS Focus is a six level classification which highlights the companys main business. It is based on the company business line/s that stand for majority of a the revenue that the company generates. Updated monthly. For more details, visit [Online Assistant Page #20710](https://oa.apps.factset.com/pages/20710).<p><b>Rate limit is set to 10 requests per second</b>.</p>\n"
   contact:
     name: 'FactSet Research Systems'
@@ -100,7 +100,7 @@ paths:
         - 'Entity'
       summary: 'Get a company''s revenue breakdown by RBICS classification.'
       operationId: 'getRbicsEntityRevenue'
-      description: "Access a comprehensive, hierarchical breakdown of a company's revenue according to each RBICS industry classification. This endpoint aligns a company's reported business segment revenues with the complete, multi-level RBICS taxonomy, offering the percentage of total revenue attributed to each industry.\n\nFor Mutual Funds and ETFs we only have data from L1-L4 and requires additional access to get this data. Note that, the response time can exceed 20+ seconds when querying for more than one year of data.  As such we do not recommend requesting for more than 1 ID at a time for history.\n \nUse the `level` parameter to control the depth of the returned taxonomy, from Economy (L1) down to Sub-Industry (L6).\n"
+      description: "Access a comprehensive, hierarchical breakdown of a company's revenue according to each RBICS industry classification. This endpoint aligns a company's reported business segment revenues with the complete, multi-level RBICS taxonomy, offering the percentage of total revenue attributed to each industry.\n\nFor Mutual Funds and ETFs we only have data from L1-L4 and requires additional access to get this data. Note that, the response time can exceed 20+ seconds when querying for more than one year of data.  As such we do not recommend requesting for more than 1 ID at a time for history.\nUse the `level` parameter to control the depth of the returned taxonomy, from Economy (L1) down to Sub-Industry (L6).\n"
       parameters:
         - $ref: '#/components/parameters/ids'
         - $ref: '#/components/parameters/startDate'
@@ -367,7 +367,7 @@ paths:
   /factset-rbics/v1/trade-names:
     post:
       summary: 'Get a company''s associated tradeNames and product lines.'
-      description: "RBICS with TradeNames maps over 260,000 products, services and brands (a.k.a. TradeNames) to the granular sectors of the FactSet Revere Business Industry Classification System taxonomy, resulting in a multi-sector participation map for each company. \n\nWhereas RBICS with Revenue offers quantified multi-sector exposure based on a company’s segment disclosures, RBICS with TradeNames provides a comprehensive view of sector participation at the product level.\n"
+      description: "RBICS with TradeNames maps over 260,000 products, services and brands (a.k.a. TradeNames) to the granular sectors of the FactSet Revere Business Industry Classification System taxonomy, resulting in a multi-sector participation map for each company.\n\nWhereas RBICS with Revenue offers quantified multi-sector exposure based on a company’s segment disclosures, RBICS with TradeNames provides a comprehensive view of sector participation at the product level.\n\n**Response shape:** Use the `responseFormat` field in the request body to control what the response contains:\n- `DETAILS_ONLY` — top-level metadata aggregates plus the per-entity\n  `tradeNames` array (no per-entity `summary`).\n- `SUMMARY_ONLY` — top-level metadata aggregates plus a per-entity\n  `summary` object (no per-entity `tradeNames` array).\n- `DETAILS_WITH_SUMMARY` (default) — top-level metadata, per-entity\n  `summary`, and per-entity `tradeNames` array.\n\nThe top-level `meta` object reports request-level totals (e.g. `totalResults`, `totalTradeNames`, `uniqueTradeIds`, `uniqueProducts`, `uniqueL6Categories`, `activeTradeNames`). The per-entity `summary` reports the same counts scoped to one entity.\n"
       tags:
         - 'TradeNames'
       operationId: 'getTradeNamesForList'
@@ -379,8 +379,12 @@ paths:
             schema:
               $ref: '#/components/schemas/TradeNamesRequest'
             examples:
-              Structure Request:
+              TradeNames Request - Default (Details with Summary):
                 $ref: '#/components/examples/rbicsTradeNameRequest'
+              TradeNames Request - Details Only:
+                $ref: '#/components/examples/rbicsTradeNameRequestDetailsOnly'
+              TradeNames Request - Summary Only:
+                $ref: '#/components/examples/rbicsTradeNameRequestSummaryOnly'
       responses:
         '200':
           description: 'Successful Response producing an array of RBICS Tradename Objects'
@@ -389,8 +393,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/TradeNamesResponse'
               examples:
-                RBICS TradeNames:
-                  $ref: '#/components/examples/rbicsTradeNames'
+                RBICS TradeNames - Details with Summary:
+                  $ref: '#/components/examples/rbicsTradeNamesDetailsWithSummary'
+                RBICS TradeNames - Details Only:
+                  $ref: '#/components/examples/rbicsTradeNamesDetailsOnly'
+                RBICS TradeNames - Summary Only:
+                  $ref: '#/components/examples/rbicsTradeNamesSummaryOnly'
                 RBICS TradeNames multiple L6:
                   $ref: '#/components/examples/rbicsTradeNamesMultiple'
         '400':
@@ -419,7 +427,7 @@ components:
   parameters:
     ids:
       name: 'ids'
-      description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**ids limit = 2500 per request**</p> \n  Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>\n"
+      description: "List of Company identifiers. Accepted identifiers include Ticker-Exchange, Ticker-Regions, CUSIPs, ISINs, SEDOLs, or FactSet Permanent Ids, such as -R, -L, or -E.<p>**ids limit = 2500 per request**</p>\n  Make note, GET Method URL request lines are also limited to a total length of 8192 bytes (8KB). In cases where the service allows for thousands of ids, which may lead to exceeding this request line limit of 8KB, its advised for any requests with large request lines to be requested through the respective \"POST\" method.</p>\n"
       in: 'query'
       required: true
       schema:
@@ -484,7 +492,7 @@ components:
     startDate:
       name: 'startDate'
       in: 'query'
-      description: "Specifies the start date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and forward. The `startDate` must be equal to or before the `endDate`. Future dates (T+1) are not accepted in this endpoint.\n\nNote: \n- If omitted while `endDate` is specified: Data will be fetched from the earliest available record up to the specified end date.\n- If both `startDate` and `endDate` are omitted: The response will return the latest available data.\n"
+      description: "Specifies the start date for the requested date range, formatted as **YYYY-MM-DD**. The data returned will be reflective of the classifications or revenue data as of this date and forward. The `startDate` must be equal to or before the `endDate`. Future dates (T+1) are not accepted in this endpoint.\n\nNote:\n- If omitted while `endDate` is specified: Data will be fetched from the earliest available record up to the specified end date.\n- If both `startDate` and `endDate` are omitted: The response will return the latest available data.\n"
       required: false
       schema:
         type: 'string'
@@ -639,20 +647,88 @@ components:
           $ref: '#/components/schemas/TradeNamesIds'
         asOfDate:
           $ref: '#/components/schemas/AsOfDate'
+        responseFormat:
+          $ref: '#/components/schemas/ResponseFormat'
       required:
         - 'ids'
+    ResponseFormat:
+      title: 'responseFormat'
+      type: 'string'
+      enum:
+        - 'DETAILS_ONLY'
+        - 'SUMMARY_ONLY'
+        - 'DETAILS_WITH_SUMMARY'
+      default: 'DETAILS_WITH_SUMMARY'
+      description: "Controls the shape of the response payload. The top-level `metadata` object (request-level aggregate counts) is always returned regardless of the value selected here.\n\n- `DETAILS_ONLY` — Each entity in `data` includes the full `tradeNames`\n  array. The per-entity `summary` object is omitted. Use when you need\n  the raw product mappings only.\n\n- `SUMMARY_ONLY` — Each entity in `data` includes only the per-entity\n  `summary` object (counts scoped to that entity). The `tradeNames`\n  array is omitted. Use for a lightweight overview when the individual\n  product rows are not needed.\n\n- `DETAILS_WITH_SUMMARY` *(default)* — Each entity in `data` includes\n  both the `summary` object and the `tradeNames` array. Use when you\n  want both an at-a-glance roll-up and the underlying product\n  mappings in a single call.\n"
+      example: 'DETAILS_WITH_SUMMARY'
     TradeNamesResponse:
       title: 'TradeNames Response'
       type: 'object'
-      description: 'TradeNames Response'
+      description: "TradeNames Response. Always includes a top-level `metadata` object with request-level aggregate counts. The contents of each `data` item depend on the `responseFormat` chosen in the request.\n"
       properties:
+        meta:
+          $ref: '#/components/schemas/TradeNamesMetadata'
         data:
-          description: 'Array of Tradename Objects'
+          description: "Array of TradeName objects, one per requested identifier. The presence of `summary` and `tradeNames` on each item is controlled by the request `responseFormat`.\n"
           type: 'array'
           items:
             $ref: '#/components/schemas/TradeName'
+    TradeNamesMetadata:
+      title: 'TradeNames Metadata'
+      type: 'object'
+      description: "Request-level aggregate counts computed across every entity returned in `data`. Always present in the response regardless of `responseFormat`. Useful for at-a-glance sizing of the result set without iterating each entity.\n"
+      properties:
+        totalResults:
+          type: 'integer'
+          format: 'int32'
+          description: "Number of entity result objects in `data` (one per requested identifier, including those that returned an error).\n"
+          example: 2
+          nullable: true
+        successfulResults:
+          type: 'integer'
+          format: 'int32'
+          description: "Number of entity result objects in `data` that were processed successfully and returned trade name information.\n"
+          example: 2
+          nullable: true
+        failedResults:
+          type: 'integer'
+          format: 'int32'
+          description: "Number of entity result objects in `data` that failed processing and returned an error.\n"
+          example: 1
+          nullable: true
+        totalTradeNames:
+          type: 'integer'
+          format: 'int32'
+          description: "Sum of tradeNames across all entities in the response. Counts every mapping row, including duplicates of the same product across multiple L6 sectors.\n"
+          example: 102
+          nullable: true
+        uniqueTradeIds:
+          type: 'integer'
+          format: 'int32'
+          description: "Number of distinct `tradeId` values across all entities in the response.\n"
+          example: 94
+          nullable: true
+        uniqueProducts:
+          type: 'integer'
+          format: 'int32'
+          description: "Number of distinct `productId` values across all entities in the response.\n"
+          example: 80
+          nullable: true
+        uniqueL6Categories:
+          type: 'integer'
+          format: 'int32'
+          description: "Number of distinct RBICS Level 6 Sub-Industry IDs (`l6Id`) that appear across all tradeName mappings in the response.\n"
+          example: 34
+          nullable: true
+        activeTradeNames:
+          type: 'integer'
+          format: 'int32'
+          description: "Number of tradeName mappings in the response that are still active (those with a null `endDate`).\n"
+          example: 71
+          nullable: true
     TradeName:
       title: 'TradeNames'
+      description: 'Trade Names response object'
       type: 'object'
       properties:
         asOfDate:
@@ -671,17 +747,56 @@ components:
           description: 'Original identifier from request (ticker, CUSIP, entity ID, etc.)'
           example: 'AAPL-US'
           nullable: true
+        summary:
+          $ref: '#/components/schemas/TradeNameSummary'
         tradeNames:
           type: 'array'
-          description: 'List of tradeNames for the entity on this date'
+          description: "List of tradeNames for the entity on this date. Omitted when the request `responseFormat` is `SUMMARY_ONLY`.\n"
           nullable: true
           items:
             $ref: '#/components/schemas/TradeNames'
         error:
           $ref: '#/components/schemas/ErrorObjectResponse'
       additionalProperties: true
+    TradeNameSummary:
+      title: 'TradeName Summary'
+      type: 'object'
+      nullable: true
+      description: "Aggregate counts scoped to a single entity's tradeNames. Returned when the request `responseFormat` is `SUMMARY_ONLY` or `DETAILS_WITH_SUMMARY`, and omitted when `responseFormat` is `DETAILS_ONLY`. For entities that returned an error, this object is null.\n"
+      properties:
+        totalTradeNames:
+          type: 'integer'
+          format: 'int32'
+          description: "Total number of tradeName mapping rows for this entity (counts every product/L6 mapping, including the same product across multiple sectors).\n"
+          example: 97
+          nullable: true
+        uniqueTradeIds:
+          type: 'integer'
+          format: 'int32'
+          description: 'Distinct `tradeId` values for this entity.'
+          example: 89
+          nullable: true
+        uniqueProducts:
+          type: 'integer'
+          format: 'int32'
+          description: 'Distinct `productId` values for this entity.'
+          example: 76
+          nullable: true
+        uniqueL6Categories:
+          type: 'integer'
+          format: 'int32'
+          description: "Distinct RBICS Level 6 Sub-Industry IDs (`l6Id`) this entity's tradeNames are mapped to.\n"
+          example: 31
+          nullable: true
+        activeTradeNames:
+          type: 'integer'
+          format: 'int32'
+          description: "TradeName mappings for this entity that are still active (those with a null `endDate`).\n"
+          example: 68
+          nullable: true
     TradeNames:
       type: 'object'
+      description: 'Trade names response object'
       nullable: true
       required:
         - 'tradeId'
@@ -702,7 +817,7 @@ components:
           example: 99996362
         productName:
           type: 'string'
-          description: "Full name of the product/tradeName/brand. An asterisk (*) suffix indicates \nan in-licensing agreement.\n"
+          description: "Full name of the product/tradeName/brand. An asterisk (*) suffix indicates\nan in-licensing agreement.\n"
           nullable: true
           example: 'iPhone'
         shortProductName:
@@ -1570,10 +1685,82 @@ components:
             endDate: null
             rbicsId: '10'
             name: 'Business Services'
-    rbicsTradeNames:
-      summary: 'TradeNames'
-      description: 'TradeNames'
+    rbicsTradeNamesDetailsWithSummary:
+      summary: 'TradeNames - Details with Summary (default)'
+      description: 'Response shape returned when responseFormat is omitted or set to DETAILS_WITH_SUMMARY. Includes top-level metadata aggregates, per-entity summary, and the full tradeNames array.'
       value:
+        meta:
+          totalResults: 2
+          successfulResults: 1
+          failedResults: 1
+          totalTradeNames: 4
+          uniqueTradeIds: 4
+          uniqueProducts: 4
+          uniqueL6Categories: 3
+          activeTradeNames: 1
+        data:
+          - asOfDate: '2024-12-31'
+            factsetEntityId: '000C7F-E'
+            requestId: 'AAPL-US'
+            summary:
+              totalTradeNames: 4
+              uniqueTradeIds: 4
+              uniqueProducts: 4
+              uniqueL6Categories: 3
+              activeTradeNames: 1
+            tradeNames:
+              - tradeId: '100000191'
+                productId: 99996362
+                productName: 'iPhone'
+                shortProductName: 'iPhone'
+                l6Id: 501515151520
+                l6Name: 'Smart Phone Manufacturing'
+                startDate: '2021-08-30'
+                endDate: '2025-03-31'
+              - tradeId: '100000192'
+                productId: 99996363
+                productName: 'iPad'
+                shortProductName: 'iPad'
+                l6Id: 501515151521
+                l6Name: 'Portable Computer Systems'
+                startDate: '2022-04-30'
+                endDate: '2025-05-31'
+              - tradeId: '100000193'
+                productId: 99996364
+                productName: 'Mac'
+                shortProductName: 'Mac'
+                l6Id: 501515151521
+                l6Name: 'Portable Computer Systems'
+                startDate: '2021-03-30'
+                endDate: '2025-09-29'
+              - tradeId: '100000194'
+                productId: 99996365
+                productName: 'Apple Watch'
+                shortProductName: 'Apple Watch'
+                l6Id: 501515151522
+                l6Name: 'Wearable Technology'
+                startDate: '2021-08-30'
+                endDate: null
+            error: null
+          - requestId: 'M7CLZV'
+            summary: null
+            error:
+              code: 'notFound'
+              title: 'No data'
+              detail: 'There''s no data for this id.'
+    rbicsTradeNamesDetailsOnly:
+      summary: 'TradeNames - Details Only'
+      description: 'Response shape returned when responseFormat is set to DETAILS_ONLY. Includes top-level metadata aggregates and the full tradeNames array per entity, but omits the per-entity summary object.'
+      value:
+        meta:
+          totalResults: 2
+          successfulResults: 1
+          failedResults: 1
+          totalTradeNames: 4
+          uniqueTradeIds: 4
+          uniqueProducts: 4
+          uniqueL6Categories: 3
+          activeTradeNames: 1
         data:
           - asOfDate: '2024-12-31'
             factsetEntityId: '000C7F-E'
@@ -1617,19 +1804,59 @@ components:
               code: 'notFound'
               title: 'No data'
               detail: 'There''s no data for this id.'
-          - requestId: 'BADSYMBOL'
-            error:
-              code: 'parameterError'
-              title: 'Invalid id'
-              detail: 'This is not a valid id.'
-    rbicsTradeNamesMultiple:
-      summary: 'TradeNames with multiple L6 mapping'
-      description: 'TradeNames with multiple L6 mapping'
+    rbicsTradeNamesSummaryOnly:
+      summary: 'TradeNames - Summary Only'
+      description: 'Response shape returned when responseFormat is set to SUMMARY_ONLY. Includes top-level metadata aggregates and the per-entity summary object, but omits the tradeNames array.'
       value:
+        meta:
+          totalResults: 2
+          successfulResults: 1
+          failedResults: 1
+          totalTradeNames: 4
+          uniqueTradeIds: 4
+          uniqueProducts: 4
+          uniqueL6Categories: 3
+          activeTradeNames: 1
         data:
           - asOfDate: '2024-12-31'
             factsetEntityId: '000C7F-E'
             requestId: 'AAPL-US'
+            summary:
+              totalTradeNames: 4
+              uniqueTradeIds: 4
+              uniqueProducts: 4
+              uniqueL6Categories: 3
+              activeTradeNames: 1
+            error: null
+          - requestId: 'M7CLZV'
+            summary: null
+            error:
+              code: 'notFound'
+              title: 'No data'
+              detail: 'There''s no data for this id.'
+    rbicsTradeNamesMultiple:
+      summary: 'TradeNames with multiple L6 mapping'
+      description: 'TradeNames response showing the same product mapped to multiple L6 sectors. Uses the default DETAILS_WITH_SUMMARY response shape.'
+      value:
+        meta:
+          totalResults: 3
+          successfulResults: 1
+          failedResults: 2
+          totalTradeNames: 9
+          uniqueTradeIds: 4
+          uniqueProducts: 5
+          uniqueL6Categories: 7
+          activeTradeNames: 1
+        data:
+          - asOfDate: '2024-12-31'
+            factsetEntityId: '000C7F-E'
+            requestId: 'AAPL-US'
+            summary:
+              totalTradeNames: 9
+              uniqueTradeIds: 4
+              uniqueProducts: 5
+              uniqueL6Categories: 7
+              activeTradeNames: 1
             tradeNames:
               - tradeId: '100000191'
                 productId: 99996362
@@ -1705,11 +1932,13 @@ components:
                 endDate: null
             error: null
           - requestId: 'M7CLZV'
+            summary: null
             error:
               code: 'notFound'
               title: 'No data'
               detail: 'There''s no data for this id.'
           - requestId: 'BADSYMBOL'
+            summary: null
             error:
               code: 'parameterError'
               title: 'Invalid id'
@@ -1767,13 +1996,32 @@ components:
         startDate: '2021-08-27'
         endDate: '2022-08-27'
     rbicsTradeNameRequest:
-      summary: 'Tradename Request'
-      description: 'Request Body to request tradeNames.'
+      summary: 'TradeNames Request - Default (Details with Summary)'
+      description: 'Request Body for tradeNames using the default response shape, which returns metadata, summary, and tradeNames.'
       value:
         data:
           ids:
             - 'AAPL-US'
           asOfDate: '2024-12-31'
+          responseFormat: 'DETAILS_WITH_SUMMARY'
+    rbicsTradeNameRequestDetailsOnly:
+      summary: 'TradeNames Request - Details Only'
+      description: 'Request Body for tradeNames asking for the details-only response shape (metadata + tradeNames array, no per-entity summary).'
+      value:
+        data:
+          ids:
+            - 'AAPL-US'
+          asOfDate: '2024-12-31'
+          responseFormat: 'DETAILS_ONLY'
+    rbicsTradeNameRequestSummaryOnly:
+      summary: 'TradeNames Request - Summary Only'
+      description: 'Request Body for tradeNames asking for the summary-only response shape (metadata + per-entity summary, no tradeNames array).'
+      value:
+        data:
+          ids:
+            - 'AAPL-US'
+          asOfDate: '2024-12-31'
+          responseFormat: 'SUMMARY_ONLY'
     badRequestDateFormat:
       summary: 'Bad Request - Date Format'
       description: 'This bad request occurs when a request doesn''t use the YYYY-MM-DD in the date parameters. To resolve, convert your date to YYYY-MM-DD.'

@@ -1,12 +1,13 @@
 # TradeNames
 
+Trade names response object
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trade_id** | **str, none_type** | Unique identifier for the product participation mapping | 
 **product_id** | **int, none_type** | Unique identifier for the product | 
-**product_name** | **str, none_type** | Full name of the product/tradeName/brand. An asterisk (*) suffix indicates  an in-licensing agreement.  | 
+**product_name** | **str, none_type** | Full name of the product/tradeName/brand. An asterisk (*) suffix indicates an in-licensing agreement.  | 
 **short_product_name** | **str, none_type** | Shortened product name with extraneous company metadata removed | 
 **l6_id** | **float, none_type** | Unique identifier for the RBICS Level 6 sector to which the product is assigned | [optional] 
 **l6_name** | **str, none_type** | The descriptive name for the Level 6 sector classification | [optional] 

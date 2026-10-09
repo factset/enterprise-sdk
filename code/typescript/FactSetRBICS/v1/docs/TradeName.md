@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **asOfDate** | **Date** | Date of the tradeName data snapshot (YYYY-MM-DD) | [optional] 
 **factsetEntityId** | **String** | FactSet Entity Identifier | [optional] 
 **requestId** | **String** | Original identifier from request (ticker, CUSIP, entity ID, etc.) | [optional] 
-**tradeNames** | [**[TradeNames]**](TradeNames.md) | List of tradeNames for the entity on this date | [optional] 
+**summary** | [**TradeNameSummary**](TradeNameSummary.md) |  | [optional] 
+**tradeNames** | [**[TradeNames]**](TradeNames.md) | List of tradeNames for the entity on this date. Omitted when the request &#x60;responseFormat&#x60; is &#x60;SUMMARY_ONLY&#x60;.  | [optional] 
 **error** | [**ErrorObjectResponse**](ErrorObjectResponse.md) |  | [optional] 
 
 

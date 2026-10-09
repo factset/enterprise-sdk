@@ -19,7 +19,7 @@ info:
     name: Apache License, Version 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   title: FactSet Banks API
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: API Documentation
   url: https://developer.factset.com/api-catalog/factset-banks-api
@@ -44,6 +44,9 @@ tags:
   name: Deposit Rates
 - description: Form ADV (AUM) and FOCUS reports for specialty finance institutions
   name: Specialty Finance
+- description: Resolve subsidiary and private affiliate entities required to query
+    other Banks API endpoints
+  name: Search Entities
 - description: Metric definitions
   name: Metrics
 paths:
@@ -557,7 +560,7 @@ paths:
         Find available metrics via [`/metrics`](#operation/getMetrics) with:
 
         * **category**: `FILINGS`
-        * **subcategory**: `TEN_D`
+        * **subcategory**: `TEN_D_AUTO_LOAN`, `TEN_D_CREDIT_CARD`
       operationId: getTenDFilings
       requestBody:
         content:
@@ -891,10 +894,10 @@ paths:
       - Deposit Rates
       x-contentType: application/json
       x-accepts: application/json
-  /aum:
+  /aum/ria:
     post:
       description: |
-        Returns SEC Form ADV assets under management data for investment advisers — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.
+        Returns SEC Form ADV assets under management (AUM) data for Registered Investment Advisers (RIAs) — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.
 
         Form ADV history since 2017. Updated annually.
 
@@ -1004,7 +1007,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
           description: Internal Server Error.
-      summary: Returns Form ADV AUM data
+      summary: Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
       tags:
       - Specialty Finance
       x-contentType: application/json
@@ -1129,6 +1132,133 @@ paths:
       - Specialty Finance
       x-contentType: application/json
       x-accepts: application/json
+  /search-entities:
+    post:
+      description: |
+        Finds the subsidiary or private affiliate entity IDs needed to query other Banks API endpoints from a given parent ticker, ultimate parent entity ID, or entity name. Several endpoints require an entity ID that differs from the parent's public ticker:
+
+        * `/financials`, `/branches`, and `/country-exposure` require bank entities from the parent company.
+        * `/ubpr`, `/ucc1`, and `/deposit-rates` require the **subsidiary** bank entity, not the holding company.
+        * `/ten-d` requires the **asset-backed trust** entity, not the subsidiary bank or holding company. For auto loan securitizations, the trust's ultimate parent may itself be a non-bank company (e.g., an auto manufacturer's finance arm like GM Financial, Toyota Financial, or Harley-Davidson Financial).
+        * `/aum/ria` requires the **private Registered Investment Adviser** entity.
+        * `/focus` requires the **private broker-dealer** entity.
+
+        Use `reportType` to select which of these destination endpoints you're resolving entities for; only entities eligible for that report type are returned, and the response's `reportType` field echoes back your selection. Pass the resulting `factsetEntityId` values into the `ids` field of the corresponding endpoint.
+
+        Not every bank has a holding company above it with its own ticker — for those, use `searchText` to look the entity up by (partial) name instead of `ids`. At least one of `ids` or `searchText` is required.
+
+        **Date filtering behavior:**
+        * **No dates entered**: Returns only currently active subsidiaries (those with no end date).
+        * **Dates entered**: Returns only subsidiaries active during the specified time period.
+        * **End date is null**: The end date defaults to today's date for filtering purposes.
+      operationId: getSearchEntities
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Search Entities Request:
+                $ref: '#/components/examples/SearchEntitiesRequestExample'
+            schema:
+              $ref: '#/components/schemas/SearchEntitiesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Search Entities Response:
+                  $ref: '#/components/examples/SearchEntitiesResponseExample'
+              schema:
+                $ref: '#/components/schemas/SearchEntitiesResponse'
+          description: Search entity data
+        "400":
+          content:
+            application/json:
+              examples:
+                Bad Request - Missing Required Parameter:
+                  $ref: '#/components/examples/badRequestRequiredParameter'
+                Bad Request - Invalid Parameter:
+                  $ref: '#/components/examples/badRequestInvalidParameter'
+                Bad Request - Malformed JSON:
+                  $ref: '#/components/examples/badRequestMalformedJSON'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request. This can occur for several reasons. Please review
+            the "detail" for more details.
+        "401":
+          content:
+            application/json:
+              examples:
+                User Authentication - Failed:
+                  $ref: '#/components/examples/unauthenticated'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthenticated USERNAME-SERIAL. Ensure you are logged in and
+            have successfully generated an API KEY for the IP range you are connecting
+            from. For more help, select the **Report Issue** in the top right corner
+            of this Developer Portal specification card and choose Connectivity 401
+            or 403 Responses.
+        "403":
+          content:
+            application/json:
+              examples:
+                Forbidden:
+                  $ref: '#/components/examples/forbidden'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The USERNAME-SERIAL attempted to request the endpoint is not
+            authorized to access. The request was a legal request, but the server
+            is refusing to respond. Please reach out to FactSet Account Team for assistance
+            with authorization.
+        "404":
+          content:
+            application/json:
+              examples:
+                Not Found:
+                  $ref: '#/components/examples/notFound'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: The requested endpoint could not be found.
+        "415":
+          content:
+            application/json:
+              examples:
+                Unsupported Media Type:
+                  $ref: '#/components/examples/unsupportedMediaType'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unsupported Media Type. This error may be returned when the
+            caller sends a resource in a format that is not accepted by the server.
+            This can be fixed by ensuring that Content-Type header is set to the correct
+            value. In this instance, "application/json" would be the appropriate value.
+        "422":
+          content:
+            application/json:
+              examples:
+                Validation Error - Invalid Date Range:
+                  $ref: '#/components/examples/unprocessableEntityDateRange'
+                Validation Error - Invalid Metric Code:
+                  $ref: '#/components/examples/unprocessableEntityMetricCode'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: |
+            Unprocessable Entity. Your request data was syntactically correct but semantically invalid.
+            Check the required parameters and their value constraints.
+        "500":
+          content:
+            application/json:
+              examples:
+                Internal Server Error - General Exception:
+                  $ref: '#/components/examples/generalException'
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal Server Error.
+      summary: Returns subsidiary and private affiliate entities for a parent ticker,
+        entity ID, or name
+      tags:
+      - Search Entities
+      x-contentType: application/json
+      x-accepts: application/json
   /metrics:
     get:
       description: |
@@ -1175,7 +1305,8 @@ paths:
           - **CREDIT_UNION** - Credit union financial data. Endpoint: `/financials`
           - **INDUSTRY** - Industry-level financial aggregates. Endpoint: `/financials`
           - **SPECIALTY_FINANCE** - Specialty finance industry data including FOCUS reports, Form ADV, and Business Development Corporations. Endpoint: `/aum`, `/focus`
-          - **TEN_D** - Form 10-D securitization filings. Endpoint: `/ten-d`
+          - **TEN_D_AUTO_LOAN** - Form 10-D auto loan securitization filings. Endpoint: `/ten-d`
+          - **TEN_D_CREDIT_CARD** - Form 10-D credit card securitization filings. Endpoint: `/ten-d`
           - **UBPR** - Uniform Bank Performance Report metrics. Endpoint: `/ubpr`
           - **COUNTRY** - Country exposure metrics. Endpoint: `/country-exposure`
         explode: true
@@ -1190,7 +1321,8 @@ paths:
           - CREDIT_UNION
           - INDUSTRY
           - SPECIALTY_FINANCE
-          - TEN_D
+          - TEN_D_AUTO_LOAN
+          - TEN_D_CREDIT_CARD
           - UBPR
           - COUNTRY
           type: string
@@ -1518,6 +1650,8 @@ components:
           description: Total assets on the balance sheet from US regulatory reports
           oaPageId: "17959"
           oaUrl: https://my.apps.factset.com/oa/pages/17959
+          subsidiary: true
+          holding: true
         - metric: FF_ROA
           category: PERFORMANCE
           subcategory: UBPR
@@ -1526,6 +1660,8 @@ components:
             metric measuring overall profitability.
           oaPageId: "12345"
           oaUrl: https://my.apps.factset.com/oa/pages/12345
+          subsidiary: true
+          holding: false
         - metric: CB_CLAIMS_EXCL_DERIV_GT
           category: EXPOSURE
           subcategory: COUNTRY
@@ -1534,14 +1670,18 @@ components:
             for transfer of exposure (excluding derivative products)
           oaPageId: null
           oaUrl: null
+          subsidiary: false
+          holding: true
         - metric: PRIN_RECEIV_END
           category: FILINGS
-          subcategory: TEN_D
+          subcategory: TEN_D_CREDIT_CARD
           dataType: number
           description: Principal receivables balance at the end of the reporting period
             from Form 10-D filings
           oaPageId: null
           oaUrl: null
+          subsidiary: false
+          holding: true
         - metric: FSF_FR_ASSETS
           category: FINANCIALS
           subcategory: SPECIALTY_FINANCE
@@ -1550,6 +1690,8 @@ components:
             including broker-dealers and business development corporations
           oaPageId: null
           oaUrl: null
+          subsidiary: false
+          holding: false
         meta:
           pagination:
             total: 1250
@@ -2062,6 +2204,38 @@ components:
           value: 2230000
           reportType: FOCUS
           description: Net Capital
+    SearchEntitiesRequestExample:
+      summary: Search entities request
+      value:
+        data:
+          ids:
+          - FITB-US
+          reportType: DEPOSIT_RATES
+          startDate: 2015-01-01
+          endDate: 2024-12-31
+          searchText: Fifth Third
+    SearchEntitiesResponseExample:
+      summary: Search entities response
+      value:
+        data:
+        - requestId: FITB-US
+          tickerRegion: null
+          fsymRegionalId: null
+          factsetEntityId: 001G4L-E
+          entityProperName: Fifth Third Bank, NA (Cincinnati, Ohio)
+          startDate: 2019-03-01
+          endDate: null
+          factsetUltParentEntityId: 000JND-E
+          factsetUltParentProperName: Fifth Third Bancorp
+          reportType: DEPOSIT_RATES
+          isoCountry: US
+          entityType: SUB
+        meta:
+          pagination:
+            total: 1
+            isEstimatedTotal: false
+          requestedIds: 1
+          failedIds: []
     PerformanceInstitutionResponseExample:
       summary: UBPR performance metrics response - institution-level ratios
       value:
@@ -2478,6 +2652,28 @@ components:
       required:
       - data
       type: object
+    SearchEntitiesRequest:
+      description: Request body for search entity data.
+      example:
+        data:
+          reportType: DEPOSIT_RATES
+          searchText: Fifth Third
+          endDate: 2024-12-31T00:00:00.000+0000
+          ids:
+          - FITB-US
+          startDate: 2020-01-01T00:00:00.000+0000
+        meta:
+          pagination:
+            offset: 0
+            limit: 801
+      properties:
+        data:
+          $ref: '#/components/schemas/SearchEntitiesRequest_data'
+        meta:
+          $ref: '#/components/schemas/RequestMeta'
+      required:
+      - data
+      type: object
     PaginationRequest:
       description: Pagination parameters to control the size and offset of results
         returned.
@@ -2613,6 +2809,22 @@ components:
         Filters for deposit rate records with an `asOfDate` on or before this date in YYYY-MM-DD format.
         Use with `startDate` for a date range, or alone to return the most recent rates on or before this date.
         If both `startDate` and `endDate` are omitted, the most recent available rates are returned.
+      example: 2024-12-31
+      format: date
+      type: string
+    StartDateRelationship:
+      description: |
+        Filters to relationships with a `startDate` on or after this date in YYYY-MM-DD format.
+        Use with `endDate` for a date range, or alone to return all relationships from this date forward.
+        If both `startDate` and `endDate` are omitted, all historical and currently active relationships are returned.
+      example: 2020-01-01
+      format: date
+      type: string
+    EndDateRelationship:
+      description: |
+        Filters to relationships with an `endDate` on or before this date in YYYY-MM-DD format. Currently active relationships have a null `endDate` and are always included regardless of this filter.
+        Use with `startDate` for a date range, or alone to return all relationships up to this date.
+        If both `startDate` and `endDate` are omitted, all historical and currently active relationships are returned.
       example: 2024-12-31
       format: date
       type: string
@@ -2937,6 +3149,31 @@ components:
             Array of FOCUS report metrics. Each row represents one metric for a broker-dealer and period.
           items:
             $ref: '#/components/schemas/SpecialtyFinanceFOCUS'
+          type: array
+        meta:
+          $ref: '#/components/schemas/Meta'
+      type: object
+    SearchEntitiesResponse:
+      description: Response containing subsidiary and private affiliate entity data.
+      example:
+        data:
+        - null
+        - null
+        meta:
+          requestedIds: 5
+          pagination:
+            total: 2500
+            isEstimatedTotal: false
+          failedIds:
+          - INVALID-ID-1
+          - INVALID-ID-2
+          - INVALID-ID-3
+      properties:
+        data:
+          description: |
+            Array of matching entities. Each row represents one subsidiary or private affiliate entity beneath the requested parent id.
+          items:
+            $ref: '#/components/schemas/SearchEntity'
           type: array
         meta:
           $ref: '#/components/schemas/Meta'
@@ -3741,24 +3978,33 @@ components:
       - reportType
       - requestId
       type: object
+    SearchEntity:
+      allOf:
+      - $ref: '#/components/schemas/SearchEntity_allOf'
+      - $ref: '#/components/schemas/EntityIdentification'
+      description: A single subsidiary or private affiliate entity matching the request.
     MetricsResponse:
       description: Response containing available metric definitions.
       example:
         data:
-        - oaUrl: https://my.apps.factset.com/oa/pages/17959
+        - holding: false
+          oaUrl: https://my.apps.factset.com/oa/pages/17959
           metric: FF_ROA
           oaPageId: "17959"
           dataType: string
           description: description
           category: PERFORMANCE
           subcategory: UBPR
-        - oaUrl: https://my.apps.factset.com/oa/pages/17959
+          subsidiary: true
+        - holding: false
+          oaUrl: https://my.apps.factset.com/oa/pages/17959
           metric: FF_ROA
           oaPageId: "17959"
           dataType: string
           description: description
           category: PERFORMANCE
           subcategory: UBPR
+          subsidiary: true
         meta:
           requestedIds: 5
           pagination:
@@ -3780,6 +4026,7 @@ components:
     Metric:
       description: Definition and metadata for a single available metric.
       example:
+        holding: false
         oaUrl: https://my.apps.factset.com/oa/pages/17959
         metric: FF_ROA
         oaPageId: "17959"
@@ -3787,6 +4034,7 @@ components:
         description: description
         category: PERFORMANCE
         subcategory: UBPR
+        subsidiary: true
       properties:
         metric:
           description: Metric code identifier
@@ -3810,7 +4058,8 @@ components:
           - CREDIT_UNION
           - INDUSTRY
           - SPECIALTY_FINANCE
-          - TEN_D
+          - TEN_D_AUTO_LOAN
+          - TEN_D_CREDIT_CARD
           - UBPR
           - COUNTRY
           example: UBPR
@@ -3836,6 +4085,18 @@ components:
           example: https://my.apps.factset.com/oa/pages/17959
           nullable: true
           type: string
+        subsidiary:
+          default: false
+          description: |
+            Whether this metric requires a subsidiary entity identifier. Use `/search-entities` with the appropriate reportType to resolve the correct subsidiary identifier if true.
+          example: true
+          type: boolean
+        holding:
+          default: false
+          description: |
+            Whether this metric requires a holding company (parent) entity identifier. Use `/search-entities` with the appropriate reportType to resolve the correct holding company identifier if true.
+          example: false
+          type: boolean
       type: object
     ErrorResponse:
       description: Object representing an error response.
@@ -4620,6 +4881,73 @@ components:
       - ids
       - metrics
       type: object
+    SearchEntitiesRequest_data:
+      description: |
+        Search entity query parameters. **At least one of `ids` or `searchText` is required.** Requests without either field will return a 400 error.
+      example:
+        reportType: DEPOSIT_RATES
+        searchText: Fifth Third
+        endDate: 2024-12-31T00:00:00.000+0000
+        ids:
+        - FITB-US
+        startDate: 2020-01-01T00:00:00.000+0000
+      properties:
+        ids:
+          description: Array of Market Tickers or FactSet Entity IDs identifying the
+            parent (or ultimate parent) company. Required if `searchText` is not provided.
+          example:
+          - FITB-US
+          items:
+            type: string
+          type: array
+        reportType:
+          description: |
+            Destination endpoint to resolve entities for. Only entities eligible for the selected reportType are returned:
+              * **UBPR** — subsidiary bank entities, for use with `/ubpr`
+              * **TEN_D** — asset-backed trust entities, for use with `/ten-d`. The trust's ultimate parent may be a bank or, for auto loan securitizations, a non-bank company (e.g., an auto manufacturer's finance arm)
+              * **UCC1** — subsidiary bank entities, for use with `/ucc1`
+              * **DEPOSIT_RATES** — subsidiary bank entities, for use with `/deposit-rates`
+              * **AUM_RIA** — private Registered Investment Adviser entities, for use with `/aum/ria`
+              * **FOCUS** — private broker-dealer entities, for use with `/focus`
+              * **FINANCIALS** — bank entities, for use with `/financials`
+              * **BRANCHES** — bank entities, for use with `/branches`
+              * **COUNTRY_EXPOSURE** — bank entities, for use with `/country-exposure`
+          enum:
+          - UBPR
+          - TEN_D
+          - UCC1
+          - DEPOSIT_RATES
+          - AUM_RIA
+          - FOCUS
+          - FINANCIALS
+          - BRANCHES
+          - COUNTRY_EXPOSURE
+          example: DEPOSIT_RATES
+          type: string
+        startDate:
+          description: |
+            Filters to relationships with a `startDate` on or after this date in YYYY-MM-DD format.
+            Use with `endDate` for a date range, or alone to return all relationships from this date forward.
+            If both `startDate` and `endDate` are omitted, all historical and currently active relationships are returned.
+          example: 2020-01-01
+          format: date
+          type: string
+        endDate:
+          description: |
+            Filters to relationships with an `endDate` on or before this date in YYYY-MM-DD format. Currently active relationships have a null `endDate` and are always included regardless of this filter.
+            Use with `startDate` for a date range, or alone to return all relationships up to this date.
+            If both `startDate` and `endDate` are omitted, all historical and currently active relationships are returned.
+          example: 2024-12-31
+          format: date
+          type: string
+        searchText:
+          description: |
+            Case-insensitive substring match against the entity's `entityProperName` or its parent's `factsetUltParentProperName`. Useful when the entity has no bank holding company above it and there's no parent ticker to supply in `ids` — search by the parent's (or the entity's own) name instead. Required if `ids` is not provided.
+          example: Fifth Third
+          type: string
+      required:
+      - reportType
+      type: object
     Performance_allOf:
       properties:
         requestId:
@@ -4858,6 +5186,101 @@ components:
           example: true
           nullable: true
           type: boolean
+      type: object
+    SearchEntity_allOf:
+      properties:
+        requestId:
+          description: The identifier as submitted in the request (e.g., ticker or
+            entity ID). Null when the entity was matched via `searchText` without
+            a submitted id.
+          example: 000JND-E
+          nullable: true
+          type: string
+        tickerRegion:
+          description: Regional ticker for the matching entity. Null when the entity
+            has no public ticker.
+          nullable: true
+          type: string
+        fsymRegionalId:
+          description: FactSet Symbology regional identifier. Null when the entity
+            has no public ticker.
+          nullable: true
+          type: string
+        startDate:
+          description: Date the relationship to the ultimate parent began, in YYYY-MM-DD
+            format.
+          example: 2019-03-01
+          format: date
+          nullable: true
+          type: string
+        endDate:
+          description: Date the relationship to the ultimate parent ended, in YYYY-MM-DD
+            format. Null indicates the relationship is currently active.
+          format: date
+          nullable: true
+          type: string
+        factsetUltParentEntityId:
+          description: FactSet entity identifier of the ultimate parent
+          example: 000JND-E
+          nullable: true
+          type: string
+        factsetUltParentProperName:
+          description: Legal name of the ultimate parent
+          example: Fifth Third Bancorp
+          nullable: true
+          type: string
+        reportType:
+          description: Echoes the requested `reportType` this entity was resolved
+            for.
+          enum:
+          - UBPR
+          - TEN_D
+          - UCC1
+          - DEPOSIT_RATES
+          - AUM_RIA
+          - FOCUS
+          - FINANCIALS
+          - BRANCHES
+          - COUNTRY_EXPOSURE
+          example: DEPOSIT_RATES
+          type: string
+        isoCountry:
+          description: ISO country code
+          example: US
+          nullable: true
+          type: string
+        entityType:
+          description: |
+            Three-character FactSet entity type code.
+              |Entity Type Code|Entity Type Description|Entity Type Code|Entity Type Description|
+              |---|---|---|---|
+              |ABS|Asset-Backed Security|MUC|Municipal (City)|
+              |AIR|Aircraft|MUE|Municipal Entity|
+              |BAS|Basket|MUT|Mutual Fund|
+              |BRA|Branch|NPO|Non-Profit Organization|
+              |CAC|Commodity Asset Class|OPD|Operating Division|
+              |CMD|Commodity|PEF|Private Equity Fund|
+              |COL|College/University|PRO|Professional Organization|
+              |COR|Corporate (public company)|PRT|Partnership|
+              |CUR|Currency|PUB|Public (government-owned entity)|
+              |ESP|Employee Stock Plan|PVF|Private Fund|
+              |EXT|Extinct/Inactive entity|PVT|Private Company|
+              |FAF|Family of Funds|SHP|Ship|
+              |FND|Foundation|SOV|Sovereign|
+              |FNS|Financial Subsidiary|SUB|Subsidiary|
+              |FRX|Forex|TRU|Trust|
+              |GOV|Government (Agency)|UIT|Unit Investment Trust|
+              |HED|Hedge Fund|UMB|Umbrella Fund|
+              |HOL|Holding Company|VEN|Venture Capital|
+              |IDX|Index| | |
+              |IND|Industry| | |
+              |JVT|Joint Venture| | |
+              |MED|Media| | |
+          example: SUB
+          maxLength: 3
+          minLength: 3
+          nullable: true
+          type: string
       type: object
     ErrorObject_source:
       description: |

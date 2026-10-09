@@ -247,10 +247,13 @@ public class DataItemsApi {
   }
   /**
    * Available Estimate Segment Detail metrics
-   * Returns list of available Estimate Segment Detail metrics that can be used in the &#x60;metrics&#x60; parameter of the segment details endpoint. **By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the &#x60;OAurl&#x60; response items to launch the available methodology page.**  
+   * Returns list of available Estimate Segment Detail metrics that can be used in the &#x60;metrics&#x60; parameter of the segment details endpoint. Use the optional startPeriod, endPeriod, and periodicity parameters to filter available metrics for specific fiscal periods. **By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the &#x60;OAurl&#x60; response items to launch the available methodology page.** 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.  (required)
    * @param metrics Requested metric. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param segmentType Controls the type of segment selected.   * **BUS** &#x3D; Business / Product Segment   * **GEO** &#x3D; Geographic Segment   * **ALL** &#x3D; Both Business and Geographic Segments  (optional, default to BUS)
+   * @param startPeriod Starting fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 0 and periodicity to ANN to ask for the current fiscal year (FY0). When not provided, defaults to current period only (FY0). (optional)
+   * @param endPeriod Ending fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for the next fiscal year (FY1). When not provided, defaults to current period only (FY0). (optional)
+   * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
    * @return MetricsSegmentDetailResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -264,16 +267,19 @@ public class DataItemsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public MetricsSegmentDetailResponse getEstimateSegmentDetailMetrics(java.util.List<String> ids, java.util.List<String> metrics, String segmentType) throws ApiException {
-    return getEstimateSegmentDetailMetricsWithHttpInfo(ids, metrics, segmentType).getData();
+  public MetricsSegmentDetailResponse getEstimateSegmentDetailMetrics(java.util.List<String> ids, java.util.List<String> metrics, String segmentType, Integer startPeriod, Integer endPeriod, String periodicity) throws ApiException {
+    return getEstimateSegmentDetailMetricsWithHttpInfo(ids, metrics, segmentType, startPeriod, endPeriod, periodicity).getData();
   }
 
   /**
    * Available Estimate Segment Detail metrics
-   * Returns list of available Estimate Segment Detail metrics that can be used in the &#x60;metrics&#x60; parameter of the segment details endpoint. **By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the &#x60;OAurl&#x60; response items to launch the available methodology page.**  
+   * Returns list of available Estimate Segment Detail metrics that can be used in the &#x60;metrics&#x60; parameter of the segment details endpoint. Use the optional startPeriod, endPeriod, and periodicity parameters to filter available metrics for specific fiscal periods. **By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the &#x60;OAurl&#x60; response items to launch the available methodology page.** 
    * @param ids Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.  (required)
    * @param metrics Requested metric. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  (required)
    * @param segmentType Controls the type of segment selected.   * **BUS** &#x3D; Business / Product Segment   * **GEO** &#x3D; Geographic Segment   * **ALL** &#x3D; Both Business and Geographic Segments  (optional, default to BUS)
+   * @param startPeriod Starting fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 0 and periodicity to ANN to ask for the current fiscal year (FY0). When not provided, defaults to current period only (FY0). (optional)
+   * @param endPeriod Ending fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for the next fiscal year (FY1). When not provided, defaults to current period only (FY0). (optional)
+   * @param periodicity The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   (optional, default to ANN)
    * @return ApiResponse&lt;MetricsSegmentDetailResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -287,7 +293,7 @@ public class DataItemsApi {
        <tr><td> 500 </td><td> Internal Server Error. </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<MetricsSegmentDetailResponse> getEstimateSegmentDetailMetricsWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, String segmentType) throws ApiException {
+  public ApiResponse<MetricsSegmentDetailResponse> getEstimateSegmentDetailMetricsWithHttpInfo(java.util.List<String> ids, java.util.List<String> metrics, String segmentType, Integer startPeriod, Integer endPeriod, String periodicity) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'ids' is set
@@ -312,6 +318,9 @@ public class DataItemsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "ids", ids));
     localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "metrics", metrics));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "segmentType", segmentType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "startPeriod", startPeriod));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endPeriod", endPeriod));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "periodicity", periodicity));
 
     
     

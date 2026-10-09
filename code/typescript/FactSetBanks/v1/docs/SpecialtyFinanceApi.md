@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com/content/factset-banks/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAUM**](SpecialtyFinanceApi.md#getAUM) | **POST** /aum | Returns Form ADV AUM data
+[**getAUM**](SpecialtyFinanceApi.md#getAUM) | **POST** /aum/ria | Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
 [**getFOCUS**](SpecialtyFinanceApi.md#getFOCUS) | **POST** /focus | Returns FOCUS report data
 
 
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 
 > AUMResponse getAUM(aUMRequest)
 
-Returns Form ADV AUM data
+Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
 
-Returns SEC Form ADV assets under management data for investment advisers — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.  Form ADV history since 2017. Updated annually.  Find available metrics via [&#x60;/metrics&#x60;](#operation/getMetrics) with:  * **category**: &#x60;FINANCIALS&#x60; * **subcategory**: &#x60;SPECIALTY_FINANCE&#x60; 
+Returns SEC Form ADV assets under management (AUM) data for Registered Investment Advisers (RIAs) — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.  Form ADV history since 2017. Updated annually.  Find available metrics via [&#x60;/metrics&#x60;](#operation/getMetrics) with:  * **category**: &#x60;FINANCIALS&#x60; * **subcategory**: &#x60;SPECIALTY_FINANCE&#x60; 
 
 ### Example
 

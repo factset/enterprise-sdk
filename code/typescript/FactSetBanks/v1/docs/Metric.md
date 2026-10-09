@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **description** | **String** | Detailed description of the metric | [optional] 
 **oaPageId** | **String** | Online Assistant page ID for methodology | [optional] 
 **oaUrl** | **String** | Online Assistant URL for methodology | [optional] 
+**subsidiary** | **Boolean** | Whether this metric requires a subsidiary entity identifier. Use &#x60;/search-entities&#x60; with the appropriate reportType to resolve the correct subsidiary identifier if true.  | [optional] [default to false]
+**holding** | **Boolean** | Whether this metric requires a holding company (parent) entity identifier. Use &#x60;/search-entities&#x60; with the appropriate reportType to resolve the correct holding company identifier if true.  | [optional] [default to false]
 
 
 
@@ -44,7 +46,9 @@ Name | Type | Description | Notes
 
 * `SPECIALTY_FINANCE` (value: `"SPECIALTY_FINANCE"`)
 
-* `TEN_D` (value: `"TEN_D"`)
+* `TEN_D_AUTO_LOAN` (value: `"TEN_D_AUTO_LOAN"`)
+
+* `TEN_D_CREDIT_CARD` (value: `"TEN_D_CREDIT_CARD"`)
 
 * `UBPR` (value: `"UBPR"`)
 

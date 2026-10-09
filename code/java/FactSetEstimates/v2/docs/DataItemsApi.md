@@ -210,12 +210,12 @@ Name | Type | Description  | Notes
 
 ## getEstimateSegmentDetailMetrics
 
-> MetricsSegmentDetailResponse getEstimateSegmentDetailMetrics(ids, metrics, segmentType)
+> MetricsSegmentDetailResponse getEstimateSegmentDetailMetrics(ids, metrics, segmentType, startPeriod, endPeriod, periodicity)
 
 Available Estimate Segment Detail metrics
 
-Returns list of available Estimate Segment Detail metrics that can be used in the `metrics` parameter of the segment details endpoint.
-**By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the `OAurl` response items to launch the available methodology page.** 
+Returns list of available Estimate Segment Detail metrics that can be used in the `metrics` parameter of the segment details endpoint. Use the optional startPeriod, endPeriod, and periodicity parameters to filter available metrics for specific fiscal periods.
+**By default, Factset provides Estimated items in millions across all currencies. For specific metric methodology definitions, reference the `OAurl` response items to launch the available methodology page.**
 
 
 ### Example
@@ -262,8 +262,11 @@ public class Example {
         java.util.List<String> ids = Arrays.asList(); // java.util.List<String> | Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL. 
         java.util.List<String> metrics = Arrays.asList(); // java.util.List<String> | Requested metric. Use the `/metrics` endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034). 
         String segmentType = "BUS"; // String | Controls the type of segment selected.   * **BUS** = Business / Product Segment   * **GEO** = Geographic Segment   * **ALL** = Both Business and Geographic Segments 
+        Integer startPeriod = 0; // Integer | Starting fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 0 and periodicity to ANN to ask for the current fiscal year (FY0). When not provided, defaults to current period only (FY0).
+        Integer endPeriod = 0; // Integer | Ending fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for the next fiscal year (FY1). When not provided, defaults to current period only (FY0).
+        String periodicity = "ANN"; // String | The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual  
         try {
-            MetricsSegmentDetailResponse result = apiInstance.getEstimateSegmentDetailMetrics(ids, metrics, segmentType);
+            MetricsSegmentDetailResponse result = apiInstance.getEstimateSegmentDetailMetrics(ids, metrics, segmentType, startPeriod, endPeriod, periodicity);
             System.out.println(result);
 
         } catch (ApiException e) {
@@ -285,6 +288,9 @@ Name | Type | Description  | Notes
  **ids** | **List&lt;String&gt;**| Security or Entity identifiers. Accepted inputs include FactSet Identifiers, tickers, CUSIP, and SEDOL.  |
  **metrics** | **List&lt;String&gt;**| Requested metric. Use the &#x60;/metrics&#x60; endpoint to return a list of available estimate items. **Top 10** most used metrics are **EPS, SALES, DPS, EBITDA, EBIT, PRICE_TGT, CFPS, BPS, NET_INC, and ASSETS**. For more details, visit [Online Assistant Page #15034](https://oa.apps.factset.com/pages/15034).  |
  **segmentType** | **String**| Controls the type of segment selected.   * **BUS** &#x3D; Business / Product Segment   * **GEO** &#x3D; Geographic Segment   * **ALL** &#x3D; Both Business and Geographic Segments  | [optional] [default to BUS] [enum: BUS, GEO, ALL]
+ **startPeriod** | **Integer**| Starting fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 0 and periodicity to ANN to ask for the current fiscal year (FY0). When not provided, defaults to current period only (FY0). | [optional]
+ **endPeriod** | **Integer**| Ending fiscal period, expressed as an integer, used to filter segment results. This is combined with the periodicity parameter to specify a relative estimate period. For example, set to 1 and periodicity to ANN to ask for the next fiscal year (FY1). When not provided, defaults to current period only (FY0). | [optional]
+ **periodicity** | **String**| The periodicity for the estimates requested, allowing you to fetch Quarterly, Semi-Annual, and Annual Estimates.   * **ANN** - Annual   * **QTR** - Quarterly   * **SEMI** - Semi-Annual   | [optional] [default to ANN] [enum: ANN, QTR, SEMI]
 
 ### Return type
 

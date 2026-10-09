@@ -1,6 +1,6 @@
 openapi: '3.0.0'
 info:
-  version: '3.0.0'
+  version: '3.1.0'
   title: 'FactSet Funds and ETF API'
   contact:
     name: 'FactSet Research Systems'
@@ -2006,6 +2006,20 @@ components:
               nullable: true
               example: true
               description: 'Returns a flag to indicate whether the specified ID is the oldest share class. Data is returned for Mutual Funds only.'
+            oldestShareClassId:
+              description: 'Returns the oldest share class for the fund.'
+              type: 'string'
+              example: 'FNK7XP-S'
+              nullable: true
+            isLeveragedFlag:
+              description: 'Indicates whether the fund is leveraged, inverse, or neither. `Neither` is returned for funds that are not leveraged or inverse. A null is returned when leverage information is not available for the fund. Data is returned for both Mutual Funds and ETFs.'
+              type: 'string'
+              enum:
+                - 'Leveraged'
+                - 'Inverse'
+                - 'Neither'
+              example: 'Leveraged'
+              nullable: true
             descInfo:
               description: 'The Fund''s Investment Strategy short description.  For the long-form description, see `insight`.'
               type: 'string'
@@ -2782,13 +2796,38 @@ components:
           nullable: true
     Fund:
       title: 'Fund Risk Measures Object'
-      description: 'Fund risk statistics including standard deviation measurements'
+      description: 'Fund risk statistics including standard deviation and maximum drawdown measurements'
       type: 'object'
       properties:
         oneYearStdDeviation:
           description: 'Returns the fund''s standard deviation. Uses one year of total returns. This data item is available only with the Analytics product package. If the product is not enabled, the field will be omitted from the response.'
           type: 'number'
           example: 0.17
+          nullable: true
+        threeYearStdDeviation:
+          description: 'Returns the fund''s standard deviation. Uses three years of total returns. This data item is available only with the Analytics product package. If the product is not enabled, the field will be omitted from the response.'
+          type: 'number'
+          example: 0.15
+          nullable: true
+        fiveYearStdDeviation:
+          description: 'Returns the fund''s standard deviation. Uses five years of total returns. This data item is available only with the Analytics product package. If the product is not enabled, the field will be omitted from the response.'
+          type: 'number'
+          example: 0.14
+          nullable: true
+        oneYearMaxDrawDown:
+          description: 'Returns the fund''s maximum drawdown. Uses one year of total returns. This data item is available only with the Analytics product package. If the product is not enabled, the field will be omitted from the response.'
+          type: 'number'
+          example: -15.461344
+          nullable: true
+        threeYearMaxDrawDown:
+          description: 'Returns the fund''s maximum drawdown. Uses three years of total returns. This data item is available only with the Analytics product package. If the product is not enabled, the field will be omitted from the response.'
+          type: 'number'
+          example: -17.284509
+          nullable: true
+        fiveYearMaxDrawDown:
+          description: 'Returns the fund''s maximum drawdown. Uses five years of total returns. This data item is available only with the Analytics product package. If the product is not enabled, the field will be omitted from the response.'
+          type: 'number'
+          example: -18.739271
           nullable: true
     Classifications:
       title: 'Classifications Object'
@@ -6072,6 +6111,11 @@ components:
               oneYearFundBeta: 0.06
             fund:
               oneYearStdDeviation: 0.17
+              threeYearStdDeviation: 0.15
+              fiveYearStdDeviation: 0.14
+              oneYearMaxDrawDown: -15.461344
+              threeYearMaxDrawDown: -17.284509
+              fiveYearMaxDrawDown: -18.739271
             sriPriips: 3
             srriUcits: 5
             requestId: 'MABAX'
@@ -6222,6 +6266,8 @@ components:
             shareClassActivelyManagedFlag: true
             shareClassCurrency: 'USD'
             isOldestShareClass: true
+            oldestShareClassId: 'FNK7XP-S'
+            isLeveragedFlag: 'Leveraged'
             descInfo: "The investment objective of the BlackRock Basic Value Fund, Inc. (the Fund) is to seek capital appreciation and, secondarily, income by investing in securities primarily equity securities that management believes are undervalued.\n"
             fundObjective: "Under normal circumstances, the Fund seeks to invest at least 80% of its net assets plus the amount of any borrowings for investment purposes in large cap equity securities and derivatives that have similar economic characteristics to such securities. For purposes of the Fund’s 80% policy, large cap equity securities are equity securities that at the time of purchase have a market capitalization within the range of companies included in the Russell 1000® Value Index (the “Russell 1000 Value Index”). The Russell 1000 Value Index is a capitalization-weighted index from a broad range of industries chosen for market size, liquidity and industry group representation. Equity securities consist of common stock and preferred stock, other financial instruments that are components of, or have characteristics similar to, the securities included in the Russell 1000 Value Index, and American Depositary Receipts (“ADRs”), which are receipts typically issued by an American bank or trust company that evidence underlying securities issued by a foreign company. The Fund may also purchase convertible securities. The Fund invests primarily in equity securities that Fund management believes are undervalued, which means that their prices are less than Fund management believes they are worth. Fund management places particular emphasis on companies with below average price/earnings ratios that may pay above average dividends. The Fund invests primarily in common stock of U.S. companies, but the Fund may invest up to 25% of its total assets in the securities of foreign issuers.\n"
             additionalNarrowBenchmark: null

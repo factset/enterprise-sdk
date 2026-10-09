@@ -4,7 +4,7 @@ All URIs are relative to *https://api.factset.com/content/factset-banks/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAUM**](SpecialtyFinanceApi.md#getaum) | **POST** /aum | Returns Form ADV AUM data
+[**GetAUM**](SpecialtyFinanceApi.md#getaum) | **POST** /aum/ria | Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
 [**GetFOCUS**](SpecialtyFinanceApi.md#getfocus) | **POST** /focus | Returns FOCUS report data
 
 
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 # **GetAUM**
 > AUMResponse GetAUM (AUMRequest aUMRequest)
 
-Returns Form ADV AUM data
+Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
 
-Returns SEC Form ADV assets under management data for investment advisers — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.  Form ADV history since 2017. Updated annually.  Find available metrics via [`/metrics`](#operation/getMetrics) with:  * **category**: `FINANCIALS` * **subcategory**: `SPECIALTY_FINANCE` 
+Returns SEC Form ADV assets under management (AUM) data for Registered Investment Advisers (RIAs) — 19,000+ public and private US companies, wealth managers, traditional asset managers, private equity hedge funds, and Business Development Companies (BDCs). BDC coverage includes 120+ companies with annual history since 2014.  Form ADV history since 2017. Updated annually.  Find available metrics via [`/metrics`](#operation/getMetrics) with:  * **category**: `FINANCIALS` * **subcategory**: `SPECIALTY_FINANCE` 
 
 ### Example
 
@@ -65,7 +65,7 @@ namespace Example
 
             try
             {
-                // Returns Form ADV AUM data
+                // Returns Form ADV AUM data for Registered Investment Advisers (RIAs)
                 AUMResponse result = apiInstance.GetAUM(aUMRequest);
                 Console.WriteLine(result.ToJson());
             }

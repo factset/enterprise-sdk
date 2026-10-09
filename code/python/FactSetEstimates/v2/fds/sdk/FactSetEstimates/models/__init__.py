@@ -43,6 +43,7 @@ from fds.sdk.FactSetEstimates.model.guidance_request import GuidanceRequest
 from fds.sdk.FactSetEstimates.model.guidance_request_body import GuidanceRequestBody
 from fds.sdk.FactSetEstimates.model.guidance_response import GuidanceResponse
 from fds.sdk.FactSetEstimates.model.ids import Ids
+from fds.sdk.FactSetEstimates.model.ids_segments import IdsSegments
 from fds.sdk.FactSetEstimates.model.meta import Meta
 from fds.sdk.FactSetEstimates.model.metric import Metric
 from fds.sdk.FactSetEstimates.model.metric_segment_detail import MetricSegmentDetail

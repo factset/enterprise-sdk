@@ -25,6 +25,7 @@ docs/IndustryGroup.md
 docs/IndustryRequest.md
 docs/IndustryRevenueRequest.md
 docs/IndustryRevenueResponse.md
+docs/ResponseFormat.md
 docs/Sector.md
 docs/Structure.md
 docs/StructureApi.md
@@ -33,8 +34,10 @@ docs/StructureResponse.md
 docs/SubIndustry.md
 docs/SubSector.md
 docs/TradeName.md
+docs/TradeNameSummary.md
 docs/TradeNames.md
 docs/TradeNamesApi.md
+docs/TradeNamesMetadata.md
 docs/TradeNamesRequest.md
 docs/TradeNamesRequestBody.md
 docs/TradeNamesResponse.md
@@ -88,6 +91,7 @@ src/main/java/com/factset/sdk/FactSetRBICS/models/IndustryGroup.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/IndustryRequest.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/IndustryRevenueRequest.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/IndustryRevenueResponse.java
+src/main/java/com/factset/sdk/FactSetRBICS/models/ResponseFormat.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/Sector.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/Structure.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/StructureRequest.java
@@ -95,7 +99,9 @@ src/main/java/com/factset/sdk/FactSetRBICS/models/StructureResponse.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/SubIndustry.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/SubSector.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/TradeName.java
+src/main/java/com/factset/sdk/FactSetRBICS/models/TradeNameSummary.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/TradeNames.java
+src/main/java/com/factset/sdk/FactSetRBICS/models/TradeNamesMetadata.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/TradeNamesRequest.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/TradeNamesRequestBody.java
 src/main/java/com/factset/sdk/FactSetRBICS/models/TradeNamesResponse.java

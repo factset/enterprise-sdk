@@ -67,6 +67,12 @@ docs/RatesRequest.md
 docs/RatesRequestData.md
 docs/RatesResponse.md
 docs/RequestMeta.md
+docs/SearchEntitiesApi.md
+docs/SearchEntitiesRequest.md
+docs/SearchEntitiesRequestData.md
+docs/SearchEntitiesResponse.md
+docs/SearchEntity.md
+docs/SearchEntityAllOf.md
 docs/SpecialtyFinanceAUM.md
 docs/SpecialtyFinanceApi.md
 docs/SpecialtyFinanceFOCUS.md
@@ -103,6 +109,7 @@ src/main/java/com/factset/sdk/FactSetBanks/api/ExposureApi.java
 src/main/java/com/factset/sdk/FactSetBanks/api/FilingsApi.java
 src/main/java/com/factset/sdk/FactSetBanks/api/FinancialsApi.java
 src/main/java/com/factset/sdk/FactSetBanks/api/MetricsApi.java
+src/main/java/com/factset/sdk/FactSetBanks/api/SearchEntitiesApi.java
 src/main/java/com/factset/sdk/FactSetBanks/api/SpecialtyFinanceApi.java
 src/main/java/com/factset/sdk/FactSetBanks/api/UbprPerformanceApi.java
 src/main/java/com/factset/sdk/FactSetBanks/auth/ApiKeyAuth.java
@@ -171,6 +178,11 @@ src/main/java/com/factset/sdk/FactSetBanks/models/RatesRequest.java
 src/main/java/com/factset/sdk/FactSetBanks/models/RatesRequestData.java
 src/main/java/com/factset/sdk/FactSetBanks/models/RatesResponse.java
 src/main/java/com/factset/sdk/FactSetBanks/models/RequestMeta.java
+src/main/java/com/factset/sdk/FactSetBanks/models/SearchEntitiesRequest.java
+src/main/java/com/factset/sdk/FactSetBanks/models/SearchEntitiesRequestData.java
+src/main/java/com/factset/sdk/FactSetBanks/models/SearchEntitiesResponse.java
+src/main/java/com/factset/sdk/FactSetBanks/models/SearchEntity.java
+src/main/java/com/factset/sdk/FactSetBanks/models/SearchEntityAllOf.java
 src/main/java/com/factset/sdk/FactSetBanks/models/SpecialtyFinanceAUM.java
 src/main/java/com/factset/sdk/FactSetBanks/models/SpecialtyFinanceFOCUS.java
 src/main/java/com/factset/sdk/FactSetBanks/models/TenDFilingsRequest.java

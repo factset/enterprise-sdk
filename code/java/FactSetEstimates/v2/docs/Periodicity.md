@@ -11,9 +11,9 @@
 
 * `SEMI` (value: `"SEMI"`)
 
-* `LTMA` (value: `"LTMA"`)
-
 * `NTMA` (value: `"NTMA"`)
+
+* `LTMA` (value: `"LTMA"`)
 
 
 

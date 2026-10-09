@@ -24,6 +24,7 @@ docs/IndustryGroup.md
 docs/IndustryRequest.md
 docs/IndustryRevenueRequest.md
 docs/IndustryRevenueResponse.md
+docs/ResponseFormat.md
 docs/Sector.md
 docs/Structure.md
 docs/StructureApi.md
@@ -32,8 +33,10 @@ docs/StructureResponse.md
 docs/SubIndustry.md
 docs/SubSector.md
 docs/TradeName.md
+docs/TradeNameSummary.md
 docs/TradeNames.md
 docs/TradeNamesApi.md
+docs/TradeNamesMetadata.md
 docs/TradeNamesRequest.md
 docs/TradeNamesRequestBody.md
 docs/TradeNamesResponse.md
@@ -65,6 +68,7 @@ src/model/IndustryGroup.js
 src/model/IndustryRequest.js
 src/model/IndustryRevenueRequest.js
 src/model/IndustryRevenueResponse.js
+src/model/ResponseFormat.js
 src/model/Sector.js
 src/model/Structure.js
 src/model/StructureRequest.js
@@ -72,7 +76,9 @@ src/model/StructureResponse.js
 src/model/SubIndustry.js
 src/model/SubSector.js
 src/model/TradeName.js
+src/model/TradeNameSummary.js
 src/model/TradeNames.js
+src/model/TradeNamesMetadata.js
 src/model/TradeNamesRequest.js
 src/model/TradeNamesRequestBody.js
 src/model/TradeNamesResponse.js
