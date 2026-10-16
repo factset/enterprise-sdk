@@ -11,7 +11,16 @@
 """
 
 
-__version__ = "0.11.0"
+__version__ = "0.11.1"
+
+import warnings
+
+warnings.warn(
+    "fds.sdk.ConversationalAPIPoweredbyFactSetMercury is deprecated and receives no further updates. "
+    "Use fds.sdk.Conversational instead.",
+    DeprecationWarning,
+    stacklevel=2,
+)
 
 # import ApiClient
 from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.api_client import ApiClient
