@@ -1,0 +1,650 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: api@factset.com
+    name: FactSet Research Systems
+    url: https://developer.factset.com/contact
+  description: "This API lets you send a question to FactSet's \nconversational agent\
+    \ and get an answer back, formatted the same\nway OpenAI's Chat Completions API\
+    \ formats its responses. That\nmeans tools already built to talk to OpenAI-style\
+    \ chat APIs (chat\nUIs, IDE assistants, evaluation harnesses, and so on) can talk\
+    \ to\nconversational agent with little or no changes.\n\nA few things work a bit\
+    \ differently from a typical OpenAI\nintegration:\n\n- Even though you can send\
+    \ a full list of messages (a \"chat\n  history\"), only the most recent message\
+    \ from the user is\n  actually used as the question being asked. Any earlier\n\
+    \  messages, or a system prompt, are ignored.\n- Instead, the API keeps track\
+    \ of the conversation for you. Each\n  conversation has an id (`conversation_id`).\
+    \ Send that id back on\n  your next request and the assistant will remember what\
+    \ was said\n  before and continue the same conversation. Leave it out and a\n\
+    \  new conversation is started, with a fresh id handed back to you\n  to reuse\
+    \ next time.\n- The answer isn't returned all at once — it's streamed back a\n\
+    \  little at a time as it's generated, using a format called\n  Server-Sent Events\
+    \ (`text/event-stream`). This is the same\n  streaming format OpenAI's API uses,\
+    \ so most existing client\n  libraries already know how to read it. The stream\
+    \ always ends\n  with a `data: [DONE]` line so the client knows there's nothing\n\
+    \  more coming.\n\n**A note on FactSet's internal API standards:** this endpoint's\n\
+    contract is intentionally OpenAI's Chat Completions API contract,\nnot FactSet's\
+    \ own API design standards — that's the entire point\nof the endpoint, since it\
+    \ lets existing OpenAI-compatible clients\nwork against it unmodified. Where the\
+    \ two disagree, OpenAI's\ncontract wins by design, and the FactSet standard does\
+    \ not apply.\nIn particular:\n\n- Member names (`finish_reason`, `reasoning_content`,\n\
+    \  `factset_configuration`, `conversation_id`,\n  `return_raw_link_context`, `factset_context`)\
+    \ are snake_case,\n  matching OpenAI's own field naming (and, for\n  `reasoning_content`,\
+    \ DeepSeek's), rather than FactSet's\n  camelCase convention.\n- Error responses\
+    \ are plain text, matching this service's shared\n  error-handling framework,\
+    \ rather than FactSet's structured\n  `{\"errors\": [...]}` JSON envelope.\n"
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  title: Chat completion API — OpenAI-compatible endpoints
+  version: 0.2.0
+externalDocs:
+  description: API Documentation
+  url: https://developer.factset.com/api-catalog/conversational-api
+servers:
+- description: Production Server
+  url: https://api.factset.com/conversational/v0
+- description: UAT Server
+  url: https://api.uat.factset.com/conversational/v0
+security:
+- FactSetApiKey: []
+- FactSetOAuth2: []
+tags:
+- description: Ask new questions and receive responses containing natural language
+    text and FactSet data.
+  name: Chat
+paths:
+  /chat/completions:
+    post:
+      description: |
+        Send a question and get the answer back as a live stream of
+        small pieces of text, rather than one big response at the end,
+        formatted the way OpenAI's Chat Completions API formats its
+        output.
+
+        You send your question in the `messages` array, using the same
+        shape OpenAI uses. The API looks for the last message where
+        `role` is `"user"` and treats that as the question being asked
+        right now — any earlier messages in the array, or a system
+        prompt, are not read.
+
+        To have a back-and-forth conversation, include the
+        `factset_configuration.conversation_id` you received from a
+        previous call, and the assistant will pick up where that
+        conversation left off. Leave it out to start a brand new
+        conversation — you'll be given a fresh id in the first piece of
+        the response, which you should hold onto and send back next
+        time.
+      operationId: chatCompletion
+      parameters:
+      - description: A short name identifying which application or integration is
+          making this call, used for FactSet's own usage tracking. If omitted, usage
+          is tracked under a generic default value rather than the request being rejected.
+        explode: true
+        in: query
+        name: consumer
+        required: false
+        schema:
+          example: developer-portal
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            examples:
+              basic:
+                summary: Minimal request (new conversation)
+                value:
+                  model: fds-answer-2.0
+                  stream: true
+                  messages:
+                  - role: user
+                    content: Give me price of FDS-US
+              continued_conversation:
+                summary: Continuing a conversation, with web search enabled
+                value:
+                  model: fds-web-answer-2.0
+                  stream: true
+                  messages:
+                  - role: user
+                    content: What about its year-to-date return?
+                  factset_configuration:
+                    conversation_id: 550e8400-e29b-41d4-a716-446655440000
+                    return_raw_link_context: false
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            text/event-stream:
+              examples:
+                stream:
+                  summary: Example SSE frames
+                  value: |
+                    data: {"id":"chatcmpl-...","object":"chat.completion.chunk","created":1778074499,"model":"fds-answer-2.0","conversation_id":"550e8400-e29b-41d4-a716-446655440000","choices":[{"index":0,"delta":{"role":"assistant"},"finish_reason":null}]}
+
+                    data: {"id":"chatcmpl-...","object":"chat.completion.chunk","created":1778074499,"model":"fds-answer-2.0","choices":[{"index":0,"delta":{"content":"4","factset_context":null},"finish_reason":null}]}
+
+                    data: {"id":"chatcmpl-...","object":"chat.completion.chunk","created":1778074499,"model":"fds-answer-2.0","choices":[{"index":0,"delta":{"factset_context":{"type":"factset.link","http":"https://example.com/report","source_details":{"label":"Microsoft 10-K"}}},"finish_reason":null}]}
+
+                    data: {"id":"chatcmpl-...","object":"chat.completion.chunk","created":1778074499,"model":"fds-answer-2.0","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}
+
+                    data: [DONE]
+              schema:
+                $ref: '#/components/schemas/ChatCompletionChunk'
+          description: |
+            Success. The response isn't a single JSON object — it's a
+            live stream of small messages ("chunks"), sent one at a
+            time as the answer is generated, using the Server-Sent
+            Events format (each chunk looks like `data: { ... }`
+            followed by a blank line). When the answer is finished, the
+            server sends a final `data: [DONE]` line so the client
+            knows to stop reading.
+
+            The very first chunk includes a `conversation_id` field.
+            Save this value — sending it back in a later request's
+            `factset_configuration.conversation_id` lets you continue
+            this same conversation. No other chunk repeats this field.
+        "400":
+          content:
+            text/plain:
+              examples:
+                missing_model:
+                  value: model is required
+                invalid_model:
+                  value: model "gpt-4" is not supported; see the models endpoint for
+                    supported models
+                missing_user_message:
+                  value: at least one user message is required
+                invalid_conversation_id:
+                  value: conversation_id must be a valid UUID
+              schema:
+                type: string
+          description: |
+            The request couldn't be understood or was missing something
+            required. This happens when: the request body isn't in the
+            expected shape, there's no message with `role: "user"` to
+            answer, the `model` value is missing or isn't one of the
+            supported models, or `factset_configuration.conversation_id`
+            was provided but isn't a properly formatted UUID. The body
+            is a plain-text message, not a JSON object.
+        "401":
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: Authentication Failed
+              schema:
+                type: string
+          description: You're not properly authenticated. Make sure you're using a
+            valid API key or valid OAuth 2.0 credentials. The body is a plain-text
+            message, not a JSON object.
+        "403":
+          content:
+            text/plain:
+              examples:
+                forbidden:
+                  value: 'Client does not have the required CACCESS: {02QAI}, Request
+                    key: 65CA96B3129489A6'
+              schema:
+                type: string
+          description: You don't have the required permissions for this request —
+            typically because your account or API key isn't entitled to this service,
+            or because you're calling from an IP address that isn't allowed for the
+            API key you're using. The body is a plain-text message, not a JSON object.
+        "404":
+          content:
+            text/plain:
+              examples:
+                conversation_not_found:
+                  value: conversation_id not found
+              schema:
+                type: string
+          description: |
+            The `conversation_id` you sent couldn't be found — either
+            it was never created, or it belongs to a different
+            user/account than the one making this request. The body is
+            a plain-text message, not a JSON object.
+        "429":
+          content:
+            text/plain:
+              examples:
+                rate_limited:
+                  value: Too Many Requests
+              schema:
+                type: string
+          description: You've sent more requests than are currently allowed in a given
+            period of time. Wait a moment and try again.
+          headers:
+            RateLimit-Limit:
+              description: Request limit per minute.
+              example: 50
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Remaining:
+              description: Number of available requests.
+              example: 49
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              example: 24
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            Retry-After:
+              description: How long (in seconds) to wait before attempting to send
+                a new request.
+              example: 24
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              example: 65C6BC290A11FB4F
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Limit-Minute:
+              description: Request limit per minute.
+              example: 300
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Remaining-Minute:
+              description: Number of available requests in the minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+        "500":
+          content:
+            text/plain:
+              examples:
+                server_error:
+                  value: Internal Server Error
+              schema:
+                type: string
+          description: Something went wrong on the server while handling the request.
+            This isn't caused by anything in your request; retrying later may help.
+            The body is a plain-text message, not a JSON object.
+      summary: Ask a question and stream back the answer (OpenAI-compatible)
+      tags:
+      - Chat
+      x-contentType: application/json
+      x-accepts: text/event-stream,text/plain
+  /models:
+    get:
+      description: |
+        Returns the list of model names you're allowed to use with
+        `/chat/completions`. This mirrors the shape of OpenAI's own
+        `GET /v1/models` endpoint, so tools built for OpenAI can
+        discover which model names are valid without any special
+        handling.
+
+        There are currently two models, and they behave the same way
+        except for one difference: `fds-web-answer-2.0` is allowed to
+        search the public web for extra information when answering,
+        while `fds-answer-2.0` only uses FactSet's own data. There's no
+        separate switch to turn web search on or off — you choose it by
+        picking which model to use.
+      operationId: listModels
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                basic:
+                  value:
+                    object: list
+                    data:
+                    - id: fds-answer-2.0
+                      object: model
+                    - id: fds-web-answer-2.0
+                      object: model
+              schema:
+                $ref: '#/components/schemas/ModelList'
+          description: Model list.
+        "401":
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: Authentication Failed
+              schema:
+                type: string
+          description: You're not properly authenticated. Make sure you're using a
+            valid API key or valid OAuth 2.0 credentials. The body is a plain-text
+            message, not a JSON object.
+        "403":
+          content:
+            text/plain:
+              examples:
+                forbidden:
+                  value: 'Client does not have the required CACCESS: {02QAI}, Request
+                    key: 65CA96B3129489A6'
+              schema:
+                type: string
+          description: You don't have the required permissions for this request —
+            typically because your account or API key isn't entitled to this service,
+            or because you're calling from an IP address that isn't allowed for the
+            API key you're using. The body is a plain-text message, not a JSON object.
+        "429":
+          content:
+            text/plain:
+              examples:
+                rate_limited:
+                  value: Too Many Requests
+              schema:
+                type: string
+          description: You've sent more requests than are currently allowed in a given
+            period of time. Wait a moment and try again.
+          headers:
+            RateLimit-Limit:
+              description: Request limit per minute.
+              example: 50
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Remaining:
+              description: Number of available requests.
+              example: 49
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            RateLimit-Reset:
+              description: Time remaining (in seconds) until request limit is reset.
+              example: 24
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            Retry-After:
+              description: How long (in seconds) to wait before attempting to send
+                a new request.
+              example: 24
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-DataDirect-Request-Key:
+              description: FactSet request ID.
+              example: 65C6BC290A11FB4F
+              explode: false
+              schema:
+                type: string
+              style: simple
+            X-RateLimit-Limit-Minute:
+              description: Request limit per minute.
+              example: 300
+              explode: false
+              schema:
+                type: integer
+              style: simple
+            X-RateLimit-Remaining-Minute:
+              description: Number of available requests in the minute.
+              explode: false
+              schema:
+                type: integer
+              style: simple
+        "500":
+          content:
+            text/plain:
+              examples:
+                server_error:
+                  value: Internal Server Error
+              schema:
+                type: string
+          description: Something went wrong on the server while handling the request.
+            This isn't caused by anything in your request; retrying later may help.
+            The body is a plain-text message, not a JSON object.
+      summary: List the models you can use (OpenAI-compatible)
+      tags:
+      - Chat
+      x-accepts: application/json
+components:
+  schemas:
+    ChatMessage:
+      description: One message in a conversation.
+      example:
+        role: system
+        content: content
+      properties:
+        role:
+          description: 'Who this message is from: `system` (background instructions
+            for the assistant — not used by this API), `user` (a question or statement
+            from the person chatting), or `assistant` (an earlier reply from the model).'
+          enum:
+          - system
+          - user
+          - assistant
+          type: string
+        content:
+          description: The text of the message.
+          type: string
+      required:
+      - content
+      - role
+      type: object
+    ChatCompletionRequest:
+      description: The request body you send to ask a question and get an answer.
+      example:
+        stream: true
+        factset_configuration:
+          conversation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          return_raw_link_context: false
+        messages:
+        - role: system
+          content: content
+        - role: system
+          content: content
+        model: fds-answer-2.0
+      properties:
+        model:
+          description: Which model to use for this request — see `GET .../models`
+            for the list of valid values. Use `fds-web-answer-2.0` if you also want
+            the assistant to search the public web; otherwise use `fds-answer-2.0`.
+            Everything else about the request and response is the same either way.
+          enum:
+          - fds-answer-2.0
+          - fds-web-answer-2.0
+          example: fds-answer-2.0
+          type: string
+        stream:
+          description: Accepted for compatibility with OpenAI clients, but has no
+            effect — this API always streams its response no matter what you set here.
+          example: true
+          type: boolean
+        messages:
+          description: 'The conversation so far, in OpenAI''s message format. Only
+            the most recent message with `role: "user"` is actually used as the question
+            being asked; anything else in this list is ignored.'
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+          type: array
+        factset_configuration:
+          $ref: '#/components/schemas/FactSetConfiguration'
+      required:
+      - messages
+      - model
+      type: object
+    FactSetConfiguration:
+      description: Extra, FactSet-specific settings for the request. You can leave
+        this whole object out, and each field inside it is also optional.
+      example:
+        conversation_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        return_raw_link_context: false
+      properties:
+        conversation_id:
+          description: The id of a conversation to continue, taken from the opening
+            chunk of a previous response. It must be a properly formatted UUID, or
+            the request is rejected (see the 400 response); it must also belong to
+            you, or the request is rejected (see the 404 response). Leave this out
+            to start a new conversation — you'll be given a new id to use next time.
+          format: uuid
+          nullable: true
+          type: string
+        return_raw_link_context:
+          default: false
+          description: Controls how source links and citations from FactSet (`factset.link`,
+            `factset.citation`, `factset.citation_group`, and `factset.highchart_config`
+            context) are included in the answer. By default (`false`), links/citations
+            are woven directly into the answer text as regular markdown links, and
+            chart configs are rendered as an embedded PNG image, so they display nicely
+            in any chat client with no special handling. Set this to `true` if your
+            client understands FactSet's own context format and would rather receive
+            that raw data separately (in `delta.factset_context`) instead. This flag
+            has no effect on `factset.table` context, which is always sent raw in
+            `delta.factset_context` regardless of this setting, since there's no plain-text
+            rendering for a table.
+          type: boolean
+      type: object
+    ChatCompletionChunk:
+      description: One small piece of the streamed answer. The full answer is made
+        up of many of these chunks, sent one after another.
+      properties:
+        id:
+          description: A unique id for this answer as a whole — the same value appears
+            on every chunk that belongs to it.
+          type: string
+        object:
+          description: The object type, always "chat.completion.chunk".
+          enum:
+          - chat.completion.chunk
+          type: string
+        created:
+          description: The time this chunk was created, as a Unix timestamp (seconds
+            since January 1, 1970).
+          format: int64
+          type: integer
+        model:
+          description: Which model generated this answer.
+          type: string
+        conversation_id:
+          description: Only included on the very first chunk of the stream. Save this
+            value and send it back as `factset_configuration.conversation_id` next
+            time to continue this same conversation.
+          format: uuid
+          type: string
+        choices:
+          description: A list of candidate answers for this chunk. This API only ever
+            returns one, at index 0.
+          items:
+            $ref: '#/components/schemas/ResponseChoices'
+          type: array
+      type: object
+    ResponseChoices:
+      description: One candidate answer within a chunk. There's always exactly one
+        of these (see the note on `choices` above).
+      properties:
+        index:
+          description: The position of this choice within the `choices` array. Always
+            `0` for this API.
+          type: integer
+        delta:
+          $ref: '#/components/schemas/ResponseChoices_delta'
+        finish_reason:
+          description: 'Why the stream ended. It''s `null` while the answer is still
+            being generated, and `"stop"` on the final chunk when the answer finished
+            normally. If something goes wrong partway through generation, there is
+            no closing chunk at all — the stream (and the underlying HTTP connection)
+            simply ends without a `finish_reason` or a `data: [DONE]` line, so clients
+            should treat an unexpected stream close the same way they''d treat an
+            error.'
+          enum:
+          - stop
+          nullable: true
+          type: string
+      type: object
+    Model:
+      description: One model you're allowed to select in a chat completion request.
+      example:
+        id: fds-answer-2.0
+        object: model
+      properties:
+        id:
+          description: The model's name — this is the exact value to put in the `model`
+            field of a chat completion request.
+          example: fds-answer-2.0
+          type: string
+        object:
+          description: The object type, always "model".
+          enum:
+          - model
+          type: string
+      type: object
+    ModelList:
+      description: The full list of models you can currently use.
+      example:
+        data:
+        - id: fds-answer-2.0
+          object: model
+        - id: fds-answer-2.0
+          object: model
+        object: list
+      properties:
+        object:
+          description: The object type, always "list".
+          enum:
+          - list
+          type: string
+        data:
+          description: The models themselves.
+          items:
+            $ref: '#/components/schemas/Model'
+          type: array
+      type: object
+    ResponseChoices_delta:
+      description: The new bit of the answer contained in this chunk. Append these
+        together, in order, across all chunks to build up the full answer.
+      properties:
+        role:
+          description: Who is "speaking" in this chunk. Only appears on the very first
+            chunk of the stream, and is always `"assistant"`.
+          type: string
+        content:
+          description: The next piece of visible answer text. Append this to whatever
+            you've already received to build up the answer so far.
+          type: string
+        reasoning_content:
+          description: A behind-the-scenes "thinking out loud" piece of text that
+            some models produce before their final answer. It is not part of the visible
+            answer itself, and only appears on chunks that carry this kind of content.
+            This uses the same field name as DeepSeek models, so tools like Open WebUI
+            that already know how to display it separately will do so automatically.
+          type: string
+        factset_context:
+          description: Extra structured data from FactSet that supports the answer,
+            attached to this chunk. Only present when `factset_configuration.return_raw_link_context`
+            is `true` and the chunk carries a `factset.link`, `factset.citation`,
+            `factset.citation_group`, or `factset.highchart_config` context — or unconditionally
+            for `factset.table` context, which is always sent raw. Every object has
+            a `type` field identifying which of these it is. This is `null` or omitted
+            on chunks with no extra data attached, and other FactSet context types
+            that the underlying agent may produce are not surfaced through this API
+            at all.
+          nullable: true
+          type: object
+      type: object
+  securitySchemes:
+    FactSetOAuth2:
+      flows:
+        clientCredentials:
+          scopes: {}
+          tokenUrl: https://auth.factset.com/as/token.oauth2
+      type: oauth2
+    FactSetApiKey:
+      scheme: basic
+      type: http
+

@@ -1,0 +1,26 @@
+{
+  "packageName": "FactSet.SDK.Conversational",
+  "packageVersion": "0.0.1",
+  "packageGuid": "{5ef734ab-5e3a-536d-83f1-44fb18af8a67}",
+  "packageUrl": "https://github.com/FactSet/enterprise-sdk/tree/main/code/dotnet/Conversational/v0",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true,
+  "packageAuthors": "FactSet Research Systems",
+  "packageTitle": "FactSet SDK",
+  "packageDescription": "Conversational client library for .NET",
+  "packageCompany": "FactSet Research Systems",
+  "packageProductName": "FactSet SDK - Conversational",
+  "packageCopyright": "",
+  "gitHost": "github.com",
+  "gitUserId": "factset",
+  "gitRepoId": "enterprise-sdk",
+  "licenseId": "Apache-2.0",
+  "licenseUrl": "https://www.apache.org/licenses/LICENSE-2.0",
+  "releaseNote": "Refer to Changelog on GitHub source repository",
+  "packageTags": "FactSet;API;SDK",
+  "httpUserAgent": "fds-sdk/dotnet/Conversational/0.0.1",
+  "files": {
+    "LICENSE": {}
+  },
+  "useOneOfDiscriminatorLookup": true
+}
