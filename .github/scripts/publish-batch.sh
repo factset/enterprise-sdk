@@ -20,6 +20,7 @@ status_file=$(mktemp)
 trap 'rm -f "$status_file"' EXIT
 
 published=()
+packed=()
 skipped=()
 failed=()
 for pkg in "${pkgs[@]}"; do
@@ -37,6 +38,7 @@ for pkg in "${pkgs[@]}"; do
     fi
     case "$status" in
       skipped) skipped+=("${pkg}|${detail}") ;;
+      packed) packed+=("${pkg}|${detail}") ;;
       *) published+=("${pkg}|${detail}") ;;
     esac
   else
@@ -59,11 +61,12 @@ row() {
   echo "| Package | Version | Result |"
   echo "| --- | --- | --- |"
   for entry in "${published[@]}"; do row "$entry" "published"; done
+  for entry in "${packed[@]}"; do row "$entry" "packed (pushed by the push job)"; done
   for entry in "${skipped[@]}"; do row "$entry" "skipped (already published)"; done
   for entry in "${failed[@]}"; do row "$entry" "**failed**"; done
 } >> "$GITHUB_STEP_SUMMARY"
 
-echo "Batch ${BATCH_ID}: ${#published[@]} published, ${#skipped[@]} skipped, ${#failed[@]} failed"
+echo "Batch ${BATCH_ID}: ${#published[@]} published, ${#packed[@]} packed, ${#skipped[@]} skipped, ${#failed[@]} failed"
 if [ "${#failed[@]}" -ne 0 ]; then
   failed_pkgs=()
   for entry in "${failed[@]}"; do failed_pkgs+=("${entry%%|*}"); done
