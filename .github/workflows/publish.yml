@@ -119,7 +119,7 @@ jobs:
       - name: NuGet login (OIDC -> temporary API key)
         id: nuget-login
         if: ${{ github.event.inputs.dryRun != 'true' }}
-        uses: NuGet/login@v1
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
         with:
           user: ${{ secrets.NUGET_USER }} # nuget.org profile name of the publishing account
 
