@@ -14,7 +14,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'com.factset.sdk'
-version = '1.2.4'
+version = '1.2.5'
 
 repositories {
     mavenCentral()
@@ -43,6 +43,10 @@ artifacts {
 
 def artifactStagingDirectory = layout.buildDirectory.dir("staging-deploy")
 
+tasks.withType(GenerateModuleMetadata).configureEach {
+    enabled = false
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -68,6 +72,14 @@ publishing {
                         id = 'enterprisesdk'
                         organization = 'FactSet'
                         organizationUrl = 'https://developer.factset.com'
+                    }
+                }
+                withXml {
+                    asNode().appendNode('distributionManagement').appendNode('relocation').with {
+                        appendNode('groupId', 'com.factset.sdk')
+                        appendNode('artifactId', 'conversational')
+                        appendNode('version', '1.0.0')
+                        appendNode('message', 'Renamed to Conversational. See https://github.com/FactSet/enterprise-sdk/blob/main/BREAKING.md')
                     }
                 }
                 scm {

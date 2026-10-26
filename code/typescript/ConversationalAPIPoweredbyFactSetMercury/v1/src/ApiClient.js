@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/ConversationalAPIPoweredbyFactSetMercury/1.2.4 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/ConversationalAPIPoweredbyFactSetMercury/1.2.5 (${process.platform}; node ${process.version})`
         };
 
         /**

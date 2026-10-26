@@ -33,7 +33,7 @@ namespace FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "0.11.0";
+        public const string Version = "0.11.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -106,7 +106,7 @@ namespace FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "fds-sdk/dotnet/ConversationalAPIPoweredbyFactSetMercury/0.11.0";
+            UserAgent = "fds-sdk/dotnet/ConversationalAPIPoweredbyFactSetMercury/0.11.1";
             BasePath = "https://api.uat.factset.com/conversational/v0";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -484,7 +484,7 @@ namespace FactSet.SDK.ConversationalAPIPoweredbyFactSetMercury.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 0.1.0\n";
-            report += "    SDK Package Version: 0.11.0\n";
+            report += "    SDK Package Version: 0.11.1\n";
 
             return report;
         }

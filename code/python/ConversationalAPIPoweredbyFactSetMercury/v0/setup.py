@@ -16,7 +16,7 @@ def read(filename):
   return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 NAME = "fds.sdk.ConversationalAPIPoweredbyFactSetMercury"
-VERSION = "0.11.0"
+VERSION = "0.11.1"
 # To install the library, run the following
 #
 # python setup.py install
@@ -37,6 +37,7 @@ setup(
     author="FactSet Research Systems",
     url="https://github.com/FactSet/enterprise-sdk/tree/main/code/python/ConversationalAPIPoweredbyFactSetMercury/v0",
     keywords=["FactSet", "API", "SDK"],
+    classifiers=["Development Status :: 7 - Inactive"],
     python_requires=">=3.10",
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),

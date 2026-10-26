@@ -1,5 +1,22 @@
 # Breaking Changes
 
+## 2026-10-16 Conversational API: SDK Packages Renamed
+
+The Conversational API Powered by FactSet Mercury is now called Conversational, and its SDK packages have new names. The old packages will receive no further updates. To keep getting fixes and new features, switch to the new packages.
+
+**New packages (v1: 1.0.0, v0: 0.0.1):**
+- npm: `@factset/sdk-conversational`
+- PyPI: `fds.sdk.Conversational`
+- Maven: `com.factset.sdk:conversational`
+- NuGet: `FactSet.SDK.Conversational`
+
+**Migration:** Replace the old dependency with the new package and update your imports. For example, in Python, change `fds.sdk.ConversationalAPIPoweredbyFactSetMercury` to `fds.sdk.Conversational`. The API itself is unchanged, so no other code changes are needed.
+
+**Affected SDKs:**
+- Conversational API (API v0 and v1, all languages)
+
+**Developer Portal:** https://developer.factset.com/api-catalog/conversational-api
+
 ## 2026-10-09 FactSet NER API v2: Complete API Redesign
 
 The FactSet NER v2 API has been redesigned with a new request/response model. The previous single endpoint has been replaced by two new endpoints: `/express/extract` for fast, batch processing (up to 10 inputs per request) and `/advanced/extract` for single-input requests with broader entity coverage. All request and response schemas are new and are not compatible with the previous version. FactSet NER v1 has also been retired.

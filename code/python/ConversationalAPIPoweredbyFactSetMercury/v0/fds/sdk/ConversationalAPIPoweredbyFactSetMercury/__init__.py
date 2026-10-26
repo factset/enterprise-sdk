@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "0.11.0"
+__version__ = "0.11.1"
 
 # import ApiClient
 from fds.sdk.ConversationalAPIPoweredbyFactSetMercury.api_client import ApiClient
