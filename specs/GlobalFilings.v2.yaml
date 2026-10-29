@@ -904,7 +904,7 @@ components:
           summary: 'filingsDateTime'
           value:
             - 'filingsDateTime'
-        '-filingsDateTime':
+        -filingsDateTime:
           summary: '-filingsDateTime'
           value:
             - '-filingsDateTime'

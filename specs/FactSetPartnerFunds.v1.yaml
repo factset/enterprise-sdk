@@ -438,7 +438,7 @@ components:
           summary: 'weight'
           value:
             - 'weight'
-        '-weight':
+        -weight:
           summary: '-weight'
           value:
             - '-weight'
