@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/IDLookup/2.0.2 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/IDLookup/3.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**

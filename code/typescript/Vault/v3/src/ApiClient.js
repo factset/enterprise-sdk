@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/Vault/3.0.3 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/Vault/4.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**

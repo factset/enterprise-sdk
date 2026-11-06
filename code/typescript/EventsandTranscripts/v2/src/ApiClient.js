@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/EventsandTranscripts/3.1.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/EventsandTranscripts/4.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**

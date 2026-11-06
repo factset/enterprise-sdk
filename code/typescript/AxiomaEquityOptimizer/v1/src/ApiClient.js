@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/AxiomaEquityOptimizer/0.9.2 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/AxiomaEquityOptimizer/0.10.0 (${process.platform}; node ${process.version})`
         };
 
         /**

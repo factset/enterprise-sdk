@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/ChartGenerationService/0.22.3 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/ChartGenerationService/0.23.0 (${process.platform}; node ${process.version})`
         };
 
         /**

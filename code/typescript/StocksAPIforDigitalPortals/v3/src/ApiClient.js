@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/StocksAPIforDigitalPortals/0.11.3 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/StocksAPIforDigitalPortals/0.12.0 (${process.platform}; node ${process.version})`
         };
 
         /**

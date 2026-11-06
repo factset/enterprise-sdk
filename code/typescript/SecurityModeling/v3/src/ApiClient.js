@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/SecurityModeling/0.21.4 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/SecurityModeling/0.22.0 (${process.platform}; node ${process.version})`
         };
 
         /**

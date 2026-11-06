@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/ProcuretoPayAPISCIM/0.25.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/ProcuretoPayAPISCIM/0.26.0 (${process.platform}; node ${process.version})`
         };
 
         /**

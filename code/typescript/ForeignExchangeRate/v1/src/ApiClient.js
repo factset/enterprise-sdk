@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/ForeignExchangeRate/2.0.2 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/ForeignExchangeRate/3.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**

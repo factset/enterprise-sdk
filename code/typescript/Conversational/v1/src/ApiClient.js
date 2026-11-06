@@ -63,7 +63,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': `fds-sdk/javascript/Conversational/1.0.0 (${process.platform}; node ${process.version})`
+            'User-Agent': `fds-sdk/javascript/Conversational/2.0.0 (${process.platform}; node ${process.version})`
         };
 
         /**
